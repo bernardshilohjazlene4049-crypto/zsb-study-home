@@ -1,0 +1,77 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>body{font-family:sans-serif;max-width:960px;margin:auto;padding:16px;line-height:1.6}table{border-collapse:collapse}td,th{border:1px solid #ccc;padding:4px 8px}.tag{background:#fde68a;padding:2px 6px;border-radius:4px;font-size:.85em}.wip{color:#888}.card{border:1px solid #ddd;border-radius:8px;padding:12px;margin:8px 0}video,img{max-width:100%}</style><title>高等数学</title></head><body><p><a href="../index.html">← 首页</a></p><h1>高等数学</h1><h1>第一章 函数、极限、连续</h1>
+<p>考频标记（来自老师导图）：★★★ 每年考，★★ 偶尔不考，★ 偶尔考</p>
+<h2>函数思维导图（老师课堂版）</h2>
+<pre class="mermaid">mindmap
+  root((函数))
+    定义
+      定义域 ★★★
+        判断两函数是否相同 P32第9题
+      对应法则 表达式
+    图像
+      基本初等函数 反对幂指三
+      常函数
+    形式
+      初等函数 一个式子
+      分段函数 多个式子
+    性质
+      单调性
+        看图像
+        求导 第二章 f'≥0增 f'≤0减
+      奇偶性 P2
+        图像 性质 定义
+      周期性
+      有界性
+</pre>
+<p>两个函数相同，当且仅当定义域相同且对应法则相同。</p>
+<h2>第一节 函数</h2>
+<h3>考点一：定义域 ★★★</h3>
+<ul>
+<li>1/□：□≠0；偶次根号：□≥0；奇次根号：□取任意实数</li>
+<li>log、ln、lg □：□&gt;0；arcsin□、arccos□：|□|≤1</li>
+<li>做题：每个条件列出来，最后取交集。</li>
+</ul>
+<h3>考点二：函数性质</h3>
+<ul>
+<li>奇偶性（前提：定义域关于原点对称）：f(-x)=-f(x) 为奇（关于原点对称），f(-x)=f(x) 为偶（关于 y 轴对称）</li>
+<li>常见奇函数：x^(2n+1), sinx, tanx, cotx, cscx, arcsinx, arctanx</li>
+<li>常见偶函数：x^(2n), cosx, secx, |x|, 常数 C</li>
+<li>运算：奇±奇=奇，偶±偶=偶，奇±偶=非奇非偶；奇×÷奇=偶，偶×÷偶=偶，奇×÷偶=奇；复合函数内奇同外、内偶则偶</li>
+<li>周期：Asin/Acos(ωx+φ)+B 为 2π/|ω|；Atan/Acot(ωx+φ)+B 为 π/|ω|</li>
+<li>常考有界函数：sinx, cosx, arcsinx, arccosx, arctanx, arccotx</li>
+</ul>
+<h2>第二节 极限</h2>
+<h3>考点三：数列极限</h3>
+<p>收敛数列极限唯一、必有界（有界不一定收敛，无界一定发散）；四则运算对和、差、积、商（分母极限不为 0）成立。</p>
+<h3>考点四：函数极限</h3>
+<ul>
+<li>x→x₀ 极限存在，当且仅当左右极限都存在且相等；与 f(x₀) 有无定义、取何值无关</li>
+<li>x→∞ 极限存在，当且仅当 x→+∞ 与 x→-∞ 极限都存在且相等</li>
+<li>有理分式 x→∞ 看最高次：n=m 为 aₙ/bₘ，n<m 为 0，n>m 为 ∞</li>
+</ul>
+<h3>考点五：无穷小与无穷大</h3>
+<p>有限个无穷小的和、差、积仍是无穷小；有界函数乘无穷小仍是无穷小（如 x→∞ 时 sinx/x→0）；无穷大与非零无穷小互为倒数。</p>
+<h3>考点六：无穷小的比较（看 lim f/g）</h3>
+<p>=0 为高阶，=∞ 为低阶，=c(c≠0,1) 为同阶，=1 为等价。
+- 八个等价（x→0）：sinx, tanx, arcsinx, arctanx, eˣ-1, ln(1+x) 都等价于 x；1-cosx~x²/2；(1+x)^m-1~mx
+- 补充：aˣ-1~x·lna，secx-1~x²/2
+- 差函数：x-ln(1+x)~x²/2，eˣ-1-x~x²/2，eˣ-1-ln(1+x)~x²；x-sinx~x³/6，arcsinx-x~x³/6，tanx-x~x³/3
+- 大小顺序：ln(1+x) &lt; x &lt; eˣ-1；arctanx &lt; sinx &lt; x &lt; arcsinx &lt; tanx
+- 做题：等价替换只用于乘除因子，加减中慎用。</p>
+<h3>考点七：两个重要极限</h3>
+<ul>
+<li>0/0 型：□→0 时 sin□/□→1（注意 x→∞ 时 sinx/x→0）</li>
+<li>1^∞ 型：□→∞ 时 (1+1/□)^□→e；□→0 时 (1+□)^(1/□)→e</li>
+</ul>
+<h3>考点八：渐近线</h3>
+<p>水平：x→±∞ 时 f(x)→b，则 y=b；垂直：x→x₀ 时 f(x)→∞，则 x=x₀（从无定义点里找）。</p>
+<h2>第三节 连续</h2>
+<h3>考点九：连续定义</h3>
+<p>三条同时满足：x₀ 处有定义、极限存在、极限等于 f(x₀)。连续当且仅当左连续且右连续。</p>
+<h3>考点十：间断点类型</h3>
+<ul>
+<li>第一类（左右极限都存在）：可去（相等）、跳跃（不等）</li>
+<li>第二类（至少一侧不存在）：无穷、振荡</li>
+<li>做题：一定要分别求左右极限。</li>
+</ul>
+<h3>考点十一：闭区间上连续函数性质</h3>
+<p>最值定理；有界性定理；介值定理（C 介于 f(a)、f(b) 之间必能取到，推论：介于最小值和最大值之间也能取到）；零点定理（f(a)f(b)&lt;0 则 (a,b) 内有根，常用来证明方程有根）。</p><script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";mermaid.initialize({startOnLoad:true});</script></body></html>
