@@ -91,3 +91,7 @@ footer.foot{margin-top:48px;border-top:1px solid var(--line);padding:24px 0 40px
 .subnav a:hover{color:var(--ink);background:#fff;text-decoration:none}
 .subnav a[aria-current=page]{color:var(--brand);background:var(--brand-soft)}
 @media(max-width:760px){.subnav{display:none}}
+.route{list-style:none;margin:0;padding:0;display:grid;gap:10px;counter-reset:none}
+.route li{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px solid var(--border,#E9EDF4);border-radius:16px;padding:14px 16px;line-height:1.65}
+.route .rn{flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:#EEF1FF;color:#536DFE;font-weight:700;font-size:14px}
+.checks{margin:0;padding:16px 18px 16px 38px;background:#fff;border:1px solid #E9EDF4;border-radius:16px;line-height:1.9}

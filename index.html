@@ -330,7 +330,15 @@
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
     }
-  </style>
+  .route-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.route-card{display:flex;flex-direction:column;background:#fff;border:1px solid #E9EDF4;border-radius:20px;padding:22px;color:#172033;text-decoration:none;box-shadow:0 8px 24px rgba(31,45,81,.05);transition:transform .2s,box-shadow .2s}
+.route-card:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(31,45,81,.09)}
+.route-card h3{margin:0 0 12px;font-size:17px}
+.route-card ol{margin:0 0 14px;padding-left:20px;color:#778197;font-size:14px;line-height:1.7;flex:1}
+.route-card li{margin-bottom:4px}
+.route-go{color:#536DFE;font-weight:650;font-size:14px;min-height:44px;display:flex;align-items:center}
+@media(max-width:900px){.route-grid{grid-template-columns:1fr}}
+</style>
 <link rel="stylesheet" href="mobile.css"><style>
 @media (max-width:760px){
  .shell{width:auto;margin:0 max(16px,env(safe-area-inset-left)) 0 max(16px,env(safe-area-inset-right))}
@@ -382,7 +390,8 @@
         <span><span class="brand-name">专升本学习站</span><span class="brand-sub">LIAONING · COMPUTER SCIENCE</span></span>
       </a>
       <nav class="nav-links" id="navLinks" aria-label="主导航">
-                <a href="#public-courses">公共课</a>
+                <a href="#routes">学习路线</a>
+          <a href="#public-courses">公共课</a>
         <a href="#major-courses">专业课</a>
               </nav>
       
@@ -425,6 +434,16 @@
     </section>
 
     
+
+    <section class="section" id="routes">
+      <div class="shell">
+        <div class="section-heading">
+          <div><h2>已有内容的科目 · 学习路线</h2><p class="section-desc">先进入对应科目页面，再按照页面中的资料顺序学习。</p></div>
+          <div class="section-aside">3 门科目</div>
+        </div>
+        <div class="route-grid"><a class="route-card" href="gs/index.html"><h3>高等数学</h3><ol><li>进入高等数学页面，先看第一章「函数、极限、连续」的目录和考频标记。</li><li>打开「函数 / 极限」交互式思维导图，先建立知识结构。</li><li>按第一节函数、第二节极限、第三节连续的顺序学习考点一至考点十一。</li><li>回到考点内容，复述定义、性质和页面中的解题提示，检查是否能区分各考点。</li></ol><span class="route-go">进入课程 →</span></a><a class="route-card" href="jsj/index.html"><h3>计算机基础</h3><ol><li>依次观看第四章 Excel 的 4.1–4.7 讲解视频。</li><li>打开 Excel 选项卡思维导图，整体回顾选项卡、功能组和命令之间的关系。</li><li>对照「操作题考点汇总」，熟悉题目要求对应的选项卡、组、命令按钮和关键设置。</li><li>使用「Excel 操作题模拟考试」进行操作练习。</li><li>最后查看 26 题题库样本及参考答案；该样本仍标记为「待确认」，确认前仅作参考。</li></ol><span class="route-go">进入课程 →</span></a><a class="route-card" href="c/index.html"><h3>C 语言</h3><ol><li>进入 C 语言页面，先阅读正式题库建设状态和示例题说明。</li><li>先独立完成 5 道自编示例题，再查看每题的答案与解析。</li><li>根据答案与解析检查自己的思路；这 5 题是「示例题（非真题）」，不能当作历年真题或正式题库。</li></ol><span class="route-go">进入课程 →</span></a></div>
+      </div>
+    </section>
 
     <section class="section subject-section" id="public-courses">
       <div class="shell">
