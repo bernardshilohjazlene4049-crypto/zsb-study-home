@@ -86,3 +86,8 @@ details.ans .abody{padding:0 16px 16px}
 pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px;overflow-x:auto;text-align:center}
 .figure{padding:12px}.figure img{display:block;width:100%;height:auto;border-radius:12px}
 footer.foot{margin-top:48px;border-top:1px solid var(--line);padding:24px 0 40px;color:var(--muted);font-size:12px}
+.subnav{display:flex;gap:4px}
+.subnav a{display:inline-flex;align-items:center;min-height:44px;padding:0 12px;border-radius:10px;color:var(--muted);font-weight:650;font-size:13px}
+.subnav a:hover{color:var(--ink);background:#fff;text-decoration:none}
+.subnav a[aria-current=page]{color:var(--brand);background:var(--brand-soft)}
+@media(max-width:760px){.subnav{display:none}}

@@ -382,12 +382,10 @@
         <span><span class="brand-name">专升本学习站</span><span class="brand-sub">LIAONING · COMPUTER SCIENCE</span></span>
       </a>
       <nav class="nav-links" id="navLinks" aria-label="主导航">
-        <a href="#progress">学习概览</a>
-        <a href="#public-courses">公共课</a>
+                <a href="#public-courses">公共课</a>
         <a href="#major-courses">专业课</a>
-        <a href="#quick-links">快捷入口</a>
-      </nav>
-      <a class="nav-action" href="#public-courses">开始学习 <svg class="icon"><use href="#i-arrow"/></svg></a>
+              </nav>
+      
       <button class="menu-toggle" id="menuToggle" aria-label="打开导航菜单" aria-expanded="false">
         <svg class="icon"><use href="#i-menu"/></svg>
       </button>
@@ -398,18 +396,18 @@
     <section class="hero">
       <div class="shell hero-grid">
         <div>
-          <div class="eyebrow"><span class="eyebrow-dot"></span> 专注 · 系统 · 持续进步</div>
+          
           <h1>辽宁专升本<br><span class="gradient-text">计算机类学习站</span></h1>
-          <p class="hero-copy">把知识拆解成每天都能完成的小目标。稳扎基础、反复练习，让每一次学习都离目标更近一步。</p>
+          <p class="hero-copy">辽宁专升本计算机类复习资料：讲解视频、思维导图、考点汇总和练习题，按科目整理。</p>
           <div class="hero-actions">
-            <a class="btn-primary" href="#public-courses">进入课程 <svg class="icon"><use href="#i-arrow"/></svg></a>
-            <a class="btn-secondary" href="#quick-links">查看练习资源 <svg class="icon"><use href="#i-arrow-up-right"/></svg></a>
+            <a class="btn-primary" href="#public-courses">公共课 <svg class="icon"><use href="#i-arrow"/></svg></a>
+            <a class="btn-secondary" href="#major-courses">专业课</a>
           </div>
         </div>
         <div class="hero-visual" aria-label="学习进度视觉展示">
-          <div class="orb"></div>
+          
           <div class="visual-card">
-            <div class="visual-top"><span class="visual-label">站内资料</span><span class="visual-chip">实时统计</span></div>
+            <div class="visual-top"><span class="visual-label">站内资料</span></div>
             <div class="visual-label">已有内容的科目</div>
             <div class="visual-number">3<small> / 7 科已上线</small></div>
             <div class="visual-track"><span></span></div>
@@ -421,48 +419,17 @@
               <div class="visual-row"><span>C 语言示例题（非真题）</span><strong>5 题</strong></div>
             </div>
           </div>
-          <div class="floating-note">
-            <span class="floating-icon"><svg class="icon"><use href="#i-spark"/></svg></span>
-            <span><strong>今天也向前一步</strong><span>Small steps, real progress.</span></span>
-          </div>
+          
         </div>
       </div>
     </section>
 
-    <section class="section" id="progress">
-      <div class="shell">
-        <div class="section-heading">
-          <div><div class="section-kicker">YOUR DASHBOARD</div><h2>学习进度概览</h2><p class="section-desc">记录阶段成果，按自己的节奏持续推进。</p></div>
-          <div class="section-aside">学习数据 · 随时可调整</div>
-        </div>
-        <div class="progress-panel">
-          <div class="progress-main">
-            <div class="progress-ring" id="progressRing" style="--progress:36%"><span id="progressNumber">36%</span></div>
-            <div class="progress-copy">
-              <h3>当前总学习进度</h3>
-              <p>自定义学习进度，可通过下方滑块调整。<br>数据仅保存在当前浏览器中。</p>
-              <span class="local-tag"><svg class="icon"><use href="#i-local"/></svg> 本地进度 · 不上传服务器</span>
-            </div>
-          </div>
-          <div class="progress-side">
-            <div class="stat"><strong>7</strong><span>Excel 讲解视频（4.1–4.7）</span></div>
-            <div class="stat"><strong>26</strong><span>计算机基础题库样本（待确认）</span></div>
-            <div class="stat"><strong>5</strong><span>C 语言示例题（非真题）</span></div>
-          </div>
-          <div class="progress-edit">
-            <label for="progressSlider">调整本地进度</label>
-            <input id="progressSlider" type="range" min="0" max="100" value="36" aria-label="调整本地学习进度">
-            <output id="progressOutput" for="progressSlider">36%</output>
-            <button class="reset-progress" id="resetProgress" type="button">重置</button>
-          </div>
-        </div>
-      </div>
-    </section>
+    
 
     <section class="section subject-section" id="public-courses">
       <div class="shell">
         <div class="section-heading">
-          <div><div class="section-kicker">GENERAL SUBJECTS</div><h2>公共课</h2><p class="section-desc">打牢公共基础，建立稳定的解题能力。</p></div>
+          <div><h2>公共课</h2><p class="section-desc">英语、高等数学、计算机基础。</p></div>
           <div class="section-aside">3 门科目</div>
         </div>
         <div class="subject-grid">
@@ -493,7 +460,7 @@
     <section class="section subject-section" id="major-courses">
       <div class="shell">
         <div class="section-heading">
-          <div><div class="section-kicker">MAJOR SUBJECTS</div><h2>专业课</h2><p class="section-desc">聚焦计算机类核心知识，逐科突破重点与难点。</p></div>
+          <div><h2>专业课</h2><p class="section-desc">C 语言、数据库、网页设计、计算机网络。</p></div>
           <div class="section-aside">4 门科目</div>
         </div>
         <div class="subject-grid">
@@ -526,66 +493,19 @@
       </div>
     </section>
 
-    <section class="section quick-section" id="quick-links">
-      <div class="shell">
-        <div class="section-heading">
-          <div><div class="section-kicker">QUICK ACCESS</div><h2>快捷学习入口</h2><p class="section-desc">无需进入课程目录，直接打开常用学习工具。</p></div>
-          <div class="section-aside">外部学习资源</div>
-        </div>
-        <div class="quick-grid">
-          <a class="quick-card" href="https://bernardshilohjazlene4049-crypto.github.io/zsb-excel-videos/" target="_blank" rel="noopener noreferrer">
-            <span class="quick-icon video"><svg class="icon"><use href="#i-video"/></svg></span>
-            <span class="quick-copy"><span class="mini-label">VIDEO LESSONS</span><h3>Excel 操作视频站</h3><p>按知识点观看 Office 2016 操作讲解，跟随步骤熟悉功能区与命令。</p></span>
-            <span class="quick-arrow"><svg class="icon"><use href="#i-arrow-up-right"/></svg></span>
-          </a>
-          <a class="quick-card" href="https://bernardshilohjazlene4049-crypto.github.io/excel-ops-exam/" target="_blank" rel="noopener noreferrer">
-            <span class="quick-icon practice"><svg class="icon"><use href="#i-practice"/></svg></span>
-            <span class="quick-copy"><span class="mini-label">INTERACTIVE PRACTICE</span><h3>操作题互动练习</h3><p>通过交互式题目检验操作步骤，练习 Excel 高频考点与实战能力。</p></span>
-            <span class="quick-arrow"><svg class="icon"><use href="#i-arrow-up-right"/></svg></span>
-          </a>
-        </div>
-      </div>
-    </section>
+    
   </main>
 
   <footer class="footer">
     <div class="shell footer-inner">
       <div class="footer-brand">辽宁专升本 · 计算机类学习站</div>
-      <div class="footer-note">专注基础 · 重视练习 · 稳步提升<br>本页面为个人学习入口，学习进度保存在当前浏览器。</div>
+      <div class="footer-note">建设中的科目会陆续补充。</div>
     </div>
   </footer>
 
   <script>
     (function () {
-      const slider = document.getElementById('progressSlider');
-      const number = document.getElementById('progressNumber');
-      const output = document.getElementById('progressOutput');
-      const ring = document.getElementById('progressRing');
-      const reset = document.getElementById('resetProgress');
-      const storageKey = 'ln-computer-zsb-local-progress';
-
-      function setProgress(value, save) {
-        const safeValue = Math.max(0, Math.min(100, Number(value) || 0));
-        slider.value = safeValue;
-        number.textContent = safeValue + '%';
-        output.textContent = safeValue + '%';
-        ring.style.setProperty('--progress', safeValue + '%');
-        if (save) {
-          try { localStorage.setItem(storageKey, String(safeValue)); } catch (e) {}
-        }
-      }
-
-      try {
-        const saved = localStorage.getItem(storageKey);
-        if (saved !== null) setProgress(saved, false);
-      } catch (e) {}
-
-      slider.addEventListener('input', function () { setProgress(slider.value, true); });
-      reset.addEventListener('click', function () {
-        setProgress(36, true);
-      });
-
-      const toggle = document.getElementById('menuToggle');
+            const toggle = document.getElementById('menuToggle');
       const links = document.getElementById('navLinks');
       toggle.addEventListener('click', function () {
         const isOpen = links.classList.toggle('open');
