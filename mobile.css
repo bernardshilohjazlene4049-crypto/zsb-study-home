@@ -48,3 +48,11 @@
  .m-nav svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
  .m-nav a:active,.m-nav button:active{background:#EEF1FF}
 }
+/* landscape phones: keep whole frame + subtitles visible */
+@media (orientation:landscape) and (max-height:500px){
+ .m-nav{display:none!important}
+ body{padding-bottom:env(safe-area-inset-bottom)!important}
+ .vthumb{aspect-ratio:16/9;max-height:calc(100svh - 72px);margin:0 auto;width:min(100%,calc((100svh - 72px)*16/9))}
+ .vthumb video{object-fit:contain!important}
+ .grid.g3:has(.vcard){grid-template-columns:1fr 1fr}
+}
