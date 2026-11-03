@@ -1,4 +1,4 @@
-<!doctype html><html lang="zh-CN"><head><meta name="viewport" content="width=device-width,initial-scale=1"><title>第四章 Excel 思维导图</title><meta charset="utf-8"><style>
+<!doctype html><html lang="zh-CN"><head><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#F7F8FC"><title>第四章 Excel 思维导图</title><meta charset="utf-8"><style>
 body{margin:0;font-family:"Noto Sans CJK SC";background:#F7F8FC;color:#172033;width:2400px}
 .wrap{display:grid;grid-template-columns:1fr 360px 1fr;gap:30px;padding:30px;align-items:center}
 .col{display:flex;flex-direction:column;gap:22px}
@@ -9,6 +9,18 @@ body{margin:0;font-family:"Noto Sans CJK SC";background:#F7F8FC;color:#172033;wi
 .L .c:after{right:-34px}.R .c:after{left:-42px}
 .center{background:#1f3b73;color:#fff;border-radius:50%;width:340px;height:340px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:44px;font-weight:bold}
 h1{text-align:center;margin:20px 0 0;color:#1f3b73;font-size:40px}
+</style><style>
+.mm-tools{display:none}
+@media all{
+ html,body{width:auto!important;overflow-x:hidden}
+ body{width:auto!important;padding:calc(64px + env(safe-area-inset-top)) 0 env(safe-area-inset-bottom)}
+ #mmstage{width:2400px;transform-origin:0 0}
+ #mmview{overflow:hidden;width:100vw}
+ #mmview.zoomed{overflow:auto;-webkit-overflow-scrolling:touch;height:calc(100vh - 64px - env(safe-area-inset-top))}
+ .mm-tools{display:flex;position:fixed;top:calc(12px + env(safe-area-inset-top));right:max(12px,env(safe-area-inset-right));z-index:10;gap:8px}
+ .mm-tools button{min-height:44px;padding:0 16px;border-radius:12px;border:0;background:#536DFE;color:#fff;font:650 15px -apple-system,PingFang SC,Microsoft YaHei,sans-serif;box-shadow:0 6px 16px rgba(83,109,254,.3)}
+ .mm-hint{position:fixed;left:0;right:0;bottom:calc(12px + env(safe-area-inset-bottom));text-align:center;font:13px -apple-system,PingFang SC,sans-serif;color:#778197;pointer-events:none}
+}
 </style></head><body><a href="index.html" style="position:fixed;top:16px;left:16px;z-index:9;display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:12px;background:#fff;border:1px solid #E9EDF4;box-shadow:0 4px 16px rgba(31,45,81,.08);color:#172033;font:650 15px -apple-system,PingFang SC,Microsoft YaHei,sans-serif;text-decoration:none">← 返回计算机基础</a><h1>辽宁专升本 计算机基础 · 第四章 Excel 2016 思维导图</h1><div class="wrap">
 <div class="col L">
 <div class="c" style="--k:#d9534f"><h2>4.1 基础知识</h2>
@@ -55,4 +67,13 @@ h1{text-align:center;margin:20px 0 0;color:#1f3b73;font-size:40px}
 <div class="c" style="--k:#16a085"><h2>4.7 页面设置与打印</h2>
 页面设置 <b>4</b> 个选项卡：页面 / 页边距 / 页眉页脚 / 工作表<br>
 默认打印<b>当前工作表</b>；可打印整个工作簿、选定区域、图表</div>
-</div></div></body></html>
+</div></div><div class="mm-tools"><button type="button" id="mmzoom">放大</button></div><script>
+(function(){
+var bar=document.body.firstElementChild;var st=document.createElement('div');st.id='mmstage';var v=document.createElement('div');v.id='mmview';
+while(bar.nextSibling&&bar.nextSibling!==document.querySelector('.mm-tools'))st.appendChild(bar.nextSibling);
+v.appendChild(st);bar.after(v);var h=document.createElement('div');h.className='mm-hint';h.textContent='双指可缩放 · 点「放大」后可拖动查看';document.body.appendChild(h);
+var z=false,b=document.getElementById('mmzoom');function fit(){var k=z?Math.max(.5,innerWidth/1200):innerWidth/2400;st.style.transform='scale('+k+')';v.style.height=z?'':(st.scrollHeight*k)+'px';
+var w=document.getElementById('mmsize');if(!w){w=document.createElement('div');w.id='mmsize';v.appendChild(w)}w.style.cssText='width:'+2400*k+'px;height:'+st.scrollHeight*k+'px;margin-top:'+(-st.scrollHeight*k)+'px;pointer-events:none';
+v.classList.toggle('zoomed',z);b.textContent=z?'适应宽度':'放大';h.style.display=z?'none':''}
+b.onclick=function(){z=!z;fit();v.scrollTo(0,0)};addEventListener('resize',fit);fit()})();
+</script></body></html>

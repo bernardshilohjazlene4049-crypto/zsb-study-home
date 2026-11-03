@@ -2,8 +2,8 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#f7f8fc">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#F7F8FC">
   <meta name="description" content="辽宁专升本计算机类学习站，整合公共课、专业课、Excel操作视频与互动练习。">
   <title>辽宁专升本 · 计算机类学习站</title>
   <style>
@@ -331,7 +331,29 @@
       *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
     }
   </style>
-</head>
+<link rel="stylesheet" href="mobile.css"><style>
+@media (max-width:760px){
+ .shell{width:auto;margin:0 max(16px,env(safe-area-inset-left)) 0 max(16px,env(safe-area-inset-right))}
+ .brand{min-height:44px;min-width:0}.menu-toggle{width:44px;height:44px;flex:none}
+ .floating-note strong,.footer-brand,.visual-number small,.subject-meta strong,.stat strong small{font-size:13px!important}
+ .progress-main strong,.visual-row strong{font-size:13px}
+ .brand-sub,.eyebrow,.visual-label,.visual-chip,.section-kicker,.section-aside,.local-tag,.mini-label,.status,.subject-meta span,.footer-note,.visual-row span,.visual-row strong,.floating-note span,.progress-edit label,.progress-edit output{font-size:13px!important}
+ .section-desc,.subject-card p,.quick-card p,.progress-copy p,.subject-foot,.stat span{font-size:13px!important;line-height:1.6}
+ .brand-sub{letter-spacing:.2px}
+ .nav-links.open{left:16px;right:16px}
+ .nav-links.open a{min-height:48px;display:flex;align-items:center;font-size:15px}
+ .progress-side{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px}
+ .stat{padding:12px 10px;border:1px solid var(--line);border-left:1px solid var(--line);border-radius:14px;background:#fff;min-width:0}
+ .stat strong{font-size:22px}
+ .progress-edit{flex-wrap:wrap;row-gap:8px}
+ .progress-edit input{min-height:44px;flex-basis:100%;order:3}
+ .reset-progress{min-height:44px;min-width:56px;font-size:14px!important;color:var(--blue);border:1px solid var(--line);border-radius:12px;background:#fff;margin-left:auto}
+ .subject-card,.quick-card{min-height:44px}
+ .btn-primary,.btn-secondary{min-height:48px}
+}
+@media (max-width:480px){.subject-grid{grid-template-columns:1fr!important}}
+@media (max-width:390px){.progress-side{grid-template-columns:1fr!important}.stat{display:flex;align-items:baseline;gap:10px}.stat span{margin-top:0}}
+</style></head>
 <body>
   <svg class="icon-defs" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21.5z"/><path d="M4 5.5v16M8 7h8M8 11h8"/></symbol>
@@ -581,5 +603,5 @@
       });
     })();
   </script>
-</body>
+<script src="mobile.js" data-base=""></script></body>
 </html>
