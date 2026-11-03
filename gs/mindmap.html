@@ -1,0 +1,569 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F7F8FC">
+<title>高等数学第一章｜函数与极限思维导图</title>
+<style>
+:root{
+  --primary:#536DFE;
+  --primary-deep:#4058E8;
+  --primary-soft:#EEF1FF;
+  --bg:#F7F8FC;
+  --card:#FFFFFF;
+  --text:#172033;
+  --muted:#788197;
+  --line:#DCE2F2;
+  --success:#18A889;
+  --danger:#E35D6A;
+  --radius:18px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif}
+body{background:radial-gradient(ellipse at 10% 0%,rgba(83,109,254,.08),transparent 34%),var(--bg)}
+button{font:inherit}
+.app{width:min(100%,1040px);margin:0 auto;padding:22px 16px 30px}
+.header{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:20px}
+.brand{display:flex;align-items:center;gap:11px;min-width:0}
+.brand-mark{width:42px;height:42px;flex:0 0 42px;border-radius:18px;background:linear-gradient(145deg,#6D83FF,#536DFE);display:grid;place-items:center;box-shadow:0 8px 18px rgba(83,109,254,.22)}
+.brand-mark svg{width:23px;height:23px}
+.brand-copy{min-width:0}
+.eyebrow{font-size:11px;letter-spacing:.12em;color:var(--muted);font-weight:800;text-transform:uppercase}
+.brand-title{font-size:15px;font-weight:750;letter-spacing:.01em;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.local-tag{display:flex;align-items:center;gap:6px;padding:8px 11px;border:1px solid #E4E8F2;border-radius:18px;background:rgba(255,255,255,.78);font-size:11px;color:#667087;white-space:nowrap}
+.local-dot{width:7px;height:7px;border-radius:50%;background:var(--success);box-shadow:0 0 0 3px rgba(24,168,137,.12)}
+.hero{margin-bottom:17px}
+.hero h1{font-size:clamp(24px,5vw,34px);line-height:1.2;letter-spacing:-.04em;margin:0;font-weight:850}
+.hero p{margin:8px 0 0;color:var(--muted);font-size:13px;line-height:1.6}
+.tabs{display:flex;gap:7px;padding:5px;background:#EAEDF5;border:1px solid #E4E8F0;border-radius:18px;margin-bottom:13px}
+.tab{border:0;background:transparent;color:#6F7890;flex:1;min-height:43px;border-radius:18px;font-weight:750;font-size:14px;cursor:pointer;transition:background .18s,color .18s,box-shadow .18s}
+.tab[aria-selected="true"]{background:#fff;color:var(--primary-deep);box-shadow:0 3px 10px rgba(29,43,86,.08)}
+.legend{display:flex;align-items:center;gap:8px 13px;flex-wrap:wrap;padding:12px 14px;background:#fff;border:1px solid #E8EBF3;border-radius:18px;margin-bottom:13px;box-shadow:0 4px 14px rgba(26,38,73,.025)}
+.legend-title{font-size:11px;color:#8A92A5;font-weight:750;margin-right:2px}
+.legend-item{display:inline-flex;align-items:center;gap:5px;font-size:12px;color:#5E687D;white-space:nowrap}
+.legend-stars{font-weight:900;color:var(--danger);letter-spacing:.02em;font-size:13px}
+.toolbar{display:flex;align-items:center;justify-content:space-between;gap:9px;flex-wrap:wrap;margin-bottom:12px}
+.toolbar-group{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.control{border:1px solid #E3E7F0;background:#fff;color:#46516A;border-radius:18px;min-height:38px;padding:0 12px;font-size:12px;font-weight:700;cursor:pointer;transition:transform .15s,border-color .15s,background .15s;box-shadow:0 2px 6px rgba(27,39,76,.025)}
+.control:hover{border-color:#C7D0FF;background:#FBFCFF}
+.control:active{transform:scale(.97)}
+.control.primary{background:var(--primary);border-color:var(--primary);color:#fff;box-shadow:0 5px 12px rgba(83,109,254,.18)}
+.control.icon{width:38px;padding:0;display:grid;place-items:center;font-size:18px}
+.zoom-readout{font-size:11px;font-variant-numeric:tabular-nums;color:#737D93;min-width:43px;text-align:center;font-weight:750}
+.map-card{background:var(--card);border:1px solid #E7EAF2;border-radius:18px;overflow:hidden;box-shadow:0 12px 32px rgba(27,39,76,.055)}
+.map-card-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:15px 17px;border-bottom:1px solid #EEF0F5}
+.map-title-wrap{display:flex;align-items:center;gap:9px;min-width:0}
+.map-title-dot{width:9px;height:9px;border-radius:50%;background:var(--primary);box-shadow:0 0 0 4px rgba(83,109,254,.1);flex:0 0 auto}
+.map-title{font-size:14px;font-weight:800;white-space:nowrap}
+.map-subtitle{font-size:11px;color:#9AA2B3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.map-viewport{height:min(68vh,720px);min-height:500px;position:relative;overflow:hidden;background-color:#FBFCFF;background-image:radial-gradient(#DCE2F2 .8px,transparent .8px);background-size:19px 19px;touch-action:none;cursor:grab;user-select:none;-webkit-user-select:none}
+.map-viewport.dragging{cursor:grabbing}
+.map-viewport svg{position:absolute;left:0;top:0;display:block;overflow:visible;max-width:none;user-select:none;-webkit-user-select:none}
+.map-node{cursor:pointer;outline:none}
+.map-node rect{transition:stroke .16s,filter .16s}
+.map-node:hover rect{stroke:#9BAAFF;filter:drop-shadow(0 5px 10px rgba(42,59,120,.10))}
+.map-node:focus-visible rect{stroke:#314CE0;stroke-width:2.5}
+.map-node .node-label{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;dominant-baseline:alphabetic;pointer-events:none}
+.map-node .toggle-ring{fill:#fff;stroke:#C8D1FF;stroke-width:1.3}
+.map-node .toggle-mark{fill:none;stroke:var(--primary);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.map-node.root-node rect{fill:#536DFE;stroke:#536DFE;filter:drop-shadow(0 7px 13px rgba(83,109,254,.22))}
+.map-node.root-node .node-label{fill:#fff;font-weight:800}
+.map-node.root-node .toggle-ring{fill:rgba(255,255,255,.18);stroke:rgba(255,255,255,.4)}
+.map-node.root-node .toggle-mark{stroke:#fff}
+.map-node.depth-1 rect{fill:#EEF1FF;stroke:#D7DEFF;stroke-width:1.2}
+.map-node.depth-1 .node-label{fill:#263A9B;font-weight:750}
+.map-node.depth-2 rect{fill:#fff;stroke:#E1E6F1;stroke-width:1.1}
+.map-node.depth-2 .node-label{fill:#263148;font-weight:650}
+.map-node.depth-3 rect,.map-node.depth-4 rect{fill:#fff;stroke:#E8EBF3;stroke-width:1}
+.map-node.depth-3 .node-label,.map-node.depth-4 .node-label{fill:#4B566C;font-weight:550}
+.edge{fill:none;stroke:#C9D2FF;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.edge-dot{fill:#AAB8FF}
+.map-hint{display:flex;align-items:center;justify-content:center;gap:7px;padding:12px 10px;color:#8B94A8;font-size:11px;line-height:1.5;text-align:center;background:#fff;border-top:1px solid #EEF0F5}
+.map-hint svg{width:14px;height:14px;flex:0 0 auto;opacity:.72}
+.footer-note{text-align:center;color:#A0A7B6;font-size:10px;margin-top:15px;line-height:1.6}
+button:focus-visible{outline:3px solid rgba(83,109,254,.22);outline-offset:2px}
+@media(min-width:700px){.app{padding:28px 24px 38px}.header{margin-bottom:25px}.hero{margin-bottom:20px}.legend{padding:13px 17px}.map-viewport{height:min(70vh,760px);min-height:570px}.map-card-head{padding:17px 20px}}
+@media(max-width:480px){.app{padding:15px 11px 22px}.header{margin-bottom:17px}.brand-mark{width:38px;height:38px;flex-basis:38px;border-radius:18px}.brand-title{font-size:13px}.local-tag{padding:7px 9px;font-size:10px}.hero h1{font-size:26px}.hero p{font-size:12px}.legend{gap:8px 10px;padding:11px 12px}.legend-title{width:100%;margin-bottom:-2px}.legend-item{font-size:11px}.toolbar{align-items:flex-start}.toolbar-group{gap:6px}.control{min-height:36px;padding:0 10px;font-size:11px;border-radius:18px}.control.icon{width:36px}.map-viewport{height:64vh;min-height:470px;max-height:660px}.map-card-head{padding:13px 14px}.map-subtitle{font-size:10px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<main class="app">
+  <header class="header">
+    <div class="brand">
+      <div class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M5 6.5h14M5 12h9M5 17.5h14" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="17.5" cy="12" r="2.2" fill="white"/></svg>
+      </div>
+      <div class="brand-copy"><div class="eyebrow">STUDY MAP · CHAPTER 01</div><div class="brand-title">高等数学 · 函数、极限、连续</div></div>
+    </div>
+    <div class="local-tag"><span class="local-dot"></span>本地交互版</div>
+  </header>
+
+  <section class="hero">
+    <h1>第一章思维导图</h1>
+    <p>按老师课堂版结构整理，点击节点展开或折叠分支。</p>
+  </section>
+
+  <nav class="tabs" aria-label="思维导图切换">
+    <button class="tab" id="tab-function" type="button" role="tab" aria-selected="true">函数</button>
+    <button class="tab" id="tab-limit" type="button" role="tab" aria-selected="false">极限</button>
+  </nav>
+
+  <section class="legend" aria-label="考频图例">
+    <span class="legend-title">考频标记</span>
+    <span class="legend-item"><span class="legend-stars">★★★</span>每年考</span>
+    <span class="legend-item"><span class="legend-stars">★★</span>偶尔不考</span>
+    <span class="legend-item"><span class="legend-stars">★</span>偶尔考</span>
+  </section>
+
+  <section class="toolbar" aria-label="思维导图操作">
+    <div class="toolbar-group">
+      <button class="control primary" id="expand-all" type="button">全部展开</button>
+      <button class="control" id="collapse-all" type="button">全部折叠</button>
+    </div>
+    <div class="toolbar-group">
+      <button class="control icon" id="zoom-out" type="button" aria-label="缩小">−</button>
+      <span class="zoom-readout" id="zoom-readout">100%</span>
+      <button class="control icon" id="zoom-in" type="button" aria-label="放大">＋</button>
+      <button class="control" id="reset-view" type="button">重置视图</button>
+    </div>
+  </section>
+
+  <section class="map-card" aria-label="交互式思维导图">
+    <div class="map-card-head">
+      <div class="map-title-wrap"><span class="map-title-dot"></span><span class="map-title" id="map-title">函数</span></div>
+      <span class="map-subtitle">老师课堂版 · Mermaid 结构</span>
+    </div>
+    <div class="map-viewport" id="map-viewport" aria-label="可拖动和缩放的思维导图画布">
+      <svg id="map-svg" xmlns="http://www.w3.org/2000/svg" role="group" aria-label="函数思维导图"><g id="map-world"></g></svg>
+    </div>
+    <div class="map-hint">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 11V6.5a1.5 1.5 0 0 1 3 0V10 5.5a1.5 1.5 0 0 1 3 0V10 7a1.5 1.5 0 0 1 3 0v7.5c0 3.6-2.2 5.5-5.5 5.5h-.8c-2 0-3.1-.8-4.2-2.1L4.8 15a1.6 1.6 0 0 1 2.4-2.1L9 15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      点击节点展开/折叠 · 拖动平移 · 双指或滚轮缩放
+    </div>
+  </section>
+  <div class="footer-note">无需联网 · 单文件运行 · 适配手机与电脑</div>
+</main>
+
+<script>
+(() => {
+  'use strict';
+
+  // 以下树形数据逐项对应上传 Markdown 中两段 Mermaid mindmap 的节点与层级。
+  const trees = {
+    function: {
+      id: 'function-root', label: '函数', children: [
+        { id: 'f-definition', label: '定义', children: [
+          { id: 'f-domain', label: '定义域 ★★★', children: [
+            { id: 'f-same', label: '判断两函数是否相同 P32第9题' }
+          ]},
+          { id: 'f-rule', label: '对应法则 表达式' }
+        ]},
+        { id: 'f-image', label: '图像', children: [
+          { id: 'f-elementary', label: '基本初等函数 反对幂指三' },
+          { id: 'f-constant', label: '常函数' }
+        ]},
+        { id: 'f-form', label: '形式', children: [
+          { id: 'f-basic-form', label: '初等函数 一个式子' },
+          { id: 'f-piecewise', label: '分段函数 多个式子' }
+        ]},
+        { id: 'f-property', label: '性质', children: [
+          { id: 'f-monotonic', label: '单调性', children: [
+            { id: 'f-graph', label: '看图像' },
+            { id: 'f-derivative', label: "求导 第二章 f'≥0增 f'≤0减" }
+          ]},
+          { id: 'f-parity', label: '奇偶性 P2', children: [
+            { id: 'f-parity-detail', label: '图像 性质 定义' }
+          ]},
+          { id: 'f-period', label: '周期性' },
+          { id: 'f-bounded', label: '有界性' }
+        ]}
+      ]
+    },
+    limit: {
+      id: 'limit-root', label: '极限', children: [
+        { id: 'l-sequence-function', label: '数列极限 函数极限', children: [
+          { id: 'l-indeterminate', label: '未定式 0/0 ∞/∞ ∞-∞ 0·∞ 1^∞ ∞^0 0^0' },
+          { id: 'l-leading', label: '抓大头 x→∞ 看分子分母最高次 ★' },
+          { id: 'l-substitute', label: '代入 不是未定式直接得数' },
+          { id: 'l-simplify', label: '化简 有理化 公式 通分 约分 0/0' },
+          { id: 'l-equivalent', label: '等价替换 0/0 0·∞' },
+          { id: 'l-important', label: '重要极限 1^∞ ★★★' },
+          { id: 'l-lhopital', label: '洛必达 第二章' }
+        ]},
+        { id: 'l-infinity', label: '无穷大与无穷小 P4', children: [
+          { id: 'l-definition', label: '定义' },
+          { id: 'l-comparison', label: '无穷小比较', children: [
+            { id: 'l-higher', label: '高阶' },
+            { id: 'l-lower', label: '低阶' },
+            { id: 'l-same-order', label: '同阶非等价' },
+            { id: 'l-equivalent-formula', label: '等价 等价替换公式 ★★★' }
+          ]}
+        ]},
+        { id: 'l-asymptote', label: '函数的渐近线 ★', children: [
+          { id: 'l-horizontal', label: '水平渐近线 x→∞时 lim f(x)=数' },
+          { id: 'l-vertical', label: '垂直渐近线 铅直 x→x0时 lim f(x)=∞' }
+        ]}
+      ]
+    }
+  };
+
+  const NS = 'http://www.w3.org/2000/svg';
+  const viewport = document.getElementById('map-viewport');
+  const svg = document.getElementById('map-svg');
+  const world = document.getElementById('map-world');
+  const zoomReadout = document.getElementById('zoom-readout');
+  const mapTitle = document.getElementById('map-title');
+  const tabs = {
+    function: document.getElementById('tab-function'),
+    limit: document.getElementById('tab-limit')
+  };
+  const expandedByTab = { function: new Set(), limit: new Set() };
+  let activeTab = 'function';
+  let sceneWidth = 390;
+  let sceneHeight = 700;
+  let scale = 1;
+  let tx = 0;
+  let ty = 12;
+  let pointerMap = new Map();
+  let dragState = null;
+  let pinchState = null;
+
+  function svgEl(tag, attrs = {}) {
+    const el = document.createElementNS(NS, tag);
+    for (const [key, value] of Object.entries(attrs)) el.setAttribute(key, String(value));
+    return el;
+  }
+
+  function collectExpandable(node, set) {
+    if (node.children && node.children.length) {
+      set.add(node.id);
+      node.children.forEach(child => collectExpandable(child, set));
+    }
+  }
+  Object.keys(trees).forEach(key => collectExpandable(trees[key], expandedByTab[key]));
+
+  const measureCanvas = document.createElement('canvas');
+  const measureContext = measureCanvas.getContext('2d');
+  const fontFamily = '-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif';
+
+  function wrapText(text, maxWidth, fontSize, weight) {
+    measureContext.font = `${weight || 600} ${fontSize}px ${fontFamily}`;
+    const result = [];
+    let line = '';
+    for (const char of Array.from(text)) {
+      const candidate = line + char;
+      if (line && measureContext.measureText(candidate).width > maxWidth) {
+        result.push(line);
+        line = char;
+      } else {
+        line = candidate;
+      }
+    }
+    if (line || !result.length) result.push(line);
+    return result;
+  }
+
+  function addTextLines(group, lines, x, y, fontSize, weight, label) {
+    const text = svgEl('text', {
+      x, y, class: 'node-label', 'font-size': fontSize, 'font-weight': weight,
+      'aria-label': label
+    });
+    const starMatch = label.match(/(★★★|★★|★)$/);
+    lines.forEach((line, index) => {
+      const tspan = svgEl('tspan', { x, dy: index === 0 ? 0 : 20 });
+      if (starMatch && index === lines.length - 1 && line.endsWith(starMatch[0])) {
+        const plain = line.slice(0, -starMatch[0].length);
+        if (plain) tspan.appendChild(document.createTextNode(plain));
+        const starSpan = svgEl('tspan', { fill: '#E35D6A', 'font-weight': 900 });
+        starSpan.textContent = starMatch[0];
+        tspan.appendChild(starSpan);
+      } else {
+        tspan.textContent = line;
+      }
+      text.appendChild(tspan);
+    });
+    group.appendChild(text);
+  }
+
+  function layoutTree() {
+    const width = Math.max(360, Math.min(820, viewport.clientWidth - 12));
+    sceneWidth = width;
+    const root = trees[activeTab];
+    const expanded = expandedByTab[activeTab];
+    const nodes = [];
+    const edges = [];
+    const rootLayout = {
+      node: root, depth: 0, x: 18, y: 20, w: Math.min(178, width - 36), h: 52,
+      lines: [root.label], fontSize: 18, textX: 43, root: true
+    };
+    nodes.push(rootLayout);
+    let cursorY = 94;
+
+    function placeNode(node, depth) {
+      const x = 18 + (depth - 1) * 20;
+      const cardWidth = Math.max(180, width - x - 18);
+      const hasChildren = Boolean(node.children && node.children.length);
+      const fontSize = depth === 1 ? 15.5 : 15;
+      const weight = depth === 1 ? 750 : 600;
+      const textX = x + (hasChildren ? 43 : 28);
+      const maxTextWidth = cardWidth - (hasChildren ? 58 : 42);
+      const starMatch = node.label.match(/(★★★|★★|★)$/);
+      const displayLabel = node.label;
+      const lines = wrapText(displayLabel, maxTextWidth, fontSize, weight);
+      const h = Math.max(43, lines.length * 20 + 18);
+      const layout = { node, depth, x, y: cursorY, w: cardWidth, h, lines, fontSize, textX, hasChildren };
+      nodes.push(layout);
+      cursorY += h + 8;
+
+      if (hasChildren && expanded.has(node.id)) {
+        const childLayouts = node.children.map(child => placeNode(child, depth + 1));
+        edges.push({ parent: layout, children: childLayouts, rootEdge: false });
+      }
+      return layout;
+    }
+
+    if (expanded.has(root.id)) {
+      const childLayouts = root.children.map(child => placeNode(child, 1));
+      edges.push({ parent: rootLayout, children: childLayouts, rootEdge: true });
+    }
+
+    sceneHeight = Math.max(240, cursorY + 18);
+    return { nodes, edges, width, height: sceneHeight };
+  }
+
+  function drawEdges(edgeList) {
+    edgeList.forEach(edge => {
+      const { parent, children, rootEdge } = edge;
+      if (!children.length) return;
+      const spineX = rootEdge ? 10 : parent.x + 10;
+      const firstY = children[0].y + children[0].h / 2;
+      const lastY = children[children.length - 1].y + children[children.length - 1].h / 2;
+      const startX = rootEdge ? parent.x + 13 : parent.x + 10;
+      const startY = parent.y + parent.h;
+      const path = svgEl('path', {
+        d: rootEdge
+          ? `M ${startX} ${startY} C ${startX - 8} ${startY + 17}, ${spineX} ${firstY - 24}, ${spineX} ${firstY}`
+          : `M ${startX} ${startY} C ${startX} ${startY + 15}, ${spineX} ${firstY - 18}, ${spineX} ${firstY}`,
+        class: 'edge'
+      });
+      world.appendChild(path);
+      if (lastY > firstY) {
+        world.appendChild(svgEl('path', { d: `M ${spineX} ${firstY} V ${lastY}`, class: 'edge' }));
+      }
+      children.forEach(child => {
+        const cy = child.y + child.h / 2;
+        world.appendChild(svgEl('path', { d: `M ${spineX} ${cy} H ${child.x}`, class: 'edge' }));
+        world.appendChild(svgEl('circle', { cx: spineX, cy, r: 2.4, class: 'edge-dot' }));
+      });
+    });
+  }
+
+  function drawNode(layout) {
+    const { node, depth, x, y, w, h, lines, fontSize, textX, root, hasChildren } = layout;
+    const group = svgEl('g', {
+      class: `map-node ${root ? 'root-node' : `depth-${Math.min(depth, 3)}`}`,
+      'data-node-id': node.id,
+      tabindex: '0',
+      role: 'button',
+      'aria-label': node.label,
+      'aria-expanded': hasChildren || root ? String(expandedByTab[activeTab].has(node.id)) : 'false'
+    });
+    const rect = svgEl('rect', { x, y, width: w, height: h, rx: 18, ry: 18 });
+    group.appendChild(rect);
+
+    if (root || hasChildren) {
+      const cx = root ? x + w - 20 : x + 19;
+      const cy = y + h / 2;
+      group.appendChild(svgEl('circle', { cx, cy, r: 9, class: 'toggle-ring' }));
+      const isOpen = expandedByTab[activeTab].has(node.id);
+      let d;
+      if (isOpen) d = `M ${cx - 3.1} ${cy - 1.2} L ${cx} ${cy + 2.1} L ${cx + 3.1} ${cy - 1.2}`;
+      else d = `M ${cx - 1.2} ${cy - 3.1} L ${cx + 2.1} ${cy} L ${cx - 1.2} ${cy + 3.1}`;
+      group.appendChild(svgEl('path', { d, class: 'toggle-mark' }));
+    } else {
+      group.appendChild(svgEl('circle', { cx: x + 16, cy: y + h / 2, r: 3.2, fill: depth === 1 ? '#879AFF' : '#B9C2D5' }));
+    }
+
+    if (root) {
+      const text = svgEl('text', {
+        x: x + 20, y: y + 33, class: 'node-label', 'font-size': fontSize,
+        'font-weight': 800, 'aria-hidden': 'true'
+      });
+      text.textContent = node.label;
+      group.appendChild(text);
+    } else {
+      const textY = y + 13 + fontSize;
+      addTextLines(group, lines, textX, textY, fontSize, depth === 1 ? 750 : 600, node.label);
+    }
+    world.appendChild(group);
+  }
+
+  function applyTransform() {
+    world.setAttribute('transform', `translate(${tx} ${ty}) scale(${scale})`);
+    zoomReadout.textContent = `${Math.round(scale * 100)}%`;
+  }
+
+  function resetView() {
+    scale = 1;
+    tx = Math.max(0, (viewport.clientWidth - sceneWidth) / 2);
+    ty = 12;
+    applyTransform();
+  }
+
+  function renderMap(reset = false) {
+    const layout = layoutTree();
+    svg.setAttribute('width', layout.width);
+    svg.setAttribute('height', layout.height);
+    svg.setAttribute('viewBox', `0 0 ${layout.width} ${layout.height}`);
+    svg.setAttribute('aria-label', `${trees[activeTab].label}思维导图`);
+    svg.style.width = `${layout.width}px`;
+    svg.style.height = `${layout.height}px`;
+    world.replaceChildren();
+    drawEdges(layout.edges);
+    layout.nodes.forEach(drawNode);
+    mapTitle.textContent = trees[activeTab].label;
+    if (reset) resetView(); else applyTransform();
+  }
+
+  function setTab(tab) {
+    activeTab = tab;
+    Object.entries(tabs).forEach(([key, button]) => button.setAttribute('aria-selected', String(key === tab)));
+    renderMap(true);
+  }
+
+  function toggleNode(id) {
+    const nodeSet = expandedByTab[activeTab];
+    if (nodeSet.has(id)) nodeSet.delete(id); else nodeSet.add(id);
+    renderMap(false);
+  }
+
+  function zoomAt(pointX, pointY, nextScale) {
+    const clamped = Math.max(.42, Math.min(2.8, nextScale));
+    const worldX = (pointX - tx) / scale;
+    const worldY = (pointY - ty) / scale;
+    tx = pointX - worldX * clamped;
+    ty = pointY - worldY * clamped;
+    scale = clamped;
+    applyTransform();
+  }
+
+  function zoomCenter(factor) {
+    zoomAt(viewport.clientWidth / 2, viewport.clientHeight / 2, scale * factor);
+  }
+
+  tabs.function.addEventListener('click', () => setTab('function'));
+  tabs.limit.addEventListener('click', () => setTab('limit'));
+  document.getElementById('expand-all').addEventListener('click', () => {
+    expandedByTab[activeTab].clear();
+    collectExpandable(trees[activeTab], expandedByTab[activeTab]);
+    renderMap(false);
+  });
+  document.getElementById('collapse-all').addEventListener('click', () => {
+    expandedByTab[activeTab].clear();
+    renderMap(false);
+  });
+  document.getElementById('zoom-in').addEventListener('click', () => zoomCenter(1.18));
+  document.getElementById('zoom-out').addEventListener('click', () => zoomCenter(1 / 1.18));
+  document.getElementById('reset-view').addEventListener('click', resetView);
+
+  function distance(a, b) { return Math.hypot(a.x - b.x, a.y - b.y); }
+  function midpoint(a, b) { return { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 }; }
+
+  viewport.addEventListener('pointerdown', event => {
+    if (event.pointerType === 'mouse' && event.button !== 0) return;
+    event.preventDefault();
+    viewport.setPointerCapture(event.pointerId);
+    pointerMap.set(event.pointerId, { x: event.clientX, y: event.clientY });
+    if (pointerMap.size === 1) {
+      const target = event.target.closest ? event.target.closest('[data-node-id]') : null;
+      dragState = {
+        id: event.pointerId, startX: event.clientX, startY: event.clientY,
+        startTx: tx, startTy: ty, moved: false,
+        nodeId: target ? target.getAttribute('data-node-id') : null
+      };
+      pinchState = null;
+    } else if (pointerMap.size === 2) {
+      const points = Array.from(pointerMap.values());
+      const center = midpoint(points[0], points[1]);
+      pinchState = {
+        distance: Math.max(1, distance(points[0], points[1])),
+        scale,
+        worldX: (center.x - viewport.getBoundingClientRect().left - tx) / scale,
+        worldY: (center.y - viewport.getBoundingClientRect().top - ty) / scale
+      };
+      dragState = null;
+    }
+    viewport.classList.add('dragging');
+  });
+
+  viewport.addEventListener('pointermove', event => {
+    if (!pointerMap.has(event.pointerId)) return;
+    pointerMap.set(event.pointerId, { x: event.clientX, y: event.clientY });
+    const rect = viewport.getBoundingClientRect();
+    if (pointerMap.size >= 2 && pinchState) {
+      const points = Array.from(pointerMap.values());
+      const center = midpoint(points[0], points[1]);
+      const nextScale = Math.max(.42, Math.min(2.8, pinchState.scale * distance(points[0], points[1]) / pinchState.distance));
+      const localX = center.x - rect.left;
+      const localY = center.y - rect.top;
+      tx = localX - pinchState.worldX * nextScale;
+      ty = localY - pinchState.worldY * nextScale;
+      scale = nextScale;
+      applyTransform();
+    } else if (pointerMap.size === 1 && dragState) {
+      const dx = event.clientX - dragState.startX;
+      const dy = event.clientY - dragState.startY;
+      if (Math.abs(dx) + Math.abs(dy) > 6) dragState.moved = true;
+      tx = dragState.startTx + dx;
+      ty = dragState.startTy + dy;
+      applyTransform();
+    }
+  });
+
+  function finishPointer(event, allowTap) {
+    if (!pointerMap.has(event.pointerId)) return;
+    if (allowTap && dragState && dragState.id === event.pointerId && !dragState.moved && dragState.nodeId) {
+      toggleNode(dragState.nodeId);
+    }
+    pointerMap.delete(event.pointerId);
+    if (pointerMap.size === 1) {
+      const remaining = Array.from(pointerMap.entries())[0];
+      dragState = { id: remaining[0], startX: remaining[1].x, startY: remaining[1].y, startTx: tx, startTy: ty, moved: true, nodeId: null };
+      pinchState = null;
+    } else {
+      dragState = null;
+      pinchState = null;
+    }
+    if (pointerMap.size === 0) viewport.classList.remove('dragging');
+  }
+  viewport.addEventListener('pointerup', event => finishPointer(event, true));
+  viewport.addEventListener('pointercancel', event => finishPointer(event, false));
+  viewport.addEventListener('lostpointercapture', event => finishPointer(event, false));
+
+  viewport.addEventListener('wheel', event => {
+    event.preventDefault();
+    const rect = viewport.getBoundingClientRect();
+    zoomAt(event.clientX - rect.left, event.clientY - rect.top, scale * (event.deltaY < 0 ? 1.12 : 1 / 1.12));
+  }, { passive: false });
+
+  svg.addEventListener('keydown', event => {
+    if ((event.key === 'Enter' || event.key === ' ') && event.target.matches('[data-node-id]')) {
+      event.preventDefault();
+      toggleNode(event.target.getAttribute('data-node-id'));
+    }
+  });
+
+  let resizeTimer = null;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => renderMap(true), 120);
+  });
+
+  renderMap(true);
+})();
+</script>
+<a href="index.html" style="position:fixed;left:max(12px,env(safe-area-inset-left));bottom:calc(12px + env(safe-area-inset-bottom));z-index:99;display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border-radius:12px;background:#fff;border:1px solid #E9EDF4;box-shadow:0 6px 18px rgba(31,45,81,.12);color:#172033;font:650 14px -apple-system,PingFang SC,Microsoft YaHei,sans-serif;text-decoration:none">← 返回高等数学</a></body>
+</html>
