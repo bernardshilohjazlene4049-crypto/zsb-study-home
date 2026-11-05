@@ -272,6 +272,12 @@
     .text-action:hover { color: var(--blue); }
     .text-action svg { width: 14px; height: 14px; }
 
+    a.entry-link {
+      color: var(--blue);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
     .progress-summary {
       padding: 0 0 5px;
       min-width: 0;
@@ -784,12 +790,12 @@
     @media (max-width: 680px) {
       html { scroll-padding-top: 78px; }
       .container { width: calc(100% - 36px); }
-      .topbar-inner { min-height: 62px; gap: 12px; }
+      .topbar-inner { min-height: 62px; gap: 12px; flex-wrap: wrap; }
       .brand-mark { width: 32px; height: 32px; border-radius: 10px; }
       .brand-name { font-size: 12px; }
       .brand-caption { font-size: 9px; }
-      .nav-links { gap: 15px; }
-      .nav-links a { min-height: 42px; font-size: 11px; }
+      .nav-links { gap: 12px; flex-basis: 100%; }
+      .nav-links a { min-height: 44px; font-size: 12px; }
       .top-action { display: none; }
       .hero { padding: 49px 0 30px; }
       .hero-grid { grid-template-columns: 1fr; gap: 29px; }
@@ -893,6 +899,7 @@
         <a href="#top" aria-current="page">首页</a>
         <a href="#subjects">科目索引</a>
         <a href="#resources">资料入口</a>
+        <a href="study/index.html">学习工作台</a>
       </nav>
 
       <a class="top-action" href="#subjects">
@@ -926,6 +933,12 @@
                 <path d="M4 10h11M10 5l5 5-5 5"/>
               </svg>
             </a>
+            <a class="text-action" href="study/index.html">
+              学习工作台
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 10h11M10 5l5 5-5 5"/>
+              </svg>
+            </a>
           </div>
         </div>
 
@@ -949,7 +962,7 @@
             <div>
               <p class="section-kicker">SUBJECT DIRECTORY</p>
               <h2>科目索引</h2>
-              <p class="section-description">按公共课与专业课分类，进入对应学习页面。</p>
+              <p class="section-description">按公共课与专业课分类，进入对应学习页面。科目卡片保持原样，也可打开 <a class="entry-link" href="study/index.html">学习工作台</a>。</p>
             </div>
             <div class="status-legend" aria-label="状态说明">
               <span class="status-key"><i class="status-dot"></i>已上线</span>

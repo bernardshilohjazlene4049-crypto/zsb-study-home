@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "disclaimer": "这些锚点只说明「哪一集对应该小节」。原页面没有给出片内起止秒，因此每条都不含 start_sec / end_sec。播放器应提示暂无定位。",
+  "anchors": [
+    {"id": "anc-math-domain", "resource_id": "res-gs-ep1", "topic_id": "math.domain", "verified": false, "match_method": "page_episode_scope", "note": "第 1 集页面说明覆盖定义域与函数性质，无秒级起止。"},
+    {"id": "anc-math-props", "resource_id": "res-gs-ep1", "topic_id": "math.function_properties", "verified": false, "match_method": "page_episode_scope", "note": "与定义域同集，无秒级起止。"},
+    {"id": "anc-math-seq", "resource_id": "res-gs-ep2", "topic_id": "math.sequence_limit", "verified": false, "match_method": "page_episode_scope", "note": "第 2 集页面说明，无秒级起止。"},
+    {"id": "anc-math-flim", "resource_id": "res-gs-ep2", "topic_id": "math.function_limit", "verified": false, "match_method": "page_episode_scope", "note": "第 2 集页面说明，无秒级起止。"},
+    {"id": "anc-math-inf", "resource_id": "res-gs-ep3", "topic_id": "math.infinitesimal", "verified": false, "match_method": "page_episode_scope", "note": "第 3 集页面说明，无秒级起止。"},
+    {"id": "anc-math-eq", "resource_id": "res-gs-ep3", "topic_id": "math.equivalent", "verified": false, "match_method": "page_episode_scope", "note": "第 3 集页面说明，无秒级起止。"},
+    {"id": "anc-math-imp", "resource_id": "res-gs-ep4", "topic_id": "math.important_limits", "verified": false, "match_method": "page_episode_scope", "note": "第 4 集标题含洛必达衔接，无秒级起止。"},
+    {"id": "anc-math-asy", "resource_id": "res-gs-ep4", "topic_id": "math.asymptote", "verified": false, "match_method": "page_episode_scope", "note": "与重要极限同集，无秒级起止。"},
+    {"id": "anc-math-cont", "resource_id": "res-gs-ep5", "topic_id": "math.continuity", "verified": false, "match_method": "page_episode_scope", "note": "第 5 集页面说明，无秒级起止。"},
+    {"id": "anc-math-disc", "resource_id": "res-gs-ep5", "topic_id": "math.discontinuity", "verified": false, "match_method": "page_episode_scope", "note": "第 5 集页面说明，无秒级起止。"},
+    {"id": "anc-math-cprop", "resource_id": "res-gs-ep5", "topic_id": "math.continuous_properties", "verified": false, "match_method": "page_episode_scope", "note": "第 5 集页面说明，无秒级起止。"},
+    {"id": "anc-en-1", "resource_id": "res-yy-ep1", "topic_id": "english.nonfinite.basics", "verified": false, "match_method": "page_episode_title", "note": "整集对应第 1 集，无片内秒数。"},
+    {"id": "anc-en-2", "resource_id": "res-yy-ep2", "topic_id": "english.nonfinite.object", "verified": false, "match_method": "page_episode_title", "note": "整集对应第 2 集，无片内秒数。"},
+    {"id": "anc-en-3", "resource_id": "res-yy-ep3", "topic_id": "english.nonfinite.advanced", "verified": false, "match_method": "page_episode_title", "note": "整集对应第 3 集，无片内秒数。"},
+    {"id": "anc-en-4", "resource_id": "res-yy-ep4", "topic_id": "english.attributive.basics", "verified": false, "match_method": "page_episode_title", "note": "整集对应第 4 集，无片内秒数。"},
+    {"id": "anc-en-5", "resource_id": "res-yy-ep5", "topic_id": "english.noun.basics", "verified": false, "match_method": "page_episode_title", "note": "整集对应第 5 集，无片内秒数。"},
+    {"id": "anc-en-6", "resource_id": "res-yy-ep6", "topic_id": "english.adverbial.basics", "verified": false, "match_method": "page_episode_title", "note": "整集对应第 6 集，无片内秒数。"},
+    {"id": "anc-xl-41", "resource_id": "res-jsj-41", "topic_id": "cb.excel.41", "verified": false, "match_method": "page_episode_title", "note": "整集对应 4.1，无片内秒数。"},
+    {"id": "anc-xl-42", "resource_id": "res-jsj-42", "topic_id": "cb.excel.42", "verified": false, "match_method": "page_episode_title", "note": "整集对应 4.2，无片内秒数。"},
+    {"id": "anc-xl-43", "resource_id": "res-jsj-43", "topic_id": "cb.excel.43", "verified": false, "match_method": "page_episode_title", "note": "整集对应 4.3，无片内秒数。"},
+    {"id": "anc-xl-44", "resource_id": "res-jsj-44", "topic_id": "cb.excel.44", "verified": false, "match_method": "page_episode_title", "note": "整集对应 4.4，无片内秒数。"},
+    {"id": "anc-xl-45", "resource_id": "res-jsj-45", "topic_id": "cb.excel.45", "verified": false, "match_method": "page_episode_title", "note": "整集对应 4.5，无片内秒数。"},
+    {"id": "anc-xl-46", "resource_id": "res-jsj-46", "topic_id": "cb.excel.46", "verified": false, "match_method": "page_episode_title", "note": "整集对应 4.6，无片内秒数。"},
+    {"id": "anc-xl-47", "resource_id": "res-jsj-47", "topic_id": "cb.excel.47", "verified": false, "match_method": "page_episode_title", "note": "整集对应 4.7，无片内秒数。"},
+    {"id": "anc-wy-ch2", "resource_id": "res-wy-ch2", "topic_id": "web.html5_structure", "verified": false, "match_method": "page_episode_title", "note": "网页设计页给出整集和第 6:51 时长标记，无片内秒数。"}
+  ]
+}
