@@ -3,31 +3,69 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#F5F5F7">
-  <title>指挥塔 · 阶段 5 占位</title>
-  <link rel="stylesheet" href="../assets/css/tokens.css">
-  <link rel="stylesheet" href="../assets/css/study.css">
+  <meta name="theme-color" content="#0b1320">
+  <title>学习指挥塔 · 辽宁专升本计算机组</title>
+  <link rel="stylesheet" href="../assets/css/tower.css">
 </head>
 <body>
-  <main class="workspace" style="max-width: 760px; margin: 0 auto; padding: 32px 20px 64px;">
-    <p class="kicker">阶段 5 · 尚未实现</p>
-    <h1>3D 学习指挥塔</h1>
-    <p class="notice">这一页只是占位。没有绘制玻璃楼，也没有机器人在“分析”。等学习记录和真实任务接上之后，才会做可点击的塔。</p>
-    <h2>计划中的楼层</h2>
-    <ul>
-      <li>1F 计算机网络</li>
-      <li>2F 网页设计</li>
-      <li>3F 数据库</li>
-      <li>4F C 语言</li>
-      <li>5F 计算机基础</li>
-      <li>6F 英语与高等数学</li>
-      <li>7F 复习总控</li>
-    </ul>
-    <p>楼层名称来自产品说明，不代表这些科目都已经有完整课程。</p>
-    <div class="row">
-      <a class="btn btn-primary" href="../study/index.html">回到学习工作台</a>
-      <a class="btn" href="../index.html">回到旧首页</a>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 8.5 12 4l8 4.5v7L12 20l-8-4.5z"/><path d="m4 8.5 8 4.5 8-4.5M12 13v7"/></svg>
+        </div>
+        <div>
+          <strong>学习指挥塔</strong>
+          <small>辽宁专升本 · 计算机组</small>
+        </div>
+      </div>
+      <div class="top-meta">
+        <span class="status-pill"><i class="dot"></i>本地交互 · 未连接任务服务</span>
+        <button class="btn" id="performanceToggle" type="button">节能渲染：自动</button>
+        <a class="btn" id="openStudy" href="../study/index.html">返回学习工作台 ↗</a>
+      </div>
+    </header>
+    <div class="layout">
+      <aside class="panel left">
+        <div class="panel-label">SEVEN LEARNING FLOORS</div>
+        <div class="floor-list" id="floorList"></div>
+        <div class="left-note">
+          <strong>学习空间说明</strong>
+          <p>点击楼层查看对应科目。任务服务尚未实现。没有机器人在运行，楼层上的图形也不代表学习进度。</p>
+        </div>
+      </aside>
+      <main class="panel stage">
+        <div class="stage-head">
+          <div>
+            <div class="stage-kicker">LEARNING COMMAND TOWER</div>
+            <h1>七层学习空间</h1>
+            <p>等距玻璃建筑 · Canvas 2D 程序化绘制</p>
+          </div>
+          <div class="stage-controls">
+            <button class="btn" id="zoomOut" type="button" aria-label="缩小">−</button>
+            <button class="btn" id="zoomIn" type="button" aria-label="放大">＋</button>
+            <button class="btn" id="resetView" type="button">重置视图</button>
+          </div>
+        </div>
+        <div class="canvas-wrap">
+          <canvas id="towerCanvas" aria-label="可点击的七层等距学习指挥塔"></canvas>
+        </div>
+        <div class="canvas-hint">点击建筑楼层标签，或从楼层列表选择</div>
+        <div class="legend"><span><i></i>楼层</span><span><i style="background:#d9b27d"></i>未连接</span></div>
+      </main>
+      <aside class="panel right" id="detailPanel">
+        <p class="detail-desc">正在读取科目目录。任务服务尚未实现。没有机器人在运行。</p>
+      </aside>
     </div>
-  </main>
+    <div class="mobile-floors" id="mobileFloors"></div>
+    <div class="bottom-info">
+      <span>程序化绘制 · 无外部图片 / 无外部库 · 任务服务尚未实现 · 没有机器人在运行</span>
+      <span id="renderMode">渲染模式：检测中</span>
+    </div>
+  </div>
+  <noscript>
+    <p>指挥塔需要 JavaScript 才能绘制。学习工作台仍可从 study/index.html 进入。</p>
+  </noscript>
+  <script type="module" src="../assets/js/tower.js"></script>
 </body>
 </html>
