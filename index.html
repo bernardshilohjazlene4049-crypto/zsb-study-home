@@ -1,549 +1,739 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#F7F8FC">
-  <meta name="description" content="辽宁专升本计算机类学习站，整合公共课、专业课、Excel操作视频与互动练习。">
+  <meta name="theme-color" content="#F5F4EF">
+  <meta name="description" content="辽宁专升本计算机类学习站：按科目整理讲解视频、思维导图、考点汇总与练习内容。">
   <title>辽宁专升本 · 计算机类学习站</title>
+  <link rel="stylesheet" href="mobile.css">
   <style>
     :root {
-      --bg: #f7f8fc;
-      --surface: rgba(255,255,255,.88);
-      --surface-solid: #fff;
-      --ink: #172033;
-      --muted: #778197;
-      --muted-2: #9aa3b4;
-      --line: #e9edf4;
-      --line-strong: #dfe5ef;
-      --blue: #536dfe;
-      --blue-dark: #3d55e8;
-      --blue-soft: #eef1ff;
-      --mint: #18a889;
-      --mint-soft: #e8f8f3;
-      --amber: #c88b36;
-      --amber-soft: #fff5e8;
-      --violet: #8765df;
-      --violet-soft: #f2edff;
-      --shadow-sm: 0 4px 16px rgba(31, 45, 81, .045);
-      --shadow-md: 0 16px 42px rgba(31, 45, 81, .075);
-      --shadow-hover: 0 22px 50px rgba(31, 45, 81, .12);
-      --radius-lg: 24px;
-      --radius-md: 18px;
+      color-scheme: light;
+      --bg: #f5f4ef;
+      --surface: #fffefa;
+      --surface-soft: #eeefe8;
+      --ink: #1d2925;
+      --ink-soft: #3e4b45;
+      --muted: #68736c;
+      --muted-light: #879089;
+      --line: #e1e4dc;
+      --line-strong: #d1d8cf;
+      --green: #245444;
+      --green-deep: #193d32;
+      --green-mid: #3e705b;
+      --green-pale: #e1eae1;
+      --lime: #c9d8a9;
+      --orange: #b96843;
+      --orange-pale: #f4e5dc;
+      --blue-pale: #e4eceb;
+      --shadow-card: 0 12px 34px rgba(28, 47, 38, .055);
+      --shadow-hover: 0 18px 42px rgba(28, 47, 38, .10);
       --radius-sm: 12px;
-      --content: 1160px;
+      --radius-md: 18px;
+      --radius-lg: 26px;
+      --radius-xl: 32px;
+      --content: 1200px;
+      --ease: cubic-bezier(.2, .75, .25, 1);
     }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 92px; }
     body {
       margin: 0;
+      min-width: 320px;
+      background: var(--bg);
       color: var(--ink);
-      background:
-        radial-gradient(ellipse at 8% 0%, rgba(105, 128, 255, .09), transparent 29rem),
-        radial-gradient(ellipse at 96% 15%, rgba(78, 204, 181, .07), transparent 25rem),
-        var(--bg);
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "PingFang SC",
-        "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+      font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", system-ui, sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
     }
     a { color: inherit; text-decoration: none; }
-    button, input { font: inherit; }
-    button { cursor: pointer; }
-    .icon-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
-    .icon { width: 21px; height: 21px; display: inline-block; flex: 0 0 auto; }
-    .shell { width: min(var(--content), calc(100% - 56px)); margin: 0 auto; }
-
-    .topbar {
-      position: sticky; top: 0; z-index: 20;
-      background: rgba(247,248,252,.78);
-      border-bottom: 1px solid rgba(225,230,240,.72);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
+    button { font: inherit; }
+    a, button { -webkit-tap-highlight-color: transparent; }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid rgba(185, 104, 67, .65);
+      outline-offset: 4px;
+      border-radius: 10px;
     }
-    .nav {
-      min-height: 76px; display: flex; align-items: center; justify-content: space-between;
+    ::selection { background: #d8e4d3; color: var(--green-deep); }
+
+    .container { width: calc(100% - 48px); max-width: var(--content); margin-inline: auto; }
+    .site-header {
+      position: relative;
+      z-index: 20;
+      border-bottom: 1px solid rgba(209, 216, 207, .7);
+      background: rgba(245, 244, 239, .88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .header-inner {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       gap: 24px;
     }
-    .brand { display: inline-flex; align-items: center; gap: 12px; min-width: 0; }
+    .brand { display: inline-flex; align-items: center; gap: 11px; min-height: 48px; flex: 0 0 auto; }
     .brand-mark {
-      width: 38px; height: 38px; border-radius: 13px; display: grid; place-items: center;
-      color: white; background: linear-gradient(145deg, #7086ff, #4b5ce6);
-      box-shadow: 0 7px 16px rgba(83,109,254,.25);
-    }
-    .brand-mark .icon { width: 21px; height: 21px; }
-    .brand-name { font-size: 14px; font-weight: 750; letter-spacing: -.25px; white-space: nowrap; }
-    .brand-sub { display: block; margin-top: 2px; color: var(--muted); font-size: 10px; font-weight: 550; letter-spacing: .8px; }
-    .nav-links { display: flex; align-items: center; gap: 30px; margin-left: auto; }
-    .nav-links a {
-      color: #667187; font-size: 13px; font-weight: 620; transition: color .2s ease;
-    }
-    .nav-links a:hover { color: var(--blue); }
-    .nav-action {
-      display: inline-flex; align-items: center; gap: 8px; padding: 10px 15px;
-      color: #fff; background: var(--ink); border-radius: 12px; font-size: 12px;
-      font-weight: 650; box-shadow: 0 5px 14px rgba(23,32,51,.12);
-      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
-    }
-    .nav-action:hover { transform: translateY(-2px); background: #293550; box-shadow: 0 9px 20px rgba(23,32,51,.16); }
-    .nav-action .icon { width: 15px; height: 15px; }
-    .menu-toggle {
-      display: none; width: 42px; height: 42px; border: 1px solid var(--line);
-      border-radius: 13px; color: var(--ink); background: #fff;
-    }
-
-    .hero { position: relative; padding: 76px 0 44px; overflow: hidden; }
-    .hero-grid { display: grid; grid-template-columns: minmax(0,1.22fr) minmax(290px,.78fr); gap: 48px; align-items: center; }
-    .eyebrow {
-      display: inline-flex; align-items: center; gap: 8px; padding: 7px 11px;
-      color: #5869dc; background: rgba(238,241,255,.9); border: 1px solid #e3e8ff;
-      border-radius: 999px; font-size: 11px; font-weight: 700; letter-spacing: .55px;
-    }
-    .eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: #6478ff; box-shadow: 0 0 0 4px rgba(100,120,255,.12); }
-    h1 {
-      max-width: 680px; margin: 22px 0 16px; font-size: clamp(34px, 4.8vw, 58px);
-      line-height: 1.17; letter-spacing: -2.2px; font-weight: 790;
-    }
-    .gradient-text {
-      color: transparent; background: linear-gradient(100deg, #536dfe 5%, #7a69e9 54%, #29a994 100%);
-      -webkit-background-clip: text; background-clip: text;
-    }
-    .hero-copy { max-width: 590px; color: #788297; font-size: 15px; line-height: 1.95; letter-spacing: .1px; }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 11px; margin-top: 27px; }
-    .btn-primary, .btn-secondary {
-      min-height: 46px; display: inline-flex; align-items: center; justify-content: center;
-      gap: 9px; padding: 0 17px; border-radius: 13px; font-size: 13px; font-weight: 680;
-      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
-    }
-    .btn-primary { color: #fff; background: linear-gradient(110deg, #5b70f7, #5364e8); box-shadow: 0 9px 20px rgba(83,109,254,.22); }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 13px 25px rgba(83,109,254,.3); }
-    .btn-secondary { color: #46516a; background: rgba(255,255,255,.75); border: 1px solid var(--line-strong); }
-    .btn-secondary:hover { transform: translateY(-2px); border-color: #cbd3e5; box-shadow: var(--shadow-sm); }
-    .btn-primary .icon, .btn-secondary .icon { width: 16px; height: 16px; }
-
-    .hero-visual {
-      position: relative; min-height: 310px; display: flex; align-items: center; justify-content: center;
-      isolation: isolate;
-    }
-    .orb {
-      position: absolute; width: 270px; height: 270px; border-radius: 50%;
-      background: radial-gradient(circle at 34% 28%, rgba(255,255,255,.96), rgba(215,222,255,.72) 38%, rgba(177,190,255,.25) 68%, transparent 72%);
-      filter: blur(1px); z-index: -1;
-    }
-    .visual-card {
-      width: min(100%, 350px); padding: 22px; border-radius: 23px;
-      border: 1px solid rgba(255,255,255,.9); background: rgba(255,255,255,.72);
-      box-shadow: 0 25px 65px rgba(71,88,160,.13), inset 0 1px 0 rgba(255,255,255,.95);
-      backdrop-filter: blur(16px); transform: rotate(2.3deg);
-    }
-    .visual-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
-    .visual-label { color: #7c879b; font-size: 11px; font-weight: 650; }
-    .visual-chip { padding: 5px 9px; border-radius: 99px; color: #238d78; background: #e9f8f4; font-size: 10px; font-weight: 700; }
-    .visual-number { font-size: 36px; font-weight: 780; letter-spacing: -1.7px; }
-    .visual-number small { color: #8b95a7; font-size: 14px; font-weight: 600; letter-spacing: 0; }
-    .visual-track { height: 8px; margin: 12px 0 20px; border-radius: 99px; background: #edf0f7; overflow: hidden; }
-    .visual-track span { display: block; width: 68%; height: 100%; border-radius: inherit; background: linear-gradient(90deg,#6479ff,#37b9a0); }
-    .visual-list { display: grid; gap: 11px; }
-    .visual-row { display: flex; align-items: center; justify-content: space-between; color: #68748b; font-size: 11px; }
-    .visual-row strong { color: #29334a; font-size: 11px; }
-    .visual-divider { height: 1px; background: #edf0f5; }
-    .floating-note {
-      position: absolute; right: -3px; bottom: 28px; display: flex; align-items: center; gap: 9px;
-      padding: 11px 14px; border: 1px solid rgba(255,255,255,.95); border-radius: 15px;
-      background: rgba(255,255,255,.86); box-shadow: var(--shadow-md); transform: rotate(-3deg);
-    }
-    .floating-icon { width: 31px; height: 31px; display: grid; place-items: center; border-radius: 10px; color: #6d61d8; background: #f0edff; }
-    .floating-note strong { display: block; font-size: 11px; }
-    .floating-note span { display: block; margin-top: 3px; color: var(--muted); font-size: 9px; }
-
-    .section { padding: 38px 0; }
-    .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 20px; margin-bottom: 20px; }
-    .section-kicker { margin-bottom: 8px; color: #8490a5; font-size: 10px; font-weight: 750; letter-spacing: 1.7px; text-transform: uppercase; }
-    h2 { margin: 0; color: #1d2940; font-size: 24px; line-height: 1.35; letter-spacing: -.7px; font-weight: 760; }
-    .section-desc { margin: 7px 0 0; color: var(--muted); font-size: 12px; line-height: 1.7; }
-    .section-aside { color: #929bad; font-size: 11px; white-space: nowrap; }
-
-    .progress-panel {
-      display: grid; grid-template-columns: 1.15fr 1fr; gap: 30px; align-items: center;
-      padding: 25px 28px; border: 1px solid rgba(231,235,244,.95); border-radius: var(--radius-lg);
-      background: linear-gradient(115deg, rgba(255,255,255,.96), rgba(249,250,255,.91));
-      box-shadow: var(--shadow-sm);
-    }
-    .progress-main { display: flex; align-items: center; gap: 21px; }
-    .progress-ring {
-      --progress: 36%; width: 90px; height: 90px; flex: 0 0 auto; display: grid; place-items: center;
-      border-radius: 50%; background: conic-gradient(#6478fa var(--progress), #edf0f8 0);
       position: relative;
-    }
-    .progress-ring::before { content: ""; position: absolute; inset: 7px; border-radius: 50%; background: #fff; }
-    .progress-ring span { position: relative; z-index: 1; color: #293653; font-size: 20px; font-weight: 780; letter-spacing: -1px; }
-    .progress-copy h3 { margin: 0 0 6px; font-size: 15px; font-weight: 730; }
-    .progress-copy p { margin: 0; color: var(--muted); font-size: 11px; line-height: 1.7; }
-    .local-tag { display: inline-flex; align-items: center; gap: 5px; margin-top: 9px; color: #758198; font-size: 10px; }
-    .local-tag .icon { width: 12px; height: 12px; }
-    .progress-side { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
-    .stat { padding-left: 16px; border-left: 1px solid var(--line); }
-    .stat strong { display: block; color: #29344b; font-size: 22px; font-weight: 760; letter-spacing: -.7px; }
-    .stat span { display: block; margin-top: 5px; color: #8993a6; font-size: 10px; }
-    .progress-edit {
-      grid-column: 1 / -1; display: flex; align-items: center; gap: 14px; padding-top: 15px;
-      border-top: 1px solid var(--line);
-    }
-    .progress-edit label { color: #7d8799; font-size: 11px; white-space: nowrap; }
-    .progress-edit input { flex: 1; accent-color: var(--blue); min-width: 70px; }
-    .progress-edit output { min-width: 34px; color: #5366ec; font-size: 12px; font-weight: 750; text-align: right; }
-    .reset-progress { padding: 5px 8px; color: #929bad; border: 0; background: transparent; font-size: 10px; }
-    .reset-progress:hover { color: var(--blue); }
-
-    .subject-section { padding-top: 48px; }
-    .subject-grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 15px; }
-    .subject-card {
-      position: relative; min-height: 202px; display: flex; flex-direction: column;
-      padding: 19px; border: 1px solid #e9edf4; border-radius: 19px;
-      background: rgba(255,255,255,.88); box-shadow: 0 3px 13px rgba(36,49,81,.035);
-      transition: transform .23s ease, box-shadow .23s ease, border-color .23s ease, background .23s ease;
+      display: grid;
+      place-items: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 11px;
+      background: var(--green-deep);
+      color: #f8f7ef;
       overflow: hidden;
     }
-    a.subject-card:hover {
-      transform: translateY(-5px); border-color: #d9defc; background: #fff;
-      box-shadow: var(--shadow-hover);
+    .brand-mark::before, .brand-mark::after {
+      content: "";
+      position: absolute;
+      width: 19px;
+      height: 1px;
+      background: rgba(220, 232, 213, .72);
+      transform: rotate(-42deg);
+      left: 8px;
     }
-    .subject-card:focus-visible, a:focus-visible, button:focus-visible { outline: 3px solid rgba(83,109,254,.32); outline-offset: 3px; }
-    .subject-card.disabled { background: rgba(250,251,253,.82); border-style: dashed; box-shadow: none; }
-    .subject-card.disabled::after {
-      content: ""; position: absolute; top: 0; right: 0; width: 74px; height: 74px;
-      background: linear-gradient(135deg, transparent 49.5%, rgba(244,246,250,.9) 50%);
+    .brand-mark::before { top: 12px; }
+    .brand-mark::after { top: 21px; left: 11px; width: 15px; opacity: .55; }
+    .brand-mark span { position: relative; z-index: 1; font-size: 12px; font-weight: 800; letter-spacing: -.08em; transform: translateY(-1px); }
+    .brand-text { display: flex; flex-direction: column; line-height: 1.25; }
+    .brand-text strong { font-size: 14px; font-weight: 750; letter-spacing: .015em; }
+    .brand-text small { margin-top: 4px; color: var(--muted); font-size: 10px; letter-spacing: .11em; }
+    .desktop-nav { display: flex; align-items: center; gap: 30px; margin-left: auto; }
+    .desktop-nav a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+      transition: color .2s var(--ease);
+    }
+    .desktop-nav a:hover { color: var(--green); }
+    .header-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 44px;
+      padding: 0 17px;
+      border: 1px solid var(--line-strong);
+      border-radius: 999px;
+      color: var(--green-deep);
+      font-size: 12px;
+      font-weight: 700;
+      transition: background .2s, border-color .2s, transform .2s;
+    }
+    .header-cta:hover { background: var(--green-pale); border-color: #b9cbbb; transform: translateY(-1px); }
+    .arrow { width: 15px; height: 15px; flex: 0 0 auto; }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 74px 0 82px;
+      border-bottom: 1px solid var(--line);
+      background:
+        radial-gradient(ellipse at 83% 9%, rgba(209, 222, 204, .46), transparent 30%),
+        radial-gradient(ellipse at 2% 92%, rgba(239, 225, 211, .42), transparent 27%),
+        var(--bg);
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
       pointer-events: none;
+      opacity: .25;
+      background-image: linear-gradient(rgba(44, 75, 59, .08) 1px, transparent 1px), linear-gradient(90deg, rgba(44, 75, 59, .08) 1px, transparent 1px);
+      background-size: 72px 72px;
+      mask-image: linear-gradient(to bottom, transparent 2%, #000 24%, transparent 95%);
     }
-    .subject-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
-    .subject-icon {
-      width: 42px; height: 42px; display: grid; place-items: center; border-radius: 14px;
+    .hero-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(350px, .78fr);
+      align-items: center;
+      gap: clamp(42px, 7vw, 104px);
     }
-    .subject-icon .icon { width: 21px; height: 21px; }
-    .tone-blue { color: #596ff0; background: #eef1ff; }
-    .tone-green { color: #1a9b81; background: #e9f8f3; }
-    .tone-orange { color: #c78b3b; background: #fff4e6; }
-    .tone-purple { color: #8668d8; background: #f2edff; }
-    .tone-cyan { color: #2998b5; background: #e8f6fa; }
-    .tone-pink { color: #ca6e9b; background: #fff0f6; }
-    .tone-slate { color: #718096; background: #eef1f5; }
-    .status {
-      display: inline-flex; align-items: center; gap: 5px; padding: 5px 8px;
-      border-radius: 99px; color: #268b78; background: #eaf8f4; font-size: 9px; font-weight: 700;
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--green);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .12em;
     }
-    .status .icon { width: 11px; height: 11px; }
-    .status.pending { color: #929bad; background: #f0f2f6; }
-    .subject-card h3 { margin: 17px 0 6px; color: #263149; font-size: 16px; font-weight: 740; letter-spacing: -.2px; }
-    .subject-card p { margin: 0; color: #8590a3; font-size: 11px; line-height: 1.7; }
-    .subject-meta { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 13px; }
-    .subject-meta span { padding: 4px 7px; color: #77839a; background: #f5f6fa; border-radius: 6px; font-size: 9px; }
-    .subject-foot { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: auto; padding-top: 15px; color: #6172eb; font-size: 10px; font-weight: 700; }
-    .subject-foot .icon { width: 14px; height: 14px; transition: transform .2s ease; }
-    a.subject-card:hover .subject-foot .icon { transform: translateX(4px); }
-    .disabled .subject-foot { color: #a4acba; font-weight: 600; }
+    .eyebrow::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--orange); box-shadow: 0 0 0 4px rgba(185, 104, 67, .12); }
+    .hero h1 {
+      max-width: 720px;
+      margin: 22px 0 22px;
+      font-size: clamp(42px, 5.3vw, 72px);
+      line-height: 1.12;
+      letter-spacing: -.065em;
+      font-weight: 800;
+    }
+    .hero h1 span { display: block; color: var(--green); }
+    .hero-description {
+      max-width: 520px;
+      margin: 0;
+      color: var(--ink-soft);
+      font-size: clamp(15px, 1.35vw, 17px);
+      line-height: 1.9;
+      letter-spacing: .01em;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 11px; margin-top: 31px; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 11px;
+      min-height: 48px;
+      padding: 0 20px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 750;
+      transition: transform .2s var(--ease), background .2s, box-shadow .2s, border-color .2s;
+    }
+    .button:hover { transform: translateY(-2px); }
+    .button-primary { background: var(--green-deep); color: #fffefa; box-shadow: 0 8px 18px rgba(25, 61, 50, .13); }
+    .button-primary:hover { background: #285744; box-shadow: 0 12px 24px rgba(25, 61, 50, .18); }
+    .button-secondary { border-color: var(--line-strong); background: rgba(255, 254, 250, .55); color: var(--ink-soft); }
+    .button-secondary:hover { background: var(--surface); border-color: #b9c9ba; }
+    .hero-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 18px; margin-top: 35px; color: var(--muted); font-size: 12px; }
+    .hero-meta-item { display: inline-flex; align-items: center; gap: 8px; }
+    .hero-meta-item strong { color: var(--ink); font-size: 15px; font-weight: 800; }
+    .meta-divider { width: 1px; height: 17px; background: var(--line-strong); }
 
-    .quick-section { padding-top: 42px; padding-bottom: 78px; }
-    .quick-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 15px; }
-    .quick-card {
-      position: relative; min-height: 148px; display: flex; align-items: center; gap: 18px;
-      padding: 22px; border: 1px solid #e7ebf4; border-radius: 20px; background: rgba(255,255,255,.9);
-      box-shadow: var(--shadow-sm); overflow: hidden;
-      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+    .hero-board {
+      position: relative;
+      isolation: isolate;
+      min-height: 390px;
+      padding: 26px 27px 23px;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      color: #f7f7ef;
+      background: linear-gradient(145deg, #214b3d 0%, #193d32 66%, #16362d 100%);
+      box-shadow: 0 24px 58px rgba(25, 61, 50, .18);
     }
-    .quick-card:hover { transform: translateY(-4px); border-color: #d7ddfc; box-shadow: var(--shadow-md); }
-    .quick-icon { width: 51px; height: 51px; flex: 0 0 auto; display: grid; place-items: center; border-radius: 16px; color: #fff; }
-    .quick-icon.video { background: linear-gradient(145deg,#5f7df7,#5260df); box-shadow: 0 8px 18px rgba(83,109,254,.22); }
-    .quick-icon.practice { background: linear-gradient(145deg,#25b69c,#168c84); box-shadow: 0 8px 18px rgba(28,166,143,.2); }
-    .quick-icon .icon { width: 24px; height: 24px; }
-    .quick-copy { min-width: 0; flex: 1; }
-    .quick-copy .mini-label { color: #8993a6; font-size: 9px; font-weight: 750; letter-spacing: 1.1px; }
-    .quick-copy h3 { margin: 6px 0 5px; color: #27334a; font-size: 15px; font-weight: 740; }
-    .quick-copy p { margin: 0; color: #8791a4; font-size: 10px; line-height: 1.65; }
-    .quick-arrow { color: #7f8ba2; }
-    .quick-arrow .icon { width: 18px; height: 18px; }
+    .hero-board::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      width: 310px;
+      height: 310px;
+      top: -155px;
+      right: -85px;
+      border: 1px solid rgba(216, 231, 205, .17);
+      border-radius: 50%;
+      box-shadow: 0 0 0 26px rgba(216, 231, 205, .035), 0 0 0 54px rgba(216, 231, 205, .025);
+    }
+    .board-top { display: flex; justify-content: space-between; align-items: center; color: rgba(244, 246, 235, .67); font-size: 10px; font-weight: 700; letter-spacing: .12em; }
+    .board-top span:last-child { color: var(--lime); font-family: Georgia, serif; font-size: 13px; letter-spacing: .08em; }
+    .board-total { display: flex; align-items: center; gap: 17px; padding: 27px 0 23px; border-bottom: 1px solid rgba(232, 239, 222, .18); }
+    .total-number { color: var(--lime); font-family: Georgia, "Times New Roman", serif; font-size: 76px; line-height: .95; letter-spacing: -.07em; }
+    .total-copy { display: flex; flex-direction: column; gap: 5px; padding-top: 5px; }
+    .total-copy strong { font-size: 17px; letter-spacing: .02em; }
+    .total-copy span { color: rgba(244, 246, 235, .62); font-size: 11px; }
+    .board-list { display: grid; grid-template-columns: 1fr 1fr; column-gap: 18px; row-gap: 0; padding-top: 12px; }
+    .board-course { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 47px; border-bottom: 1px solid rgba(232, 239, 222, .12); font-size: 13px; }
+    .board-course span { color: rgba(247, 247, 239, .9); }
+    .board-course small { color: var(--lime); font-size: 10px; white-space: nowrap; }
+    .board-foot { display: flex; align-items: center; gap: 8px; margin-top: 19px; color: rgba(244, 246, 235, .62); font-size: 11px; }
+    .board-foot i { display: block; width: 6px; height: 6px; border-radius: 50%; background: #d5a17c; }
+    .board-decoration { position: absolute; right: 27px; bottom: 24px; width: 40px; height: 40px; border: 1px solid rgba(220, 232, 213, .2); border-radius: 50%; }
+    .board-decoration::before, .board-decoration::after { content: ""; position: absolute; background: rgba(220, 232, 213, .45); }
+    .board-decoration::before { width: 18px; height: 1px; top: 19px; left: 10px; }
+    .board-decoration::after { width: 1px; height: 18px; left: 19px; top: 10px; }
 
-    .footer { border-top: 1px solid #e8ecf3; padding: 24px 0 30px; }
-    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 15px; }
-    .footer-brand { color: #59657b; font-size: 11px; font-weight: 700; }
-    .footer-note { color: #a0a8b6; font-size: 10px; text-align: right; }
+    .section { padding: 88px 0; }
+    .section-heading { display: flex; justify-content: space-between; align-items: end; gap: 28px; margin-bottom: 31px; }
+    .section-kicker { display: block; margin-bottom: 10px; color: var(--orange); font-size: 10px; font-weight: 850; letter-spacing: .15em; }
+    .section-heading h2 { margin: 0; font-size: clamp(28px, 3.2vw, 39px); line-height: 1.2; letter-spacing: -.055em; font-weight: 800; }
+    .section-heading p { max-width: 390px; margin: 0 0 2px; color: var(--muted); font-size: 13px; line-height: 1.85; }
 
-    @media (max-width: 980px) {
-      .hero-grid { gap: 24px; grid-template-columns: minmax(0,1.1fr) minmax(250px,.9fr); }
-      .subject-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
-      .hero { padding-top: 58px; }
+    .resource-section { padding-top: 82px; padding-bottom: 90px; }
+    .resource-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+    .resource-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-height: 238px;
+      padding: 22px 21px 19px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: var(--surface);
+      box-shadow: 0 5px 18px rgba(28, 47, 38, .025);
+      overflow: hidden;
+      transition: transform .25s var(--ease), box-shadow .25s, border-color .25s;
     }
-    @media (max-width: 700px) {
-      .shell { width: min(100% - 36px, var(--content)); }
-      .nav { min-height: 66px; }
-      .nav-links, .nav-action { display: none; }
-      .menu-toggle { display: grid; place-items: center; }
-      .nav-links.open {
-        position: absolute; top: 65px; left: 18px; right: 18px; display: grid; gap: 0;
-        padding: 8px; border: 1px solid var(--line); border-radius: 16px; background: rgba(255,255,255,.97);
-        box-shadow: var(--shadow-md);
-      }
-      .nav-links.open a { padding: 13px 12px; border-radius: 9px; }
-      .nav-links.open a:hover { background: #f4f6ff; }
-      .hero { padding: 48px 0 25px; }
-      .hero-grid { display: block; }
-      h1 { margin-top: 18px; font-size: clamp(34px, 9vw, 46px); letter-spacing: -1.6px; }
-      .hero-copy { font-size: 13px; }
-      .hero-visual { min-height: 245px; margin-top: 22px; }
-      .orb { width: 220px; height: 220px; }
-      .visual-card { width: min(86%, 330px); padding: 19px; }
-      .floating-note { right: 1%; bottom: 12px; }
-      .section { padding: 29px 0; }
-      .section-heading { align-items: start; }
-      h2 { font-size: 21px; }
-      .section-aside { display: none; }
-      .progress-panel { grid-template-columns: 1fr; gap: 20px; padding: 20px; }
-      .progress-main { gap: 16px; }
-      .progress-ring { width: 78px; height: 78px; }
-      .progress-ring span { font-size: 18px; }
-      .progress-side { gap: 8px; }
-      .stat { padding-left: 10px; }
-      .stat strong { font-size: 19px; }
-      .progress-edit { gap: 9px; }
-      .subject-section { padding-top: 35px; }
-      .subject-grid { gap: 11px; }
-      .subject-card { min-height: 194px; padding: 15px; border-radius: 16px; }
-      .subject-icon { width: 38px; height: 38px; border-radius: 12px; }
-      .subject-card h3 { margin-top: 14px; font-size: 15px; }
-      .subject-card p { font-size: 10px; }
-      .subject-meta { margin-top: 10px; }
-      .quick-section { padding-top: 32px; padding-bottom: 52px; }
-      .quick-grid { grid-template-columns: 1fr; gap: 11px; }
-      .quick-card { min-height: 125px; padding: 18px; border-radius: 17px; }
-      .footer-inner { align-items: flex-start; flex-direction: column; }
-      .footer-note { text-align: left; }
+    a.resource-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); border-color: #c6d4c5; }
+    .resource-card::after { content: ""; position: absolute; right: -32px; top: -43px; width: 105px; height: 105px; border: 1px solid rgba(36, 84, 68, .09); border-radius: 50%; box-shadow: 0 0 0 15px rgba(36, 84, 68, .025); }
+    .resource-icon { display: grid; place-items: center; width: 39px; height: 39px; margin-bottom: 20px; border-radius: 12px; color: var(--green); background: var(--green-pale); }
+    .resource-icon svg { width: 19px; height: 19px; }
+    .resource-card:nth-child(2) .resource-icon { color: var(--orange); background: var(--orange-pale); }
+    .resource-card:nth-child(3) .resource-icon { color: #526b78; background: var(--blue-pale); }
+    .resource-card:nth-child(4) .resource-icon { color: #6c7148; background: #ecebdc; }
+    .resource-label { display: flex; align-items: center; gap: 7px; margin-bottom: 7px; color: var(--muted); font-size: 10px; font-weight: 750; letter-spacing: .04em; }
+    .resource-label .status-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--green-mid); }
+    .resource-card h3 { margin: 0; font-size: 17px; line-height: 1.4; letter-spacing: -.025em; font-weight: 800; }
+    .resource-card p { margin: 9px 0 18px; color: var(--muted); font-size: 12px; line-height: 1.75; }
+    .resource-foot { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: auto; color: var(--green); font-size: 11px; font-weight: 750; }
+    .resource-foot .arrow { transition: transform .2s var(--ease); }
+    a.resource-card:hover .resource-foot .arrow { transform: translateX(4px); }
+    .pending-pill { display: inline-flex; align-items: center; min-height: 22px; padding: 0 8px; border-radius: 999px; color: #755b46; background: #eee2d5; font-size: 10px; font-weight: 800; }
+
+    .route-section { position: relative; padding: 83px 0 91px; background: #e9ede5; border-block: 1px solid #dce3d9; overflow: hidden; }
+    .route-section::before { content: ""; position: absolute; width: 440px; height: 440px; left: -250px; bottom: -270px; border: 1px solid rgba(36, 84, 68, .1); border-radius: 50%; box-shadow: 0 0 0 30px rgba(36, 84, 68, .025), 0 0 0 60px rgba(36, 84, 68, .02); }
+    .route-section .container { position: relative; }
+    .route-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+    .route-card {
+      display: flex;
+      flex-direction: column;
+      padding: 22px 23px 20px;
+      border: 1px solid rgba(196, 208, 194, .9);
+      border-radius: var(--radius-md);
+      background: rgba(255, 254, 250, .78);
+      transition: transform .22s var(--ease), box-shadow .22s;
+      color: inherit;
     }
-    @media (max-width: 390px) {
-      .shell { width: calc(100% - 28px); }
-      .subject-grid { grid-template-columns: 1fr; }
-      .subject-card { min-height: 175px; }
-      .progress-main { align-items: flex-start; }
-      .progress-side { grid-template-columns: repeat(3,1fr); }
-      .progress-edit label { font-size: 10px; }
-      .reset-progress { padding-right: 0; }
+    a.route-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-card); }
+    .route-card-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-bottom: 16px; border-bottom: 1px solid var(--line); }
+    .route-name { display: flex; align-items: center; gap: 11px; }
+    .route-number { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 10px; background: var(--green-deep); color: var(--lime); font-family: Georgia, serif; font-size: 13px; }
+    .route-name h3 { margin: 0; font-size: 16px; font-weight: 800; letter-spacing: -.02em; }
+    .route-hint { color: var(--muted-light); font-size: 10px; white-space: nowrap; }
+    .route-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 9px; padding-top: 17px; }
+    .route-step { position: relative; display: flex; flex-direction: column; gap: 5px; min-width: 0; padding-left: 13px; }
+    .route-step::before { content: ""; position: absolute; top: 7px; left: 0; width: 5px; height: 5px; border-radius: 50%; background: var(--orange); }
+    .route-step:not(:last-child)::after { content: ""; position: absolute; top: 9px; left: 7px; width: calc(100% - 1px); height: 1px; background: #dce2d8; transform: translateX(5px); }
+    .route-step strong { position: relative; z-index: 1; color: var(--ink-soft); font-size: 12px; font-weight: 750; }
+    .route-step small { color: var(--muted-light); font-size: 10px; line-height: 1.5; }
+    .route-go { margin-top: 16px; color: var(--green); font-size: 12px; font-weight: 750; }
+    .route-note { margin: 22px 0 0; color: var(--muted); font-size: 11px; }
+
+    .courses-section { padding-top: 90px; padding-bottom: 95px; }
+    .course-group + .course-group { margin-top: 62px; }
+    .group-heading { display: flex; align-items: center; gap: 14px; margin-bottom: 19px; }
+    .group-heading h3 { margin: 0; font-size: 20px; letter-spacing: -.04em; font-weight: 800; }
+    .group-heading span { color: var(--muted); font-size: 11px; }
+    .group-rule { flex: 1; height: 1px; background: var(--line); }
+    .course-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+    .course-grid.professional { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .course-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-height: 224px;
+      padding: 21px 21px 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: var(--surface);
+      box-shadow: 0 5px 18px rgba(28, 47, 38, .025);
+      overflow: hidden;
+      transition: transform .25s var(--ease), box-shadow .25s, border-color .25s;
+    }
+    a.course-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); border-color: #bfd0c1; }
+    .course-card-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .course-symbol { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 12px; background: var(--green-pale); color: var(--green); }
+    .course-symbol svg { width: 19px; height: 19px; }
+    .course-card:nth-child(2) .course-symbol { background: var(--orange-pale); color: var(--orange); }
+    .course-card:nth-child(3) .course-symbol { background: var(--blue-pale); color: #526b78; }
+    .course-status { display: inline-flex; align-items: center; gap: 6px; color: var(--green); font-size: 10px; font-weight: 750; }
+    .course-status::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: #639274; }
+    .course-card h4 { margin: 22px 0 7px; font-size: 19px; line-height: 1.3; letter-spacing: -.035em; font-weight: 800; }
+    .course-card p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.8; }
+    .course-card-bottom { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: auto; padding-top: 19px; color: var(--green); font-size: 11px; font-weight: 750; }
+    .course-card-bottom .arrow { transition: transform .2s var(--ease); }
+    a.course-card:hover .course-card-bottom .arrow { transform: translateX(4px); }
+    .course-card.disabled { min-height: 205px; background: #efefe9; border-color: #e1e2da; color: #69736b; box-shadow: none; }
+    .course-card.disabled .course-symbol { color: #858b81; background: #e2e4dc; }
+    .course-card.disabled h4 { color: #566159; }
+    .course-card.disabled p { color: #7b837b; }
+    .course-card.disabled .course-status { color: #7a8179; }
+    .course-card.disabled .course-status::before { background: #b4b9ae; }
+    .course-card.disabled .course-card-bottom { color: #81877f; }
+    .course-grid.professional .course-card h4 { font-size: 17px; }
+    .course-grid.professional .course-card { min-height: 207px; }
+
+    .closing-note { padding: 24px 26px; border: 1px solid var(--line); border-radius: var(--radius-md); background: rgba(255, 254, 250, .6); display: flex; align-items: flex-start; gap: 13px; }
+    .note-mark { display: grid; place-items: center; flex: 0 0 auto; width: 26px; height: 26px; border-radius: 9px; color: var(--orange); background: var(--orange-pale); font-family: Georgia, serif; font-weight: 800; }
+    .closing-note p { margin: 1px 0 0; color: var(--muted); font-size: 12px; line-height: 1.8; }
+    .site-footer { padding: 29px 0 34px; border-top: 1px solid var(--line); }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; color: var(--muted); font-size: 11px; }
+    .footer-brand { color: var(--ink-soft); font-weight: 750; }
+    .footer-links { display: flex; align-items: center; gap: 19px; }
+    .footer-links a { min-height: 40px; display: inline-flex; align-items: center; transition: color .2s; }
+    .footer-links a:hover { color: var(--green); }
+
+    @media (max-width: 1000px) {
+      .hero-grid { grid-template-columns: minmax(0, 1fr) minmax(310px, .85fr); gap: 40px; }
+      .hero-board { padding-inline: 23px; }
+      .resource-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .course-grid.professional { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 720px) {
+      html { scroll-padding-top: 24px; }
+      .container { width: calc(100% - 36px); }
+      .header-inner { min-height: 67px; }
+      .brand-mark { width: 33px; height: 33px; border-radius: 10px; }
+      .brand-text strong { font-size: 13px; }
+      .brand-text small { font-size: 9px; }
+      .desktop-nav, .header-cta { display: none; }
+      .hero { padding: 49px 0 51px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 34px; }
+      .hero h1 { margin: 18px 0 17px; font-size: clamp(39px, 10.2vw, 54px); line-height: 1.14; }
+      .hero-description { max-width: 440px; font-size: 14px; line-height: 1.85; }
+      .hero-actions { gap: 9px; margin-top: 24px; }
+      .button { min-height: 46px; padding-inline: 16px; font-size: 12px; }
+      .hero-meta { margin-top: 24px; gap: 13px; font-size: 11px; }
+      .hero-meta-item strong { font-size: 14px; }
+      .hero-board { min-height: 0; padding: 21px 20px 19px; border-radius: 23px; }
+      .board-total { padding: 21px 0 18px; }
+      .total-number { font-size: 66px; }
+      .total-copy strong { font-size: 15px; }
+      .board-course { min-height: 43px; font-size: 12px; }
+      .board-decoration { right: 19px; bottom: 18px; width: 32px; height: 32px; }
+      .board-decoration::before { top: 15px; left: 7px; width: 16px; }
+      .board-decoration::after { left: 15px; top: 7px; height: 16px; }
+      .section { padding: 62px 0; }
+      .section-heading { display: block; margin-bottom: 23px; }
+      .section-heading h2 { font-size: 30px; }
+      .section-heading p { margin-top: 11px; font-size: 12px; }
+      .resource-section { padding-top: 61px; padding-bottom: 65px; }
+      .resource-grid { gap: 10px; }
+      .resource-card { min-height: 218px; padding: 16px 14px 15px; border-radius: 15px; }
+      .resource-icon { width: 34px; height: 34px; margin-bottom: 16px; border-radius: 10px; }
+      .resource-icon svg { width: 17px; height: 17px; }
+      .resource-label { font-size: 9px; }
+      .resource-card h3 { font-size: 15px; }
+      .resource-card p { margin: 7px 0 13px; font-size: 11px; line-height: 1.65; }
+      .resource-foot { font-size: 10px; }
+      .route-section { padding: 63px 0 67px; }
+      .route-grid { grid-template-columns: 1fr; gap: 10px; }
+      .route-card { padding: 18px 17px 17px; border-radius: 15px; }
+      .route-card-head { padding-bottom: 13px; }
+      .route-steps { padding-top: 14px; gap: 6px; }
+      .route-step { padding-left: 11px; }
+      .route-step strong { font-size: 11px; }
+      .route-step small { font-size: 9px; }
+      .route-note { margin-top: 16px; line-height: 1.7; }
+      .courses-section { padding-top: 65px; padding-bottom: 70px; }
+      .course-group + .course-group { margin-top: 45px; }
+      .group-heading { gap: 10px; margin-bottom: 14px; }
+      .group-heading h3 { font-size: 18px; }
+      .group-heading span { font-size: 10px; }
+      .course-grid, .course-grid.professional { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+      .course-card, .course-grid.professional .course-card { min-height: 205px; padding: 16px 14px 15px; border-radius: 15px; }
+      .course-symbol { width: 34px; height: 34px; border-radius: 10px; }
+      .course-symbol svg { width: 17px; height: 17px; }
+      .course-status { font-size: 9px; }
+      .course-card h4, .course-grid.professional .course-card h4 { margin-top: 18px; font-size: 16px; }
+      .course-card p { font-size: 11px; line-height: 1.7; }
+      .course-card-bottom { padding-top: 14px; font-size: 10px; }
+      .closing-note { padding: 17px 16px; gap: 10px; border-radius: 14px; }
+      .closing-note p { font-size: 11px; }
+      .footer-inner { display: block; padding-bottom: 2px; }
+      .footer-brand { display: block; margin-bottom: 8px; }
+      .footer-links { flex-wrap: wrap; gap: 4px 16px; }
+      .footer-links a { min-height: 36px; }
+      .site-footer { padding: 24px 0 34px; }
+    }
+    @media (max-width: 380px) {
+      .container { width: calc(100% - 32px); }
+      .hero h1 { font-size: 39px; }
+      .hero-meta { gap: 9px; }
+      .resource-card { padding-inline: 12px; }
+      .resource-card h3 { font-size: 14px; }
+      .resource-card p { font-size: 10.5px; }
+      .course-card, .course-grid.professional .course-card { padding-inline: 12px; }
+      .course-card h4, .course-grid.professional .course-card h4 { font-size: 15px; }
+    }
+    @media (min-width: 721px) and (max-width: 1100px) {
+      .container { width: calc(100% - 64px); }
+      .hero { padding-block: 65px; }
+      .hero h1 { font-size: clamp(48px, 5.4vw, 62px); }
+      .section { padding-block: 76px; }
     }
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
     }
-  .route-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
-.route-card{display:flex;flex-direction:column;background:#fff;border:1px solid #E9EDF4;border-radius:20px;padding:22px;color:#172033;text-decoration:none;box-shadow:0 8px 24px rgba(31,45,81,.05);transition:transform .2s,box-shadow .2s}
-.route-card:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(31,45,81,.09)}
-.route-card h3{margin:0 0 12px;font-size:17px}
-.route-card ol{margin:0 0 14px;padding-left:20px;color:#778197;font-size:14px;line-height:1.7;flex:1}
-.route-card li{margin-bottom:4px}
-.route-go{color:#536DFE;font-weight:650;font-size:14px;min-height:44px;display:flex;align-items:center}
-@media(max-width:900px){.route-grid{grid-template-columns:1fr}}
-</style>
-<link rel="stylesheet" href="mobile.css"><style>
-@media (max-width:760px){
- .shell{width:auto;margin:0 max(16px,env(safe-area-inset-left)) 0 max(16px,env(safe-area-inset-right))}
- .brand{min-height:44px;min-width:0}.menu-toggle{width:44px;height:44px;flex:none}
- .floating-note strong,.footer-brand,.visual-number small,.subject-meta strong,.stat strong small{font-size:13px!important}
- .progress-main strong,.visual-row strong{font-size:13px}
- .brand-sub,.eyebrow,.visual-label,.visual-chip,.section-kicker,.section-aside,.local-tag,.mini-label,.status,.subject-meta span,.footer-note,.visual-row span,.visual-row strong,.floating-note span,.progress-edit label,.progress-edit output{font-size:13px!important}
- .section-desc,.subject-card p,.quick-card p,.progress-copy p,.subject-foot,.stat span{font-size:13px!important;line-height:1.6}
- .brand-sub{letter-spacing:.2px}
- .nav-links.open{left:16px;right:16px}
- .nav-links.open a{min-height:48px;display:flex;align-items:center;font-size:15px}
- .progress-side{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px}
- .stat{padding:12px 10px;border:1px solid var(--line);border-left:1px solid var(--line);border-radius:14px;background:#fff;min-width:0}
- .stat strong{font-size:22px}
- .progress-edit{flex-wrap:wrap;row-gap:8px}
- .progress-edit input{min-height:44px;flex-basis:100%;order:3}
- .reset-progress{min-height:44px;min-width:56px;font-size:14px!important;color:var(--blue);border:1px solid var(--line);border-radius:12px;background:#fff;margin-left:auto}
- .subject-card,.quick-card{min-height:44px}
- .btn-primary,.btn-secondary{min-height:48px}
-}
-@media (max-width:480px){.subject-grid{grid-template-columns:1fr!important}}
-@media (max-width:390px){.progress-side{grid-template-columns:1fr!important}.stat{display:flex;align-items:baseline;gap:10px}.stat span{margin-top:0}}
-</style></head>
+  </style>
+</head>
 <body>
-  <svg class="icon-defs" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21.5z"/><path d="M4 5.5v16M8 7h8M8 11h8"/></symbol>
-    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
-    <symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"/></symbol>
-    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
-    <symbol id="i-x" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
-    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
-    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3M12 14v3"/></symbol>
-    <symbol id="i-local" viewBox="0 0 24 24"><path d="M12 22s8-4.5 8-12a8 8 0 1 0-16 0c0 7.5 8 12 8 12Z"/><circle cx="12" cy="10" r="2.5"/></symbol>
-    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></symbol>
-    <symbol id="i-function" viewBox="0 0 24 24"><path d="M18 4h-5a3 3 0 0 0-3 3v10a3 3 0 0 1-3 3H5M5 10h11M14 7l3 3-3 3"/></symbol>
-    <symbol id="i-monitor" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4M7 8h4M7 12h7"/></symbol>
-    <symbol id="i-code" viewBox="0 0 24 24"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M14 5l-4 14"/></symbol>
-    <symbol id="i-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></symbol>
-    <symbol id="i-network" viewBox="0 0 24 24"><circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="18" r="2.5"/><circle cx="19" cy="18" r="2.5"/><path d="m10.8 7.2-4.6 8.6M13.2 7.2l4.6 8.6M7.5 18h9"/></symbol>
-    <symbol id="i-video" viewBox="0 0 24 24"><rect x="3" y="5" width="13" height="14" rx="2"/><path d="m16 10 5-3v10l-5-3zM8 9l4 3-4 3z"/></symbol>
-    <symbol id="i-practice" viewBox="0 0 24 24"><path d="M8 4h11a2 2 0 0 1 2 2v14H8a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3Z"/><path d="M5 7h11M9 11h8M9 15h5M3 7v10a3 3 0 0 0 3 3"/></symbol>
-    <symbol id="i-spark" viewBox="0 0 24 24"><path d="m12 3 1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3ZM19 16l.8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8L19 16Z"/></symbol>
-  </svg>
-
-  <header class="topbar">
-    <div class="shell nav">
-      <a class="brand" href="index.html" aria-label="返回首页">
-        <span class="brand-mark"><svg class="icon"><use href="#i-book"/></svg></span>
-        <span><span class="brand-name">专升本学习站</span><span class="brand-sub">LIAONING · COMPUTER SCIENCE</span></span>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="./index.html" aria-label="辽宁专升本计算机类学习站首页">
+        <span class="brand-mark" aria-hidden="true"><span>辽</span></span>
+        <span class="brand-text">
+          <strong>辽宁专升本 · 计算机类</strong>
+          <small>学习资料索引站</small>
+        </span>
       </a>
-      <nav class="nav-links" id="navLinks" aria-label="主导航">
-                <a href="#routes">学习路线</a>
-          <a href="#public-courses">公共课</a>
-        <a href="#major-courses">专业课</a>
-              </nav>
-      
-      <button class="menu-toggle" id="menuToggle" aria-label="打开导航菜单" aria-expanded="false">
-        <svg class="icon"><use href="#i-menu"/></svg>
-      </button>
+      <nav class="desktop-nav" aria-label="主导航">
+        <a href="#resources">资料入口</a>
+        <a href="#routes">学习路线</a>
+        <a href="#courses">科目目录</a>
+      </nav>
+      <a class="header-cta" href="#courses">浏览科目
+        <svg class="arrow" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11M10 5l5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
     </div>
   </header>
 
   <main>
-    <section class="hero">
-      <div class="shell hero-grid">
-        <div>
-          
-          <h1>辽宁专升本<br><span class="gradient-text">计算机类学习站</span></h1>
-          <p class="hero-copy">辽宁专升本计算机类复习资料：讲解视频、思维导图、考点汇总和练习题，按科目整理。</p>
+    <section class="hero" id="top">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">辽宁专升本 · 计算机类学习站</div>
+          <h1>辽宁专升本<span>计算机类学习站</span></h1>
+          <p class="hero-description">讲解视频、思维导图、考点汇总和练习题，按科目整理。把分散的学习资料放在清晰的入口里，按自己的节奏逐步复习。</p>
           <div class="hero-actions">
-            <a class="btn-primary" href="#public-courses">公共课 <svg class="icon"><use href="#i-arrow"/></svg></a>
-            <a class="btn-secondary" href="#major-courses">专业课</a>
+            <a class="button button-primary" href="#courses">浏览已上线科目
+              <svg class="arrow" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11M10 5l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="button button-secondary" href="#routes">查看学习路线</a>
+          </div>
+          <div class="hero-meta" aria-label="站点上线情况">
+            <span class="hero-meta-item"><strong>4 / 7</strong> 科已上线</span>
+            <span class="meta-divider" aria-hidden="true"></span>
+            <span class="hero-meta-item">静态资料 · 持续整理</span>
           </div>
         </div>
-        <div class="hero-visual" aria-label="学习进度视觉展示">
-          
-          <div class="visual-card">
-            <div class="visual-top"><span class="visual-label">站内资料</span></div>
-            <div class="visual-label">已有内容的科目</div>
-            <div class="visual-number">4<small> / 7 科已上线</small></div>
-            <div class="visual-track"><span></span></div>
-            <div class="visual-list">
-              <div class="visual-row"><span>计算机基础 Excel 视频</span><strong>7 个</strong></div>
-              <div class="visual-divider"></div>
-              <div class="visual-row"><span>题库样本（待确认）</span><strong>26 题</strong></div>
-              <div class="visual-divider"></div>
-              <div class="visual-row"><span>C 语言示例题（非真题）</span><strong>5 题</strong></div>
-              <div class="visual-divider"></div>
-              <div class="visual-row"><span>英语语法思维导图</span><strong>4 张</strong></div>
+
+        <aside class="hero-board" aria-label="当前科目上线情况">
+          <div class="board-top"><span>学习站 / 科目索引</span><span>01 — 07</span></div>
+          <div class="board-total">
+            <div class="total-number">04</div>
+            <div class="total-copy"><strong>科目已上线</strong><span>当前可进入的学习入口</span></div>
+          </div>
+          <div class="board-list">
+            <div class="board-course"><span>英语</span><small>已上线</small></div>
+            <div class="board-course"><span>高等数学</span><small>已上线</small></div>
+            <div class="board-course"><span>计算机基础</span><small>已上线</small></div>
+            <div class="board-course"><span>C 语言</span><small>已上线</small></div>
+          </div>
+          <div class="board-foot"><i aria-hidden="true"></i> 其余 3 科正在建设中</div>
+          <span class="board-decoration" aria-hidden="true"></span>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section resource-section" id="resources">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="section-kicker">资料入口 / 01</span>
+            <h2>先从已有资料开始</h2>
+          </div>
+          <p>把目前已经整理的内容放在前面。资料状态如实标注，尚未核实的内容不会作为正式学习入口。</p>
+        </div>
+        <div class="resource-grid">
+          <a class="resource-card" href="jsj/index.html">
+            <span class="resource-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><rect x="3.5" y="4" width="17" height="13" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M8 21h8M12 17v4M7 8h4M7 11h7M7 14h3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span>
+            <span class="resource-label"><i class="status-dot" aria-hidden="true"></i>计算机基础</span>
+            <h3>Excel 2016 讲解视频</h3>
+            <p>围绕选项卡、功能组与具体命令，拆解常见操作和考点。</p>
+            <span class="resource-foot">进入计算机基础 <svg class="arrow" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11M10 5l5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </a>
+
+          <a class="resource-card" href="jsj/index.html#qbank">
+            <span class="resource-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M5 4.5h10l4 4V20H5V4.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M14.5 4.8v4h4M8 13h8M8 16.5h6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span>
+            <span class="resource-label">资料核对</span>
+            <h3>题库样本</h3>
+            <p>26 题样本及参考答案；核实前仅作参考，不作正式练习依据。</p>
+            <span class="resource-foot"><span class="pending-pill">待确认</span><span>查看样本 →</span></span>
+          </a>
+
+          <a class="resource-card" href="c/index.html">
+            <span class="resource-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="resource-label"><i class="status-dot" aria-hidden="true"></i>C 语言</span>
+            <h3>C 语言示例题</h3>
+            <p>5 道自编示例题，带答案与解析；内容不是历年真题。</p>
+            <span class="resource-foot">查看示例题 <svg class="arrow" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11M10 5l5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </a>
+
+          <a class="resource-card" href="yy/index.html">
+            <span class="resource-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 5.5c3.2-1.1 5.9-.7 8 1.1v13c-2.1-1.8-4.8-2.2-8-1.1v-13ZM20 5.5c-3.2-1.1-5.9-.7-8 1.1v13c2.1-1.8 4.8-2.2 8-1.1v-13Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M7 9h2M7 12h2M15 9h2M15 12h2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+            <span class="resource-label"><i class="status-dot" aria-hidden="true"></i>英语</span>
+            <h3>英语语法思维导图</h3>
+            <p>6 集讲解视频与 4 张思维导图，覆盖非谓语与三大从句。</p>
+            <span class="resource-foot">进入英语 <svg class="arrow" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11M10 5l5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="route-section" id="routes">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="section-kicker">学习路线 / 02</span>
+            <h2>已有内容的科目 · 学习路线</h2>
+          </div>
+          <p>每科先明确学习顺序，再进入具体资料。以下为建议路线，实际内容以对应科目页为准。</p>
+        </div>
+        <div class="route-grid">
+          <a class="route-card" href="yy/index.html">
+            <div class="route-card-head">
+              <div class="route-name"><span class="route-number">01</span><h3>英语</h3></div>
+              <span class="route-hint">建议顺序</span>
+            </div>
+            <div class="route-steps">
+              <div class="route-step"><strong>6 集视频</strong><small>语法讲解</small></div>
+              <div class="route-step"><strong>4 张导图</strong><small>梳理结构</small></div>
+              <div class="route-step"><strong>专题笔记</strong><small>从句与练习</small></div>
+            </div>
+            <span class="route-go">进入英语 →</span>
+          </a>
+          <a class="route-card" href="gs/index.html">
+            <div class="route-card-head">
+              <div class="route-name"><span class="route-number">02</span><h3>高等数学</h3></div>
+              <span class="route-hint">建议顺序</span>
+            </div>
+            <div class="route-steps">
+              <div class="route-step"><strong>第一章</strong><small>函数极限连续</small></div>
+              <div class="route-step"><strong>思维导图</strong><small>建立结构</small></div>
+              <div class="route-step"><strong>练习视频</strong><small>49 题讲解</small></div>
+            </div>
+            <span class="route-go">进入高数 →</span>
+          </a>
+          <a class="route-card" href="jsj/index.html">
+            <div class="route-card-head">
+              <div class="route-name"><span class="route-number">03</span><h3>计算机基础</h3></div>
+              <span class="route-hint">建议顺序</span>
+            </div>
+            <div class="route-steps">
+              <div class="route-step"><strong>Excel 视频</strong><small>4.1–4.7</small></div>
+              <div class="route-step"><strong>导图考点</strong><small>命令位置</small></div>
+              <div class="route-step"><strong>操作练习</strong><small>模拟考试</small></div>
+            </div>
+            <span class="route-go">进入计算机 →</span>
+          </a>
+          <a class="route-card" href="c/index.html">
+            <div class="route-card-head">
+              <div class="route-name"><span class="route-number">04</span><h3>C 语言</h3></div>
+              <span class="route-hint">建议顺序</span>
+            </div>
+            <div class="route-steps">
+              <div class="route-step"><strong>状态说明</strong><small>正式题库建设中</small></div>
+              <div class="route-step"><strong>5 道示例</strong><small>先独立作答</small></div>
+              <div class="route-step"><strong>对照解析</strong><small>非真题</small></div>
+            </div>
+            <span class="route-go">进入 C 语言 →</span>
+          </a>
+        </div>
+        <p class="route-note">路线用于安排复习先后，不代表所有阶段的资料都已全部上线。</p>
+      </div>
+    </section>
+
+    <section class="section courses-section" id="courses">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="section-kicker">科目目录 / 03</span>
+            <h2>按科目进入学习</h2>
+          </div>
+          <p>已上线科目可直接进入；建设中的科目保留目录位置，但暂不提供跳转。</p>
+        </div>
+
+        <div class="course-group">
+          <div class="group-heading"><h3>公共课</h3><span>3 门科目</span><i class="group-rule" aria-hidden="true"></i></div>
+          <div class="course-grid">
+            <a class="course-card" href="yy/index.html">
+              <div class="course-card-top">
+                <span class="course-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 5.5c3.2-1.1 5.9-.7 8 1.1v13c-2.1-1.8-4.8-2.2-8-1.1v-13ZM20 5.5c-3.2-1.1-5.9-.7-8 1.1v13c2.1-1.8 4.8-2.2 8-1.1v-13Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
+                <span class="course-status">已上线</span>
+              </div>
+              <h4>英语</h4>
+              <p>6 集语法讲解视频、4 张思维导图与专题笔记。</p>
+              <span class="course-card-bottom">进入学习 <svg class="arrow" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11M10 5l5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </a>
+            <a class="course-card" href="gs/index.html">
+              <div class="course-card-top">
+                <span class="course-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 19.5 9.2 4h2.1l5.2 15.5M6.1 13h8.4M17.5 7.5h3M19 6v3M17.5 16.5h3M19 15v3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <span class="course-status">已上线</span>
+              </div>
+              <h4>高等数学</h4>
+              <p>第一章函数、极限、连续；含导图与练习讲解视频。</p>
+              <span class="course-card-bottom">进入学习 <svg class="arrow" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11M10 5l5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </a>
+            <a class="course-card" href="jsj/index.html">
+              <div class="course-card-top">
+                <span class="course-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><rect x="3.5" y="4" width="17" height="13" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M8 21h8M12 17v4M7 8h4M7 11h7M7 14h3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span>
+                <span class="course-status">已上线</span>
+              </div>
+              <h4>计算机基础</h4>
+              <p>Excel 4.1–4.7 视频、思维导图、考点汇总与题库样本。</p>
+              <span class="course-card-bottom">进入学习 <svg class="arrow" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11M10 5l5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </a>
+          </div>
+        </div>
+
+        <div class="course-group">
+          <div class="group-heading"><h3>专业课</h3><span>4 门科目</span><i class="group-rule" aria-hidden="true"></i></div>
+          <div class="course-grid professional">
+            <a class="course-card" href="c/index.html">
+              <div class="course-card-top">
+                <span class="course-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <span class="course-status">已上线</span>
+              </div>
+              <h4>C 语言</h4>
+              <p>5 道自编示例题（非真题）；正式题库建设中。</p>
+              <span class="course-card-bottom">进入学习 <svg class="arrow" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11M10 5l5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </a>
+            <div class="course-card disabled" aria-disabled="true">
+              <div class="course-card-top">
+                <span class="course-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><ellipse cx="12" cy="5.5" rx="7.5" ry="3" stroke="currentColor" stroke-width="1.6"/><path d="M4.5 5.5v6c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3v-6M4.5 11.5v6c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3v-6" stroke="currentColor" stroke-width="1.6"/></svg></span>
+                <span class="course-status">建设中</span>
+              </div>
+              <h4>数据库</h4>
+              <p>课程资料与练习内容正在整理。</p>
+              <span class="course-card-bottom">暂未开放 <span aria-hidden="true">—</span></span>
+            </div>
+            <div class="course-card disabled" aria-disabled="true">
+              <div class="course-card-top">
+                <span class="course-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><rect x="3.5" y="4" width="17" height="16" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M3.5 9h17M8 4v5M16 4v5M7 13h3M7 16.5h7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+                <span class="course-status">建设中</span>
+              </div>
+              <h4>网页设计</h4>
+              <p>课程资料与练习内容正在整理。</p>
+              <span class="course-card-bottom">暂未开放 <span aria-hidden="true">—</span></span>
+            </div>
+            <div class="course-card disabled" aria-disabled="true">
+              <div class="course-card-top">
+                <span class="course-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><circle cx="5" cy="12" r="2" stroke="currentColor" stroke-width="1.6"/><circle cx="19" cy="6" r="2" stroke="currentColor" stroke-width="1.6"/><circle cx="19" cy="18" r="2" stroke="currentColor" stroke-width="1.6"/><path d="m7 11 10-4M7 13l10 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+                <span class="course-status">建设中</span>
+              </div>
+              <h4>计算机网络</h4>
+              <p>课程资料与练习内容正在整理。</p>
+              <span class="course-card-bottom">暂未开放 <span aria-hidden="true">—</span></span>
             </div>
           </div>
-          
+        </div>
+
+        <div class="closing-note" style="margin-top: 35px;">
+          <span class="note-mark" aria-hidden="true">i</span>
+          <p>资料状态说明：题库样本目前为「待确认」；C 语言部分为「示例题（非真题）」；数据库、网页设计和计算机网络为「建设中」。请以各科目页面实际展示的资料为准。</p>
         </div>
       </div>
     </section>
-
-    
-
-    <section class="section" id="routes">
-      <div class="shell">
-        <div class="section-heading">
-          <div><h2>已有内容的科目 · 学习路线</h2><p class="section-desc">先进入对应科目页面，再按照页面中的资料顺序学习。</p></div>
-          <div class="section-aside">4 门科目</div>
-        </div>
-        <div class="route-grid"><a class="route-card" href="yy/index.html"><h3>英语</h3><ol><li>先看 6 集语法讲解视频。</li><li>再看 4 张思维导图，建立四个语法专题的整体结构。</li><li>按专题三至专题六的顺序学习笔记中的考点。</li><li>学习三大从句判定与做题指导。</li><li>完成 23 道自编练习题（示例题，非真题），再对照答案。</li></ol><span class="route-go">进入课程 →</span></a><a class="route-card" href="gs/index.html"><h3>高等数学</h3><ol><li>进入高等数学页面，先看第一章「函数、极限、连续」的目录和考频标记。</li><li>打开「函数 / 极限」交互式思维导图，先建立知识结构。</li><li>按第一节函数、第二节极限、第三节连续的顺序学习考点一至考点十一。</li><li>回到考点内容，复述定义、性质和页面中的解题提示，检查是否能区分各考点。</li></ol><span class="route-go">进入课程 →</span></a><a class="route-card" href="jsj/index.html"><h3>计算机基础</h3><ol><li>依次观看第四章 Excel 的 4.1–4.7 讲解视频。</li><li>打开 Excel 选项卡思维导图，整体回顾选项卡、功能组和命令之间的关系。</li><li>对照「操作题考点汇总」，熟悉题目要求对应的选项卡、组、命令按钮和关键设置。</li><li>使用「Excel 操作题模拟考试」进行操作练习。</li><li>最后查看 26 题题库样本及参考答案；该样本仍标记为「待确认」，确认前仅作参考。</li></ol><span class="route-go">进入课程 →</span></a><a class="route-card" href="c/index.html"><h3>C 语言</h3><ol><li>进入 C 语言页面，先阅读正式题库建设状态和示例题说明。</li><li>先独立完成 5 道自编示例题，再查看每题的答案与解析。</li><li>根据答案与解析检查自己的思路；这 5 题是「示例题（非真题）」，不能当作历年真题或正式题库。</li></ol><span class="route-go">进入课程 →</span></a></div>
-      </div>
-    </section>
-
-    <section class="section subject-section" id="public-courses">
-      <div class="shell">
-        <div class="section-heading">
-          <div><h2>公共课</h2><p class="section-desc">英语、高等数学、计算机基础。</p></div>
-          <div class="section-aside">3 门科目</div>
-        </div>
-        <div class="subject-grid">
-          <a class="subject-card" href="yy/index.html">
-            <div class="subject-top"><span class="subject-icon tone-blue"><svg class="icon"><use href="#i-globe"/></svg></span><span class="status"><svg class="icon"><use href="#i-check"/></svg> 可学习</span></div>
-            <h3>英语</h3>
-            <p>语法专题笔记：非谓语动词、定语从句、名词性从句、状语从句。</p>
-            <div class="subject-meta"><span>6 集讲解视频</span><span>4 张思维导图</span></div>
-            <div class="subject-foot"><span>进入课程</span><svg class="icon"><use href="#i-arrow"/></svg></div>
-          </a>
-          <a class="subject-card" href="gs/index.html">
-            <div class="subject-top"><span class="subject-icon tone-purple"><svg class="icon"><use href="#i-function"/></svg></span><span class="status"><svg class="icon"><use href="#i-check"/></svg> 可学习</span></div>
-            <h3>高等数学</h3>
-            <p>从基础概念到典型题型，循序渐进建立数学解题思路。</p>
-            <div class="subject-meta"><span>第一章</span><span>函数 · 极限 · 连续</span></div>
-            <div class="subject-foot"><span>进入课程</span><svg class="icon"><use href="#i-arrow"/></svg></div>
-          </a>
-          <a class="subject-card" href="jsj/index.html">
-            <div class="subject-top"><span class="subject-icon tone-green"><svg class="icon"><use href="#i-monitor"/></svg></span><span class="status"><svg class="icon"><use href="#i-check"/></svg> 可学习</span></div>
-            <h3>计算机基础</h3>
-            <p>第四章 Excel：讲解视频、思维导图、操作题考点汇总、题库样本（待确认）。</p>
-            <div class="subject-meta"><span>7 个视频</span><span>思维导图</span><span>26 题样本</span></div>
-            <div class="subject-foot"><span>进入课程</span><svg class="icon"><use href="#i-arrow"/></svg></div>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section subject-section" id="major-courses">
-      <div class="shell">
-        <div class="section-heading">
-          <div><h2>专业课</h2><p class="section-desc">C 语言、数据库、网页设计、计算机网络。</p></div>
-          <div class="section-aside">4 门科目</div>
-        </div>
-        <div class="subject-grid">
-          <a class="subject-card" href="c/index.html">
-            <div class="subject-top"><span class="subject-icon tone-orange"><svg class="icon"><use href="#i-code"/></svg></span><span class="status"><svg class="icon"><use href="#i-check"/></svg> 仅示例题</span></div>
-            <h3>C 语言</h3>
-            <p>5 道自编示例题（非真题），正式题库建设中。</p>
-            <div class="subject-meta"><span>示例题（非真题）</span><span>题库建设中</span></div>
-            <div class="subject-foot"><span>进入课程</span><svg class="icon"><use href="#i-arrow"/></svg></div>
-          </a>
-          <div class="subject-card disabled" aria-disabled="true">
-            <div class="subject-top"><span class="subject-icon tone-cyan"><svg class="icon"><use href="#i-database"/></svg></span><span class="status pending"><svg class="icon"><use href="#i-lock"/></svg> 建设中</span></div>
-            <h3>数据库</h3>
-            <p>SQL Server、数据定义、查询语句与数据库基础知识。</p>
-            <div class="subject-foot"><span>课程内容即将上线</span></div>
-          </div>
-          <div class="subject-card disabled" aria-disabled="true">
-            <div class="subject-top"><span class="subject-icon tone-pink"><svg class="icon"><use href="#i-code"/></svg></span><span class="status pending"><svg class="icon"><use href="#i-lock"/></svg> 建设中</span></div>
-            <h3>网页设计</h3>
-            <p>HTML、CSS 与网页布局，结合页面案例理解核心知识。</p>
-            <div class="subject-foot"><span>课程内容即将上线</span></div>
-          </div>
-          <div class="subject-card disabled" aria-disabled="true">
-            <div class="subject-top"><span class="subject-icon tone-slate"><svg class="icon"><use href="#i-network"/></svg></span><span class="status pending"><svg class="icon"><use href="#i-lock"/></svg> 建设中</span></div>
-            <h3>计算机网络</h3>
-            <p>网络体系结构、协议、设备与性能指标，系统梳理考点。</p>
-            <div class="subject-foot"><span>课程内容即将上线</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    
   </main>
 
-  <footer class="footer">
-    <div class="shell footer-inner">
-      <div class="footer-brand">辽宁专升本 · 计算机类学习站</div>
-      <div class="footer-note">建设中的科目会陆续补充。</div>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span class="footer-brand">辽宁专升本 · 计算机类学习站</span>
+      <nav class="footer-links" aria-label="页脚导航">
+        <a href="#top">返回顶部</a>
+        <a href="#routes">学习路线</a>
+        <a href="#courses">科目目录</a>
+      </nav>
     </div>
   </footer>
 
-  <script>
-    (function () {
-            const toggle = document.getElementById('menuToggle');
-      const links = document.getElementById('navLinks');
-      toggle.addEventListener('click', function () {
-        const isOpen = links.classList.toggle('open');
-        toggle.setAttribute('aria-expanded', String(isOpen));
-        toggle.innerHTML = isOpen
-          ? '<svg class="icon"><use href="#i-x"/></svg>'
-          : '<svg class="icon"><use href="#i-menu"/></svg>';
-      });
-      links.querySelectorAll('a').forEach(function (link) {
-        link.addEventListener('click', function () {
-          links.classList.remove('open');
-          toggle.setAttribute('aria-expanded', 'false');
-          toggle.innerHTML = '<svg class="icon"><use href="#i-menu"/></svg>';
-        });
-      });
-    })();
-  </script>
-<script src="mobile.js" data-base=""></script></body>
+  <script src="mobile.js" data-base=""></script>
+</body>
 </html>
