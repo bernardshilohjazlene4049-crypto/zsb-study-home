@@ -26,9 +26,11 @@
 <main><div class="shell">
 <section class="hero">
   <h1>网页设计</h1>
-  <p class="lead">文盛教育讲义笔记整理；当前上线第1章「网页基本概念」</p>
+  <p class="lead">文盛教育讲义笔记整理；当前上线第1–2章（网页基本概念、HTML5 文档结构）；讲解视频制作中</p>
   <div class="chips">
     <span class="chip">第1章 网页基本概念</span>
+    <span class="chip">第2章 HTML5 文档结构</span>
+    <span class="chip">讲解视频 · 制作中</span>
     <span class="chip">部分上线</span>
     <span class="chip">文盛教育笔记整理</span>
   </div>
@@ -37,7 +39,7 @@
 <section class="block">
   <div class="sec-head"><div><h2>学习路线</h2></div></div>
   <ol class="route">
-    <li><span class="rn">1</span><span>先读第1章讲义，把网站、网页、URL、DNS、HTTP 等基本概念理清。</span></li>
+    <li><span class="rn">1</span><span>先读第1章讲义，把网站、网页、URL、DNS、HTTP 等基本概念理清；再读第2章，掌握 HTML5 文档结构、meta 与 body 属性。</span></li>
     <li><span class="rn">2</span><span>对照文末「自测要点」过一遍，检查能否复述关键定义与流程。</span></li>
     <li><span class="rn">3</span><span>后续章节会陆续上线；请以本页实际展示内容为准。</span></li>
   </ol>
@@ -63,6 +65,7 @@
           <li class="l2"><a href="#s12">1.2 网页设计基本流程</a></li>
           <li class="l2"><a href="#s13">1.3 网页的层次结构</a></li>
           <li class="l2"><a href="#s-extra">补充：常用开发工具</a></li>
+          <li class="l2"><a href="#ch2">第2章 HTML5 文档结构</a></li>
           <li class="l2"><a href="#s-quiz">自测要点</a></li>
           <li class="l2"><a href="#s-figs">讲义原图</a></li>
         </ol>
@@ -176,8 +179,89 @@
   </div>
 </section>
 
+
+<section class="block" id="ch2">
+  <div class="sec-head">
+    <div>
+      <h2>第2章 HTML5 文档结构</h2>
+      <p class="sec-desc">文盛教育笔记整理（非官方教材全文）；红笔重点已加粗标出。</p>
+    </div>
+    <span class="tag tag-ok">已上线</span>
+  </div>
+  <div class="callout info"><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg><span>讲解视频 · 制作中，完成后会放到本页。</span></div>
+  <div class="article-wrap">
+    <nav class="toc" aria-label="目录">
+      <details class="tocd panel" open>
+        <summary>目录</summary>
+        <strong>目录</strong>
+        <ol>
+          <li class="l2"><a href="#s21">2.1 HTML 简介</a></li>
+          <li class="l2"><a href="#s22">2.2 HTML5 文档结构</a></li>
+          <li class="l2"><a href="#s22b">2.2 编写注意事项</a></li>
+          <li class="l2"><a href="#s23">2.3 meta 标签</a></li>
+          <li class="l2"><a href="#s24">2.4 body 标签</a></li>
+        </ol>
+      </details>
+    </nav>
+    <article class="panel md">
+      <h2 id="s21">2.1 HTML 简介</h2>
+      <p><strong>HTML</strong> = Hyper Text Markup Language = <strong>超文本标记语言</strong>，用来描述网页的结构和内容。</p>
+      <p>HTML 代码由<strong>标记（标签 / 元素）</strong>和<strong>属性</strong>组成。标签像「盒子」包住文字、图片等，告诉浏览器如何显示。标签写在尖括号 <code>&lt; &gt;</code> 里。</p>
+      <h3>双标签 vs 单标签</h3>
+      <table><thead><tr><th>类型</th><th>说明</th><th>示例</th></tr></thead><tbody><tr><td><strong>双标签</strong></td><td>开始标签 + 结束标签，中间包内容</td><td><code>&lt;p&gt;这是一个段落&lt;/p&gt;</code></td></tr><tr><td><strong>单标签</strong></td><td>只有一个标签，无包裹内容</td><td><code>&lt;img&gt;</code>、<code>&lt;br/&gt;</code></td></tr></tbody></table>
+      <h3>属性</h3>
+      <p>给标签提供额外信息或样式，写法：<code>name="value"</code>，写在开始标签内。</p>
+      <pre><code>&lt;img src="photo.jpg" alt="一张风景照" width="300"/&gt;</code></pre>
+      <p><code>src</code>、<code>alt</code>、<code>width</code> 都是属性。</p>
+
+      <h2 id="s22">2.2 HTML5 文档结构</h2>
+      <p>当前主流版本是 <strong>HTML5</strong>。文档结构四部分：<strong>声明、根标签、头标签、体标签</strong>。</p>
+      <h3>最小完整示例</h3>
+      <pre><code>&lt;!doctype html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;title&gt;myweb&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    中国，你好！
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      <p>浏览器标签栏显示 <code>myweb</code>，主窗口显示「中国，你好！」。</p>
+      <h3>结构说明</h3>
+      <table><thead><tr><th>标签</th><th>作用</th></tr></thead><tbody><tr><td><code>&lt;!doctype html&gt;</code></td><td>文档类型声明，告诉浏览器当前是 HTML5 标准</td></tr><tr><td><code>&lt;html&gt;</code></td><td><strong>根标签</strong>，包裹整个 HTML 文档</td></tr><tr><td><code>&lt;head&gt;</code></td><td><strong>文件头</strong>，存放基础配置（编码、标题、元数据）</td></tr><tr><td><code>&lt;meta&gt;</code></td><td>元数据标签（如设置编码 utf-8 / GB2312）</td></tr><tr><td><code>&lt;title&gt;</code></td><td>网页标题，显示在浏览器<strong>标签栏</strong>；★ <strong>唯一必须写在 <code>&lt;head&gt;&lt;/head&gt;</code> 里的内容</strong></td></tr><tr><td><code>&lt;body&gt;</code></td><td><strong>文件体</strong>，所有页面可见内容写在这里，显示在浏览器主窗口</td></tr></tbody></table>
+
+      <h2 id="s22b">2.2 HTML5 编写注意事项（必记）</h2>
+      <ol>
+        <li><strong>标记可以嵌套，但不能交叉嵌套</strong><br>正确：<code>&lt;div&gt;&lt;p&gt;这是一段嵌套的文本&lt;/p&gt;&lt;/div&gt;</code><br>错误：<code>&lt;div&gt;&lt;p&gt;交叉嵌套的文本&lt;/div&gt;&lt;/p&gt;</code></li>
+        <li><strong>不区分大小写，建议用小写</strong></li>
+        <li>标记中可以放各种属性，<strong>属性值建议用双引号包裹</strong></li>
+        <li><strong>缩进书写</strong>，便于阅读</li>
+        <li><strong>标点符号全部使用英文输入法输入</strong>（★常考）</li>
+        <li><strong>允许部分属性值省略</strong>（布尔属性）：如 <code>&lt;input type="checkbox" checked&gt;</code>，不必写成 <code>checked="checked"</code></li>
+        <li><strong>注释</strong>：<code>&lt;!--注释内容--&gt;</code>，注释不会在浏览器中显示，用于代码说明。</li>
+      </ol>
+
+      <h2 id="s23">2.3 <code>&lt;meta&gt;</code> 标签详解</h2>
+      <p><code>&lt;meta&gt;</code> 用来定义网页的<strong>元数据</strong>（描述性信息），不直接显示在页面上，但会被浏览器和搜索引擎识别。</p>
+      <ol>
+        <li><strong>关键字</strong>（供搜索引擎抓取）<pre><code>&lt;meta name="keywords" content="HTML,前端开发,学习教程"&gt;</code></pre></li>
+        <li><strong>网页描述</strong>（搜索结果中会显示）<pre><code>&lt;meta name="description" content="这是 HTML 基础入门教程，适合新手学习"&gt;</code></pre></li>
+        <li><strong>作者</strong><pre><code>&lt;meta name="author" content="马斯克"&gt;</code></pre></li>
+        <li><strong>字符集</strong>（防止乱码）<pre><code>&lt;meta charset="utf-8"&gt;</code></pre>笔记补充：也可用 <strong>GB2312</strong>（中文简体）。</li>
+        <li><strong>自动刷新 / 跳转</strong><pre><code>&lt;meta http-equiv="refresh" content="10;url=https://www.example.com"&gt;</code></pre><ul><li><code>10</code>：秒数</li><li><code>url</code>：跳转目标</li><li>也可表示每隔 10 秒刷新当前页面（不写 url 时）</li></ul></li>
+      </ol>
+
+      <h2 id="s24">2.4 <code>&lt;body&gt;</code> 标签详解</h2>
+      <table><thead><tr><th>属性</th><th>作用</th><th>备注</th></tr></thead><tbody><tr><td><code>bgcolor</code></td><td>设置页面背景色</td><td>可与背景图同时设置</td></tr><tr><td><code>background</code></td><td>设置页面背景图像</td><td>显示背景图像</td></tr><tr><td><code>link</code></td><td>未访问链接颜色</td><td>默认蓝色</td></tr><tr><td><code>alink</code></td><td>正在点击时的链接颜色</td><td>默认红色</td></tr><tr><td><code>vlink</code></td><td>已访问链接颜色</td><td>默认紫色</td></tr><tr><td><code>text</code></td><td>非链接文字默认颜色</td><td></td></tr><tr><td><code>topmargin</code></td><td>页面上边距</td><td>单位：像素 px</td></tr><tr><td><code>leftmargin</code></td><td>页面左边距</td><td>单位：像素 px</td></tr></tbody></table>
+      <p>记忆：<code>link</code> / <code>alink</code> / <code>vlink</code> 管三种链接状态；<code>topmargin</code>、<code>leftmargin</code> 用 <strong>px</strong>。</p>
+    </article>
+  </div>
+</section>
+
 <section class="block" id="s-quiz">
   <div class="sec-head"><div><h2>自测要点（考前速记）</h2></div><span class="tag tag-grey">速记</span></div>
+  <h3 style="margin:16px 0 8px">第1章</h3>
   <ol class="route">
     <li><span class="rn">1</span><span>网站 vs 网页 vs Internet 三者关系</span></li>
     <li><span class="rn">2</span><span>URL 组成格式与常见顶级域名</span></li>
@@ -187,6 +271,17 @@
     <li><span class="rn">6</span><span>静态 vs 动态扩展名</span></li>
     <li><span class="rn">7</span><span>网页设计五步流程</span></li>
     <li><span class="rn">8</span><span>三层结构：HTML（结构）+ CSS（样式/表现）+ JavaScript（行为/交互）</span></li>
+  </ol>
+  <h3 style="margin:16px 0 8px">第2章</h3>
+  <ol class="route">
+    <li><span class="rn">1</span><span>HTML 全称与中文名：超文本标记语言</span></li>
+    <li><span class="rn">2</span><span>双标签 vs 单标签</span></li>
+    <li><span class="rn">3</span><span>HTML5 四部分结构：声明、根、头、体</span></li>
+    <li><span class="rn">4</span><span><code>&lt;title&gt;</code> 是唯一必须在 <code>&lt;head&gt;</code> 里的内容</span></li>
+    <li><span class="rn">5</span><span>不能交叉嵌套；建议小写；英文标点；注释写法</span></li>
+    <li><span class="rn">6</span><span>meta：keywords / description / author / charset / refresh</span></li>
+    <li><span class="rn">7</span><span>body：bgcolor、background、link/alink/vlink、text、topmargin/leftmargin</span></li>
+    <li><span class="rn">8</span><span>布尔属性可省略值（如 checked）</span></li>
   </ol>
 </section>
 
@@ -210,7 +305,27 @@
       <img src="原图/01M6NNV0RP1JNNW98MZ1VKE1NW.jpg" alt="第1章讲义原图 3" loading="lazy">
       <p style="margin:8px 4px 0;font-weight:600">原图 3 <span style="color:var(--muted);font-weight:400;font-size:13px">· 点击放大</span></p>
     </a>
-  </div>
+      <a class="card figure" href="原图/01M6NNXP4W98VHZ3243W11M55Z.jpg" target="_blank" rel="noopener">
+      <img src="原图/01M6NNXP4W98VHZ3243W11M55Z.jpg" alt="第2章讲义原图 1" loading="lazy">
+      <p style="margin:8px 4px 0;font-weight:600">第2章 · 原图 1 <span style="color:var(--muted);font-weight:400;font-size:13px">· 点击放大</span></p>
+    </a>
+    <a class="card figure" href="原图/01M6NNXVKR97GSZJ4XDP4AVTX0.jpg" target="_blank" rel="noopener">
+      <img src="原图/01M6NNXVKR97GSZJ4XDP4AVTX0.jpg" alt="第2章讲义原图 2" loading="lazy">
+      <p style="margin:8px 4px 0;font-weight:600">第2章 · 原图 2 <span style="color:var(--muted);font-weight:400;font-size:13px">· 点击放大</span></p>
+    </a>
+    <a class="card figure" href="原图/01M6NNXYHM4CKVKAXYFBAB9367.jpg" target="_blank" rel="noopener">
+      <img src="原图/01M6NNXYHM4CKVKAXYFBAB9367.jpg" alt="第2章讲义原图 3" loading="lazy">
+      <p style="margin:8px 4px 0;font-weight:600">第2章 · 原图 3 <span style="color:var(--muted);font-weight:400;font-size:13px">· 点击放大</span></p>
+    </a>
+    <a class="card figure" href="原图/01M6NNY28N880ZDJ4CV661VSQC.jpg" target="_blank" rel="noopener">
+      <img src="原图/01M6NNY28N880ZDJ4CV661VSQC.jpg" alt="第2章讲义原图 4" loading="lazy">
+      <p style="margin:8px 4px 0;font-weight:600">第2章 · 原图 4 <span style="color:var(--muted);font-weight:400;font-size:13px">· 点击放大</span></p>
+    </a>
+    <a class="card figure" href="原图/01M6NP1DJPVH3E0P1HHABH7S8E.jpg" target="_blank" rel="noopener">
+      <img src="原图/01M6NP1DJPVH3E0P1HHABH7S8E.jpg" alt="第2章讲义原图 5" loading="lazy">
+      <p style="margin:8px 4px 0;font-weight:600">第2章 · 原图 5 <span style="color:var(--muted);font-weight:400;font-size:13px">· 点击放大</span></p>
+    </a>
+</div>
 </section>
 
 </div></main>
