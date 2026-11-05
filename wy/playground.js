@@ -2,17 +2,14 @@
   function wrapHtml(src) {
     var t = String(src || "").trim();
     if (/<!doctype|<html[\s>]/i.test(t)) return t;
-    return "<!doctype html><html><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><style>body{font:14px/1.6 system-ui,sans-serif;margin:16px;color:#1d2925}h1,h2,h3{line-height:1.25}table{border-collapse:collapse}td,th{border:1px solid #ccc;padding:6px 8px}a{color:#245444}</style></head><body>" + t + "</body></html>";
+    return "<!doctype html><html><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><style>body{font:14px/1.6 -apple-system,PingFang SC,sans-serif;margin:16px;color:#1D1D1F}h1,h2,h3{line-height:1.25}table{border-collapse:collapse}td,th{border:1px solid #ccc;padding:6px 8px}a{color:#0071E3}</style></head><body>" + t + "</body></html>";
   }
 
   function runOne(box) {
     var ta = box.querySelector(".tryit-code");
     var frame = box.querySelector(".tryit-preview");
     if (!ta || !frame) return;
-    var doc = frame.contentDocument || frame.contentWindow.document;
-    doc.open();
-    doc.write(wrapHtml(ta.value));
-    doc.close();
+    frame.srcdoc = wrapHtml(ta.value);
   }
 
   function initOne(box) {
