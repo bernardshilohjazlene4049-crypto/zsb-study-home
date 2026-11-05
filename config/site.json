@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "name": "辽宁专升本 · 计算机组 AI 智能学习指挥中心",
+  "language": "zh-CN",
+  "theme": "liquid-glass-daylight",
+  "base_path_strategy": "relative-to-module-and-document",
+  "pages_example": "https://bernardshilohjazlene4049-crypto.github.io/zsb-study-home/",
+  "notes": "资源地址按仓库相对路径解析，不写以 / 开头的站点根路径。服务端密钥不得放入本仓库。",
+  "services": {
+    "ai": { "configured": false, "env": ["TUTOR_API_BASE"] },
+    "ocr": { "configured": false, "env": ["OCR_API_BASE"] },
+    "sync": { "configured": false, "env": ["SYNC_API_BASE"] },
+    "labs": { "configured": false, "env": ["LABS_API_BASE"] }
+  }
+}
