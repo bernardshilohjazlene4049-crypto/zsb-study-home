@@ -42,5 +42,31 @@ a.detail-action { display: block; text-align: center; }
 .legend i{box-shadow:0 0 0 3px rgba(123,190,165,.08)}
 .stage-controls .btn{background:rgba(20,39,62,.80);border-color:rgba(165,200,236,.20);color:#d5e4f6}
 .stage-controls .btn:hover{background:rgba(42,68,97,.83)}
-@media(max-width:760px){.floor-btn{min-height:0}.stage{background:radial-gradient(ellipse at 40% 45%,rgba(54,102,154,.19),transparent 72%),linear-gradient(180deg,#102039,#0a1526)}}
+@media(max-width:760px){.floor-btn{min-height:44px}.stage{background:radial-gradient(ellipse at 40% 45%,rgba(54,102,154,.19),transparent 72%),linear-gradient(180deg,#102039,#0a1526)}}
 @media(prefers-reduced-motion:reduce){.stage-controls .btn{transition:none}}
+
+/* Phone and short landscape: 44px controls, readable hints, stage fits the screen. */
+@media (max-width: 760px), (max-height: 500px) {
+  .app { padding-top: max(9px, env(safe-area-inset-top)); padding-left: max(9px, env(safe-area-inset-left)); padding-right: max(9px, env(safe-area-inset-right)); }
+  .btn, .detail-action, .top-meta .btn, .stage-controls .btn { min-height: 44px; min-width: 44px; font-size: 14px; padding: 0 12px; }
+  .stage-controls .btn:last-child { display: inline-flex; }
+  .stage-head { flex-wrap: wrap; row-gap: 8px; }
+  .canvas-hint, .legend, .stage-head p, .brand strong, .bottom-info, .floor-name,
+  .detail-desc, .detail-item, .detail-section h3, .robot-card strong, .floor-badge { font-size: 14px; }
+  .stage-head p { max-width: none; }
+  .brand small, .floor-sub { font-size: 12px; }
+  .floor-btn { min-height: 44px; }
+  .layout { min-height: 0; }
+}
+@media (max-width: 430px) {
+  .canvas-hint { left: 12px; right: 12px; bottom: 36px; }
+  .legend { left: 12px; right: auto; bottom: 12px; }
+}
+@media (max-height: 500px) {
+  .layout { display: block; }
+  .left { display: none; }
+  .right { display: block; margin-top: 10px; }
+  .stage { height: min(58dvh, 250px); min-height: 210px; }
+  .mobile-floors { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; margin-top: 10px; }
+  .top-meta .status-pill { display: none; }
+}

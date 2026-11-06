@@ -20,18 +20,33 @@
 }
 .site-links-show { display: flex; }
 @media (max-width: 760px) {
-  .site-links-bar { display: flex; }
+  .site-links-bar {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: max(12px, env(safe-area-inset-left));
+    padding-right: max(12px, env(safe-area-inset-right));
+  }
+  .site-links-bar::-webkit-scrollbar { display: none; }
+  .site-links-bar a { flex: 0 0 auto; }
 }
 .site-links a {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   min-height: 44px;
+  min-width: 44px;
   padding: 0 12px;
   border-radius: 11px;
   color: #6e6e73;
   background: rgba(255, 255, 255, .62);
   border: 1px solid rgba(29, 29, 31, .08);
-  font: 500 13px/1.2 -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font: 500 14px/1.2 -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", "Microsoft YaHei", sans-serif;
   text-decoration: none;
 }
 .site-links a:hover { color: #0071e3; background: #fff; }
@@ -57,3 +72,14 @@
   border-color: rgba(146, 197, 244, .31);
 }
 .site-links-foot { width: 100%; padding-top: 12px; }
+
+/* Phone: keep fixed return chips clear of the mind-map hint, and fit short screens. */
+.mm-hint { bottom: calc(68px + env(safe-area-inset-bottom)) !important; }
+#mmview.zoomed { height: calc(100dvh - 72px - env(safe-area-inset-top)) !important; }
+@media (max-height: 500px) {
+  .map-viewport {
+    min-height: 180px !important;
+    height: calc(100dvh - 150px) !important;
+    max-height: none !important;
+  }
+}
