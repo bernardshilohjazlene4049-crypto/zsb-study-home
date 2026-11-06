@@ -8,6 +8,7 @@
   var p=a.pathname.replace(/index\.html$/,'');if(p===here)a.setAttribute('aria-current','page');nav.appendChild(a)});
  var t=document.createElement('button');t.type='button';t.innerHTML=S('<path d="M12 19V5M6 11l6-6 6 6"/>')+'<span>顶部</span>';t.setAttribute('aria-label','回到顶部');
  t.onclick=function(){scrollTo({top:0,behavior:'smooth'})};nav.appendChild(t);document.body.appendChild(nav);
+ if(!document.querySelector('script[data-site-nav]')){var sn=document.createElement('script');sn.src=base+'assets/js/site-nav.js';sn.setAttribute('data-base',base);sn.setAttribute('data-site-nav','');document.body.appendChild(sn);}
  var mq=matchMedia('(max-width:760px)');document.querySelectorAll('details.tocd').forEach(function(d){if(mq.matches)d.open=false;
   d.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){if(mq.matches)d.open=false})})});
 })();

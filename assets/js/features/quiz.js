@@ -46,7 +46,7 @@ function renderAnswering(ctx, question) {
   const blank = h("button", { class: "btn", type: "button" }, "记为未作答");
   const star = h("button", { class: "btn", type: "button" }, "收藏");
 
-  root.append(
+  root.append(...[
     h("p", { class: "crumbs" }, [
       topicId ? h("a", { href: `#/topic/${topicId}` }, "返回知识点") : h("a", { href: "#/subjects" }, "目录"),
       " / 练习"
@@ -62,7 +62,7 @@ function renderAnswering(ctx, question) {
     h("p", { class: "stem" }, question.stem),
     form,
     live
-  );
+  ].filter((node) => node != null));
 
   if (question.type === "single_choice" || question.type === "true_false") {
     form.append(...question.options.map((option) => h("label", { class: "choice" }, [
@@ -154,7 +154,7 @@ async function reveal(ctx, root, question, response, elapsedMs) {
   const helpLevel = alreadySeen && grading.status !== "unanswered" ? "saw_explanation" : "none";
   const box = h("section", { class: "panel stack" });
   const guessed = h("input", { type: "checkbox" });
-  box.append(
+  box.append(...[
     h("h2", {}, "解析"),
     h("p", {}, `${GRADING_LABEL[grading.status] || grading.status}${grading.auto ? "" : " · 未自动判分"}`),
     h("p", {}, question.explanation || "这道题没有解析文本。"),
@@ -165,7 +165,7 @@ async function reveal(ctx, root, question, response, elapsedMs) {
       type: "button",
       onclick: () => store(ctx, question, response, grading, item.id, guessed.checked && item.id === "not_understood", helpLevel, elapsedMs, box)
     }, `${item.label} · ${item.detail}`)))
-  );
+  ].filter((node) => node != null));
   const old = root.querySelector(".reveal");
   if (old) old.remove();
   box.classList.add("reveal");
