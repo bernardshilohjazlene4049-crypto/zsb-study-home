@@ -4,16 +4,16 @@ import { mergeMistake } from "../features/mistake-rules.js";
 
 export function validateBundle(data) {
   if (!data || typeof data !== "object" || Array.isArray(data)) {
-    throw new Error("备份不是 JSON 对象。");
+    throw new Error("这份备份无法读取。");
   }
   if (typeof data.schema_version !== "number") {
-    throw new Error("备份缺少 schema_version，已拒绝导入。");
+    throw new Error("这份备份无法读取。");
   }
   if (data.schema_version > SCHEMA_VERSION) {
-    throw new Error("备份来自更新的数据版本，当前页面不能安全导入。");
+    throw new Error("这份备份比当前页面新，没有导入。");
   }
   if (!data.stores || typeof data.stores !== "object") {
-    throw new Error("备份缺少 stores。");
+    throw new Error("这份备份无法读取。");
   }
   return true;
 }

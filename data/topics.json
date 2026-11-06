@@ -127,12 +127,14 @@
       "chapter_id": "math.ch1.s1",
       "title": "定义域",
       "order": 1,
-      "aliases": ["函数定义域"],
+      "aliases": [
+        "函数定义域"
+      ],
       "prereq_ids": [],
       "source_ref": "gs/index.html#_5",
       "legacy_url": "gs/index.html#_5",
       "verified": false,
-      "blurb": "标题来自高数页第一节。第 1 集视频页面说明覆盖定义域和函数性质，但没有秒级切分。"
+      "blurb": "第 1 集。"
     },
     {
       "id": "math.function_properties",
@@ -140,12 +142,17 @@
       "chapter_id": "math.ch1.s1",
       "title": "函数性质",
       "order": 2,
-      "aliases": ["奇偶性", "周期性"],
-      "prereq_ids": ["math.domain"],
+      "aliases": [
+        "奇偶性",
+        "周期性"
+      ],
+      "prereq_ids": [
+        "math.domain"
+      ],
       "source_ref": "gs/index.html#_6",
       "legacy_url": "gs/index.html#_6",
       "verified": false,
-      "blurb": "标题来自高数页第一节。与定义域同属第 1 集，没有单独的起始秒数。"
+      "blurb": "第 1 集。"
     },
     {
       "id": "math.sequence_limit",
@@ -154,11 +161,13 @@
       "title": "数列极限",
       "order": 1,
       "aliases": [],
-      "prereq_ids": ["math.function_properties"],
+      "prereq_ids": [
+        "math.function_properties"
+      ],
       "source_ref": "gs/index.html#_8",
       "legacy_url": "gs/index.html#_8",
       "verified": false,
-      "blurb": "标题来自高数页第二节。对应页面上的第 2 集范围，无秒级定位。"
+      "blurb": "第 2 集。"
     },
     {
       "id": "math.function_limit",
@@ -166,12 +175,16 @@
       "chapter_id": "math.ch1.s2",
       "title": "函数极限",
       "order": 2,
-      "aliases": ["左右极限"],
-      "prereq_ids": ["math.sequence_limit"],
+      "aliases": [
+        "左右极限"
+      ],
+      "prereq_ids": [
+        "math.sequence_limit"
+      ],
       "source_ref": "gs/index.html#_9",
       "legacy_url": "gs/practice.html#kd4",
       "verified": false,
-      "blurb": "原站另有练习讲解页。逐题视频仍留在原页面，没有导入为新题库。"
+      "blurb": "练习讲解在高等数学页面。"
     },
     {
       "id": "math.infinitesimal",
@@ -179,12 +192,17 @@
       "chapter_id": "math.ch1.s2",
       "title": "无穷小与无穷大",
       "order": 3,
-      "aliases": ["无穷小", "无穷大"],
-      "prereq_ids": ["math.function_limit"],
+      "aliases": [
+        "无穷小",
+        "无穷大"
+      ],
+      "prereq_ids": [
+        "math.function_limit"
+      ],
       "source_ref": "gs/index.html#_10",
       "legacy_url": "gs/index.html#_10",
       "verified": false,
-      "blurb": "标题来自高数页。对应第 3 集的页面说明范围。"
+      "blurb": "第 3 集。"
     },
     {
       "id": "math.equivalent",
@@ -192,12 +210,16 @@
       "chapter_id": "math.ch1.s2",
       "title": "无穷小的比较",
       "order": 4,
-      "aliases": ["等价无穷小"],
-      "prereq_ids": ["math.infinitesimal"],
+      "aliases": [
+        "等价无穷小"
+      ],
+      "prereq_ids": [
+        "math.infinitesimal"
+      ],
       "source_ref": "gs/index.html#lim-fg",
       "legacy_url": "gs/practice.html#kd6",
       "verified": false,
-      "blurb": "标题来自高数页。练习讲解仍在原页面。"
+      "blurb": "练习讲解在高等数学页面。"
     },
     {
       "id": "math.important_limits",
@@ -205,12 +227,17 @@
       "chapter_id": "math.ch1.s2",
       "title": "两个重要极限",
       "order": 5,
-      "aliases": ["重要极限", "洛必达"],
-      "prereq_ids": ["math.equivalent"],
+      "aliases": [
+        "重要极限",
+        "洛必达"
+      ],
+      "prereq_ids": [
+        "math.equivalent"
+      ],
       "source_ref": "gs/index.html#_11",
       "legacy_url": "gs/index.html#_11",
       "verified": false,
-      "blurb": "第 4 集标题含「洛必达衔接」。这里只保留这个别名，便于搜到已有视频，不另造一节。"
+      "blurb": "第 4 集。"
     },
     {
       "id": "math.asymptote",
@@ -218,12 +245,17 @@
       "chapter_id": "math.ch1.s2",
       "title": "渐近线",
       "order": 6,
-      "aliases": ["水平渐近线", "垂直渐近线"],
-      "prereq_ids": ["math.important_limits"],
+      "aliases": [
+        "水平渐近线",
+        "垂直渐近线"
+      ],
+      "prereq_ids": [
+        "math.important_limits"
+      ],
       "source_ref": "gs/index.html#_12",
       "legacy_url": "gs/index.html#_12",
       "verified": false,
-      "blurb": "与两个重要极限同属第 4 集的页面说明，没有单独起始秒。"
+      "blurb": "第 4 集。"
     },
     {
       "id": "math.continuity",
@@ -231,12 +263,16 @@
       "chapter_id": "math.ch1.s3",
       "title": "连续定义",
       "order": 1,
-      "aliases": ["连续"],
-      "prereq_ids": ["math.function_limit"],
+      "aliases": [
+        "连续"
+      ],
+      "prereq_ids": [
+        "math.function_limit"
+      ],
       "source_ref": "gs/index.html#_14",
       "legacy_url": "gs/index.html#_14",
       "verified": false,
-      "blurb": "标题来自高数页第三节，对应第 5 集。"
+      "blurb": "第 5 集。"
     },
     {
       "id": "math.discontinuity",
@@ -244,12 +280,16 @@
       "chapter_id": "math.ch1.s3",
       "title": "间断点类型",
       "order": 2,
-      "aliases": ["间断点"],
-      "prereq_ids": ["math.continuity"],
+      "aliases": [
+        "间断点"
+      ],
+      "prereq_ids": [
+        "math.continuity"
+      ],
       "source_ref": "gs/index.html#_15",
       "legacy_url": "gs/index.html#_15",
       "verified": false,
-      "blurb": "标题来自高数页第三节。"
+      "blurb": "第三节。"
     },
     {
       "id": "math.continuous_properties",
@@ -257,12 +297,17 @@
       "chapter_id": "math.ch1.s3",
       "title": "闭区间上连续函数性质",
       "order": 3,
-      "aliases": ["最值定理", "零点定理"],
-      "prereq_ids": ["math.continuity"],
+      "aliases": [
+        "最值定理",
+        "零点定理"
+      ],
+      "prereq_ids": [
+        "math.continuity"
+      ],
       "source_ref": "gs/index.html#_16",
       "legacy_url": "gs/index.html#_16",
       "verified": false,
-      "blurb": "标题来自高数页第三节。"
+      "blurb": "第三节。"
     },
     {
       "id": "english.nonfinite.basics",
@@ -270,12 +315,14 @@
       "chapter_id": "english.nonfinite",
       "title": "非谓语动词基础",
       "order": 1,
-      "aliases": ["非谓语"],
+      "aliases": [
+        "非谓语"
+      ],
       "prereq_ids": [],
       "source_ref": "yy/index.html#yyvideos",
       "legacy_url": "yy/index.html#yyvideos",
       "verified": false,
-      "blurb": "对应英语页第 1 集标题。整集可播放，页面没有给出片段秒数。"
+      "blurb": "第 1 集。"
     },
     {
       "id": "english.nonfinite.object",
@@ -283,12 +330,17 @@
       "chapter_id": "english.nonfinite",
       "title": "非谓语作宾语",
       "order": 2,
-      "aliases": ["to do", "doing"],
-      "prereq_ids": ["english.nonfinite.basics"],
+      "aliases": [
+        "to do",
+        "doing"
+      ],
+      "prereq_ids": [
+        "english.nonfinite.basics"
+      ],
       "source_ref": "yy/index.html#yyvideos",
       "legacy_url": "yy/index.html#yyvideos",
       "verified": false,
-      "blurb": "对应英语页第 2 集。"
+      "blurb": "第 2 集。"
     },
     {
       "id": "english.nonfinite.advanced",
@@ -296,12 +348,16 @@
       "chapter_id": "english.nonfinite",
       "title": "非谓语进阶",
       "order": 3,
-      "aliases": ["独立主格"],
-      "prereq_ids": ["english.nonfinite.object"],
+      "aliases": [
+        "独立主格"
+      ],
+      "prereq_ids": [
+        "english.nonfinite.object"
+      ],
       "source_ref": "yy/index.html#yyvideos",
       "legacy_url": "yy/index.html#yyvideos",
       "verified": false,
-      "blurb": "对应英语页第 3 集。"
+      "blurb": "第 3 集。"
     },
     {
       "id": "english.attributive.basics",
@@ -309,12 +365,14 @@
       "chapter_id": "english.attributive",
       "title": "定语从句",
       "order": 1,
-      "aliases": ["先行词"],
+      "aliases": [
+        "先行词"
+      ],
       "prereq_ids": [],
       "source_ref": "yy/index.html#yyvideos",
       "legacy_url": "yy/index.html#yyvideos",
       "verified": false,
-      "blurb": "对应英语页第 4 集。导图文件为 yy/mm/mm2.svg。"
+      "blurb": "第 4 集。"
     },
     {
       "id": "english.noun.basics",
@@ -322,12 +380,14 @@
       "chapter_id": "english.noun",
       "title": "名词性从句",
       "order": 1,
-      "aliases": ["名词性从句"],
+      "aliases": [
+        "名词性从句"
+      ],
       "prereq_ids": [],
       "source_ref": "yy/index.html#yyvideos",
       "legacy_url": "yy/index.html#yyvideos",
       "verified": false,
-      "blurb": "对应英语页第 5 集。"
+      "blurb": "第 5 集。"
     },
     {
       "id": "english.adverbial.basics",
@@ -335,12 +395,14 @@
       "chapter_id": "english.adverbial",
       "title": "状语从句",
       "order": 1,
-      "aliases": ["状语从句"],
+      "aliases": [
+        "状语从句"
+      ],
       "prereq_ids": [],
       "source_ref": "yy/index.html#yyvideos",
       "legacy_url": "yy/index.html#yyvideos",
       "verified": false,
-      "blurb": "对应英语页第 6 集。"
+      "blurb": "第 6 集。"
     },
     {
       "id": "cb.excel.41",
@@ -348,12 +410,14 @@
       "chapter_id": "cb.excel",
       "title": "4.1 基础知识",
       "order": 1,
-      "aliases": ["Excel 基础知识"],
+      "aliases": [
+        "Excel 基础知识"
+      ],
       "prereq_ids": [],
       "source_ref": "jsj/index.html",
       "legacy_url": "jsj/index.html",
       "verified": false,
-      "blurb": "对应 jsj/videos/4.1.mp4。页面时长标记 5:31，无秒级切分。"
+      "blurb": "第四章讲解视频。"
     },
     {
       "id": "cb.excel.42",
@@ -361,12 +425,16 @@
       "chapter_id": "cb.excel",
       "title": "4.2 基本操作",
       "order": 2,
-      "aliases": ["工作表"],
-      "prereq_ids": ["cb.excel.41"],
+      "aliases": [
+        "工作表"
+      ],
+      "prereq_ids": [
+        "cb.excel.41"
+      ],
       "source_ref": "jsj/index.html",
       "legacy_url": "jsj/index.html",
       "verified": false,
-      "blurb": "对应 jsj/videos/4.2.mp4。"
+      "blurb": "第四章讲解视频。"
     },
     {
       "id": "cb.excel.43",
@@ -374,12 +442,16 @@
       "chapter_id": "cb.excel",
       "title": "4.3 数据美化",
       "order": 3,
-      "aliases": ["单元格格式"],
-      "prereq_ids": ["cb.excel.42"],
+      "aliases": [
+        "单元格格式"
+      ],
+      "prereq_ids": [
+        "cb.excel.42"
+      ],
       "source_ref": "jsj/index.html",
       "legacy_url": "jsj/index.html",
       "verified": false,
-      "blurb": "对应 jsj/videos/4.3.mp4。"
+      "blurb": "第四章讲解视频。"
     },
     {
       "id": "cb.excel.44",
@@ -387,12 +459,16 @@
       "chapter_id": "cb.excel",
       "title": "4.4 数据计算",
       "order": 4,
-      "aliases": ["公式"],
-      "prereq_ids": ["cb.excel.43"],
+      "aliases": [
+        "公式"
+      ],
+      "prereq_ids": [
+        "cb.excel.43"
+      ],
       "source_ref": "jsj/index.html",
       "legacy_url": "jsj/index.html",
       "verified": false,
-      "blurb": "对应 jsj/videos/4.4.mp4。"
+      "blurb": "第四章讲解视频。"
     },
     {
       "id": "cb.excel.45",
@@ -400,12 +476,17 @@
       "chapter_id": "cb.excel",
       "title": "4.5 数据管理",
       "order": 5,
-      "aliases": ["排序", "筛选"],
-      "prereq_ids": ["cb.excel.44"],
+      "aliases": [
+        "排序",
+        "筛选"
+      ],
+      "prereq_ids": [
+        "cb.excel.44"
+      ],
       "source_ref": "jsj/index.html",
       "legacy_url": "jsj/index.html",
       "verified": false,
-      "blurb": "对应 jsj/videos/4.5.mp4。"
+      "blurb": "第四章讲解视频。"
     },
     {
       "id": "cb.excel.46",
@@ -413,12 +494,16 @@
       "chapter_id": "cb.excel",
       "title": "4.6 图表",
       "order": 6,
-      "aliases": ["图表"],
-      "prereq_ids": ["cb.excel.45"],
+      "aliases": [
+        "图表"
+      ],
+      "prereq_ids": [
+        "cb.excel.45"
+      ],
       "source_ref": "jsj/index.html",
       "legacy_url": "jsj/index.html",
       "verified": false,
-      "blurb": "对应 jsj/videos/4.6.mp4。"
+      "blurb": "第四章讲解视频。"
     },
     {
       "id": "cb.excel.47",
@@ -426,25 +511,31 @@
       "chapter_id": "cb.excel",
       "title": "4.7 页面设置与打印",
       "order": 7,
-      "aliases": ["打印"],
-      "prereq_ids": ["cb.excel.46"],
+      "aliases": [
+        "打印"
+      ],
+      "prereq_ids": [
+        "cb.excel.46"
+      ],
       "source_ref": "jsj/index.html",
       "legacy_url": "jsj/index.html",
       "verified": false,
-      "blurb": "对应 jsj/videos/4.7.mp4。"
+      "blurb": "第四章讲解视频。"
     },
     {
       "id": "c.demo_page",
       "subject_id": "c_language",
       "chapter_id": "c.existing",
-      "title": "原页图片示例题",
+      "title": "图片示例题",
       "order": 1,
-      "aliases": ["C 语言示例"],
+      "aliases": [
+        "C 语言示例"
+      ],
       "prereq_ids": [],
       "source_ref": "c/index.html",
       "legacy_url": "c/index.html",
       "verified": false,
-      "blurb": "原页 5 道题是图片，工作台不转写、不自动判分。请回原页查看。"
+      "blurb": "图片题在 C 语言页面。"
     },
     {
       "id": "c.identifier_sample",
@@ -452,12 +543,14 @@
       "chapter_id": "c.existing",
       "title": "标识符示例",
       "order": 2,
-      "aliases": ["标识符"],
+      "aliases": [
+        "标识符"
+      ],
       "prereq_ids": [],
       "source_ref": "data/questions/sample.json",
       "legacy_url": "c/index.html",
       "verified": false,
-      "blurb": "仅为工作台自编示例准备的导航节点。原站没有对应视频，也不把它写成课程章节。"
+      "blurb": "示例"
     },
     {
       "id": "web.concepts",
@@ -465,12 +558,14 @@
       "chapter_id": "web.ch1",
       "title": "网页相关概念",
       "order": 1,
-      "aliases": ["网站"],
+      "aliases": [
+        "网站"
+      ],
       "prereq_ids": [],
       "source_ref": "wy/index.html#s11",
       "legacy_url": "wy/index.html#s11",
       "verified": false,
-      "blurb": "正文在网页设计原页。这里不复制讲义，只做导航。"
+      "blurb": "正文在网页设计页面。"
     },
     {
       "id": "web.html5_structure",
@@ -478,12 +573,16 @@
       "chapter_id": "web.ch2",
       "title": "HTML5 文档结构",
       "order": 1,
-      "aliases": ["文档结构"],
-      "prereq_ids": ["web.concepts"],
+      "aliases": [
+        "文档结构"
+      ],
+      "prereq_ids": [
+        "web.concepts"
+      ],
       "source_ref": "wy/index.html#ch2",
       "legacy_url": "wy/index.html#ch2",
       "verified": false,
-      "blurb": "原页有整集视频 wy/videos/ch2.mp4，时长标记 6:51，没有秒级切分。"
+      "blurb": "第 2 章视频在网页设计页面，整集约 6:51。"
     },
     {
       "id": "web.html_intro",
@@ -491,12 +590,16 @@
       "chapter_id": "web.lessons",
       "title": "HTML 基础课页",
       "order": 1,
-      "aliases": ["HTML"],
-      "prereq_ids": ["web.concepts"],
+      "aliases": [
+        "HTML"
+      ],
+      "prereq_ids": [
+        "web.concepts"
+      ],
       "source_ref": "wy/html/index.html",
       "legacy_url": "wy/html/index.html",
       "verified": false,
-      "blurb": "入口真实存在。细课仍在原目录中学习。"
+      "blurb": "从网页设计目录进入。"
     },
     {
       "id": "web.css_intro",
@@ -504,12 +607,16 @@
       "chapter_id": "web.lessons",
       "title": "CSS 课页",
       "order": 2,
-      "aliases": ["CSS"],
-      "prereq_ids": ["web.html_intro"],
+      "aliases": [
+        "CSS"
+      ],
+      "prereq_ids": [
+        "web.html_intro"
+      ],
       "source_ref": "wy/css/index.html",
       "legacy_url": "wy/css/index.html",
       "verified": false,
-      "blurb": "入口真实存在。"
+      "blurb": ""
     },
     {
       "id": "web.js_intro",
@@ -517,12 +624,17 @@
       "chapter_id": "web.lessons",
       "title": "JavaScript 课页",
       "order": 3,
-      "aliases": ["JavaScript", "DOM"],
-      "prereq_ids": ["web.html_intro"],
+      "aliases": [
+        "JavaScript",
+        "DOM"
+      ],
+      "prereq_ids": [
+        "web.html_intro"
+      ],
       "source_ref": "wy/js/index.html",
       "legacy_url": "wy/js/index.html",
       "verified": false,
-      "blurb": "入口真实存在。"
+      "blurb": ""
     }
   ]
 }

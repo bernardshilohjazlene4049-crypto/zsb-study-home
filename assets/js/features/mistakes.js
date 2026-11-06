@@ -16,7 +16,7 @@ export function renderMistakes(ctx) {
   return h("div", { class: "stack" }, [
     h("header", { class: "page-head" }, [
       h("h1", {}, "错题本"),
-      h("p", { class: "muted" }, "同一题只有一份档案和多次作答。重练会新增记录，不会改掉第一次的答案。")
+      h("p", { class: "muted" }, "答错的题可以在这里重练。")
     ]),
     h("form", {
       class: "row",
@@ -32,13 +32,12 @@ export function renderMistakes(ctx) {
       h("label", { class: "inline-field" }, ["原因", categorySelect(category)])
     ]),
     h("section", { class: "stack" }, [
-      h("h2", {}, `已核验题目的错题 · ${real.length}`),
-      real.length ? h("ul", { class: "stack list-plain" }, real.map((item) => mistakeCard(ctx, item))) : h("p", { class: "muted" }, "还没有。示例题不会出现在这里。")
+      h("h2", {}, `错题 · ${real.length}`),
+      real.length ? h("ul", { class: "stack list-plain" }, real.map((item) => mistakeCard(ctx, item))) : h("p", { class: "muted" }, "暂无内容")
     ]),
     h("section", { class: "stack" }, [
-      h("h2", {}, `示例错题 · ${sample.length}`),
-      h("p", { class: "muted" }, "这些记录可以重练，但不进入真实学习统计。"),
-      sample.length ? h("ul", { class: "stack list-plain" }, sample.map((item) => mistakeCard(ctx, item))) : h("p", { class: "muted" }, "还没有示例错题。")
+      h("h2", {}, `示例 · ${sample.length}`),
+      sample.length ? h("ul", { class: "stack list-plain" }, sample.map((item) => mistakeCard(ctx, item))) : h("p", { class: "muted" }, "暂无内容")
     ]),
     other.length ? h("section", { class: "stack" }, [
       h("h2", {}, `其他来源 · ${other.length}`),

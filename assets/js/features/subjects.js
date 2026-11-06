@@ -46,13 +46,13 @@ function subjectCard(catalog, learning, subject) {
   }, [
     h("div", { class: "subject-top" }, [
       h("div", { class: "subject-icon" }, visual.ico),
-      h("span", { class: `status ${ready ? "ready" : "build"}` }, ready ? "已有科目页面" : "建设中 / 待配置")
+      h("span", { class: `status ${ready ? "ready" : "build"}` }, ready ? "已上线" : "即将开放")
     ]),
     h("h4", {}, subject.name),
     h("p", {}, subject.summary || ""),
     h("div", { class: "subject-meta" }, [
-      h("span", {}, `${topics.length} 个目录节点`),
-      h("span", {}, ready ? "打开现有页面" : "资源待配置")
+      h("span", {}, `${topics.length} 个知识点`),
+      h("span", {}, ready ? "进入学习" : "即将开放")
     ]),
     h("div", { class: "mini-progress" }, [h("i", { style: `width:${pct}%` })]),
     h("span", { class: "subject-arrow" }, [icon("arrow", 14)])
@@ -67,9 +67,7 @@ export function renderSubjectIndex(ctx) {
   return h("div", { class: "stack" }, [
     h("header", { class: "page-head" }, [
       h("div", {}, [
-        h("div", { class: "eyebrow" }, "SUBJECT LIBRARY"),
-        h("h1", {}, "七科知识目录"),
-        h("p", {}, catalog.disclaimer || "目录未经官方考纲核验。")
+        h("h1", {}, "七科知识目录")
       ])
     ]),
     query ? renderSearchResults(results) : null,
@@ -82,7 +80,7 @@ export function renderSubjectIndex(ctx) {
       h("h2", {}, "可选扩展"),
       h("p", { class: "muted" }, "这一科不计入上面的七科数量。"),
       h("div", { class: "subject-grid" }, extra.map((subject) => subjectCard(catalog, ctx.learning, subject)))
-    ]) : h("p", { class: "muted" }, "数字电子技术默认关闭。可在设置中打开，历史记录不会因此被改写。")
+    ]) : h("p", { class: "muted" }, "数字电子技术默认不显示，可在设置里打开。")
   ]);
 }
 
@@ -90,7 +88,7 @@ function renderSearchResults(results) {
   if (!results.length) {
     return h("div", { class: "empty" }, [
       h("strong", {}, "没有匹配内容"),
-      h("p", {}, "只搜索已经导入的目录、视频标题、示例题和本机笔记。没导入的讲义不会被编成结果。")
+      h("p", {}, "换一个关键词再试。")
     ]);
   }
   return h("div", { class: "panel glass" }, [
@@ -117,20 +115,18 @@ export function renderSubjectDetail(ctx) {
   const tab = TABS.some(([id]) => id === ctx.tab) ? ctx.tab : "topics";
   const legacy = subject.homeUrl
     ? h("a", { class: "btn small", href: siteUrl(subject.homeUrl) }, "打开原科目页 ↗")
-    : h("p", { class: "notice" }, "建设中，暂无科目页，所以这里不放链接。");
+    : h("p", { class: "notice" }, "暂无科目页");
   return h("div", { class: "stack" }, [
     h("div", { class: "subject-detail-head" }, [
       h("a", { class: "back-link", href: "#/subjects", "aria-label": "返回目录" }, [icon("back", 16)]),
       h("div", { class: "detail-icon", style: `background:${visual.tint};color:${visual.color}` }, visual.ico),
       h("div", { class: "detail-copy" }, [
-        h("div", { class: "eyebrow" }, "SUBJECT LIBRARY"),
         h("h1", { id: "detailTitle" }, subject.name),
-        h("p", { id: "detailDesc" }, [subject.summary, subject.catalog_note].filter(Boolean).join(" · "))
+        subject.summary ? h("p", { id: "detailDesc" }, subject.summary) : null
       ]),
       h("div", { class: "detail-actions" }, [
         legacy,
-        statusBadge(subject),
-        h("span", { class: "badge" }, "未核验目录")
+        statusBadge(subject)
       ])
     ]),
     h("div", { class: "tabs" }, TABS.map(([id, label]) => h("a", {
@@ -156,18 +152,13 @@ function renderTopics(ctx, subject) {
       ? h("div", { class: "panel glass" }, [
         h("div", { class: "panel-title" }, [
           h("h3", {}, "知识点目录"),
-          h("span", {}, `${subjectTopics(ctx.catalog, subject.id).length} 个目录节点`)
+          h("span", {}, `${subjectTopics(ctx.catalog, subject.id).length} 个知识点`)
         ]),
         h("div", { class: "stack" }, roots.map((chapter) => renderChapter(ctx.catalog, chapter, query)))
       ])
       : h("div", { class: "empty" }, [
-        h("strong", {}, "还没有章节"),
-        h("p", {}, "这个科目尚未导入目录。空着，是为了避免编造章节。")
-      ]),
-    h("div", { class: "panel glass" }, [
-      h("div", { class: "panel-title" }, [h("h3", {}, "学习路径"), h("span", {}, "已导入的顺序")]),
-      h("p", { style: "font-size:11px;color:#8794a7;margin:0" }, subject.catalog_note || ctx.catalog.disclaimer || "目录未经官方考纲核验。")
-    ])
+        h("strong", {}, "还没有章节")
+      ])
   ]);
 }
 
@@ -175,7 +166,7 @@ function renderVideos(ctx, subject) {
   const topicIds = new Set(subjectTopics(ctx.catalog, subject.id).map((topic) => topic.id));
   const videos = ctx.catalog.resources.filter((resource) => resource.kind === "video" && resource.url && (resource.topic_ids || []).some((id) => topicIds.has(id)));
   return h("div", { class: "panel glass" }, [
-    h("div", { class: "panel-title" }, [h("h3", {}, "视频讲解"), h("span", {}, videos.length ? `${videos.length} 条已登记` : "待添加")]),
+    h("div", { class: "panel-title" }, [h("h3", {}, "视频讲解"), h("span", {}, videos.length ? `${videos.length} 条` : "待添加")]),
     videos.length
       ? h("div", {}, videos.map((resource) => {
         const topicId = (resource.topic_ids || []).find((id) => topicIds.has(id));
@@ -184,7 +175,7 @@ function renderVideos(ctx, subject) {
           h("div", { class: "video-thumb" }, [icon("video", 23)]),
           h("div", { style: "min-width:0;flex:1" }, [
             h("strong", {}, resource.title || topic?.title || "已登记视频"),
-            h("small", {}, `${topic?.title || "未指定知识点"} · 时长与秒数以登记内容为准`),
+            h("small", {}, topic?.title || ""),
             h("div", { style: "margin-top:6px" }, [
               topicId ? h("a", { class: "btn small", href: `#/topic/${topicId}` }, "打开知识点") : null
             ])
@@ -193,8 +184,7 @@ function renderVideos(ctx, subject) {
       }))
       : h("div", { class: "resource-empty" }, [
         h("div", { class: "empty-icon" }, [icon("video", 21)]),
-        h("strong", {}, "尚未配置视频资源"),
-        h("p", {}, "这里不会显示虚构的视频时长或时间点。视频只来自仓库里已经登记的资源。")
+        h("strong", {}, "待添加")
       ])
   ]);
 }
@@ -204,15 +194,14 @@ function renderMindmap(ctx, subject) {
   const nodes = buildMindmapNodes(ctx.catalog, subject.id);
   if (nodes.length) mountMindmap(host, nodes, "");
   return h("div", { class: "panel glass" }, [
-    h("div", { class: "panel-title" }, [h("h3", {}, "知识结构图"), h("span", {}, "已导入目录")]),
+    h("div", { class: "panel-title" }, [h("h3", {}, "知识结构图")]),
     nodes.length
       ? h("div", {}, [
         host,
-        h("div", { class: "map-caption" }, "节点来自当前科目的导航草案。点击知识点会打开对应页面。")
+        h("div", { class: "map-caption" }, "点击知识点进入学习。")
       ])
       : h("div", { class: "resource-empty" }, [
-        h("strong", {}, "还没有可展开的导图节点"),
-        h("p", {}, "这个科目尚未导入章节，所以不绘制示意节点。")
+        h("strong", {}, "还没有章节")
       ])
   ]);
 }
@@ -221,7 +210,7 @@ function renderSubjectNotes(ctx, subject) {
   const topicIds = new Set(subjectTopics(ctx.catalog, subject.id).map((topic) => topic.id));
   const notes = (ctx.learning?.notes || []).filter((note) => (note.topic_ids || []).some((id) => topicIds.has(id)));
   return h("div", { class: "panel glass" }, [
-    h("div", { class: "panel-title" }, [h("h3", {}, "我的学习笔记"), h("span", {}, "保存在当前浏览器")]),
+    h("div", { class: "panel-title" }, [h("h3", {}, "我的学习笔记")]),
     notes.length
       ? h("div", { class: "topic-list" }, notes.map((note) => {
         const topicId = (note.topic_ids || []).find((id) => topicIds.has(id));
@@ -234,7 +223,7 @@ function renderSubjectNotes(ctx, subject) {
       }))
       : h("div", { class: "resource-empty" }, [
         h("strong", {}, "还没有笔记"),
-        h("p", {}, "到具体知识点页面写一条。笔记保存在本机，不会自动上传。")
+        h("p", {}, "到知识点页面写一条笔记。")
       ])
   ]);
 }
@@ -262,7 +251,7 @@ function renderChapter(catalog, chapter, query) {
         h("a", { href: `#/topic/${topic.id}` }, [h("strong", {}, topic.title)]),
         h("small", {}, [
           catalog.videosForTopic(topic.id).length ? "有视频" : "视频待添加",
-          catalog.questionsForTopic(topic.id).some((question) => question.provenance?.kind === "sample") ? " · 示例题" : ""
+          catalog.questionsForTopic(topic.id).some((question) => question.provenance?.kind === "sample") ? " · 示例" : ""
         ].join(""))
       ]),
       h("a", { class: "btn small", href: `#/topic/${topic.id}` }, "打开")

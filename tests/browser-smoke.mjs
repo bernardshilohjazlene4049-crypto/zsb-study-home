@@ -191,10 +191,10 @@ try {
   await page.goto(`${base}/study/index.html#/quiz/q_sample_math_domain_001`);
   await page.waitFor("一次一题");
   const before = await page.eval("document.body.innerHTML");
-  check("提交前页面不含解析", !before.includes("示例解析"));
+  check("提交前页面不含解析", !before.includes("对任意实数都有定义"));
   await page.click("f(x) = 1/x");
   await page.click("提交答案");
-  await page.waitFor("示例解析");
+  await page.waitFor("对任意实数都有定义");
   await page.click("不会想一步步学");
   await page.waitFor("作答编号");
   const firstText = await page.text();
@@ -203,16 +203,16 @@ try {
   check("答错进入错题说明", firstText.includes("错题档案"));
 
   await page.goto(`${base}/study/index.html#/mistakes`);
-  await page.waitFor("示例错题");
-  check("错题本把示例单独列出", (await page.text()).includes("示例错题 · 1"));
+  await page.waitFor("示例 · 1");
+  check("错题本把示例单独列出", (await page.text()).includes("示例 · 1"));
 
   await page.click("重练");
   await page.waitFor("重练开始前不显示上次答案");
   const retryHtml = await page.eval("document.body.innerHTML");
-  check("重练作答前不显示解析", !retryHtml.includes("示例解析"));
+  check("重练作答前不显示解析", !retryHtml.includes("对任意实数都有定义"));
   await page.click("f(x) = x²");
   await page.click("提交答案");
-  await page.waitFor("示例解析");
+  await page.waitFor("对任意实数都有定义");
   await page.click("答对但不理解");
   await page.waitFor("共 2 条");
   const secondText = await page.text();
@@ -255,7 +255,7 @@ try {
   check("刷新后笔记还在", noteBody.includes("浏览器验收笔记"));
 
   await page.goto(`${base}/study/index.html#/settings`);
-  await page.waitFor("导出 JSON");
+  await page.waitFor("导出备份");
   const exported = await page.eval(`(async () => {
     const mod = await import(new URL("../assets/js/core/backup.js", location.href).href);
     window.__bundle = await mod.exportBundle();
@@ -319,12 +319,14 @@ try {
   await page.send("Emulation.clearDeviceMetricsOverride");
 
   await page.goto(`${base}/study/index.html#/ai`);
-  await page.waitFor("AI 未连接");
+  await page.waitFor("即将开放");
   await page.goto(`${base}/study/index.html#/ocr`);
-  await page.waitFor("识题未连接");
+  await page.waitFor("即将开放");
   await page.goto(`${base}/tower/index.html`);
-  await page.waitFor("尚未实现");
-  check("指挥塔明确未实现", (await page.text()).includes("没有机器人"));
+  await page.waitFor("查看该科目学习入口");
+  const towerText = await page.text();
+  check("指挥塔进入科目", towerText.includes("七层学习空间") && towerText.includes("查看该科目学习入口"));
+  check("指挥塔不再出现实现说明", !towerText.includes("没有机器人") && !towerText.includes("尚未实现"));
 
   console.log(checks.join("\n"));
   console.log("BROWSER_SMOKE_OK");

@@ -3,7 +3,6 @@ import { UNDERSTANDING, REASON_TAGS } from "./mistake-rules.js";
 import { gradeQuestion } from "./grading.js";
 import { commitSubmission, getDraft, saveDraft, toggleMark, updateMistakeTags } from "./records.js";
 import { CATEGORY_LABEL, GRADING_LABEL, formatWhen, isSampleQuestion } from "./labels.js";
-import { getAiStatus } from "../adapters/status.js";
 
 function helpKey(questionId) {
   return `zsb.help.${questionId}`;
@@ -53,10 +52,10 @@ function renderAnswering(ctx, question) {
     ]),
     h("div", { class: "row" }, [
       h("h1", {}, "一次一题"),
-      sample ? h("span", { class: "badge badge-sample" }, "示例 · 非真题 · 不计入真实统计") : h("span", { class: "badge" }, question.provenance?.kind || "题目"),
+      sample ? h("span", { class: "badge badge-sample" }, "示例") : h("span", { class: "badge" }, "题目"),
       h("span", { class: "badge" }, typeLabel(question.type))
     ]),
-    summaries.length ? h("p", { class: "notice" }, `这道题已有 ${summaries.length} 次作答。这次会新记一条，不会覆盖以前的记录，也不会在作答前展示上次答案。`) : null,
+    summaries.length ? h("p", { class: "notice" }, `这道题已有 ${summaries.length} 次作答。这次会新记一条。`) : null,
     ctx.mode === "retry" ? h("p", { class: "notice" }, "重练开始前不显示上次答案和解析。") : null,
     ctx.action === "not-understood" ? h("p", { class: "notice" }, "如果这题还不会，可以点「记为未作答」，再选「看过仍不懂」。") : null,
     h("p", { class: "stem" }, question.stem),
@@ -156,10 +155,10 @@ async function reveal(ctx, root, question, response, elapsedMs) {
   const guessed = h("input", { type: "checkbox" });
   box.append(...[
     h("h2", {}, "解析"),
-    h("p", {}, `${GRADING_LABEL[grading.status] || grading.status}${grading.auto ? "" : " · 未自动判分"}`),
+    h("p", {}, GRADING_LABEL[grading.status] || "已提交"),
     h("p", {}, question.explanation || "这道题没有解析文本。"),
     grading.status === "correct" ? h("label", { class: "choice" }, [guessed, h("span", {}, "这题我是猜对的")]) : null,
-    h("p", { class: "muted" }, "选择下面一项后，才生成一条不可变的作答记录。"),
+    h("p", { class: "muted" }, "先选一项，记下这次练习。"),
     h("div", { class: "stack" }, UNDERSTANDING.map((item) => h("button", {
       class: "btn",
       type: "button",
@@ -216,7 +215,6 @@ function renderSubmitted(ctx, question, submittedId) {
   const list = topicId ? ctx.catalog.questionsForTopic(topicId) : [];
   const index = list.findIndex((item) => item.id === question.id);
   const next = index >= 0 ? list[index + 1] : null;
-  const ai = h("p", { class: "notice", hidden: true });
   const tags = h("div", { class: "row" });
   if (mistake) {
     for (const tag of REASON_TAGS) {
@@ -239,32 +237,23 @@ function renderSubmitted(ctx, question, submittedId) {
   return h("article", { class: "stack" }, [
     h("div", { class: "row" }, [
       h("h1", {}, "本次结果"),
-      isSampleQuestion(question) ? h("span", { class: "badge badge-sample" }, "示例 · 不计入真实统计") : null
+      isSampleQuestion(question) ? h("span", { class: "badge badge-sample" }, "示例") : null
     ]),
     h("p", { class: "stem" }, question.stem),
     h("p", {}, `${GRADING_LABEL[attempt.grading?.status] || "已提交"} · ${labelOfUnderstanding(attempt.understanding)}`),
     attempt.guessed ? h("p", {}, "这次按「猜对」记入复习。") : null,
     h("p", {}, question.explanation || ""),
     h("p", { class: "muted" }, `作答编号 ${attempt.id}`),
-    h("p", { class: "muted" }, `同一题目前后共 ${others.length} 条作答，最早一条不会被这条覆盖。`),
+    h("p", { class: "muted" }, `共 ${others.length} 条作答`),
     mistake ? h("p", {}, `错题档案：${CATEGORY_LABEL[mistake.category] || mistake.category} · 首次作答 ${mistake.first_attempt_id}`) : h("p", {}, "这次没有进入错题本。"),
-    mistake ? h("div", { class: "stack" }, [h("h2", {}, "错因（只改档案，不改作答记录）"), tags]) : null,
-    h("p", { class: "muted" }, mistake?.next_review_at ? `下次复习参考时间 ${formatWhen(mistake.next_review_at)}。间隔是可调整的启发式，不是官方安排。` : ""),
+    mistake ? h("div", { class: "stack" }, [h("h2", {}, "错因"), tags]) : null,
+    mistake?.next_review_at ? h("p", { class: "muted" }, `下次复习 ${formatWhen(mistake.next_review_at)}`) : null,
     h("div", { class: "row" }, [
       h("a", { class: "btn btn-primary", href: `#/quiz/${question.id}?mode=retry` }, "重练本题"),
       next ? h("a", { class: "btn", href: `#/quiz/${next.id}` }, "下一题") : null,
       topicId ? h("a", { class: "btn", href: `#/topic/${topicId}` }, "返回知识点") : null,
-      h("a", { class: "btn", href: "#/mistakes" }, "错题本"),
-      h("button", {
-        class: "btn",
-        type: "button",
-        onclick: () => {
-          ai.hidden = false;
-          ai.textContent = getAiStatus().message;
-        }
-      }, "AI 一步步讲")
-    ]),
-    ai
+      h("a", { class: "btn", href: "#/mistakes" }, "错题本")
+    ])
   ]);
 }
 

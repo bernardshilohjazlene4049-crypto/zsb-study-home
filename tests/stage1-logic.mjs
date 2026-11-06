@@ -132,7 +132,7 @@ test("import skips duplicate attempt ids", () => {
 });
 
 test("newer backup versions are rejected", () => {
-  assert.throws(() => validateBundle({ schema_version: 99, stores: {} }), /更新的数据版本/);
+  assert.throws(() => validateBundle({ schema_version: 99, stores: {} }), /比当前页面新/);
 });
 
 test("unverified anchors do not keep a timestamp", () => {

@@ -1,6 +1,6 @@
 export const SUBJECT_STATUS = {
   live: "已上线",
-  building: "建设中",
+  building: "即将开放",
   disabled: "未启用"
 };
 
@@ -21,7 +21,7 @@ export const GRADING_LABEL = {
 export const MASTERY_LABEL = {
   practicing: "已开始练习",
   needs_review: "需要复习",
-  independent_once: "有一次独立做对的证据，还不等于熟练",
+  independent_once: "独立做对过一次",
   prompted_correct: "看过解析后做对"
 };
 
