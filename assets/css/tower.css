@@ -27,3 +27,20 @@ a.detail-action { display: block; text-align: center; }
   .topbar { height: auto; min-height: 56px; flex-wrap: wrap; row-gap: 8px; padding-top: 8px; padding-bottom: 8px; }
   .top-meta { width: 100%; justify-content: flex-end; }
 }
+
+/* V1.2: floor-readability refinement, controlled contrast, responsive polish */
+.stage{background:radial-gradient(ellipse at 49% 40%,rgba(51,95,143,.19),transparent 65%),linear-gradient(170deg,rgba(17,33,54,.91),rgba(9,19,33,.93));}
+.stage-head h1{font-weight:680;letter-spacing:-.035em}
+.stage-kicker{color:#91aed0;letter-spacing:.17em}
+.floor-btn.active{background:linear-gradient(100deg,rgba(113,166,226,.20),rgba(77,126,184,.055));border-color:rgba(146,197,244,.31);box-shadow:inset 2px 0 rgba(144,199,246,.68)}
+.floor-btn.active .floor-no{background:rgba(134,187,238,.24);color:#eff7ff}
+.floor-btn{min-height:51px}
+.floor-btn:focus-visible,.detail-action:focus-visible,.btn:focus-visible{outline:2px solid #a7cff0;outline-offset:2px}
+.detail-action{font-weight:600;min-height:38px}
+.canvas-hint{color:#9aacc2}
+.legend{color:#8a9db5}
+.legend i{box-shadow:0 0 0 3px rgba(123,190,165,.08)}
+.stage-controls .btn{background:rgba(20,39,62,.80);border-color:rgba(165,200,236,.20);color:#d5e4f6}
+.stage-controls .btn:hover{background:rgba(42,68,97,.83)}
+@media(max-width:760px){.floor-btn{min-height:0}.stage{background:radial-gradient(ellipse at 40% 45%,rgba(54,102,154,.19),transparent 72%),linear-gradient(180deg,#102039,#0a1526)}}
+@media(prefers-reduced-motion:reduce){.stage-controls .btn{transition:none}}
