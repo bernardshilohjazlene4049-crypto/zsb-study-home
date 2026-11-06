@@ -30,7 +30,7 @@ function progressCount(catalog, learning, subjectId) {
 
 export function renderCatalogGrid(catalog, learning, optionalOn) {
   const subjects = catalog.visibleSubjects(optionalOn).filter((subject) => !subject.optional);
-  return h("div", { class: "subject-grid", id: "subjectGrid" }, subjects.map((subject) => subjectCard(catalog, learning, subject)));
+  return h("div", { class: "subject-grid card-grid", id: "subjectGrid" }, subjects.map((subject) => subjectCard(catalog, learning, subject)));
 }
 
 function subjectCard(catalog, learning, subject) {
@@ -40,22 +40,23 @@ function subjectCard(catalog, learning, subject) {
   const pct = total ? Math.round(done / total * 100) : 0;
   const ready = subject.status === "live" && Boolean(subject.homeUrl);
   return h("a", {
-    class: "subject-card",
+    class: "subject-card content-card",
     href: `#/subject/${subject.id}`,
     style: `--subject-color:${visual.color};--subject-tint:${visual.tint}`
   }, [
-    h("div", { class: "subject-top" }, [
-      h("div", { class: "subject-icon" }, visual.ico),
-      h("span", { class: `status ${ready ? "ready" : "build"}` }, ready ? "已上线" : "即将开放")
-    ]),
-    h("h4", {}, subject.name),
-    subject.summary && !subject.summary.includes("即将开放") ? h("p", {}, subject.summary) : null,
-    h("div", { class: "subject-meta" }, [
-      h("span", {}, `${topics.length} 个知识点`),
-      h("span", {}, ready ? "进入学习" : "即将开放")
-    ]),
-    h("div", { class: "mini-progress" }, [h("i", { style: `width:${pct}%` })]),
-    h("span", { class: "subject-arrow" }, [icon("arrow", 14)])
+    h("div", { class: "content-card__body" }, [
+      h("div", { class: "subject-top" }, [
+        h("div", { class: "subject-icon" }, visual.ico),
+        h("span", { class: `badge ${ready ? "badge--success" : "badge--warning"}` }, ready ? "已上线" : "即将开放")
+      ]),
+      h("h3", { class: "content-card__title" }, subject.name),
+      subject.summary && !subject.summary.includes("即将开放") ? h("p", { class: "content-card__text" }, subject.summary) : null,
+      h("div", { class: "content-card__footer" }, [
+        h("span", {}, `${topics.length} 个知识点`),
+        h("span", {}, ready ? "进入学习" : "即将开放")
+      ]),
+      h("div", { class: "progress-track" }, [h("span", { class: "progress-track__fill", style: `width:${pct}%` })])
+    ])
   ]);
 }
 
@@ -79,7 +80,7 @@ export function renderSubjectIndex(ctx) {
     extra.length ? h("section", { class: "stack" }, [
       h("h2", {}, "可选扩展"),
       h("p", { class: "muted" }, "这一科不计入上面的七科数量。"),
-      h("div", { class: "subject-grid" }, extra.map((subject) => subjectCard(catalog, ctx.learning, subject)))
+      h("div", { class: "subject-grid card-grid" }, extra.map((subject) => subjectCard(catalog, ctx.learning, subject)))
     ]) : null
   ]);
 }

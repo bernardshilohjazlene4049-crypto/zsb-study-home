@@ -3,52 +3,64 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#0b1320">
+  <meta name="theme-color" content="#f5f6f8">
   <title>学习指挥塔 · 辽宁专升本计算机组</title>
   <link rel="stylesheet" href="../assets/css/tower.css">
-  <link rel="stylesheet" href="../assets/css/site-nav.css">
+  <link rel="stylesheet" href="../assets/css/site-unify.css">
 </head>
 <body>
-  <div class="app">
-    <header class="topbar">
-      <div class="brand">
-        <div class="brand-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 8.5 12 4l8 4.5v7L12 20l-8-4.5z"/><path d="m4 8.5 8 4.5 8-4.5M12 13v7"/></svg>
-        </div>
-        <div>
-          <strong>学习指挥塔</strong>
-        </div>
-      </div>
-      <div class="top-meta">
-        <button class="btn" id="performanceToggle" type="button">减少动画</button>
-        <a class="btn" id="openStudy" href="../study/index.html">返回学习工作台 ↗</a>
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="site-brand" href="../index.html">
+          <span class="site-brand__mark" aria-hidden="true">书</span>
+          <span class="site-brand__name">辽宁专升本 · 计算机类</span>
+        </a>
+        <nav class="site-nav" aria-label="主导航">
+          <a class="site-nav__link" href="../index.html">首页</a>
+          <a class="site-nav__link" href="../index.html#subjects">科目索引</a>
+          <a class="site-nav__link" href="../study/index.html">学习工作台</a>
+          <a class="site-nav__link is-active" href="../tower/index.html" aria-current="page">学习指挥塔</a>
+        </nav>
       </div>
     </header>
-    <div class="layout">
-      <aside class="panel left">
-        <div class="floor-list" id="floorList"></div>
-      </aside>
-      <main class="panel stage">
-        <div class="stage-head">
-          <div>
-            <h1>七层学习空间</h1>
+    <nav class="site-subnav" aria-label="科目导航">
+      <div class="site-subnav__inner">
+        <a class="site-subnav__link" href="../yy/index.html">英语</a>
+        <a class="site-subnav__link" href="../gs/index.html">高等数学</a>
+        <a class="site-subnav__link" href="../jsj/index.html">计算机基础</a>
+        <a class="site-subnav__link" href="../c/index.html">C 语言</a>
+        <span class="site-subnav__link" aria-disabled="true">数据库<span class="badge badge--warning" style="margin-left:6px">即将开放</span></span>
+        <a class="site-subnav__link" href="../wy/index.html">网页设计</a>
+        <span class="site-subnav__link" aria-disabled="true">计算机网络<span class="badge badge--warning" style="margin-left:6px">即将开放</span></span>
+      </div>
+    </nav>
+    <main class="site-container site-main">
+      <div class="tower-layout">
+        <aside class="tower-panel">
+          <div class="tower-floor-list" id="floorList"></div>
+        </aside>
+        <section class="tower-stage">
+          <div class="tower-stage__topbar">
+            <h1 class="tower-stage__title">七层学习空间</h1>
+            <div class="stage-controls">
+              <button class="btn btn--secondary" id="performanceToggle" type="button">减少动画</button>
+              <button class="btn btn--secondary" id="zoomOut" type="button" aria-label="缩小">−</button>
+              <button class="btn btn--secondary" id="zoomIn" type="button" aria-label="放大">＋</button>
+              <button class="btn btn--secondary" id="resetView" type="button">重置视图</button>
+            </div>
           </div>
-          <div class="stage-controls">
-            <button class="btn" id="zoomOut" type="button" aria-label="缩小">−</button>
-            <button class="btn" id="zoomIn" type="button" aria-label="放大">＋</button>
-            <button class="btn" id="resetView" type="button">重置视图</button>
-          </div>
-        </div>
-        <div class="canvas-wrap"><canvas id="towerCanvas" aria-label="七层学习空间"></canvas></div>
-      </main>
-      <aside class="panel right" id="detailPanel"></aside>
-    </div>
-    <div class="mobile-floors" id="mobileFloors"></div>
+          <canvas class="tower-stage__canvas" id="towerCanvas" aria-label="七层学习空间"></canvas>
+        </section>
+        <aside class="tower-panel" id="detailPanel"></aside>
+      </div>
+    </main>
+    <div id="mobileFloors" hidden></div>
     <span id="renderMode" hidden></span>
-    <footer></footer>
+    <footer class="site-footer"></footer>
   </div>
   <noscript><p><a href="../study/index.html">学习工作台</a></p></noscript>
-  <script src="../assets/js/site-nav.js" data-base="../" data-tone="dark" data-site-nav=""></script>
+  <script src="../assets/js/site-nav.js" data-base="../" data-site-nav=""></script>
   <script type="module" src="../assets/js/tower.js"></script>
 </body>
 </html>

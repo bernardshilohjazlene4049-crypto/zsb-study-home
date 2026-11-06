@@ -81,7 +81,7 @@ function buildFloors(subjectsDoc, topicsDoc) {
 function drawFloorLists() {
   const markup = floors.slice().reverse().map((floor, index) => {
     const floorIndex = floors.length - 1 - index;
-    return `<button class="floor-btn ${floorIndex === selected ? "active" : ""}" type="button" data-floor="${floorIndex}"><span class="floor-no">${esc(floor.no)}</span><span><span class="floor-name">${esc(floor.name)}</span>${floor.sub ? `<span class="floor-sub">${esc(floor.sub)}</span>` : ""}</span></button>`;
+    return `<button class="tower-floor-button${floorIndex === selected ? " is-active" : ""}" type="button" data-floor="${floorIndex}" ${floorIndex === selected ? 'aria-current="true"' : ""}><span class="floor-no">${esc(floor.no)}</span><span><span class="floor-name">${esc(floor.name)}</span>${floor.sub ? `<span class="floor-sub">${esc(floor.sub)}</span>` : ""}</span></button>`;
   }).join("");
   el("floorList").innerHTML = markup;
   el("mobileFloors").innerHTML = markup;
@@ -100,13 +100,13 @@ function selectFloor(index) {
 function drawDetail() {
   const floor = floors[selected];
   const links = floor.overview
-    ? `<a class="detail-action" href="${studyHref("#/home")}">打开学习工作台 ↗</a>`
+    ? `<a class="btn btn--secondary" href="${studyHref("#/home")}">打开学习工作台</a>`
     : floor.subjectIds.map((id) => {
       const name = floors.flatMap((item) => item.subjectIds.includes(id) ? [item] : []).length
         ? (id === "english" ? "英语" : id === "math" ? "高等数学" : floor.name)
         : floor.name;
       const label = floor.subjectIds.length > 1 ? `打开${name}学习入口 ↗` : "查看该科目学习入口 ↗";
-      return `<a class="detail-action" href="${studyHref(`#/subjects/${encodeURIComponent(id)}`)}">${esc(label)}</a>`;
+      return `<a class="btn btn--secondary" href="${studyHref(`#/subjects/${encodeURIComponent(id)}`)}">${esc(label)}</a>`;
     }).join("");
   el("detailPanel").innerHTML = `<div class="detail-top"><span>当前楼层</span><span class="floor-badge">${esc(floor.no)}</span></div>
     <div class="detail-grid"><div class="detail-icon" style="color:${floor.color};border-color:${floor.color}33;background:${floor.color}15">${esc(floor.glyph)}</div><div><h2>${esc(floor.name)}</h2>${floor.sub ? `<p class="detail-desc">${esc(floor.sub)}</p>` : ""}</div></div>
@@ -132,10 +132,13 @@ function setupCanvas() {
     return false;
   }
   const resize = () => {
+    const cssH = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--sg-canvas-height")) || 560;
+    canvas.style.width = "100%";
+    canvas.style.height = `${cssH}px`;
     const rect = canvas.getBoundingClientRect();
     const dpr = Math.min(window.devicePixelRatio || 1, lowMode ? 1 : 1.65);
     canvas.width = Math.max(1, Math.round(rect.width * dpr));
-    canvas.height = Math.max(1, Math.round(rect.height * dpr));
+    canvas.height = Math.max(1, Math.round(cssH * dpr));
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     drawTower();
   };

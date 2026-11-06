@@ -9,7 +9,7 @@ import { renderMistakes } from "./features/mistakes.js";
 import { renderSettings } from "./features/settings.js";
 import { loadLearningState } from "./features/records.js";
 import { visualFor } from "./features/subject-visual.js";
-import { brandMark, icon } from "./features/icons.js";
+import { icon } from "./features/icons.js";
 
 const state = {
   raw: null,
@@ -83,7 +83,7 @@ function pageHead(eyebrow, title, text, actions) {
   return h("div", { class: "page-head" }, [
     h("div", {}, [
       eyebrow ? h("div", { class: "eyebrow" }, eyebrow) : null,
-      h("h1", {}, title),
+      h("h1", { class: "page-title" }, title),
       text ? h("p", {}, text) : null
     ]),
     actions ? h("div", { class: "head-actions" }, actions) : null
@@ -91,7 +91,7 @@ function pageHead(eyebrow, title, text, actions) {
 }
 
 function navLink(key, href, label, iconName, extra) {
-  return h("a", { class: "nav-item", href, "data-nav": key }, [
+  return h("a", { class: "nav-item nav-list__link", href, "data-nav": key }, [
     icon(iconName),
     label,
     extra || null
@@ -103,55 +103,41 @@ function mountShell() {
   const mistakeCount = h("span", { class: "nav-count", id: "mistakeCount" }, "0");
   app.replaceChildren(
     h("a", { class: "skip", href: "#main" }, "跳到内容"),
-    h("header", { class: "topbar" }, [
-      h("div", { class: "brand" }, [
-        h("div", { class: "brand-mark" }, [brandMark()]),
-        h("div", { class: "brand-copy" }, [
-          h("strong", {}, "学习工作台")
+    h("div", { class: "dashboard-layout" }, [
+      h("aside", { class: "dashboard-sidebar sidebar glass-panel" }, [
+        h("nav", { class: "nav-list", "aria-label": "学习导航" }, [
+          navLink("home", "#/home", "工作台首页", "home"),
+          navLink("subject", "#/subjects", "七科知识目录", "layers"),
+          navLink("practice", "#/practice", "在线练习", "pencil"),
+          navLink("mistakes", "#/mistakes", "错题与复习 ", "notebook", mistakeCount),
+          navLink("settings", "#/settings", "设置与数据", "settings")
         ])
       ]),
-      h("div", { class: "top-actions" }, [
-        h("div", { class: "search-wrap" }, [
-          h("span", { class: "search-icon", id: "searchIcon" }, [icon("search", 16)]),
-          h("input", { class: "search", id: "globalSearch", placeholder: "搜索科目、知识点…", "aria-label": "搜索科目和知识点" }),
+      h("div", { class: "dashboard-main" }, [
+        h("div", { class: "search-wrap", style: "margin-bottom:20px;width:min(420px,100%)" }, [
+          h("label", { class: "search-field" }, [
+            h("span", { id: "searchIcon" }, [icon("search", 16)]),
+            h("input", { id: "globalSearch", placeholder: "搜索科目、知识点…", "aria-label": "搜索科目和知识点" })
+          ]),
           h("div", { class: "search-results", id: "searchResults" })
         ]),
-        h("a", { class: "icon-btn", href: "../tower/index.html", title: "打开学习指挥塔", "aria-label": "打开学习指挥塔" }, [icon("tower", 17)]),
-        h("div", { class: "avatar", title: "学习档案" }, "学")
-      ])
-    ]),
-    h("div", { class: "layout" }, [
-      h("aside", { class: "sidebar" }, [
-        h("div", { class: "side-card glass" }, [
-          h("div", { class: "side-label" }, "学习空间"),
-          h("nav", { class: "nav-list" }, [
-            navLink("home", "#/home", "工作台首页", "home"),
-            navLink("subject", "#/subjects", "七科知识目录", "layers"),
-            navLink("practice", "#/practice", "在线练习", "pencil"),
-            navLink("mistakes", "#/mistakes", "错题与复习 ", "notebook", mistakeCount)
-          ]),
-          h("div", { class: "side-label", style: "margin-top:15px" }, "个人管理"),
-          h("nav", { class: "nav-list" }, [
-            navLink("settings", "#/settings", "设置与数据", "settings")
-          ])
-        ])
+        h("main", { class: "main", id: "main", tabindex: "-1" })
       ]),
-      h("main", { class: "main", id: "main", tabindex: "-1" }),
-      h("aside", { class: "rightbar", id: "rightbar" }, [
-        h("div", { class: "right-card glass" }, [
+      h("aside", { class: "dashboard-aside", id: "rightbar" }, [
+        h("div", { class: "glass-panel" }, [
           h("div", { class: "profile-row" }, [
             h("div", { class: "profile-avatar" }, [icon("user")]),
             h("div", {}, [h("strong", {}, "我的学习档案")])
           ]),
           h("div", { class: "progress-ring", id: "overallRing" }, [h("span", { id: "overallPercent" }, "0%")])
         ]),
-        h("div", { class: "right-card glass" }, [
-          h("div", { class: "panel-title" }, [h("h3", {}, "科目进度")]),
+        h("div", { class: "glass-panel" }, [
+          h("h3", { class: "section-title", style: "font-size:var(--sg-text-md)" }, "科目进度"),
           h("div", { class: "subject-progress", id: "rightProgress" })
         ]),
-        h("div", { class: "right-card glass" }, [
-          h("div", { class: "panel-title" }, [h("h3", {}, "学习指挥塔")]),
-          h("a", { class: "btn small", href: "../tower/index.html" }, "打开学习指挥塔 ↗")
+        h("div", { class: "glass-panel" }, [
+          h("h3", { class: "section-title", style: "font-size:var(--sg-text-md)" }, "学习指挥塔"),
+          h("a", { class: "btn btn--secondary", href: "../tower/index.html" }, "打开学习指挥塔")
         ])
       ])
     ]),
@@ -195,6 +181,7 @@ function renderChrome(route) {
   for (const link of document.querySelectorAll("[data-nav]")) {
     const on = link.dataset.nav === key;
     link.classList.toggle("active", on);
+    link.classList.toggle("is-active", on);
     if (on) link.setAttribute("aria-current", "page");
     else link.removeAttribute("aria-current");
   }
@@ -233,7 +220,7 @@ function renderRight() {
 }
 
 function metric(label, value, foot, iconName) {
-  return h("div", { class: "metric glass" }, [
+  return h("article", { class: "metric stat-card" }, [
     h("div", { class: "metric-top" }, [label, iconName ? h("span", { class: "metric-icon" }, [icon(iconName)]) : null]),
     h("div", { class: "metric-value" }, String(value)),
     foot ? h("div", { class: "metric-foot" }, foot) : null
@@ -298,14 +285,14 @@ function renderHome() {
   return h("div", {}, [
     pageHead("", "工作台", ""),
     state.dbMessage ? h("p", { class: "notice" }, state.dbMessage) : null,
-    h("div", { class: "metrics" }, [
+    h("div", { class: "metrics stat-grid" }, [
       metric("累计练习", attempts.length, "", "target"),
       metric("错题待复习", mistakes.length, "", "rotate"),
       metric("练习记录", recorded.size, "", "check"),
       metric("学习记录", days.size, "", "clock")
     ]),
-    h("div", { class: "section-head" }, [
-      h("h3", {}, "七科学习入口"),
+    h("div", { class: "section-heading" }, [
+      h("h2", { class: "section-title" }, "七科学习入口"),
       h("span", {}, `七科 · ${subjects.length}`)
     ]),
     renderCatalogGrid(state.catalog, state.learning, optionalOn()),
@@ -442,22 +429,7 @@ function renderPage(route) {
 }
 
 function footer() {
-  const links = [
-    ["首页", "../index.html"],
-    ["学习工作台", "../study/index.html"],
-    ["学习指挥塔", "../tower/index.html"],
-    ["高等数学", "../gs/index.html"],
-    ["计算机基础", "../jsj/index.html"],
-    ["C语言", "../c/index.html"],
-    ["英语", "../yy/index.html"],
-    ["网页设计", "../wy/index.html"]
-  ];
-  return h("div", { class: "stack" }, [
-    h("nav", { class: "site-links site-links-foot site-links-show", "aria-label": "页脚导航" }, links.map(([label, href]) => h("a", {
-      href,
-      "aria-current": href.endsWith("study/index.html") ? "page" : null
-    }, label)))
-  ]);
+  return null;
 }
 
 async function render() {

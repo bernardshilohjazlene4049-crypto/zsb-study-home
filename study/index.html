@@ -6,10 +6,38 @@
   <meta name="theme-color" content="#f5f7fb">
   <title>学习工作台 · 辽宁专升本计算机组</title>
   <link rel="stylesheet" href="../assets/css/study.css">
-  <link rel="stylesheet" href="../assets/css/site-nav.css">
+  <link rel="stylesheet" href="../assets/css/site-unify.css">
 </head>
 <body>
-  <div class="app" id="app"></div>
+  <div class="site-shell">
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-brand" href="../index.html">
+        <span class="site-brand__mark" aria-hidden="true">书</span>
+        <span class="site-brand__name">辽宁专升本 · 计算机类</span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a class="site-nav__link" href="../index.html">首页</a>
+        <a class="site-nav__link" href="../index.html#subjects">科目索引</a>
+        <a class="site-nav__link is-active" href="../study/index.html" aria-current="page">学习工作台</a>
+        <a class="site-nav__link" href="../tower/index.html">学习指挥塔</a>
+      </nav>
+    </div>
+  </header>
+  <nav class="site-subnav" aria-label="科目导航">
+    <div class="site-subnav__inner">
+      <a class="site-subnav__link" href="../yy/index.html">英语</a>
+      <a class="site-subnav__link" href="../gs/index.html">高等数学</a>
+      <a class="site-subnav__link" href="../jsj/index.html">计算机基础</a>
+      <a class="site-subnav__link" href="../c/index.html">C 语言</a>
+      <span class="site-subnav__link" aria-disabled="true">数据库<span class="badge badge--warning" style="margin-left:6px">即将开放</span></span>
+      <a class="site-subnav__link" href="../wy/index.html">网页设计</a>
+      <span class="site-subnav__link" aria-disabled="true">计算机网络<span class="badge badge--warning" style="margin-left:6px">即将开放</span></span>
+    </div>
+  </nav>
+  <div id="app" class="site-container site-main"></div>
+  <footer class="site-footer"></footer>
+  </div>
   <noscript>
     <p>学习工作台需要 JavaScript。旧的科目页面仍可从首页进入。</p>
   </noscript>
