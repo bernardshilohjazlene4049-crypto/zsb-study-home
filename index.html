@@ -124,8 +124,11 @@
     .nav-links {
       display: flex;
       align-items: center;
+      flex-wrap: wrap;
       gap: 30px;
       margin-left: auto;
+      min-width: 0;
+      max-width: 100%;
     }
 
     .nav-links a {
@@ -900,6 +903,7 @@
         <a href="#subjects">科目索引</a>
         <a href="#resources">资料入口</a>
         <a href="study/index.html">学习工作台</a>
+        <a href="tower/index.html">学习指挥塔</a>
       </nav>
 
       <a class="top-action" href="#subjects">
@@ -939,6 +943,12 @@
                 <path d="M4 10h11M10 5l5 5-5 5"/>
               </svg>
             </a>
+            <a class="text-action" href="tower/index.html">
+              学习指挥塔
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 10h11M10 5l5 5-5 5"/>
+              </svg>
+            </a>
           </div>
         </div>
 
@@ -962,7 +972,7 @@
             <div>
               <p class="section-kicker">SUBJECT DIRECTORY</p>
               <h2>科目索引</h2>
-              <p class="section-description">按公共课与专业课分类，进入对应学习页面。科目卡片保持原样，也可打开 <a class="entry-link" href="study/index.html">学习工作台</a>。</p>
+              <p class="section-description">按公共课与专业课分类，进入对应学习页面。科目卡片保持原样，也可打开 <a class="entry-link" href="study/index.html">学习工作台</a> 或 <a class="entry-link" href="tower/index.html">学习指挥塔</a>。</p>
             </div>
             <div class="status-legend" aria-label="状态说明">
               <span class="status-key"><i class="status-dot"></i>已上线</span>

@@ -547,9 +547,22 @@ function renderPage(route) {
 }
 
 function footer() {
-  return h("div", { class: "footer-note" }, [
-    "目录未经官方考纲核验 · 学习记录保存在当前浏览器 · ",
-    h("a", { href: "../index.html" }, "旧首页")
+  const links = [
+    ["首页", "../index.html"],
+    ["学习工作台", "../study/index.html"],
+    ["学习指挥塔", "../tower/index.html"],
+    ["高等数学", "../gs/index.html"],
+    ["计算机基础", "../jsj/index.html"],
+    ["C语言", "../c/index.html"],
+    ["英语", "../yy/index.html"],
+    ["网页设计", "../wy/index.html"]
+  ];
+  return h("div", { class: "stack" }, [
+    h("nav", { class: "site-links site-links-foot site-links-show", "aria-label": "页脚导航" }, links.map(([label, href]) => h("a", {
+      href,
+      "aria-current": href.endsWith("study/index.html") ? "page" : null
+    }, label))),
+    h("div", { class: "footer-note" }, "目录未经官方考纲核验 · 学习记录保存在当前浏览器")
   ]);
 }
 
