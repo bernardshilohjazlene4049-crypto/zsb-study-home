@@ -3,7 +3,8 @@
 .tocd>summary{display:none}
 @media (max-width:760px){
  html{-webkit-tap-highlight-color:rgba(0,113,227,.12)}
- body{padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right);padding-bottom:calc(72px + env(safe-area-inset-bottom))}
+ body{padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right);padding-bottom:calc(96px + env(safe-area-inset-bottom))}
+ html{scroll-padding-top:72px;scroll-padding-bottom:calc(96px + env(safe-area-inset-bottom))}
  .shell{width:calc(100% - 32px)}
  .topbar{padding-top:env(safe-area-inset-top)}
  .topbar .shell{min-height:56px}
@@ -15,7 +16,7 @@
  .shell .hero{padding:28px 0 16px}
  .shell .hero h1{font-size:clamp(32px,8vw,40px);font-weight:600;letter-spacing:-.045em}
  .shell .lead{font-size:15px;margin-bottom:16px}
- .shell .chip,.shell .tag,.dur,.vnum,.vbody p,.link-card p,.sec-desc,footer.foot,.md code,.md table{font-size:13px}
+ .shell .chip,.shell .tag,.dur,.vnum,.vbody p,.link-card p,.sec-desc,footer.foot,.md code,.md table,.crumb,.wy-crumb,.tryit-hint{font-size:14px}
  .shell section.block{padding:20px 0 28px}
  .shell .panel{padding:16px;border-radius:22px}
  .link-card{padding:16px;min-height:72px}
@@ -62,7 +63,7 @@
  }
  .m-nav a,.m-nav button{
   display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
-  min-height:52px;font:500 12px/1.2 inherit;color:var(--muted,#6E6E73);
+  min-height:52px;min-width:44px;font:500 14px/1.2 inherit;color:var(--muted,#6E6E73);
   text-decoration:none;background:none;border:0;border-radius:12px;font-family:inherit
  }
  .m-nav a[aria-current=page]{color:var(--blue,#0071E3)}
@@ -71,8 +72,21 @@
 }
 @media (orientation:landscape) and (max-height:500px){
  .m-nav{display:none!important}
- body{padding-bottom:env(safe-area-inset-bottom)!important}
+ body{padding-bottom:calc(16px + env(safe-area-inset-bottom))!important}
  .vthumb{aspect-ratio:16/9;max-height:calc(100svh - 72px);margin:0 auto;width:min(100%,calc((100svh - 72px)*16/9))}
  .vthumb video{object-fit:contain!important}
  .grid.g3:has(.vcard){grid-template-columns:1fr 1fr}
+}
+@media (max-width:900px){
+ .toc li a,.link-card,.crumb a{min-height:44px}
+ .toc li a{display:flex;align-items:center;font-size:14px}
+ .crumb a,.route a,.md p a,.wy-crumb a,.panel a{
+  display:inline-flex;align-items:center;min-height:44px;padding-inline:4px
+ }
+ .tablewrap a,.md table a,.ref-wrap a{
+  display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px
+ }
+ pre{max-width:100%;min-width:0;overflow-x:auto;-webkit-overflow-scrolling:touch}
+ .tryit,.tryit-grid,.tablewrap,.ref-wrap{max-width:100%;min-width:0}
+ input,select,textarea,.tryit-code{font-size:16px}
 }

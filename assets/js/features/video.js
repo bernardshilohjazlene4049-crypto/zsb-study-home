@@ -11,8 +11,7 @@ export function mountVideo(container, { resource, anchor, dbOk, onPlay }) {
   container.replaceChildren();
   if (!resource?.url) {
     container.append(h("div", { class: "empty" }, [
-      h("strong", {}, "待添加"),
-      h("p", {}, "这个知识点还没有登记视频，页面不会编造播放地址。")
+      h("strong", {}, "待添加")
     ]));
     return;
   }
@@ -35,8 +34,8 @@ export function mountVideo(container, { resource, anchor, dbOk, onPlay }) {
   });
 
   const status = h("p", { class: "notice" }, located
-    ? `从已核验位置 ${formatClock(anchor.start_sec)} 开始。`
-    : "暂无定位。下面播放的是已经登记的整段资源，不会跳到编造的秒数。");
+    ? `从 ${formatClock(anchor.start_sec)} 开始。`
+    : "暂无定位。");
 
   video.addEventListener("error", () => {
     status.textContent = "视频文件没有加载成功。可以改打开原页面。";

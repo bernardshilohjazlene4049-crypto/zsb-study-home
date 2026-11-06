@@ -95,15 +95,17 @@
 .tryit-grid{display:grid;grid-template-columns:1fr;min-height:240px}
 @media(min-width:860px){.tryit-grid{grid-template-columns:1fr 1fr;min-height:280px}}
 .tryit-code{
-  width:100%;min-height:240px;border:0;resize:vertical;padding:16px;
-  font:13px/1.55 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  width:100%;min-height:240px;max-width:100%;border:0;resize:vertical;padding:16px;
+  font:16px/1.55 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
   background:#1C1C1E;color:#F5F5F7;border-radius:0
 }
 .tryit-code:focus-visible{outline:2px solid rgba(0,113,227,.7);outline-offset:-2px}
 @media(min-width:860px){.tryit-code{min-height:280px;border-right:1px solid #2C2C2E}}
 .tryit-preview{width:100%;min-height:240px;border:0;background:#fff;display:block}
 @media(min-width:860px){.tryit-preview{min-height:280px}}
-.tryit-hint{padding:10px 14px 12px;font-size:12px;color:var(--muted);border-top:1px solid var(--line);background:#fff}
+.tryit-hint{padding:10px 14px 12px;font-size:14px;color:var(--muted);border-top:1px solid var(--line);background:#fff}
+.wy-article pre,.tryit{max-width:100%;min-width:0}
+.wy-article pre{overflow-x:auto;-webkit-overflow-scrolling:touch}
 
 .quiz{margin:20px 0;display:grid;gap:16px}
 .qitem{border:1px solid var(--line);border-radius:18px;padding:16px 16px 18px;background:rgba(255,255,255,.86)}

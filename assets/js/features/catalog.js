@@ -2,7 +2,7 @@ import { siteUrl } from "../core/paths.js";
 
 async function readJson(path) {
   const response = await fetch(siteUrl(path));
-  if (!response.ok) throw new Error(`无法读取 ${path}（HTTP ${response.status}）`);
+  if (!response.ok) throw new Error("目录没有载入。");
   return response.json();
 }
 
@@ -131,30 +131,31 @@ export function searchCatalog(catalog, query, notes = [], optionalOn = false) {
   for (const subject of catalog.subjects) {
     if (subject.optional && !optionalOn) continue;
     if (hit(subject.name, subject.summary, subject.id)) {
-      results.push({ type: "科目", title: subject.name, href: `#/subject/${subject.id}`, source: subject.source_ref || "科目配置" });
+      results.push({ type: "科目", title: subject.name, href: `#/subject/${subject.id}`, source: subject.group || "" });
     }
   }
   for (const chapter of catalog.chapters) {
     if (hiddenSubject(chapter.subject_id)) continue;
     if (hit(chapter.title)) {
-      results.push({ type: "章节", title: chapter.title, href: `#/subject/${chapter.subject_id}`, source: chapter.source_ref || "目录草案" });
+      results.push({ type: "章节", title: chapter.title, href: `#/subject/${chapter.subject_id}`, source: catalog.subject(chapter.subject_id)?.name || "" });
     }
   }
   for (const topic of catalog.topics) {
     if (hiddenSubject(topic.subject_id)) continue;
     if (hit(topic.title, ...(topic.aliases || []), topic.blurb)) {
-      results.push({ type: "知识点", title: topic.title, href: `#/topic/${topic.id}`, source: topic.source_ref || "目录草案" });
+      results.push({ type: "知识点", title: topic.title, href: `#/topic/${topic.id}`, source: catalog.subject(topic.subject_id)?.name || "" });
     }
   }
   for (const resource of catalog.resources) {
     if ((resource.topic_ids || []).some((topicId) => hiddenSubject(catalog.topic(topicId)?.subject_id))) continue;
     if (hit(resource.title)) {
       const topicId = resource.topic_ids?.[0];
+      const topic = topicId ? catalog.topic(topicId) : null;
       results.push({
         type: resource.kind === "video" ? "视频" : "资料",
         title: resource.title,
         href: topicId ? `#/topic/${topicId}` : "#/subjects",
-        source: resource.provenance?.source_ref || resource.url
+        source: topic?.title || ""
       });
     }
   }
@@ -163,10 +164,10 @@ export function searchCatalog(catalog, query, notes = [], optionalOn = false) {
     if (hit(question.stem)) {
       const sample = question.provenance?.kind === "sample";
       results.push({
-        type: sample ? "示例题" : "题目",
+        type: sample ? "示例" : "题目",
         title: question.stem.slice(0, 42),
         href: `#/quiz/${question.id}`,
-        source: sample ? "示例题库，不计入真实统计" : question.provenance?.kind || "题目"
+        source: sample ? "示例" : "题目"
       });
     }
   }
@@ -182,12 +183,12 @@ export function searchCatalog(catalog, query, notes = [], optionalOn = false) {
 export function validateImportedQuestion(question) {
   const errors = [];
   if (!question || typeof question !== "object") return ["不是题目对象"];
-  if (!question.id) errors.push("缺少 id");
-  if (!question.type) errors.push("缺少 type");
-  if (!question.stem) errors.push("缺少 stem");
-  if (!question.subject_id) errors.push("缺少 subject_id");
-  if (!Array.isArray(question.topic_ids)) errors.push("缺少 topic_ids");
-  if (!question.provenance || question.provenance.kind == null) errors.push("缺少 provenance.kind");
-  if (question.revision == null) errors.push("缺少 revision");
+  if (!question.id) errors.push("题目不完整");
+  if (!question.type) errors.push("题目不完整");
+  if (!question.stem) errors.push("题目不完整");
+  if (!question.subject_id) errors.push("题目不完整");
+  if (!Array.isArray(question.topic_ids)) errors.push("题目不完整");
+  if (!question.provenance || question.provenance.kind == null) errors.push("题目不完整");
+  if (question.revision == null) errors.push("题目不完整");
   return errors;
 }

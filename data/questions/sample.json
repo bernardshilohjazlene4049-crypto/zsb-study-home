@@ -6,96 +6,204 @@
     {
       "id": "q_sample_math_domain_001",
       "subject_id": "math",
-      "topic_ids": ["math.domain"],
-      "type": "single_choice",
-      "stem": "【示例·非真题】下列函数中，定义域为全体实数的是哪一个？",
-      "options": [
-        {"id": "A", "text": "f(x) = 1/x"},
-        {"id": "B", "text": "f(x) = √x"},
-        {"id": "C", "text": "f(x) = ln x"},
-        {"id": "D", "text": "f(x) = x²"}
+      "topic_ids": [
+        "math.domain"
       ],
-      "answer": {"option_ids": ["D"]},
-      "explanation": "示例解析：x² 对任意实数都有定义。1/x 要排除 0，偶次根式要求被开方数大于等于 0，ln 的真数要大于 0。这是自编示例，不是历年真题。",
-      "provenance": {"kind": "sample", "verified": false, "source_ref": "stage1 demo"},
+      "type": "single_choice",
+      "stem": "【示例】下列函数中，定义域为全体实数的是哪一个？",
+      "options": [
+        {
+          "id": "A",
+          "text": "f(x) = 1/x"
+        },
+        {
+          "id": "B",
+          "text": "f(x) = √x"
+        },
+        {
+          "id": "C",
+          "text": "f(x) = ln x"
+        },
+        {
+          "id": "D",
+          "text": "f(x) = x²"
+        }
+      ],
+      "answer": {
+        "option_ids": [
+          "D"
+        ]
+      },
+      "explanation": "x² 对任意实数都有定义。1/x 要排除 0，偶次根式要求被开方数大于等于 0，ln 的真数要大于 0。",
+      "provenance": {
+        "kind": "sample",
+        "verified": false,
+        "source_ref": "stage1 demo"
+      },
       "revision": 1,
       "source": "authored_for_stage1_demo"
     },
     {
       "id": "q_sample_math_domain_002",
       "subject_id": "math",
-      "topic_ids": ["math.domain"],
-      "type": "true_false",
-      "stem": "【示例·非真题】判断：偶次根式出现在解析式中时，被开方数可以小于 0。",
-      "options": [
-        {"id": "T", "text": "正确"},
-        {"id": "F", "text": "错误"}
+      "topic_ids": [
+        "math.domain"
       ],
-      "answer": {"option_ids": ["F"]},
-      "explanation": "示例解析：偶次根式要求被开方数大于等于 0。奇次根式才不限制正负。这是自编示例。",
-      "provenance": {"kind": "sample", "verified": false, "source_ref": "stage1 demo"},
+      "type": "true_false",
+      "stem": "【示例】判断：偶次根式出现在解析式中时，被开方数可以小于 0。",
+      "options": [
+        {
+          "id": "T",
+          "text": "正确"
+        },
+        {
+          "id": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "option_ids": [
+          "F"
+        ]
+      },
+      "explanation": "偶次根式要求被开方数大于等于 0。奇次根式才不限制正负。",
+      "provenance": {
+        "kind": "sample",
+        "verified": false,
+        "source_ref": "stage1 demo"
+      },
       "revision": 1,
       "source": "authored_for_stage1_demo"
     },
     {
       "id": "q_sample_math_domain_003",
       "subject_id": "math",
-      "topic_ids": ["math.domain"],
-      "type": "multiple_choice",
-      "stem": "【示例·非真题】关于定义域，下列哪些说法正确？（多选）",
-      "options": [
-        {"id": "A", "text": "分母不能为 0"},
-        {"id": "B", "text": "偶次根号下的表达式必须大于等于 0"},
-        {"id": "C", "text": "ln 的真数必须大于等于 0"},
-        {"id": "D", "text": "f(x) = x² 的定义域是全体实数"}
+      "topic_ids": [
+        "math.domain"
       ],
-      "answer": {"option_ids": ["A", "B", "D"]},
-      "explanation": "示例解析：A、B、D 成立。ln 的真数必须大于 0，不能等于 0，所以 C 不选。多选需全部选对才算对。这是自编示例。",
-      "provenance": {"kind": "sample", "verified": false, "source_ref": "stage1 demo"},
+      "type": "multiple_choice",
+      "stem": "【示例】关于定义域，下列哪些说法正确？（多选）",
+      "options": [
+        {
+          "id": "A",
+          "text": "分母不能为 0"
+        },
+        {
+          "id": "B",
+          "text": "偶次根号下的表达式必须大于等于 0"
+        },
+        {
+          "id": "C",
+          "text": "ln 的真数必须大于等于 0"
+        },
+        {
+          "id": "D",
+          "text": "f(x) = x² 的定义域是全体实数"
+        }
+      ],
+      "answer": {
+        "option_ids": [
+          "A",
+          "B",
+          "D"
+        ]
+      },
+      "explanation": "A、B、D 成立。ln 的真数必须大于 0，不能等于 0，所以 C 不选。多选需全部选对才算对。",
+      "provenance": {
+        "kind": "sample",
+        "verified": false,
+        "source_ref": "stage1 demo"
+      },
       "revision": 1,
       "source": "authored_for_stage1_demo"
     },
     {
       "id": "q_sample_math_domain_004",
       "subject_id": "math",
-      "topic_ids": ["math.domain"],
+      "topic_ids": [
+        "math.domain"
+      ],
       "type": "fill_blank",
-      "stem": "【示例·非真题】偶次根号下的表达式需要满足的条件，请填 ≥0 或 >0。",
+      "stem": "【示例】偶次根号下的表达式需要满足的条件，请填 ≥0 或 >0。",
       "options": [],
-      "answer": {"accepted": [">=0", "≥0", "大于等于0", "非负"]},
-      "explanation": "示例解析：偶次根式的被开方数大于等于 0。填写时接受 ≥0、>=0、大于等于0、非负。这是自编示例。",
-      "provenance": {"kind": "sample", "verified": false, "source_ref": "stage1 demo"},
+      "answer": {
+        "accepted": [
+          ">=0",
+          "≥0",
+          "大于等于0",
+          "非负"
+        ]
+      },
+      "explanation": "偶次根式的被开方数大于等于 0。",
+      "provenance": {
+        "kind": "sample",
+        "verified": false,
+        "source_ref": "stage1 demo"
+      },
       "revision": 1,
       "source": "authored_for_stage1_demo"
     },
     {
       "id": "q_sample_math_domain_005",
       "subject_id": "math",
-      "topic_ids": ["math.domain"],
+      "topic_ids": [
+        "math.domain"
+      ],
       "type": "short_answer",
-      "stem": "【示例·非真题】用一句话说明：一个解析式同时有好几个限制时，定义域为什么要取交集？",
+      "stem": "【示例】用一句话说明：一个解析式同时有好几个限制时，定义域为什么要取交集？",
       "options": [],
-      "answer": {"reference_points": ["每个限制都要同时成立", "所以取交集"]},
-      "explanation": "示例参考要点：每个条件都要同时满足，所以取交集。本题不自动判分，提交后状态为待评阅。",
-      "provenance": {"kind": "sample", "verified": false, "source_ref": "stage1 demo"},
+      "answer": {
+        "reference_points": [
+          "每个限制都要同时成立",
+          "所以取交集"
+        ]
+      },
+      "explanation": "每个条件都要同时满足，所以取交集。",
+      "provenance": {
+        "kind": "sample",
+        "verified": false,
+        "source_ref": "stage1 demo"
+      },
       "revision": 1,
       "source": "authored_for_stage1_demo"
     },
     {
       "id": "q_sample_c_identifier_001",
       "subject_id": "c_language",
-      "topic_ids": ["c.identifier_sample"],
-      "type": "single_choice",
-      "stem": "【示例·非真题】下列哪一个是合法的 C 语言标识符？",
-      "options": [
-        {"id": "A", "text": "2abc"},
-        {"id": "B", "text": "int"},
-        {"id": "C", "text": "_score"},
-        {"id": "D", "text": "a-b"}
+      "topic_ids": [
+        "c.identifier_sample"
       ],
-      "answer": {"option_ids": ["C"]},
-      "explanation": "示例解析：标识符不能以数字开头，不能含减号，int 是关键字。_score 可以由下划线开头。原站 C 语言图片题没有被转写成这道题。没有对应视频。",
-      "provenance": {"kind": "sample", "verified": false, "source_ref": "stage1 demo"},
+      "type": "single_choice",
+      "stem": "【示例】下列哪一个是合法的 C 语言标识符？",
+      "options": [
+        {
+          "id": "A",
+          "text": "2abc"
+        },
+        {
+          "id": "B",
+          "text": "int"
+        },
+        {
+          "id": "C",
+          "text": "_score"
+        },
+        {
+          "id": "D",
+          "text": "a-b"
+        }
+      ],
+      "answer": {
+        "option_ids": [
+          "C"
+        ]
+      },
+      "explanation": "标识符不能以数字开头，不能含减号，int 是关键字。_score 可以由下划线开头。",
+      "provenance": {
+        "kind": "sample",
+        "verified": false,
+        "source_ref": "stage1 demo"
+      },
       "revision": 1,
       "source": "authored_for_stage1_demo"
     }

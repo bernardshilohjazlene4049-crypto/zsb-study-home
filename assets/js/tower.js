@@ -59,7 +59,7 @@ function buildFloors(subjectsDoc, topicsDoc) {
     const live = linked.length > 0 && linked.every((subject) => subject.status === "live" && subject.homeUrl);
     let topics = [];
     if (visual.overview) {
-      topics = ["错题与复习", "设置与数据备份", "七科目录", "任务服务尚未实现"];
+      topics = ["错题与复习", "设置与数据", "七科目录"];
     } else {
       topics = linked.flatMap((subject) => {
         const titles = topicTitles(topicsDoc, subject.id);
@@ -70,10 +70,8 @@ function buildFloors(subjectsDoc, topicsDoc) {
     return {
       ...visual,
       name: visual.name || first?.name || visual.ids[0] || "科目",
-      sub: visual.sub || `${first?.group || "科目"} · ${live ? "已有科目页面" : "建设中"}`,
-      desc: visual.overview
-        ? "这一层只打开学习工作台。任务服务尚未实现，没有机器人在运行。"
-        : (linked.map((subject) => subject.summary).filter(Boolean).join(" ") || "目录来自 data/subjects.json。"),
+      sub: live || visual.overview ? "" : "即将开放",
+      desc: "",
       topics: topics.length ? topics : ["还没有章节"],
       subjectIds: visual.ids
     };
@@ -83,7 +81,7 @@ function buildFloors(subjectsDoc, topicsDoc) {
 function drawFloorLists() {
   const markup = floors.slice().reverse().map((floor, index) => {
     const floorIndex = floors.length - 1 - index;
-    return `<button class="floor-btn ${floorIndex === selected ? "active" : ""}" type="button" data-floor="${floorIndex}"><span class="floor-no">${esc(floor.no)}</span><span><span class="floor-name">${esc(floor.name)}</span><span class="floor-sub">${esc(floor.sub)}</span></span></button>`;
+    return `<button class="floor-btn ${floorIndex === selected ? "active" : ""}" type="button" data-floor="${floorIndex}"><span class="floor-no">${esc(floor.no)}</span><span><span class="floor-name">${esc(floor.name)}</span>${floor.sub ? `<span class="floor-sub">${esc(floor.sub)}</span>` : ""}</span></button>`;
   }).join("");
   el("floorList").innerHTML = markup;
   el("mobileFloors").innerHTML = markup;
@@ -110,13 +108,9 @@ function drawDetail() {
       const label = floor.subjectIds.length > 1 ? `打开${name}学习入口 ↗` : "查看该科目学习入口 ↗";
       return `<a class="detail-action" href="${studyHref(`#/subjects/${encodeURIComponent(id)}`)}">${esc(label)}</a>`;
     }).join("");
-  el("detailPanel").innerHTML = `<div class="detail-top"><span>FLOOR DETAIL</span><span class="floor-badge">${esc(floor.no)}</span></div>
-    <div class="detail-grid"><div class="detail-icon" style="color:${floor.color};border-color:${floor.color}33;background:${floor.color}15">${esc(floor.glyph)}</div><div><h2>${esc(floor.name)}</h2><p class="detail-desc">${esc(floor.desc)}</p></div></div>
+  el("detailPanel").innerHTML = `<div class="detail-top"><span>当前楼层</span><span class="floor-badge">${esc(floor.no)}</span></div>
+    <div class="detail-grid"><div class="detail-icon" style="color:${floor.color};border-color:${floor.color}33;background:${floor.color}15">${esc(floor.glyph)}</div><div><h2>${esc(floor.name)}</h2>${floor.sub ? `<p class="detail-desc">${esc(floor.sub)}</p>` : ""}</div></div>
     <div class="detail-section"><h3>学习内容</h3>${floor.topics.map((topic) => `<div class="detail-item"><i class="item-dot" style="background:${floor.color}"></i><span>${esc(topic)}</span></div>`).join("")}</div>
-    <div class="detail-section"><h3>当前状态</h3>
-      <div class="robot-card"><div class="robot-avatar">—</div><div><strong>没有机器人</strong><small>任务服务尚未实现</small></div><span class="state-label">未连接</span></div>
-      <div class="detail-item"><i class="item-dot"></i><span>本地楼层可以点选。没有机器人在运行，也不会显示伪造的学习进度。</span></div>
-    </div>
     <div class="floor-link-group">${links}</div>`;
 }
 
@@ -131,10 +125,10 @@ function setupCanvas() {
     canvas.style.display = "none";
     const fallback = document.createElement("div");
     fallback.style.cssText = "position:absolute;inset:34% 12% auto;text-align:center;line-height:1.9;color:#d4e5f7;font-size:12px";
-    fallback.textContent = "此设备暂不支持 Canvas 2D。请使用下方楼层列表选择科目。";
+    fallback.textContent = "请用下方列表选择科目。";
     canvas.parentElement.appendChild(fallback);
     const mode = el("renderMode");
-    if (mode) mode.textContent = "渲染模式：楼层列表（Canvas 不可用）";
+    if (mode) mode.textContent = "";
     return false;
   }
   const resize = () => {
@@ -425,11 +419,11 @@ function onCanvasClick(event) {
 function setRenderMode() {
   const mode = el("renderMode");
   const toggle = el("performanceToggle");
-  if (mode) mode.textContent = `渲染模式：${lowMode ? "节能静态" : "动态 Canvas"}`;
+  if (mode) mode.textContent = "";
   if (toggle) {
-    toggle.textContent = reduced ? "遵循系统减少动态效果" : `节能渲染：${lowMode ? "开启" : "关闭"}`;
+    toggle.textContent = reduced ? "已跟随系统减少动画" : `减少动画：${lowMode ? "开" : "关"}`;
     toggle.disabled = Boolean(reduced);
-    toggle.title = reduced ? "系统已开启减少动态效果，保持静态渲染。" : "切换动态/静态渲染";
+    toggle.title = reduced ? "已跟随系统减少动画" : "开关楼层动画";
   }
   if (raf) cancelAnimationFrame(raf);
   raf = 0;

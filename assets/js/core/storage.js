@@ -4,12 +4,12 @@ let dbPromise = null;
 
 function describeError(error) {
   const name = error?.name || "";
-  if (name === "QuotaExceededError") return "存储空间不足。请先导出 JSON 备份，再清理一部分本机记录。";
+  if (name === "QuotaExceededError") return "存储空间不足。请先导出备份，再清理一部分记录。";
   if (name === "SecurityError" || name === "InvalidStateError") {
-    return "浏览器拒绝了本机数据库（常见于无痕模式或禁止站点存储）。目录仍可浏览，学习记录无法保存。";
+    return "浏览器不允许保存。目录仍可浏览，学习记录无法保存。";
   }
-  if (!("indexedDB" in globalThis)) return "当前浏览器没有 IndexedDB，学习记录无法保存。";
-  return "本机数据库打开失败。目录仍可浏览，学习记录可能无法保存。";
+  if (!("indexedDB" in globalThis)) return "当前浏览器无法保存学习记录。";
+  return "记录暂时打不开。目录仍可浏览。";
 }
 
 function createDatabase() {
@@ -126,7 +126,7 @@ export async function ensureSchema() {
       ok: false,
       schema_version: current.schema_version,
       readOnly: true,
-      message: "本机数据版本比当前页面新，已停止写入，避免覆盖。请改用导出文件保存。"
+      message: "这台设备上的记录比当前页面新，已暂停保存。请先导出备份。"
     };
   }
   return { ok: true, schema_version: current.schema_version, readOnly: false };
