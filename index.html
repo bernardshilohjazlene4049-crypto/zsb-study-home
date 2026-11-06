@@ -893,312 +893,153 @@
     }
   </style>
   <link rel="stylesheet" href="mobile.css">
+  <link rel="stylesheet" href="assets/css/site-unify.css">
 </head>
 <body id="top">
-  <header class="topbar">
-    <div class="container topbar-inner">
-      <a class="brand" href="#top" aria-label="辽宁专升本计算机类学习站首页">
-        <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4.5 5.5c2.8-.9 5.3-.5 7.5 1.2v12c-2.2-1.7-4.7-2.1-7.5-1.2z"/>
-            <path d="M19.5 5.5c-2.8-.9-5.3-.5-7.5 1.2v12c2.2-1.7 4.7-2.1 7.5-1.2z"/>
-            <path d="M7 9h2.2M7 12h2.2M14.8 9H17M14.8 12H17"/>
-          </svg>
-        </span>
-        <span class="brand-copy">
-          <span class="brand-name">辽宁专升本 · 计算机类</span>
-        </span>
+  <div class="site-shell">
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-brand" href="#top">
+        <span class="site-brand__mark" aria-hidden="true">书</span>
+        <span class="site-brand__name">辽宁专升本 · 计算机类</span>
       </a>
-
-      <nav class="nav-links" aria-label="页面导航">
-        <a href="#top" aria-current="page">首页</a>
-        <a href="#subjects">科目索引</a>
-        <a href="#resources">资料入口</a>
-        <a href="study/index.html">学习工作台</a>
-        <a href="tower/index.html">学习指挥塔</a>
+      <nav class="site-nav" aria-label="主导航">
+        <a class="site-nav__link is-active" href="#top" aria-current="page">首页</a>
+        <a class="site-nav__link" href="#subjects">科目索引</a>
+        <a class="site-nav__link" href="study/index.html">学习工作台</a>
+        <a class="site-nav__link" href="tower/index.html">学习指挥塔</a>
       </nav>
-
-      <a class="top-action" href="#subjects">
-        查看科目
-        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M4 10h11M10 5l5 5-5 5"/>
-        </svg>
-      </a>
+      <a class="btn btn--primary site-header__action" href="#subjects">查看科目</a>
     </div>
   </header>
+  <nav class="site-subnav" aria-label="科目导航">
+    <div class="site-subnav__inner">
+      <a class="site-subnav__link" href="yy/index.html">英语</a>
+      <a class="site-subnav__link" href="gs/index.html">高等数学</a>
+      <a class="site-subnav__link" href="jsj/index.html">计算机基础</a>
+      <a class="site-subnav__link" href="c/index.html">C 语言</a>
+      <span class="site-subnav__link" aria-disabled="true">数据库<span class="badge badge--warning" style="margin-left:6px">即将开放</span></span>
+      <a class="site-subnav__link" href="wy/index.html">网页设计</a>
+      <span class="site-subnav__link" aria-disabled="true">计算机网络<span class="badge badge--warning" style="margin-left:6px">即将开放</span></span>
+    </div>
+  </nav>
 
-  <main>
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <h1>辽宁专升本<span>计算机类学习站</span></h1>
-          <div class="hero-actions">
-            <a class="primary-action" href="#subjects">
-              进入科目索引
-              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M3.5 10h12M10.5 5l5 5-5 5"/>
-              </svg>
-            </a>
-            <a class="text-action" href="#resources">
-              浏览现有资料
-              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M4 10h11M10 5l5 5-5 5"/>
-              </svg>
-            </a>
-            <a class="text-action" href="study/index.html">
-              学习工作台
-              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M4 10h11M10 5l5 5-5 5"/>
-              </svg>
-            </a>
-            <a class="text-action" href="tower/index.html">
-              学习指挥塔
-              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M4 10h11M10 5l5 5-5 5"/>
-              </svg>
-            </a>
-          </div>
-        </div>
+  <main class="site-container site-main">
+    <section class="page-hero">
+      <h1 class="page-title">辽宁专升本</h1>
+      <p class="page-subtitle">计算机类学习站</p>
+      <div class="page-meta">
+        <a class="btn btn--primary" href="#subjects">进入科目索引</a>
+        <a class="btn btn--secondary" href="#resources">资料入口</a>
+        <a class="btn btn--secondary" href="study/index.html">学习工作台</a>
+        <a class="btn btn--secondary" href="tower/index.html">学习指挥塔</a>
       </div>
     </section>
 
     <section class="section" id="subjects">
-      <div class="container">
-        <div class="index-panel">
-          <div class="index-panel-head">
-            <div>
-              <h2>科目索引</h2>
-            </div>
+      <div class="section-heading">
+        <h2 class="section-title">科目索引</h2>
+      </div>
+      <h3 class="section-title" style="font-size:var(--sg-text-md)">公共课</h3>
+      <div class="card-grid">
+        <a class="content-card subject-card" href="yy/index.html">
+          <div class="content-card__body">
+            <span class="badge badge--success"><span class="status-dot status-dot--success"></span>已上线</span>
+            <h3 class="content-card__title">英语</h3>
+            <div class="content-card__footer"><span>进入学习</span><span>→</span></div>
           </div>
-
-          <div class="course-group">
-            <h3 class="group-heading">公共课 <span>3 门</span></h3>
-            <div class="course-grid">
-              <a class="course-card" href="yy/index.html" aria-label="进入英语学习页面">
-                <div class="course-card-top">
-                  <span class="course-index">01</span>
-                  <span class="course-status"><i class="status-dot"></i>已上线</span>
-                </div>
-                <div class="course-main">
-                  <span class="course-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M4 5.5c2.7-.8 5.2-.4 8 1.2v12c-2.8-1.6-5.3-2-8-1.2z"/>
-                      <path d="M20 5.5c-2.7-.8-5.2-.4-8 1.2v12c2.8-1.6 5.3-2 8-1.2z"/>
-                      <path d="M7 9h2M15 9h2"/>
-                    </svg>
-                  </span>
-                  <div>
-                    <h4 class="course-name">英语</h4>
-                  </div>
-                </div>              </a>
-
-              <a class="course-card" href="gs/index.html" aria-label="进入高等数学学习页面">
-                <div class="course-card-top">
-                  <span class="course-index">02</span>
-                  <span class="course-status"><i class="status-dot"></i>已上线</span>
-                </div>
-                <div class="course-main">
-                  <span class="course-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M4 18.5h16M6 16l4-8 3 5 2-3 3 6"/>
-                      <path d="M7 5.5h10"/>
-                    </svg>
-                  </span>
-                  <div>
-                    <h4 class="course-name">高等数学</h4>
-                  </div>
-                </div>
-                <div class="course-footer">
-                  <span>第一章：函数、极限与连续</span>
-                  <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h11M10 5l5 5-5 5"/></svg>
-                </div>
-              </a>
-
-              <a class="course-card" href="jsj/index.html" aria-label="进入计算机基础学习页面">
-                <div class="course-card-top">
-                  <span class="course-index">03</span>
-                  <span class="course-status"><i class="status-dot"></i>已上线</span>
-                </div>
-                <div class="course-main">
-                  <span class="course-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                      <rect x="3.5" y="4.5" width="17" height="12" rx="1.8"/>
-                      <path d="M8 20h8M12 16.5V20M7 8h4M7 11h7"/>
-                    </svg>
-                  </span>
-                  <div>
-                    <h4 class="course-name">计算机基础</h4>
-                  </div>
-                </div>              </a>
-            </div>
+        </a>
+        <a class="content-card subject-card" href="gs/index.html">
+          <div class="content-card__body">
+            <span class="badge badge--success"><span class="status-dot status-dot--success"></span>已上线</span>
+            <h3 class="content-card__title">高等数学</h3>
+            <p class="content-card__text">第一章：函数、极限与连续</p>
+            <div class="content-card__footer"><span>进入学习</span><span>→</span></div>
           </div>
-
-          <div class="course-group">
-            <h3 class="group-heading">专业课 <span>4 门</span></h3>
-            <div class="course-grid">
-              <a class="course-card" href="c/index.html" aria-label="进入 C 语言学习页面">
-                <div class="course-card-top">
-                  <span class="course-index">04</span>
-                  <span class="course-status"><i class="status-dot"></i>已上线</span>
-                </div>
-                <div class="course-main">
-                  <span class="course-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="m8.5 7-5 5 5 5M15.5 7l5 5-5 5M13.5 4l-3 16"/>
-                    </svg>
-                  </span>
-                  <div>
-                    <h4 class="course-name">C 语言</h4>
-                  </div>
-                </div>
-                <div class="course-footer">
-                  <span>示例</span>
-                  <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h11M10 5l5 5-5 5"/></svg>
-                </div>
-              </a>
-
-              <div class="course-card disabled" aria-disabled="true">
-                <div class="course-card-top">
-                  <span class="course-index">05</span>
-                  <span class="course-status"><i class="status-dot pending"></i>即将开放</span>
-                </div>
-                <div class="course-main">
-                  <span class="course-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                      <ellipse cx="12" cy="5.5" rx="7.5" ry="3"/>
-                      <path d="M4.5 5.5v6c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3v-6M4.5 11.5v6c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3v-6"/>
-                    </svg>
-                  </span>
-                  <div>
-                    <h4 class="course-name">数据库</h4>
-                  </div>
-                </div>              </div>
-
-              <a class="course-card" href="wy/index.html" aria-label="进入网页设计学习页面">
-                <div class="course-card-top">
-                  <span class="course-index">06</span>
-                  <span class="course-status"><i class="status-dot"></i>部分上线</span>
-                </div>
-                <div class="course-main">
-                  <span class="course-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                      <rect x="3.5" y="4" width="17" height="16" rx="1.8"/>
-                      <path d="M3.5 9h17M8 9v11M8 13h12M8 16.5h12"/>
-                    </svg>
-                  </span>
-                  <div>
-                    <h4 class="course-name">网页设计</h4>
-                  </div>
-                </div>              </a>
-
-              <div class="course-card disabled" aria-disabled="true">
-                <div class="course-card-top">
-                  <span class="course-index">07</span>
-                  <span class="course-status"><i class="status-dot pending"></i>即将开放</span>
-                </div>
-                <div class="course-main">
-                  <span class="course-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                      <rect x="3.5" y="4" width="5" height="5" rx="1"/>
-                      <rect x="15.5" y="4" width="5" height="5" rx="1"/>
-                      <rect x="9.5" y="15" width="5" height="5" rx="1"/>
-                      <path d="M8.5 6.5h7M18 9v2.5h-6v3.5"/>
-                    </svg>
-                  </span>
-                  <div>
-                    <h4 class="course-name">计算机网络</h4>
-                  </div>
-                </div>              </div>
-            </div>
+        </a>
+        <a class="content-card subject-card" href="jsj/index.html">
+          <div class="content-card__body">
+            <span class="badge badge--success"><span class="status-dot status-dot--success"></span>已上线</span>
+            <h3 class="content-card__title">计算机基础</h3>
+            <div class="content-card__footer"><span>进入学习</span><span>→</span></div>
+          </div>
+        </a>
+      </div>
+      <h3 class="section-title" style="font-size:var(--sg-text-md);margin-top:28px">专业课</h3>
+      <div class="card-grid">
+        <a class="content-card subject-card" href="c/index.html">
+          <div class="content-card__body">
+            <span class="badge badge--success"><span class="status-dot status-dot--success"></span>已上线</span>
+            <h3 class="content-card__title">C 语言</h3>
+            <span class="badge">示例</span>
+            <div class="content-card__footer"><span>进入学习</span><span>→</span></div>
+          </div>
+        </a>
+        <div class="content-card subject-card" aria-disabled="true">
+          <div class="content-card__body">
+            <span class="badge badge--warning"><span class="status-dot status-dot--warning"></span>即将开放</span>
+            <h3 class="content-card__title">数据库</h3>
+          </div>
+        </div>
+        <a class="content-card subject-card" href="wy/index.html">
+          <div class="content-card__body">
+            <span class="badge badge--success"><span class="status-dot status-dot--success"></span>部分上线</span>
+            <h3 class="content-card__title">网页设计</h3>
+            <div class="content-card__footer"><span>进入学习</span><span>→</span></div>
+          </div>
+        </a>
+        <div class="content-card subject-card" aria-disabled="true">
+          <div class="content-card__body">
+            <span class="badge badge--warning"><span class="status-dot status-dot--warning"></span>即将开放</span>
+            <h3 class="content-card__title">计算机网络</h3>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section resources-section" id="resources">
-      <div class="container">
-        <div class="section-heading">
-          <div>
-            <h2>资料入口</h2>
+    <section class="section" id="resources">
+      <div class="section-heading">
+        <h2 class="section-title">资料入口</h2>
+      </div>
+      <div class="card-grid">
+        <a class="content-card" href="jsj/index.html">
+          <div class="content-card__body">
+            <span class="badge">计算机基础</span>
+            <h3 class="content-card__title">Excel 视频讲解</h3>
           </div>
-        </div>
-
-        <div class="resource-grid">
-          <a class="resource-card" href="jsj/index.html">
-            <div class="resource-top">
-              <span class="resource-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="3.5" y="4.5" width="17" height="13" rx="1.8"/>
-                  <path d="m10 8 5 3-5 3zM8 20h8"/>
-                </svg>
-              </span>
-              <span class="resource-tag">计算机基础</span>
-            </div>
-            <div>
-              <h3 class="resource-title">Excel 视频讲解</h3>
-            </div>
-          </a>
-
-          <a class="resource-card pending" href="jsj/index.html#qbank">
-            <div class="resource-top">
-              <span class="resource-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M6 4.5h12a1.5 1.5 0 0 1 1.5 1.5v12a1.5 1.5 0 0 1-1.5 1.5H6A1.5 1.5 0 0 1 4.5 18V6A1.5 1.5 0 0 1 6 4.5Z"/>
-                  <path d="M8 9h8M8 12h8M8 15h5"/>
-                </svg>
-              </span>
-              <span class="resource-tag"><i class="status-dot pending"></i> 待确认</span>
-            </div>
-            <div>
-              <h3 class="resource-title">题库入口</h3>
-            </div>
-          </a>
-
-          <a class="resource-card caution" href="c/index.html">
-            <div class="resource-top">
-              <span class="resource-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="m8.5 7-5 5 5 5M15.5 7l5 5-5 5M13.5 4l-3 16"/>
-                </svg>
-              </span>
-              <span class="resource-tag">C 语言</span>
-            </div>
-            <div>
-              <h3 class="resource-title">C 语言示例题</h3>
-            </div>
-          </a>
-
-          <a class="resource-card" href="yy/index.html">
-            <div class="resource-top">
-              <span class="resource-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="6" cy="6" r="2"/>
-                  <circle cx="18" cy="6" r="2"/>
-                  <circle cx="12" cy="18" r="2"/>
-                  <path d="M8 6h8M7.2 7.7l3.6 8.5M16.8 7.7l-3.6 8.5"/>
-                </svg>
-              </span>
-              <span class="resource-tag">英语</span>
-            </div>
-            <div>
-              <h3 class="resource-title">英语思维导图</h3>
-            </div>
-          </a>
-        </div>
+        </a>
+        <a class="content-card" href="jsj/index.html#qbank">
+          <div class="content-card__body">
+            <span class="badge badge--warning">待确认</span>
+            <h3 class="content-card__title">题库入口</h3>
+          </div>
+        </a>
+        <a class="content-card" href="c/index.html">
+          <div class="content-card__body">
+            <span class="badge">C 语言</span>
+            <h3 class="content-card__title">C 语言示例题</h3>
+          </div>
+        </a>
+        <a class="content-card" href="yy/index.html">
+          <div class="content-card__body">
+            <span class="badge">英语</span>
+            <h3 class="content-card__title">英语思维导图</h3>
+          </div>
+        </a>
       </div>
     </section>
   </main>
-
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <a class="footer-top" href="#top">
-        回到顶部
-        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 15V5M5 10l5-5 5 5"/></svg>
-      </a>
+    <div class="site-footer__inner">
+      <span>辽宁专升本 · 计算机类学习站</span>
+      <nav class="site-footer__links" aria-label="页脚导航">
+        <a href="#top">首页</a>
+        <a href="study/index.html">学习工作台</a>
+        <a href="tower/index.html">学习指挥塔</a>
+      </nav>
     </div>
   </footer>
-
-  <!-- 移动端底栏未在此处重复绘制；如站点脚本统一注入五科底栏，可直接复用。 -->
+  </div>
   <script src="mobile.js" data-base=""></script>
 </body>
 </html>
