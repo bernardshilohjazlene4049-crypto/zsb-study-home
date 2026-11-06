@@ -107,8 +107,7 @@ function mountShell() {
       h("div", { class: "brand" }, [
         h("div", { class: "brand-mark" }, [brandMark()]),
         h("div", { class: "brand-copy" }, [
-          h("strong", {}, "学习工作台"),
-          h("span", {}, "辽宁专升本 · 计算机组")
+          h("strong", {}, "学习工作台")
         ])
       ]),
       h("div", { class: "top-actions" }, [
@@ -135,13 +134,6 @@ function mountShell() {
           h("nav", { class: "nav-list" }, [
             navLink("settings", "#/settings", "设置与数据", "settings")
           ])
-        ]),
-        h("div", { class: "side-card glass" }, [
-          h("div", { class: "side-label" }, "当前学习方式"),
-          h("div", { class: "side-note" }, [
-            h("strong", {}, "循序渐进 · 以理解为准"),
-            h("p", {}, "先学知识点，再做练习。做错的题目进入复习队列。")
-          ])
         ])
       ]),
       h("main", { class: "main", id: "main", tabindex: "-1" }),
@@ -151,18 +143,11 @@ function mountShell() {
             h("div", { class: "profile-avatar" }, [icon("user")]),
             h("div", {}, [h("strong", {}, "我的学习档案")])
           ]),
-          h("div", { class: "progress-ring", id: "overallRing" }, [h("span", { id: "overallPercent" }, "0%")]),
-          h("div", { class: "center-note" }, "练习记录占比"),
-          h("p", { style: "font-size:9px;color:#a0aaba;text-align:center;margin:4px 0 0" }, "只统计做过练习的知识点")
+          h("div", { class: "progress-ring", id: "overallRing" }, [h("span", { id: "overallPercent" }, "0%")])
         ]),
         h("div", { class: "right-card glass" }, [
           h("div", { class: "panel-title" }, [h("h3", {}, "科目进度")]),
           h("div", { class: "subject-progress", id: "rightProgress" })
-        ]),
-        h("div", { class: "right-card glass tip-card" }, [
-          h("div", { class: "panel-title" }, [h("h3", {}, "学习提示")]),
-          h("strong", { style: "font-size:11px" }, "答对不等于掌握"),
-          h("p", {}, "如果答案是猜出来的，建议标记为“尚未理解”，稍后用一道变式题验证。")
         ]),
         h("div", { class: "right-card glass" }, [
           h("div", { class: "panel-title" }, [h("h3", {}, "学习指挥塔")]),
@@ -251,7 +236,7 @@ function metric(label, value, foot, iconName) {
   return h("div", { class: "metric glass" }, [
     h("div", { class: "metric-top" }, [label, iconName ? h("span", { class: "metric-icon" }, [icon(iconName)]) : null]),
     h("div", { class: "metric-value" }, String(value)),
-    h("div", { class: "metric-foot" }, foot)
+    foot ? h("div", { class: "metric-foot" }, foot) : null
   ]);
 }
 
@@ -274,15 +259,12 @@ function renderContinue() {
   let lastId = "";
   try { lastId = localStorage.getItem(UI_KEYS.lastTopic) || ""; } catch { /* ignore */ }
   const topic = lastId ? state.catalog.topic(lastId) : null;
-  if (!topic) {
-    return h("div", { class: "empty-mini" }, "还没有学习记录。选择一门科目，开始建立自己的学习轨迹。");
-  }
+  if (!topic) return null;
   const subject = state.catalog.subject(topic.subject_id);
   return h("div", { class: "task-row" }, [
     h("span", { class: "task-dot" }),
     h("div", { class: "task-copy" }, [
-      h("strong", {}, `${subject?.name || ""} · ${topic.title}`),
-      h("small", {}, "上次打开的知识点")
+      h("strong", {}, `${subject?.name || ""} · ${topic.title}`)
     ]),
     h("a", { class: "btn small", href: `#/topic/${topic.id}` }, "继续练习")
   ]);
@@ -290,13 +272,8 @@ function renderContinue() {
 
 function renderDiagnosis() {
   const attempts = state.learning.attempts || [];
-  if (!attempts.length) {
-    return h("div", { class: "empty-mini" }, "完成练习后，这里会根据实际记录显示各科作答。");
-  }
   const real = attempts.filter((item) => item.provenance?.kind !== "sample");
-  if (!real.length) {
-    return h("div", { class: "empty-mini" }, "目前只有示例。");
-  }
+  if (!real.length) return null;
   const grouped = new Map();
   for (const attempt of real) {
     const name = state.catalog.subject(attempt.subject_id)?.name || attempt.subject_id;
@@ -309,103 +286,66 @@ function renderDiagnosis() {
     ...[...grouped.entries()].slice(0, 4).map(([name, row]) => h("div", { class: "setting-line" }, [
       h("span", {}, name),
       h("span", { class: "tag-muted" }, `${row.correct}/${row.total} 正确`)
-    ])),
-    h("p", { style: "font-size:9px;color:#9aa5b4;margin:8px 0 0" }, "示例不计入这里。")
+    ]))
   ]);
 }
 
 function renderHome() {
   const { attempts, mistakes, recorded, days } = learningCounts();
   const subjects = fixedSubjects();
-  let exportHint = "";
-  try {
-    if (attempts.length && !localStorage.getItem(UI_KEYS.lastExportAt)) {
-      exportHint = "已有练习记录。可以在设置里导出备份。";
-    }
-  } catch { /* ignore */ }
+  const diagnosis = renderDiagnosis();
+  const continued = renderContinue();
   return h("div", {}, [
-    pageHead("", "今天，从一个知识点开始。", "把学习内容拆小，理解之后再向前一步。"),
-    h("div", { class: "hero" }, [
-      h("div", { class: "hero-content" }, [
-        h("h2", {}, ["让每一次练习，", h("br"), "都变成真正的理解。"]),
-        h("p", {}, "七科内容统一整理。视频、思维导图、练习与错题记录，在同一个学习空间里衔接。"),
-        h("div", { class: "hero-bottom" }, [
-          h("a", { class: "btn primary", href: "#/subjects" }, [icon("book"), "浏览七科目录"]),
-          h("a", { class: "btn", href: "#/practice" }, [icon("play"), "开始练习"])
-        ])
-      ]),
-      h("div", { class: "hero-art", "aria-hidden": "true" }, [
-        h("div", { class: "hero-line" }),
-        h("div", { class: "orb one" }),
-        h("div", { class: "orb two" }),
-        h("div", { class: "orb three" })
-      ])
-    ]),
-    exportHint ? h("p", { class: "notice" }, exportHint) : null,
+    pageHead("", "工作台", ""),
     state.dbMessage ? h("p", { class: "notice" }, state.dbMessage) : null,
     h("div", { class: "metrics" }, [
-      metric("累计练习", attempts.length, "已提交的练习", "target"),
-      metric("错题待复习", mistakes.length, "还在复习队列中的错题", "rotate"),
-      metric("练习记录", recorded.size, "做过练习的知识点", "check"),
-      metric("学习记录", days.size, "有记录的学习日期", "clock")
+      metric("累计练习", attempts.length, "", "target"),
+      metric("错题待复习", mistakes.length, "", "rotate"),
+      metric("练习记录", recorded.size, "", "check"),
+      metric("学习记录", days.size, "", "clock")
     ]),
     h("div", { class: "section-head" }, [
       h("h3", {}, "七科学习入口"),
       h("span", {}, `七科 · ${subjects.length}`)
     ]),
     renderCatalogGrid(state.catalog, state.learning, optionalOn()),
-    h("div", { class: "section-head" }, [h("h3", {}, "学习工具"), h("span", {}, "辅助学习与专项训练")]),
+    h("div", { class: "section-head" }, [h("h3", {}, "学习工具")]),
     h("div", { class: "tools-grid" }, [
       toolCard("#/ocr", "camera", "拍照识题", "即将开放"),
       toolCard("#/exam", "exam", "模拟考试", "即将开放"),
       toolCard("#/labs", "lab", "代码实验室", "即将开放"),
       toolCard("#/plan", "plan", "学习计划", "即将开放")
     ]),
-    h("div", { class: "dashboard-extra" }, [
-      h("div", { class: "panel glass" }, [
-        h("div", { class: "panel-title" }, [
-          h("h3", {}, "今日学习计划"),
-          h("a", { class: "btn small", href: "#/plan" }, "＋ 添加")
-        ]),
-        h("div", { class: "empty-mini" }, "即将开放")
-      ]),
+    diagnosis ? h("div", { class: "dashboard-extra" }, [
       h("div", { class: "panel glass" }, [
         h("div", { class: "panel-title" }, [h("h3", {}, "学习诊断")]),
-        renderDiagnosis()
+        diagnosis
       ])
-    ]),
-    h("div", { class: "section-head" }, [h("h3", {}, "继续上次学习")]),
-    h("div", { class: "panel glass", id: "continuePanel" }, [renderContinue()])
+    ]) : null,
+    continued ? h("div", {}, [
+      h("div", { class: "section-head" }, [h("h3", {}, "继续上次学习")]),
+      h("div", { class: "panel glass", id: "continuePanel" }, [continued])
+    ]) : null
   ]);
 }
 
 function renderPracticeHome(ctx) {
   const questions = ctx.catalog.questions.filter((question) => question.provenance?.kind === "sample");
   return h("div", {}, [
-    pageHead("", "在线练习", "先独立思考，再核对答案和解析。", [
+    pageHead("", "在线练习", "", [
       h("span", { class: "pill demo" }, "示例")
     ]),
-    h("div", { class: "practice-layout" }, [
-      h("div", { class: "question-card glass" }, [
-        questions.length
-          ? h("div", { class: "topic-list" }, questions.map((question) => h("a", { class: "topic-item", href: `#/quiz/${question.id}` }, [
-            h("div", { class: "topic-info" }, [
-              h("strong", {}, question.stem),
-              h("small", {}, `${ctx.catalog.subject(question.subject_id)?.name || ""} · 示例`)
-            ])
-          ])))
-          : h("div", { class: "empty-state" }, [
-            h("strong", {}, "暂无内容")
+    h("div", { class: "question-card glass" }, [
+      questions.length
+        ? h("div", { class: "topic-list" }, questions.map((question) => h("a", { class: "topic-item", href: `#/quiz/${question.id}` }, [
+          h("div", { class: "topic-info" }, [
+            h("strong", {}, question.stem),
+            h("small", {}, `${ctx.catalog.subject(question.subject_id)?.name || ""} · 示例`)
           ])
-      ]),
-      h("aside", { class: "practice-side" }, [
-        h("div", { class: "panel glass" }, [
-          h("div", { class: "panel-title" }, [h("h3", {}, "练习说明")]),
-          h("p", { style: "font-size:10px;color:#8793a5;margin:0" }, "先选答案，再提交。答错会进入错题本。")
-        ]),
-        h("a", { class: "btn", href: "#/ocr" }, "拍照识题 · 即将开放"),
-        h("a", { class: "btn", href: "#/exam" }, "模拟考试 · 即将开放")
-      ])
+        ])))
+        : h("div", { class: "empty-state" }, [
+          h("strong", {}, "暂无内容")
+        ])
     ])
   ]);
 }
@@ -426,16 +366,12 @@ function renderPracticeFrame(ctx) {
     }
   }
   return h("div", {}, [
-    pageHead("", "在线练习", "先独立思考，再核对答案和解析。", [
+    pageHead("", "在线练习", "", [
       h("span", { class: "pill demo" }, "示例")
     ]),
     h("div", { class: "practice-layout" }, [
       h("div", { class: "question-card glass", id: "questionCard" }, [renderQuiz(ctx)]),
       h("aside", { class: "practice-side" }, [
-        h("div", { class: "panel glass" }, [
-          h("div", { class: "panel-title" }, [h("h3", {}, "练习说明")]),
-          h("p", { style: "font-size:10px;color:#8793a5;margin:0" }, "先选答案，再提交。答错会进入错题本。")
-        ]),
         h("div", { class: "panel glass" }, [
           h("div", { class: "panel-title" }, [h("h3", {}, "当前练习"), indexText ? h("span", {}, indexText) : null]),
           h("div", { class: "progress-track" }, [h("i", { style: `width:${width}` })])
@@ -453,7 +389,7 @@ function renderNotes(ctx) {
     ? notes.filter((note) => `${note.title} ${note.body}`.toLowerCase().includes(query.toLowerCase()))
     : notes;
   return h("div", { class: "stack" }, [
-    pageHead("", "笔记", "记在这台设备上。"),
+    pageHead("", "笔记", ""),
     h("form", {
       class: "row",
       role: "search",
@@ -470,16 +406,15 @@ function renderNotes(ctx) {
       h("h2", {}, note.title || "笔记"),
       h("p", {}, note.body || ""),
       h("a", { class: "btn small", href: `#/topic/${note.topic_ids?.[0] || ""}` }, "打开知识点")
-    ]))) : h("div", { class: "empty-state" }, [h("strong", {}, "还没有笔记"), h("p", {}, "到知识点页面写一条。")])
+    ]))) : h("div", { class: "empty-state" }, [h("strong", {}, "还没有笔记")])
   ]);
 }
 
 function renderDisconnected(title, message) {
+  const tag = message === undefined ? "即将开放" : message;
   return h("article", { class: "stack" }, [
     pageHead("", title, ""),
-    h("div", { class: "empty-state" }, [
-      h("strong", {}, message || "即将开放")
-    ]),
+    tag ? h("span", { class: "pill" }, tag) : null,
     h("a", { class: "btn", href: "#/home" }, "回到学习首页")
   ]);
 }
@@ -503,7 +438,7 @@ function renderPage(route) {
   if (route.name === "plan") return renderDisconnected("学习计划");
   if (route.name === "labs") return renderDisconnected("实验室");
   if (route.name === "sync") return renderDisconnected("跨设备同步");
-  return renderDisconnected("没有这个页面", "从七科目录重新进入即可。");
+  return renderDisconnected("没有这个页面", "");
 }
 
 function footer() {
@@ -521,8 +456,7 @@ function footer() {
     h("nav", { class: "site-links site-links-foot site-links-show", "aria-label": "页脚导航" }, links.map(([label, href]) => h("a", {
       href,
       "aria-current": href.endsWith("study/index.html") ? "page" : null
-    }, label))),
-    h("div", { class: "footer-note" }, "学习记录保存在这台设备上。")
+    }, label)))
   ]);
 }
 

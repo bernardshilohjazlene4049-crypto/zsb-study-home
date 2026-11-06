@@ -49,7 +49,7 @@ function subjectCard(catalog, learning, subject) {
       h("span", { class: `status ${ready ? "ready" : "build"}` }, ready ? "已上线" : "即将开放")
     ]),
     h("h4", {}, subject.name),
-    h("p", {}, subject.summary || ""),
+    subject.summary && !subject.summary.includes("即将开放") ? h("p", {}, subject.summary) : null,
     h("div", { class: "subject-meta" }, [
       h("span", {}, `${topics.length} 个知识点`),
       h("span", {}, ready ? "进入学习" : "即将开放")
@@ -80,15 +80,14 @@ export function renderSubjectIndex(ctx) {
       h("h2", {}, "可选扩展"),
       h("p", { class: "muted" }, "这一科不计入上面的七科数量。"),
       h("div", { class: "subject-grid" }, extra.map((subject) => subjectCard(catalog, ctx.learning, subject)))
-    ]) : h("p", { class: "muted" }, "数字电子技术默认不显示，可在设置里打开。")
+    ]) : null
   ]);
 }
 
 function renderSearchResults(results) {
   if (!results.length) {
     return h("div", { class: "empty" }, [
-      h("strong", {}, "没有匹配内容"),
-      h("p", {}, "换一个关键词再试。")
+      h("strong", {}, "没有匹配内容")
     ]);
   }
   return h("div", { class: "panel glass" }, [
@@ -197,8 +196,7 @@ function renderMindmap(ctx, subject) {
     h("div", { class: "panel-title" }, [h("h3", {}, "知识结构图")]),
     nodes.length
       ? h("div", {}, [
-        host,
-        h("div", { class: "map-caption" }, "点击知识点进入学习。")
+        host
       ])
       : h("div", { class: "resource-empty" }, [
         h("strong", {}, "还没有章节")
@@ -222,8 +220,7 @@ function renderSubjectNotes(ctx, subject) {
         ]);
       }))
       : h("div", { class: "resource-empty" }, [
-        h("strong", {}, "还没有笔记"),
-        h("p", {}, "到知识点页面写一条笔记。")
+        h("strong", {}, "还没有笔记")
       ])
   ]);
 }

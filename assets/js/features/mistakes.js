@@ -15,8 +15,7 @@ export function renderMistakes(ctx) {
   const other = filtered.filter((item) => !real.includes(item) && !sample.includes(item));
   return h("div", { class: "stack" }, [
     h("header", { class: "page-head" }, [
-      h("h1", {}, "错题本"),
-      h("p", { class: "muted" }, "答错的题可以在这里重练。")
+      h("h1", {}, "错题本")
     ]),
     h("form", {
       class: "row",

@@ -35,7 +35,7 @@ export function renderTopic(ctx) {
     ]),
     h("header", { class: "page-head" }, [
       h("h1", {}, topic.title),
-      topic.blurb ? h("p", {}, topic.blurb) : null,
+      topic.blurb === "示例" ? h("span", { class: "badge badge-sample" }, "示例") : null,
       chapter ? h("p", { class: "muted" }, `所在章节：${chapter.title}`) : null
     ]),
     prereqs.length ? h("p", { class: "muted" }, ["前置：", ...prereqs.flatMap((item, index) => [
@@ -45,7 +45,6 @@ export function renderTopic(ctx) {
     videoHost,
     h("section", { class: "panel stack" }, [
       h("h2", {}, "思维导图"),
-      h("p", { class: "muted" }, "点击知识点进入学习。"),
       mapHost
     ]),
     renderNotes(ctx, topic, note),
@@ -71,7 +70,6 @@ function renderNotes(ctx, topic, note) {
   const status = h("p", { class: "muted" }, note ? `上次保存 ${note.updated_at}` : "还没有笔记。");
   return h("section", { class: "panel stack" }, [
     h("h2", {}, "笔记"),
-    h("p", { class: "muted" }, "记在这台设备上。"),
     status,
     h("form", {
       class: "stack",
@@ -115,13 +113,12 @@ function renderQuestions(questions) {
 }
 
 function renderMastery(progress) {
-  const state = progress?.mastery_state;
+  if (!progress) return null;
+  const state = progress.mastery_state;
   return h("section", { class: "panel stack" }, [
     h("h2", {}, "掌握与复习"),
-    h("p", {}, state ? (MASTERY_LABEL[state] || state) : "还没有这个知识点的练习记录。"),
-    h("p", { class: "muted" }, progress?.next_review_at
-      ? `下次复习：${progress.next_review_at}`
-      : "还没有下次复习时间。"),
-    progress ? h("p", { class: "muted" }, `独立做对次数：${progress.independent_correct_count || 0}`) : null
+    state ? h("p", {}, MASTERY_LABEL[state] || state) : null,
+    progress.next_review_at ? h("p", {}, `下次复习：${progress.next_review_at}`) : null,
+    h("p", {}, `独立做对次数：${progress.independent_correct_count || 0}`)
   ]);
 }

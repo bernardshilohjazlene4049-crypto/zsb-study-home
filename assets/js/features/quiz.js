@@ -39,7 +39,7 @@ function renderAnswering(ctx, question) {
   let text = "";
   let touched = false;
   const root = h("article", { class: "stack" });
-  const live = h("div", { class: "notice", role: "status", "aria-live": "polite" }, "作答时不显示答案。");
+  const live = h("div", { class: "notice", role: "status", "aria-live": "polite", hidden: true }, "");
   const form = h("form", { class: "stack" });
   const submit = h("button", { class: "btn btn-primary", type: "submit" }, "提交答案");
   const blank = h("button", { class: "btn", type: "button" }, "记为未作答");
@@ -55,9 +55,7 @@ function renderAnswering(ctx, question) {
       sample ? h("span", { class: "badge badge-sample" }, "示例") : h("span", { class: "badge" }, "题目"),
       h("span", { class: "badge" }, typeLabel(question.type))
     ]),
-    summaries.length ? h("p", { class: "notice" }, `这道题已有 ${summaries.length} 次作答。这次会新记一条。`) : null,
     ctx.mode === "retry" ? h("p", { class: "notice" }, "重练开始前不显示上次答案和解析。") : null,
-    ctx.action === "not-understood" ? h("p", { class: "notice" }, "如果这题还不会，可以点「记为未作答」，再选「看过仍不懂」。") : null,
     h("p", { class: "stem" }, question.stem),
     form,
     live
@@ -110,6 +108,7 @@ function renderAnswering(ctx, question) {
     window.clearTimeout(draftTimer);
     draftTimer = window.setTimeout(() => {
       saveDraft(question.id, collect()).catch(() => {
+        live.hidden = false;
         live.textContent = "草稿没有保存成功。";
       });
     }, 250);
@@ -123,7 +122,8 @@ function renderAnswering(ctx, question) {
 
   star.addEventListener("click", async () => {
     if (!ctx.dbOk || ctx.readOnly) {
-      live.textContent = "现在不能写入本机数据库。";
+      live.hidden = false;
+      live.textContent = "现在不能保存。";
       return;
     }
     const next = await toggleMark(question.id);
@@ -135,7 +135,8 @@ function renderAnswering(ctx, question) {
     event.preventDefault();
     const response = collect();
     if (!response.option_ids.length && !String(response.text || "").trim()) {
-      live.textContent = "还没有填写答案。可以改点「记为未作答」。";
+      live.hidden = false;
+      live.textContent = "还没有填写答案。";
       return;
     }
     await reveal(ctx, root, question, response, Date.now() - started);
@@ -156,14 +157,13 @@ async function reveal(ctx, root, question, response, elapsedMs) {
   box.append(...[
     h("h2", {}, "解析"),
     h("p", {}, GRADING_LABEL[grading.status] || "已提交"),
-    h("p", {}, question.explanation || "这道题没有解析文本。"),
+    h("p", {}, question.explanation || "暂无内容"),
     grading.status === "correct" ? h("label", { class: "choice" }, [guessed, h("span", {}, "这题我是猜对的")]) : null,
-    h("p", { class: "muted" }, "先选一项，记下这次练习。"),
     h("div", { class: "stack" }, UNDERSTANDING.map((item) => h("button", {
       class: "btn",
       type: "button",
       onclick: () => store(ctx, question, response, grading, item.id, guessed.checked && item.id === "not_understood", helpLevel, elapsedMs, box)
-    }, `${item.label} · ${item.detail}`)))
+    }, item.label)))
   ].filter((node) => node != null));
   const old = root.querySelector(".reveal");
   if (old) old.remove();

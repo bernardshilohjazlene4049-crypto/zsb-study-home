@@ -70,10 +70,8 @@ function buildFloors(subjectsDoc, topicsDoc) {
     return {
       ...visual,
       name: visual.name || first?.name || visual.ids[0] || "科目",
-      sub: visual.sub || `${first?.group || "科目"} · ${live ? "已上线" : "即将开放"}`,
-      desc: visual.overview
-        ? "从这里进入学习工作台。"
-        : (linked.map((subject) => subject.summary).filter(Boolean).join(" ") || "即将开放"),
+      sub: live || visual.overview ? "" : "即将开放",
+      desc: "",
       topics: topics.length ? topics : ["还没有章节"],
       subjectIds: visual.ids
     };
@@ -83,7 +81,7 @@ function buildFloors(subjectsDoc, topicsDoc) {
 function drawFloorLists() {
   const markup = floors.slice().reverse().map((floor, index) => {
     const floorIndex = floors.length - 1 - index;
-    return `<button class="floor-btn ${floorIndex === selected ? "active" : ""}" type="button" data-floor="${floorIndex}"><span class="floor-no">${esc(floor.no)}</span><span><span class="floor-name">${esc(floor.name)}</span><span class="floor-sub">${esc(floor.sub)}</span></span></button>`;
+    return `<button class="floor-btn ${floorIndex === selected ? "active" : ""}" type="button" data-floor="${floorIndex}"><span class="floor-no">${esc(floor.no)}</span><span><span class="floor-name">${esc(floor.name)}</span>${floor.sub ? `<span class="floor-sub">${esc(floor.sub)}</span>` : ""}</span></button>`;
   }).join("");
   el("floorList").innerHTML = markup;
   el("mobileFloors").innerHTML = markup;
@@ -111,7 +109,7 @@ function drawDetail() {
       return `<a class="detail-action" href="${studyHref(`#/subjects/${encodeURIComponent(id)}`)}">${esc(label)}</a>`;
     }).join("");
   el("detailPanel").innerHTML = `<div class="detail-top"><span>当前楼层</span><span class="floor-badge">${esc(floor.no)}</span></div>
-    <div class="detail-grid"><div class="detail-icon" style="color:${floor.color};border-color:${floor.color}33;background:${floor.color}15">${esc(floor.glyph)}</div><div><h2>${esc(floor.name)}</h2><p class="detail-desc">${esc(floor.desc)}</p></div></div>
+    <div class="detail-grid"><div class="detail-icon" style="color:${floor.color};border-color:${floor.color}33;background:${floor.color}15">${esc(floor.glyph)}</div><div><h2>${esc(floor.name)}</h2>${floor.sub ? `<p class="detail-desc">${esc(floor.sub)}</p>` : ""}</div></div>
     <div class="detail-section"><h3>学习内容</h3>${floor.topics.map((topic) => `<div class="detail-item"><i class="item-dot" style="background:${floor.color}"></i><span>${esc(topic)}</span></div>`).join("")}</div>
     <div class="floor-link-group">${links}</div>`;
 }

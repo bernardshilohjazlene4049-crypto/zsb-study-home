@@ -14,8 +14,7 @@ export function renderSettings(ctx) {
   });
   return h("div", { class: "stack" }, [
     h("header", { class: "page-head" }, [
-      h("h1", {}, "资料与设置"),
-      h("p", { class: "muted" }, "练习记录保存在这台设备上。")
+      h("h1", {}, "资料与设置")
     ]),
     report,
     h("section", { class: "panel stack" }, [
@@ -24,7 +23,6 @@ export function renderSettings(ctx) {
     ]),
     h("section", { class: "panel stack" }, [
       h("h2", {}, "导出与恢复"),
-      h("p", { class: "muted" }, "导出后可以再导入。同一题的记录会合并，不会覆盖第一次的错题。"),
       h("div", { class: "row" }, [
         h("button", { class: "btn btn-primary", type: "button", onclick: () => downloadBackup(ctx, report) }, "导出备份"),
         h("label", { class: "btn" }, ["导入学习备份", h("input", { class: "file-input", type: "file", accept: "application/json", onchange: (event) => importLearning(ctx, event, report) })])
@@ -32,12 +30,10 @@ export function renderSettings(ctx) {
     ]),
     h("section", { class: "panel stack" }, [
       h("h2", {}, "导入题目"),
-      h("p", { class: "muted" }, "导入额外题目。"),
       h("label", { class: "btn" }, ["导入题目", h("input", { class: "file-input", type: "file", accept: "application/json", onchange: (event) => importQuestions(ctx, event, report) })])
     ]),
     h("section", { class: "panel stack" }, [
       h("h2", {}, "清空本机学习记录"),
-      h("p", { class: "muted" }, "只清空这台设备上的练习和笔记。"),
       h("button", {
         class: "btn",
         type: "button",

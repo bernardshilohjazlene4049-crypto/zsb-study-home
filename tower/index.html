@@ -17,7 +17,6 @@
         </div>
         <div>
           <strong>学习指挥塔</strong>
-          <small>辽宁专升本 · 计算机组</small>
         </div>
       </div>
       <div class="top-meta">
@@ -28,16 +27,11 @@
     <div class="layout">
       <aside class="panel left">
         <div class="floor-list" id="floorList"></div>
-        <div class="left-note">
-          <strong>怎么用</strong>
-          <p>点一层，查看对应科目。</p>
-        </div>
       </aside>
       <main class="panel stage">
         <div class="stage-head">
           <div>
             <h1>七层学习空间</h1>
-            <p>点一层，进入对应科目。</p>
           </div>
           <div class="stage-controls">
             <button class="btn" id="zoomOut" type="button" aria-label="缩小">−</button>
@@ -46,17 +40,14 @@
           </div>
         </div>
         <div class="canvas-wrap"><canvas id="towerCanvas" aria-label="七层学习空间"></canvas></div>
-        <div class="canvas-hint">点楼层，查看对应科目</div>
       </main>
-      <aside class="panel right" id="detailPanel">
-        <p class="detail-desc">正在读取科目。</p>
-      </aside>
+      <aside class="panel right" id="detailPanel"></aside>
     </div>
     <div class="mobile-floors" id="mobileFloors"></div>
     <span id="renderMode" hidden></span>
     <footer></footer>
   </div>
-  <noscript><p>请打开学习工作台继续学习。</p></noscript>
+  <noscript><p><a href="../study/index.html">学习工作台</a></p></noscript>
   <script src="../assets/js/site-nav.js" data-base="../" data-tone="dark" data-site-nav=""></script>
   <script type="module" src="../assets/js/tower.js"></script>
 </body>
