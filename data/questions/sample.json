@@ -206,6 +206,69 @@
       },
       "revision": 1,
       "source": "authored_for_stage1_demo"
+    },
+    {
+      "id": "q_sample_ppt_layout_001",
+      "subject_id": "computer_basics",
+      "topic_ids": [
+        "cb.ppt.53"
+      ],
+      "type": "step",
+      "stem": "【示例】将第一张幻灯片版式更改为节标题。",
+      "options": [],
+      "answer": {
+        "text": "选中第一张幻灯片 → 右击 → 版式 → 设置为节标题。"
+      },
+      "explanation": "选中第一张幻灯片 → 右击 → 版式 → 设置为节标题。",
+      "provenance": {
+        "kind": "sample",
+        "verified": false,
+        "source_ref": "jsj/ppt5.html"
+      },
+      "revision": 1,
+      "source": "jsj/ppt5.html"
+    },
+    {
+      "id": "q_sample_ppt_anim_001",
+      "subject_id": "computer_basics",
+      "topic_ids": [
+        "cb.ppt.55"
+      ],
+      "type": "step",
+      "stem": "【示例】为幻灯片 a 中的图片添加自左侧飞入的动画。",
+      "options": [],
+      "answer": {
+        "text": "选中幻灯片 a 中的图片 → 【动画】选项卡 → 【动画】组 → 设置动画为飞入 → 效果选项 → 设置为自左侧。"
+      },
+      "explanation": "选中幻灯片 a 中的图片 → 【动画】选项卡 → 【动画】组 → 设置动画为飞入 → 效果选项 → 设置为自左侧。",
+      "provenance": {
+        "kind": "sample",
+        "verified": false,
+        "source_ref": "jsj/ppt5.html"
+      },
+      "revision": 1,
+      "source": "jsj/ppt5.html"
+    },
+    {
+      "id": "q_sample_ppt_action_001",
+      "subject_id": "computer_basics",
+      "topic_ids": [
+        "cb.ppt.55"
+      ],
+      "type": "step",
+      "stem": "【示例】为第三张幻灯片添加转到主页动作按钮，设置单击该按钮返回第一张幻灯片。",
+      "options": [],
+      "answer": {
+        "text": "选中第三张幻灯片 → 【插入】选项卡 → 【插图】组 → 形状 → 选中「转到主页」动作按钮 → 拖动并绘制 → 「单击鼠标」选项卡 → 设置超链接到第一张幻灯片。"
+      },
+      "explanation": "选中第三张幻灯片 → 【插入】选项卡 → 【插图】组 → 形状 → 选中「转到主页」动作按钮 → 拖动并绘制 → 「单击鼠标」选项卡 → 设置超链接到第一张幻灯片。",
+      "provenance": {
+        "kind": "sample",
+        "verified": false,
+        "source_ref": "jsj/ppt5.html"
+      },
+      "revision": 1,
+      "source": "jsj/ppt5.html"
     }
   ]
 }
