@@ -47,13 +47,12 @@ function subjectCard(catalog, learning, subject) {
     h("div", { class: "content-card__body" }, [
       h("div", { class: "subject-top" }, [
         h("div", { class: "subject-icon" }, visual.ico),
-        h("span", { class: `badge ${ready ? "badge--success" : "badge--warning"}` }, ready ? "已上线" : "即将开放")
+        ready ? null : h("span", { class: "badge badge--warning" }, "即将开放")
       ]),
       h("h3", { class: "content-card__title" }, subject.name),
       subject.summary && !subject.summary.includes("即将开放") ? h("p", { class: "content-card__text" }, subject.summary) : null,
       h("div", { class: "content-card__footer" }, [
-        h("span", {}, `${topics.length} 个知识点`),
-        h("span", {}, ready ? "进入学习" : "即将开放")
+        h("span", {}, `${topics.length} 个知识点`)
       ]),
       h("div", { class: "progress-track" }, [h("span", { class: "progress-track__fill", style: `width:${pct}%` })])
     ])

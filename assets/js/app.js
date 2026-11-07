@@ -134,10 +134,6 @@ function mountShell() {
         h("div", { class: "glass-panel" }, [
           h("h3", { class: "section-title", style: "font-size:var(--sg-text-md)" }, "科目进度"),
           h("div", { class: "subject-progress", id: "rightProgress" })
-        ]),
-        h("div", { class: "glass-panel" }, [
-          h("h3", { class: "section-title", style: "font-size:var(--sg-text-md)" }, "学习指挥塔"),
-          h("a", { class: "btn btn--secondary", href: "../tower/index.html" }, "打开学习指挥塔")
         ])
       ])
     ]),
@@ -197,8 +193,11 @@ function renderRight() {
   const ring = document.querySelector("#overallRing");
   const label = document.querySelector("#overallPercent");
   const list = document.querySelector("#rightProgress");
+  const aside = document.querySelector("#rightbar");
   if (!state.catalog || !list) return;
-  const progressIds = new Set((state.learning.progress || []).map((item) => item.topic_id));
+  const records = state.learning.progress || [];
+  if (aside) aside.hidden = records.length === 0;
+  const progressIds = new Set(records.map((item) => item.topic_id));
   let total = 0;
   let done = 0;
   const rows = fixedSubjects().map((subject) => {
