@@ -3,28 +3,26 @@
   if (!script || document.documentElement.hasAttribute("data-site-nav")) return;
   document.documentElement.setAttribute("data-site-nav", "");
   var base = script.getAttribute("data-base") || "";
-  var rail = script.getAttribute("data-nav") === "rail";
   var path = location.pathname;
-  var railIcons = {
-    "首页": '<path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-6h-4v6H4a1 1 0 0 1-1-1z"/>',
-    "科目索引": '<rect x="3" y="4" width="7" height="7" rx="1.5"/><rect x="14" y="4" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>',
-    "学习工作台": '<path d="M3 5a3 3 0 0 1 3-2h14v17H6a3 3 0 0 0-3 2V5z"/><path d="M3 19a3 3 0 0 1 3-2h14M8 8h8M8 12h6"/>',
-    "学习指挥塔": '<path d="M4 20h16M6 20V8l6-4 6 4v12M9 20v-6h6v6M9 10h.01M15 10h.01"/>'
+  var navIcons = {
+    "首页": '<path d="m3 10 9-7 9 7v10H3z"/><path d="M9 20v-7h6v7"/>',
+    "科目索引": '<path d="m3 6 9-3 9 3v13l-9-3-9 3z"/><path d="M12 3v13"/>',
+    "学习工作台": '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 9v11"/>',
+    "学习指挥塔": '<path d="M4 21h16M6 21V7l6-4 6 4v14M9 12h6M9 16h6"/>'
   };
 
-  function railIcon(label) {
+  function navIcon(label) {
+    var wrap = document.createElement("span");
+    wrap.className = "site-nav__icon";
+    wrap.setAttribute("aria-hidden", "true");
     var el = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    el.setAttribute("width", "19");
-    el.setAttribute("height", "19");
     el.setAttribute("viewBox", "0 0 24 24");
     el.setAttribute("fill", "none");
     el.setAttribute("stroke", "currentColor");
-    el.setAttribute("stroke-width", "1.7");
-    el.setAttribute("stroke-linecap", "round");
-    el.setAttribute("stroke-linejoin", "round");
-    el.setAttribute("aria-hidden", "true");
-    el.innerHTML = railIcons[label] || '<rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/>';
-    return el;
+    el.setAttribute("stroke-width", "1.8");
+    el.innerHTML = navIcons[label];
+    wrap.appendChild(el);
+    return wrap;
   }
 
   function inFolder(name) {
@@ -44,15 +42,6 @@
     ["科目索引", "index.html#subjects", false],
     ["学习工作台", "study/index.html", inFolder("study")],
     ["学习指挥塔", "tower/index.html", inFolder("tower")]
-  ];
-  var subjects = [
-    ["英语", "yy/index.html", inFolder("yy"), true],
-    ["高等数学", "gs/index.html", inFolder("gs"), true],
-    ["计算机基础", "jsj/index.html", inFolder("jsj"), true],
-    ["C 语言", "c/index.html", inFolder("c"), true],
-    ["数据库", "", false, false],
-    ["网页设计", "wy/index.html", inFolder("wy"), true],
-    ["计算机网络", "", false, false]
   ];
 
   function mark(node, on) {
@@ -78,28 +67,17 @@
     name.textContent = "辽宁专升本 · 计算机类";
     brand.append(markNode, name);
     var nav = document.createElement("nav");
-    nav.className = rail ? "site-nav nav-rail" : "site-nav";
-    nav.setAttribute("aria-label", "主导航");
-    var items = main.slice();
-    if (rail) {
-      subjects.forEach(function (item) {
-        if (item[2] && item[3]) items.push([item[0], item[1], true]);
-      });
-    }
-    items.forEach(function (item) {
+    nav.className = "site-nav site-nav--compact";
+    nav.setAttribute("aria-label", "全站导航");
+    main.forEach(function (item) {
       var link = document.createElement("a");
-      link.className = rail ? "site-nav__link rail-link" : "site-nav__link";
+      link.className = "site-nav__link";
       link.href = base + item[1];
-      if (rail) {
-        link.setAttribute("aria-label", item[0]);
-        link.title = item[0];
-        var label = document.createElement("span");
-        label.className = "nav-label";
-        label.textContent = item[0];
-        link.append(railIcon(item[0]), label);
-      } else {
-        link.textContent = item[0];
-      }
+      link.setAttribute("aria-label", item[0]);
+      var label = document.createElement("span");
+      label.className = "site-nav__label";
+      label.textContent = item[0];
+      link.append(navIcon(item[0]), label);
       mark(link, item[2]);
       nav.appendChild(link);
     });
@@ -108,50 +86,13 @@
     return header;
   }
 
-  function buildSubnav() {
-    var nav = document.createElement("nav");
-    nav.className = "site-subnav";
-    nav.setAttribute("aria-label", "科目导航");
-    var inner = document.createElement("div");
-    inner.className = "site-subnav__inner";
-    subjects.forEach(function (item) {
-      if (item[3]) {
-        var link = document.createElement("a");
-        link.className = "site-subnav__link";
-        link.href = base + item[1];
-        link.textContent = item[0];
-        mark(link, item[2]);
-        inner.appendChild(link);
-        return;
-      }
-      var span = document.createElement("span");
-      span.className = "site-subnav__link";
-      span.setAttribute("aria-disabled", "true");
-      span.textContent = item[0];
-      var badge = document.createElement("span");
-      badge.className = "badge badge--warning";
-      badge.textContent = "即将开放";
-      badge.style.marginLeft = "6px";
-      span.appendChild(badge);
-      inner.appendChild(span);
-    });
-    nav.appendChild(inner);
-    return nav;
-  }
-
   if (!document.querySelector(".site-header")) {
     var header = buildHeader();
-    var subnav = buildSubnav();
     var old = document.querySelector("header.topbar");
     var shell = document.querySelector(".site-shell");
-    if (old) old.replaceWith(header, subnav);
-    else if (shell) {
-      shell.insertBefore(subnav, shell.firstChild);
-      shell.insertBefore(header, subnav);
-    } else {
-      document.body.insertBefore(subnav, document.body.firstChild);
-      document.body.insertBefore(header, subnav);
-    }
+    if (old) old.replaceWith(header);
+    else if (shell) shell.insertBefore(header, shell.firstChild);
+    else document.body.insertBefore(header, document.body.firstChild);
   }
 
   var footer = document.querySelector("footer");
