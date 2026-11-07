@@ -3,7 +3,29 @@
   if (!script || document.documentElement.hasAttribute("data-site-nav")) return;
   document.documentElement.setAttribute("data-site-nav", "");
   var base = script.getAttribute("data-base") || "";
+  var rail = script.getAttribute("data-nav") === "rail";
   var path = location.pathname;
+  var railIcons = {
+    "首页": '<path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-6h-4v6H4a1 1 0 0 1-1-1z"/>',
+    "科目索引": '<rect x="3" y="4" width="7" height="7" rx="1.5"/><rect x="14" y="4" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>',
+    "学习工作台": '<path d="M3 5a3 3 0 0 1 3-2h14v17H6a3 3 0 0 0-3 2V5z"/><path d="M3 19a3 3 0 0 1 3-2h14M8 8h8M8 12h6"/>',
+    "学习指挥塔": '<path d="M4 20h16M6 20V8l6-4 6 4v12M9 20v-6h6v6M9 10h.01M15 10h.01"/>'
+  };
+
+  function railIcon(label) {
+    var el = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    el.setAttribute("width", "19");
+    el.setAttribute("height", "19");
+    el.setAttribute("viewBox", "0 0 24 24");
+    el.setAttribute("fill", "none");
+    el.setAttribute("stroke", "currentColor");
+    el.setAttribute("stroke-width", "1.7");
+    el.setAttribute("stroke-linecap", "round");
+    el.setAttribute("stroke-linejoin", "round");
+    el.setAttribute("aria-hidden", "true");
+    el.innerHTML = railIcons[label] || '<rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/>';
+    return el;
+  }
 
   function inFolder(name) {
     return path.indexOf("/" + name + "/") !== -1;
@@ -56,13 +78,28 @@
     name.textContent = "辽宁专升本 · 计算机类";
     brand.append(markNode, name);
     var nav = document.createElement("nav");
-    nav.className = "site-nav";
+    nav.className = rail ? "site-nav nav-rail" : "site-nav";
     nav.setAttribute("aria-label", "主导航");
-    main.forEach(function (item) {
+    var items = main.slice();
+    if (rail) {
+      subjects.forEach(function (item) {
+        if (item[2] && item[3]) items.push([item[0], item[1], true]);
+      });
+    }
+    items.forEach(function (item) {
       var link = document.createElement("a");
-      link.className = "site-nav__link";
+      link.className = rail ? "site-nav__link rail-link" : "site-nav__link";
       link.href = base + item[1];
-      link.textContent = item[0];
+      if (rail) {
+        link.setAttribute("aria-label", item[0]);
+        link.title = item[0];
+        var label = document.createElement("span");
+        label.className = "nav-label";
+        label.textContent = item[0];
+        link.append(railIcon(item[0]), label);
+      } else {
+        link.textContent = item[0];
+      }
       mark(link, item[2]);
       nav.appendChild(link);
     });
@@ -106,8 +143,12 @@
     var header = buildHeader();
     var subnav = buildSubnav();
     var old = document.querySelector("header.topbar");
+    var shell = document.querySelector(".site-shell");
     if (old) old.replaceWith(header, subnav);
-    else {
+    else if (shell) {
+      shell.insertBefore(subnav, shell.firstChild);
+      shell.insertBefore(header, subnav);
+    } else {
       document.body.insertBefore(subnav, document.body.firstChild);
       document.body.insertBefore(header, subnav);
     }

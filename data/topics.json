@@ -75,6 +75,24 @@
       "verified": false
     },
     {
+      "id": "cb.ch1",
+      "subject_id": "computer_basics",
+      "parent_id": null,
+      "title": "第一章 计算机基础知识",
+      "order": 0,
+      "source_ref": "jsj/jsj1.html",
+      "verified": false
+    },
+    {
+      "id": "cb.ppt",
+      "subject_id": "computer_basics",
+      "parent_id": null,
+      "title": "第五章 PowerPoint",
+      "order": 2,
+      "source_ref": "jsj/ppt5.html",
+      "verified": false
+    },
+    {
       "id": "cb.excel",
       "subject_id": "computer_basics",
       "parent_id": null,
@@ -635,6 +653,126 @@
       "legacy_url": "wy/js/index.html",
       "verified": false,
       "blurb": ""
+    },
+    {
+      "id": "cb.ch1.11",
+      "subject_id": "computer_basics",
+      "chapter_id": "cb.ch1",
+      "title": "1.1 计算机的诞生与发展",
+      "order": 1,
+      "aliases": [],
+      "prereq_ids": [],
+      "source_ref": "jsj/jsj1.html",
+      "legacy_url": "jsj/jsj1.html",
+      "verified": false
+    },
+    {
+      "id": "cb.ch1.12",
+      "subject_id": "computer_basics",
+      "chapter_id": "cb.ch1",
+      "title": "1.2 计算机的特点、分类与应用",
+      "order": 2,
+      "aliases": [],
+      "prereq_ids": [],
+      "source_ref": "jsj/jsj1.html",
+      "legacy_url": "jsj/jsj1.html",
+      "verified": false
+    },
+    {
+      "id": "cb.ch1.13",
+      "subject_id": "computer_basics",
+      "chapter_id": "cb.ch1",
+      "title": "1.3 计算机系统组成与工作原理",
+      "order": 3,
+      "aliases": [],
+      "prereq_ids": [],
+      "source_ref": "jsj/jsj1.html",
+      "legacy_url": "jsj/jsj1.html",
+      "verified": false
+    },
+    {
+      "id": "cb.ch1.14",
+      "subject_id": "computer_basics",
+      "chapter_id": "cb.ch1",
+      "title": "1.4 计算机硬件系统",
+      "order": 4,
+      "aliases": [],
+      "prereq_ids": [],
+      "source_ref": "jsj/jsj1.html",
+      "legacy_url": "jsj/jsj1.html",
+      "verified": false
+    },
+    {
+      "id": "cb.ppt.51",
+      "subject_id": "computer_basics",
+      "chapter_id": "cb.ppt",
+      "title": "5.1 基础知识",
+      "order": 1,
+      "aliases": [],
+      "prereq_ids": [],
+      "source_ref": "jsj/ppt5.html",
+      "legacy_url": "jsj/ppt5.html#chapter-5.1",
+      "verified": false
+    },
+    {
+      "id": "cb.ppt.52",
+      "subject_id": "computer_basics",
+      "chapter_id": "cb.ppt",
+      "title": "5.2 基本操作",
+      "order": 2,
+      "aliases": [],
+      "prereq_ids": [],
+      "source_ref": "jsj/ppt5.html",
+      "legacy_url": "jsj/ppt5.html#chapter-5.2",
+      "verified": false
+    },
+    {
+      "id": "cb.ppt.53",
+      "subject_id": "computer_basics",
+      "chapter_id": "cb.ppt",
+      "title": "5.3 幻灯片制作与编辑",
+      "order": 3,
+      "aliases": [],
+      "prereq_ids": [],
+      "source_ref": "jsj/ppt5.html",
+      "legacy_url": "jsj/ppt5.html#chapter-5.3",
+      "verified": false
+    },
+    {
+      "id": "cb.ppt.54",
+      "subject_id": "computer_basics",
+      "chapter_id": "cb.ppt",
+      "title": "5.4 整体美化",
+      "order": 4,
+      "aliases": [],
+      "prereq_ids": [],
+      "source_ref": "jsj/ppt5.html",
+      "legacy_url": "jsj/ppt5.html#chapter-5.4",
+      "verified": false
+    },
+    {
+      "id": "cb.ppt.55",
+      "subject_id": "computer_basics",
+      "chapter_id": "cb.ppt",
+      "title": "5.5 交互设计",
+      "order": 5,
+      "aliases": [],
+      "prereq_ids": [],
+      "source_ref": "jsj/ppt5.html",
+      "legacy_url": "jsj/ppt5.html#chapter-5.5",
+      "verified": false
+    },
+    {
+      "id": "cb.ppt.56",
+      "subject_id": "computer_basics",
+      "chapter_id": "cb.ppt",
+      "title": "5.6 放映与打印",
+      "order": 6,
+      "aliases": [],
+      "prereq_ids": [],
+      "source_ref": "jsj/ppt5.html",
+      "legacy_url": "jsj/ppt5.html#chapter-5.6",
+      "verified": false
     }
   ]
 }

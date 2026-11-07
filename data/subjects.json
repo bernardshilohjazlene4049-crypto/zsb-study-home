@@ -40,8 +40,8 @@
       "order": 3,
       "optional": false,
       "enabled": true,
-      "summary": "第四章 Excel：讲解视频、导图和操作题。",
-      "catalog_note": "第一章至第三章没有独立页面，目录里不补写。",
+      "summary": "第一章思维导图、第四章 Excel、第五章 PowerPoint 操作题。",
+      "catalog_note": "已有第一章和第五章页面。第二章、第三章没有独立页面，目录里不补写。",
       "source_ref": "jsj/index.html"
     },
     {

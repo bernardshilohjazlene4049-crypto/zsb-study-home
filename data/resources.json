@@ -269,6 +269,26 @@
       "topic_ids": ["web.html5_structure"],
       "provenance": { "kind": "site_asset", "verified": true, "source_ref": "wy/index.html" },
       "status": "available"
+    },
+    {
+      "id": "res-jsj-ch1",
+      "kind": "page",
+      "title": "第一章 计算机基础知识思维导图",
+      "url": "jsj/jsj1.html",
+      "page_url": "jsj/jsj1.html",
+      "topic_ids": ["cb.ch1.11", "cb.ch1.12", "cb.ch1.13", "cb.ch1.14"],
+      "provenance": { "kind": "site_asset", "verified": true, "source_ref": "jsj/jsj1.html" },
+      "status": "available"
+    },
+    {
+      "id": "res-jsj-ppt5",
+      "kind": "page",
+      "title": "第五章 PowerPoint 操作题总结",
+      "url": "jsj/ppt5.html",
+      "page_url": "jsj/ppt5.html",
+      "topic_ids": ["cb.ppt.51", "cb.ppt.52", "cb.ppt.53", "cb.ppt.54", "cb.ppt.55", "cb.ppt.56"],
+      "provenance": { "kind": "site_asset", "verified": true, "source_ref": "jsj/ppt5.html" },
+      "status": "available"
     }
   ]
 }
