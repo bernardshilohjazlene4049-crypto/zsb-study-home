@@ -1,0 +1,861 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#fbfcfe">
+<title>第四章 向量代数与空间解析几何 · 第五章 多元函数微积分</title>
+<link rel="stylesheet" href="../assets/css/site-unify.css">
+<style>
+/* GS45 study page */
+:root {
+  --study-paper: #fbfcfe;
+  --study-card: #ffffff;
+  --study-soft: #f5f7fa;
+  --study-blue-wash: #f0f5ff;
+  --study-blue-line: rgba(22,104,220,.16);
+  --study-reading: 880px;
+}
+html {scroll-behavior:smooth}
+body {background:var(--study-paper)}
+.site-header {background:rgba(251,252,254,.9)}
+.site-brand__mark {
+  width:32px;height:32px;border-radius:10px;background:#202733;
+  color:#fff;font-size:17px;font-weight:600;letter-spacing:-.06em
+}
+.site-brand__name {font-size:14px}
+.site-nav--compact .site-nav__link {min-width:40px}
+.page-hero {
+  max-width:940px;margin:42px auto 30px;padding:0 0 4px
+}
+.page-title {
+  max-width:940px;font-size:clamp(30px,4vw,46px);line-height:1.18;
+  letter-spacing:-.055em;font-weight:760
+}
+.page-title .title-dot {color:#aab4c2;font-weight:400;padding:0 .08em}
+.page-subtitle {margin-top:10px;font-size:14px;color:var(--sg-ink-muted);letter-spacing:.04em}
+.site-main {padding-top:8px;padding-bottom:72px}
+.page-stack {gap:32px}
+.route-panel {
+  padding:22px 24px 20px;border:1px solid var(--sg-line);
+  border-radius:18px;background:linear-gradient(135deg,rgba(255,255,255,.98),rgba(247,250,255,.94));
+  box-shadow:0 5px 22px rgba(25,45,75,.035)
+}
+.route-heading {display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:17px}
+.route-heading h2 {margin:0;font-size:18px;font-weight:700;letter-spacing:-.03em}
+.route-progress {display:flex;align-items:center;gap:12px;color:var(--sg-ink-muted);font-size:12px;font-variant-numeric:tabular-nums}
+.route-progress .progress-track {width:92px;height:4px;background:#e8edf4}
+.route-progress .progress-track__fill {background:var(--sg-accent);transition:width .24s ease}
+.route-grid {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.route-card {
+  display:flex;flex-direction:column;min-width:0;min-height:174px;padding:14px 14px 13px;
+  border:1px solid rgba(28,36,48,.085);border-radius:12px;background:rgba(255,255,255,.92);
+  transition:transform .18s ease,border-color .18s ease,background .18s ease,box-shadow .18s ease
+}
+.route-card:hover {transform:translateY(-2px);border-color:rgba(22,104,220,.24);box-shadow:0 7px 18px rgba(25,45,75,.045)}
+.route-card.is-done {border-color:rgba(35,122,85,.22);background:#f8fcf9}
+.route-card__top {display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.route-day {font-size:11px;color:var(--sg-ink-muted);font-weight:650;letter-spacing:.04em}
+.route-check {position:relative;display:inline-grid;place-items:center;width:24px;height:24px;cursor:pointer}
+.route-checkbox {position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:pointer}
+.route-checkmark {
+  display:inline-block;width:18px;height:18px;border:1px solid #c9d1dc;border-radius:6px;
+  background:#fff;transition:background .16s ease,border-color .16s ease;position:relative;pointer-events:none
+}
+.route-checkbox:checked + .route-checkmark {background:var(--sg-success);border-color:var(--sg-success)}
+.route-checkbox:checked + .route-checkmark::after {
+  content:"";position:absolute;left:5px;top:2px;width:5px;height:9px;
+  border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)
+}
+.route-checkbox:focus-visible + .route-checkmark {outline:2px solid var(--sg-accent);outline-offset:3px}
+.route-topic {display:block;margin:0 0 8px;font-size:14px;font-weight:680;line-height:1.5;letter-spacing:-.015em}
+.route-topic:hover {color:var(--sg-accent)}
+.route-detail,.route-practice {margin:0;color:var(--sg-ink-secondary);font-size:11px;line-height:1.65}
+.route-practice {margin-top:auto;padding-top:8px;color:var(--sg-ink-muted)}
+.study-layout {display:grid;grid-template-columns:204px minmax(0,1fr);gap:32px;align-items:start}
+.study-index {position:sticky;top:82px;min-width:0;padding-top:4px}
+.index-title {margin:0 0 12px;padding-left:10px;color:var(--sg-ink-muted);font-size:11px;font-weight:700;letter-spacing:.12em}
+.index-list {display:flex;flex-direction:column;gap:3px;max-height:calc(100vh - 120px);overflow:auto;scrollbar-width:none}
+.index-list::-webkit-scrollbar {display:none}
+.index-link {
+  display:flex;align-items:center;gap:10px;min-height:36px;padding:6px 10px;
+  border:1px solid transparent;border-radius:9px;color:var(--sg-ink-secondary);
+  font-size:12px;line-height:1.4;transition:background .16s ease,color .16s ease,border-color .16s ease
+}
+.index-link:hover {background:#f1f4f8;color:var(--sg-ink)}
+.index-link.is-active {color:var(--sg-accent);background:var(--sg-accent-soft);border-color:rgba(22,104,220,.08)}
+.index-number {flex:none;min-width:30px;color:#9aa5b3;font-size:10px;font-variant-numeric:tabular-nums}
+.index-link.is-active .index-number {color:var(--sg-accent);font-weight:700}
+.index-link--practice {margin-top:7px;border-top:1px solid var(--sg-line);border-radius:0 0 9px 9px;padding-top:12px}
+.study-content {min-width:0}
+.topic-section {
+  margin:0 0 18px;padding:26px 28px 28px;border:1px solid var(--sg-line);
+  border-radius:17px;background:var(--study-card);box-shadow:0 2px 10px rgba(20,35,55,.022);
+  scroll-margin-top:82px
+}
+.topic-header {display:flex;align-items:center;gap:14px;margin-bottom:20px;padding-bottom:17px;border-bottom:1px solid var(--sg-line)}
+.topic-number {
+  display:grid;place-items:center;flex:none;width:42px;height:42px;border-radius:12px;
+  background:#f0f4fa;color:#53647a;font-size:14px;font-weight:720;font-variant-numeric:tabular-nums
+}
+.topic-title {margin:0;font-size:clamp(18px,2vw,23px);font-weight:720;line-height:1.35;letter-spacing:-.04em}
+.fold-block {margin-top:12px;border:1px solid rgba(28,36,48,.09);border-radius:12px;background:#fff;overflow:hidden}
+.fold-summary {
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  min-height:48px;padding:12px 15px;cursor:pointer;list-style:none;
+  color:var(--sg-ink);font-size:13px;font-weight:680
+}
+.fold-summary::-webkit-details-marker,.map-node summary::-webkit-details-marker {display:none}
+.fold-summary::marker,.map-node summary::marker {content:""}
+.fold-symbol {
+  position:relative;display:inline-block;flex:none;width:20px;height:20px;border-radius:50%;
+  background:#f1f4f8;transition:transform .18s ease,background .18s ease
+}
+.fold-symbol::before,.fold-symbol::after {
+  content:"";position:absolute;left:6px;top:9px;width:8px;height:1.5px;background:#667386;border-radius:2px
+}
+.fold-symbol::after {transform:rotate(90deg)}
+.fold-block[open] > .fold-summary .fold-symbol {transform:rotate(45deg);background:var(--sg-accent-soft)}
+.knowledge-content {padding:2px 18px 18px;max-width:none}
+.knowledge-chunk {margin-top:16px;min-width:0}
+.knowledge-chunk:first-child {margin-top:8px}
+.knowledge-content h3 {margin:20px 0 8px;font-size:15px;font-weight:690;letter-spacing:-.02em}
+.knowledge-content h3:first-child {margin-top:10px}
+.knowledge-content p {margin:8px 0;color:#343e4c;font-size:13px;line-height:1.85}
+.knowledge-content strong {color:#1e2b3b;font-weight:690}
+.knowledge-content ul,.knowledge-content ol {margin:9px 0;padding-left:1.5em;color:#343e4c;font-size:13px;line-height:1.8}
+.knowledge-content li {margin:4px 0;padding-left:2px}
+.knowledge-content blockquote {margin:12px 0;padding:9px 13px;border-left:2px solid #cbd9ed;background:#f8faff;color:var(--sg-ink-secondary);font-size:12px}
+.knowledge-content table {display:block;width:100%;max-width:100%;overflow-x:auto;border-collapse:collapse;margin:12px 0;font-size:12px;line-height:1.65}
+.knowledge-content th,.knowledge-content td {min-width:78px;padding:9px 10px;border:1px solid var(--sg-line);text-align:left;vertical-align:top}
+.knowledge-content th {background:#f6f8fb;color:#344256;font-weight:680}
+.knowledge-content hr {border:0;border-top:1px solid var(--sg-line);margin:16px 0}
+.map-content {padding:5px 18px 18px;border-top:1px solid rgba(28,36,48,.055)}
+.map-tree,.map-tree ul {list-style:none;margin:0;padding-left:0}
+.map-tree {padding-top:12px}
+.map-node {margin:4px 0 4px 4px;padding-left:14px;border-left:1px solid #e2e8f0}
+.map-node > summary {
+  position:relative;display:flex;align-items:center;gap:9px;min-height:30px;
+  list-style:none;cursor:pointer;color:#293547;font-size:12px;font-weight:650
+}
+.map-node > summary::before {
+  content:"";display:inline-block;width:7px;height:7px;border:1.5px solid #8ca0b9;
+  border-radius:2px;transform:rotate(45deg);transition:transform .16s ease,border-color .16s ease
+}
+.map-node[open] > summary::before {transform:rotate(90deg);border-color:var(--sg-accent)}
+.map-node ul {padding:3px 0 5px 16px}
+.map-leaf {display:block;position:relative;padding:4px 0 4px 14px;color:var(--sg-ink-secondary);font-size:12px;line-height:1.55}
+.map-leaf::before {content:"";position:absolute;left:0;top:12px;width:5px;height:1px;background:#c5cfdb}
+.method-panel {margin-top:14px;padding:16px 18px;border:1px solid #e5ebf3;border-radius:12px;background:#f8fafc}
+.method-title {margin:0 0 8px;color:#52657d;font-size:12px;font-weight:700;letter-spacing:.02em}
+.method-content p {margin:6px 0;color:#3f4d5f;font-size:12px;line-height:1.8}
+.method-content strong {color:#25354a;font-weight:680}
+.examples-group {margin-top:22px}
+.subsection-heading {margin:0 0 11px;font-size:15px;font-weight:700;letter-spacing:-.025em}
+.example-list {display:grid;grid-template-columns:minmax(0,1fr);gap:11px}
+.question-card.example-card,.question-card.practice-card {
+  padding:16px 17px;border:1px solid rgba(28,36,48,.09);border-radius:12px;
+  background:#fff;box-shadow:none
+}
+.example-head {display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:0}
+.example-title {margin:0;font-size:14px;font-weight:690;line-height:1.5;letter-spacing:-.02em}
+.example-title span {color:#a6afbb;font-weight:400;padding:0 2px}
+.solution-toggle {flex:none}
+.example-head {flex-wrap:wrap}
+.solution-toggle[open] {flex:1 1 100%}
+.solution-toggle > summary {
+  display:inline-flex;align-items:center;gap:7px;min-height:31px;padding:0 10px;
+  border:1px solid rgba(22,104,220,.16);border-radius:8px;background:#f8fbff;
+  color:var(--sg-accent);font-size:11px;font-weight:650;cursor:pointer;list-style:none;white-space:nowrap
+}
+.solution-toggle > summary::-webkit-details-marker {display:none}
+.solution-toggle > summary::after {content:"＋";font-size:12px;line-height:1;transition:transform .16s ease}
+.solution-toggle[open] > summary::after {content:"－"}
+.question-stem {margin-top:12px;padding:12px 14px;border:0;border-radius:9px;background:#f7f8fa;color:#293443;font-size:13px;line-height:1.8}
+.question-stem p {margin:0}
+.question-stem .math-display {margin:8px 0;background:transparent;border:0}
+.answer-panel {margin-top:11px;padding:14px 15px;border:1px solid rgba(22,104,220,.13);border-radius:10px;background:#f8fbff}
+.solution-body p {margin:7px 0;color:#344255;font-size:12px;line-height:1.85}
+.solution-body ol,.solution-body ul {margin:7px 0;padding-left:1.55em;color:#344255;font-size:12px;line-height:1.85}
+.solution-body li {margin:5px 0;padding-left:2px}
+.solution-body strong {color:#1f3046;font-weight:700}
+.solution-body .math-display {margin:10px 0;padding:8px 4px;background:rgba(255,255,255,.7);border:0}
+.practice-section {margin-top:24px}
+.practice-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+.source-question {font-size:13px;line-height:1.9;overflow-wrap:anywhere}
+.source-question p {margin:0}
+.math-inline {display:inline-block;max-width:100%;white-space:nowrap;vertical-align:baseline;font-family:"Cambria Math","STIX Two Math",Georgia,serif;font-size:1.02em;line-height:1.5;color:#1d2b3d}
+.math-display {
+  display:block;max-width:100%;overflow-x:auto;overflow-y:hidden;margin:12px 0;padding:10px 12px;
+  border-radius:9px;background:#f7f9fc;color:#1d2b3d;text-align:center;
+  font-family:"Cambria Math","STIX Two Math",Georgia,serif;font-size:clamp(14px,1.35vw,17px);
+  line-height:1.8;white-space:nowrap;scrollbar-width:thin
+}
+.math-inline sub,.math-inline sup,.math-display sub,.math-display sup {font-size:.7em;line-height:0;position:relative;vertical-align:baseline}
+.math-inline sub,.math-display sub {bottom:-.35em}
+.math-inline sup,.math-display sup {top:-.55em}
+.math-vector {position:relative;display:inline-block;padding-top:.1em;font-style:italic;font-weight:600;line-height:1}
+.math-vector::before {content:"";position:absolute;left:0;right:1px;top:-.04em;border-top:1px solid currentColor}
+.math-vector::after {
+  content:"";position:absolute;right:-1px;top:-.17em;width:0;height:0;
+  border-top:3px solid transparent;border-bottom:3px solid transparent;border-left:5px solid currentColor
+}
+.math-frac {display:inline-grid;grid-template-rows:auto auto;vertical-align:middle;text-align:center;line-height:1.12;margin:0 .12em;white-space:nowrap}
+.frac-top {display:block;padding:0 .16em .08em;border-bottom:1px solid currentColor}
+.frac-bottom {display:block;padding:.08em .16em 0}
+.math-root {display:inline-flex;align-items:stretch;vertical-align:middle;white-space:nowrap}
+.root-sign {display:inline-block;font-size:1.35em;line-height:1;align-self:center;margin-right:-.04em}
+.root-body {display:inline-block;border-top:1px solid currentColor;padding:.02em .08em 0 0}
+.math-det {display:inline-flex;align-items:stretch;vertical-align:middle;gap:3px;margin:0 .12em}
+.det-bar {font-size:2.2em;line-height:1;font-family:Georgia,serif;font-weight:300}
+.det-grid {display:inline-flex;flex-direction:column;justify-content:space-around;gap:2px;padding:3px 0}
+.det-row {display:grid;grid-template-columns:repeat(3,minmax(16px,auto));gap:7px;text-align:center}
+.det-cell {white-space:nowrap}
+.math-overline {display:inline-block;border-top:1px solid currentColor;padding-top:.05em}
+.math-op {font-style:normal}
+.site-footer {display:none}
+@keyframes answerIn {from {opacity:0;transform:translateY(-3px)}to {opacity:1;transform:translateY(0)}}
+.solution-toggle[open] .answer-panel {animation:answerIn .18s ease-out}
+@media (max-width:1100px) {
+  .study-layout {grid-template-columns:180px minmax(0,1fr);gap:22px}
+  .route-grid {grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:850px) {
+  :root {--sg-page-gutter:22px}
+  .page-hero {margin-top:30px}
+  .study-layout {grid-template-columns:minmax(0,1fr);gap:18px}
+  .study-index {position:sticky;top:65px;z-index:20;padding:7px 0;background:rgba(251,252,254,.93);backdrop-filter:blur(12px)}
+  .index-title {display:none}
+  .index-list {display:flex;flex-direction:row;gap:5px;max-height:none;overflow-x:auto;padding:0 1px 3px}
+  .index-link {flex:none;min-height:32px;padding:5px 9px;background:#fff;border-color:var(--sg-line);font-size:11px}
+  .index-number {min-width:auto}
+  .index-link--practice {margin:0;border-top:1px solid var(--sg-line);border-radius:9px;padding-top:5px}
+  .topic-section {scroll-margin-top:112px}
+}
+@media (max-width:560px) {
+  :root {--sg-page-gutter:15px}
+  .page-hero {margin:22px auto 20px}
+  .page-title {font-size:29px;line-height:1.25}
+  .page-subtitle {margin-top:7px;font-size:13px}
+  .site-main {padding-top:4px;padding-bottom:44px}
+  .route-panel {padding:17px 14px 15px;border-radius:15px}
+  .route-heading {margin-bottom:12px}
+  .route-heading h2 {font-size:16px}
+  .route-progress {gap:8px}
+  .route-progress .progress-track {width:62px}
+  .route-grid {grid-template-columns:minmax(0,1fr);gap:8px}
+  .route-card {min-height:0;padding:12px 13px}
+  .route-card__top {margin-bottom:7px}
+  .route-topic {margin-bottom:4px}
+  .route-practice {padding-top:4px}
+  .topic-section {padding:18px 14px 20px;border-radius:14px;margin-bottom:12px}
+  .topic-header {gap:11px;margin-bottom:14px;padding-bottom:13px}
+  .topic-number {width:36px;height:36px;border-radius:10px}
+  .topic-title {font-size:18px}
+  .knowledge-content {padding:0 12px 14px}
+  .knowledge-content p,.knowledge-content ul,.knowledge-content ol {font-size:12px}
+  .fold-summary {min-height:44px;padding:10px 12px}
+  .map-content {padding:4px 12px 13px}
+  .method-panel {padding:13px 13px}
+  .question-card.example-card,.question-card.practice-card {padding:13px 12px}
+  .example-head {align-items:flex-start;flex-direction:column;gap:8px}
+  .solution-toggle {align-self:flex-start}
+  .question-stem {padding:10px 11px}
+  .practice-grid {grid-template-columns:minmax(0,1fr)}
+  .math-display {font-size:14px;text-align:left;padding:8px 9px}
+}
+@media (prefers-reduced-motion:reduce) {
+  .route-card,.route-progress .progress-track__fill,.solution-toggle[open] .answer-panel {transition:none;animation:none}
+}
+
+</style>
+</head>
+<body>
+<main class="site-main">
+  <div class="site-container page-stack">
+    <section class="page-hero">
+      <h1 class="page-title">第四章 向量代数与空间解析几何 <span class="title-dot">·</span> 第五章 多元函数微积分</h1>
+      
+    </section>
+
+    <section class="route-panel" aria-labelledby="route-title">
+      <div class="route-heading">
+        <h2 id="route-title">8 天学习路线</h2>
+        <div class="route-progress">
+          <span id="routeProgress" aria-live="polite">0 / 8</span>
+          <div class="progress-track" role="progressbar" aria-label="学习路线完成进度" aria-valuemin="0" aria-valuemax="8" aria-valuenow="0" id="routeProgressTrack">
+            <div class="progress-track__fill" id="routeProgressBar" style="width:0%"></div>
+          </div>
+        </div>
+      </div>
+      <div class="route-grid"><article class="route-card" data-route-card="1"><div class="route-card__top"><span class="route-day">第1天</span><label class="route-check"><input type="checkbox" class="route-checkbox" data-day="1" aria-label="标记第1天完成"><span class="route-checkmark" aria-hidden="true"></span></label></div><a class="route-topic" href="#point-36">三十六：概念、坐标、模和方向</a><p class="route-detail">终点减起点、模、单位向量、方向余弦平方和</p><p class="route-practice">自编例1—2，求方向与长度</p></article><article class="route-card" data-route-card="2"><div class="route-card__top"><span class="route-day">第2天</span><label class="route-check"><input type="checkbox" class="route-checkbox" data-day="2" aria-label="标记第2天完成"><span class="route-checkmark" aria-hidden="true"></span></label></div><a class="route-topic" href="#point-36">三十六：点积与叉积</a><p class="route-detail">点积求夹角、垂直点积零、平行叉积零、面积</p><p class="route-practice">自编例3及P123六题，先判断题型</p></article><article class="route-card" data-route-card="3"><div class="route-card__top"><span class="route-day">第3天</span><label class="route-check"><input type="checkbox" class="route-checkbox" data-day="3" aria-label="标记第3天完成"><span class="route-checkmark" aria-hidden="true"></span></label></div><a class="route-topic" href="#point-37">三十七、三十八</a><p class="route-detail">点法式、参数式、距离、线面角、位置判定</p><p class="route-practice">自编例4—6，完整写两道空间大题</p></article><article class="route-card" data-route-card="4"><div class="route-card__top"><span class="route-day">第4天</span><label class="route-check"><input type="checkbox" class="route-checkbox" data-day="4" aria-label="标记第4天完成"><span class="route-checkmark" aria-hidden="true"></span></label></div><a class="route-topic" href="#point-39">三十九、四十、四十一</a><p class="route-detail">根号/对数/分母限制；偏导固定另一元；混合偏导条件</p><p class="route-practice">自编例7—8，先一阶再二阶</p></article><article class="route-card" data-route-card="5"><div class="route-card__top"><span class="route-day">第5天</span><label class="route-check"><input type="checkbox" class="route-checkbox" data-day="5" aria-label="标记第5天完成"><span class="route-checkmark" aria-hidden="true"></span></label></div><a class="route-topic" href="#point-42">四十二、四十五</a><p class="route-detail">全微分；可微的充分条件；链式法则连线相乘分线相加</p><p class="route-practice">自编例9，复合函数先画依赖图</p></article><article class="route-card" data-route-card="6"><div class="route-card__top"><span class="route-day">第6天</span><label class="route-check"><input type="checkbox" class="route-checkbox" data-day="6" aria-label="标记第6天完成"><span class="route-checkmark" aria-hidden="true"></span></label></div><a class="route-topic" href="#point-43">四十三</a><p class="route-detail">驻点；A、B、C；AC−B²四种判断</p><p class="route-practice">自编例10，分别说出点、值、局部/全局</p></article><article class="route-card" data-route-card="7"><div class="route-card__top"><span class="route-day">第7天</span><label class="route-check"><input type="checkbox" class="route-checkbox" data-day="7" aria-label="标记第7天完成"><span class="route-checkmark" aria-hidden="true"></span></label></div><a class="route-topic" href="#point-44">四十四</a><p class="route-detail">建模与定义域；内部＋边界；拉格朗日方程</p><p class="route-practice">自编例11，练带约束最值</p></article><article class="route-card" data-route-card="8"><div class="route-card__top"><span class="route-day">第8天</span><label class="route-check"><input type="checkbox" class="route-checkbox" data-day="8" aria-label="标记第8天完成"><span class="route-checkmark" aria-hidden="true"></span></label></div><a class="route-topic" href="#point-46">四十六、四十七</a><p class="route-detail">积分性质1—8；X型区域先y后x</p><p class="route-practice">自编例12，再练画区域、写积分上下限</p></article></div>
+    </section>
+
+    <div class="study-layout">
+      <aside class="study-index" aria-label="考点目录">
+        <h2 class="index-title">目录</h2>
+        <nav class="index-list"><a class="index-link" href="#point-36" data-index-point="36"><span class="index-number">36</span><span>向量的基本概念、计算及关系</span></a><a class="index-link" href="#point-37" data-index-point="37"><span class="index-number">37</span><span>求平面方程</span></a><a class="index-link" href="#point-38" data-index-point="38"><span class="index-number">38</span><span>求直线方程</span></a><a class="index-link" href="#point-39" data-index-point="39"><span class="index-number">39</span><span>二元函数求定义域（补充）</span></a><a class="index-link" href="#point-40" data-index-point="40"><span class="index-number">40</span><span>二元函数的偏导数（补充）</span></a><a class="index-link" href="#point-41" data-index-point="41"><span class="index-number">41</span><span>二元函数的高阶偏导数</span></a><a class="index-link" href="#point-42" data-index-point="42"><span class="index-number">42</span><span>二元函数的全微分</span></a><a class="index-link" href="#point-43" data-index-point="43"><span class="index-number">43</span><span>二元函数求极值</span></a><a class="index-link" href="#point-44" data-index-point="44"><span class="index-number">44</span><span>二元函数的最值应用</span></a><a class="index-link" href="#point-45" data-index-point="45"><span class="index-number">45</span><span>多元复合函数求一阶偏导数</span></a><a class="index-link" href="#point-46" data-index-point="46"><span class="index-number">46</span><span>二重积分的性质</span></a><a class="index-link" href="#point-47" data-index-point="47"><span class="index-number">47</span><span>直角坐标系下二重积分的计算</span></a><a class="index-link index-link--practice" href="#p123-practice" data-index-point="practice"><span class="index-number">P123</span><span>专项练习</span></a></nav>
+      </aside>
+      <div class="study-content">
+        <section class="section topic-section" id="point-36" data-point="36"><div class="topic-header"><span class="topic-number">36</span><h2 class="topic-title">考点三十六：向量的基本概念、计算及关系</h2></div><details class="fold-block knowledge-fold" open><summary class="fold-summary"><span>知识点</span><span class="fold-symbol" aria-hidden="true"></span></summary><div class="knowledge-content reading-column"><div class="knowledge-chunk"><h3>讲义概念补全</h3>
+<ul>
+<li>向量是既有大小又有方向的量；模是其大小。模为1的是单位向量；模为0的是零向量。讲义称零向量“方向任意”，理解为不指定唯一方向，不能据此给零向量定义夹角或单位化。</li>
+<li>两向量模相等且同方向，则相等；模相等且反方向，则互为负向量。非零向量夹角在 <span class="math-inline">[0,π]</span>，0或 <span class="math-inline">π</span> 表示平行，<span class="math-inline">π/2</span> 表示垂直。</li>
+<li>起点为原点的 <span class="math-inline"><span class="math-vector">OM</span></span> 是点M的向径（位置向量）。<span class="math-inline"><span class="math-vector">i</span>=(1,0,0),<span class="math-vector">j</span>=(0,1,0),<span class="math-vector">k</span>=(0,0,1)</span> 为坐标轴正向单位向量，<span class="math-inline"><span class="math-vector">OA</span>=x<span class="math-vector">i</span>+y<span class="math-vector">j</span>+z<span class="math-vector">k</span>=(x,y,z)</span>。三个带基向量的项是分向量，<span class="math-inline">x,y,z</span> 是相应轴上的有向投影。</li>
+<li>三坐标面分出八个卦限，按讲义顺序：I <span class="math-inline">(+,+,+)</span>，II <span class="math-inline">(-,+,+)</span>，III <span class="math-inline">(-,-,+)</span>，IV <span class="math-inline">(+,-,+)</span>，V <span class="math-inline">(+,+,-)</span>，VI <span class="math-inline">(-,+,-)</span>，VII <span class="math-inline">(-,-,-)</span>，VIII <span class="math-inline">(+,-,-)</span>。坐标为0的点在坐标面上，不属于上述卦限内部。</li>
+<li>同向单位向量为 <span class="math-inline"><span class="math-vector">a</span>/|<span class="math-vector">a</span>|</span>，反向为其负，平行的单位向量为 <span class="math-inline">±<span class="math-vector">a</span>/|<span class="math-vector">a</span>|</span>，前提是 <span class="math-inline"><span class="math-vector">a</span>≠<span class="math-vector">0</span></span>。</li>
+</ul>
+</div><div class="knowledge-chunk"><h3>线性运算、模与方向</h3>
+</div><div class="knowledge-chunk"><h3>核心公式与理解</h3>
+<p>设 <span class="math-inline"><span class="math-vector">a</span>=(a<sub>1</sub>,a<sub>2</sub>,a<sub>3</sub>)</span>、<span class="math-inline"><span class="math-vector">b</span>=(b<sub>1</sub>,b<sub>2</sub>,b<sub>3</sub>)</span>，则</p>
+<div class="math-display"><span class="math-vector">a</span>±<span class="math-vector">b</span>=(a<sub>1</sub>± b<sub>1</sub>,a<sub>2</sub>± b<sub>2</sub>,a<sub>3</sub>± b<sub>3</sub>),　　
+k<span class="math-vector">a</span>=(ka<sub>1</sub>,ka<sub>2</sub>,ka<sub>3</sub>).</div>
+<div class="math-display"><span class="math-vector">AB</span>=(x<sub>B</sub>-x<sub>A</sub>,y<sub>B</sub>-y<sub>A</sub>,z<sub>B</sub>-z<sub>A</sub>).</div>
+<p><strong>直观含义</strong>：向量既有长度，又有方向；加法是接着走两段路，减法是加上反方向。每个坐标轴上的位移分别相加，所以能逐坐标运算。数乘改变长度，负数还会反向。</p>
+</div><div class="knowledge-chunk"><h3>核心公式与理解</h3>
+<div class="math-display">|<span class="math-vector">a</span>|=<span class="math-root"><span class="root-sign">√</span><span class="root-body">a<sub>1</sub><sup>2</sup>+a<sub>2</sub><sup>2</sup>+a<sub>3</sub><sup>2</sup></span></span>,　　
+<span class="math-vector">e</span><sub>a</sub>=<span class="math-frac"><span class="frac-top"><span class="math-vector">a</span></span><span class="frac-bottom">|<span class="math-vector">a</span>|</span></span>　(<span class="math-vector">a</span>≠<span class="math-vector">0</span>).</div>
+<p>非零向量与三个坐标轴<strong>正方向</strong>的夹角分别为 <span class="math-inline">α,β,γ</span>，取值均在 <span class="math-inline">[0,π]</span>。</p>
+<div class="math-display"><span class="math-op">cos</span>α=<span class="math-frac"><span class="frac-top">a<sub>1</sub></span><span class="frac-bottom">|<span class="math-vector">a</span>|</span></span>,　
+<span class="math-op">cos</span>β=<span class="math-frac"><span class="frac-top">a<sub>2</sub></span><span class="frac-bottom">|<span class="math-vector">a</span>|</span></span>,　
+<span class="math-op">cos</span>γ=<span class="math-frac"><span class="frac-top">a<sub>3</sub></span><span class="frac-bottom">|<span class="math-vector">a</span>|</span></span>,　
+<span class="math-op">cos</span><sup>2</sup>α+<span class="math-op">cos</span><sup>2</sup>β+<span class="math-op">cos</span><sup>2</sup>γ=1.</div>
+<p><strong>为什么</strong>：模来自三维勾股定理；坐标分量是向量在轴上的有向投影，“投影÷长度”就是夹角余弦。三个余弦平方相加相当于把模平方除以自身。</p>
+</div><div class="knowledge-chunk"><h3>核心公式与理解</h3>
+<div class="math-display"><span class="math-vector">a</span>·<span class="math-vector">b</span>=a<sub>1</sub>b<sub>1</sub>+a<sub>2</sub>b<sub>2</sub>+a<sub>3</sub>b<sub>3</sub>
+=|<span class="math-vector">a</span>||<span class="math-vector">b</span>|<span class="math-op">cos</span>θ.</div>
+<div class="math-display"><span class="math-vector">a</span>×<span class="math-vector">b</span>=
+(a<sub>2</sub>b<sub>3</sub>-a<sub>3</sub>b<sub>2</sub>, a<sub>3</sub>b<sub>1</sub>-a<sub>1</sub>b<sub>3</sub>, a<sub>1</sub>b<sub>2</sub>-a<sub>2</sub>b<sub>1</sub>),　　
+|<span class="math-vector">a</span>×<span class="math-vector">b</span>|=|<span class="math-vector">a</span>||<span class="math-vector">b</span>|<span class="math-op">sin</span>θ.</div>
+<p><strong>直观与理解</strong>：点积是“一条向量的长度 × 另一条在它上面的有向投影”，结果为数；叉积的方向垂直于两向量所在平面，按右手定则取向，模是平行四边形面积。叉积的坐标公式可由同时垂直于两向量的条件导出，并按右手方向确定符号。</p>
+<p>非零向量：垂直用 <span class="math-inline"><span class="math-vector">a</span>·<span class="math-vector">b</span>=0</span>；平行用 <span class="math-inline"><span class="math-vector">a</span>×<span class="math-vector">b</span>=<span class="math-vector">0</span></span>。三角形面积为叉积模的一半。</p>
+</div><div class="knowledge-chunk"><h3>点积和叉积性质补全</h3>
+<div class="math-display"><span class="math-vector">a</span>·<span class="math-vector">a</span>=|<span class="math-vector">a</span>|<sup>2</sup>,　
+|<span class="math-vector">a</span>|=<span class="math-root"><span class="root-sign">√</span><span class="root-body"><span class="math-vector">a</span>·<span class="math-vector">a</span></span></span>,　
+<span class="math-vector">a</span>·<span class="math-vector">b</span>=<span class="math-vector">b</span>·<span class="math-vector">a</span>,</div>
+<div class="math-display">(λ<span class="math-vector">a</span>)·(μ<span class="math-vector">b</span>)=λμ(<span class="math-vector">a</span>·<span class="math-vector">b</span>),　
+(<span class="math-vector">a</span>+<span class="math-vector">b</span>)·<span class="math-vector">c</span>=<span class="math-vector">a</span>·<span class="math-vector">c</span>+<span class="math-vector">b</span>·<span class="math-vector">c</span>.</div>
+<div class="math-display"><span class="math-vector">a</span>×<span class="math-vector">b</span>=-<span class="math-vector">b</span>×<span class="math-vector">a</span>,　
+<span class="math-vector">a</span>×<span class="math-vector">a</span>=<span class="math-vector">0</span>,　
+(λ<span class="math-vector">a</span>)×(μ<span class="math-vector">b</span>)=λμ(<span class="math-vector">a</span>×<span class="math-vector">b</span>).</div>
+<p>叉积满足左右分配律：</p>
+<div class="math-display">(<span class="math-vector">a</span>+<span class="math-vector">b</span>)×<span class="math-vector">c</span>=<span class="math-vector">a</span>×<span class="math-vector">c</span>+<span class="math-vector">b</span>×<span class="math-vector">c</span>,　
+<span class="math-vector">a</span>×(<span class="math-vector">b</span>+<span class="math-vector">c</span>)=<span class="math-vector">a</span>×<span class="math-vector">b</span>+<span class="math-vector">a</span>×<span class="math-vector">c</span>.</div>
+<div class="math-display"><span class="math-vector">a</span>×<span class="math-vector">b</span>=
+<span class="math-det"><span class="det-bar">|</span><span class="det-grid"><span class="det-row"><span class="det-cell"><span class="math-vector">i</span></span><span class="det-cell"><span class="math-vector">j</span></span><span class="det-cell"><span class="math-vector">k</span></span></span><span class="det-row"><span class="det-cell">a<sub>1</sub></span><span class="det-cell">a<sub>2</sub></span><span class="det-cell">a<sub>3</sub></span></span><span class="det-row"><span class="det-cell">b<sub>1</sub></span><span class="det-cell">b<sub>2</sub></span><span class="det-cell">b<sub>3</sub></span></span></span><span class="det-bar">|</span></span>.</div>
+<p>非零向量平行可写为成比例；讲义比例式 <span class="math-inline">b<sub>1</sub>/a<sub>1</sub>=b<sub>2</sub>/a<sub>2</sub>=b<sub>3</sub>/a<sub>3</sub></span> 只在分母全非零时直接使用。遇零分量改用 <span class="math-inline"><span class="math-vector">b</span>=λ<span class="math-vector">a</span></span> 或叉积为零。点积、叉积的分配性来自坐标展开，理解后可少记孤立公式。</p>
+</div></div></details><details class="fold-block map-fold"><summary class="fold-summary"><span>思维导图</span><span class="fold-symbol" aria-hidden="true"></span></summary><div class="map-content"><ul class="map-tree"><li><details class="map-node" open><summary>向量的基本概念、计算及关系</summary><ul><li><details class="map-node" open><summary>基本概念</summary><ul><li><span class="map-leaf">大小与方向</span></li><li><span class="map-leaf">模、单位向量、零向量</span></li><li><span class="map-leaf">向径与位置向量</span></li></ul></details></li><li><details class="map-node" open><summary>坐标表示</summary><ul><li><span class="map-leaf">坐标分解式与坐标表达式</span></li><li><span class="map-leaf">分向量与有向投影</span></li><li><span class="map-leaf">八个卦限</span></li></ul></details></li><li><details class="map-node" open><summary>线性运算</summary><ul><li><span class="map-leaf">向量加减</span></li><li><span class="map-leaf">数乘</span></li><li><span class="map-leaf">两点求向量：终点减起点</span></li></ul></details></li><li><details class="map-node" open><summary>模与方向</summary><ul><li><span class="map-leaf">向量的模</span></li><li><span class="map-leaf">方向角与方向余弦</span></li><li><span class="map-leaf">方向余弦平方和</span></li></ul></details></li><li><details class="map-node" open><summary>数量积与向量积</summary><ul><li><span class="map-leaf">点积：夹角与垂直</span></li><li><span class="map-leaf">叉积：平行、右手定则与面积</span></li><li><span class="map-leaf">点积、叉积的性质</span></li></ul></details></li></ul></details></li></ul></div></details><div class="method-panel"><h3 class="method-title">做题方法</h3><div class="method-content"><p><strong>常见题型</strong>：由两点求向量、向量线性组合、平行或共线判断。非零向量平行等价于存在非零实数 <span class="math-inline">k</span> 使 <span class="math-inline"><span class="math-vector">a</span>=k<span class="math-vector">b</span></span>，也可用叉积为零判断，避免除以零。</p>
+<p><strong>通用方法</strong>：先数乘，再按坐标加减，最后核对符号。</p>
+<p><strong>常见题型</strong>：求长度、单位向量、方向余弦，由两个方向余弦求第三个（要结合方向判断正负）。</p>
+<p><strong>通用方法</strong>：求模 → 各坐标除以模 → 必要时取反余弦。</p>
+<p><strong>常见题型</strong>：求夹角、判垂直、求面积、找平面法向量。</p>
+<p><strong>通用方法</strong>：问角度或垂直先点积；问面积或公共垂直方向先叉积。</p>
+</div></div><div class="examples-group"><h3 class="subsection-heading">例题</h3><div class="example-list"><article class="question-card example-card"><div class="example-head"><h4 class="example-title">例题 1 <span>·</span> 向量线性组合</h4><details class="solution-toggle"><summary>点击查看解答</summary><div class="answer-panel solution-body"><p><strong>第一眼判断</strong>：只有数乘和减法，不涉及夹角，不必用点积。</p>
+<p><strong>分步解答</strong>：</p>
+<ol>
+<li>根据数乘公式，每个分量乘 2，得 <span class="math-inline">2<span class="math-vector">a</span>=(2,4,-2)</span>。</li>
+<li>根据逐坐标相减公式，得 <span class="math-inline">(2-2,4-(-1),-2-3)=(0,5,-5)</span>。</li>
+</ol>
+<p><strong>答案</strong>：<span class="math-inline">(0,5,-5)</span>。</p>
+<p><strong>易错点</strong>：减去负数要变加；求 <span class="math-inline"><span class="math-vector">AB</span></span> 必须“终点减起点”。</p>
+<p><strong>通用方法</strong>：先数乘，再按坐标加减，最后核对符号。</p>
+</div></details></div><div class="question-stem"><p>已知 <span class="math-inline"><span class="math-vector">a</span>=(1,2,-1)</span>、<span class="math-inline"><span class="math-vector">b</span>=(2,-1,3)</span>，求 <span class="math-inline">2<span class="math-vector">a</span>-<span class="math-vector">b</span></span>。</p>
+</div></article><article class="question-card example-card"><div class="example-head"><h4 class="example-title">例题 2 <span>·</span> 长度与方向</h4><details class="solution-toggle"><summary>点击查看解答</summary><div class="answer-panel solution-body"><p><strong>第一眼判断</strong>：先求模，后面的量都用它作分母。</p>
+<p><strong>分步解答</strong>：</p>
+<ol>
+<li>用模公式：<span class="math-inline">|<span class="math-vector">v</span>|=<span class="math-root"><span class="root-sign">√</span><span class="root-body">1+4+4</span></span>=3</span>。</li>
+<li>用单位化公式：<span class="math-inline"><span class="math-vector">e</span>=(1/3,2/3,2/3)</span>。</li>
+<li>用投影公式：方向余弦依次是 <span class="math-inline">1/3,2/3,2/3</span>，故方向角是 <span class="math-inline"><span class="math-op">arccos</span>(1/3),<span class="math-op">arccos</span>(2/3),<span class="math-op">arccos</span>(2/3)</span>。</li>
+<li>自检：<span class="math-inline">1/9+4/9+4/9=1</span>。</li>
+</ol>
+<p><strong>答案</strong>：如上，角度保留反余弦的精确形式。</p>
+<p><strong>易错点</strong>：方向角不是方向余弦；零向量没有方向角，不能单位化。</p>
+<p><strong>通用方法</strong>：求模 → 各坐标除以模 → 必要时取反余弦。</p>
+</div></details></div><div class="question-stem"><p>求 <span class="math-inline"><span class="math-vector">v</span>=(1,2,2)</span> 的模、同向单位向量和三个方向角。</p>
+</div></article><article class="question-card example-card"><div class="example-head"><h4 class="example-title">例题 3 <span>·</span> 点积与叉积一起算</h4><details class="solution-toggle"><summary>点击查看解答</summary><div class="answer-panel solution-body"><p><strong>第一眼判断</strong>：夹角用点积，面积与垂直方向用叉积。</p>
+<p><strong>分步解答</strong>：</p>
+<ol>
+<li>用坐标点积：<span class="math-inline">1×2+2×(-1)+(-1)×3=-3</span>。</li>
+<li>两模分别是 <span class="math-inline"><span class="math-root"><span class="root-sign">√</span><span class="root-body">6</span></span>,<span class="math-root"><span class="root-sign">√</span><span class="root-body">14</span></span></span>，由点积定义，<span class="math-inline"><span class="math-op">cos</span>θ=-3/<span class="math-root"><span class="root-sign">√</span><span class="root-body">84</span></span></span>。为负说明是钝角，可作自检。</li>
+<li>用叉积坐标公式：<span class="math-inline"><span class="math-vector">a</span>×<span class="math-vector">b</span>=(5,-5,-5)</span>。</li>
+<li>模为 <span class="math-inline"><span class="math-root"><span class="root-sign">√</span><span class="root-body">25+25+25</span></span>=5<span class="math-root"><span class="root-sign">√</span><span class="root-body">3</span></span></span>，三角形是平行四边形的一半，面积为 <span class="math-inline">5<span class="math-root"><span class="root-sign">√</span><span class="root-body">3</span></span>/2</span>。</li>
+</ol>
+<p><strong>答案</strong>：<span class="math-inline">-3,-3/<span class="math-root"><span class="root-sign">√</span><span class="root-body">84</span></span>,(5,-5,-5),5<span class="math-root"><span class="root-sign">√</span><span class="root-body">3</span></span>/2</span>。</p>
+<p><strong>易错点</strong>：交换叉积顺序会反号；点积是数，叉积是向量。</p>
+<p><strong>通用方法</strong>：问角度或垂直先点积；问面积或公共垂直方向先叉积。</p>
+</div></details></div><div class="question-stem"><p>对例题 1 的两向量，求点积、夹角余弦、叉积及它们张成的三角形面积。</p>
+</div></article></div></div></section><section class="section topic-section" id="point-37" data-point="37"><div class="topic-header"><span class="topic-number">37</span><h2 class="topic-title">考点三十七：求平面方程</h2></div><details class="fold-block knowledge-fold" open><summary class="fold-summary"><span>知识点</span><span class="fold-symbol" aria-hidden="true"></span></summary><div class="knowledge-content reading-column"><div class="knowledge-chunk"><h3>一般式与十种特殊情况</h3>
+<p>设 <span class="math-inline">Ax+By+Cz+D=0</span>，法向量 <span class="math-inline">(A,B,C)≠<span class="math-vector">0</span></span>。</p>
+<table>
+<thead>
+<tr>
+  <th>序号</th>
+  <th>系数条件</th>
+  <th>讲义对应结论及严格说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>1</td>
+  <td><span class="math-inline">D=0</span></td>
+  <td>平面过原点</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td><span class="math-inline">A=0</span></td>
+  <td>平面平行x轴方向；可能包含x轴，需看D</td>
+</tr>
+<tr>
+  <td>3</td>
+  <td><span class="math-inline">B=0</span></td>
+  <td>平面平行y轴方向；可能包含y轴</td>
+</tr>
+<tr>
+  <td>4</td>
+  <td><span class="math-inline">C=0</span></td>
+  <td>平面平行z轴方向；可能包含z轴</td>
+</tr>
+<tr>
+  <td>5</td>
+  <td><span class="math-inline">A=B=0</span></td>
+  <td><span class="math-inline">Cz+D=0</span>，与xOy面平行或重合</td>
+</tr>
+<tr>
+  <td>6</td>
+  <td><span class="math-inline">B=C=0</span></td>
+  <td><span class="math-inline">Ax+D=0</span>，与yOz面平行或重合</td>
+</tr>
+<tr>
+  <td>7</td>
+  <td><span class="math-inline">A=C=0</span></td>
+  <td><span class="math-inline">By+D=0</span>，与xOz面平行或重合</td>
+</tr>
+<tr>
+  <td>8</td>
+  <td><span class="math-inline">A=D=0</span></td>
+  <td>平面包含x轴</td>
+</tr>
+<tr>
+  <td>9</td>
+  <td><span class="math-inline">B=D=0</span></td>
+  <td>平面包含y轴</td>
+</tr>
+<tr>
+  <td>10</td>
+  <td><span class="math-inline">C=D=0</span></td>
+  <td>平面包含z轴</td>
+</tr>
+</tbody>
+</table>
+<p><strong>为什么</strong>：缺哪个坐标，哪个坐标就能任意变化；验证是否过某条轴，将轴上点代入即可。讲义“平行”有时指方向关系，此处显式区分包含或重合，以免误判严格位置关系。</p>
+</div><div class="knowledge-chunk"><h3>两平面位置关系</h3>
+<p>设两法向量为 <span class="math-inline"><span class="math-vector">n</span><sub>1</sub>,<span class="math-vector">n</span><sub>2</sub></span>。</p>
+<ul>
+<li>垂直：<span class="math-inline"><span class="math-vector">n</span><sub>1</sub>·<span class="math-vector">n</span><sub>2</sub>=A<sub>1</sub>A<sub>2</sub>+B<sub>1</sub>B<sub>2</sub>+C<sub>1</sub>C<sub>2</sub>=0</span>。</li>
+<li>若不成比例，则两面相交，交线方向为法向量叉积。</li>
+<li>若 <span class="math-inline"><span class="math-vector">n</span><sub>1</sub>=k<span class="math-vector">n</span><sub>2</sub></span>，<span class="math-inline">k≠0</span>：当 <span class="math-inline">D<sub>1</sub>=kD<sub>2</sub></span> 时重合，否则严格平行。</li>
+<li>讲义写成系数比例：<span class="math-inline">A<sub>1</sub>/A<sub>2</sub>=B<sub>1</sub>/B<sub>2</sub>=C<sub>1</sub>/C<sub>2</sub>≠ D<sub>1</sub>/D<sub>2</sub></span> 为平行，四个比相等为重合。只有相应分母非零时可如此写；数乘判据没有除零风险。</li>
+</ul>
+</div><div class="knowledge-chunk"><h3>点法式、距离与综合大题</h3>
+</div><div class="knowledge-chunk"><h3>核心公式与理解</h3>
+<p>平面法向量 <span class="math-inline"><span class="math-vector">n</span>=(A,B,C)≠<span class="math-vector">0</span></span>，过 <span class="math-inline">P<sub>0</sub>(x<sub>0</sub>,y<sub>0</sub>,z<sub>0</sub>)</span>：</p>
+<div class="math-display">A(x-x<sub>0</sub>)+B(y-y<sub>0</sub>)+C(z-z<sub>0</sub>)=0.</div>
+<p><strong>为什么</strong>：平面内任一点与 <span class="math-inline">P<sub>0</sub></span> 的连线都垂直于法向量，所以 <span class="math-inline"><span class="math-vector">n</span>·<span class="math-vector">P<sub>0</sub>P</span>=0</span>。</p>
+<p>点 <span class="math-inline">Q(x<sub>1</sub>,y<sub>1</sub>,z<sub>1</sub>)</span> 到平面 <span class="math-inline">Ax+By+Cz+D=0</span> 的距离：</p>
+<div class="math-display">d=<span class="math-frac"><span class="frac-top">|Ax<sub>1</sub>+By<sub>1</sub>+Cz<sub>1</sub>+D|</span><span class="frac-bottom"><span class="math-root"><span class="root-sign">√</span><span class="root-body">A<sup>2</sup>+B<sup>2</sup>+C<sup>2</sup></span></span></span></span>.</div>
+<p><strong>为什么</strong>：分子除以法向量的模，就是沿法向量的投影长度，再取绝对值。</p>
+<p>设直线非零方向向量为 <span class="math-inline"><span class="math-vector">s</span></span>，线面夹角为 <span class="math-inline">φ∈[0,π/2]</span>：</p>
+<div class="math-display"><span class="math-op">sin</span>φ=<span class="math-frac"><span class="frac-top">|<span class="math-vector">s</span>·<span class="math-vector">n</span>|</span><span class="frac-bottom">|<span class="math-vector">s</span>||<span class="math-vector">n</span>|</span></span>.</div>
+<p><strong>为什么是正弦</strong>：线与面的角，和线与法线的锐角互余。</p>
+<ul>
+<li><span class="math-inline"><span class="math-vector">s</span>·<span class="math-vector">n</span>=0</span>：直线方向平行平面；再代入直线上一点，区分“直线在面内”和“严格平行”。</li>
+<li><span class="math-inline"><span class="math-vector">s</span>×<span class="math-vector">n</span>=<span class="math-vector">0</span></span>：直线垂直平面。</li>
+<li>两相交平面交线方向 <span class="math-inline"><span class="math-vector">s</span>=<span class="math-vector">n</span><sub>1</sub>×<span class="math-vector">n</span><sub>2</sub></span>，因为它同时垂直于两个法向量；若叉积为零，两面平行或重合，不可直接这样求唯一交线。</li>
+</ul>
+</div></div></details><details class="fold-block map-fold"><summary class="fold-summary"><span>思维导图</span><span class="fold-symbol" aria-hidden="true"></span></summary><div class="map-content"><ul class="map-tree"><li><details class="map-node" open><summary>平面方程</summary><ul><li><details class="map-node" open><summary>平面方程</summary><ul><li><span class="map-leaf">点法式</span></li><li><span class="map-leaf">一般式与法向量</span></li></ul></details></li><li><details class="map-node" open><summary>十种特殊情况</summary><ul><li><span class="map-leaf">过原点</span></li><li><span class="map-leaf">平行坐标轴方向</span></li><li><span class="map-leaf">平行或重合坐标面</span></li><li><span class="map-leaf">包含坐标轴</span></li></ul></details></li><li><details class="map-node" open><summary>两平面位置关系</summary><ul><li><span class="map-leaf">垂直</span></li><li><span class="map-leaf">相交与交线方向</span></li><li><span class="map-leaf">平行或重合</span></li></ul></details></li><li><details class="map-node" open><summary>距离与夹角</summary><ul><li><span class="map-leaf">点到平面距离</span></li><li><span class="map-leaf">线面夹角</span></li><li><span class="map-leaf">直线与平面的位置判定</span></li></ul></details></li></ul></details></li></ul></div></details><div class="method-panel"><h3 class="method-title">做题方法</h3><div class="method-content"><p><strong>常见题型</strong>：给点和法向量求平面；给两平面求交线；点面距离；线面夹角与位置关系。</p>
+<p><strong>通用方法</strong>：写平面 → 求距离 → 方向与法向量作点积/叉积 → 检查基点。</p>
+<p><strong>通用方法</strong>：法向量叉积找方向 → 联立找一点 → 参数式 → 点积求夹角。</p>
+</div></div><div class="examples-group"><h3 class="subsection-heading">例题</h3><div class="example-list"><article class="question-card example-card"><div class="example-head"><h4 class="example-title">例题 4 <span>·</span> 点法式、距离与平行垂直判定</h4><details class="solution-toggle"><summary>点击查看解答</summary><div class="answer-panel solution-body"><p><strong>第一眼判断</strong>：已给法向量和一点，直接点法式，不必求截距。</p>
+<p><strong>分步解答</strong>：</p>
+<ol>
+<li>用点法式：<span class="math-inline">(x-1)+y+z=0</span>，即 <span class="math-inline">Π:x+y+z-1=0</span>。代入 <span class="math-inline">P</span> 得零，检查通过。</li>
+<li>用距离公式，因为问的是垂直于面的最短距离：<span class="math-inline">d=|2-1|/<span class="math-root"><span class="root-sign">√</span><span class="root-body">3</span></span>=<span class="math-root"><span class="root-sign">√</span><span class="root-body">3</span></span>/3</span>。</li>
+<li>对 <span class="math-inline">l<sub>1</sub></span>，方向与法向量点积为 <span class="math-inline">1-1+0=0</span>。再看基点 <span class="math-inline">Q</span> 不在平面上，所以 <span class="math-inline">l<sub>1</sub></span> 与平面严格平行，线面角为 0。</li>
+<li>对 <span class="math-inline">l<sub>2</sub></span>，方向就是法向量，故垂直平面，线面角为 <span class="math-inline">π/2</span>。代入平面得 <span class="math-inline">3t-1=0</span>，交点为 <span class="math-inline">(1/3,1/3,1/3)</span>。</li>
+</ol>
+<p><strong>答案</strong>：<span class="math-inline">x+y+z-1=0</span>；距离 <span class="math-inline"><span class="math-root"><span class="root-sign">√</span><span class="root-body">3</span></span>/3</span>；<span class="math-inline">l<sub>1</sub></span> 平行，<span class="math-inline">l<sub>2</sub></span> 垂直。</p>
+<p><strong>易错点</strong>：点积为零不一定“严格平行”，还可能在面内；距离分子必须取绝对值。</p>
+<p><strong>通用方法</strong>：写平面 → 求距离 → 方向与法向量作点积/叉积 → 检查基点。</p>
+</div></details></div><div class="question-stem"><p>平面 <span class="math-inline">Π</span> 过 <span class="math-inline">P(1,0,0)</span>，法向量为 <span class="math-inline">(1,1,1)</span>。求其方程及 <span class="math-inline">Q(2,0,0)</span> 到它的距离；判断下列两直线与平面的关系：</p>
+<div class="math-display">l<sub>1</sub>:(x,y,z)=(2,0,0)+t(1,-1,0),　　
+l<sub>2</sub>:(x,y,z)=(0,0,0)+t(1,1,1).</div>
+</div></article><article class="question-card example-card"><div class="example-head"><h4 class="example-title">例题 5 <span>·</span> 两平面交线及线面夹角</h4><details class="solution-toggle"><summary>点击查看解答</summary><div class="answer-panel solution-body"><p><strong>第一眼判断</strong>：交线方向属于两个平面，应同时垂直于两个法向量。</p>
+<p><strong>分步解答</strong>：</p>
+<ol>
+<li>从方程系数读出 <span class="math-inline"><span class="math-vector">n</span><sub>1</sub>=(1,1,1)</span>、<span class="math-inline"><span class="math-vector">n</span><sub>2</sub>=(1,-1,1)</span>。</li>
+<li>用叉积求方向：<span class="math-inline"><span class="math-vector">n</span><sub>1</sub>×<span class="math-vector">n</span><sub>2</sub>=(2,0,-2)</span>，可简化成 <span class="math-inline"><span class="math-vector">s</span>=(1,0,-1)</span>。</li>
+<li>求交线上的点：两方程相减得 <span class="math-inline">2y=1</span>；取 <span class="math-inline">x=0</span>，得 <span class="math-inline">P=(0,1/2,1/2)</span>。</li>
+<li>用“点＋参数×方向”：<span class="math-inline">x=t, y=1/2, z=1/2-t</span>。代回两平面，恒成立。</li>
+<li><span class="math-inline">Σ</span> 的法向量为 <span class="math-inline">(0,0,1)</span>。用线面角正弦公式：<span class="math-inline"><span class="math-op">sin</span>φ=1/<span class="math-root"><span class="root-sign">√</span><span class="root-body">2</span></span></span>，所以 <span class="math-inline">φ=π/4</span>。</li>
+</ol>
+<p><strong>答案</strong>：<span class="math-inline">(x,y,z)=(0,1/2,1/2)+t(1,0,-1)</span>，夹角 <span class="math-inline">π/4</span>。</p>
+<p><strong>易错点</strong>：不能把两法向量之和当成交线方向；这里 <span class="math-inline">y</span> 方向分量为零，不能在对称式中除以零。</p>
+<p><strong>通用方法</strong>：法向量叉积找方向 → 联立找一点 → 参数式 → 点积求夹角。</p>
+</div></details></div><div class="question-stem"><p>求 <span class="math-inline">Π<sub>1</sub>:x+y+z=1</span> 与 <span class="math-inline">Π<sub>2</sub>:x-y+z=0</span> 的交线参数方程，并求交线与 <span class="math-inline">Σ:z=0</span> 的夹角。</p>
+</div></article></div></div></section><section class="section topic-section" id="point-38" data-point="38"><div class="topic-header"><span class="topic-number">38</span><h2 class="topic-title">考点三十八：求直线方程</h2></div><details class="fold-block knowledge-fold" open><summary class="fold-summary"><span>知识点</span><span class="fold-symbol" aria-hidden="true"></span></summary><div class="knowledge-content reading-column"><div class="knowledge-chunk"><h3>核心公式与理解</h3>
+<p>平面：点法式见上；一般式为 <span class="math-inline">Ax+By+Cz+D=0</span>，其中 <span class="math-inline">(A,B,C)≠(0,0,0)</span>。若三个轴截距 <span class="math-inline">a,b,c</span> 均存在且非零，可写：</p>
+<div class="math-display"><span class="math-frac"><span class="frac-top">x</span><span class="frac-bottom">a</span></span>+<span class="math-frac"><span class="frac-top">y</span><span class="frac-bottom">b</span></span>+<span class="math-frac"><span class="frac-top">z</span><span class="frac-bottom">c</span></span>=1.</div>
+<p>直线过 <span class="math-inline">P<sub>0</sub></span>，方向 <span class="math-inline">(l,m,n)≠(0,0,0)</span>：</p>
+<div class="math-display">x=x<sub>0</sub>+lt,　 y=y<sub>0</sub>+mt,　 z=z<sub>0</sub>+nt.</div>
+<p>仅当 <span class="math-inline">l,m,n</span> 全非零时，可直接写标准对称式：</p>
+<div class="math-display"><span class="math-frac"><span class="frac-top">x-x<sub>0</sub></span><span class="frac-bottom">l</span></span>=<span class="math-frac"><span class="frac-top">y-y<sub>0</sub></span><span class="frac-bottom">m</span></span>=<span class="math-frac"><span class="frac-top">z-z<sub>0</sub></span><span class="frac-bottom">n</span></span>.</div>
+<p>有零方向分量时，对应坐标固定，其他分量照写。空间直线也可表示为两个相交平面方程的联立。</p>
+<p><strong>直观与理解</strong>：直线上的点从基点出发，只沿一个固定方向移动；平面是一条线性约束，空间直线一般需要两条独立线性约束。</p>
+</div><div class="knowledge-chunk"><h3>两直线、直线与平面位置关系补全</h3>
+<p>方向向量 <span class="math-inline"><span class="math-vector">s</span><sub>i</sub>=(m<sub>i</sub>,n<sub>i</sub>,p<sub>i</sub>)</span> 必须非零。</p>
+<ul>
+<li>两直线方向垂直：<span class="math-inline">m<sub>1</sub>m<sub>2</sub>+n<sub>1</sub>n<sub>2</sub>+p<sub>1</sub>p<sub>2</sub>=0</span>。<strong>讲义记作两直线垂直，严格空间几何若要求两直线相交，还需联立验证交点；异面直线也可能方向正交。</strong></li>
+<li>两方向平行：<span class="math-inline"><span class="math-vector">s</span><sub>1</sub>=k<span class="math-vector">s</span><sub>2</sub></span>。讲义比例式为 <span class="math-inline">m<sub>1</sub>/m<sub>2</sub>=n<sub>1</sub>/n<sub>2</sub>=p<sub>1</sub>/p<sub>2</sub></span>，注意零分量。再查一条直线的基点是否在另一条上，区分重合与严格平行。</li>
+<li>非平行的两直线，联立参数式有解则相交，无解则异面。这一步避免把所有不平行直线都当成相交。</li>
+<li>线面垂直：<span class="math-inline"><span class="math-vector">s</span>∥<span class="math-vector">n</span></span>，讲义为 <span class="math-inline">A/m=B/n=C/p</span>，有零分量改用成比例或叉积零。</li>
+<li>线面方向平行：<span class="math-inline"><span class="math-vector">s</span>⊥<span class="math-vector">n</span></span>，即 <span class="math-inline">Am+Bn+Cp=0</span>。任取直线上一点代入平面，满足则在面内，否则严格平行。</li>
+<li>若 <span class="math-inline"><span class="math-vector">s</span>·<span class="math-vector">n</span>≠0</span>，直线与平面唯一相交，代入参数式即可求交点。</li>
+</ul>
+</div></div></details><details class="fold-block map-fold"><summary class="fold-summary"><span>思维导图</span><span class="fold-symbol" aria-hidden="true"></span></summary><div class="map-content"><ul class="map-tree"><li><details class="map-node" open><summary>直线方程</summary><ul><li><details class="map-node" open><summary>直线表示</summary><ul><li><span class="map-leaf">点向式</span></li><li><span class="map-leaf">参数式</span></li><li><span class="map-leaf">两个平面方程联立的一般式</span></li></ul></details></li><li><details class="map-node" open><summary>方向向量</summary><ul><li><span class="map-leaf">两点确定方向</span></li><li><span class="map-leaf">零方向分量对应坐标固定</span></li></ul></details></li><li><details class="map-node" open><summary>位置关系</summary><ul><li><span class="map-leaf">两直线平行与垂直</span></li><li><span class="map-leaf">相交与异面</span></li><li><span class="map-leaf">直线与平面平行或垂直</span></li></ul></details></li></ul></details></li></ul></div></details><div class="method-panel"><h3 class="method-title">做题方法</h3><div class="method-content"><p><strong>常见题型</strong>：两点求直线、参数式转对称式、由截距写平面、三点求平面（先用两条边叉积求法向量）。</p>
+<p><strong>通用方法</strong>：取一点 → 求非零方向 → 优先写参数式，最不容易漏零分量。</p>
+</div></div><div class="examples-group"><h3 class="subsection-heading">例题</h3><div class="example-list"><article class="question-card example-card"><div class="example-head"><h4 class="example-title">例题 6 <span>·</span> 过两点的直线</h4><details class="solution-toggle"><summary>点击查看解答</summary><div class="answer-panel solution-body"><p><strong>第一眼判断</strong>：两点确定方向，先求 <span class="math-inline"><span class="math-vector">AB</span></span>。</p>
+<p><strong>分步解答</strong>：</p>
+<ol>
+<li>用终点减起点：<span class="math-inline"><span class="math-vector">AB</span>=(2,-1,0)</span>。</li>
+<li>用参数式：<span class="math-inline">x=1+2t, y=-t, z=2</span>。<span class="math-inline">t=0,1</span> 分别得到 <span class="math-inline">A,B</span>。</li>
+<li>第三方向分量为零，因此 <span class="math-inline">z=2</span> 固定；其余写成 <span class="math-inline">(x-1)/2=y/(-1)</span>。</li>
+</ol>
+<p><strong>答案</strong>：<span class="math-inline">(x,y,z)=(1,0,2)+t(2,-1,0)</span>，或 <span class="math-inline">(x-1)/2=-y, z=2</span>。</p>
+<p><strong>易错点</strong>：不能写 <span class="math-inline">(z-2)/0</span>；平面方程的系数是法向量，不是平面内方向。</p>
+<p><strong>通用方法</strong>：取一点 → 求非零方向 → 优先写参数式，最不容易漏零分量。</p>
+</div></details></div><div class="question-stem"><p>求过 <span class="math-inline">A(1,0,2)</span>、<span class="math-inline">B(3,-1,2)</span> 的直线方程。</p>
+</div></article></div></div></section><section class="section topic-section" id="point-39" data-point="39"><div class="topic-header"><span class="topic-number">39</span><h2 class="topic-title">考点三十九：二元函数求定义域（补充）</h2></div><details class="fold-block knowledge-fold" open><summary class="fold-summary"><span>知识点</span><span class="fold-symbol" aria-hidden="true"></span></summary><div class="knowledge-content reading-column"><div class="knowledge-chunk"><blockquote>
+<p>讲义此考点留白，下面沿用已有笔记补全。</p>
+</blockquote>
+</div><div class="knowledge-chunk"><h3>核心规则与理解</h3>
+<div class="math-display"><span class="math-root"><span class="root-sign">√</span><span class="root-body">u(x,y)</span></span>: u≥0;　
+<span class="math-op">ln</span> v(x,y): v&gt;0;　
+<span class="math-frac"><span class="frac-top">1</span><span class="frac-bottom">w(x,y)</span></span>: w≠0;　
+<span class="math-op">arcsin</span> q(x,y),<span class="math-op">arccos</span> q(x,y): |q|≤1.</div>
+<p><strong>为什么</strong>：每一个运算必须在实数范围内合法；同一个点要让所有部分都合法，所以条件取交集，不是并集。根号若在分母，则被开方数要严格大于零。</p>
+<p><strong>直观含义</strong>：定义域是 <span class="math-inline">xy</span> 平面上的允许区域，不再只是一段数轴区间。</p>
+</div></div></details><details class="fold-block map-fold"><summary class="fold-summary"><span>思维导图</span><span class="fold-symbol" aria-hidden="true"></span></summary><div class="map-content"><ul class="map-tree"><li><details class="map-node" open><summary>二元函数求定义域</summary><ul><li><details class="map-node" open><summary>运算限制</summary><ul><li><span class="map-leaf">根号：被开方数非负</span></li><li><span class="map-leaf">对数：真数大于零</span></li><li><span class="map-leaf">分母：不等于零</span></li><li><span class="map-leaf">反三角函数：自变量绝对值不大于1</span></li></ul></details></li><li><details class="map-node" open><summary>区域确定</summary><ul><li><span class="map-leaf">所有条件取交集</span></li><li><span class="map-leaf">圆盘、圆环、半平面</span></li><li><span class="map-leaf">实线边界与虚线边界</span></li></ul></details></li></ul></details></li></ul></div></details><div class="method-panel"><h3 class="method-title">做题方法</h3><div class="method-content"><p><strong>常见题型</strong>：圆盘、圆环、半平面及去掉直线或曲线的区域，注意实线边界与虚线边界。</p>
+<p><strong>通用方法</strong>：逐项列合法条件 → 取交集 → 画出区域并标边界。</p>
+</div></div><div class="examples-group"><h3 class="subsection-heading">例题</h3><div class="example-list"><article class="question-card example-card"><div class="example-head"><h4 class="example-title">例题 7 <span>·</span> 圆环定义域</h4><details class="solution-toggle"><summary>点击查看解答</summary><div class="answer-panel solution-body"><p><strong>第一眼判断</strong>：有根号和对数，必须分别列条件。</p>
+<p><strong>分步解答</strong>：</p>
+<ol>
+<li>根号要求 <span class="math-inline">4-x<sup>2</sup>-y<sup>2</sup>≥0</span>，即 <span class="math-inline">x<sup>2</sup>+y<sup>2</sup>≤4</span>。</li>
+<li>对数要求 <span class="math-inline">x<sup>2</sup>+y<sup>2</sup>-1&gt;0</span>，即 <span class="math-inline">x<sup>2</sup>+y<sup>2</sup>&gt;1</span>。</li>
+<li>两者取交集：<span class="math-inline">D={(x,y):1&lt;x<sup>2</sup>+y<sup>2</sup>≤4}</span>。这是内半径 1、外半径 2 的圆环，内边界不含，外边界包含。</li>
+</ol>
+<p><strong>答案</strong>：<span class="math-inline">1&lt;x<sup>2</sup>+y<sup>2</sup>≤4</span>。</p>
+<p><strong>易错点</strong>：对数真数不能等于零；半径是平方根，外半径不是 4。</p>
+<p><strong>通用方法</strong>：逐项列合法条件 → 取交集 → 画出区域并标边界。</p>
+</div></details></div><div class="question-stem"><p>求 <span class="math-inline">f(x,y)=<span class="math-root"><span class="root-sign">√</span><span class="root-body">4-x<sup>2</sup>-y<sup>2</sup></span></span>+<span class="math-op">ln</span>(x<sup>2</sup>+y<sup>2</sup>-1)</span> 的定义域。</p>
+</div></article></div></div></section><section class="section topic-section" id="point-40" data-point="40"><div class="topic-header"><span class="topic-number">40</span><h2 class="topic-title">考点四十：二元函数的偏导数（补充）</h2></div><details class="fold-block knowledge-fold" open><summary class="fold-summary"><span>知识点</span><span class="fold-symbol" aria-hidden="true"></span></summary><div class="knowledge-content reading-column"><div class="knowledge-chunk"><blockquote>
+<p>讲义此考点留白，下面为补充；例8的混合偏导供下一考点继续使用。</p>
+</blockquote>
+</div><div class="knowledge-chunk"><h3>核心公式与理解</h3>
+<div class="math-display">f<sub>x</sub>(x,y)=<span class="math-op">lim</span><sub>h→0</sub><span class="math-frac"><span class="frac-top">f(x+h,y)-f(x,y)</span><span class="frac-bottom">h</span></span>,　　
+f<sub>y</sub>(x,y)=<span class="math-op">lim</span><sub>k→0</sub><span class="math-frac"><span class="frac-top">f(x,y+k)-f(x,y)</span><span class="frac-bottom">k</span></span>.</div>
+<p><strong>直观含义</strong>：沿 <span class="math-inline">x</span> 方向或 <span class="math-inline">y</span> 方向切开曲面，看截线上瞬时变化率。固定另一变量后，就是一元求导。</p>
+<p>乘积、商、链式法则仍适用，例如</p>
+<div class="math-display"><span class="math-frac"><span class="frac-top">∂</span><span class="frac-bottom">∂ x</span></span>e<sup>u(x,y)</sup>=e<sup>u</sup> u<sub>x</sub>,　　
+f<sub>xy</sub>=<span class="math-frac"><span class="frac-top">∂</span><span class="frac-bottom">∂ y</span></span>(f<sub>x</sub>).</div>
+<p>若混合二阶偏导在邻域内连续，则 <span class="math-inline">f<sub>xy</sub>=f<sub>yx</sub></span>，不能对任意函数无条件交换。</p>
+</div></div></details><details class="fold-block map-fold"><summary class="fold-summary"><span>思维导图</span><span class="fold-symbol" aria-hidden="true"></span></summary><div class="map-content"><ul class="map-tree"><li><details class="map-node" open><summary>二元函数的偏导数</summary><ul><li><details class="map-node" open><summary>偏导数定义</summary><ul><li><span class="map-leaf">沿x方向的差商极限</span></li><li><span class="map-leaf">沿y方向的差商极限</span></li></ul></details></li><li><details class="map-node" open><summary>求导规则</summary><ul><li><span class="map-leaf">求某变量偏导时固定另一变量</span></li><li><span class="map-leaf">乘积法则</span></li><li><span class="map-leaf">链式法则</span></li></ul></details></li><li><details class="map-node" open><summary>混合偏导</summary><ul><li><span class="map-leaf">先求一阶偏导</span></li><li><span class="map-leaf">再对另一变量求偏导</span></li></ul></details></li></ul></details></li></ul></div></details><div class="method-panel"><h3 class="method-title">做题方法</h3><div class="method-content"><p><strong>常见题型</strong>：一阶偏导、指定点偏导、混合偏导、复合函数链式求导。</p>
+<p><strong>通用方法</strong>：写明求导变量 → 冻结另一变量 → 乘积/链式法则 → 化简。</p>
+</div></div><div class="examples-group"><h3 class="subsection-heading">例题</h3><div class="example-list"><article class="question-card example-card"><div class="example-head"><h4 class="example-title">例题 8 <span>·</span> 一阶及混合偏导</h4><details class="solution-toggle"><summary>点击查看解答</summary><div class="answer-panel solution-body"><p><strong>第一眼判断</strong>：指数内部还有 <span class="math-inline">xy</span>，求导需乘内层导数。</p>
+<p><strong>分步解答</strong>：</p>
+<ol>
+<li>对 <span class="math-inline">x</span> 求导，<span class="math-inline">y</span> 当常数。幂函数法则与链式法则给出 <span class="math-inline">f<sub>x</sub>=2xy+ye<sup>xy</sup></span>。</li>
+<li>对 <span class="math-inline">y</span> 求导，<span class="math-inline">x</span> 当常数，得 <span class="math-inline">f<sub>y</sub>=x<sup>2</sup>+xe<sup>xy</sup></span>。</li>
+<li>对 <span class="math-inline">f<sub>x</sub></span> 再关于 <span class="math-inline">y</span> 求导。<span class="math-inline">ye<sup>xy</sup></span> 两因子都随 <span class="math-inline">y</span> 变化，用乘积法则：<span class="math-inline">f<sub>xy</sub>=2x+e<sup>xy</sup>+xye<sup>xy</sup>=2x+(1+xy)e<sup>xy</sup></span>。</li>
+</ol>
+<p><strong>答案</strong>：如上。</p>
+<p><strong>易错点</strong>：<span class="math-inline">∂ e<sup>xy</sup>/∂ x</span> 不是 <span class="math-inline">e<sup>xy</sup></span>，还要乘 <span class="math-inline">y</span>；混合偏导第二次求导时，不要沿用第一次“哪个是常数”的判断。</p>
+<p><strong>通用方法</strong>：写明求导变量 → 冻结另一变量 → 乘积/链式法则 → 化简。</p>
+</div></details></div><div class="question-stem"><p>设 <span class="math-inline">f=x<sup>2</sup>y+e<sup>xy</sup></span>，求 <span class="math-inline">f<sub>x</sub>,f<sub>y</sub>,f<sub>xy</sub></span>。</p>
+</div></article></div></div></section><section class="section topic-section" id="point-41" data-point="41"><div class="topic-header"><span class="topic-number">41</span><h2 class="topic-title">考点四十一：二元函数的高阶偏导数</h2></div><details class="fold-block knowledge-fold" open><summary class="fold-summary"><span>知识点</span><span class="fold-symbol" aria-hidden="true"></span></summary><div class="knowledge-content reading-column"><div class="knowledge-chunk"><p>对一阶偏导再次求偏导，得到四个二阶偏导：</p>
+<div class="math-display">f<sub>xx</sub>=(f<sub>x</sub>)<sub>x</sub>,　 f<sub>xy</sub>=(f<sub>x</sub>)<sub>y</sub>,　 f<sub>yx</sub>=(f<sub>y</sub>)<sub>x</sub>,　 f<sub>yy</sub>=(f<sub>y</sub>)<sub>y</sub>.</div>
+<p>这里明确以右下标顺序表示“先x后y”等，避免不同分式记号的阅读歧义。讲义定理：两个二阶混合偏导在区域D内连续，则该区域内 <span class="math-inline">f<sub>xy</sub>=f<sub>yx</sub></span>。</p>
+<p><strong>直观理解</strong>：一阶偏导看坡度，二阶偏导看坡度怎样变化；混合偏导看一个方向的坡度随另一个方向如何变化。<strong>常见题型</strong>：求二阶纯偏导、混合偏导，用连续条件交换求导次序简化计算。自编例8已示范“先x后y”，也可从其 <span class="math-inline">f<sub>y</sub></span> 对x求导核对。</p>
+</div></div></details><details class="fold-block map-fold"><summary class="fold-summary"><span>思维导图</span><span class="fold-symbol" aria-hidden="true"></span></summary><div class="map-content"><ul class="map-tree"><li><details class="map-node" open><summary>二元函数的高阶偏导数</summary><ul><li><details class="map-node" open><summary>二阶偏导</summary><ul><li><span class="map-leaf">fₓₓ、fₓᵧ、fᵧₓ、fᵧᵧ</span></li></ul></details></li><li><details class="map-node" open><summary>混合偏导定理</summary><ul><li><span class="map-leaf">两个二阶混合偏导在区域D内连续</span></li><li><span class="map-leaf">则 fₓᵧ=fᵧₓ</span></li></ul></details></li></ul></details></li></ul></div></details><div class="method-panel"><h3 class="method-title">做题方法</h3><div class="method-content"><p><strong>通用方法</strong>：先写出一阶式子，再逐步求导；不要跳过乘积法则，不要无条件交换次序。</p>
+</div></div></section><section class="section topic-section" id="point-42" data-point="42"><div class="topic-header"><span class="topic-number">42</span><h2 class="topic-title">考点四十二：二元函数的全微分</h2></div><details class="fold-block knowledge-fold" open><summary class="fold-summary"><span>知识点</span><span class="fold-symbol" aria-hidden="true"></span></summary><div class="knowledge-content reading-column"><div class="knowledge-chunk"><h3>核心公式与理解</h3>
+<p>函数在该点可微时：</p>
+<div class="math-display">dz=f<sub>x</sub>(x,y) dx+f<sub>y</sub>(x,y) dy.</div>
+<div class="math-display">Δ z=f<sub>x</sub>Δ x+f<sub>y</sub>Δ y+o(<span class="math-root"><span class="root-sign">√</span><span class="root-body">(Δ x)<sup>2</sup>+(Δ y)<sup>2</sup></span></span>).</div>
+<p><strong>为什么</strong>：把两个方向带来的变化的一阶主要部分相加；几何上是在曲面附近用切平面近似曲面。偏导在点的某邻域内存在且在该点连续，是可微的充分条件；仅偏导存在不保证可微。</p>
+</div><div class="knowledge-chunk"><h3>偏导、可微、连续的关系（讲义三条）</h3>
+<div class="math-display">f<sub>x</sub>,f<sub>y</sub><span class="math-text">在该点连续（邻域内存在）</span> ⟹ f<span class="math-text">在该点可微</span>
+ ⟹ f<span class="math-text">在该点连续</span>,</div>
+<div class="math-display">f<span class="math-text">在该点可微</span> ⟹ f<sub>x</sub>,f<sub>y</sub><span class="math-text">在该点均存在</span>.</div>
+<p><strong>不要倒推</strong>：偏导存在不一定连续，也不一定可微；连续不保证偏导存在。偏导只检查坐标轴方向，而可微控制所有方向的一阶误差。指定点的全微分应写为</p>
+<div class="math-display">.dz|<sub>(x<sub>0</sub>,y<sub>0</sub>)</sub>=f<sub>x</sub>(x<sub>0</sub>,y<sub>0</sub>)dx+f<sub>y</sub>(x<sub>0</sub>,y<sub>0</sub>)dy.</div>
+</div></div></details><details class="fold-block map-fold"><summary class="fold-summary"><span>思维导图</span><span class="fold-symbol" aria-hidden="true"></span></summary><div class="map-content"><ul class="map-tree"><li><details class="map-node" open><summary>二元函数的全微分</summary><ul><li><details class="map-node" open><summary>全微分</summary><ul><li><span class="map-leaf">dz=fₓdx+fᵧdy</span></li><li><span class="map-leaf">指定点处的全微分</span></li></ul></details></li><li><details class="map-node" open><summary>可微与增量</summary><ul><li><span class="map-leaf">可微时的一阶主要部分</span></li><li><span class="map-leaf">用全微分估计函数增量</span></li></ul></details></li><li><details class="map-node" open><summary>关系</summary><ul><li><span class="map-leaf">偏导连续 ⇒ 可微</span></li><li><span class="map-leaf">可微 ⇒ 连续</span></li><li><span class="map-leaf">可微 ⇒ 偏导数存在</span></li></ul></details></li></ul></details></li></ul></div></details><div class="method-panel"><h3 class="method-title">做题方法</h3><div class="method-content"><p><strong>常见题型</strong>：求全微分、在指定点写微分、利用微分估计小增量。<span class="math-inline">dz</span> 是线性主要部分，通常不等于实际 <span class="math-inline">Δ z</span>。</p>
+<p><strong>通用方法</strong>：求偏导 → 检查可微条件 → 写微分 → 在原点代系数 → 乘各自增量。</p>
+</div></div><div class="examples-group"><h3 class="subsection-heading">例题</h3><div class="example-list"><article class="question-card example-card"><div class="example-head"><h4 class="example-title">例题 9 <span>·</span> 微分近似</h4><details class="solution-toggle"><summary>点击查看解答</summary><div class="answer-panel solution-body"><p><strong>第一眼判断</strong>：两个变量同时小幅改变，用全微分相加估计。</p>
+<p><strong>分步解答</strong>：</p>
+<ol>
+<li>求偏导：<span class="math-inline">z<sub>x</sub>=2x+y, z<sub>y</sub>=x+2y</span>。多项式偏导连续，函数可微。</li>
+<li>代入公式：<span class="math-inline">dz=(2x+y)dx+(x+2y)dy</span>。</li>
+<li>在 <span class="math-inline">(1,2)</span>，系数为 4、5。代入 <span class="math-inline">dx=0.01,dy=-0.02</span>，得 <span class="math-inline">Δ z≈ dz=4(0.01)+5(-0.02)=-0.06</span>。</li>
+<li>直接展开作自检：真实增量还多出 <span class="math-inline">(0.01)<sup>2</sup>+0.01(-0.02)+(-0.02)<sup>2</sup>=0.0003</span>，即 <span class="math-inline">-0.0597</span>。</li>
+</ol>
+<p><strong>答案</strong>：全微分如上，增量估计 <span class="math-inline">-0.06</span>，精确增量 <span class="math-inline">-0.0597</span>。</p>
+<p><strong>易错点</strong>：估计增量时偏导系数在原点 <span class="math-inline">(1,2)</span> 计算，不是在新点计算；不要把近似号写成等号。</p>
+<p><strong>通用方法</strong>：求偏导 → 检查可微条件 → 写微分 → 在原点代系数 → 乘各自增量。</p>
+</div></details></div><div class="question-stem"><p><span class="math-inline">z=x<sup>2</sup>+xy+y<sup>2</sup></span>，求全微分，并估计从 <span class="math-inline">(1,2)</span> 变到 <span class="math-inline">(1.01,1.98)</span> 时的函数增量。</p>
+</div></article></div></div></section><section class="section topic-section" id="point-43" data-point="43"><div class="topic-header"><span class="topic-number">43</span><h2 class="topic-title">考点四十三：二元函数求极值</h2></div><details class="fold-block knowledge-fold" open><summary class="fold-summary"><span>知识点</span><span class="fold-symbol" aria-hidden="true"></span></summary><div class="knowledge-content reading-column"><div class="knowledge-chunk"><h3>核心公式与理解</h3>
+<p><strong>无约束内部极值</strong>：若一阶偏导存在，内部极值点必满足</p>
+<div class="math-display">f<sub>x</sub>=0,　　 f<sub>y</sub>=0.</div>
+<p>这样的点叫<strong>驻点</strong>，只是候选点，不一定是极值点。若函数二阶偏导在驻点附近连续，在驻点计算：</p>
+<div class="math-display">A=f<sub>xx</sub>,　 B=f<sub>xy</sub>,　 C=f<sub>yy</sub>,　　 Δ=AC-B<sup>2</sup>.</div>
+<ul>
+<li><span class="math-inline">Δ&gt;0,A&gt;0</span>：极小值；<span class="math-inline">Δ&gt;0,A&lt;0</span>：极大值。</li>
+<li><span class="math-inline">Δ&lt;0</span>：鞍点，不是极值。</li>
+<li><span class="math-inline">Δ=0</span>：此法不能判定，需进一步分析。</li>
+</ul>
+<p><strong>为什么</strong>：驻点处一阶变化为零，主要看二阶项</p>
+<div class="math-display"><span class="math-frac"><span class="frac-top">1</span><span class="frac-bottom">2</span></span>(Ah<sup>2</sup>+2Bhk+Ck<sup>2</sup>).</div>
+<p>当 <span class="math-inline">A≠0</span>，配方为 <span class="math-inline"><span class="math-frac"><span class="frac-top">1</span><span class="frac-bottom">2</span></span>[A(h+Bk/A)<sup>2</sup>+(Δ/A)k<sup>2</sup>]</span>。同号说明周围都升或都降；异号说明不同方向有升有降。<span class="math-inline">Δ=0</span> 时更高阶项可能决定结果。</p>
+<p><strong>条件极值：拉格朗日乘数法</strong>。约束 <span class="math-inline">g(x,y)=0</span>，若目标与约束光滑且约束梯度不为零，候选点满足</p>
+<div class="math-display">f<sub>x</sub>=λ g<sub>x</sub>,　　 f<sub>y</sub>=λ g<sub>y</sub>,　　 g=0.</div>
+<p><strong>理解</strong>：沿约束曲线移动时，极值处目标函数不能再有一阶切向变化，因此目标梯度与约束法向量平行。</p>
+<p><strong>最值不等于局部极值</strong>：连续函数在非空闭有界区域上有最大、最小值。找内部驻点及不可导点，再找边界候选点、角点，统一比较。约束梯度为零的点须另外检查；乘数法只给候选点，不自动证明最大最小。</p>
+</div><div class="knowledge-chunk"><h3>讲义极值步骤再压缩</h3>
+<p>必要条件用于<strong>内部点</strong>：在点取得极值，且两偏导存在，则两偏导都为零。边界上的约束极值不能直接套此条件。
+充分条件要求驻点邻域内有连续的一、二阶偏导；然后按 <span class="math-inline">AC-B<sup>2</sup></span> 判定。</p>
+<p>固定写法：①联立一阶偏导为零找全部驻点；②逐点算A、B、C；③逐点分类；④代回原函数求极值。报告“点”和“值”两项，不要混淆。</p>
+</div></div></details><details class="fold-block map-fold"><summary class="fold-summary"><span>思维导图</span><span class="fold-symbol" aria-hidden="true"></span></summary><div class="map-content"><ul class="map-tree"><li><details class="map-node" open><summary>二元函数求极值</summary><ul><li><details class="map-node" open><summary>无约束极值</summary><ul><li><span class="map-leaf">必要条件：fₓ=0、fᵧ=0</span></li><li><span class="map-leaf">驻点</span></li></ul></details></li><li><details class="map-node" open><summary>二阶判别</summary><ul><li><span class="map-leaf">A=fₓₓ、B=fₓᵧ、C=fᵧᵧ</span></li><li><span class="map-leaf">Δ=AC−B²</span></li><li><span class="map-leaf">Δ&gt;0且A&gt;0：极小值</span></li><li><span class="map-leaf">Δ&gt;0且A&lt;0：极大值</span></li><li><span class="map-leaf">Δ&lt;0：不是极值点</span></li><li><span class="map-leaf">Δ=0：需另作讨论</span></li></ul></details></li><li><details class="map-node" open><summary>条件极值</summary><ul><li><span class="map-leaf">拉格朗日乘数法</span></li><li><span class="map-leaf">约束方程 g=0</span></li></ul></details></li></ul></details></li></ul></div></details><div class="method-panel"><h3 class="method-title">做题方法</h3><div class="method-content"><p><strong>常见题型</strong>：驻点分类、闭区域最值、圆或椭圆约束下的条件最值。</p>
+<p><strong>通用方法</strong>：一阶找点 → 二阶分类 → 代回求值 → 要求最值时另查边界或全局性质。</p>
+</div></div><div class="examples-group"><h3 class="subsection-heading">例题</h3><div class="example-list"><article class="question-card example-card"><div class="example-head"><h4 class="example-title">例题 10 <span>·</span> 驻点与二阶判别</h4><details class="solution-toggle"><summary>点击查看解答</summary><div class="answer-panel solution-body"><p><strong>第一眼判断</strong>：光滑多项式，先联立一阶偏导为零。</p>
+<p><strong>分步解答</strong>：</p>
+<ol>
+<li><span class="math-inline">f<sub>x</sub>=2x-2=0, f<sub>y</sub>=2y-4=0</span>，得到唯一驻点 <span class="math-inline">(1,2)</span>。</li>
+<li>为判断是升是降，求二阶偏导：<span class="math-inline">A=2,B=0,C=2</span>，故 <span class="math-inline">Δ=4&gt;0,A&gt;0</span>，是极小值点。</li>
+<li>代入函数，极小值为 <span class="math-inline">-5</span>。</li>
+<li>二阶判别本身只说明局部。为判断全局，配方 <span class="math-inline">f=(x-1)<sup>2</sup>+(y-2)<sup>2</sup>-5≥-5</span>。故也是全局最小值；沿 <span class="math-inline">x→∞,y=2</span>，函数无上界，没有最大值。</li>
+</ol>
+<p><strong>答案</strong>：<span class="math-inline">(1,2)</span> 处取极小值及全局最小值 <span class="math-inline">-5</span>，无极大值、无最大值。</p>
+<p><strong>易错点</strong>：驻点不是“答案已出”；<span class="math-inline">AC-B<sup>2</sup></span> 不要写成 <span class="math-inline">AB-C<sup>2</sup></span>。</p>
+<p><strong>通用方法</strong>：一阶找点 → 二阶分类 → 代回求值 → 要求最值时另查边界或全局性质。</p>
+</div></details></div><div class="question-stem"><p>求 <span class="math-inline">f=x<sup>2</sup>+y<sup>2</sup>-2x-4y</span> 的极值，并判断是否为全局最值。</p>
+</div></article></div></div></section><section class="section topic-section" id="point-44" data-point="44"><div class="topic-header"><span class="topic-number">44</span><h2 class="topic-title">考点四十四：二元函数的最值应用</h2></div><details class="fold-block knowledge-fold" open><summary class="fold-summary"><span>知识点</span><span class="fold-symbol" aria-hidden="true"></span></summary><div class="knowledge-content reading-column"><div class="knowledge-chunk"><p><strong>为什么先定定义域</strong>：实际问题可能要求长度、体积为正，或有固定总量约束；定义域决定边界和可行点。驻点只是内部候选，必须检查边界、角点、不可导点；开区域或无界区域不一定取到最值。条件极值可用上节介绍的拉格朗日法，但要比较候选值。</p>
+</div></div></details><details class="fold-block map-fold"><summary class="fold-summary"><span>思维导图</span><span class="fold-symbol" aria-hidden="true"></span></summary><div class="map-content"><ul class="map-tree"><li><details class="map-node" open><summary>二元函数的最值应用</summary><ul><li><details class="map-node" open><summary>建立模型</summary><ul><li><span class="map-leaf">根据实际问题建立函数关系</span></li><li><span class="map-leaf">确定定义域与可行条件</span></li></ul></details></li><li><details class="map-node" open><summary>候选点</summary><ul><li><span class="map-leaf">内部驻点</span></li><li><span class="map-leaf">边界、角点与不可导点</span></li><li><span class="map-leaf">条件极值的候选点</span></li></ul></details></li><li><details class="map-node" open><summary>最值判断</summary><ul><li><span class="map-leaf">结合实际意义</span></li><li><span class="map-leaf">比较候选值</span></li></ul></details></li></ul></details></li></ul></div></details><div class="method-panel"><h3 class="method-title">做题方法</h3><div class="method-content"><p>讲义三步：①根据实际问题建立函数关系，确定定义域；②求驻点；③结合实际意义判定最大、最小值。</p>
+<p><strong>常见题型</strong>：固定材料求最大容量、固定总量求最优分配、圆/椭圆约束最值。先写目标函数，再写可行条件，切忌只解导数方程不回答实际量和单位。</p>
+<p><strong>通用方法</strong>：验证约束正则 → 写三方程 → 完整求候选点 → 比较目标函数值。也可用 <span class="math-inline">(x± y)<sup>2</sup>≥0</span> 验证 <span class="math-inline">-1/2≤ xy≤1/2</span>。</p>
+</div></div><div class="examples-group"><h3 class="subsection-heading">例题</h3><div class="example-list"><article class="question-card example-card"><div class="example-head"><h4 class="example-title">例题 11 <span>·</span> 拉格朗日乘数法</h4><details class="solution-toggle"><summary>点击查看解答</summary><div class="answer-panel solution-body"><p><strong>第一眼判断</strong>：点只能在单位圆上移动，不能直接用无约束驻点作为答案。</p>
+<p><strong>分步解答</strong>：</p>
+<ol>
+<li>设 <span class="math-inline">g=x<sup>2</sup>+y<sup>2</sup>-1</span>，其梯度 <span class="math-inline">(2x,2y)</span> 在圆上不为零，可用乘数法。</li>
+<li>写方程 <span class="math-inline">y=2λ x, x=2λ y, x<sup>2</sup>+y<sup>2</sup>=1</span>。若 <span class="math-inline">x=0</span>，第一式推出 <span class="math-inline">y=0</span>，与约束矛盾；同理 <span class="math-inline">y≠0</span>。所以后续消去变量不会漏掉坐标为零的解。</li>
+<li>联立得 <span class="math-inline">4λ<sup>2</sup>=1</span>。<span class="math-inline">λ=1/2</span> 时 <span class="math-inline">y=x</span>，得到 <span class="math-inline">(1/<span class="math-root"><span class="root-sign">√</span><span class="root-body">2</span></span>,1/<span class="math-root"><span class="root-sign">√</span><span class="root-body">2</span></span>)</span>、<span class="math-inline">(-1/<span class="math-root"><span class="root-sign">√</span><span class="root-body">2</span></span>,-1/<span class="math-root"><span class="root-sign">√</span><span class="root-body">2</span></span>)</span>，函数值都是 <span class="math-inline">1/2</span>。</li>
+<li><span class="math-inline">λ=-1/2</span> 时 <span class="math-inline">y=-x</span>，得到另外两个异号点，函数值都是 <span class="math-inline">-1/2</span>。</li>
+<li>圆是闭有界集合，<span class="math-inline">f</span> 连续，一定取到最值；又没有不规则约束点，比较全部候选值即可。</li>
+</ol>
+<p><strong>答案</strong>：最大值 <span class="math-inline">1/2</span>，最小值 <span class="math-inline">-1/2</span>，取值点如上。</p>
+<p><strong>易错点</strong>：漏写约束方程；直接约去 <span class="math-inline">x,y</span> 而不检查零的可能性；乘数 <span class="math-inline">λ</span> 不是极值。</p>
+<p><strong>通用方法</strong>：验证约束正则 → 写三方程 → 完整求候选点 → 比较目标函数值。也可用 <span class="math-inline">(x± y)<sup>2</sup>≥0</span> 验证 <span class="math-inline">-1/2≤ xy≤1/2</span>。</p>
+</div></details></div><div class="question-stem"><p>在 <span class="math-inline">x<sup>2</sup>+y<sup>2</sup>=1</span> 上求 <span class="math-inline">f=xy</span> 的最大、最小值。</p>
+</div></article></div></div></section><section class="section topic-section" id="point-45" data-point="45"><div class="topic-header"><span class="topic-number">45</span><h2 class="topic-title">考点四十五：多元复合函数求一阶偏导数</h2></div><details class="fold-block knowledge-fold" open><summary class="fold-summary"><span>知识点</span><span class="fold-symbol" aria-hidden="true"></span></summary><div class="knowledge-content reading-column"><div class="knowledge-chunk"><p>设 <span class="math-inline">z=f(u,v), u=φ(x,y), v=ψ(x,y)</span>，各层满足可微条件，则</p>
+<div class="math-display"><span class="math-frac"><span class="frac-top">∂ z</span><span class="frac-bottom">∂ x</span></span>=<span class="math-frac"><span class="frac-top">∂ z</span><span class="frac-bottom">∂ u</span></span><span class="math-frac"><span class="frac-top">∂ u</span><span class="frac-bottom">∂ x</span></span>+<span class="math-frac"><span class="frac-top">∂ z</span><span class="frac-bottom">∂ v</span></span><span class="math-frac"><span class="frac-top">∂ v</span><span class="frac-bottom">∂ x</span></span>,　　
+<span class="math-frac"><span class="frac-top">∂ z</span><span class="frac-bottom">∂ y</span></span>=<span class="math-frac"><span class="frac-top">∂ z</span><span class="frac-bottom">∂ u</span></span><span class="math-frac"><span class="frac-top">∂ u</span><span class="frac-bottom">∂ y</span></span>+<span class="math-frac"><span class="frac-top">∂ z</span><span class="frac-bottom">∂ v</span></span><span class="math-frac"><span class="frac-top">∂ v</span><span class="frac-bottom">∂ y</span></span>.</div>
+<p><strong>理解/推导</strong>：先写 <span class="math-inline">dz=f<sub>u</sub> du+f<sub>v</sub> dv</span>，再写 <span class="math-inline">du=u<sub>x</sub>dx+u<sub>y</sub>dy</span>、<span class="math-inline">dv=v<sub>x</sub>dx+v<sub>y</sub>dy</span>，代入后分别收集dx与dy系数即可。因此口诀是“连线相乘，分线相加”：x影响z有经u和经v两条路，缺一路就漏项。</p>
+</div></div></details><details class="fold-block map-fold"><summary class="fold-summary"><span>思维导图</span><span class="fold-symbol" aria-hidden="true"></span></summary><div class="map-content"><ul class="map-tree"><li><details class="map-node" open><summary>多元复合函数求一阶偏导数</summary><ul><li><details class="map-node" open><summary>依赖关系</summary><ul><li><span class="map-leaf">z=f(u,v)</span></li><li><span class="map-leaf">u=φ(x,y)</span></li><li><span class="map-leaf">v=ψ(x,y)</span></li><li><span class="map-leaf">z→u、v→x、y</span></li></ul></details></li><li><details class="map-node" open><summary>链式法则</summary><ul><li><span class="map-leaf">连线相乘</span></li><li><span class="map-leaf">分线相加</span></li><li><span class="map-leaf">若有直接路径，再加直接路径</span></li></ul></details></li></ul></details></li></ul></div></details><div class="method-panel"><h3 class="method-title">做题方法</h3><div class="method-content"><p><strong>常见题型</strong>：给中间变量求偏导；用抽象 <span class="math-inline">f<sub>u</sub>,f<sub>v</sub></span> 表示答案。<strong>步骤</strong>：画z→u,v→x,y依赖图 → 写所有路径乘积 → 求和 → 把中间变量代回。若z还显含x或y，要再加直接路径；不能误把中间变量当成常数。可将原自编例8的指数项视为 <span class="math-inline">u=xy,z=e<sup>u</sup></span> 来练习单路径版本。</p>
+</div></div></section><section class="section topic-section" id="point-46" data-point="46"><div class="topic-header"><span class="topic-number">46</span><h2 class="topic-title">考点四十六：二重积分的性质</h2></div><details class="fold-block knowledge-fold" open><summary class="fold-summary"><span>知识点</span><span class="fold-symbol" aria-hidden="true"></span></summary><div class="knowledge-content reading-column"><div class="knowledge-chunk"><h3>积分记号与几何意义</h3>
+<p><span class="math-inline">∬<sub>D</sub> f(x,y)dσ</span> 中，<span class="math-inline">∬</span> 是二重积分号，D是积分区域，f为被积函数，x、y为积分变量，<span class="math-inline">dσ=dA=dxdy</span> 为面积元素，<span class="math-inline">f(x,y)dσ</span> 为被积表达式。面积元素没有一维定积分“交换上下限变负号”的方向性。</p>
+<ul>
+<li>D上f非负：积分为曲顶柱体体积。</li>
+<li>D上f非正：积分为相应几何体积的相反数。</li>
+<li>f有正有负：积分为xOy面上方体积减下方体积，总几何体积则积分绝对值。</li>
+</ul>
+</div><div class="knowledge-chunk"><h3>性质1—8（按讲义编号）</h3>
+<p>默认涉及的函数均可积，区域面积有限。</p>
+<ol>
+<li><strong>常数可提出</strong>：<span class="math-inline">∬<sub>D</sub> kf dA=k∬<sub>D</sub> f dA</span>，k为常数。</li>
+<li><strong>和差线性</strong>：<span class="math-inline">∬<sub>D</sub>(f± g)dA=∬<sub>D</sub>f dA±∬<sub>D</sub>g dA</span>。前两条来自有限和的线性。</li>
+<li><strong>区域可加</strong>：若 <span class="math-inline">D=D<sub>1</sub>∪ D<sub>2</sub></span>，两块除边界等零面积部分外不重叠，则 <span class="math-inline">∬<sub>D</sub> f=∬<sub>D<sub>1</sub></sub>f+∬<sub>D<sub>2</sub></sub>f</span>。理解为不重不漏地分块；不是把两个积分相乘。</li>
+<li><strong>面积公式</strong>：<span class="math-inline">∬<sub>D</sub>1 dA=S</span>，即高为1的柱体体积等于底面积。</li>
+<li><strong>比较性</strong>：若D上 <span class="math-inline">f≥ g</span>，则 <span class="math-inline">∬<sub>D</sub> f≥∬<sub>D</sub>g</span>。推论：f非负则积分非负；<span class="math-inline">|∬<sub>D</sub> f dA|≤∬<sub>D</sub>|f| dA</span>。抵消后的大小不超过各部分绝对量之和。</li>
+<li><strong>估值定理</strong>：<span class="math-inline">m≤ f≤ M</span> 时，<span class="math-inline">mS≤∬<sub>D</sub> f dA≤ MS</span>。由比较性对常数m、M应用即得。</li>
+<li><strong>中值定理</strong>：连续函数在有界闭区域D上，其积分可写成 <span class="math-inline">f(ξ,η)S</span>。这里采用通常“区域”的连通含义，并要求 <span class="math-inline">S&gt;0</span> 才能讨论平均值。若集合不连通，平均值未必在集合上取到，不能遗漏此条件。</li>
+<li><strong>对称性</strong>：<ul>
+<li>D关于x轴对称时：若 <span class="math-inline">f(x,-y)=-f(x,y)</span>，积分为0；若 <span class="math-inline">f(x,-y)=f(x,y)</span>，积分为上半区域（或下半区域）积分的2倍。</li>
+<li>D关于y轴对称时：若 <span class="math-inline">f(-x,y)=-f(x,y)</span>，积分为0；若 <span class="math-inline">f(-x,y)=f(x,y)</span>，积分为右半区域（或左半区域）积分的2倍。</li>
+<li><strong>理解</strong>：对称点面积相同，奇函数值抵消、偶函数值相加。关于x轴要看y的奇偶，关于y轴要看x的奇偶；区域和函数两项条件都要检查。</li>
+</ul>
+</li>
+</ol>
+</div><div class="knowledge-chunk"><h3>几何理解、估值和中值综合示范</h3>
+</div><div class="knowledge-chunk"><h3>核心公式与理解</h3>
+<p><strong>几何意义</strong>：当 <span class="math-inline">f≥0</span> 时，</p>
+<div class="math-display">V=∬<sub>D</sub> f(x,y) dA</div>
+<p>是底面为 <span class="math-inline">D</span>、上顶为 <span class="math-inline">z=f(x,y)</span>、下底为 <span class="math-inline">z=0</span> 的曲顶柱体体积。把底面切成小块，“小底面积 × 高”相加，取极限得到积分。若 <span class="math-inline">f</span> 可正可负，积分表示有向体积；总几何体积应为 <span class="math-inline">∬<sub>D</sub>|f| dA</span>。</p>
+<p><strong>估值定理</strong>：<span class="math-inline">f</span> 在有限面积区域 <span class="math-inline">D</span> 上可积，<span class="math-inline">S=<span class="math-op">area</span>(D)</span>，且 <span class="math-inline">m≤ f≤ M</span>，则</p>
+<div class="math-display">mS≤∬<sub>D</sub> f(x,y) dA≤ MS.</div>
+<p><strong>为什么</strong>：每块小柱的高都夹在 <span class="math-inline">m,M</span> 之间，相加后仍被两个等高柱体夹住。不要求 <span class="math-inline">m,M</span> 一定是精确最小最大值，任何有效上下界都能用。</p>
+<p><strong>积分中值定理（常用充分条件）</strong>：<span class="math-inline">D</span> 为有正面积的闭有界连通区域，<span class="math-inline">f</span> 在 <span class="math-inline">D</span> 上连续，则存在 <span class="math-inline">(ξ,η)∈ D</span>，使</p>
+<div class="math-display">∬<sub>D</sub> f(x,y) dA=f(ξ,η)S,　　
+<span class="math-overline">f</span>=<span class="math-frac"><span class="frac-top">1</span><span class="frac-bottom">S</span></span>∬<sub>D</sub> f(x,y) dA.</div>
+<p><strong>为什么</strong>：估值定理说明平均高度介于最小、最大高度之间；连续性与连通性保证中间这个高度能在区域上取到。中值点通常不唯一，也不能预先认定是几何中心。</p>
+</div></div></details><details class="fold-block map-fold"><summary class="fold-summary"><span>思维导图</span><span class="fold-symbol" aria-hidden="true"></span></summary><div class="map-content"><ul class="map-tree"><li><details class="map-node" open><summary>二重积分的性质</summary><ul><li><details class="map-node" open><summary>二重积分</summary><ul><li><span class="map-leaf">积分区域D</span></li><li><span class="map-leaf">被积函数f(x,y)</span></li><li><span class="map-leaf">面积元素dσ</span></li></ul></details></li><li><details class="map-node" open><summary>几何意义</summary><ul><li><span class="map-leaf">f≥0：曲顶柱体体积</span></li><li><span class="map-leaf">f≤0：体积的相反数</span></li><li><span class="map-leaf">正负区域：有向体积</span></li></ul></details></li><li><details class="map-node" open><summary>性质1—8</summary><ul><li><span class="map-leaf">常数可提出</span></li><li><span class="map-leaf">和差线性</span></li><li><span class="map-leaf">区域可加</span></li><li><span class="map-leaf">面积公式</span></li><li><span class="map-leaf">比较性</span></li><li><span class="map-leaf">估值定理</span></li><li><span class="map-leaf">中值定理</span></li><li><span class="map-leaf">对称性</span></li></ul></details></li><li><details class="map-node" open><summary>对称性</summary><ul><li><span class="map-leaf">关于x轴：检查y的奇偶性</span></li><li><span class="map-leaf">关于y轴：检查x的奇偶性</span></li></ul></details></li></ul></details></li></ul></div></details><div class="method-panel"><h3 class="method-title">做题方法</h3><div class="method-content"><p><strong>常见题型</strong>：不计算积分先判断符号/范围，求体积或平均值，验证中值点存在。</p>
+<p><strong>通用方法</strong>：画区域求面积 → 找函数上下界 → 先估值 → 必要时计算 → 积分除面积找平均高度。</p>
+</div></div><div class="examples-group"><h3 class="subsection-heading">例题</h3><div class="example-list"><article class="question-card example-card"><div class="example-head"><h4 class="example-title">例题 12 <span>·</span> 体积、估值与中值点</h4><details class="solution-toggle"><summary>点击查看解答</summary><div class="answer-panel solution-body"><p><strong>第一眼判断</strong>：正方形面积易求，被积函数非负，既能解释体积，也能用最小最大高度估值。</p>
+<p><strong>分步解答</strong>：</p>
+<ol>
+<li><span class="math-inline">D</span> 面积为 1，且 <span class="math-inline">0≤ x+y≤2</span>。由于函数非负，<span class="math-inline">I</span> 是 <span class="math-inline">z=x+y</span> 与 <span class="math-inline">z=0</span> 之间、底面在该正方形上的体积。</li>
+<li>用估值定理：<span class="math-inline">0×1≤ I≤2×1</span>，即 <span class="math-inline">0≤ I≤2</span>。这只给范围，不表示积分就是端点。</li>
+<li>写累次积分以计算：先固定 <span class="math-inline">x</span>，对 <span class="math-inline">y</span> 积分，</li>
+</ol>
+<div class="math-display">I=∫<sub>0</sub><sup>1</sup>[xy+<span class="math-frac"><span class="frac-top">y<sup>2</sup></span><span class="frac-bottom">2</span></span>]<sub>y=0</sub><sup>y=1</sup>dx
+   =∫<sub>0</sub><sup>1</sup>(x+1/2)dx=1.</div>
+<ol start="4">
+<li>平均高度为 <span class="math-inline">I/S=1</span>。函数连续、正方形闭有界且连通，满足中值定理；取 <span class="math-inline">(ξ,η)=(1/2,1/2)</span>，确有 <span class="math-inline">f=1</span>，故是一个中值点。实际上区域内所有 <span class="math-inline">ξ+η=1</span> 的点都可以。</li>
+</ol>
+<p><strong>答案</strong>：曲顶柱体体积为 1；估值为 <span class="math-inline">0≤ I≤2</span>；可取中值点 <span class="math-inline">(1/2,1/2)</span>。</p>
+<p><strong>易错点</strong>：估值别忘乘面积；中值点不唯一；被积函数有负值时，积分不一定是普通体积。</p>
+<p><strong>通用方法</strong>：画区域求面积 → 找函数上下界 → 先估值 → 必要时计算 → 积分除面积找平均高度。</p>
+<hr />
+</div></details></div><div class="question-stem"><p><span class="math-inline">D=[0,1]×[0,1]</span>，<span class="math-inline">f=x+y</span>。解释 <span class="math-inline">I=∬<sub>D</sub>(x+y) dA</span> 的几何意义，给出估值并计算，最后找一个中值点。</p>
+</div></article></div></div></section><section class="section topic-section" id="point-47" data-point="47"><div class="topic-header"><span class="topic-number">47</span><h2 class="topic-title">考点四十七：直角坐标系下二重积分的计算</h2></div><details class="fold-block knowledge-fold" open><summary class="fold-summary"><span>知识点</span><span class="fold-symbol" aria-hidden="true"></span></summary><div class="knowledge-content reading-column"><div class="knowledge-chunk"><p>讲义提供到 <strong>X型区域（上下型）</strong>，后续页未提供，以下不冒充后续讲义内容。</p>
+<div class="math-display">D={(x,y):a≤ x≤ b, φ<sub> 下</sub>(x)≤ y≤φ<sub> 上</sub>(x)},</div>
+<div class="math-display">∬<sub>D</sub> f(x,y) dA=∫<sub>a</sub><sup>b</sup>[∫<sub>φ<sub> 下</sub>(x)</sub><sup>φ<sub> 上</sub>(x)</sup>f(x,y) dy]dx.</div>
+<p><strong>直观含义</strong>：固定x画竖线，竖线从下边界走到上边界；先把这一条上的量对y积起来，再让x从左到右扫过整个区域。<strong>为什么先y</strong>：内层把x固定，y在该竖线内变化；外层才改变x。</p>
+</div></div></details><details class="fold-block map-fold"><summary class="fold-summary"><span>思维导图</span><span class="fold-symbol" aria-hidden="true"></span></summary><div class="map-content"><ul class="map-tree"><li><details class="map-node" open><summary>直角坐标系下二重积分的计算</summary><ul><li><details class="map-node" open><summary>X型区域（上下型）</summary><ul><li><span class="map-leaf">a≤x≤b</span></li><li><span class="map-leaf">φ下(x)≤y≤φ上(x)</span></li><li><span class="map-leaf">固定x作竖线</span></li></ul></details></li><li><details class="map-node" open><summary>积分次序</summary><ul><li><span class="map-leaf">先对y积分</span></li><li><span class="map-leaf">再对x积分</span></li></ul></details></li><li><details class="map-node" open><summary>计算步骤</summary><ul><li><span class="map-leaf">画边界并求交点</span></li><li><span class="map-leaf">确定x投影区间</span></li><li><span class="map-leaf">确定y下界与上界</span></li><li><span class="map-leaf">必要时分段</span></li></ul></details></li></ul></details></li></ul></div></details><div class="method-panel"><h3 class="method-title">做题方法</h3><div class="method-content"><p><strong>常见题型</strong>：读图写区域、从不等式写上下限、把二重积分化为累次积分。自编例12的单位正方形就是X型，<span class="math-inline">a=0,b=1,φ<sub>下</sub>=0,φ<sub>上</sub>=1</span>。</p>
+<p><strong>通用方法</strong>：①画边界，求交点；②确定x投影区间；③固定x找y的下、上界；④先y积分，x当常数；⑤再x积分。若竖线的上、下边界表达式随x改变，必须分段。<strong>易错点</strong>：外层上下限不能仍含y；把x当常数不等于把含x项全部删掉；积分上界减下界的顺序不能反。</p>
+</div></div></section>
+        <section class="section topic-section practice-section" id="p123-practice" data-point="practice"><div class="topic-header"><span class="topic-number">P123</span><h2 class="topic-title">专项练习 · 第四章 考点三十六</h2></div><div class="practice-grid"><article class="question-card practice-card"><div class="example-head"><h3 class="example-title">专项 1 <span>·</span> 求两向量夹角</h3><details class="solution-toggle"><summary>点击查看解答</summary><div class="answer-panel solution-body"><p><strong>第一眼判断</strong>：求夹角先算点积；若点积为零可直接判垂直。</p>
+<p><strong>分步解答</strong>：</p>
+<ol>
+<li>用坐标点积：<span class="math-inline"><span class="math-vector">a</span>·<span class="math-vector">b</span>=(-1)2+1×0+2×1=0</span>。</li>
+<li>两向量均非零，故 <span class="math-inline"><span class="math-op">cos</span>θ=0/(<span class="math-root"><span class="root-sign">√</span><span class="root-body">6</span></span><span class="math-root"><span class="root-sign">√</span><span class="root-body">5</span></span>)=0</span>。</li>
+<li>夹角范围为 <span class="math-inline">[0,π]</span>，所以 <span class="math-inline">θ=π/2</span>。</li>
+</ol>
+<p><strong>答案</strong>：<span class="math-inline">π/2</span>。<strong>易错点</strong>：点积0不是夹角0；夹角0表示同向平行。<strong>通用方法</strong>：点积 → 两模 → 余弦 → 角度。</p>
+</div></details></div><div class="question-stem source-question"><p>1. 设 a=(-1,1,2), b=(2,0,1)，则 a 与 b 的夹角为____</p></div></article><article class="question-card practice-card"><div class="example-head"><h3 class="example-title">专项 2 <span>·</span> 求夹角余弦</h3><details class="solution-toggle"><summary>点击查看解答</summary><div class="answer-panel solution-body"><p><strong>第一眼判断</strong>：题目要余弦，不必再求反余弦。</p>
+<p><strong>分步解答</strong>：</p>
+<ol>
+<li>点积 <span class="math-inline">1-2+8=7</span>，来自对应坐标乘积相加。</li>
+<li>模分别为 <span class="math-inline"><span class="math-root"><span class="root-sign">√</span><span class="root-body">1+1+16</span></span>=<span class="math-root"><span class="root-sign">√</span><span class="root-body">18</span></span>=3<span class="math-root"><span class="root-sign">√</span><span class="root-body">2</span></span></span>、<span class="math-inline"><span class="math-root"><span class="root-sign">√</span><span class="root-body">1+4+4</span></span>=3</span>。</li>
+<li>用夹角公式得 <span class="math-inline"><span class="math-op">cos</span>θ=7/(9<span class="math-root"><span class="root-sign">√</span><span class="root-body">2</span></span>)=7<span class="math-root"><span class="root-sign">√</span><span class="root-body">2</span></span>/18</span>。</li>
+</ol>
+<p><strong>答案</strong>：<span class="math-inline">7<span class="math-root"><span class="root-sign">√</span><span class="root-body">2</span></span>/18</span>。<strong>易错点</strong>：分母是两个模相乘，不是两个模相加。<strong>通用方法</strong>：先分别算三个独立量，最后合并，减少心算出错。</p>
+</div></details></div><div class="question-stem source-question"><p>2. 向量 a=(1,1,4) 与 b=(1,-2,2) 的夹角余弦是____</p></div></article><article class="question-card practice-card"><div class="example-head"><h3 class="example-title">专项 3 <span>·</span> 平行求参数</h3><details class="solution-toggle"><summary>点击查看解答</summary><div class="answer-panel solution-body"><p><strong>第一眼判断</strong>：点不是向量，先做终点减起点，再用成比例。</p>
+<p><strong>分步解答</strong>：</p>
+<ol>
+<li><span class="math-inline"><span class="math-vector">AB</span>=(2,x-1,y-1)</span>。</li>
+<li>平行意味着 <span class="math-inline">(2,x-1,y-1)=λ(2,3,4)</span>。第一分量给出 <span class="math-inline">2=2λ</span>，所以 <span class="math-inline">λ=1</span>。</li>
+<li>第二分量给出 <span class="math-inline">x-1=3</span>，所以 <span class="math-inline">x=4</span>。第三分量同时给出 <span class="math-inline">y=5</span>，可作一致性核验。</li>
+</ol>
+<p><strong>答案</strong>：<span class="math-inline">x=4</span>（并有 <span class="math-inline">y=5</span>）。<strong>易错点</strong>：不要直接令B的坐标与给定向量成比例。<strong>通用方法</strong>：点转向量 → 引入比例系数 → 逐坐标解方程。</p>
+</div></details></div><div class="question-stem source-question"><p>3. 已知点 A(1,1,1)，点 B(3,x,y)，且向量 AB 与 a=(2,3,4) 平行，则 x=____</p></div></article><article class="question-card practice-card"><div class="example-head"><h3 class="example-title">专项 4 <span>·</span> 已知模和夹角求和向量的模</h3><details class="solution-toggle"><summary>点击查看解答</summary><div class="answer-panel solution-body"><p><strong>第一眼判断</strong>：不知道坐标，但知道模和夹角，展开点积平方最直接。</p>
+<p><strong>分步解答</strong>：</p>
+<ol>
+<li>由 <span class="math-inline">|<span class="math-vector">v</span>|<sup>2</sup>=<span class="math-vector">v</span>·<span class="math-vector">v</span></span> 及分配律，得</li>
+</ol>
+<div class="math-display">|<span class="math-vector">a</span>+<span class="math-vector">b</span>|<sup>2</sup>=|<span class="math-vector">a</span>|<sup>2</sup>+2<span class="math-vector">a</span>·<span class="math-vector">b</span>+|<span class="math-vector">b</span>|<sup>2</sup>.</div>
+<ol start="2">
+<li>用点积定义：<span class="math-inline"><span class="math-vector">a</span>·<span class="math-vector">b</span>=2×3<span class="math-op">cos</span>(π/3)=3</span>。</li>
+<li>得平方为 <span class="math-inline">4+6+9=19</span>，模非负，开方取正。</li>
+</ol>
+<p><strong>答案</strong>：<span class="math-inline"><span class="math-root"><span class="root-sign">√</span><span class="root-body">19</span></span></span>。<strong>易错点</strong>：和向量的模通常不等于两模之和；中间项有系数2。<strong>通用方法</strong>：模先平方 → 点积展开 → 代入夹角 → 最后开方。</p>
+</div></details></div><div class="question-stem source-question"><p>4. 已知 |a|=2, |b|=3，a 与 b 夹角为 π/3，则 |a+b|=____</p></div></article><article class="question-card practice-card"><div class="example-head"><h3 class="example-title">专项 5 <span>·</span> 共线且点积已知求向量</h3><details class="solution-toggle"><summary>点击查看解答</summary><div class="answer-panel solution-body"><p><strong>第一眼判断</strong>：共线先写 <span class="math-inline"><span class="math-vector">b</span>=λ<span class="math-vector">a</span></span>，把向量未知转成一个数未知。</p>
+<p><strong>分步解答</strong>：</p>
+<ol>
+<li><span class="math-inline">|<span class="math-vector">a</span>|<sup>2</sup>=1+4+9=14</span>。</li>
+<li>点积的数乘性质给出 <span class="math-inline"><span class="math-vector">a</span>·<span class="math-vector">b</span>=λ(<span class="math-vector">a</span>·<span class="math-vector">a</span>)=14λ=56</span>。</li>
+<li>得 <span class="math-inline">λ=4</span>，所以 <span class="math-inline"><span class="math-vector">b</span>=4(1,-2,3)=(4,-8,12)</span>。</li>
+<li>检查：<span class="math-inline">1×4+(-2)(-8)+3×12=56</span>，且叉积为零。</li>
+</ol>
+<p><strong>答案</strong>：<span class="math-inline">(4,-8,12)</span>。<strong>易错点</strong>：是除以模的平方14，不是除以 <span class="math-inline"><span class="math-root"><span class="root-sign">√</span><span class="root-body">14</span></span></span>；此题比例系数为4，不是其他值。<strong>通用方法</strong>：共线设倍数 → 点积定系数 → 写坐标 → 代回核验。</p>
+</div></details></div><div class="question-stem source-question"><p>5. 设向量 b 与 a=(1,-2,3) 共线，且 a·b=56，则 b=____</p></div></article><article class="question-card practice-card"><div class="example-head"><h3 class="example-title">专项 6 <span>·</span> 垂直求参数</h3><details class="solution-toggle"><summary>点击查看解答</summary><div class="answer-panel solution-body"><p><strong>第一眼判断</strong>：垂直直接翻译为点积等于零。</p>
+<p><strong>分步解答</strong>：</p>
+<ol>
+<li>写 <span class="math-inline">(-1)×1+(-2)×2+1× t=0</span>。</li>
+<li>合并得 <span class="math-inline">-1-4+t=0</span>，所以 <span class="math-inline">t=5</span>。</li>
+<li>代回点积 <span class="math-inline">-1-4+5=0</span>，验证垂直。</li>
+</ol>
+<p><strong>答案</strong>：<span class="math-inline">t=5</span>。<strong>易错点</strong>：<span class="math-inline">(-2)×2=-4</span>，不是正4；别把垂直写成坐标成比例。<strong>通用方法</strong>：垂直 → 点积零 → 解一元方程 → 回代。</p>
+</div></details></div><div class="question-stem source-question"><p>6. 已知向量 a=(-1,-2,1) 与 b=(1,2,t) 垂直，则 t=____</p></div></article></div></section>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+(() => {
+  const storageKey = "gs45-study-route-v1";
+  const checkboxes = Array.from(document.querySelectorAll(".route-checkbox"));
+  const progressText = document.getElementById("routeProgress");
+  const progressBar = document.getElementById("routeProgressBar");
+  const progressTrack = document.getElementById("routeProgressTrack");
+
+  const readProgress = () => {
+    try {
+      const raw = window.localStorage.getItem(storageKey);
+      return raw ? JSON.parse(raw) : {};
+    } catch (_) {
+      return {};
+    }
+  };
+
+  const writeProgress = () => {
+    const state = {};
+    checkboxes.forEach((box) => { state[box.dataset.day] = box.checked; });
+    try {
+      window.localStorage.setItem(storageKey, JSON.stringify(state));
+    } catch (_) {}
+  };
+
+  const updateProgress = () => {
+    const completed = checkboxes.filter((box) => box.checked).length;
+    const total = checkboxes.length;
+    const percent = total ? (completed / total) * 100 : 0;
+    progressText.textContent = `${completed} / ${total}`;
+    progressBar.style.width = `${percent}%`;
+    progressTrack.setAttribute("aria-valuenow", String(completed));
+    checkboxes.forEach((box) => {
+      const card = box.closest(".route-card");
+      if (card) card.classList.toggle("is-done", box.checked);
+    });
+  };
+
+  const stored = readProgress();
+  const saved = stored && typeof stored === "object" ? stored : {};
+  checkboxes.forEach((box) => {
+    box.checked = Boolean(saved[box.dataset.day]);
+    box.addEventListener("change", () => {
+      writeProgress();
+      updateProgress();
+    });
+  });
+  updateProgress();
+
+  const indexLinks = Array.from(document.querySelectorAll("[data-index-point]"));
+  const sections = Array.from(document.querySelectorAll("[data-point]"));
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const point = entry.target.dataset.point;
+        indexLinks.forEach((link) => {
+          const active = link.dataset.indexPoint === point;
+          link.classList.toggle("is-active", active);
+          if (active) link.setAttribute("aria-current", "location");
+          else link.removeAttribute("aria-current");
+        });
+      });
+    }, { rootMargin: "-18% 0px -68% 0px", threshold: 0 });
+    sections.forEach((section) => observer.observe(section));
+  }
+})();
+</script>
+<script src="../assets/js/site-nav.js" data-base="../" data-site-nav=""></script>
+</body>
+</html>

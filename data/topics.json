@@ -39,6 +39,24 @@
       "verified": false
     },
     {
+      "id": "math.ch4",
+      "subject_id": "math",
+      "parent_id": null,
+      "title": "第四章 向量代数与空间解析几何",
+      "order": 4,
+      "source_ref": "gs/gs45.html",
+      "verified": false
+    },
+    {
+      "id": "math.ch5",
+      "subject_id": "math",
+      "parent_id": null,
+      "title": "第五章 多元函数微积分",
+      "order": 5,
+      "source_ref": "gs/gs45.html",
+      "verified": false
+    },
+    {
       "id": "english.nonfinite",
       "subject_id": "english",
       "parent_id": null,
@@ -772,6 +790,162 @@
       "prereq_ids": [],
       "source_ref": "jsj/ppt5.html",
       "legacy_url": "jsj/ppt5.html#chapter-5.6",
+      "verified": false
+    },
+    {
+      "id": "math.p36",
+      "subject_id": "math",
+      "chapter_id": "math.ch4",
+      "title": "向量的基本概念、计算及关系",
+      "order": 36,
+      "aliases": [],
+      "prereq_ids": [],
+      "source_ref": "gs/gs45.html#point-36",
+      "legacy_url": "gs/gs45.html#point-36",
+      "verified": false
+    },
+    {
+      "id": "math.p37",
+      "subject_id": "math",
+      "chapter_id": "math.ch4",
+      "title": "求平面方程",
+      "order": 37,
+      "aliases": [],
+      "prereq_ids": [],
+      "source_ref": "gs/gs45.html#point-37",
+      "legacy_url": "gs/gs45.html#point-37",
+      "verified": false
+    },
+    {
+      "id": "math.p38",
+      "subject_id": "math",
+      "chapter_id": "math.ch4",
+      "title": "求直线方程",
+      "order": 38,
+      "aliases": [],
+      "prereq_ids": [],
+      "source_ref": "gs/gs45.html#point-38",
+      "legacy_url": "gs/gs45.html#point-38",
+      "verified": false
+    },
+    {
+      "id": "math.p39",
+      "subject_id": "math",
+      "chapter_id": "math.ch5",
+      "title": "二元函数求定义域（补充）",
+      "order": 39,
+      "aliases": [],
+      "prereq_ids": [],
+      "source_ref": "gs/gs45.html#point-39",
+      "legacy_url": "gs/gs45.html#point-39",
+      "verified": false
+    },
+    {
+      "id": "math.p40",
+      "subject_id": "math",
+      "chapter_id": "math.ch5",
+      "title": "二元函数的偏导数（补充）",
+      "order": 40,
+      "aliases": [],
+      "prereq_ids": [],
+      "source_ref": "gs/gs45.html#point-40",
+      "legacy_url": "gs/gs45.html#point-40",
+      "verified": false
+    },
+    {
+      "id": "math.p41",
+      "subject_id": "math",
+      "chapter_id": "math.ch5",
+      "title": "二元函数的高阶偏导数",
+      "order": 41,
+      "aliases": [],
+      "prereq_ids": [],
+      "source_ref": "gs/gs45.html#point-41",
+      "legacy_url": "gs/gs45.html#point-41",
+      "verified": false
+    },
+    {
+      "id": "math.p42",
+      "subject_id": "math",
+      "chapter_id": "math.ch5",
+      "title": "二元函数的全微分",
+      "order": 42,
+      "aliases": [],
+      "prereq_ids": [],
+      "source_ref": "gs/gs45.html#point-42",
+      "legacy_url": "gs/gs45.html#point-42",
+      "verified": false
+    },
+    {
+      "id": "math.p43",
+      "subject_id": "math",
+      "chapter_id": "math.ch5",
+      "title": "二元函数求极值",
+      "order": 43,
+      "aliases": [],
+      "prereq_ids": [],
+      "source_ref": "gs/gs45.html#point-43",
+      "legacy_url": "gs/gs45.html#point-43",
+      "verified": false
+    },
+    {
+      "id": "math.p44",
+      "subject_id": "math",
+      "chapter_id": "math.ch5",
+      "title": "二元函数的最值应用",
+      "order": 44,
+      "aliases": [],
+      "prereq_ids": [],
+      "source_ref": "gs/gs45.html#point-44",
+      "legacy_url": "gs/gs45.html#point-44",
+      "verified": false
+    },
+    {
+      "id": "math.p45",
+      "subject_id": "math",
+      "chapter_id": "math.ch5",
+      "title": "多元复合函数求一阶偏导数",
+      "order": 45,
+      "aliases": [],
+      "prereq_ids": [],
+      "source_ref": "gs/gs45.html#point-45",
+      "legacy_url": "gs/gs45.html#point-45",
+      "verified": false
+    },
+    {
+      "id": "math.p46",
+      "subject_id": "math",
+      "chapter_id": "math.ch5",
+      "title": "二重积分的性质",
+      "order": 46,
+      "aliases": [],
+      "prereq_ids": [],
+      "source_ref": "gs/gs45.html#point-46",
+      "legacy_url": "gs/gs45.html#point-46",
+      "verified": false
+    },
+    {
+      "id": "math.p47",
+      "subject_id": "math",
+      "chapter_id": "math.ch5",
+      "title": "直角坐标系下二重积分的计算",
+      "order": 47,
+      "aliases": [],
+      "prereq_ids": [],
+      "source_ref": "gs/gs45.html#point-47",
+      "legacy_url": "gs/gs45.html#point-47",
+      "verified": false
+    },
+    {
+      "id": "math.p123",
+      "subject_id": "math",
+      "chapter_id": "math.ch4",
+      "title": "专项练习",
+      "order": 90,
+      "aliases": [],
+      "prereq_ids": [],
+      "source_ref": "gs/gs45.html#p123-practice",
+      "legacy_url": "gs/gs45.html#p123-practice",
       "verified": false
     }
   ]
