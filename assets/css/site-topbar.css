@@ -1,0 +1,46 @@
+/* site-topbar.css
+   全站统一顶栏。规则取自 assets/css/site-unify.css 的顶栏部分，
+   加上首页/英语/C语言/计算机基础入口页（PR #14）里同一套顶栏微调，
+   放在各页样式之后引入，保证每页顶栏的标记和样式完全一致。
+   导航标签常显，不使用 site-nav--compact，不依赖 site-nav.js / mobile.js。 */
+.site-header{position:sticky;top:0;z-index:90;min-height:var(--sg-header-height);
+  border-bottom:1px solid var(--sg-line);background:rgba(251,252,254,.88);
+  backdrop-filter:blur(var(--sg-glass-blur)) saturate(var(--sg-glass-saturation));
+  -webkit-backdrop-filter:blur(var(--sg-glass-blur)) saturate(var(--sg-glass-saturation))}
+.site-header__inner{width:min(calc(100% - 56px),1160px);margin-inline:auto;min-width:0;
+  min-height:var(--sg-header-height);display:flex;align-items:center;justify-content:space-between;gap:20px}
+.site-brand{display:inline-flex;align-items:center;flex:none;min-width:0;gap:10px;
+  color:var(--sg-ink);font-size:14px;font-weight:600;letter-spacing:-.012em}
+.site-brand__mark{display:inline-grid;place-items:center;flex:none;width:31px;height:31px;
+  border-radius:9px;background:#242b35;color:white;font-size:16px;font-weight:600;line-height:1}
+.site-brand__name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.site-nav{display:flex;align-items:center;justify-content:flex-end;gap:2px;min-width:0}
+.site-nav__link{display:inline-flex;align-items:center;justify-content:center;flex:none;gap:7px;
+  min-height:36px;padding:0 12px;border:1px solid transparent;border-radius:9px;
+  color:var(--sg-ink-secondary);font-size:13px;font-weight:500;white-space:nowrap;
+  transition:background var(--sg-transition),color var(--sg-transition),border-color var(--sg-transition)}
+.site-nav__link:hover{color:var(--sg-ink);background:#f1f3f6}
+.site-nav__link.is-active,.site-nav__link[aria-current="page"]{
+  color:var(--sg-accent);background:var(--sg-accent-soft);border-color:rgba(22,104,220,.075)}
+.site-nav__link[aria-current="page"]{font-weight:600}
+.site-nav__label{white-space:nowrap}
+.site-nav::-webkit-scrollbar{display:none}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.site-header{background:#fff}}
+@media (max-width:1000px){
+  .site-header__inner{flex-wrap:wrap;padding-block:10px 8px;gap:5px 12px}
+  .site-brand{margin-right:auto}
+  .site-nav{flex:0 0 100%;order:3;justify-content:flex-start;overflow-x:auto;padding-bottom:3px;scrollbar-width:none}
+  .site-nav__link{min-height:36px}
+}
+@media (max-width:767px){
+  .site-header__inner{width:min(calc(100% - 36px),1160px);min-height:54px}
+  .site-brand{max-width:100%;font-size:13px}
+  .site-brand__mark{width:30px;height:30px}
+  .site-nav{width:100%;overscroll-behavior-x:contain}
+  .site-nav__link{font-size:12px;padding-inline:10px}
+}
+@media (max-width:430px){
+  .site-header__inner{width:min(calc(100% - 32px),1160px);padding-block:8px 7px}
+  .site-header .site-nav{gap:2px}
+  .site-header .site-nav .site-nav__link{padding-inline:7px}
+}
