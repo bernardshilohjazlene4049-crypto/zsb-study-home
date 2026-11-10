@@ -916,6 +916,14 @@ sub.math-script{vertical-align:sub}
 .flow-steps+.flow-principle{margin:18px 0 0;padding:17px 0 0;border-bottom:0;border-top:1px solid var(--sg-line)}
 .map-section>.mindmap-fallback{margin:22px 26px 0;border:1px solid var(--sg-line);border-radius:13px}
 @media (max-width:850px){.map-section>.mindmap-fallback{margin:15px 14px 0}}
+.pvideo{margin:2px 0 12px}
+.pvideo-open{display:inline-flex;align-items:center;gap:7px;min-height:34px;padding:7px 10px;border:1px solid var(--sg-line);border-radius:8px;background:#fff;color:var(--sg-ink-secondary,#4a5565);font-size:11px;line-height:1.2;font-weight:680;text-decoration:none;transition:background .18s ease,border-color .18s ease,color .18s ease}
+.pvideo-open:hover{border-color:rgba(22,104,220,.3);color:var(--sg-accent);background:#f7faff}
+.pvideo-open:focus-visible{outline:2px solid var(--sg-accent);outline-offset:2px}
+.pvideo-open svg{width:10px;height:10px;fill:currentColor;flex:none}
+.pvideo-dur{color:#8593a6;font-weight:600;font-variant-numeric:tabular-nums}
+.pvideo-player{display:block;width:100%;max-width:100%;aspect-ratio:16/9;border-radius:10px;background:#000}
+@media (prefers-reduced-motion:reduce){.pvideo-open{transition:none}}
 </style>
 </head>
 <body>
@@ -1021,6 +1029,7 @@ sub.math-script{vertical-align:sub}
  <div class="practice-card__top"><span class="practice-id">4-1</span></div>
  <div class="question-stem source-question"><span class="question-lead">题目</span><p>函数 f(x) 在点 x₀ 处有定义是极限 <span aria-label="lim_{x→x₀}" class="math-lim"><span>lim</span><sub>x→x₀</sub></span> f(x) 存在的______条件。</p>
 </div>
+ <div class="pvideo" data-pvideo="4-1"><a class="pvideo-open" href="pvideos/4-1.mp4" data-src="pvideos/4-1.mp4" data-poster="pposters/4-1.jpg" aria-label="4-1 讲解视频，1:41"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>讲解视频</span><span class="pvideo-dur">1:41</span></a></div>
  <details class="solution-toggle practice-solution"><summary>查看逐步解答</summary><div class="answer-panel solution-body"><section class="solution-part solution-part--第一眼判断"><h4>第一眼判断</h4><div class="solution-part__text"><p>概念题，考“极限和函数值有没有关系”。</p>
 </div></section><section class="solution-part solution-part--分步解答"><h4>分步解答</h4><div class="solution-part__text"><ol>
 <li>记住结论：x→x₀ 的极限只看 x 靠近 x₀ 时 f 的走向，<strong>与 f(x₀) 有无定义、取何值无关</strong>。</li>
@@ -1035,6 +1044,7 @@ sub.math-script{vertical-align:sub}
  <div class="practice-card__top"><span class="practice-id">4-2</span></div>
  <div class="question-stem source-question"><span class="question-lead">题目</span><p><span aria-label="lim_{x→x₀⁻}" class="math-lim"><span>lim</span><sub>x→x₀⁻</sub></span> f(x) = <span aria-label="lim_{x→x₀⁺}" class="math-lim"><span>lim</span><sub>x→x₀⁺</sub></span> f(x) = A 是 f(x) 在点 x = x₀ 处有定义的______条件。</p>
 </div>
+ <div class="pvideo" data-pvideo="4-2"><a class="pvideo-open" href="pvideos/4-2.mp4" data-src="pvideos/4-2.mp4" data-poster="pposters/4-2.jpg" aria-label="4-2 讲解视频，1:18"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>讲解视频</span><span class="pvideo-dur">1:18</span></a></div>
  <details class="solution-toggle practice-solution"><summary>查看逐步解答</summary><div class="answer-panel solution-body"><section class="solution-part solution-part--第一眼判断"><h4>第一眼判断</h4><div class="solution-part__text"><p>同 4-1，还是“极限与定义无关”。</p>
 </div></section><section class="solution-part solution-part--分步解答"><h4>分步解答</h4><div class="solution-part__text"><ol>
 <li>左右极限相等只说明极限存在，推不出 x₀ 处有定义。</li>
@@ -1048,6 +1058,7 @@ sub.math-script{vertical-align:sub}
  <div class="practice-card__top"><span class="practice-id">4-3</span></div>
  <div class="question-stem source-question"><span class="question-lead">题目</span><p><span aria-label="lim_{x→x₀⁻}" class="math-lim"><span>lim</span><sub>x→x₀⁻</sub></span> f(x) 与 <span aria-label="lim_{x→x₀⁺}" class="math-lim"><span>lim</span><sub>x→x₀⁺</sub></span> f(x) 存在且相等是 <span aria-label="lim_{x→x₀}" class="math-lim"><span>lim</span><sub>x→x₀</sub></span> f(x) 存在的______条件。</p>
 </div>
+ <div class="pvideo" data-pvideo="4-3"><a class="pvideo-open" href="pvideos/4-3.mp4" data-src="pvideos/4-3.mp4" data-poster="pposters/4-3.jpg" aria-label="4-3 讲解视频，1:09"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>讲解视频</span><span class="pvideo-dur">1:09</span></a></div>
  <details class="solution-toggle practice-solution"><summary>查看逐步解答</summary><div class="answer-panel solution-body"><section class="solution-part solution-part--第一眼判断"><h4>第一眼判断</h4><div class="solution-part__text"><p>直接考“极限存在的充要条件”。</p>
 </div></section><section class="solution-part solution-part--分步解答"><h4>分步解答</h4><div class="solution-part__text"><p>笔记原话：x→x₀ 极限存在，<strong>当且仅当</strong>左右极限都存在且相等。“当且仅当”就是充要。</p>
 </div></section><section class="solution-part solution-part--答案"><h4>答案</h4><div class="solution-part__text"><p>充分必要条件（充要条件）。</p>
@@ -1059,6 +1070,7 @@ sub.math-script{vertical-align:sub}
  <div class="question-stem source-question"><span class="question-lead">题目</span><p>函数 f(x) = { x+1, x&lt;0；x², x≥0 } 在 x=0 处（ ）。
 A. 有定义且极限存在　B. 有定义且极限不存在　C. 无定义且极限存在　D. 无定义且极限不存在</p>
 </div>
+ <div class="pvideo" data-pvideo="4-4"><a class="pvideo-open" href="pvideos/4-4.mp4" data-src="pvideos/4-4.mp4" data-poster="pposters/4-4.jpg" aria-label="4-4 讲解视频，1:52"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>讲解视频</span><span class="pvideo-dur">1:52</span></a></div>
  <details class="solution-toggle practice-solution"><summary>查看逐步解答</summary><div class="answer-panel solution-body"><section class="solution-part solution-part--第一眼判断"><h4>第一眼判断</h4><div class="solution-part__text"><p>分段函数在分段点，必须分左右两边求极限。</p>
 </div></section><section class="solution-part solution-part--分步解答"><h4>分步解答</h4><div class="solution-part__text"><ol>
 <li>有没有定义：x=0 属于 “x≥0” 这一段，f(0)=0²=0，有定义。</li>
@@ -1074,6 +1086,7 @@ A. 有定义且极限存在　B. 有定义且极限不存在　C. 无定义且�
  <div class="practice-card__top"><span class="practice-id">4-5</span></div>
  <div class="question-stem source-question"><span class="question-lead">题目</span><p><span aria-label="lim_{x→0}" class="math-lim"><span>lim</span><sub>x→0</sub></span> x / cos x = ______。</p>
 </div>
+ <div class="pvideo" data-pvideo="4-5"><a class="pvideo-open" href="pvideos/4-5.mp4" data-src="pvideos/4-5.mp4" data-poster="pposters/4-5.jpg" aria-label="4-5 讲解视频，0:53"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>讲解视频</span><span class="pvideo-dur">0:53</span></a></div>
  <details class="solution-toggle practice-solution"><summary>查看逐步解答</summary><div class="answer-panel solution-body"><section class="solution-part solution-part--第一眼判断"><h4>第一眼判断</h4><div class="solution-part__text"><p>先代入：分子 0，分母 cos0=1，不是未定式。</p>
 </div></section><section class="solution-part solution-part--分步解答"><h4>分步解答</h4><div class="solution-part__text"><p>直接代入，<span aria-label="0/1" class="math-frac"><span class="frac-top">0</span><span class="frac-bottom">1</span></span> = 0。</p>
 </div></section><section class="solution-part solution-part--答案"><h4>答案</h4><div class="solution-part__text"><p>0。</p>
@@ -1084,6 +1097,7 @@ A. 有定义且极限存在　B. 有定义且极限不存在　C. 无定义且�
  <div class="practice-card__top"><span class="practice-id">4-6</span></div>
  <div class="question-stem source-question"><span class="question-lead">题目</span><p>计算 <span aria-label="lim_{x→1}" class="math-lim"><span>lim</span><sub>x→1</sub></span> <span aria-label="(x²+x-2)/(x-1)" class="math-frac"><span class="frac-top">(x²+x-2)</span><span class="frac-bottom">(x-1)</span></span> = ______。</p>
 </div>
+ <div class="pvideo" data-pvideo="4-6"><a class="pvideo-open" href="pvideos/4-6.mp4" data-src="pvideos/4-6.mp4" data-poster="pposters/4-6.jpg" aria-label="4-6 讲解视频，1:35"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>讲解视频</span><span class="pvideo-dur">1:35</span></a></div>
  <details class="solution-toggle practice-solution"><summary>查看逐步解答</summary><div class="answer-panel solution-body"><section class="solution-part solution-part--第一眼判断"><h4>第一眼判断</h4><div class="solution-part__text"><p>代入 x=1：分子 1+1-2=0，分母 0，是 <span aria-label="0/0" class="math-frac"><span class="frac-top">0</span><span class="frac-bottom">0</span></span> 型；分子分母都是多项式 → 因式分解约分。</p>
 </div></section><section class="solution-part solution-part--分步解答"><h4>分步解答</h4><div class="solution-part__text"><ol>
 <li>分子 x=1 时为 0，说明分子含有因式 (x-1)。十字相乘：x²+x-2 = (x-1)(x+2)。</li>
@@ -1098,6 +1112,7 @@ A. 有定义且极限存在　B. 有定义且极限不存在　C. 无定义且�
  <div class="practice-card__top"><span class="practice-id">4-7</span></div>
  <div class="question-stem source-question"><span class="question-lead">题目</span><p>极限 <span aria-label="lim_{x→1}" class="math-lim"><span>lim</span><sub>x→1</sub></span> <span aria-label="(√x - 1)/(x - 1)" class="math-frac"><span class="frac-top">(√x - 1)</span><span class="frac-bottom">(x - 1)</span></span> = ______。</p>
 </div>
+ <div class="pvideo" data-pvideo="4-7"><a class="pvideo-open" href="pvideos/4-7.mp4" data-src="pvideos/4-7.mp4" data-poster="pposters/4-7.jpg" aria-label="4-7 讲解视频，1:27"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>讲解视频</span><span class="pvideo-dur">1:27</span></a></div>
  <details class="solution-toggle practice-solution"><summary>查看逐步解答</summary><div class="answer-panel solution-body"><section class="solution-part solution-part--第一眼判断"><h4>第一眼判断</h4><div class="solution-part__text"><p>代入得 <span aria-label="0/0" class="math-frac"><span class="frac-top">0</span><span class="frac-bottom">0</span></span>，带根号 → 有理化（或把分母拆成平方差）。</p>
 </div></section><section class="solution-part solution-part--分步解答"><h4>分步解答</h4><div class="solution-part__text"><ol>
 <li>把 x-1 看成 (√x)² - 1² = (√x-1)(√x+1)（平方差公式）。</li>
@@ -1113,6 +1128,7 @@ A. 有定义且极限存在　B. 有定义且极限不存在　C. 无定义且�
  <div class="question-stem source-question"><span class="question-lead">题目</span><p>设 f(x) = { <span aria-label="(x²-x+a)/(x+1)" class="math-frac"><span class="frac-top">(x²-x+a)</span><span class="frac-bottom">(x+1)</span></span>, x≠1；b, x=1 }，且 <span aria-label="lim_{x→1}" class="math-lim"><span>lim</span><sub>x→1</sub></span> f(x) = 2，则下列结论正确的是（ ）。
 A. a=4，b 可取任意值　B. a=1，b=1　C. a=-1，b=-3　D. b=4，a 可取任意值</p>
 </div>
+ <div class="pvideo" data-pvideo="4-8"><a class="pvideo-open" href="pvideos/4-8.mp4" data-src="pvideos/4-8.mp4" data-poster="pposters/4-8.jpg" aria-label="4-8 讲解视频，1:43"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>讲解视频</span><span class="pvideo-dur">1:43</span></a></div>
  <details class="solution-toggle practice-solution"><summary>查看逐步解答</summary><div class="answer-panel solution-body"><section class="solution-part solution-part--第一眼判断"><h4>第一眼判断</h4><div class="solution-part__text"><p>已知极限求参数；x=1 处的函数值 b 与极限无关。</p>
 </div></section><section class="solution-part solution-part--分步解答"><h4>分步解答</h4><div class="solution-part__text"><ol>
 <li>求 x→1 的极限只用 x≠1 那段：代入 x=1，分母 1+1=2 不为 0，可以直接代：<span aria-label="(1-1+a)/2" class="math-frac"><span class="frac-top">(1-1+a)</span><span class="frac-bottom">2</span></span> = a/2。</li>
@@ -1127,6 +1143,7 @@ A. a=4，b 可取任意值　B. a=1，b=1　C. a=-1，b=-3　D. b=4，a 可取�
  <div class="practice-card__top"><span class="practice-id">4-9</span></div>
  <div class="question-stem source-question"><span class="question-lead">题目</span><p>已知函数 f(x) = { x-3, x&lt;0；0, x=0；2ˣ, x&gt;0 }，则 <span aria-label="lim_{x→0}" class="math-lim"><span>lim</span><sub>x→0</sub></span> f(x) = ______。</p>
 </div>
+ <div class="pvideo" data-pvideo="4-9"><a class="pvideo-open" href="pvideos/4-9.mp4" data-src="pvideos/4-9.mp4" data-poster="pposters/4-9.jpg" aria-label="4-9 讲解视频，1:19"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>讲解视频</span><span class="pvideo-dur">1:19</span></a></div>
  <details class="solution-toggle practice-solution"><summary>查看逐步解答</summary><div class="answer-panel solution-body"><section class="solution-part solution-part--第一眼判断"><h4>第一眼判断</h4><div class="solution-part__text"><p>分段函数在分段点 → 分左右。</p>
 </div></section><section class="solution-part solution-part--分步解答"><h4>分步解答</h4><div class="solution-part__text"><ol>
 <li>左极限：<span aria-label="lim_{x→0⁻}" class="math-lim"><span>lim</span><sub>x→0⁻</sub></span>(x-3) = -3。</li>
@@ -1141,6 +1158,7 @@ A. a=4，b 可取任意值　B. a=1，b=1　C. a=-1，b=-3　D. b=4，a 可取�
  <div class="practice-card__top"><span class="practice-id">4-10</span></div>
  <div class="question-stem source-question"><span class="question-lead">题目</span><p>已知函数 f(x)=|2x|，则 <span aria-label="lim_{x→0}" class="math-lim"><span>lim</span><sub>x→0</sub></span> f(x)/x =（ ）。A. 1　B. -1　C. 2　D. 不存在</p>
 </div>
+ <div class="pvideo" data-pvideo="4-10"><a class="pvideo-open" href="pvideos/4-10.mp4" data-src="pvideos/4-10.mp4" data-poster="pposters/4-10.jpg" aria-label="4-10 讲解视频，1:31"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>讲解视频</span><span class="pvideo-dur">1:31</span></a></div>
  <details class="solution-toggle practice-solution"><summary>查看逐步解答</summary><div class="answer-panel solution-body"><section class="solution-part solution-part--第一眼判断"><h4>第一眼判断</h4><div class="solution-part__text"><p>含绝对值，绝对值在 0 两边的去法不同 → 分左右。</p>
 </div></section><section class="solution-part solution-part--分步解答"><h4>分步解答</h4><div class="solution-part__text"><ol>
 <li>x&gt;0 时 |2x| = 2x，f(x)/x = 2，右极限 = 2。</li>
@@ -1155,6 +1173,7 @@ A. a=4，b 可取任意值　B. a=1，b=1　C. a=-1，b=-3　D. b=4，a 可取�
  <div class="practice-card__top"><span class="practice-id">4-11</span></div>
  <div class="question-stem source-question"><span class="question-lead">题目</span><p><span aria-label="lim_{x→∞}" class="math-lim"><span>lim</span><sub>x→∞</sub></span> (2x-1)⁶ / (x²+1)³ = ______。</p>
 </div>
+ <div class="pvideo" data-pvideo="4-11"><a class="pvideo-open" href="pvideos/4-11.mp4" data-src="pvideos/4-11.mp4" data-poster="pposters/4-11.jpg" aria-label="4-11 讲解视频，1:38"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>讲解视频</span><span class="pvideo-dur">1:38</span></a></div>
  <details class="solution-toggle practice-solution"><summary>查看逐步解答</summary><div class="answer-panel solution-body"><section class="solution-part solution-part--第一眼判断"><h4>第一眼判断</h4><div class="solution-part__text"><p>x→∞ 的分式，∞/∞ 型 → 抓大头，看最高次。</p>
 </div></section><section class="solution-part solution-part--分步解答"><h4>分步解答</h4><div class="solution-part__text"><ol>
 <li>分子 (2x-1)⁶ 展开后最高次项是 (2x)⁶ = 64x⁶，最高次 6。</li>
@@ -1169,6 +1188,7 @@ A. a=4，b 可取任意值　B. a=1，b=1　C. a=-1，b=-3　D. b=4，a 可取�
  <div class="practice-card__top"><span class="practice-id">4-12</span></div>
  <div class="question-stem source-question"><span class="question-lead">题目</span><p>已知极限 <span aria-label="lim_{x→2}" class="math-lim"><span>lim</span><sub>x→2</sub></span> <span aria-label="(x²-3x+k)/(x-2)" class="math-frac"><span class="frac-top">(x²-3x+k)</span><span class="frac-bottom">(x-2)</span></span> 存在，k = ______。</p>
 </div>
+ <div class="pvideo" data-pvideo="4-12"><a class="pvideo-open" href="pvideos/4-12.mp4" data-src="pvideos/4-12.mp4" data-poster="pposters/4-12.jpg" aria-label="4-12 讲解视频，1:30"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>讲解视频</span><span class="pvideo-dur">1:30</span></a></div>
  <details class="solution-toggle practice-solution"><summary>查看逐步解答</summary><div class="answer-panel solution-body"><section class="solution-part solution-part--第一眼判断"><h4>第一眼判断</h4><div class="solution-part__text"><p>分母 → 0 而极限存在，分子也必须 → 0。</p>
 </div></section><section class="solution-part solution-part--分步解答"><h4>分步解答</h4><div class="solution-part__text"><ol>
 <li>为什么分子必须 → 0：如果分子趋于非 0 的数，除以趋于 0 的分母，结果是 ∞，极限不存在。</li>
@@ -1184,6 +1204,7 @@ A. a=4，b 可取任意值　B. a=1，b=1　C. a=-1，b=-3　D. b=4，a 可取�
  <div class="question-stem source-question"><span class="question-lead">题目</span><p>设 <span aria-label="lim_{x→a}" class="math-lim"><span>lim</span><sub>x→a</sub></span> f(x) = ∞，<span aria-label="lim_{x→a}" class="math-lim"><span>lim</span><sub>x→a</sub></span> g(x) = ∞，则下列正确的是（ ）。
 A. lim[f(x)+g(x)] = ∞　B. lim[f(x)-g(x)] = ∞　C. lim 1/f(x) = 0　D. lim 1/[f(x)+g(x)] = 0</p>
 </div>
+ <div class="pvideo" data-pvideo="4-13"><a class="pvideo-open" href="pvideos/4-13.mp4" data-src="pvideos/4-13.mp4" data-poster="pposters/4-13.jpg" aria-label="4-13 讲解视频，1:58"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>讲解视频</span><span class="pvideo-dur">1:58</span></a></div>
  <details class="solution-toggle practice-solution"><summary>查看逐步解答</summary><div class="answer-panel solution-body"><section class="solution-part solution-part--第一眼判断"><h4>第一眼判断</h4><div class="solution-part__text"><p>考无穷大的运算，用“无穷大与无穷小互为倒数”。</p>
 </div></section><section class="solution-part solution-part--分步解答"><h4>分步解答</h4><div class="solution-part__text"><ol>
 <li>C：f 是无穷大，它的倒数 1/f 是无穷小，极限 0 ✓。</li>
@@ -1198,6 +1219,7 @@ A. lim[f(x)+g(x)] = ∞　B. lim[f(x)-g(x)] = ∞　C. lim 1/f(x) = 0　D. lim 1
  <div class="practice-card__top"><span class="practice-id">4-14</span></div>
  <div class="question-stem source-question"><span class="question-lead">题目</span><p>极限 <span aria-label="lim_{x→-∞}" class="math-lim"><span>lim</span><sub>x→-∞</sub></span> x(<span aria-label="√(x²+100)" class="math-root"><span class="root-sign">√</span><span class="root-body">(x²+100)</span></span> + x) = ______。</p>
 </div>
+ <div class="pvideo" data-pvideo="4-14"><a class="pvideo-open" href="pvideos/4-14.mp4" data-src="pvideos/4-14.mp4" data-poster="pposters/4-14.jpg" aria-label="4-14 讲解视频，2:24"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>讲解视频</span><span class="pvideo-dur">2:24</span></a></div>
  <details class="solution-toggle practice-solution"><summary>查看逐步解答</summary><div class="answer-panel solution-body"><section class="solution-part solution-part--第一眼判断"><h4>第一眼判断</h4><div class="solution-part__text"><p>x→-∞ 时 <span aria-label="√(x²+100)" class="math-root"><span class="root-sign">√</span><span class="root-body">(x²+100)</span></span> ≈ |x| = -x，括号内 ≈ -x + x，是 ∞-∞ 的形式，外面还乘 x → 有理化。</p>
 </div></section><section class="solution-part solution-part--分步解答"><h4>分步解答</h4><div class="solution-part__text"><ol>
 <li>分子分母同乘共轭式 <span aria-label="√(x²+100)" class="math-root"><span class="root-sign">√</span><span class="root-body">(x²+100)</span></span> - x：
@@ -1213,6 +1235,7 @@ x(<span aria-label="√(x²+100)" class="math-root"><span class="root-sign">√<
  <div class="practice-card__top"><span class="practice-id">4-15</span></div>
  <div class="question-stem source-question"><span class="question-lead">题目</span><p><span aria-label="lim_{x→2}" class="math-lim"><span>lim</span><sub>x→2</sub></span> [<span aria-label="1/(x-2)" class="math-frac"><span class="frac-top">1</span><span class="frac-bottom">(x-2)</span></span> - <span aria-label="4/(x²-4)" class="math-frac"><span class="frac-top">4</span><span class="frac-bottom">(x²-4)</span></span>] = ______。</p>
 </div>
+ <div class="pvideo" data-pvideo="4-15"><a class="pvideo-open" href="pvideos/4-15.mp4" data-src="pvideos/4-15.mp4" data-poster="pposters/4-15.jpg" aria-label="4-15 讲解视频，1:31"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>讲解视频</span><span class="pvideo-dur">1:31</span></a></div>
  <details class="solution-toggle practice-solution"><summary>查看逐步解答</summary><div class="answer-panel solution-body"><section class="solution-part solution-part--第一眼判断"><h4>第一眼判断</h4><div class="solution-part__text"><p>代入两项都是 ∞，∞-∞ 型 → 通分。</p>
 </div></section><section class="solution-part solution-part--分步解答"><h4>分步解答</h4><div class="solution-part__text"><ol>
 <li>x²-4 = (x-2)(x+2)，公分母是 (x-2)(x+2)。</li>
@@ -1227,6 +1250,7 @@ x(<span aria-label="√(x²+100)" class="math-root"><span class="root-sign">√<
  <div class="practice-card__top"><span class="practice-id">4-16</span></div>
  <div class="question-stem source-question"><span class="question-lead">题目</span><p>极限 <span aria-label="lim_{x→0}" class="math-lim"><span>lim</span><sub>x→0</sub></span> <span aria-label="(2^{1/x} + 1)/(2^{1/x} - 1)" class="math-frac"><span class="frac-top">(2^{1</span><span class="frac-bottom">x} + 1)/(2^{1/x} - 1)</span></span> = ______。</p>
 </div>
+ <div class="pvideo" data-pvideo="4-16"><a class="pvideo-open" href="pvideos/4-16.mp4" data-src="pvideos/4-16.mp4" data-poster="pposters/4-16.jpg" aria-label="4-16 讲解视频，1:52"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>讲解视频</span><span class="pvideo-dur">1:52</span></a></div>
  <details class="solution-toggle practice-solution"><summary>查看逐步解答</summary><div class="answer-panel solution-body"><section class="solution-part solution-part--第一眼判断"><h4>第一眼判断</h4><div class="solution-part__text"><p>含 2<sup aria-label="^{1/x}" class="math-script">1/x</sup>，x→0⁺ 时 <span aria-label="1/x" class="math-frac"><span class="frac-top">1</span><span class="frac-bottom">x</span></span>→+∞，x→0⁻ 时 <span aria-label="1/x" class="math-frac"><span class="frac-top">1</span><span class="frac-bottom">x</span></span>→-∞，两边完全不同 → 分左右。</p>
 </div></section><section class="solution-part solution-part--分步解答"><h4>分步解答</h4><div class="solution-part__text"><ol>
 <li>右极限：x→0⁺，<span aria-label="1/x" class="math-frac"><span class="frac-top">1</span><span class="frac-bottom">x</span></span>→+∞，2<sup aria-label="^{1/x}" class="math-script">1/x</sup>→+∞。分子分母同除以 2<sup aria-label="^{1/x}" class="math-script">1/x</sup>：<span aria-label="(1 + 2^{-1/x})/(1 - 2^{-1/x})" class="math-frac"><span class="frac-top">(1 + 2^{-1</span><span class="frac-bottom">x})/(1 - 2^{-1/x})</span></span> → <span aria-label="(1+0)/(1-0)" class="math-frac"><span class="frac-top">(1+0)</span><span class="frac-bottom">(1-0)</span></span> = 1。</li>
@@ -1241,6 +1265,7 @@ x(<span aria-label="√(x²+100)" class="math-root"><span class="root-sign">√<
  <div class="practice-card__top"><span class="practice-id">4-17</span></div>
  <div class="question-stem source-question"><span class="question-lead">题目</span><p>极限 <span aria-label="lim_{x→+∞}" class="math-lim"><span>lim</span><sub>x→+∞</sub></span> [<span aria-label="(2x²-1)/(x-1)" class="math-frac"><span class="frac-top">(2x²-1)</span><span class="frac-bottom">(x-1)</span></span> - ax + b] = 0，则 a = ______，b = ______。</p>
 </div>
+ <div class="pvideo" data-pvideo="4-17"><a class="pvideo-open" href="pvideos/4-17.mp4" data-src="pvideos/4-17.mp4" data-poster="pposters/4-17.jpg" aria-label="4-17 讲解视频，1:59"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>讲解视频</span><span class="pvideo-dur">1:59</span></a></div>
  <details class="solution-toggle practice-solution"><summary>查看逐步解答</summary><div class="answer-panel solution-body"><section class="solution-part solution-part--第一眼判断"><h4>第一眼判断</h4><div class="solution-part__text"><p>x→∞ 时分式 ≈ 2x，要减掉一次项才能为 0 → 先用多项式除法把分式拆开。</p>
 </div></section><section class="solution-part solution-part--分步解答"><h4>分步解答</h4><div class="solution-part__text"><ol>
 <li>多项式除法：2x²-1 = (x-1)(2x+2) + 1，所以 <span aria-label="(2x²-1)/(x-1)" class="math-frac"><span class="frac-top">(2x²-1)</span><span class="frac-bottom">(x-1)</span></span> = 2x + 2 + <span aria-label="1/(x-1)" class="math-frac"><span class="frac-top">1</span><span class="frac-bottom">(x-1)</span></span>。</li>
@@ -1255,6 +1280,7 @@ x(<span aria-label="√(x²+100)" class="math-root"><span class="root-sign">√<
  <div class="practice-card__top"><span class="practice-id">4-18</span></div>
  <div class="question-stem source-question"><span class="question-lead">题目</span><p>已知 <span aria-label="lim_{x→0}" class="math-lim"><span>lim</span><sub>x→0</sub></span> f(x) 存在，且 f(x) = (<span aria-label="∛(1+x²)" class="math-root"><span class="root-sign">∛</span><span class="root-body">(1+x²)</span></span> - 1)/tan x² - <span aria-label="lim_{x→0}" class="math-lim"><span>lim</span><sub>x→0</sub></span> f(x)，则 f(x) = ______。</p>
 </div>
+ <div class="pvideo" data-pvideo="4-18"><a class="pvideo-open" href="pvideos/4-18.mp4" data-src="pvideos/4-18.mp4" data-poster="pposters/4-18.jpg" aria-label="4-18 讲解视频，2:50"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>讲解视频</span><span class="pvideo-dur">2:50</span></a></div>
  <details class="solution-toggle practice-solution"><summary>查看逐步解答</summary><div class="answer-panel solution-body"><section class="solution-part solution-part--第一眼判断"><h4>第一眼判断</h4><div class="solution-part__text"><p>lim f(x) 是一个常数，设成 A，两边取极限解方程。</p>
 </div></section><section class="solution-part solution-part--分步解答"><h4>分步解答</h4><div class="solution-part__text"><ol>
 <li>设 A = <span aria-label="lim_{x→0}" class="math-lim"><span>lim</span><sub>x→0</sub></span> f(x)（一个数）。则 f(x) = (<span aria-label="∛(1+x²)" class="math-root"><span class="root-sign">∛</span><span class="root-body">(1+x²)</span></span>-1)/tan x² - A。</li>
@@ -1276,6 +1302,7 @@ x(<span aria-label="√(x²+100)" class="math-root"><span class="root-sign">√<
  <div class="practice-card__top"><span class="practice-id">4-19</span></div>
  <div class="question-stem source-question"><span class="question-lead">题目</span><p>当 x→0 时，将 α = <span aria-label="√(1-x)" class="math-root"><span class="root-sign">√</span><span class="root-body">(1-x)</span></span> - 1，β = sec x - 1，γ = arcsin x - x 排序，使排在前面的是后面的低阶无穷小，则排序为______。</p>
 </div>
+ <div class="pvideo" data-pvideo="4-19"><a class="pvideo-open" href="pvideos/4-19.mp4" data-src="pvideos/4-19.mp4" data-poster="pposters/4-19.jpg" aria-label="4-19 讲解视频，1:56"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>讲解视频</span><span class="pvideo-dur">1:56</span></a></div>
  <details class="solution-toggle practice-solution"><summary>查看逐步解答</summary><div class="answer-panel solution-body"><section class="solution-part solution-part--第一眼判断"><h4>第一眼判断</h4><div class="solution-part__text"><p>比较无穷小的阶 → 把每个都换成 c·xᵏ 的形式，k 越小阶越低。</p>
 </div></section><section class="solution-part solution-part--分步解答"><h4>分步解答</h4><div class="solution-part__text"><ol>
 <li>α = (1-x)<sup aria-label="^{1/2}" class="math-script">1/2</sup> - 1 ~ (<span aria-label="1/2" class="math-frac"><span class="frac-top">1</span><span class="frac-bottom">2</span></span>)(-x) = -<span aria-label="x/2" class="math-frac"><span class="frac-top">x</span><span class="frac-bottom">2</span></span>，是 1 阶。（(1+□)^m-1~m□，□=-x）</li>
@@ -1302,6 +1329,7 @@ x(<span aria-label="√(x²+100)" class="math-root"><span class="root-sign">√<
  <div class="practice-card__top"><span class="practice-id">5-1</span></div>
  <div class="question-stem source-question"><span class="question-lead">题目</span><p>当 x→0 时，下列变量是无穷小量的为（ ）。A. <span aria-label="1/x²" class="math-frac"><span class="frac-top">1</span><span class="frac-bottom">x²</span></span>　B. 2ˣ　C. sin x　D. ln(x+e)</p>
 </div>
+ <div class="pvideo" data-pvideo="5-1"><a class="pvideo-open" href="pvideos/5-1.mp4" data-src="pvideos/5-1.mp4" data-poster="pposters/5-1.jpg" aria-label="5-1 讲解视频，1:10"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>讲解视频</span><span class="pvideo-dur">1:10</span></a></div>
  <details class="solution-toggle practice-solution"><summary>查看逐步解答</summary><div class="answer-panel solution-body"><section class="solution-part solution-part--第一眼判断"><h4>第一眼判断</h4><div class="solution-part__text"><p>无穷小 = 极限为 0。逐个代入 x→0。</p>
 </div></section><section class="solution-part solution-part--分步解答"><h4>分步解答</h4><div class="solution-part__text"><p>A→∞；B→2⁰=1；C→sin0=0 ✓；D→ln e = 1。</p>
 </div></section><section class="solution-part solution-part--答案"><h4>答案</h4><div class="solution-part__text"><p>C。</p>
@@ -1312,6 +1340,7 @@ x(<span aria-label="√(x²+100)" class="math-root"><span class="root-sign">√<
  <div class="practice-card__top"><span class="practice-id">5-2</span></div>
  <div class="question-stem source-question"><span class="question-lead">题目</span><p>指出下列函数中当 x→0⁺ 时，为无穷大的是（ ）。A. 3<sup aria-label="^{-x}" class="math-script">-x</sup> - 1　B. sin <span aria-label="x/(1+sec x)" class="math-frac"><span class="frac-top">x</span><span class="frac-bottom">(1+sec x)</span></span>　C. e<sup aria-label="^{-x}" class="math-script">-x</sup>　D. e<sup aria-label="^{1/x}" class="math-script">1/x</sup></p>
 </div>
+ <div class="pvideo" data-pvideo="5-2"><a class="pvideo-open" href="pvideos/5-2.mp4" data-src="pvideos/5-2.mp4" data-poster="pposters/5-2.jpg" aria-label="5-2 讲解视频，1:25"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>讲解视频</span><span class="pvideo-dur">1:25</span></a></div>
  <details class="solution-toggle practice-solution"><summary>查看逐步解答</summary><div class="answer-panel solution-body"><section class="solution-part solution-part--第一眼判断"><h4>第一眼判断</h4><div class="solution-part__text"><p>逐个求 x→0⁺ 的极限，看谁是 ∞。</p>
 </div></section><section class="solution-part solution-part--分步解答"><h4>分步解答</h4><div class="solution-part__text"><p>A→3⁰-1=0；B→<span aria-label="0/(1+1)" class="math-frac"><span class="frac-top">0</span><span class="frac-bottom">(1+1)</span></span>=0；C→1；D：<span aria-label="1/x" class="math-frac"><span class="frac-top">1</span><span class="frac-bottom">x</span></span>→+∞，e<sup aria-label="^{+∞}" class="math-script">+∞</sup>→+∞ ✓。</p>
 </div></section><section class="solution-part solution-part--答案"><h4>答案</h4><div class="solution-part__text"><p>D。</p>
@@ -1322,6 +1351,7 @@ x(<span aria-label="√(x²+100)" class="math-root"><span class="root-sign">√<
  <div class="practice-card__top"><span class="practice-id">5-3</span></div>
  <div class="question-stem source-question"><span class="question-lead">题目</span><p>极限 <span aria-label="lim_{n→∞}" class="math-lim"><span>lim</span><sub>n→∞</sub></span> <span aria-label="(n+1)/(3n²+1)" class="math-frac"><span class="frac-top">(n+1)</span><span class="frac-bottom">(3n²+1)</span></span> · sin<span aria-label="√(n²+1)" class="math-root"><span class="root-sign">√</span><span class="root-body">(n²+1)</span></span> = ______。</p>
 </div>
+ <div class="pvideo" data-pvideo="5-3"><a class="pvideo-open" href="pvideos/5-3.mp4" data-src="pvideos/5-3.mp4" data-poster="pposters/5-3.jpg" aria-label="5-3 讲解视频，1:32"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>讲解视频</span><span class="pvideo-dur">1:32</span></a></div>
  <details class="solution-toggle practice-solution"><summary>查看逐步解答</summary><div class="answer-panel solution-body"><section class="solution-part solution-part--第一眼判断"><h4>第一眼判断</h4><div class="solution-part__text"><p>sin 部分不存在极限但有界；前面分式 → 0。“无穷小 × 有界 = 无穷小”。</p>
 </div></section><section class="solution-part solution-part--分步解答"><h4>分步解答</h4><div class="solution-part__text"><ol>
 <li><span aria-label="(n+1)/(3n²+1)" class="math-frac"><span class="frac-top">(n+1)</span><span class="frac-bottom">(3n²+1)</span></span>：抓大头，分子 1 次 &lt; 分母 2 次，→ 0，是无穷小。</li>
@@ -1371,6 +1401,7 @@ x(<span aria-label="√(x²+100)" class="math-root"><span class="root-sign">√<
  <div class="practice-card__top"><span class="practice-id">6-1</span></div>
  <div class="question-stem source-question"><span class="question-lead">题目</span><p>若 <span aria-label="lim_{x→0}" class="math-lim"><span>lim</span><sub>x→0</sub></span> <span aria-label="(sin x + 2kx)/x" class="math-frac"><span class="frac-top">(sin x + 2kx)</span><span class="frac-bottom">x</span></span> = 2，则 k = ______。</p>
 </div>
+ <div class="pvideo" data-pvideo="6-1"><a class="pvideo-open" href="pvideos/6-1.mp4" data-src="pvideos/6-1.mp4" data-poster="pposters/6-1.jpg" aria-label="6-1 讲解视频，1:10"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>讲解视频</span><span class="pvideo-dur">1:10</span></a></div>
  <details class="solution-toggle practice-solution"><summary>查看逐步解答</summary><div class="answer-panel solution-body"><section class="solution-part solution-part--第一眼判断"><h4>第一眼判断</h4><div class="solution-part__text"><p><span aria-label="0/0" class="math-frac"><span class="frac-top">0</span><span class="frac-bottom">0</span></span> 型，分子是和，拆成两项分别求。</p>
 </div></section><section class="solution-part solution-part--分步解答"><h4>分步解答</h4><div class="solution-part__text"><ol>
 <li>拆开：sin <span aria-label="x/x" class="math-frac"><span class="frac-top">x</span><span class="frac-bottom">x</span></span> + <span aria-label="2kx/x" class="math-frac"><span class="frac-top">2kx</span><span class="frac-bottom">x</span></span>。</li>
@@ -1385,6 +1416,7 @@ x(<span aria-label="√(x²+100)" class="math-root"><span class="root-sign">√<
  <div class="practice-card__top"><span class="practice-id">6-2</span></div>
  <div class="question-stem source-question"><span class="question-lead">题目</span><p>极限 <span aria-label="lim_{x→∞}" class="math-lim"><span>lim</span><sub>x→∞</sub></span> x²(e<sup aria-label="^{1/x²}" class="math-script">1/x²</sup> - 1) = ______。</p>
 </div>
+ <div class="pvideo" data-pvideo="6-2"><a class="pvideo-open" href="pvideos/6-2.mp4" data-src="pvideos/6-2.mp4" data-poster="pposters/6-2.jpg" aria-label="6-2 讲解视频，1:42"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>讲解视频</span><span class="pvideo-dur">1:42</span></a></div>
  <details class="solution-toggle practice-solution"><summary>查看逐步解答</summary><div class="answer-panel solution-body"><section class="solution-part solution-part--第一眼判断"><h4>第一眼判断</h4><div class="solution-part__text"><p>x→∞ 时 <span aria-label="1/x²" class="math-frac"><span class="frac-top">1</span><span class="frac-bottom">x²</span></span>→0，e<sup aria-label="^{1/x²}" class="math-script">1/x²</sup>-1→0，乘 x²→∞，是 0·∞ 型。括号里是 e^□-1，□→0 → 等价替换。</p>
 </div></section><section class="solution-part solution-part--分步解答"><h4>分步解答</h4><div class="solution-part__text"><ol>
 <li>令 □ = <span aria-label="1/x²" class="math-frac"><span class="frac-top">1</span><span class="frac-bottom">x²</span></span> → 0，e^□ - 1 ~ □ = <span aria-label="1/x²" class="math-frac"><span class="frac-top">1</span><span class="frac-bottom">x²</span></span>（这是乘积因子，可以换）。</li>
@@ -1398,6 +1430,7 @@ x(<span aria-label="√(x²+100)" class="math-root"><span class="root-sign">√<
  <div class="practice-card__top"><span class="practice-id">6-3</span></div>
  <div class="question-stem source-question"><span class="question-lead">题目</span><p>已知当 x→0 时，2 - 2cos x ~ ax²，则 a = ______。</p>
 </div>
+ <div class="pvideo" data-pvideo="6-3"><a class="pvideo-open" href="pvideos/6-3.mp4" data-src="pvideos/6-3.mp4" data-poster="pposters/6-3.jpg" aria-label="6-3 讲解视频，1:03"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>讲解视频</span><span class="pvideo-dur">1:03</span></a></div>
  <details class="solution-toggle practice-solution"><summary>查看逐步解答</summary><div class="answer-panel solution-body"><section class="solution-part solution-part--第一眼判断"><h4>第一眼判断</h4><div class="solution-part__text"><p>“~”是等价，意思是比值极限为 1。</p>
 </div></section><section class="solution-part solution-part--分步解答"><h4>分步解答</h4><div class="solution-part__text"><ol>
 <li>2-2cos x = 2(1-cos x) ~ 2 · <span aria-label="x²/2" class="math-frac"><span class="frac-top">x²</span><span class="frac-bottom">2</span></span> = x²。</li>
@@ -1411,6 +1444,7 @@ x(<span aria-label="√(x²+100)" class="math-root"><span class="root-sign">√<
  <div class="practice-card__top"><span class="practice-id">6-4</span></div>
  <div class="question-stem source-question"><span class="question-lead">题目</span><p>当 x→0 时，(1-cos x)ln(1+x²) 是比 x·sin xⁿ 高阶的无穷小，而 x·sin xⁿ 是比 e<sup aria-label="^{x²}" class="math-script">x²</sup> - 1 高阶的无穷小，则正整数 n 等于（ ）。A. 1　B. 2　C. 3　D. 4</p>
 </div>
+ <div class="pvideo" data-pvideo="6-4"><a class="pvideo-open" href="pvideos/6-4.mp4" data-src="pvideos/6-4.mp4" data-poster="pposters/6-4.jpg" aria-label="6-4 讲解视频，1:57"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>讲解视频</span><span class="pvideo-dur">1:57</span></a></div>
  <details class="solution-toggle practice-solution"><summary>查看逐步解答</summary><div class="answer-panel solution-body"><section class="solution-part solution-part--第一眼判断"><h4>第一眼判断</h4><div class="solution-part__text"><p>三个无穷小都化成 xᵏ，比较阶数。</p>
 </div></section><section class="solution-part solution-part--分步解答"><h4>分步解答</h4><div class="solution-part__text"><ol>
 <li>(1-cos x)ln(1+x²) ~ (<span aria-label="x²/2" class="math-frac"><span class="frac-top">x²</span><span class="frac-bottom">2</span></span>)·x² = x⁴/2，4 阶。</li>
@@ -1427,6 +1461,7 @@ x(<span aria-label="√(x²+100)" class="math-root"><span class="root-sign">√<
  <div class="question-stem source-question"><span class="question-lead">题目</span><p>当 x→∞ 时，<span aria-label="1/(ax²+bx+c)" class="math-frac"><span class="frac-top">1</span><span class="frac-bottom">(ax²+bx+c)</span></span> 和 <span aria-label="1/(x+1)" class="math-frac"><span class="frac-top">1</span><span class="frac-bottom">(x+1)</span></span> 是等价无穷小，则 a, b, c 为（ ）。
 A. a=0, b=1, c=1　B. a=0, b=1, c 为任意常数　C. a=0, b, c 为任意常数　D. a, b, c 均为任意常数</p>
 </div>
+ <div class="pvideo" data-pvideo="6-5"><a class="pvideo-open" href="pvideos/6-5.mp4" data-src="pvideos/6-5.mp4" data-poster="pposters/6-5.jpg" aria-label="6-5 讲解视频，1:48"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>讲解视频</span><span class="pvideo-dur">1:48</span></a></div>
  <details class="solution-toggle practice-solution"><summary>查看逐步解答</summary><div class="answer-panel solution-body"><section class="solution-part solution-part--第一眼判断"><h4>第一眼判断</h4><div class="solution-part__text"><p>等价 ⇔ 比值极限 = 1。</p>
 </div></section><section class="solution-part solution-part--分步解答"><h4>分步解答</h4><div class="solution-part__text"><ol>
 <li>比值 = <span aria-label="(x+1)/(ax²+bx+c)" class="math-frac"><span class="frac-top">(x+1)</span><span class="frac-bottom">(ax²+bx+c)</span></span>，x→∞ 抓大头。</li>
@@ -1442,6 +1477,7 @@ A. a=0, b=1, c=1　B. a=0, b=1, c 为任意常数　C. a=0, b, c 为任意常数
  <div class="practice-card__top"><span class="practice-id">6-6</span></div>
  <div class="question-stem source-question"><span class="question-lead">题目</span><p>当 x→x₀ 时，f(x) 是比 g(x) 更高阶的无穷小，则当 x→x₀ 时，无穷小 f(x)-g(x) 是无穷小 g(x) 的（ ）。A. 等价无穷小　B. 同阶无穷小　C. 高阶无穷小　D. 低阶无穷小</p>
 </div>
+ <div class="pvideo" data-pvideo="6-6"><a class="pvideo-open" href="pvideos/6-6.mp4" data-src="pvideos/6-6.mp4" data-poster="pposters/6-6.jpg" aria-label="6-6 讲解视频，1:27"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>讲解视频</span><span class="pvideo-dur">1:27</span></a></div>
  <details class="solution-toggle practice-solution"><summary>查看逐步解答</summary><div class="answer-panel solution-body"><section class="solution-part solution-part--第一眼判断"><h4>第一眼判断</h4><div class="solution-part__text"><p>比较就看比值极限。</p>
 </div></section><section class="solution-part solution-part--分步解答"><h4>分步解答</h4><div class="solution-part__text"><ol>
 <li>f 比 g 高阶 ⇒ lim f/g = 0。</li>
@@ -1456,6 +1492,7 @@ A. a=0, b=1, c=1　B. a=0, b=1, c 为任意常数　C. a=0, b, c 为任意常数
  <div class="practice-card__top"><span class="practice-id">6-7</span></div>
  <div class="question-stem source-question"><span class="question-lead">题目</span><p>当 x→0 时，下列无穷小量阶数最高的是（ ）。A. x²　B. 1-cos x　C. <span aria-label="√(1-x)" class="math-root"><span class="root-sign">√</span><span class="root-body">(1-x)</span></span> - 1　D. sin x - tan x</p>
 </div>
+ <div class="pvideo" data-pvideo="6-7"><a class="pvideo-open" href="pvideos/6-7.mp4" data-src="pvideos/6-7.mp4" data-poster="pposters/6-7.jpg" aria-label="6-7 讲解视频，1:47"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>讲解视频</span><span class="pvideo-dur">1:47</span></a></div>
  <details class="solution-toggle practice-solution"><summary>查看逐步解答</summary><div class="answer-panel solution-body"><section class="solution-part solution-part--第一眼判断"><h4>第一眼判断</h4><div class="solution-part__text"><p>全部等价成 xᵏ。</p>
 </div></section><section class="solution-part solution-part--分步解答"><h4>分步解答</h4><div class="solution-part__text"><ol>
 <li>A：2 阶。B：~<span aria-label="x²/2" class="math-frac"><span class="frac-top">x²</span><span class="frac-bottom">2</span></span>，2 阶。C：~-<span aria-label="x/2" class="math-frac"><span class="frac-top">x</span><span class="frac-bottom">2</span></span>，1 阶。</li>
@@ -1469,6 +1506,7 @@ A. a=0, b=1, c=1　B. a=0, b=1, c 为任意常数　C. a=0, b, c 为任意常数
  <div class="practice-card__top"><span class="practice-id">6-8</span></div>
  <div class="question-stem source-question"><span class="question-lead">题目</span><p>极限 <span aria-label="lim_{x→0}" class="math-lim"><span>lim</span><sub>x→0</sub></span> (x sin(<span aria-label="3/x" class="math-frac"><span class="frac-top">3</span><span class="frac-bottom">x</span></span>) + sin 3x / x) = ______。</p>
 </div>
+ <div class="pvideo" data-pvideo="6-8"><a class="pvideo-open" href="pvideos/6-8.mp4" data-src="pvideos/6-8.mp4" data-poster="pposters/6-8.jpg" aria-label="6-8 讲解视频，1:31"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>讲解视频</span><span class="pvideo-dur">1:31</span></a></div>
  <details class="solution-toggle practice-solution"><summary>查看逐步解答</summary><div class="answer-panel solution-body"><section class="solution-part solution-part--第一眼判断"><h4>第一眼判断</h4><div class="solution-part__text"><p>两项分开看，一项用“有界 × 无穷小”，一项用重要极限/等价。</p>
 </div></section><section class="solution-part solution-part--分步解答"><h4>分步解答</h4><div class="solution-part__text"><ol>
 <li>x sin(<span aria-label="3/x" class="math-frac"><span class="frac-top">3</span><span class="frac-bottom">x</span></span>)：x→0 是无穷小，|sin(<span aria-label="3/x" class="math-frac"><span class="frac-top">3</span><span class="frac-bottom">x</span></span>)| ≤ 1 有界，乘积 → 0。</li>
@@ -1484,6 +1522,7 @@ A. a=0, b=1, c=1　B. a=0, b=1, c 为任意常数　C. a=0, b, c 为任意常数
  <div class="question-stem source-question"><span class="question-lead">题目</span><p>下列极限中正确的是（ ）。
 A. <span aria-label="lim_{x→∞}" class="math-lim"><span>lim</span><sub>x→∞</sub></span> sin <span aria-label="x/x" class="math-frac"><span class="frac-top">x</span><span class="frac-bottom">x</span></span> = 1　B. <span aria-label="lim_{x→∞}" class="math-lim"><span>lim</span><sub>x→∞</sub></span> x sin(<span aria-label="1/x" class="math-frac"><span class="frac-top">1</span><span class="frac-bottom">x</span></span>) = 1　C. <span aria-label="lim_{x→∞}" class="math-lim"><span>lim</span><sub>x→∞</sub></span> sin <span aria-label="2x/x" class="math-frac"><span class="frac-top">2x</span><span class="frac-bottom">x</span></span> = 2　D. <span aria-label="lim_{x→∞}" class="math-lim"><span>lim</span><sub>x→∞</sub></span> 2<sup aria-label="^{1/x}" class="math-script">1/x</sup> = ∞</p>
 </div>
+ <div class="pvideo" data-pvideo="6-9"><a class="pvideo-open" href="pvideos/6-9.mp4" data-src="pvideos/6-9.mp4" data-poster="pposters/6-9.jpg" aria-label="6-9 讲解视频，2:00"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>讲解视频</span><span class="pvideo-dur">2:00</span></a></div>
  <details class="solution-toggle practice-solution"><summary>查看逐步解答</summary><div class="answer-panel solution-body"><section class="solution-part solution-part--第一眼判断"><h4>第一眼判断</h4><div class="solution-part__text"><p>考重要极限的适用条件 sin□/□→1 要求 □→0。</p>
 </div></section><section class="solution-part solution-part--分步解答"><h4>分步解答</h4><div class="solution-part__text"><ul>
 <li>A：x→∞ 时 sin x 有界、<span aria-label="1/x" class="math-frac"><span class="frac-top">1</span><span class="frac-bottom">x</span></span>→0，极限 0，错。</li>
@@ -1499,6 +1538,7 @@ A. <span aria-label="lim_{x→∞}" class="math-lim"><span>lim</span><sub>x→�
  <div class="practice-card__top"><span class="practice-id">6-10</span></div>
  <div class="question-stem source-question"><span class="question-lead">题目</span><p>极限 <span aria-label="lim_{x→+∞}" class="math-lim"><span>lim</span><sub>x→+∞</sub></span> x²[ln(x²+1) - 2ln x] = ______。</p>
 </div>
+ <div class="pvideo" data-pvideo="6-10"><a class="pvideo-open" href="pvideos/6-10.mp4" data-src="pvideos/6-10.mp4" data-poster="pposters/6-10.jpg" aria-label="6-10 讲解视频，1:40"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>讲解视频</span><span class="pvideo-dur">1:40</span></a></div>
  <details class="solution-toggle practice-solution"><summary>查看逐步解答</summary><div class="answer-panel solution-body"><section class="solution-part solution-part--第一眼判断"><h4>第一眼判断</h4><div class="solution-part__text"><p>括号里是 ∞-∞（对数相减），用对数性质合并。</p>
 </div></section><section class="solution-part solution-part--分步解答"><h4>分步解答</h4><div class="solution-part__text"><ol>
 <li>2ln x = ln x²，ln(x²+1) - ln x² = ln(<span aria-label="(x²+1)/x²" class="math-frac"><span class="frac-top">(x²+1)</span><span class="frac-bottom">x²</span></span>) = ln(1 + <span aria-label="1/x²" class="math-frac"><span class="frac-top">1</span><span class="frac-bottom">x²</span></span>)。</li>
@@ -1513,6 +1553,7 @@ A. <span aria-label="lim_{x→∞}" class="math-lim"><span>lim</span><sub>x→�
  <div class="practice-card__top"><span class="practice-id">6-11</span></div>
  <div class="question-stem source-question"><span class="question-lead">题目</span><p>若常系数 a, b 使得 <span aria-label="lim_{x→0}" class="math-lim"><span>lim</span><sub>x→0</sub></span> sin <span aria-label="x/(e^{2x} - a)" class="math-frac"><span class="frac-top">x</span><span class="frac-bottom">(e^{2x} - a)</span></span> · (cos x - b) = 5，则 b = ______。</p>
 </div>
+ <div class="pvideo" data-pvideo="6-11"><a class="pvideo-open" href="pvideos/6-11.mp4" data-src="pvideos/6-11.mp4" data-poster="pposters/6-11.jpg" aria-label="6-11 讲解视频，1:50"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>讲解视频</span><span class="pvideo-dur">1:50</span></a></div>
  <details class="solution-toggle practice-solution"><summary>查看逐步解答</summary><div class="answer-panel solution-body"><section class="solution-part solution-part--第一眼判断"><h4>第一眼判断</h4><div class="solution-part__text"><p>分子 sin x→0，而极限为非 0 的 5，所以分母也要 → 0，先定 a。</p>
 </div></section><section class="solution-part solution-part--分步解答"><h4>分步解答</h4><div class="solution-part__text"><ol>
 <li>若 e<sup aria-label="^{2x}" class="math-script">2x</sup>-a 不趋于 0，那么 sin x→0 会让整个式子 → 0 ≠ 5。所以 1 - a = 0，a = 1。</li>
@@ -1528,6 +1569,7 @@ A. <span aria-label="lim_{x→∞}" class="math-lim"><span>lim</span><sub>x→�
  <div class="practice-card__top"><span class="practice-id">6-12</span></div>
  <div class="question-stem source-question"><span class="question-lead">题目</span><p>已知 <span aria-label="lim_{x→0}" class="math-lim"><span>lim</span><sub>x→0</sub></span> f(x) 存在，且 <span aria-label="lim_{x→0}" class="math-lim"><span>lim</span><sub>x→0</sub></span> [√(1 + f(x)sin 2x) - 1]/(e<sup aria-label="^{3x}" class="math-script">3x</sup> - 1) = 2，则 <span aria-label="lim_{x→0}" class="math-lim"><span>lim</span><sub>x→0</sub></span> f(x) = ______。</p>
 </div>
+ <div class="pvideo" data-pvideo="6-12"><a class="pvideo-open" href="pvideos/6-12.mp4" data-src="pvideos/6-12.mp4" data-poster="pposters/6-12.jpg" aria-label="6-12 讲解视频，1:56"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>讲解视频</span><span class="pvideo-dur">1:56</span></a></div>
  <details class="solution-toggle practice-solution"><summary>查看逐步解答</summary><div class="answer-panel solution-body"><section class="solution-part solution-part--第一眼判断"><h4>第一眼判断</h4><div class="solution-part__text"><p><span aria-label="0/0" class="math-frac"><span class="frac-top">0</span><span class="frac-bottom">0</span></span> 型，分子是 (1+□)<sup aria-label="^{1/2}" class="math-script">1/2</sup>-1，分母是 e^□-1 → 等价替换。</p>
 </div></section><section class="solution-part solution-part--分步解答"><h4>分步解答</h4><div class="solution-part__text"><ol>
 <li>设 A = lim f(x)，□ = f(x)sin2x → A·0 = 0。</li>
@@ -1543,6 +1585,7 @@ A. <span aria-label="lim_{x→∞}" class="math-lim"><span>lim</span><sub>x→�
  <div class="practice-card__top"><span class="practice-id">6-13</span></div>
  <div class="question-stem source-question"><span class="question-lead">题目</span><p>计算极限 <span aria-label="lim_{x→0}" class="math-lim"><span>lim</span><sub>x→0</sub></span> (1 - <span aria-label="√(1-x²)" class="math-root"><span class="root-sign">√</span><span class="root-body">(1-x²)</span></span>)/(2x²) = ______。</p>
 </div>
+ <div class="pvideo" data-pvideo="6-13"><a class="pvideo-open" href="pvideos/6-13.mp4" data-src="pvideos/6-13.mp4" data-poster="pposters/6-13.jpg" aria-label="6-13 讲解视频，1:14"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>讲解视频</span><span class="pvideo-dur">1:14</span></a></div>
  <details class="solution-toggle practice-solution"><summary>查看逐步解答</summary><div class="answer-panel solution-body"><section class="solution-part solution-part--第一眼判断"><h4>第一眼判断</h4><div class="solution-part__text"><p><span aria-label="0/0" class="math-frac"><span class="frac-top">0</span><span class="frac-bottom">0</span></span>，分子是 1 - (1+□)<sup aria-label="^{1/2}" class="math-script">1/2</sup>。</p>
 </div></section><section class="solution-part solution-part--分步解答"><h4>分步解答</h4><div class="solution-part__text"><ol>
 <li><span aria-label="√(1-x²)" class="math-root"><span class="root-sign">√</span><span class="root-body">(1-x²)</span></span> - 1 ~ (<span aria-label="1/2" class="math-frac"><span class="frac-top">1</span><span class="frac-bottom">2</span></span>)(-x²) = -<span aria-label="x²/2" class="math-frac"><span class="frac-top">x²</span><span class="frac-bottom">2</span></span>，所以 1 - <span aria-label="√(1-x²)" class="math-root"><span class="root-sign">√</span><span class="root-body">(1-x²)</span></span> ~ <span aria-label="x²/2" class="math-frac"><span class="frac-top">x²</span><span class="frac-bottom">2</span></span>。</li>
@@ -1556,6 +1599,7 @@ A. <span aria-label="lim_{x→∞}" class="math-lim"><span>lim</span><sub>x→�
  <div class="practice-card__top"><span class="practice-id">6-14</span></div>
  <div class="question-stem source-question"><span class="question-lead">题目</span><p>极限 <span aria-label="lim_{x→0}" class="math-lim"><span>lim</span><sub>x→0</sub></span> [ <span aria-label="(e^{7x} - e^{-x})/(8 sin 3x)" class="math-frac"><span class="frac-top">(e^{7x} - e^{-x})</span><span class="frac-bottom">(8 sin 3x)</span></span> + (eˣ - 1)cos(<span aria-label="1/x" class="math-frac"><span class="frac-top">1</span><span class="frac-bottom">x</span></span>) ] = ______。</p>
 </div>
+ <div class="pvideo" data-pvideo="6-14"><a class="pvideo-open" href="pvideos/6-14.mp4" data-src="pvideos/6-14.mp4" data-poster="pposters/6-14.jpg" aria-label="6-14 讲解视频，1:52"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>讲解视频</span><span class="pvideo-dur">1:52</span></a></div>
  <details class="solution-toggle practice-solution"><summary>查看逐步解答</summary><div class="answer-panel solution-body"><section class="solution-part solution-part--第一眼判断"><h4>第一眼判断</h4><div class="solution-part__text"><p>两项分开。第一项 <span aria-label="0/0" class="math-frac"><span class="frac-top">0</span><span class="frac-bottom">0</span></span>；第二项 无穷小 × 有界。</p>
 </div></section><section class="solution-part solution-part--分步解答"><h4>分步解答</h4><div class="solution-part__text"><ol>
 <li>第一项分子提出 e<sup aria-label="^{-x}" class="math-script">-x</sup>：e<sup aria-label="^{7x}" class="math-script">7x</sup>-e<sup aria-label="^{-x}" class="math-script">-x</sup> = e<sup aria-label="^{-x}" class="math-script">-x</sup>(e<sup aria-label="^{8x}" class="math-script">8x</sup>-1) ~ 1·8x。分母 8 sin3x ~ 8·3x = 24x。第一项 → <span aria-label="8x/24x" class="math-frac"><span class="frac-top">8x</span><span class="frac-bottom">24x</span></span> = <span aria-label="1/3" class="math-frac"><span class="frac-top">1</span><span class="frac-bottom">3</span></span>。</li>
@@ -1570,6 +1614,7 @@ A. <span aria-label="lim_{x→∞}" class="math-lim"><span>lim</span><sub>x→�
  <div class="practice-card__top"><span class="practice-id">6-15</span></div>
  <div class="question-stem source-question"><span class="question-lead">题目</span><p>极限 <span aria-label="lim_{x→0}" class="math-lim"><span>lim</span><sub>x→0</sub></span> (<span aria-label="1/x" class="math-frac"><span class="frac-top">1</span><span class="frac-bottom">x</span></span> - <span aria-label="1/(eˣ - 1)" class="math-frac"><span class="frac-top">1</span><span class="frac-bottom">(eˣ - 1)</span></span> + (<span aria-label="√(x+1)" class="math-root"><span class="root-sign">√</span><span class="root-body">(x+1)</span></span> - <span aria-label="√(1-x)" class="math-root"><span class="root-sign">√</span><span class="root-body">(1-x)</span></span>)/(2x)) = ______。</p>
 </div>
+ <div class="pvideo" data-pvideo="6-15"><a class="pvideo-open" href="pvideos/6-15.mp4" data-src="pvideos/6-15.mp4" data-poster="pposters/6-15.jpg" aria-label="6-15 讲解视频，2:04"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>讲解视频</span><span class="pvideo-dur">2:04</span></a></div>
  <details class="solution-toggle practice-solution"><summary>查看逐步解答</summary><div class="answer-panel solution-body"><section class="solution-part solution-part--第一眼判断"><h4>第一眼判断</h4><div class="solution-part__text"><p>前两项 ∞-∞ → 通分；第三项 <span aria-label="0/0" class="math-frac"><span class="frac-top">0</span><span class="frac-bottom">0</span></span> 根号 → 有理化。</p>
 </div></section><section class="solution-part solution-part--分步解答"><h4>分步解答</h4><div class="solution-part__text"><ol>
 <li>前两项通分：(eˣ - 1 - x)/[x(eˣ - 1)]。分母 ~ x·x = x²；分子用差函数公式 eˣ-1-x ~ <span aria-label="x²/2" class="math-frac"><span class="frac-top">x²</span><span class="frac-bottom">2</span></span>。→ <span aria-label="1/2" class="math-frac"><span class="frac-top">1</span><span class="frac-bottom">2</span></span>。</li>
@@ -1611,6 +1656,7 @@ A. <span aria-label="lim_{x→∞}" class="math-lim"><span>lim</span><sub>x→�
  <div class="practice-card__top"><span class="practice-id">7-1</span></div>
  <div class="question-stem source-question"><span class="question-lead">题目</span><p><span aria-label="lim_{x→∞}" class="math-lim"><span>lim</span><sub>x→∞</sub></span> (1 - <span aria-label="2/x" class="math-frac"><span class="frac-top">2</span><span class="frac-bottom">x</span></span>)<sup aria-label="^{x/3}" class="math-script">x/3</sup> = ______。</p>
 </div>
+ <div class="pvideo" data-pvideo="7-1"><a class="pvideo-open" href="pvideos/7-1.mp4" data-src="pvideos/7-1.mp4" data-poster="pposters/7-1.jpg" aria-label="7-1 讲解视频，1:42"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>讲解视频</span><span class="pvideo-dur">1:42</span></a></div>
  <details class="solution-toggle practice-solution"><summary>查看逐步解答</summary><div class="answer-panel solution-body"><section class="solution-part solution-part--第一眼判断"><h4>第一眼判断</h4><div class="solution-part__text"><p>底数 → 1，指数 → ∞，1^∞ 型。</p>
 </div></section><section class="solution-part solution-part--分步解答"><h4>分步解答</h4><div class="solution-part__text"><ol>
 <li>凑 (1+□)<sup aria-label="^{1/□}" class="math-script">1/□</sup>：□ = -<span aria-label="2/x" class="math-frac"><span class="frac-top">2</span><span class="frac-bottom">x</span></span>，则 <span aria-label="1/□" class="math-frac"><span class="frac-top">1</span><span class="frac-bottom">□</span></span> = -<span aria-label="x/2" class="math-frac"><span class="frac-top">x</span><span class="frac-bottom">2</span></span>。</li>
@@ -1625,6 +1671,7 @@ A. <span aria-label="lim_{x→∞}" class="math-lim"><span>lim</span><sub>x→�
  <div class="practice-card__top"><span class="practice-id">7-2</span></div>
  <div class="question-stem source-question"><span class="question-lead">题目</span><p><span aria-label="lim_{x→0}" class="math-lim"><span>lim</span><sub>x→0</sub></span> (1 + 3x)<sup aria-label="^{1/x}" class="math-script">1/x</sup> = ______。</p>
 </div>
+ <div class="pvideo" data-pvideo="7-2"><a class="pvideo-open" href="pvideos/7-2.mp4" data-src="pvideos/7-2.mp4" data-poster="pposters/7-2.jpg" aria-label="7-2 讲解视频，0:50"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>讲解视频</span><span class="pvideo-dur">0:50</span></a></div>
  <details class="solution-toggle practice-solution"><summary>查看逐步解答</summary><div class="answer-panel solution-body"><section class="solution-part solution-part--第一眼判断"><h4>第一眼判断</h4><div class="solution-part__text"><p>1^∞ 型。</p>
 </div></section><section class="solution-part solution-part--分步解答"><h4>分步解答</h4><div class="solution-part__text"><p>(u-1)v = 3x · (<span aria-label="1/x" class="math-frac"><span class="frac-top">1</span><span class="frac-bottom">x</span></span>) = 3，结果 e³。（凑法：[(1+3x)<sup aria-label="^{1/(3x)}" class="math-script">1/(3x)</sup>]³。）</p>
 </div></section><section class="solution-part solution-part--答案"><h4>答案</h4><div class="solution-part__text"><p>e³。</p>
@@ -1635,6 +1682,7 @@ A. <span aria-label="lim_{x→∞}" class="math-lim"><span>lim</span><sub>x→�
  <div class="practice-card__top"><span class="practice-id">7-3</span></div>
  <div class="question-stem source-question"><span class="question-lead">题目</span><p>极限 <span aria-label="lim_{x→∞}" class="math-lim"><span>lim</span><sub>x→∞</sub></span> (1 - <span aria-label="100/x" class="math-frac"><span class="frac-top">100</span><span class="frac-bottom">x</span></span>)<sup aria-label="^{3x+100}" class="math-script">3x+100</sup> = ______。</p>
 </div>
+ <div class="pvideo" data-pvideo="7-3"><a class="pvideo-open" href="pvideos/7-3.mp4" data-src="pvideos/7-3.mp4" data-poster="pposters/7-3.jpg" aria-label="7-3 讲解视频，0:55"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>讲解视频</span><span class="pvideo-dur">0:55</span></a></div>
  <details class="solution-toggle practice-solution"><summary>查看逐步解答</summary><div class="answer-panel solution-body"><section class="solution-part solution-part--第一眼判断"><h4>第一眼判断</h4><div class="solution-part__text"><p>1^∞ 型。</p>
 </div></section><section class="solution-part solution-part--分步解答"><h4>分步解答</h4><div class="solution-part__text"><p>(u-1)v = (-<span aria-label="100/x" class="math-frac"><span class="frac-top">100</span><span class="frac-bottom">x</span></span>)(3x+100) = -300 - <span aria-label="10000/x" class="math-frac"><span class="frac-top">10000</span><span class="frac-bottom">x</span></span> → -300，结果 e<sup aria-label="^{-300}" class="math-script">-300</sup>。</p>
 </div></section><section class="solution-part solution-part--答案"><h4>答案</h4><div class="solution-part__text"><p>e<sup aria-label="^{-300}" class="math-script">-300</sup>。</p>
@@ -1645,6 +1693,7 @@ A. <span aria-label="lim_{x→∞}" class="math-lim"><span>lim</span><sub>x→�
  <div class="practice-card__top"><span class="practice-id">7-4</span></div>
  <div class="question-stem source-question"><span class="question-lead">题目</span><p>极限 <span aria-label="lim_{n→∞}" class="math-lim"><span>lim</span><sub>n→∞</sub></span> (1 + sin(<span aria-label="1/n" class="math-frac"><span class="frac-top">1</span><span class="frac-bottom">n</span></span>))ⁿ = ______。</p>
 </div>
+ <div class="pvideo" data-pvideo="7-4"><a class="pvideo-open" href="pvideos/7-4.mp4" data-src="pvideos/7-4.mp4" data-poster="pposters/7-4.jpg" aria-label="7-4 讲解视频，1:08"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>讲解视频</span><span class="pvideo-dur">1:08</span></a></div>
  <details class="solution-toggle practice-solution"><summary>查看逐步解答</summary><div class="answer-panel solution-body"><section class="solution-part solution-part--第一眼判断"><h4>第一眼判断</h4><div class="solution-part__text"><p>sin(<span aria-label="1/n" class="math-frac"><span class="frac-top">1</span><span class="frac-bottom">n</span></span>)→0，底数 → 1，指数 → ∞，1^∞ 型。</p>
 </div></section><section class="solution-part solution-part--分步解答"><h4>分步解答</h4><div class="solution-part__text"><p>(u-1)v = sin(<span aria-label="1/n" class="math-frac"><span class="frac-top">1</span><span class="frac-bottom">n</span></span>)·n，sin(<span aria-label="1/n" class="math-frac"><span class="frac-top">1</span><span class="frac-bottom">n</span></span>) ~ <span aria-label="1/n" class="math-frac"><span class="frac-top">1</span><span class="frac-bottom">n</span></span>，→ 1，结果 e¹ = e。</p>
 </div></section><section class="solution-part solution-part--答案"><h4>答案</h4><div class="solution-part__text"><p>e。</p>
@@ -1655,6 +1704,7 @@ A. <span aria-label="lim_{x→∞}" class="math-lim"><span>lim</span><sub>x→�
  <div class="practice-card__top"><span class="practice-id">7-5</span></div>
  <div class="question-stem source-question"><span class="question-lead">题目</span><p>极限 <span aria-label="lim_{x→+∞}" class="math-lim"><span>lim</span><sub>x→+∞</sub></span> (<span aria-label="(x-2)/(x+3)" class="math-frac"><span class="frac-top">(x-2)</span><span class="frac-bottom">(x+3)</span></span>)<sup aria-label="^{2x}" class="math-script">2x</sup> = ______。</p>
 </div>
+ <div class="pvideo" data-pvideo="7-5"><a class="pvideo-open" href="pvideos/7-5.mp4" data-src="pvideos/7-5.mp4" data-poster="pposters/7-5.jpg" aria-label="7-5 讲解视频，1:23"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>讲解视频</span><span class="pvideo-dur">1:23</span></a></div>
  <details class="solution-toggle practice-solution"><summary>查看逐步解答</summary><div class="answer-panel solution-body"><section class="solution-part solution-part--第一眼判断"><h4>第一眼判断</h4><div class="solution-part__text"><p>底数 → 1（抓大头系数 <span aria-label="1/1" class="math-frac"><span class="frac-top">1</span><span class="frac-bottom">1</span></span>），指数 → ∞，1^∞ 型。</p>
 </div></section><section class="solution-part solution-part--分步解答"><h4>分步解答</h4><div class="solution-part__text"><ol>
 <li>u-1 = <span aria-label="(x-2)/(x+3)" class="math-frac"><span class="frac-top">(x-2)</span><span class="frac-bottom">(x+3)</span></span> - 1 = <span aria-label="(x-2-x-3)/(x+3)" class="math-frac"><span class="frac-top">(x-2-x-3)</span><span class="frac-bottom">(x+3)</span></span> = -<span aria-label="5/(x+3)" class="math-frac"><span class="frac-top">5</span><span class="frac-bottom">(x+3)</span></span>。</li>
@@ -1669,6 +1719,7 @@ A. <span aria-label="lim_{x→∞}" class="math-lim"><span>lim</span><sub>x→�
  <div class="practice-card__top"><span class="practice-id">7-6</span></div>
  <div class="question-stem source-question"><span class="question-lead">题目</span><p>极限 <span aria-label="lim_{n→∞}" class="math-lim"><span>lim</span><sub>n→∞</sub></span> [(1 - <span aria-label="2/n" class="math-frac"><span class="frac-top">2</span><span class="frac-bottom">n</span></span>)ⁿ + sin <span aria-label="n/n" class="math-frac"><span class="frac-top">n</span><span class="frac-bottom">n</span></span>] = ______。</p>
 </div>
+ <div class="pvideo" data-pvideo="7-6"><a class="pvideo-open" href="pvideos/7-6.mp4" data-src="pvideos/7-6.mp4" data-poster="pposters/7-6.jpg" aria-label="7-6 讲解视频，1:17"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>讲解视频</span><span class="pvideo-dur">1:17</span></a></div>
  <details class="solution-toggle practice-solution"><summary>查看逐步解答</summary><div class="answer-panel solution-body"><section class="solution-part solution-part--第一眼判断"><h4>第一眼判断</h4><div class="solution-part__text"><p>两项分开：第一项 1^∞，第二项 有界/∞。</p>
 </div></section><section class="solution-part solution-part--分步解答"><h4>分步解答</h4><div class="solution-part__text"><ol>
 <li>(1-<span aria-label="2/n" class="math-frac"><span class="frac-top">2</span><span class="frac-bottom">n</span></span>)ⁿ：(u-1)v = -<span aria-label="2/n" class="math-frac"><span class="frac-top">2</span><span class="frac-bottom">n</span></span>·n = -2 → e<sup aria-label="^{-2}" class="math-script">-2</sup>。</li>
@@ -1683,6 +1734,7 @@ A. <span aria-label="lim_{x→∞}" class="math-lim"><span>lim</span><sub>x→�
  <div class="practice-card__top"><span class="practice-id">7-7</span></div>
  <div class="question-stem source-question"><span class="question-lead">题目</span><p>极限 <span aria-label="lim_{x→∞}" class="math-lim"><span>lim</span><sub>x→∞</sub></span> (<span aria-label="(x+a)/(x-a)" class="math-frac"><span class="frac-top">(x+a)</span><span class="frac-bottom">(x-a)</span></span>)ˣ = 4，则 a = ______。</p>
 </div>
+ <div class="pvideo" data-pvideo="7-7"><a class="pvideo-open" href="pvideos/7-7.mp4" data-src="pvideos/7-7.mp4" data-poster="pposters/7-7.jpg" aria-label="7-7 讲解视频，1:25"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>讲解视频</span><span class="pvideo-dur">1:25</span></a></div>
  <details class="solution-toggle practice-solution"><summary>查看逐步解答</summary><div class="answer-panel solution-body"><section class="solution-part solution-part--第一眼判断"><h4>第一眼判断</h4><div class="solution-part__text"><p>1^∞ 型，先求出含 a 的结果再列方程。</p>
 </div></section><section class="solution-part solution-part--分步解答"><h4>分步解答</h4><div class="solution-part__text"><ol>
 <li>u-1 = <span aria-label="(x+a)/(x-a)" class="math-frac"><span class="frac-top">(x+a)</span><span class="frac-bottom">(x-a)</span></span> - 1 = 2a/(x-a)。</li>
@@ -1697,6 +1749,7 @@ A. <span aria-label="lim_{x→∞}" class="math-lim"><span>lim</span><sub>x→�
  <div class="practice-card__top"><span class="practice-id">7-8</span></div>
  <div class="question-stem source-question"><span class="question-lead">题目</span><p>极限 <span aria-label="lim_{x→0}" class="math-lim"><span>lim</span><sub>x→0</sub></span> (cos x)<sup aria-label="^{1/ln(1+x²)}" class="math-script">1/ln(1+x²)</sup> = ______。</p>
 </div>
+ <div class="pvideo" data-pvideo="7-8"><a class="pvideo-open" href="pvideos/7-8.mp4" data-src="pvideos/7-8.mp4" data-poster="pposters/7-8.jpg" aria-label="7-8 讲解视频，1:35"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>讲解视频</span><span class="pvideo-dur">1:35</span></a></div>
  <details class="solution-toggle practice-solution"><summary>查看逐步解答</summary><div class="answer-panel solution-body"><section class="solution-part solution-part--第一眼判断"><h4>第一眼判断</h4><div class="solution-part__text"><p>cos0=1，1/ln(1+x²)→∞，1^∞ 型。</p>
 </div></section><section class="solution-part solution-part--分步解答"><h4>分步解答</h4><div class="solution-part__text"><ol>
 <li>u-1 = cos x - 1 ~ -<span aria-label="x²/2" class="math-frac"><span class="frac-top">x²</span><span class="frac-bottom">2</span></span>。</li>
@@ -1711,6 +1764,7 @@ A. <span aria-label="lim_{x→∞}" class="math-lim"><span>lim</span><sub>x→�
  <div class="practice-card__top"><span class="practice-id">7-9</span></div>
  <div class="question-stem source-question"><span class="question-lead">题目</span><p>已知 f(x) = ˣ<span aria-label="√(1-2x)" class="math-root"><span class="root-sign">√</span><span class="root-body">(1-2x)</span></span>（即 (1-2x)<sup aria-label="^{1/x}" class="math-script">1/x</sup>），计算 <span aria-label="lim_{x→0⁺}" class="math-lim"><span>lim</span><sub>x→0⁺</sub></span> f(x)。</p>
 </div>
+ <div class="pvideo" data-pvideo="7-9"><a class="pvideo-open" href="pvideos/7-9.mp4" data-src="pvideos/7-9.mp4" data-poster="pposters/7-9.jpg" aria-label="7-9 讲解视频，1:00"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>讲解视频</span><span class="pvideo-dur">1:00</span></a></div>
  <details class="solution-toggle practice-solution"><summary>查看逐步解答</summary><div class="answer-panel solution-body"><section class="solution-part solution-part--第一眼判断"><h4>第一眼判断</h4><div class="solution-part__text"><p>x 次根号 = <span aria-label="1/x" class="math-frac"><span class="frac-top">1</span><span class="frac-bottom">x</span></span> 次方，1^∞ 型。</p>
 </div></section><section class="solution-part solution-part--分步解答"><h4>分步解答</h4><div class="solution-part__text"><p>(u-1)v = -2x·(<span aria-label="1/x" class="math-frac"><span class="frac-top">1</span><span class="frac-bottom">x</span></span>) = -2，结果 e<sup aria-label="^{-2}" class="math-script">-2</sup>。</p>
 </div></section><section class="solution-part solution-part--答案"><h4>答案</h4><div class="solution-part__text"><p>e<sup aria-label="^{-2}" class="math-script">-2</sup>。</p>
@@ -1721,6 +1775,7 @@ A. <span aria-label="lim_{x→∞}" class="math-lim"><span>lim</span><sub>x→�
  <div class="practice-card__top"><span class="practice-id">7-10</span></div>
  <div class="question-stem source-question"><span class="question-lead">题目</span><p>极限 <span aria-label="lim_{x→0}" class="math-lim"><span>lim</span><sub>x→0</sub></span> (1 + 3x)<sup aria-label="^{cot x}" class="math-script">cot x</sup> = ______。</p>
 </div>
+ <div class="pvideo" data-pvideo="7-10"><a class="pvideo-open" href="pvideos/7-10.mp4" data-src="pvideos/7-10.mp4" data-poster="pposters/7-10.jpg" aria-label="7-10 讲解视频，1:10"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>讲解视频</span><span class="pvideo-dur">1:10</span></a></div>
  <details class="solution-toggle practice-solution"><summary>查看逐步解答</summary><div class="answer-panel solution-body"><section class="solution-part solution-part--第一眼判断"><h4>第一眼判断</h4><div class="solution-part__text"><p>cot x = cos x/sin x → ∞，1^∞ 型。</p>
 </div></section><section class="solution-part solution-part--分步解答"><h4>分步解答</h4><div class="solution-part__text"><p>(u-1)v = 3x·cos x/sin x，sin x ~ x，cos x→1，→ 3，结果 e³。</p>
 </div></section><section class="solution-part solution-part--答案"><h4>答案</h4><div class="solution-part__text"><p>e³。</p>
@@ -1731,6 +1786,7 @@ A. <span aria-label="lim_{x→∞}" class="math-lim"><span>lim</span><sub>x→�
  <div class="practice-card__top"><span class="practice-id">7-11</span></div>
  <div class="question-stem source-question"><span class="question-lead">题目</span><p>极限 <span aria-label="lim_{n→∞}" class="math-lim"><span>lim</span><sub>n→∞</sub></span> [<span aria-label="1/(1×2)" class="math-frac"><span class="frac-top">1</span><span class="frac-bottom">(1×2)</span></span> + <span aria-label="1/(2×3)" class="math-frac"><span class="frac-top">1</span><span class="frac-bottom">(2×3)</span></span> + … + 1/(n(n+1))]<sup aria-label="^{3n-2}" class="math-script">3n-2</sup> = ______。</p>
 </div>
+ <div class="pvideo" data-pvideo="7-11"><a class="pvideo-open" href="pvideos/7-11.mp4" data-src="pvideos/7-11.mp4" data-poster="pposters/7-11.jpg" aria-label="7-11 讲解视频，1:38"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>讲解视频</span><span class="pvideo-dur">1:38</span></a></div>
  <details class="solution-toggle practice-solution"><summary>查看逐步解答</summary><div class="answer-panel solution-body"><section class="solution-part solution-part--第一眼判断"><h4>第一眼判断</h4><div class="solution-part__text"><p>先把底数的和求出来（裂项相消），再看类型。</p>
 </div></section><section class="solution-part solution-part--分步解答"><h4>分步解答</h4><div class="solution-part__text"><ol>
 <li>裂项：1/(k(k+1)) = <span aria-label="1/k" class="math-frac"><span class="frac-top">1</span><span class="frac-bottom">k</span></span> - <span aria-label="1/(k+1)" class="math-frac"><span class="frac-top">1</span><span class="frac-bottom">(k+1)</span></span>。相加中间全部抵消，和 = 1 - <span aria-label="1/(n+1)" class="math-frac"><span class="frac-top">1</span><span class="frac-bottom">(n+1)</span></span> = <span aria-label="n/(n+1)" class="math-frac"><span class="frac-top">n</span><span class="frac-bottom">(n+1)</span></span>。</li>
@@ -1745,6 +1801,7 @@ A. <span aria-label="lim_{x→∞}" class="math-lim"><span>lim</span><sub>x→�
  <div class="practice-card__top"><span class="practice-id">7-12</span></div>
  <div class="question-stem source-question"><span class="question-lead">题目</span><p>设函数 f(x) = <span aria-label="lim_{t→∞}" class="math-lim"><span>lim</span><sub>t→∞</sub></span> (1 + <span aria-label="2x/t" class="math-frac"><span class="frac-top">2x</span><span class="frac-bottom">t</span></span>)ᵗ (x≠0)，则 f(ln 2) = ______。</p>
 </div>
+ <div class="pvideo" data-pvideo="7-12"><a class="pvideo-open" href="pvideos/7-12.mp4" data-src="pvideos/7-12.mp4" data-poster="pposters/7-12.jpg" aria-label="7-12 讲解视频，1:17"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>讲解视频</span><span class="pvideo-dur">1:17</span></a></div>
  <details class="solution-toggle practice-solution"><summary>查看逐步解答</summary><div class="answer-panel solution-body"><section class="solution-part solution-part--第一眼判断"><h4>第一眼判断</h4><div class="solution-part__text"><p>极限变量是 t，x 当作常数；1^∞ 型。</p>
 </div></section><section class="solution-part solution-part--分步解答"><h4>分步解答</h4><div class="solution-part__text"><ol>
 <li>(u-1)v = (<span aria-label="2x/t" class="math-frac"><span class="frac-top">2x</span><span class="frac-bottom">t</span></span>)·t = 2x，所以 f(x) = e<sup aria-label="^{2x}" class="math-script">2x</sup>。</li>
@@ -1910,5 +1967,6 @@ A. <span aria-label="lim_{x→∞}" class="math-lim"><span>lim</span><sub>x→�
  dialog.addEventListener('click',e=>{if(e.target===dialog)dismiss()});
  dialog.addEventListener('close',()=>slot.replaceChildren());
 })();</script>
+<script>(()=>{document.querySelectorAll('.pvideo-open').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const box=a.parentElement;const v=document.createElement('video');v.className='pvideo-player';v.controls=true;v.playsInline=true;v.preload='none';v.poster=a.dataset.poster;v.src=a.dataset.src;v.setAttribute('aria-label',a.getAttribute('aria-label'));box.replaceChildren(v);const p=v.play();if(p&&p.catch)p.catch(()=>{});}));})();</script>
 </body>
 </html>
