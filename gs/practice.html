@@ -1,287 +1,222 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#F5F5F7"><title>第一章练习题逐题讲解（49 题） · 辽宁专升本计算机类学习站</title><link rel="stylesheet" href="../style.css"><link rel="stylesheet" href="../mobile.css"><link rel="stylesheet" href="../assets/css/site-unify.css"></head><body><svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
-<symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
-<symbol id="i-back" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol>
-<symbol id="i-ext" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
-<symbol id="i-book" viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5"/></symbol>
-<symbol id="i-video" viewBox="0 0 24 24"><rect x="3" y="5" width="13" height="14" rx="3"/><path d="m16 10 5-3v10l-5-3"/></symbol>
-<symbol id="i-check" viewBox="0 0 24 24"><path d="m9 11 3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></symbol>
-<symbol id="i-map" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><circle cx="4" cy="5" r="2"/><circle cx="20" cy="5" r="2"/><circle cx="4" cy="19" r="2"/><circle cx="20" cy="19" r="2"/><path d="m6 6 4 4m4 0 4-4M6 18l4-4m4 0 4 4"/></symbol>
-<symbol id="i-file" viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></symbol>
-<symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></symbol>
-<symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v5h1"/></symbol>
-<symbol id="i-chev" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></symbol>
-</defs></svg>
-<header class="topbar"><div class="shell"><a class="brand" href="../index.html"><span class="mark"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg></span>辽宁专升本 · 学习站</a><nav class="subnav" aria-label="科目"><a href="../index.html">首页</a><a href="../jsj/index.html">计算机基础</a><a href="../gs/index.html">高等数学</a><a href="../c/index.html">C语言</a><a href="../yy/index.html">英语</a><a href="../wy/index.html">网页设计</a></nav></div></header>
-<main><div class="shell"><section class="hero"><h1>第一章练习题逐题讲解（49 题）</h1><p class="lead">考点四–七：函数极限、无穷大与无穷小、无穷小的比较、两个重要极限。</p></section><style>.knav{position:sticky;top:68px;z-index:8;display:flex;gap:8px;overflow-x:auto;padding:12px 0;background:var(--bg,#F5F5F7)}.knav a{flex:0 0 auto;display:flex;align-items:center;gap:6px;min-height:44px;padding:0 16px;border:1px solid var(--line);border-radius:11px;background:#fff;font-weight:500;text-decoration:none;color:var(--brand)}.knav small{color:#86868B;font-weight:500}.plist{display:grid;gap:16px}.prob .qhead{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.prob h3{margin:0;font-size:16px;flex:1}article.prob .stem.md{margin:12px 0 4px;padding:12px 14px;font-size:15px;line-height:1.8}.pv{margin:12px 0 4px}.pv .dur{top:8px;bottom:auto;right:8px}.think{margin:8px 0 4px;color:#6E6E73;font-size:14px}.pflag{margin-top:10px}.psec .abody{font-size:15px;line-height:1.8}.pans summary{color:#27845A}.lim{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;line-height:1.1;margin:0 2px}.lim .lsub{font-size:.68em}.md sup,.md sub{font-size:.72em;line-height:0}.stem,.abody,.pintro,.flow{font-family:"Cambria Math","Latin Modern Math","STIX Two Math","Noto Sans CJK SC",serif,system-ui;overflow-wrap:anywhere}.prob{scroll-margin-top:72px}section[id^=kd]{scroll-margin-top:8px}</style><section class="block"><div class="sec-head"><div><h2>做极限题的总流程</h2></div></div><div class="panel md flow"><ol>
-<li><strong>先代入</strong>：把 x 的趋向值直接代进去。能算出确定的数，那就是答案。</li>
-<li><strong>判断类型</strong>：代入后如果得到 0/0、∞/∞、0·∞、∞-∞、1<sup>∞</sup>，这叫“未定式”，不能直接下结论，要变形。</li>
-<li><strong>按类型选方法</strong>：<ul>
-<li>0/0：因式分解约分、有理化、等价替换、重要极限 sin□/□→1</li>
-<li>∞/∞（x→∞ 的分式）：抓大头，看最高次</li>
-<li>∞-∞：通分或有理化，化成分式</li>
-<li>0·∞：把一个因子挪到分母，变成 0/0 或 ∞/∞</li>
-<li>1<sup>∞</sup>：重要极限 (1+□)<sup>(1/□)</sup>→e，或者用公式 lim u<sup>v</sup> = e<sup>lim (u-1)·v</sup></li>
-</ul>
-</li>
-<li><strong>分段函数、含 |x|、含 2<sup>1/x</sup>、e<sup>1/x</sup></strong>：必须分别求左右极限。</li>
-</ol>
-<p>常用八个等价（x→0）：sinx、tanx、arcsinx、arctanx、eˣ-1、ln(1+x) 都 ~ x；1-cosx ~ x²/2；(1+x)<sup>m</sup>-1 ~ mx。补充：secx-1 ~ x²/2，arcsinx-x ~ x³/6，tanx-x ~ x³/3。
-<strong>等价替换只能换乘除因子，加减中慎用。</strong></p></div></section><nav class="knav" aria-label="考点跳转"><a href="#kd4">考点四<small>19 题</small></a><a href="#kd5">考点五<small>3 题</small></a><a href="#kd6">考点六<small>15 题</small></a><a href="#kd7">考点七<small>12 题</small></a><a href="#mindex">按方法索引</a></nav><div class="callout info"><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg><span>题目来源：讲义第一章专项练习（照片识读）。全部题目已对照原书清晰照片核对。</span></div><section class="block" id="kd4"><div class="sec-head"><div><h2>考点四：函数极限</h2><p class="sec-desc">共 19 题</p></div></div><div class="plist"><article class="card qcard prob" id="p4-1"><div class="qhead"><span class="vnum">1</span><h3>考点四 · 第 1 题</h3></div><div class="stem md"><p>函数 f(x) 在点 x₀ 处有定义是极限 <span class="lim">lim<span class="lsub">x→x₀</span></span> f(x) 存在的______条件。</p></div><div class="vthumb pv"><video controls playsinline preload="none" poster="pposters/4-1.jpg?v=1" src="pvideos/4-1.mp4?v=1" aria-label="第 1 题 讲解视频"></video><span class="dur">1:41</span></div><p class="think">✍️ 先自己想：独立写出思路和答案，再展开下面的讲解。</p><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>第一眼判断</summary><div class="abody md"><p>概念题，考“极限和函数值有没有关系”。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>分步解答</summary><div class="abody md"><ol>
-<li>记住结论：x→x₀ 的极限只看 x 靠近 x₀ 时 f 的走向，<strong>与 f(x₀) 有无定义、取何值无关</strong>。</li>
-<li>有定义能推出极限存在吗？不能（例如分段函数左右极限不等，见 4-4）。所以不充分。</li>
-<li>极限存在能推出有定义吗？不能（例如 (x²-1)/(x-1) 在 x=1 没定义，但极限是 2）。所以不必要。</li>
-</ol></div></details><details class="ans psec pans"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>答案</summary><div class="abody md"><p>既不充分也不必要（无关条件）。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>易错点</summary><div class="abody md"><p>容易误以为“有定义”是必要条件。极限根本不看那一点本身。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>通用方法</summary><div class="abody md"><p>判断“A 是 B 的什么条件”，就分别问 A⇒B？B⇒A？各举一个反例。</p></div></details></article><article class="card qcard prob" id="p4-2"><div class="qhead"><span class="vnum">2</span><h3>考点四 · 第 2 题</h3></div><div class="stem md"><p><span class="lim">lim<span class="lsub">x→x₀⁻</span></span> f(x) = <span class="lim">lim<span class="lsub">x→x₀⁺</span></span> f(x) = A 是 f(x) 在点 x = x₀ 处有定义的______条件。</p></div><div class="vthumb pv"><video controls playsinline preload="none" poster="pposters/4-2.jpg?v=1" src="pvideos/4-2.mp4?v=1" aria-label="第 2 题 讲解视频"></video><span class="dur">1:18</span></div><p class="think">✍️ 先自己想：独立写出思路和答案，再展开下面的讲解。</p><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>第一眼判断</summary><div class="abody md"><p>同 4-1，还是“极限与定义无关”。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>分步解答</summary><div class="abody md"><ol>
-<li>左右极限相等只说明极限存在，推不出 x₀ 处有定义。</li>
-<li>x₀ 处有定义也推不出左右极限存在且相等。</li>
-</ol></div></details><details class="ans psec pans"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>答案</summary><div class="abody md"><p>既不充分也不必要（无关条件）。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>易错点</summary><div class="abody md"><p>别把“极限存在”和“连续”混在一起。连续才要求有定义且极限等于函数值。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>通用方法</summary><div class="abody md"><p>极限 ↔ 定义：无关；连续 = 有定义 + 极限存在 + 两者相等。</p></div></details></article><article class="card qcard prob" id="p4-3"><div class="qhead"><span class="vnum">3</span><h3>考点四 · 第 3 题</h3></div><div class="stem md"><p><span class="lim">lim<span class="lsub">x→x₀⁻</span></span> f(x) 与 <span class="lim">lim<span class="lsub">x→x₀⁺</span></span> f(x) 存在且相等是 <span class="lim">lim<span class="lsub">x→x₀</span></span> f(x) 存在的______条件。</p></div><div class="vthumb pv"><video controls playsinline preload="none" poster="pposters/4-3.jpg?v=1" src="pvideos/4-3.mp4?v=1" aria-label="第 3 题 讲解视频"></video><span class="dur">1:10</span></div><p class="think">✍️ 先自己想：独立写出思路和答案，再展开下面的讲解。</p><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>第一眼判断</summary><div class="abody md"><p>直接考“极限存在的充要条件”。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>分步解答</summary><div class="abody md"><p>笔记原话：x→x₀ 极限存在，<strong>当且仅当</strong>左右极限都存在且相等。“当且仅当”就是充要。</p></div></details><details class="ans psec pans"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>答案</summary><div class="abody md"><p>充分必要条件（充要条件）。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>易错点</summary><div class="abody md"><p>只有左右极限都存在、而且相等，两个条件缺一不可。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>通用方法</summary><div class="abody md"><p>看到“左右极限”，第一反应就是“左右存在且相等 ⇔ 极限存在”。</p></div></details></article><article class="card qcard prob" id="p4-4"><div class="qhead"><span class="vnum">4</span><h3>考点四 · 第 4 题</h3></div><div class="stem md"><p>函数 f(x) = { x+1, x&lt;0；x², x≥0 } 在 x=0 处（ ）。<br />
-A. 有定义且极限存在　B. 有定义且极限不存在　C. 无定义且极限存在　D. 无定义且极限不存在</p></div><div class="vthumb pv"><video controls playsinline preload="none" poster="pposters/4-4.jpg?v=1" src="pvideos/4-4.mp4?v=1" aria-label="第 4 题 讲解视频"></video><span class="dur">1:52</span></div><p class="think">✍️ 先自己想：独立写出思路和答案，再展开下面的讲解。</p><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>第一眼判断</summary><div class="abody md"><p>分段函数在分段点，必须分左右两边求极限。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>分步解答</summary><div class="abody md"><ol>
-<li>有没有定义：x=0 属于 “x≥0” 这一段，f(0)=0²=0，有定义。</li>
-<li>左极限（x 从左边靠近 0，用 x&lt;0 那段）：<span class="lim">lim<span class="lsub">x→0⁻</span></span>(x+1) = 0+1 = 1。</li>
-<li>右极限（用 x≥0 那段）：<span class="lim">lim<span class="lsub">x→0⁺</span></span> x² = 0。</li>
-<li>1 ≠ 0，左右极限不相等，所以极限不存在。</li>
-</ol></div></details><details class="ans psec pans"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>答案</summary><div class="abody md"><p>B。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>易错点</summary><div class="abody md"><p>左极限一定要用 x&lt;0 那一段的式子，别用错段。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>通用方法</summary><div class="abody md"><p>分段点处求极限 = 左段式子求左极限，右段式子求右极限，再比较。</p></div></details></article><article class="card qcard prob" id="p4-5"><div class="qhead"><span class="vnum">5</span><h3>考点四 · 第 5 题</h3></div><div class="stem md"><p><span class="lim">lim<span class="lsub">x→0</span></span> x / cos x = ______。</p></div><div class="vthumb pv"><video controls playsinline preload="none" poster="pposters/4-5.jpg?v=1" src="pvideos/4-5.mp4?v=1" aria-label="第 5 题 讲解视频"></video><span class="dur">0:53</span></div><p class="think">✍️ 先自己想：独立写出思路和答案，再展开下面的讲解。</p><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>第一眼判断</summary><div class="abody md"><p>先代入：分子 0，分母 cos0=1，不是未定式。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>分步解答</summary><div class="abody md"><p>直接代入，0/1 = 0。</p></div></details><details class="ans psec pans"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>答案</summary><div class="abody md"><p>0。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>易错点</summary><div class="abody md"><p>别一看到三角函数就想 sinx/x→1。这里是 cosx，代入就完了。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>通用方法</summary><div class="abody md"><p>任何极限题第一步都是“先代入”，能直接算就不用变形。</p></div></details></article><article class="card qcard prob" id="p4-6"><div class="qhead"><span class="vnum">6</span><h3>考点四 · 第 6 题</h3></div><div class="stem md"><p>计算 <span class="lim">lim<span class="lsub">x→1</span></span> (x²+x-2)/(x-1) = ______。</p></div><div class="vthumb pv"><video controls playsinline preload="none" poster="pposters/4-6.jpg?v=1" src="pvideos/4-6.mp4?v=1" aria-label="第 6 题 讲解视频"></video><span class="dur">1:36</span></div><p class="think">✍️ 先自己想：独立写出思路和答案，再展开下面的讲解。</p><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>第一眼判断</summary><div class="abody md"><p>代入 x=1：分子 1+1-2=0，分母 0，是 0/0 型；分子分母都是多项式 → 因式分解约分。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>分步解答</summary><div class="abody md"><ol>
-<li>分子 x=1 时为 0，说明分子含有因式 (x-1)。十字相乘：x²+x-2 = (x-1)(x+2)。</li>
-<li>约掉 (x-1)（x→1 但 x≠1，所以可以约）：原式 = <span class="lim">lim<span class="lsub">x→1</span></span>(x+2)。</li>
-<li>代入：1+2 = 3。</li>
-</ol></div></details><details class="ans psec pans"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>答案</summary><div class="abody md"><p>3。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>易错点</summary><div class="abody md"><p>因式分解要验算：(x-1)(x+2) 展开 = x²+x-2 ✓。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>通用方法</summary><div class="abody md"><p>多项式的 0/0 型 → 找出让分母为 0 的公因式，约掉再代入。</p></div></details></article><article class="card qcard prob" id="p4-7"><div class="qhead"><span class="vnum">7</span><h3>考点四 · 第 7 题</h3></div><div class="stem md"><p>极限 <span class="lim">lim<span class="lsub">x→1</span></span> (√x - 1)/(x - 1) = ______。</p></div><div class="vthumb pv"><video controls playsinline preload="none" poster="pposters/4-7.jpg?v=1" src="pvideos/4-7.mp4?v=1" aria-label="第 7 题 讲解视频"></video><span class="dur">1:28</span></div><p class="think">✍️ 先自己想：独立写出思路和答案，再展开下面的讲解。</p><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>第一眼判断</summary><div class="abody md"><p>代入得 0/0，带根号 → 有理化（或把分母拆成平方差）。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>分步解答</summary><div class="abody md"><ol>
-<li>把 x-1 看成 (√x)² - 1² = (√x-1)(√x+1)（平方差公式）。</li>
-<li>原式 = lim (√x-1)/[(√x-1)(√x+1)] = lim 1/(√x+1)。</li>
-<li>代入 x=1：1/(1+1) = 1/2。</li>
-</ol></div></details><details class="ans psec pans"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>答案</summary><div class="abody md"><p>1/2。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>易错点</summary><div class="abody md"><p>分子分母同乘 (√x+1) 也可以，结果一样，别忘了分母也要乘。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>通用方法</summary><div class="abody md"><p>根号的 0/0 型 → 有理化（乘共轭式）或平方差拆分。</p></div></details></article><article class="card qcard prob" id="p4-8"><div class="qhead"><span class="vnum">8</span><h3>考点四 · 第 8 题</h3></div><div class="stem md"><p>设 f(x) = { (x²-x+a)/(x+1), x≠1；b, x=1 }，且 <span class="lim">lim<span class="lsub">x→1</span></span> f(x) = 2，则下列结论正确的是（ ）。<br />
-A. a=4，b 可取任意值　B. a=1，b=1　C. a=-1，b=-3　D. b=4，a 可取任意值</p></div><div class="vthumb pv"><video controls playsinline preload="none" poster="pposters/4-8.jpg?v=1" src="pvideos/4-8.mp4?v=1" aria-label="第 8 题 讲解视频"></video><span class="dur">1:43</span></div><p class="think">✍️ 先自己想：独立写出思路和答案，再展开下面的讲解。</p><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>第一眼判断</summary><div class="abody md"><p>已知极限求参数；x=1 处的函数值 b 与极限无关。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>分步解答</summary><div class="abody md"><ol>
-<li>求 x→1 的极限只用 x≠1 那段：代入 x=1，分母 1+1=2 不为 0，可以直接代：(1-1+a)/2 = a/2。</li>
-<li>令 a/2 = 2，得 a = 4。</li>
-<li>b 是 f(1) 的值，极限与该点函数值无关，所以 b 任意。</li>
-</ol></div></details><details class="ans psec pans"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>答案</summary><div class="abody md"><p>A。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>易错点</summary><div class="abody md"><p>误把 b 也设成 2。极限不管 f(1)。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>通用方法</summary><div class="abody md"><p>已知极限求参数，先代入能不能算，再列方程；分段点的函数值不影响极限。</p></div></details></article><article class="card qcard prob" id="p4-9"><div class="qhead"><span class="vnum">9</span><h3>考点四 · 第 9 题</h3></div><div class="stem md"><p>已知函数 f(x) = { x-3, x&lt;0；0, x=0；2ˣ, x&gt;0 }，则 <span class="lim">lim<span class="lsub">x→0</span></span> f(x) = ______。</p></div><div class="vthumb pv"><video controls playsinline preload="none" poster="pposters/4-9.jpg?v=1" src="pvideos/4-9.mp4?v=1" aria-label="第 9 题 讲解视频"></video><span class="dur">1:20</span></div><p class="think">✍️ 先自己想：独立写出思路和答案，再展开下面的讲解。</p><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>第一眼判断</summary><div class="abody md"><p>分段函数在分段点 → 分左右。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>分步解答</summary><div class="abody md"><ol>
-<li>左极限：<span class="lim">lim<span class="lsub">x→0⁻</span></span>(x-3) = -3。</li>
-<li>右极限：<span class="lim">lim<span class="lsub">x→0⁺</span></span> 2ˣ = 2⁰ = 1。</li>
-<li>-3 ≠ 1，极限不存在。（f(0)=0 与极限无关。）</li>
-</ol></div></details><details class="ans psec pans"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>答案</summary><div class="abody md"><p>不存在。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>易错点</summary><div class="abody md"><p>不能把 f(0)=0 当成极限。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>通用方法</summary><div class="abody md"><p>同 4-4，分段点先左后右，再比较。</p></div></details></article><article class="card qcard prob" id="p4-10"><div class="qhead"><span class="vnum">10</span><h3>考点四 · 第 10 题</h3></div><div class="stem md"><p>已知函数 f(x)=|2x|，则 <span class="lim">lim<span class="lsub">x→0</span></span> f(x)/x =（ ）。A. 1　B. -1　C. 2　D. 不存在</p></div><div class="vthumb pv"><video controls playsinline preload="none" poster="pposters/4-10.jpg?v=1" src="pvideos/4-10.mp4?v=1" aria-label="第 10 题 讲解视频"></video><span class="dur">1:32</span></div><p class="think">✍️ 先自己想：独立写出思路和答案，再展开下面的讲解。</p><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>第一眼判断</summary><div class="abody md"><p>含绝对值，绝对值在 0 两边的去法不同 → 分左右。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>分步解答</summary><div class="abody md"><ol>
-<li>x&gt;0 时 |2x| = 2x，f(x)/x = 2，右极限 = 2。</li>
-<li>x&lt;0 时 |2x| = -2x，f(x)/x = -2，左极限 = -2。</li>
-<li>2 ≠ -2，极限不存在。</li>
-</ol></div></details><details class="ans psec pans"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>答案</summary><div class="abody md"><p>D。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>易错点</summary><div class="abody md"><p>把 |2x| 直接当 2x 去算，误选 C。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>通用方法</summary><div class="abody md"><p>绝对值 → 按正负去绝对值，分左右极限。</p></div></details></article><article class="card qcard prob" id="p4-11"><div class="qhead"><span class="vnum">11</span><h3>考点四 · 第 11 题</h3></div><div class="stem md"><p><span class="lim">lim<span class="lsub">x→∞</span></span> (2x-1)⁶ / (x²+1)³ = ______。</p></div><div class="vthumb pv"><video controls playsinline preload="none" poster="pposters/4-11.jpg?v=1" src="pvideos/4-11.mp4?v=1" aria-label="第 11 题 讲解视频"></video><span class="dur">1:39</span></div><p class="think">✍️ 先自己想：独立写出思路和答案，再展开下面的讲解。</p><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>第一眼判断</summary><div class="abody md"><p>x→∞ 的分式，∞/∞ 型 → 抓大头，看最高次。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>分步解答</summary><div class="abody md"><ol>
-<li>分子 (2x-1)⁶ 展开后最高次项是 (2x)⁶ = 64x⁶，最高次 6。</li>
-<li>分母 (x²+1)³ 最高次项是 (x²)³ = x⁶，最高次 6。</li>
-<li>笔记结论：n=m 时极限 = 最高次系数之比 = 64/1 = 64。</li>
-</ol></div></details><details class="ans psec pans"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>答案</summary><div class="abody md"><p>64。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>易错点</summary><div class="abody md"><p>(2x)⁶ 的系数是 2⁶ = 64，不是 2。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>通用方法</summary><div class="abody md"><p>x→∞ 有理分式：只看分子分母最高次项（抓大头）。</p></div></details></article><article class="card qcard prob" id="p4-12"><div class="qhead"><span class="vnum">12</span><h3>考点四 · 第 12 题</h3></div><div class="stem md"><p>已知极限 <span class="lim">lim<span class="lsub">x→2</span></span> (x²-3x+k)/(x-2) 存在，k = ______。</p></div><div class="vthumb pv"><video controls playsinline preload="none" poster="pposters/4-12.jpg?v=1" src="pvideos/4-12.mp4?v=1" aria-label="第 12 题 讲解视频"></video><span class="dur">1:30</span></div><p class="think">✍️ 先自己想：独立写出思路和答案，再展开下面的讲解。</p><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>第一眼判断</summary><div class="abody md"><p>分母 → 0 而极限存在，分子也必须 → 0。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>分步解答</summary><div class="abody md"><ol>
-<li>为什么分子必须 → 0：如果分子趋于非 0 的数，除以趋于 0 的分母，结果是 ∞，极限不存在。</li>
-<li>令分子在 x=2 时为 0：4 - 6 + k = 0，k = 2。</li>
-<li>验证：(x²-3x+2)/(x-2) = (x-1)(x-2)/(x-2) = x-1 → 1，存在 ✓。</li>
-</ol></div></details><details class="ans psec pans"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>答案</summary><div class="abody md"><p>k = 2。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>易错点</summary><div class="abody md"><p>别忘了验算极限确实存在。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>通用方法</summary><div class="abody md"><p>“分母→0，极限存在（为有限数）⇒ 分子→0”，用它列方程求参数。</p></div></details></article><article class="card qcard prob" id="p4-13"><div class="qhead"><span class="vnum">13</span><h3>考点四 · 第 13 题</h3></div><div class="stem md"><p>设 <span class="lim">lim<span class="lsub">x→a</span></span> f(x) = ∞，<span class="lim">lim<span class="lsub">x→a</span></span> g(x) = ∞，则下列正确的是（ ）。<br />
-A. lim[f(x)+g(x)] = ∞　B. lim[f(x)-g(x)] = ∞　C. lim 1/f(x) = 0　D. lim 1/[f(x)+g(x)] = 0</p></div><div class="vthumb pv"><video controls playsinline preload="none" poster="pposters/4-13.jpg?v=1" src="pvideos/4-13.mp4?v=1" aria-label="第 13 题 讲解视频"></video><span class="dur">1:58</span></div><p class="think">✍️ 先自己想：独立写出思路和答案，再展开下面的讲解。</p><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>第一眼判断</summary><div class="abody md"><p>考无穷大的运算，用“无穷大与无穷小互为倒数”。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>分步解答</summary><div class="abody md"><ol>
-<li>C：f 是无穷大，它的倒数 1/f 是无穷小，极限 0 ✓。</li>
-<li>A 反例：f=1/(x-a)，g=-1/(x-a) 都是 ∞（这里 ∞ 指绝对值无限增大），相加为 0。A 错，D 也随之错（f+g=0 时 1/(f+g) 都无意义）。</li>
-<li>B 反例：f=g，f-g=0。B 错。</li>
-</ol></div></details><details class="ans psec pans"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>答案</summary><div class="abody md"><p>C。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>易错点</summary><div class="abody md"><p>∞+∞ 不一定是 ∞（正负可以抵消），∞-∞ 是未定式。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>通用方法</summary><div class="abody md"><p>无穷大 ↔ 倒数是无穷小，这条永远成立；无穷大的加减要举反例检验。</p></div></details></article><article class="card qcard prob" id="p4-14"><div class="qhead"><span class="vnum">14</span><h3>考点四 · 第 14 题</h3></div><div class="stem md"><p>极限 <span class="lim">lim<span class="lsub">x→-∞</span></span> x(√(x²+100) + x) = ______。</p></div><div class="vthumb pv"><video controls playsinline preload="none" poster="pposters/4-14.jpg?v=1" src="pvideos/4-14.mp4?v=1" aria-label="第 14 题 讲解视频"></video><span class="dur">2:25</span></div><p class="think">✍️ 先自己想：独立写出思路和答案，再展开下面的讲解。</p><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>第一眼判断</summary><div class="abody md"><p>x→-∞ 时 √(x²+100) ≈ |x| = -x，括号内 ≈ -x + x，是 ∞-∞ 的形式，外面还乘 x → 有理化。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>分步解答</summary><div class="abody md"><ol>
-<li>分子分母同乘共轭式 √(x²+100) - x：
-   x(√(x²+100)+x) = x·[(x²+100) - x²] / (√(x²+100) - x) = 100x / (√(x²+100) - x)。</li>
-<li>现在是 ∞/∞，抓大头。注意 x&lt;0：√(x²+100) ≈ |x| = -x，所以分母 ≈ -x - x = -2x。</li>
-<li>原式 = lim 100x/(-2x) = -50。</li>
-</ol></div></details><details class="ans psec pans"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>答案</summary><div class="abody md"><p>-50。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>易错点</summary><div class="abody md"><p>x→-∞ 时 √(x²) = |x| = -x，不是 x！写成 x 会得到分母 0 的错误。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>通用方法</summary><div class="abody md"><p>根号的 ∞-∞ → 乘共轭式有理化；x→-∞ 时把 √x² 换成 -x。</p></div></details></article><article class="card qcard prob" id="p4-15"><div class="qhead"><span class="vnum">15</span><h3>考点四 · 第 15 题</h3></div><div class="stem md"><p><span class="lim">lim<span class="lsub">x→2</span></span> [1/(x-2) - 4/(x²-4)] = ______。</p></div><div class="vthumb pv"><video controls playsinline preload="none" poster="pposters/4-15.jpg?v=1" src="pvideos/4-15.mp4?v=1" aria-label="第 15 题 讲解视频"></video><span class="dur">1:32</span></div><p class="think">✍️ 先自己想：独立写出思路和答案，再展开下面的讲解。</p><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>第一眼判断</summary><div class="abody md"><p>代入两项都是 ∞，∞-∞ 型 → 通分。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>分步解答</summary><div class="abody md"><ol>
-<li>x²-4 = (x-2)(x+2)，公分母是 (x-2)(x+2)。</li>
-<li>1/(x-2) = (x+2)/[(x-2)(x+2)]，相减：[(x+2) - 4]/[(x-2)(x+2)] = (x-2)/[(x-2)(x+2)]。</li>
-<li>约掉 (x-2)：= 1/(x+2)，代入 x=2：1/4。</li>
-</ol></div></details><details class="ans psec pans"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>答案</summary><div class="abody md"><p>1/4。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>易错点</summary><div class="abody md"><p>通分后分子 x+2-4 = x-2，别算错符号。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>通用方法</summary><div class="abody md"><p>分式的 ∞-∞ → 通分化成一个分式，再约分。</p></div></details></article><article class="card qcard prob" id="p4-16"><div class="qhead"><span class="vnum">16</span><h3>考点四 · 第 16 题</h3></div><div class="stem md"><p>极限 <span class="lim">lim<span class="lsub">x→0</span></span> (2<sup>1/x</sup> + 1)/(2<sup>1/x</sup> - 1) = ______。</p></div><div class="vthumb pv"><video controls playsinline preload="none" poster="pposters/4-16.jpg?v=1" src="pvideos/4-16.mp4?v=1" aria-label="第 16 题 讲解视频"></video><span class="dur">1:52</span></div><p class="think">✍️ 先自己想：独立写出思路和答案，再展开下面的讲解。</p><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>第一眼判断</summary><div class="abody md"><p>含 2<sup>1/x</sup>，x→0⁺ 时 1/x→+∞，x→0⁻ 时 1/x→-∞，两边完全不同 → 分左右。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>分步解答</summary><div class="abody md"><ol>
-<li>右极限：x→0⁺，1/x→+∞，2<sup>1/x</sup>→+∞。分子分母同除以 2<sup>1/x</sup>：(1 + 2<sup>-1/x</sup>)/(1 - 2<sup>-1/x</sup>) → (1+0)/(1-0) = 1。</li>
-<li>左极限：x→0⁻，1/x→-∞，2<sup>1/x</sup>→0。原式 → (0+1)/(0-1) = -1。</li>
-<li>1 ≠ -1，极限不存在。</li>
-</ol></div></details><details class="ans psec pans"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>答案</summary><div class="abody md"><p>不存在。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>易错点</summary><div class="abody md"><p>没分左右，只算了一边。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>通用方法</summary><div class="abody md"><p>看到 a<sup>1/x</sup>、e<sup>1/x</sup>、arctan(1/x) 在 x→0，必须分左右。</p></div></details></article><article class="card qcard prob" id="p4-17"><div class="qhead"><span class="vnum">17</span><h3>考点四 · 第 17 题</h3></div><div class="stem md"><p>极限 <span class="lim">lim<span class="lsub">x→+∞</span></span> [(2x²-1)/(x-1) - ax + b] = 0，则 a = ______，b = ______。</p></div><div class="vthumb pv"><video controls playsinline preload="none" poster="pposters/4-17.jpg?v=1" src="pvideos/4-17.mp4?v=1" aria-label="第 17 题 讲解视频"></video><span class="dur">1:59</span></div><p class="think">✍️ 先自己想：独立写出思路和答案，再展开下面的讲解。</p><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>第一眼判断</summary><div class="abody md"><p>x→∞ 时分式 ≈ 2x，要减掉一次项才能为 0 → 先用多项式除法把分式拆开。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>分步解答</summary><div class="abody md"><ol>
-<li>多项式除法：2x²-1 = (x-1)(2x+2) + 1，所以 (2x²-1)/(x-1) = 2x + 2 + 1/(x-1)。</li>
-<li>原式 = lim [(2-a)x + (2+b) + 1/(x-1)]。其中 1/(x-1)→0。</li>
-<li>要极限为 0：一次项系数必须为 0，2-a=0 ⇒ a=2；常数项为 0，2+b=0 ⇒ b=-2。</li>
-</ol></div></details><details class="ans psec pans"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>答案</summary><div class="abody md"><p>a = 2，b = -2。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>易错点</summary><div class="abody md"><p>题目是 “-ax + b”，b 前面是加号，所以 2+b=0。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>通用方法</summary><div class="abody md"><p>“lim[分式 - 一次式]=常数”型 → 把分式除成 多项式 + 余项，再让各次项系数匹配。</p></div></details></article><article class="card qcard prob" id="p4-18"><div class="qhead"><span class="vnum">18</span><h3>考点四 · 第 18 题</h3></div><div class="stem md"><p>已知 <span class="lim">lim<span class="lsub">x→0</span></span> f(x) 存在，且 f(x) = (∛(1+x²) - 1)/tan x² - <span class="lim">lim<span class="lsub">x→0</span></span> f(x)，则 f(x) = ______。</p></div><div class="vthumb pv"><video controls playsinline preload="none" poster="pposters/4-18.jpg?v=1" src="pvideos/4-18.mp4?v=1" aria-label="第 18 题 讲解视频"></video><span class="dur">2:50</span></div><p class="think">✍️ 先自己想：独立写出思路和答案，再展开下面的讲解。</p><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>第一眼判断</summary><div class="abody md"><p>lim f(x) 是一个常数，设成 A，两边取极限解方程。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>分步解答</summary><div class="abody md"><ol>
-<li>设 A = <span class="lim">lim<span class="lsub">x→0</span></span> f(x)（一个数）。则 f(x) = (∛(1+x²)-1)/tan x² - A。</li>
-<li>两边同时取 x→0 的极限：A = lim (∛(1+x²)-1)/tan x² - A。</li>
-<li>求这个极限（0/0 型，乘除因子用等价替换）：</li>
-<li>∛(1+x²)-1 = (1+x²)<sup>1/3</sup>-1 ~ (1/3)x²（公式 (1+□)<sup>m</sup>-1 ~ m□，□=x²）</li>
-<li>tan x² ~ x²</li>
-<li>所以极限 = (x²/3)/x² = 1/3。</li>
-<li>A = 1/3 - A ⇒ A = 1/6。</li>
-<li>代回：f(x) = (∛(1+x²)-1)/tan x² - 1/6。</li>
-</ol></div></details><details class="ans psec pans"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>答案</summary><div class="abody md"><p>f(x) = (∛(1+x²) - 1)/tan x² - 1/6。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>易错点</summary><div class="abody md"><p>题目问的是 f(x)（表达式），不是只填 1/6。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>通用方法</summary><div class="abody md"><p>“极限值出现在函数式里” → 设极限为 A，两边取极限解方程。</p></div></details></article><article class="card qcard prob" id="p4-19"><div class="qhead"><span class="vnum">19</span><h3>考点四 · 第 19 题</h3></div><div class="stem md"><p>当 x→0 时，将 α = √(1-x) - 1，β = sec x - 1，γ = arcsin x - x 排序，使排在前面的是后面的低阶无穷小，则排序为______。</p></div><div class="vthumb pv"><video controls playsinline preload="none" poster="pposters/4-19.jpg?v=1" src="pvideos/4-19.mp4?v=1" aria-label="第 19 题 讲解视频"></video><span class="dur">1:57</span></div><p class="think">✍️ 先自己想：独立写出思路和答案，再展开下面的讲解。</p><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>第一眼判断</summary><div class="abody md"><p>比较无穷小的阶 → 把每个都换成 c·xᵏ 的形式，k 越小阶越低。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>分步解答</summary><div class="abody md"><ol>
-<li>α = (1-x)<sup>1/2</sup> - 1 ~ (1/2)(-x) = -x/2，是 1 阶。（(1+□)<sup>m</sup>-1~m□，□=-x）</li>
-<li>β = sec x - 1 ~ x²/2，是 2 阶。（补充公式）</li>
-<li>γ = arcsin x - x ~ x³/6，是 3 阶。（差函数公式）</li>
-<li>低阶排前面：1 阶 &lt; 2 阶 &lt; 3 阶。</li>
-</ol></div></details><details class="ans psec pans"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>答案</summary><div class="abody md"><p>α, β, γ。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>易错点</summary><div class="abody md"><p>α 前面的负号不影响阶数。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>通用方法</summary><div class="abody md"><p>比较阶数 → 全部等价成 c·xᵏ，比较 k。</p></div></details></article></div></section><section class="block" id="kd5"><div class="sec-head"><div><h2>考点五：无穷大与无穷小</h2><p class="sec-desc">共 3 题</p></div></div><div class="plist"><article class="card qcard prob" id="p5-1"><div class="qhead"><span class="vnum">1</span><h3>考点五 · 第 1 题</h3></div><div class="stem md"><p>当 x→0 时，下列变量是无穷小量的为（ ）。A. 1/x²　B. 2ˣ　C. sin x　D. ln(x+e)</p></div><div class="vthumb pv"><video controls playsinline preload="none" poster="pposters/5-1.jpg?v=1" src="pvideos/5-1.mp4?v=1" aria-label="第 1 题 讲解视频"></video><span class="dur">1:11</span></div><p class="think">✍️ 先自己想：独立写出思路和答案，再展开下面的讲解。</p><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>第一眼判断</summary><div class="abody md"><p>无穷小 = 极限为 0。逐个代入 x→0。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>分步解答</summary><div class="abody md"><p>A→∞；B→2⁰=1；C→sin0=0 ✓；D→ln e = 1。</p></div></details><details class="ans psec pans"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>答案</summary><div class="abody md"><p>C。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>易错点</summary><div class="abody md"><p>无穷小是“极限为 0 的变量”，不是“很小的数”。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>通用方法</summary><div class="abody md"><p>判断无穷小/无穷大，就是逐个求极限看是 0 还是 ∞。</p></div></details></article><article class="card qcard prob" id="p5-2"><div class="qhead"><span class="vnum">2</span><h3>考点五 · 第 2 题</h3></div><div class="stem md"><p>指出下列函数中当 x→0⁺ 时，为无穷大的是（ ）。A. 3<sup>-x</sup> - 1　B. sin x/(1+sec x)　C. e<sup>-x</sup>　D. e<sup>1/x</sup></p></div><div class="vthumb pv"><video controls playsinline preload="none" poster="pposters/5-2.jpg?v=1" src="pvideos/5-2.mp4?v=1" aria-label="第 2 题 讲解视频"></video><span class="dur">1:26</span></div><p class="think">✍️ 先自己想：独立写出思路和答案，再展开下面的讲解。</p><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>第一眼判断</summary><div class="abody md"><p>逐个求 x→0⁺ 的极限，看谁是 ∞。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>分步解答</summary><div class="abody md"><p>A→3⁰-1=0；B→0/(1+1)=0；C→1；D：1/x→+∞，e<sup>+∞</sup>→+∞ ✓。</p></div></details><details class="ans psec pans"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>答案</summary><div class="abody md"><p>D。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>易错点</summary><div class="abody md"><p>D 只在 x→0⁺ 时是 ∞，x→0⁻ 时是 0，所以题目特意写了 0⁺。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>通用方法</summary><div class="abody md"><p>指数里有 1/x，先看 1/x 趋向 +∞ 还是 -∞。</p></div></details></article><article class="card qcard prob" id="p5-3"><div class="qhead"><span class="vnum">3</span><h3>考点五 · 第 3 题</h3></div><div class="stem md"><p>极限 <span class="lim">lim<span class="lsub">n→∞</span></span> (n+1)/(3n²+1) · sin√(n²+1) = ______。</p></div><div class="vthumb pv"><video controls playsinline preload="none" poster="pposters/5-3.jpg?v=1" src="pvideos/5-3.mp4?v=1" aria-label="第 3 题 讲解视频"></video><span class="dur">1:32</span></div><p class="think">✍️ 先自己想：独立写出思路和答案，再展开下面的讲解。</p><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>第一眼判断</summary><div class="abody md"><p>sin 部分不存在极限但有界；前面分式 → 0。“无穷小 × 有界 = 无穷小”。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>分步解答</summary><div class="abody md"><ol>
-<li>(n+1)/(3n²+1)：抓大头，分子 1 次 &lt; 分母 2 次，→ 0，是无穷小。</li>
-<li>|sin√(n²+1)| ≤ 1，有界。</li>
-<li>有界函数乘无穷小仍是无穷小，极限 = 0。</li>
-</ol></div></details><details class="ans psec pans"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>答案</summary><div class="abody md"><p>0。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>易错点</summary><div class="abody md"><p>不要尝试求 sin√(n²+1) 的极限，它不存在。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>通用方法</summary><div class="abody md"><p>看到 sin(…)、cos(…) 里面趋于 ∞ → 想“有界 × 无穷小 = 0”。</p></div></details></article></div></section><section class="block" id="kd6"><div class="sec-head"><div><h2>考点六：无穷小的比较</h2><p class="sec-desc">共 15 题</p></div></div><div class="plist"><article class="card qcard prob" id="p6-1"><div class="qhead"><span class="vnum">1</span><h3>考点六 · 第 1 题</h3></div><div class="stem md"><p>若 <span class="lim">lim<span class="lsub">x→0</span></span> (sin x + 2kx)/x = 2，则 k = ______。</p></div><div class="vthumb pv"><video controls playsinline preload="none" poster="pposters/6-1.jpg?v=1" src="pvideos/6-1.mp4?v=1" aria-label="第 1 题 讲解视频"></video><span class="dur">1:10</span></div><p class="think">✍️ 先自己想：独立写出思路和答案，再展开下面的讲解。</p><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>第一眼判断</summary><div class="abody md"><p>0/0 型，分子是和，拆成两项分别求。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>分步解答</summary><div class="abody md"><ol>
-<li>拆开：sin x/x + 2kx/x。</li>
-<li>sin x/x → 1（重要极限）；2kx/x = 2k。</li>
-<li>1 + 2k = 2 ⇒ k = 1/2。</li>
-</ol></div></details><details class="ans psec pans"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>答案</summary><div class="abody md"><p>k = 1/2。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>易错点</summary><div class="abody md"><p>拆项前要确认每一项极限都存在（这里都存在）。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>通用方法</summary><div class="abody md"><p>分子为和、每项极限都存在时，可以拆开分别求。</p></div></details></article><article class="card qcard prob" id="p6-2"><div class="qhead"><span class="vnum">2</span><h3>考点六 · 第 2 题</h3></div><div class="stem md"><p>极限 <span class="lim">lim<span class="lsub">x→∞</span></span> x²(e<sup>1/x²</sup> - 1) = ______。</p></div><div class="vthumb pv"><video controls playsinline preload="none" poster="pposters/6-2.jpg?v=1" src="pvideos/6-2.mp4?v=1" aria-label="第 2 题 讲解视频"></video><span class="dur">1:43</span></div><p class="think">✍️ 先自己想：独立写出思路和答案，再展开下面的讲解。</p><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>第一眼判断</summary><div class="abody md"><p>x→∞ 时 1/x²→0，e<sup>1/x²</sup>-1→0，乘 x²→∞，是 0·∞ 型。括号里是 e<sup>□</sup>-1，□→0 → 等价替换。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>分步解答</summary><div class="abody md"><ol>
-<li>令 □ = 1/x² → 0，e<sup>□</sup> - 1 ~ □ = 1/x²（这是乘积因子，可以换）。</li>
-<li>原式 = lim x² · (1/x²) = 1。</li>
-</ol></div></details><details class="ans psec pans"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>答案</summary><div class="abody md"><p>1。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>易错点</summary><div class="abody md"><p>等价公式要求 □→0，不一定是 x→0。这里 x→∞ 而 1/x²→0，照样能用。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>通用方法</summary><div class="abody md"><p>等价替换看的是“□→0”，□可以是任何趋于 0 的整体。</p></div></details></article><article class="card qcard prob" id="p6-3"><div class="qhead"><span class="vnum">3</span><h3>考点六 · 第 3 题</h3></div><div class="stem md"><p>已知当 x→0 时，2 - 2cos x ~ ax²，则 a = ______。</p></div><div class="vthumb pv"><video controls playsinline preload="none" poster="pposters/6-3.jpg?v=1" src="pvideos/6-3.mp4?v=1" aria-label="第 3 题 讲解视频"></video><span class="dur">1:03</span></div><p class="think">✍️ 先自己想：独立写出思路和答案，再展开下面的讲解。</p><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>第一眼判断</summary><div class="abody md"><p>“~”是等价，意思是比值极限为 1。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>分步解答</summary><div class="abody md"><ol>
-<li>2-2cos x = 2(1-cos x) ~ 2 · x²/2 = x²。</li>
-<li>x² ~ ax² ⇒ a = 1。</li>
-</ol></div></details><details class="ans psec pans"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>答案</summary><div class="abody md"><p>a = 1。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>易错点</summary><div class="abody md"><p>别忘了前面的系数 2。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>通用方法</summary><div class="abody md"><p>求等价系数 → 用公式化简后对比系数。</p></div></details></article><article class="card qcard prob" id="p6-4"><div class="qhead"><span class="vnum">4</span><h3>考点六 · 第 4 题</h3></div><div class="stem md"><p>当 x→0 时，(1-cos x)ln(1+x²) 是比 x·sin xⁿ 高阶的无穷小，而 x·sin xⁿ 是比 e<sup>x²</sup> - 1 高阶的无穷小，则正整数 n 等于（ ）。A. 1　B. 2　C. 3　D. 4</p></div><div class="vthumb pv"><video controls playsinline preload="none" poster="pposters/6-4.jpg?v=1" src="pvideos/6-4.mp4?v=1" aria-label="第 4 题 讲解视频"></video><span class="dur">1:58</span></div><p class="think">✍️ 先自己想：独立写出思路和答案，再展开下面的讲解。</p><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>第一眼判断</summary><div class="abody md"><p>三个无穷小都化成 xᵏ，比较阶数。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>分步解答</summary><div class="abody md"><ol>
-<li>(1-cos x)ln(1+x²) ~ (x²/2)·x² = x⁴/2，4 阶。</li>
-<li>x·sin xⁿ ~ x·xⁿ = x<sup>n+1</sup>，n+1 阶。</li>
-<li>e<sup>x²</sup>-1 ~ x²，2 阶。</li>
-<li>“前者比后者高阶”= 前者阶数大：4 &gt; n+1 &gt; 2 ⇒ 1 &lt; n &lt; 3 ⇒ n = 2。</li>
-</ol></div></details><details class="ans psec pans"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>答案</summary><div class="abody md"><p>B。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>易错点</summary><div class="abody md"><p>高阶 = 趋于 0 更快 = 指数更大。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>通用方法</summary><div class="abody md"><p>阶数比较 → 等价成 xᵏ 列不等式。</p></div></details></article><article class="card qcard prob" id="p6-5"><div class="qhead"><span class="vnum">5</span><h3>考点六 · 第 5 题</h3></div><div class="stem md"><p>当 x→∞ 时，1/(ax²+bx+c) 和 1/(x+1) 是等价无穷小，则 a, b, c 为（ ）。<br />
-A. a=0, b=1, c=1　B. a=0, b=1, c 为任意常数　C. a=0, b, c 为任意常数　D. a, b, c 均为任意常数</p></div><div class="vthumb pv"><video controls playsinline preload="none" poster="pposters/6-5.jpg?v=1" src="pvideos/6-5.mp4?v=1" aria-label="第 5 题 讲解视频"></video><span class="dur">1:49</span></div><p class="think">✍️ 先自己想：独立写出思路和答案，再展开下面的讲解。</p><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>第一眼判断</summary><div class="abody md"><p>等价 ⇔ 比值极限 = 1。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>分步解答</summary><div class="abody md"><ol>
-<li>比值 = (x+1)/(ax²+bx+c)，x→∞ 抓大头。</li>
-<li>若 a≠0，分母 2 次 &gt; 分子 1 次，极限 0，不行 ⇒ a=0。</li>
-<li>a=0 时比值 = (x+1)/(bx+c) → 1/b，令 1/b=1 ⇒ b=1。</li>
-<li>c 不影响最高次，任意。</li>
-</ol></div></details><details class="ans psec pans"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>答案</summary><div class="abody md"><p>B。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>易错点</summary><div class="abody md"><p>A 也满足，但不是“最完整”的结论；c 任意都行，选 B。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>通用方法</summary><div class="abody md"><p>等价 ⇒ 比值极限为 1 ⇒ 抓大头比较系数。</p></div></details></article><article class="card qcard prob" id="p6-6"><div class="qhead"><span class="vnum">6</span><h3>考点六 · 第 6 题</h3></div><div class="stem md"><p>当 x→x₀ 时，f(x) 是比 g(x) 更高阶的无穷小，则当 x→x₀ 时，无穷小 f(x)-g(x) 是无穷小 g(x) 的（ ）。A. 等价无穷小　B. 同阶无穷小　C. 高阶无穷小　D. 低阶无穷小</p></div><div class="vthumb pv"><video controls playsinline preload="none" poster="pposters/6-6.jpg?v=1" src="pvideos/6-6.mp4?v=1" aria-label="第 6 题 讲解视频"></video><span class="dur">1:28</span></div><p class="think">✍️ 先自己想：独立写出思路和答案，再展开下面的讲解。</p><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>第一眼判断</summary><div class="abody md"><p>比较就看比值极限。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>分步解答</summary><div class="abody md"><ol>
-<li>f 比 g 高阶 ⇒ lim f/g = 0。</li>
-<li>lim (f-g)/g = lim (f/g - 1) = 0 - 1 = -1。</li>
-<li>极限是常数 -1（≠0、≠1），按笔记属于同阶。</li>
-</ol></div></details><details class="ans psec pans"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>答案</summary><div class="abody md"><p>B。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>易错点</summary><div class="abody md"><p>-1 不是 1，所以不是等价。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>通用方法</summary><div class="abody md"><p>比较两个无穷小，永远算 lim 前/后：0 高阶，∞ 低阶，1 等价，其他常数同阶。</p></div></details></article><article class="card qcard prob" id="p6-7"><div class="qhead"><span class="vnum">7</span><h3>考点六 · 第 7 题</h3></div><div class="stem md"><p>当 x→0 时，下列无穷小量阶数最高的是（ ）。A. x²　B. 1-cos x　C. √(1-x) - 1　D. sin x - tan x</p></div><div class="vthumb pv"><video controls playsinline preload="none" poster="pposters/6-7.jpg?v=1" src="pvideos/6-7.mp4?v=1" aria-label="第 7 题 讲解视频"></video><span class="dur">1:48</span></div><p class="think">✍️ 先自己想：独立写出思路和答案，再展开下面的讲解。</p><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>第一眼判断</summary><div class="abody md"><p>全部等价成 xᵏ。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>分步解答</summary><div class="abody md"><ol>
-<li>A：2 阶。B：~x²/2，2 阶。C：~-x/2，1 阶。</li>
-<li>D：sin x - tan x = (sin x - x) - (tan x - x) ~ -x³/6 - x³/3 = -x³/2，3 阶。（更稳的做法：sin x - tan x = tan x(cos x - 1) ~ x·(-x²/2)，乘积形式可放心替换。）</li>
-</ol></div></details><details class="ans psec pans"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>答案</summary><div class="abody md"><p>D。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>易错点</summary><div class="abody md"><p>sin x - tan x 是减法，不能直接各自换成 x 得 0！要化成乘积 tan x(cos x - 1)。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>通用方法</summary><div class="abody md"><p>差的形式先提公因式变乘积，再等价替换。</p></div></details></article><article class="card qcard prob" id="p6-8"><div class="qhead"><span class="vnum">8</span><h3>考点六 · 第 8 题</h3></div><div class="stem md"><p>极限 <span class="lim">lim<span class="lsub">x→0</span></span> (x sin(3/x) + sin 3x / x) = ______。</p></div><div class="vthumb pv"><video controls playsinline preload="none" poster="pposters/6-8.jpg?v=1" src="pvideos/6-8.mp4?v=1" aria-label="第 8 题 讲解视频"></video><span class="dur">1:32</span></div><p class="think">✍️ 先自己想：独立写出思路和答案，再展开下面的讲解。</p><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>第一眼判断</summary><div class="abody md"><p>两项分开看，一项用“有界 × 无穷小”，一项用重要极限/等价。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>分步解答</summary><div class="abody md"><ol>
-<li>x sin(3/x)：x→0 是无穷小，|sin(3/x)| ≤ 1 有界，乘积 → 0。</li>
-<li>sin3x/x：3x→0，sin3x ~ 3x，→ 3x/x = 3。</li>
-<li>合计 0 + 3 = 3。</li>
-</ol></div></details><details class="ans psec pans"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>答案</summary><div class="abody md"><p>3。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>易错点</summary><div class="abody md"><p>x→0 时 sin(3/x) 里面 → ∞，不能用等价，只能用有界；sin3x 里面 → 0 才用等价。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>通用方法</summary><div class="abody md"><p>sin 里面 → 0 用等价，sin 里面 → ∞ 用有界。</p></div></details></article><article class="card qcard prob" id="p6-9"><div class="qhead"><span class="vnum">9</span><h3>考点六 · 第 9 题</h3></div><div class="stem md"><p>下列极限中正确的是（ ）。<br />
-A. <span class="lim">lim<span class="lsub">x→∞</span></span> sin x/x = 1　B. <span class="lim">lim<span class="lsub">x→∞</span></span> x sin(1/x) = 1　C. <span class="lim">lim<span class="lsub">x→∞</span></span> sin 2x/x = 2　D. <span class="lim">lim<span class="lsub">x→∞</span></span> 2<sup>1/x</sup> = ∞</p></div><div class="vthumb pv"><video controls playsinline preload="none" poster="pposters/6-9.jpg?v=1" src="pvideos/6-9.mp4?v=1" aria-label="第 9 题 讲解视频"></video><span class="dur">2:01</span></div><p class="think">✍️ 先自己想：独立写出思路和答案，再展开下面的讲解。</p><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>第一眼判断</summary><div class="abody md"><p>考重要极限的适用条件 sin□/□→1 要求 □→0。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>分步解答</summary><div class="abody md"><ul>
-<li>A：x→∞ 时 sin x 有界、1/x→0，极限 0，错。</li>
-<li>B：x sin(1/x) = sin(1/x)/(1/x)，□=1/x→0，→1 ✓。</li>
-<li>C：同 A，极限 0，错。</li>
-<li>D：1/x→0，2⁰ = 1，错。</li>
-</ul></div></details><details class="ans psec pans"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>答案</summary><div class="abody md"><p>B。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>易错点</summary><div class="abody md"><p>sin x/x → 1 只在 x→0 时成立。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>通用方法</summary><div class="abody md"><p>用 sin□/□→1 前先检查 □ 是否 → 0。</p></div></details></article><article class="card qcard prob" id="p6-10"><div class="qhead"><span class="vnum">10</span><h3>考点六 · 第 10 题</h3></div><div class="stem md"><p>极限 <span class="lim">lim<span class="lsub">x→+∞</span></span> x²[ln(x²+1) - 2ln x] = ______。</p></div><div class="vthumb pv"><video controls playsinline preload="none" poster="pposters/6-10.jpg?v=1" src="pvideos/6-10.mp4?v=1" aria-label="第 10 题 讲解视频"></video><span class="dur">1:40</span></div><p class="think">✍️ 先自己想：独立写出思路和答案，再展开下面的讲解。</p><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>第一眼判断</summary><div class="abody md"><p>括号里是 ∞-∞（对数相减），用对数性质合并。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>分步解答</summary><div class="abody md"><ol>
-<li>2ln x = ln x²，ln(x²+1) - ln x² = ln((x²+1)/x²) = ln(1 + 1/x²)。</li>
-<li>1/x²→0，ln(1+□) ~ □ = 1/x²。</li>
-<li>原式 = lim x² · 1/x² = 1。</li>
-</ol></div></details><details class="ans psec pans"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>答案</summary><div class="abody md"><p>1。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>易错点</summary><div class="abody md"><p>对数相减 = 真数相除，别记反。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>通用方法</summary><div class="abody md"><p>对数相减 → 合成一个对数 → 凑 ln(1+□) 用等价。</p></div></details></article><article class="card qcard prob" id="p6-11"><div class="qhead"><span class="vnum">11</span><h3>考点六 · 第 11 题</h3></div><div class="stem md"><p>若常系数 a, b 使得 <span class="lim">lim<span class="lsub">x→0</span></span> sin x/(e<sup>2x</sup> - a) · (cos x - b) = 5，则 b = ______。</p></div><div class="vthumb pv"><video controls playsinline preload="none" poster="pposters/6-11.jpg?v=1" src="pvideos/6-11.mp4?v=1" aria-label="第 11 题 讲解视频"></video><span class="dur">1:50</span></div><p class="think">✍️ 先自己想：独立写出思路和答案，再展开下面的讲解。</p><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>第一眼判断</summary><div class="abody md"><p>分子 sin x→0，而极限为非 0 的 5，所以分母也要 → 0，先定 a。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>分步解答</summary><div class="abody md"><ol>
-<li>若 e<sup>2x</sup>-a 不趋于 0，那么 sin x→0 会让整个式子 → 0 ≠ 5。所以 1 - a = 0，a = 1。</li>
-<li>现在 sin x ~ x，e<sup>2x</sup>-1 ~ 2x，sin x/(e<sup>2x</sup>-1) → x/(2x) = 1/2。</li>
-<li>cos x - b → 1 - b。</li>
-<li>(1/2)(1 - b) = 5 ⇒ 1 - b = 10 ⇒ b = -9。</li>
-</ol></div></details><details class="ans psec pans"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>答案</summary><div class="abody md"><p>b = -9。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>易错点</summary><div class="abody md"><p>别漏掉第一步先求 a。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>通用方法</summary><div class="abody md"><p>“分子→0、极限非 0 ⇒ 分母→0”，与 4-12 相反方向同一思想。</p></div></details></article><article class="card qcard prob" id="p6-12"><div class="qhead"><span class="vnum">12</span><h3>考点六 · 第 12 题</h3></div><div class="stem md"><p>已知 <span class="lim">lim<span class="lsub">x→0</span></span> f(x) 存在，且 <span class="lim">lim<span class="lsub">x→0</span></span> [√(1 + f(x)sin 2x) - 1]/(e<sup>3x</sup> - 1) = 2，则 <span class="lim">lim<span class="lsub">x→0</span></span> f(x) = ______。</p></div><div class="vthumb pv"><video controls playsinline preload="none" poster="pposters/6-12.jpg?v=1" src="pvideos/6-12.mp4?v=1" aria-label="第 12 题 讲解视频"></video><span class="dur">1:56</span></div><p class="think">✍️ 先自己想：独立写出思路和答案，再展开下面的讲解。</p><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>第一眼判断</summary><div class="abody md"><p>0/0 型，分子是 (1+□)<sup>1/2</sup>-1，分母是 e<sup>□</sup>-1 → 等价替换。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>分步解答</summary><div class="abody md"><ol>
-<li>设 A = lim f(x)，□ = f(x)sin2x → A·0 = 0。</li>
-<li>分子 ~ (1/2)□ = (1/2)f(x)sin 2x ~ (1/2)f(x)·2x = f(x)·x。</li>
-<li>分母 ~ 3x。</li>
-<li>原式 = lim f(x)x/(3x) = A/3 = 2 ⇒ A = 6。</li>
-</ol></div></details><details class="ans psec pans"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>答案</summary><div class="abody md"><p>6。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>易错点</summary><div class="abody md"><p>√(1+□)-1 ~ □/2，这里 m=1/2。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>通用方法</summary><div class="abody md"><p>根号减 1 → (1+□)<sup>m</sup> - 1 ~ m□。</p></div></details></article><article class="card qcard prob" id="p6-13"><div class="qhead"><span class="vnum">13</span><h3>考点六 · 第 13 题</h3></div><div class="stem md"><p>计算极限 <span class="lim">lim<span class="lsub">x→0</span></span> (1 - √(1-x²))/(2x²) = ______。</p></div><div class="vthumb pv"><video controls playsinline preload="none" poster="pposters/6-13.jpg?v=1" src="pvideos/6-13.mp4?v=1" aria-label="第 13 题 讲解视频"></video><span class="dur">1:15</span></div><p class="think">✍️ 先自己想：独立写出思路和答案，再展开下面的讲解。</p><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>第一眼判断</summary><div class="abody md"><p>0/0，分子是 1 - (1+□)<sup>1/2</sup>。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>分步解答</summary><div class="abody md"><ol>
-<li>√(1-x²) - 1 ~ (1/2)(-x²) = -x²/2，所以 1 - √(1-x²) ~ x²/2。</li>
-<li>原式 = (x²/2)/(2x²) = 1/4。</li>
-</ol></div></details><details class="ans psec pans"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>答案</summary><div class="abody md"><p>1/4。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>易错点</summary><div class="abody md"><p>注意符号：1 - √ 是 √ - 1 的相反数。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>通用方法</summary><div class="abody md"><p>同 6-12。</p></div></details></article><article class="card qcard prob" id="p6-14"><div class="qhead"><span class="vnum">14</span><h3>考点六 · 第 14 题</h3></div><div class="stem md"><p>极限 <span class="lim">lim<span class="lsub">x→0</span></span> [ (e<sup>7x</sup> - e<sup>-x</sup>)/(8 sin 3x) + (eˣ - 1)cos(1/x) ] = ______。</p></div><div class="vthumb pv"><video controls playsinline preload="none" poster="pposters/6-14.jpg?v=1" src="pvideos/6-14.mp4?v=1" aria-label="第 14 题 讲解视频"></video><span class="dur">1:52</span></div><p class="think">✍️ 先自己想：独立写出思路和答案，再展开下面的讲解。</p><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>第一眼判断</summary><div class="abody md"><p>两项分开。第一项 0/0；第二项 无穷小 × 有界。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>分步解答</summary><div class="abody md"><ol>
-<li>第一项分子提出 e<sup>-x</sup>：e<sup>7x</sup>-e<sup>-x</sup> = e<sup>-x</sup>(e<sup>8x</sup>-1) ~ 1·8x。分母 8 sin3x ~ 8·3x = 24x。第一项 → 8x/24x = 1/3。</li>
-<li>第二项：eˣ-1→0 是无穷小，|cos(1/x)| ≤ 1 有界，乘积 → 0。</li>
-<li>合计 1/3。</li>
-</ol></div></details><details class="ans psec pans"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>答案</summary><div class="abody md"><p>1/3。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>易错点</summary><div class="abody md"><p>e<sup>7x</sup> - e<sup>-x</sup> 是减法，规范做法是先提公因式变成乘积再替换，不要直接对加减的每一项替换。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>通用方法</summary><div class="abody md"><p>两个指数相减 → 提出一个，凑成 e<sup>□</sup> - 1。</p></div></details></article><article class="card qcard prob" id="p6-15"><div class="qhead"><span class="vnum">15</span><h3>考点六 · 第 15 题</h3></div><div class="stem md"><p>极限 <span class="lim">lim<span class="lsub">x→0</span></span> (1/x - 1/(eˣ - 1) + (√(x+1) - √(1-x))/(2x)) = ______。</p></div><div class="vthumb pv"><video controls playsinline preload="none" poster="pposters/6-15.jpg?v=1" src="pvideos/6-15.mp4?v=1" aria-label="第 15 题 讲解视频"></video><span class="dur">2:05</span></div><p class="think">✍️ 先自己想：独立写出思路和答案，再展开下面的讲解。</p><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>第一眼判断</summary><div class="abody md"><p>前两项 ∞-∞ → 通分；第三项 0/0 根号 → 有理化。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>分步解答</summary><div class="abody md"><ol>
-<li>前两项通分：(eˣ - 1 - x)/[x(eˣ - 1)]。分母 ~ x·x = x²；分子用差函数公式 eˣ-1-x ~ x²/2。→ 1/2。</li>
-<li>第三项有理化：分子分母乘 √(x+1)+√(1-x)：[(x+1)-(1-x)]/[2x(√(x+1)+√(1-x))] = 2x/[2x·(…)] → 1/(1+1) = 1/2。</li>
-<li>合计 1/2 + 1/2 = 1。</li>
-</ol></div></details><details class="ans psec pans"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>答案</summary><div class="abody md"><p>1。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>易错点</summary><div class="abody md"><p>1/x - 1/(eˣ-1) 不能把 eˣ-1 换成 x 得 0（加减中不能替换）。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>通用方法</summary><div class="abody md"><p>∞-∞ 先通分，分子出现差函数就用 eˣ-1-x ~ x²/2 这类公式。</p></div></details></article></div></section><section class="block" id="kd7"><div class="sec-head"><div><h2>考点七：两个重要极限</h2><p class="sec-desc">共 12 题</p></div></div><div class="panel md pintro"><p>1<sup>∞</sup> 型通用公式（由 (1+□)<sup>1/□</sup>→e 推出）：若 u→1, v→∞，则 <strong>lim u<sup>v</sup> = e<sup>lim (u-1)·v</sup></strong>。下面每题都会写出“凑 e”的思路和这条公式的对应。</p></div><div class="plist"><article class="card qcard prob" id="p7-1"><div class="qhead"><span class="vnum">1</span><h3>考点七 · 第 1 题</h3></div><div class="stem md"><p><span class="lim">lim<span class="lsub">x→∞</span></span> (1 - 2/x)<sup>x/3</sup> = ______。</p></div><div class="vthumb pv"><video controls playsinline preload="none" poster="pposters/7-1.jpg?v=1" src="pvideos/7-1.mp4?v=1" aria-label="第 1 题 讲解视频"></video><span class="dur">1:42</span></div><p class="think">✍️ 先自己想：独立写出思路和答案，再展开下面的讲解。</p><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>第一眼判断</summary><div class="abody md"><p>底数 → 1，指数 → ∞，1<sup>∞</sup> 型。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>分步解答</summary><div class="abody md"><ol>
-<li>凑 (1+□)<sup>1/□</sup>：□ = -2/x，则 1/□ = -x/2。</li>
-<li>指数 x/3 = (-x/2)·(-2/3)。原式 = [(1 - 2/x)<sup>-x/2</sup>]<sup>-2/3</sup> → e<sup>-2/3</sup>。</li>
-<li>公式验证：(u-1)·v = (-2/x)·(x/3) = -2/3。</li>
-</ol></div></details><details class="ans psec pans"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>答案</summary><div class="abody md"><p>e<sup>-2/3</sup>。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>易错点</summary><div class="abody md"><p>□ 的符号带负号，别丢。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>通用方法</summary><div class="abody md"><p>1<sup>∞</sup> → 算 (底数-1)×指数 的极限，放到 e 的指数上。</p></div></details></article><article class="card qcard prob" id="p7-2"><div class="qhead"><span class="vnum">2</span><h3>考点七 · 第 2 题</h3></div><div class="stem md"><p><span class="lim">lim<span class="lsub">x→0</span></span> (1 + 3x)<sup>1/x</sup> = ______。</p></div><div class="vthumb pv"><video controls playsinline preload="none" poster="pposters/7-2.jpg?v=1" src="pvideos/7-2.mp4?v=1" aria-label="第 2 题 讲解视频"></video><span class="dur">0:51</span></div><p class="think">✍️ 先自己想：独立写出思路和答案，再展开下面的讲解。</p><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>第一眼判断</summary><div class="abody md"><p>1<sup>∞</sup> 型。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>分步解答</summary><div class="abody md"><p>(u-1)v = 3x · (1/x) = 3，结果 e³。（凑法：[(1+3x)<sup>1/(3x)</sup>]³。）</p></div></details><details class="ans psec pans"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>答案</summary><div class="abody md"><p>e³。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>易错点</summary><div class="abody md"><p>指数需要凑成 1/(3x)，差的 3 放到外面。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>通用方法</summary><div class="abody md"><p>同上。</p></div></details></article><article class="card qcard prob" id="p7-3"><div class="qhead"><span class="vnum">3</span><h3>考点七 · 第 3 题</h3></div><div class="stem md"><p>极限 <span class="lim">lim<span class="lsub">x→∞</span></span> (1 - 100/x)<sup>3x+100</sup> = ______。</p></div><div class="vthumb pv"><video controls playsinline preload="none" poster="pposters/7-3.jpg?v=1" src="pvideos/7-3.mp4?v=1" aria-label="第 3 题 讲解视频"></video><span class="dur">0:55</span></div><p class="think">✍️ 先自己想：独立写出思路和答案，再展开下面的讲解。</p><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>第一眼判断</summary><div class="abody md"><p>1<sup>∞</sup> 型。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>分步解答</summary><div class="abody md"><p>(u-1)v = (-100/x)(3x+100) = -300 - 10000/x → -300，结果 e<sup>-300</sup>。</p></div></details><details class="ans psec pans"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>答案</summary><div class="abody md"><p>e<sup>-300</sup>。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>易错点</summary><div class="abody md"><p>指数里的 +100 对应项 → 0，不影响。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>通用方法</summary><div class="abody md"><p>同上。</p></div></details></article><article class="card qcard prob" id="p7-4"><div class="qhead"><span class="vnum">4</span><h3>考点七 · 第 4 题</h3></div><div class="stem md"><p>极限 <span class="lim">lim<span class="lsub">n→∞</span></span> (1 + sin(1/n))ⁿ = ______。</p></div><div class="vthumb pv"><video controls playsinline preload="none" poster="pposters/7-4.jpg?v=1" src="pvideos/7-4.mp4?v=1" aria-label="第 4 题 讲解视频"></video><span class="dur">1:08</span></div><p class="think">✍️ 先自己想：独立写出思路和答案，再展开下面的讲解。</p><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>第一眼判断</summary><div class="abody md"><p>sin(1/n)→0，底数 → 1，指数 → ∞，1<sup>∞</sup> 型。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>分步解答</summary><div class="abody md"><p>(u-1)v = sin(1/n)·n，sin(1/n) ~ 1/n，→ 1，结果 e¹ = e。</p></div></details><details class="ans psec pans"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>答案</summary><div class="abody md"><p>e。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>易错点</summary><div class="abody md"><p>sin(1/n) ~ 1/n 是因为 1/n→0。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>通用方法</summary><div class="abody md"><p>1<sup>∞</sup> 公式 + 等价替换联用。</p></div></details></article><article class="card qcard prob" id="p7-5"><div class="qhead"><span class="vnum">5</span><h3>考点七 · 第 5 题</h3></div><div class="stem md"><p>极限 <span class="lim">lim<span class="lsub">x→+∞</span></span> ((x-2)/(x+3))<sup>2x</sup> = ______。</p></div><div class="vthumb pv"><video controls playsinline preload="none" poster="pposters/7-5.jpg?v=1" src="pvideos/7-5.mp4?v=1" aria-label="第 5 题 讲解视频"></video><span class="dur">1:24</span></div><p class="think">✍️ 先自己想：独立写出思路和答案，再展开下面的讲解。</p><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>第一眼判断</summary><div class="abody md"><p>底数 → 1（抓大头系数 1/1），指数 → ∞，1<sup>∞</sup> 型。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>分步解答</summary><div class="abody md"><ol>
-<li>u-1 = (x-2)/(x+3) - 1 = (x-2-x-3)/(x+3) = -5/(x+3)。</li>
-<li>(u-1)v = -5·2x/(x+3) → -10。</li>
-<li>结果 e<sup>-10</sup>。</li>
-</ol></div></details><details class="ans psec pans"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>答案</summary><div class="abody md"><p>e<sup>-10</sup>。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>易错点</summary><div class="abody md"><p>u-1 通分时 -2-3 = -5。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>通用方法</summary><div class="abody md"><p>分式底数 → 先算 “底数 - 1” 并化简。</p></div></details></article><article class="card qcard prob" id="p7-6"><div class="qhead"><span class="vnum">6</span><h3>考点七 · 第 6 题</h3></div><div class="stem md"><p>极限 <span class="lim">lim<span class="lsub">n→∞</span></span> [(1 - 2/n)ⁿ + sin n/n] = ______。</p></div><div class="vthumb pv"><video controls playsinline preload="none" poster="pposters/7-6.jpg?v=1" src="pvideos/7-6.mp4?v=1" aria-label="第 6 题 讲解视频"></video><span class="dur">1:18</span></div><p class="think">✍️ 先自己想：独立写出思路和答案，再展开下面的讲解。</p><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>第一眼判断</summary><div class="abody md"><p>两项分开：第一项 1<sup>∞</sup>，第二项 有界/∞。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>分步解答</summary><div class="abody md"><ol>
-<li>(1-2/n)ⁿ：(u-1)v = -2/n·n = -2 → e<sup>-2</sup>。</li>
-<li>sin n/n：有界 × 无穷小 → 0。</li>
-<li>合计 e<sup>-2</sup>。</li>
-</ol></div></details><details class="ans psec pans"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>答案</summary><div class="abody md"><p>e<sup>-2</sup>。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>易错点</summary><div class="abody md"><p>sin n/n 在 n→∞ 时是 0，不是 1。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>通用方法</summary><div class="abody md"><p>组合题拆开，每项用对应方法。</p></div></details></article><article class="card qcard prob" id="p7-7"><div class="qhead"><span class="vnum">7</span><h3>考点七 · 第 7 题</h3></div><div class="stem md"><p>极限 <span class="lim">lim<span class="lsub">x→∞</span></span> ((x+a)/(x-a))ˣ = 4，则 a = ______。</p></div><div class="vthumb pv"><video controls playsinline preload="none" poster="pposters/7-7.jpg?v=1" src="pvideos/7-7.mp4?v=1" aria-label="第 7 题 讲解视频"></video><span class="dur">1:25</span></div><p class="think">✍️ 先自己想：独立写出思路和答案，再展开下面的讲解。</p><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>第一眼判断</summary><div class="abody md"><p>1<sup>∞</sup> 型，先求出含 a 的结果再列方程。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>分步解答</summary><div class="abody md"><ol>
-<li>u-1 = (x+a)/(x-a) - 1 = 2a/(x-a)。</li>
-<li>(u-1)v = 2ax/(x-a) → 2a，结果 e<sup>2a</sup>。</li>
-<li>e<sup>2a</sup> = 4 ⇒ 2a = ln4 = 2ln2 ⇒ a = ln 2。</li>
-</ol></div></details><details class="ans psec pans"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>答案</summary><div class="abody md"><p>a = ln 2。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>易错点</summary><div class="abody md"><p>ln 4 = 2ln 2，别写成 a = ln4。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>通用方法</summary><div class="abody md"><p>反求参数 → 先求极限表达式，再解方程。</p></div></details></article><article class="card qcard prob" id="p7-8"><div class="qhead"><span class="vnum">8</span><h3>考点七 · 第 8 题</h3></div><div class="stem md"><p>极限 <span class="lim">lim<span class="lsub">x→0</span></span> (cos x)<sup>1/ln(1+x²)</sup> = ______。</p></div><div class="vthumb pv"><video controls playsinline preload="none" poster="pposters/7-8.jpg?v=1" src="pvideos/7-8.mp4?v=1" aria-label="第 8 题 讲解视频"></video><span class="dur">1:35</span></div><p class="think">✍️ 先自己想：独立写出思路和答案，再展开下面的讲解。</p><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>第一眼判断</summary><div class="abody md"><p>cos0=1，1/ln(1+x²)→∞，1<sup>∞</sup> 型。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>分步解答</summary><div class="abody md"><ol>
-<li>u-1 = cos x - 1 ~ -x²/2。</li>
-<li>v = 1/ln(1+x²)，ln(1+x²) ~ x²。</li>
-<li>(u-1)v → (-x²/2)/x² = -1/2，结果 e<sup>-1/2</sup>。</li>
-</ol></div></details><details class="ans psec pans"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>答案</summary><div class="abody md"><p>e<sup>-1/2</sup>（即 1/√e）。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>易错点</summary><div class="abody md"><p>cos x - 1 是负的 x²/2。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>通用方法</summary><div class="abody md"><p>1<sup>∞</sup> 公式 + 两个等价替换。</p></div></details></article><article class="card qcard prob" id="p7-9"><div class="qhead"><span class="vnum">9</span><h3>考点七 · 第 9 题</h3></div><div class="stem md"><p>已知 f(x) = ˣ√(1-2x)（即 (1-2x)<sup>1/x</sup>），计算 <span class="lim">lim<span class="lsub">x→0⁺</span></span> f(x)。</p></div><div class="vthumb pv"><video controls playsinline preload="none" poster="pposters/7-9.jpg?v=1" src="pvideos/7-9.mp4?v=1" aria-label="第 9 题 讲解视频"></video><span class="dur">1:00</span></div><p class="think">✍️ 先自己想：独立写出思路和答案，再展开下面的讲解。</p><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>第一眼判断</summary><div class="abody md"><p>x 次根号 = 1/x 次方，1<sup>∞</sup> 型。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>分步解答</summary><div class="abody md"><p>(u-1)v = -2x·(1/x) = -2，结果 e<sup>-2</sup>。</p></div></details><details class="ans psec pans"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>答案</summary><div class="abody md"><p>e<sup>-2</sup>。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>易错点</summary><div class="abody md"><p>根号上的小 x 是“开 x 次方”，要先改写成指数 1/x。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>通用方法</summary><div class="abody md"><p>根式先化成分数指数。</p></div></details></article><article class="card qcard prob" id="p7-10"><div class="qhead"><span class="vnum">10</span><h3>考点七 · 第 10 题</h3></div><div class="stem md"><p>极限 <span class="lim">lim<span class="lsub">x→0</span></span> (1 + 3x)<sup>cot x</sup> = ______。</p></div><div class="vthumb pv"><video controls playsinline preload="none" poster="pposters/7-10.jpg?v=1" src="pvideos/7-10.mp4?v=1" aria-label="第 10 题 讲解视频"></video><span class="dur">1:11</span></div><p class="think">✍️ 先自己想：独立写出思路和答案，再展开下面的讲解。</p><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>第一眼判断</summary><div class="abody md"><p>cot x = cos x/sin x → ∞，1<sup>∞</sup> 型。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>分步解答</summary><div class="abody md"><p>(u-1)v = 3x·cos x/sin x，sin x ~ x，cos x→1，→ 3，结果 e³。</p></div></details><details class="ans psec pans"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>答案</summary><div class="abody md"><p>e³。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>易错点</summary><div class="abody md"><p>cot x = 1/tan x，tan x ~ x，所以 cot x ≈ 1/x。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>通用方法</summary><div class="abody md"><p>三角函数指数先化成 1/tan x 再等价。</p></div></details></article><article class="card qcard prob" id="p7-11"><div class="qhead"><span class="vnum">11</span><h3>考点七 · 第 11 题</h3></div><div class="stem md"><p>极限 <span class="lim">lim<span class="lsub">n→∞</span></span> [1/(1×2) + 1/(2×3) + … + 1/(n(n+1))]<sup>3n-2</sup> = ______。</p></div><div class="vthumb pv"><video controls playsinline preload="none" poster="pposters/7-11.jpg?v=1" src="pvideos/7-11.mp4?v=1" aria-label="第 11 题 讲解视频"></video><span class="dur">1:39</span></div><p class="think">✍️ 先自己想：独立写出思路和答案，再展开下面的讲解。</p><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>第一眼判断</summary><div class="abody md"><p>先把底数的和求出来（裂项相消），再看类型。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>分步解答</summary><div class="abody md"><ol>
-<li>裂项：1/(k(k+1)) = 1/k - 1/(k+1)。相加中间全部抵消，和 = 1 - 1/(n+1) = n/(n+1)。</li>
-<li>底数 → 1，指数 → ∞，1<sup>∞</sup> 型。</li>
-<li>u-1 = -1/(n+1)，(u-1)v = -(3n-2)/(n+1) → -3，结果 e<sup>-3</sup>。</li>
-</ol></div></details><details class="ans psec pans"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>答案</summary><div class="abody md"><p>e<sup>-3</sup>。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>易错点</summary><div class="abody md"><p>裂项公式 1/(k(k+1)) = 1/k - 1/(k+1)，可以通分验证。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>通用方法</summary><div class="abody md"><p>求和型底数 → 先裂项求和，再用 1<sup>∞</sup> 公式。</p></div></details></article><article class="card qcard prob" id="p7-12"><div class="qhead"><span class="vnum">12</span><h3>考点七 · 第 12 题</h3></div><div class="stem md"><p>设函数 f(x) = <span class="lim">lim<span class="lsub">t→∞</span></span> (1 + 2x/t)ᵗ (x≠0)，则 f(ln 2) = ______。</p></div><div class="vthumb pv"><video controls playsinline preload="none" poster="pposters/7-12.jpg?v=1" src="pvideos/7-12.mp4?v=1" aria-label="第 12 题 讲解视频"></video><span class="dur">1:18</span></div><p class="think">✍️ 先自己想：独立写出思路和答案，再展开下面的讲解。</p><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>第一眼判断</summary><div class="abody md"><p>极限变量是 t，x 当作常数；1<sup>∞</sup> 型。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>分步解答</summary><div class="abody md"><ol>
-<li>(u-1)v = (2x/t)·t = 2x，所以 f(x) = e<sup>2x</sup>。</li>
-<li>f(ln2) = e<sup>2ln2</sup> = e<sup>ln4</sup> = 4。</li>
-</ol></div></details><details class="ans psec pans"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>答案</summary><div class="abody md"><p>4。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>易错点</summary><div class="abody md"><p>谁趋于 ∞ 要看清（这里是 t），x 是常数。</p></div></details><details class="ans psec"><summary><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>通用方法</summary><div class="abody md"><p>“极限定义的函数” → 先把 f(x) 求出来，再代值。</p></div></details></article></div></section><section class="block" id="mindex"><div class="sec-head"><div><h2>按方法索引</h2><p class="sec-desc">点击题号跳到对应题目。</p></div></div><div class="panel md"><p class="tbl-hint">⟷ 表格较宽，可左右滑动查看</p><div class="tablewrap"><table>
-<thead>
-<tr>
-<th>方法</th>
-<th>题号</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>先代入</td>
-<td><a href="#p4-5">4-5</a>、<a href="#p4-8">4-8</a>、<a href="#p5-1">5-1</a>、<a href="#p5-2">5-2</a></td>
-</tr>
-<tr>
-<td>极限与定义的关系 / 充要条件</td>
-<td><a href="#p4-1">4-1</a>、<a href="#p4-2">4-2</a>、<a href="#p4-3">4-3</a></td>
-</tr>
-<tr>
-<td>分左右极限（分段、绝对值、a<sup>1/x</sup>）</td>
-<td><a href="#p4-4">4-4</a>、<a href="#p4-9">4-9</a>、<a href="#p4-10">4-10</a>、<a href="#p4-16">4-16</a>、<a href="#p5-2">5-2</a></td>
-</tr>
-<tr>
-<td>因式分解约分</td>
-<td><a href="#p4-6">4-6</a>、<a href="#p4-12">4-12</a></td>
-</tr>
-<tr>
-<td>有理化 / 平方差</td>
-<td><a href="#p4-7">4-7</a>、<a href="#p4-14">4-14</a>、<a href="#p6-15">6-15</a></td>
-</tr>
-<tr>
-<td>抓大头（看最高次）</td>
-<td><a href="#p4-11">4-11</a>、<a href="#p4-14">4-14</a>、<a href="#p5-3">5-3</a>、<a href="#p6-5">6-5</a></td>
-</tr>
-<tr>
-<td>通分（∞-∞）</td>
-<td><a href="#p4-15">4-15</a>、<a href="#p6-15">6-15</a></td>
-</tr>
-<tr>
-<td>多项式除法 + 系数匹配</td>
-<td><a href="#p4-17">4-17</a></td>
-</tr>
-<tr>
-<td>设极限为 A 解方程</td>
-<td><a href="#p4-18">4-18</a>、<a href="#p6-12">6-12</a></td>
-</tr>
-<tr>
-<td>分母→0 ⇒ 分子→0（或反之）求参数</td>
-<td><a href="#p4-12">4-12</a>、<a href="#p6-11">6-11</a></td>
-</tr>
-<tr>
-<td>无穷大与无穷小互为倒数</td>
-<td><a href="#p4-13">4-13</a>、<a href="#p5-2">5-2</a></td>
-</tr>
-<tr>
-<td>有界 × 无穷小 = 0</td>
-<td><a href="#p5-3">5-3</a>、<a href="#p6-8">6-8</a>、<a href="#p6-9">6-9</a>、<a href="#p6-14">6-14</a>、<a href="#p7-6">7-6</a></td>
-</tr>
-<tr>
-<td>等价替换（八个等价 + 补充）</td>
-<td><a href="#p4-18">4-18</a>、<a href="#p4-19">4-19</a>、<a href="#p6-2">6-2</a>、<a href="#p6-3">6-3</a>、<a href="#p6-4">6-4</a>、<a href="#p6-7">6-7</a>、<a href="#p6-10">6-10</a>、<a href="#p6-11">6-11</a>、<a href="#p6-12">6-12</a>、<a href="#p6-13">6-13</a>、<a href="#p6-14">6-14</a>、<a href="#p7-4">7-4</a>、<a href="#p7-8">7-8</a>、<a href="#p7-10">7-10</a></td>
-</tr>
-<tr>
-<td>差函数公式（eˣ-1-x、arcsinx-x 等）</td>
-<td><a href="#p4-19">4-19</a>、<a href="#p6-7">6-7</a>、<a href="#p6-15">6-15</a></td>
-</tr>
-<tr>
-<td>无穷小阶的比较（化成 xᵏ）</td>
-<td><a href="#p4-19">4-19</a>、<a href="#p6-4">6-4</a>、<a href="#p6-5">6-5</a>、<a href="#p6-6">6-6</a>、<a href="#p6-7">6-7</a></td>
-</tr>
-<tr>
-<td>重要极限 sin□/□→1（□→0）</td>
-<td><a href="#p6-1">6-1</a>、<a href="#p6-8">6-8</a>、<a href="#p6-9">6-9</a></td>
-</tr>
-<tr>
-<td>重要极限 1<sup>∞</sup> / 公式 e<sup>lim(u-1)v</sup></td>
-<td><a href="#p7-1">7-1</a> ~ <a href="#p7-12">7-12</a></td>
-</tr>
-<tr>
-<td>对数合并</td>
-<td><a href="#p6-10">6-10</a></td>
-</tr>
-<tr>
-<td>裂项相消</td>
-<td><a href="#p7-11">7-11</a></td>
-</tr>
-</tbody>
-</table></div></div></section></div></main>
-<footer class="foot"><div class="shell"></div></footer><script src="../mobile.js" data-base="../"></script></body></html>
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f8f9fb">
+  <title>高等数学题库 · 辽宁专升本</title>
+  <link rel="stylesheet" href="../assets/css/site-unify.css">
+  
+<style>
+  .page-title{
+    font-weight:560;
+    letter-spacing:-.018em;
+    line-height:1.16;
+    overflow-wrap:normal;
+    word-break:keep-all;
+  }
+  .page-subtitle{max-width:680px}
+  .section-title{
+    font-weight:600;
+    letter-spacing:-.012em;
+  }
+  .content-card__title{
+    font-weight:600;
+    letter-spacing:-.01em;
+  }
+  .site-brand__mark{
+    font-size:14px;
+    font-weight:650;
+  }
+  .site-nav__icon{
+    font-size:18px;
+    line-height:1;
+  }
+  .site-subnav{
+    position:relative;
+    z-index:70;
+    background:rgba(255,255,255,.9);
+    -webkit-backdrop-filter:blur(var(--sg-glass-blur)) saturate(var(--sg-glass-saturation));
+    backdrop-filter:blur(var(--sg-glass-blur)) saturate(var(--sg-glass-saturation));
+  }
+  .page-hero{max-width:900px}
+  @media (max-width:767px){
+    .site-header__inner{flex-wrap:nowrap}
+    .site-nav{
+      order:initial;
+      flex:1 1 auto;
+      width:auto;
+      justify-content:flex-end;
+    }
+    .site-nav__link{padding-inline:9px}
+    .page-title{font-size:clamp(29px,8vw,34px)}
+  }
+  @media (max-width:560px){
+    .site-brand__name{display:none}
+    .site-nav{justify-content:flex-start}
+  }
+</style>
+
+<style>
+  .practice-layout{
+    display:grid;
+    gap:16px;
+  }
+  .practice-card{
+    background:var(--sg-surface);
+    -webkit-backdrop-filter:blur(var(--sg-glass-blur)) saturate(var(--sg-glass-saturation));
+    backdrop-filter:blur(var(--sg-glass-blur)) saturate(var(--sg-glass-saturation));
+  }
+  .practice-card .content-card__body{padding:20px;gap:14px}
+  .practice-card__head{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:12px;
+  }
+  .practice-card__title{
+    margin:0;
+    font-size:clamp(19px,2.2vw,23px);
+    font-weight:590;
+    line-height:1.35;
+    letter-spacing:-.012em;
+  }
+  .chapter-link{
+    color:var(--sg-accent);
+    font-size:13px;
+    white-space:nowrap;
+  }
+  .chapter-link:hover{text-decoration:underline}
+  .practice-links{
+    display:grid;
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    gap:8px;
+  }
+  .practice-link{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    min-height:44px;
+    padding:10px 12px;
+    border:1px solid var(--sg-line);
+    border-radius:10px;
+    background:var(--sg-surface-strong);
+    transition:border-color var(--sg-transition),background var(--sg-transition),color var(--sg-transition);
+  }
+  .practice-link:hover{
+    border-color:var(--sg-line-strong);
+    background:var(--sg-surface-hover);
+    color:var(--sg-accent);
+  }
+  .practice-link__count{
+    flex:none;
+    color:var(--sg-ink-muted);
+    font-size:12px;
+  }
+  .practice-link:hover .practice-link__count{color:var(--sg-accent)}
+  @media(max-width:1023px){
+    .practice-links{grid-template-columns:repeat(3,minmax(0,1fr))}
+  }
+  @media(max-width:767px){
+    .practice-card .content-card__body{padding:16px}
+    .practice-links{grid-template-columns:repeat(2,minmax(0,1fr))}
+  }
+  @media(max-width:430px){
+    .practice-links{grid-template-columns:minmax(0,1fr)}
+  }
+</style>
+
+<style>
+  .site-header{border-bottom:1px solid rgba(28,36,48,.07);background:rgba(251,252,254,.84)}
+  .site-header__inner{min-height:64px}
+  .site-nav{gap:5px}
+  .site-nav__link{min-height:38px;padding:0 11px;border:1px solid transparent;border-radius:11px;color:var(--sg-ink-secondary);font-size:12px;font-weight:600}
+  .site-nav__link:hover{background:rgba(255,255,255,.72);border-color:var(--sg-line)}
+  .site-nav__link.is-active,.site-nav__link[aria-current="page"]{color:var(--sg-ink);background:#fff;border-color:var(--sg-line);box-shadow:0 3px 14px rgba(28,36,48,.045)}
+  @media (max-width:560px){.site-header__inner{min-height:60px}.site-nav{justify-content:flex-end}.site-nav__link{padding:0 9px}}
+</style>
+</head>
+<body>
+<div class="site-shell">
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-brand" href="../index.html" aria-label="辽宁专升本首页">
+      <span class="site-brand__mark" aria-hidden="true">升</span>
+      <span class="site-brand__name">辽宁专升本</span>
+    </a>
+    <nav class="site-nav" aria-label="高等数学导航">
+      <a class="site-nav__link" href="../index.html">首页</a>
+      <a class="site-nav__link" href="index.html"><span class="site-nav__icon" aria-hidden="true">∫</span><span class="site-nav__label">高等数学</span></a>
+      <a class="site-nav__link is-active" aria-current="page" href="practice.html">题库</a>
+      <a class="site-nav__link" href="mindmap.html">导图</a>
+    </nav>
+  </div>
+</header>
+
+<main class="site-main">
+  <div class="site-container">
+    <section class="page-hero">
+      <h1 class="page-title">题库</h1>
+    </section>
+
+    <section class="section" aria-label="题库章节">
+      <div class="practice-layout">
+        <article class="content-card practice-card">
+          <div class="content-card__body">
+            <div class="practice-card__head">
+              <h2 class="practice-card__title">第一章</h2>
+              <a class="chapter-link" href="gs1.html#practice-4">49 题 →</a>
+            </div>
+            <div class="practice-links">
+              <a class="practice-link" href="gs1.html#practice-4"><span>考点四</span><span class="practice-link__count">19 题</span></a>
+<a class="practice-link" href="gs1.html#practice-5"><span>考点五</span><span class="practice-link__count">3 题</span></a>
+<a class="practice-link" href="gs1.html#practice-6"><span>考点六</span><span class="practice-link__count">15 题</span></a>
+<a class="practice-link" href="gs1.html#practice-7"><span>考点七</span><span class="practice-link__count">12 题</span></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="content-card practice-card">
+          <div class="content-card__body">
+            <div class="practice-card__head">
+              <h2 class="practice-card__title">第四、五章</h2>
+              <a class="chapter-link" href="gs45.html#practice-36">进入练习 →</a>
+            </div>
+            <div class="practice-links">
+              <a class="practice-link" href="gs45.html#practice-36"><span>考点三十六</span><span class="practice-link__count">17 题</span></a>
+<a class="practice-link" href="gs45.html#practice-37"><span>考点三十七</span><span class="practice-link__count">8 题</span></a>
+<a class="practice-link" href="gs45.html#practice-38"><span>考点三十八</span><span class="practice-link__count">10 题</span></a>
+<a class="practice-link" href="gs45.html#practice-39"><span>考点三十九</span><span class="practice-link__count">2 题</span></a>
+<a class="practice-link" href="gs45.html#practice-40"><span>考点四十</span><span class="practice-link__count">5 题</span></a>
+<a class="practice-link" href="gs45.html#practice-41"><span>考点四十一</span><span class="practice-link__count">4 题</span></a>
+<a class="practice-link" href="gs45.html#practice-42"><span>考点四十二</span><span class="practice-link__count">5 题</span></a>
+<a class="practice-link" href="gs45.html#practice-43"><span>考点四十三</span><span class="practice-link__count">2 题</span></a>
+<a class="practice-link" href="gs45.html#practice-44"><span>考点四十四</span><span class="practice-link__count">1 题</span></a>
+<a class="practice-link" href="gs45.html#practice-45"><span>考点四十五</span><span class="practice-link__count">4 题</span></a>
+<a class="practice-link" href="gs45.html#practice-46"><span>考点四十六</span><span class="practice-link__count">7 题</span></a>
+<a class="practice-link" href="gs45.html#practice-47"><span>考点四十七</span><span class="practice-link__count">6 题</span></a>
+<a class="practice-link" href="gs45.html#practice-48"><span>考点四十八</span><span class="practice-link__count">6 题</span></a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <span>高等数学</span>
+    <nav class="site-footer__links" aria-label="页脚导航">
+      <a href="index.html">目录</a>
+      <a href="practice.html">题库</a>
+      <a href="mindmap.html">导图</a>
+    </nav>
+  </div>
+</footer>
+
+</div>
+</body>
+</html>

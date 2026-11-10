@@ -168,7 +168,7 @@
       ],
       "prereq_ids": [],
       "source_ref": "gs/index.html#_5",
-      "legacy_url": "gs/index.html#_5",
+      "legacy_url": "gs/gs1.html#point-1",
       "verified": false,
       "blurb": "第 1 集。"
     },
@@ -186,7 +186,7 @@
         "math.domain"
       ],
       "source_ref": "gs/index.html#_6",
-      "legacy_url": "gs/index.html#_6",
+      "legacy_url": "gs/gs1.html#point-2",
       "verified": false,
       "blurb": "第 1 集。"
     },
@@ -201,7 +201,7 @@
         "math.function_properties"
       ],
       "source_ref": "gs/index.html#_8",
-      "legacy_url": "gs/index.html#_8",
+      "legacy_url": "gs/gs1.html#point-3",
       "verified": false,
       "blurb": "第 2 集。"
     },
@@ -218,7 +218,7 @@
         "math.sequence_limit"
       ],
       "source_ref": "gs/index.html#_9",
-      "legacy_url": "gs/practice.html#kd4",
+      "legacy_url": "gs/gs1.html#practice-4",
       "verified": false,
       "blurb": "练习讲解在高等数学页面。"
     },
@@ -236,7 +236,7 @@
         "math.function_limit"
       ],
       "source_ref": "gs/index.html#_10",
-      "legacy_url": "gs/index.html#_10",
+      "legacy_url": "gs/gs1.html#point-5",
       "verified": false,
       "blurb": "第 3 集。"
     },
@@ -253,7 +253,7 @@
         "math.infinitesimal"
       ],
       "source_ref": "gs/index.html#lim-fg",
-      "legacy_url": "gs/practice.html#kd6",
+      "legacy_url": "gs/gs1.html#practice-6",
       "verified": false,
       "blurb": "练习讲解在高等数学页面。"
     },
@@ -271,7 +271,7 @@
         "math.equivalent"
       ],
       "source_ref": "gs/index.html#_11",
-      "legacy_url": "gs/index.html#_11",
+      "legacy_url": "gs/gs1.html#point-7",
       "verified": false,
       "blurb": "第 4 集。"
     },
@@ -289,7 +289,7 @@
         "math.important_limits"
       ],
       "source_ref": "gs/index.html#_12",
-      "legacy_url": "gs/index.html#_12",
+      "legacy_url": "gs/gs1.html#point-8",
       "verified": false,
       "blurb": "第 4 集。"
     },
@@ -306,7 +306,7 @@
         "math.function_limit"
       ],
       "source_ref": "gs/index.html#_14",
-      "legacy_url": "gs/index.html#_14",
+      "legacy_url": "gs/gs1.html#point-9",
       "verified": false,
       "blurb": "第 5 集。"
     },
@@ -323,7 +323,7 @@
         "math.continuity"
       ],
       "source_ref": "gs/index.html#_15",
-      "legacy_url": "gs/index.html#_15",
+      "legacy_url": "gs/gs1.html#point-10",
       "verified": false,
       "blurb": "第三节。"
     },
@@ -341,7 +341,7 @@
         "math.continuity"
       ],
       "source_ref": "gs/index.html#_16",
-      "legacy_url": "gs/index.html#_16",
+      "legacy_url": "gs/gs1.html#point-11",
       "verified": false,
       "blurb": "第三节。"
     },

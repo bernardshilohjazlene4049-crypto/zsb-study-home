@@ -1,572 +1,451 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#F5F5F7">
-<title>高等数学第一章｜函数与极限思维导图</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f8f9fb">
+  <title>高等数学思维导图 · 辽宁专升本</title>
+  <link rel="stylesheet" href="../assets/css/site-unify.css">
+  
 <style>
-:root{
-  --primary:#0071E3;
-  --primary-deep:#0066CC;
-  --primary-soft:rgba(0,113,227,.08);
-  --bg:#F5F5F7;
-  --card:#FFFFFF;
-  --text:#1D1D1F;
-  --muted:#6E6E73;
-  --line:rgba(29,29,31,.085);
-  --success:#27845A;
-  --orange:#B77924;
-  --radius:18px;
-  color-scheme:light;
-}
-*{box-sizing:border-box}
-html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif}
-body{background:linear-gradient(180deg,#FAFAFC 0%,var(--bg) 420px,var(--bg) 100%);font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased}
-button{font:inherit}
-.app{width:min(1160px,calc(100% - 32px));margin:0 auto;padding:28px 0 40px}
-.header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:24px}
-.brand{display:flex;align-items:center;gap:11px;min-width:0}
-.brand-mark{width:34px;height:34px;flex:0 0 34px;border-radius:11px;background:#202124;display:grid;place-items:center;box-shadow:inset 0 1px 0 rgba(255,255,255,.2)}
-.brand-mark svg{width:18px;height:18px}
-.brand-copy{min-width:0}
-.eyebrow{font-size:11px;letter-spacing:.08em;color:var(--muted);font-weight:600;text-transform:uppercase}
-.brand-title{font-size:14px;font-weight:600;letter-spacing:-.02em;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.local-tag{display:flex;align-items:center;gap:6px;min-height:32px;padding:6px 10px;border:1px solid var(--line);border-radius:11px;background:rgba(255,255,255,.78);font-size:11px;color:var(--muted);white-space:nowrap}
-.local-dot{width:7px;height:7px;border-radius:50%;background:var(--success);box-shadow:0 0 0 3px rgba(39,132,90,.12)}
-.hero{margin-bottom:20px}
-.hero h1{font-size:clamp(28px,4vw,40px);line-height:1.15;letter-spacing:-.045em;margin:0;font-weight:600}
-.hero p{margin:8px 0 0;color:var(--muted);font-size:14px;line-height:1.7}
-.tabs{display:flex;gap:4px;padding:4px;background:rgba(255,255,255,.66);border:1px solid var(--line);border-radius:14px;margin-bottom:16px;-webkit-backdrop-filter:blur(20px) saturate(1.18);backdrop-filter:blur(20px) saturate(1.18)}
-.tab{border:0;background:transparent;color:var(--muted);flex:1;min-height:44px;border-radius:11px;font-weight:500;font-size:14px;cursor:pointer}
-.tab[aria-selected="true"]{background:#fff;color:var(--primary);box-shadow:0 1px 2px rgba(29,29,31,.06);font-weight:600}
-.legend{display:flex;align-items:center;gap:8px 16px;flex-wrap:wrap;padding:12px 16px;background:rgba(255,255,255,.82);border:1px solid var(--line);border-radius:18px;margin-bottom:16px}
-.legend-title{font-size:12px;color:var(--quiet,#86868B);font-weight:600;margin-right:2px}
-.legend-item{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--body,#424245);white-space:nowrap}
-.legend-stars{font-weight:600;color:var(--orange);letter-spacing:.02em;font-size:13px}
-.toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:16px}
-.toolbar-group{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.control{border:1px solid rgba(29,29,31,.09);background:rgba(255,255,255,.8);color:#424245;border-radius:11px;min-height:44px;padding:0 14px;font-size:13px;font-weight:500;cursor:pointer}
-.control:hover{border-color:rgba(29,29,31,.16);background:#fff}
-.control.primary{background:rgba(0,113,227,.94);border-color:rgba(255,255,255,.4);color:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,.28),0 7px 16px rgba(29,29,31,.1)}
-.control.icon{width:44px;padding:0;display:grid;place-items:center;font-size:18px}
-.zoom-readout{font-size:12px;font-variant-numeric:tabular-nums;color:var(--muted);min-width:44px;text-align:center;font-weight:500}
-.map-card{background:rgba(255,255,255,.82);border:1px solid rgba(255,255,255,.72);border-radius:26px;overflow:hidden;box-shadow:inset 0 1px 0 rgba(255,255,255,.88),0 16px 44px rgba(29,29,31,.055)}
-.map-card-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--line)}
-.map-title-wrap{display:flex;align-items:center;gap:10px;min-width:0}
-.map-title-dot{width:7px;height:7px;border-radius:50%;background:var(--primary);box-shadow:0 0 0 3px rgba(0,113,227,.1);flex:0 0 auto}
-.map-title{font-size:15px;font-weight:600;letter-spacing:-.02em;white-space:nowrap}
-.map-subtitle{font-size:12px;color:#86868B;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.map-viewport{height:min(68vh,720px);min-height:500px;position:relative;overflow:hidden;background-color:#F7F7F9;background-image:radial-gradient(rgba(29,29,31,.16) .7px,transparent .7px);background-size:18px 18px;touch-action:none;cursor:grab;user-select:none;-webkit-user-select:none}
-.map-viewport.dragging{cursor:grabbing}
-.map-viewport svg{position:absolute;left:0;top:0;display:block;overflow:visible;max-width:none;user-select:none;-webkit-user-select:none}
-.map-node{cursor:pointer;outline:none}
-.map-node rect{transition:stroke .16s}
-.map-node:hover rect{stroke:rgba(0,113,227,.45)}
-.map-node:focus-visible rect{stroke:#0071E3;stroke-width:2.5}
-.map-node .node-label{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;dominant-baseline:alphabetic;pointer-events:none}
-.map-node .toggle-ring{fill:#fff;stroke:rgba(29,29,31,.16);stroke-width:1.2}
-.map-node .toggle-mark{fill:none;stroke:var(--primary);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.map-node.root-node rect{fill:#0071E3;stroke:#0071E3}
-.map-node.root-node .node-label{fill:#fff;font-weight:600}
-.map-node.root-node .toggle-ring{fill:rgba(255,255,255,.18);stroke:rgba(255,255,255,.45)}
-.map-node.root-node .toggle-mark{stroke:#fff}
-.map-node.depth-1 rect{fill:#F2F3F5;stroke:rgba(29,29,31,.08);stroke-width:1.1}
-.map-node.depth-1 .node-label{fill:#1D1D1F;font-weight:600}
-.map-node.depth-2 rect{fill:#fff;stroke:rgba(29,29,31,.1);stroke-width:1}
-.map-node.depth-2 .node-label{fill:#1D1D1F;font-weight:500}
-.map-node.depth-3 rect,.map-node.depth-4 rect{fill:#fff;stroke:rgba(29,29,31,.08);stroke-width:1}
-.map-node.depth-3 .node-label,.map-node.depth-4 .node-label{fill:#424245;font-weight:400}
-.edge{fill:none;stroke:rgba(29,29,31,.18);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-.edge-dot{fill:#86868B}
-.map-hint{display:flex;align-items:center;justify-content:center;gap:8px;padding:12px 12px;color:#86868B;font-size:12px;line-height:1.5;text-align:center;background:#fff;border-top:1px solid var(--line)}
-.map-hint svg{width:14px;height:14px;flex:0 0 auto;opacity:.72}
-.footer-note{text-align:center;color:#86868B;font-size:12px;margin-top:16px;line-height:1.6}
-button:focus-visible{outline:3px solid rgba(0,113,227,.34);outline-offset:2px}
-@media(min-width:700px){.app{width:min(1160px,calc(100% - 64px));padding:36px 0 48px}.header{margin-bottom:28px}.hero{margin-bottom:24px}.legend{padding:14px 18px}.map-viewport{height:min(70vh,760px);min-height:570px}.map-card-head{padding:18px 20px}}
-@media(max-width:480px){.app{width:calc(100% - 32px);padding:20px 0 28px}.header{margin-bottom:16px}.brand-title{font-size:13px}.hero h1{font-size:28px}.hero p{font-size:13px}.legend{gap:8px 12px;padding:12px}.legend-title{width:100%}.legend-item{font-size:12px}.toolbar{align-items:flex-start}.map-viewport{height:64vh;min-height:440px;max-height:660px}.map-card-head{padding:14px 16px}.map-subtitle{font-size:11px}}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
+  .page-title{
+    font-weight:560;
+    letter-spacing:-.018em;
+    line-height:1.16;
+    overflow-wrap:normal;
+    word-break:keep-all;
+  }
+  .page-subtitle{max-width:680px}
+  .section-title{
+    font-weight:600;
+    letter-spacing:-.012em;
+  }
+  .content-card__title{
+    font-weight:600;
+    letter-spacing:-.01em;
+  }
+  .site-brand__mark{
+    font-size:14px;
+    font-weight:650;
+  }
+  .site-nav__icon{
+    font-size:18px;
+    line-height:1;
+  }
+  .site-subnav{
+    position:relative;
+    z-index:70;
+    background:rgba(255,255,255,.9);
+    -webkit-backdrop-filter:blur(var(--sg-glass-blur)) saturate(var(--sg-glass-saturation));
+    backdrop-filter:blur(var(--sg-glass-blur)) saturate(var(--sg-glass-saturation));
+  }
+  .page-hero{max-width:900px}
+  @media (max-width:767px){
+    .site-header__inner{flex-wrap:nowrap}
+    .site-nav{
+      order:initial;
+      flex:1 1 auto;
+      width:auto;
+      justify-content:flex-end;
+    }
+    .site-nav__link{padding-inline:9px}
+    .page-title{font-size:clamp(29px,8vw,34px)}
+  }
+  @media (max-width:560px){
+    .site-brand__name{display:none}
+    .site-nav{justify-content:flex-start}
+  }
 </style>
-<link rel="stylesheet" href="../assets/css/site-nav.css">
-<link rel="stylesheet" href="../assets/css/site-unify.css"></head>
+
+<style>
+  .map-switch{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    width:fit-content;
+    max-width:100%;
+    margin-bottom:14px;
+    padding:4px;
+    border:1px solid var(--sg-line);
+    border-radius:12px;
+    background:var(--sg-surface);
+    -webkit-backdrop-filter:blur(var(--sg-glass-blur)) saturate(var(--sg-glass-saturation));
+    backdrop-filter:blur(var(--sg-glass-blur)) saturate(var(--sg-glass-saturation));
+  }
+  .map-switch .btn{
+    min-height:36px;
+    padding-inline:13px;
+    font-weight:560;
+  }
+  .map-switch .btn[aria-selected="true"]{
+    color:var(--sg-accent);
+    border-color:var(--sg-accent-line);
+    background:var(--sg-accent-soft);
+  }
+  .map-panel[hidden],.map-actions[hidden],.mind-tree[hidden]{display:none!important}
+  .map-board{
+    overflow:hidden;
+    border:1px solid var(--sg-line);
+    border-radius:var(--sg-radius-panel);
+    background:var(--sg-surface);
+    box-shadow:var(--sg-shadow-card);
+    -webkit-backdrop-filter:blur(var(--sg-glass-blur)) saturate(var(--sg-glass-saturation));
+    backdrop-filter:blur(var(--sg-glass-blur)) saturate(var(--sg-glass-saturation));
+  }
+  .map-toolbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    flex-wrap:wrap;
+    padding:12px 14px;
+    border-bottom:1px solid var(--sg-line);
+  }
+  .map-subtabs,.map-actions{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    flex-wrap:wrap;
+  }
+  .map-subtabs .btn[aria-selected="true"]{
+    color:var(--sg-accent);
+    background:var(--sg-accent-soft);
+  }
+  .tree-stage{
+    min-height:430px;
+    padding:22px;
+    overflow:auto;
+    background-color:var(--sg-bg-top);
+    background-image:radial-gradient(var(--sg-line-strong) .7px,transparent .7px);
+    background-size:20px 20px;
+  }
+  .tree-wrap{
+    width:min(100%,920px);
+    margin-inline:auto;
+  }
+  .mind-tree,
+  .mind-tree ul{
+    list-style:none;
+    margin:0;
+    padding:0;
+  }
+  .mind-tree{
+    display:grid;
+    gap:12px;
+  }
+  .mind-tree>li>details>summary.tree-node{margin-inline:auto}
+  .mind-tree>li>details>ul{
+    display:grid;
+    margin:18px 0 0;
+    padding-left:0;
+    gap:14px;
+  }
+  #tree-function>li>details>ul{grid-template-columns:repeat(2,minmax(0,1fr))}
+  #tree-limit>li>details>ul{grid-template-columns:repeat(3,minmax(0,1fr))}
+  #tree-fortyfive>li>details>ul{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .mind-tree>li>details>ul::before,
+  .mind-tree>li>details>ul>li::before{display:none}
+  .mind-tree>li>details>ul>li>details>summary.tree-node,
+  .mind-tree>li>details>ul>li>.tree-node{
+    width:100%;
+    font-weight:580;
+  }
+  .mind-tree ul{
+    position:relative;
+    margin:9px 0 0 16px;
+    padding-left:20px;
+    display:grid;
+    gap:8px;
+  }
+  .mind-tree ul::before{
+    content:"";
+    position:absolute;
+    left:6px;
+    top:0;
+    bottom:13px;
+    width:1px;
+    background:var(--sg-line-strong);
+  }
+  .mind-tree li{
+    position:relative;
+    min-width:0;
+  }
+  .mind-tree ul>li::before{
+    content:"";
+    position:absolute;
+    left:-14px;
+    top:20px;
+    width:14px;
+    height:1px;
+    background:var(--sg-line-strong);
+  }
+  .tree-node{
+    position:relative;
+    display:flex;
+    align-items:center;
+    width:fit-content;
+    max-width:min(100%,760px);
+    min-height:40px;
+    padding:9px 12px;
+    border:1px solid var(--sg-line);
+    border-radius:10px;
+    background:var(--sg-surface-strong);
+    color:var(--sg-ink);
+    font-size:14px;
+    line-height:1.55;
+    box-shadow:var(--sg-shadow-xs);
+    overflow-wrap:anywhere;
+  }
+  summary.tree-node{
+    cursor:pointer;
+    list-style:none;
+  }
+  summary.tree-node::-webkit-details-marker{display:none}
+  summary.tree-node::after{
+    content:"+";
+    flex:none;
+    margin-left:10px;
+    color:var(--sg-ink-faint);
+    font-size:15px;
+    line-height:1;
+  }
+  details[open]>summary.tree-node::after{content:"−"}
+  .mind-tree>li>.tree-node,
+  .mind-tree>li>details>.tree-node{
+    min-height:46px;
+    padding:10px 14px;
+    border-color:var(--sg-accent-line);
+    background:var(--sg-accent-soft);
+    color:var(--sg-accent);
+    font-size:17px;
+    font-weight:600;
+  }
+  .mind-tree ul ul>.tree-node,
+  .mind-tree ul ul>details>.tree-node{font-size:13.5px}
+  .map-image{
+    margin-top:16px;
+    overflow:hidden;
+  }
+  .map-image .media-frame{
+    aspect-ratio:auto;
+    min-height:180px;
+    background:var(--sg-surface-soft);
+  }
+  .map-image .media-frame img{
+    width:100%;
+    max-height:760px;
+    object-fit:contain;
+  }
+  .map-image .content-card__footer{
+    margin:0;
+    padding:12px 14px;
+    border-top:1px solid var(--sg-line);
+  }
+  .static-map-title{
+    margin:0;
+    padding:14px 16px;
+    border-bottom:1px solid var(--sg-line);
+    font-size:17px;
+    font-weight:600;
+    letter-spacing:-.01em;
+  }
+  @media(max-width:900px){
+    #tree-limit>li>details>ul{grid-template-columns:repeat(2,minmax(0,1fr))}
+  }
+  @media(max-width:767px){
+    #tree-function>li>details>ul,
+    #tree-limit>li>details>ul,
+    #tree-fortyfive>li>details>ul{grid-template-columns:minmax(0,1fr)}
+    .tree-stage{min-height:360px;padding:16px 12px}
+    .mind-tree ul{margin-left:9px;padding-left:18px}
+    .mind-tree>li>details>ul{margin-left:0;padding-left:0}
+    .tree-node{font-size:13px}
+    .mind-tree>li>.tree-node,
+    .mind-tree>li>details>.tree-node{font-size:15px}
+  }
+  @media(max-width:430px){
+    .map-switch{width:100%}
+    .map-switch .btn{flex:1}
+    .map-toolbar{align-items:flex-start}
+    .map-subtabs,.map-actions{width:100%}
+    .map-subtabs .btn{flex:1}
+    .map-actions .btn{flex:1}
+    .tree-stage{min-height:330px}
+  }
+</style>
+
+<style>
+  .site-header{border-bottom:1px solid rgba(28,36,48,.07);background:rgba(251,252,254,.84)}
+  .site-header__inner{min-height:64px}
+  .site-nav{gap:5px}
+  .site-nav__link{min-height:38px;padding:0 11px;border:1px solid transparent;border-radius:11px;color:var(--sg-ink-secondary);font-size:12px;font-weight:600}
+  .site-nav__link:hover{background:rgba(255,255,255,.72);border-color:var(--sg-line)}
+  .site-nav__link.is-active,.site-nav__link[aria-current="page"]{color:var(--sg-ink);background:#fff;border-color:var(--sg-line);box-shadow:0 3px 14px rgba(28,36,48,.045)}
+  @media (max-width:560px){.site-header__inner{min-height:60px}.site-nav{justify-content:flex-end}.site-nav__link{padding:0 9px}}
+</style>
+</head>
 <body>
-<main class="app">
-  <header class="header">
-    <div class="brand">
-      <div class="brand-mark" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none"><path d="M5 6.5h14M5 12h9M5 17.5h14" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="17.5" cy="12" r="2.2" fill="white"/></svg>
+<div class="site-shell">
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-brand" href="../index.html" aria-label="辽宁专升本首页">
+      <span class="site-brand__mark" aria-hidden="true">升</span>
+      <span class="site-brand__name">辽宁专升本</span>
+    </a>
+    <nav class="site-nav" aria-label="高等数学导航">
+      <a class="site-nav__link" href="../index.html">首页</a>
+      <a class="site-nav__link" href="index.html"><span class="site-nav__icon" aria-hidden="true">∫</span><span class="site-nav__label">高等数学</span></a>
+      <a class="site-nav__link" href="practice.html">题库</a>
+      <a class="site-nav__link is-active" aria-current="page" href="mindmap.html">导图</a>
+    </nav>
+  </div>
+</header>
+
+<main class="site-main">
+  <div class="site-container">
+    <section class="page-hero page-hero--compact">
+      <h1 class="page-title">思维导图</h1>
+    </section>
+
+    <div class="map-switch" role="tablist" aria-label="章节导图">
+      <button class="btn" type="button" role="tab" aria-selected="true" data-chapter-tab="panel-first">第一章</button>
+      <button class="btn" type="button" role="tab" aria-selected="false" data-chapter-tab="panel-fortyfive">第四、五章</button>
+    </div>
+
+    <section class="map-panel" id="panel-first" data-chapter-panel>
+      <div class="map-board">
+        <div class="map-toolbar">
+          <div class="map-subtabs" role="tablist" aria-label="第一章导图">
+            <button class="btn btn--sm" type="button" role="tab" aria-selected="true" data-first-tab="tree-function">函数</button>
+            <button class="btn btn--sm" type="button" role="tab" aria-selected="false" data-first-tab="tree-limit">极限</button>
+          </div>
+          <div class="map-actions" data-first-actions="tree-function">
+            <button class="btn btn--sm btn--secondary" type="button" data-expand-target="tree-function" data-expand="true">全部展开</button>
+            <button class="btn btn--sm btn--ghost" type="button" data-expand-target="tree-function" data-expand="false">全部折叠</button>
+          </div>
+          <div class="map-actions" data-first-actions="tree-limit" hidden>
+            <button class="btn btn--sm btn--secondary" type="button" data-expand-target="tree-limit" data-expand="true">全部展开</button>
+            <button class="btn btn--sm btn--ghost" type="button" data-expand-target="tree-limit" data-expand="false">全部折叠</button>
+          </div>
+        </div>
+        <div class="tree-stage">
+          <div class="tree-wrap">
+            <ul class="mind-tree" id="tree-function" data-first-tree></ul>
+            <ul class="mind-tree" id="tree-limit" data-first-tree hidden></ul>
+          </div>
+        </div>
       </div>
-      <div class="brand-copy"><div class="eyebrow">STUDY MAP · CHAPTER 01</div><div class="brand-title">高等数学 · 函数、极限、连续</div></div>
-    </div>
-    
-  </header>
 
-  <section class="hero">
-    <h1>第一章 · 函数与极限交互式思维导图</h1>
-    <p>按老师课堂版结构整理，点击节点展开或折叠分支。</p>
-    <ol style="margin:12px 0 0;padding-left:20px;line-height:1.7;font-size:14px;color:#424245"><li>先看「函数」导图，结合高等数学页第一节复习定义域和函数性质。</li><li>再看「极限」导图，结合第二节复习对应考点。</li><li>看完返回高等数学页，继续学习第三节「连续」。</li></ol>
-  </section>
+      <article class="content-card map-image">
+        <a class="media-frame media-frame--contain" href="gs1/mindmap.jpg" target="_blank" rel="noopener">
+          <img src="gs1/mindmap.jpg" alt="第一章思维导图">
+        </a>
+        <div class="content-card__footer">
+          <a class="btn btn--sm btn--secondary" href="gs1/mindmap.jpg" target="_blank" rel="noopener">查看原图</a>
+        </div>
+      </article>
+    </section>
 
-  <nav class="tabs" aria-label="思维导图切换">
-    <button class="tab" id="tab-function" type="button" role="tab" aria-selected="true">函数</button>
-    <button class="tab" id="tab-limit" type="button" role="tab" aria-selected="false">极限</button>
-  </nav>
-
-  <section class="legend" aria-label="考频图例">
-    <span class="legend-title">考频标记</span>
-    <span class="legend-item"><span class="legend-stars">★★★</span>每年考</span>
-    <span class="legend-item"><span class="legend-stars">★★</span>偶尔不考</span>
-    <span class="legend-item"><span class="legend-stars">★</span>偶尔考</span>
-  </section>
-
-  <section class="toolbar" aria-label="思维导图操作">
-    <div class="toolbar-group">
-      <button class="control primary" id="expand-all" type="button">全部展开</button>
-      <button class="control" id="collapse-all" type="button">全部折叠</button>
-    </div>
-    <div class="toolbar-group">
-      <button class="control icon" id="zoom-out" type="button" aria-label="缩小">−</button>
-      <span class="zoom-readout" id="zoom-readout">100%</span>
-      <button class="control icon" id="zoom-in" type="button" aria-label="放大">＋</button>
-      <button class="control" id="reset-view" type="button">重置视图</button>
-    </div>
-  </section>
-
-  <section class="map-card" aria-label="交互式思维导图">
-    <div class="map-card-head">
-      <div class="map-title-wrap"><span class="map-title-dot"></span><span class="map-title" id="map-title">函数</span></div>
-      <span class="map-subtitle">老师课堂版 · Mermaid 结构</span>
-    </div>
-    <div class="map-viewport" id="map-viewport" aria-label="可拖动和缩放的思维导图画布">
-      <svg id="map-svg" xmlns="http://www.w3.org/2000/svg" role="group" aria-label="函数思维导图"><g id="map-world"></g></svg>
-    </div>
-    <div class="map-hint">
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 11V6.5a1.5 1.5 0 0 1 3 0V10 5.5a1.5 1.5 0 0 1 3 0V10 7a1.5 1.5 0 0 1 3 0v7.5c0 3.6-2.2 5.5-5.5 5.5h-.8c-2 0-3.1-.8-4.2-2.1L4.8 15a1.6 1.6 0 0 1 2.4-2.1L9 15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      点击节点展开/折叠 · 拖动平移 · 双指或滚轮缩放
-    </div>
-  </section>
-  <div class="footer-note">无需联网 · 单文件运行 · 适配手机与电脑</div>
+    <section class="map-panel" id="panel-fortyfive" data-chapter-panel hidden>
+      <div class="map-board">
+        <div class="map-toolbar">
+          <div></div>
+          <div class="map-actions">
+            <button class="btn btn--sm btn--secondary" type="button" data-expand-target="tree-fortyfive" data-expand="true">全部展开</button>
+            <button class="btn btn--sm btn--ghost" type="button" data-expand-target="tree-fortyfive" data-expand="false">全部折叠</button>
+          </div>
+        </div>
+        <div class="tree-stage">
+          <div class="tree-wrap">
+            <ul class="mind-tree" id="tree-fortyfive"></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 </main>
 
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <span>高等数学</span>
+    <nav class="site-footer__links" aria-label="页脚导航">
+      <a href="index.html">目录</a>
+      <a href="practice.html">题库</a>
+      <a href="mindmap.html">导图</a>
+    </nav>
+  </div>
+</footer>
+
+</div>
+
 <script>
-(() => {
-  'use strict';
+const trees = {
+  function: {"label": "函数", "children": [{"label": "定义", "children": [{"label": "定义域 ★★★", "children": [{"label": "判断两函数是否相同 P32第9题"}]}, {"label": "对应法则 表达式"}]}, {"label": "图像", "children": [{"label": "基本初等函数 反对幂指三"}, {"label": "常函数"}]}, {"label": "形式", "children": [{"label": "初等函数 一个式子"}, {"label": "分段函数 多个式子"}]}, {"label": "性质", "children": [{"label": "单调性", "children": [{"label": "看图像"}, {"label": "求导 第二章 f'≥0增 f'≤0减"}]}, {"label": "奇偶性 P2", "children": [{"label": "图像 性质 定义"}]}, {"label": "周期性"}, {"label": "有界性"}]}]},
+  limit: {"label": "极限", "children": [{"label": "数列极限 函数极限", "children": [{"label": "未定式 0/0 ∞/∞ ∞-∞ 0·∞ 1^∞ ∞^0 0^0"}, {"label": "抓大头 x→∞ 看分子分母最高次 ★"}, {"label": "代入 不是未定式直接得数"}, {"label": "化简 有理化 公式 通分 约分 0/0"}, {"label": "等价替换 0/0 0·∞"}, {"label": "重要极限 1^∞ ★★★"}, {"label": "洛必达 第二章"}]}, {"label": "无穷大与无穷小 P4", "children": [{"label": "定义"}, {"label": "无穷小比较", "children": [{"label": "高阶"}, {"label": "低阶"}, {"label": "同阶非等价"}, {"label": "等价 等价替换公式 ★★★"}]}]}, {"label": "函数的渐近线 ★", "children": [{"label": "水平渐近线 x→∞时 lim f(x)=数"}, {"label": "垂直渐近线 铅直 x→x0时 lim f(x)=∞"}]}]},
+  fortyfive: {"label": "第四五章", "children": [{"label": "向量与空间解析几何", "children": [{"label": "三十六 基本概念计算关系", "children": [{"label": "坐标与模"}, {"label": "方向余弦"}, {"label": "点积叉积"}]}, {"label": "三十七 平面方程", "children": [{"label": "点法式与十种特例"}, {"label": "两平面关系"}]}, {"label": "三十八 直线方程", "children": [{"label": "参数式与点向式"}, {"label": "两直线与线面关系"}]}]}, {"label": "多元函数微积分", "children": [{"label": "三十九 定义域"}, {"label": "四十 一阶偏导"}, {"label": "四十一 高阶偏导"}, {"label": "四十二 全微分", "children": [{"label": "连续可微偏导关系"}]}, {"label": "四十三 极值", "children": [{"label": "驻点与二阶判别"}]}, {"label": "四十四 最值应用", "children": [{"label": "边界与条件极值"}]}, {"label": "四十五 复合函数偏导", "children": [{"label": "连线相乘分线相加"}]}, {"label": "四十六 积分性质", "children": [{"label": "性质一至八"}, {"label": "对称估值中值"}]}, {"label": "四十七 直角坐标积分", "children": [{"label": "X型先y后x"}]}]}]}
+};
 
-  // 以下树形数据逐项对应上传 Markdown 中两段 Mermaid mindmap 的节点与层级。
-  const trees = {
-    function: {
-      id: 'function-root', label: '函数', children: [
-        { id: 'f-definition', label: '定义', children: [
-          { id: 'f-domain', label: '定义域 ★★★', children: [
-            { id: 'f-same', label: '判断两函数是否相同 P32第9题' }
-          ]},
-          { id: 'f-rule', label: '对应法则 表达式' }
-        ]},
-        { id: 'f-image', label: '图像', children: [
-          { id: 'f-elementary', label: '基本初等函数 反对幂指三' },
-          { id: 'f-constant', label: '常函数' }
-        ]},
-        { id: 'f-form', label: '形式', children: [
-          { id: 'f-basic-form', label: '初等函数 一个式子' },
-          { id: 'f-piecewise', label: '分段函数 多个式子' }
-        ]},
-        { id: 'f-property', label: '性质', children: [
-          { id: 'f-monotonic', label: '单调性', children: [
-            { id: 'f-graph', label: '看图像' },
-            { id: 'f-derivative', label: "求导 第二章 f'≥0增 f'≤0减" }
-          ]},
-          { id: 'f-parity', label: '奇偶性 P2', children: [
-            { id: 'f-parity-detail', label: '图像 性质 定义' }
-          ]},
-          { id: 'f-period', label: '周期性' },
-          { id: 'f-bounded', label: '有界性' }
-        ]}
-      ]
-    },
-    limit: {
-      id: 'limit-root', label: '极限', children: [
-        { id: 'l-sequence-function', label: '数列极限 函数极限', children: [
-          { id: 'l-indeterminate', label: '未定式 0/0 ∞/∞ ∞-∞ 0·∞ 1^∞ ∞^0 0^0' },
-          { id: 'l-leading', label: '抓大头 x→∞ 看分子分母最高次 ★' },
-          { id: 'l-substitute', label: '代入 不是未定式直接得数' },
-          { id: 'l-simplify', label: '化简 有理化 公式 通分 约分 0/0' },
-          { id: 'l-equivalent', label: '等价替换 0/0 0·∞' },
-          { id: 'l-important', label: '重要极限 1^∞ ★★★' },
-          { id: 'l-lhopital', label: '洛必达 第二章' }
-        ]},
-        { id: 'l-infinity', label: '无穷大与无穷小 P4', children: [
-          { id: 'l-definition', label: '定义' },
-          { id: 'l-comparison', label: '无穷小比较', children: [
-            { id: 'l-higher', label: '高阶' },
-            { id: 'l-lower', label: '低阶' },
-            { id: 'l-same-order', label: '同阶非等价' },
-            { id: 'l-equivalent-formula', label: '等价 等价替换公式 ★★★' }
-          ]}
-        ]},
-        { id: 'l-asymptote', label: '函数的渐近线 ★', children: [
-          { id: 'l-horizontal', label: '水平渐近线 x→∞时 lim f(x)=数' },
-          { id: 'l-vertical', label: '垂直渐近线 铅直 x→x0时 lim f(x)=∞' }
-        ]}
-      ]
-    }
-  };
-
-  const NS = 'http://www.w3.org/2000/svg';
-  const viewport = document.getElementById('map-viewport');
-  const svg = document.getElementById('map-svg');
-  const world = document.getElementById('map-world');
-  const zoomReadout = document.getElementById('zoom-readout');
-  const mapTitle = document.getElementById('map-title');
-  const tabs = {
-    function: document.getElementById('tab-function'),
-    limit: document.getElementById('tab-limit')
-  };
-  const expandedByTab = { function: new Set(), limit: new Set() };
-  let activeTab = 'function';
-  let sceneWidth = 390;
-  let sceneHeight = 700;
-  let scale = 1;
-  let tx = 0;
-  let ty = 12;
-  let pointerMap = new Map();
-  let dragState = null;
-  let pinchState = null;
-
-  function svgEl(tag, attrs = {}) {
-    const el = document.createElementNS(NS, tag);
-    for (const [key, value] of Object.entries(attrs)) el.setAttribute(key, String(value));
-    return el;
+function buildTree(node) {
+  const li = document.createElement('li');
+  if (node.children && node.children.length) {
+    const details = document.createElement('details');
+    details.open = true;
+    const summary = document.createElement('summary');
+    summary.className = 'tree-node';
+    summary.textContent = node.label;
+    details.appendChild(summary);
+    const ul = document.createElement('ul');
+    node.children.forEach(child => ul.appendChild(buildTree(child)));
+    details.appendChild(ul);
+    li.appendChild(details);
+  } else {
+    const span = document.createElement('span');
+    span.className = 'tree-node';
+    span.textContent = node.label;
+    li.appendChild(span);
   }
+  return li;
+}
 
-  function collectExpandable(node, set) {
-    if (node.children && node.children.length) {
-      set.add(node.id);
-      node.children.forEach(child => collectExpandable(child, set));
-    }
-  }
-  Object.keys(trees).forEach(key => collectExpandable(trees[key], expandedByTab[key]));
+function mountTree(targetId, tree) {
+  const root = document.getElementById(targetId);
+  root.textContent = '';
+  root.appendChild(buildTree(tree));
+}
 
-  const measureCanvas = document.createElement('canvas');
-  const measureContext = measureCanvas.getContext('2d');
-  const fontFamily = '-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif';
+mountTree('tree-function', trees.function);
+mountTree('tree-limit', trees.limit);
+mountTree('tree-fortyfive', trees.fortyfive);
 
-  function wrapText(text, maxWidth, fontSize, weight) {
-    measureContext.font = `${weight || 600} ${fontSize}px ${fontFamily}`;
-    const result = [];
-    let line = '';
-    for (const char of Array.from(text)) {
-      const candidate = line + char;
-      if (line && measureContext.measureText(candidate).width > maxWidth) {
-        result.push(line);
-        line = char;
-      } else {
-        line = candidate;
-      }
-    }
-    if (line || !result.length) result.push(line);
-    return result;
-  }
+function setExpanded(scope, open) {
+  scope.querySelectorAll('details').forEach(d => d.open = open);
+}
 
-  function addTextLines(group, lines, x, y, fontSize, weight, label) {
-    const text = svgEl('text', {
-      x, y, class: 'node-label', 'font-size': fontSize, 'font-weight': weight,
-      'aria-label': label
-    });
-    const starMatch = label.match(/(★★★|★★|★)$/);
-    lines.forEach((line, index) => {
-      const tspan = svgEl('tspan', { x, dy: index === 0 ? 0 : 20 });
-      if (starMatch && index === lines.length - 1 && line.endsWith(starMatch[0])) {
-        const plain = line.slice(0, -starMatch[0].length);
-        if (plain) tspan.appendChild(document.createTextNode(plain));
-        const starSpan = svgEl('tspan', { fill: '#B77924', 'font-weight': 600 });
-        starSpan.textContent = starMatch[0];
-        tspan.appendChild(starSpan);
-      } else {
-        tspan.textContent = line;
-      }
-      text.appendChild(tspan);
-    });
-    group.appendChild(text);
-  }
-
-  function layoutTree() {
-    const width = Math.max(360, Math.min(820, viewport.clientWidth - 12));
-    sceneWidth = width;
-    const root = trees[activeTab];
-    const expanded = expandedByTab[activeTab];
-    const nodes = [];
-    const edges = [];
-    const rootLayout = {
-      node: root, depth: 0, x: 18, y: 20, w: Math.min(178, width - 36), h: 52,
-      lines: [root.label], fontSize: 18, textX: 43, root: true
-    };
-    nodes.push(rootLayout);
-    let cursorY = 94;
-
-    function placeNode(node, depth) {
-      const x = 18 + (depth - 1) * 20;
-      const cardWidth = Math.max(180, width - x - 18);
-      const hasChildren = Boolean(node.children && node.children.length);
-      const fontSize = depth === 1 ? 15.5 : 15;
-      const weight = depth === 1 ? 750 : 600;
-      const textX = x + (hasChildren ? 43 : 28);
-      const maxTextWidth = cardWidth - (hasChildren ? 58 : 42);
-      const starMatch = node.label.match(/(★★★|★★|★)$/);
-      const displayLabel = node.label;
-      const lines = wrapText(displayLabel, maxTextWidth, fontSize, weight);
-      const h = Math.max(43, lines.length * 20 + 18);
-      const layout = { node, depth, x, y: cursorY, w: cardWidth, h, lines, fontSize, textX, hasChildren };
-      nodes.push(layout);
-      cursorY += h + 8;
-
-      if (hasChildren && expanded.has(node.id)) {
-        const childLayouts = node.children.map(child => placeNode(child, depth + 1));
-        edges.push({ parent: layout, children: childLayouts, rootEdge: false });
-      }
-      return layout;
-    }
-
-    if (expanded.has(root.id)) {
-      const childLayouts = root.children.map(child => placeNode(child, 1));
-      edges.push({ parent: rootLayout, children: childLayouts, rootEdge: true });
-    }
-
-    sceneHeight = Math.max(240, cursorY + 18);
-    return { nodes, edges, width, height: sceneHeight };
-  }
-
-  function drawEdges(edgeList) {
-    edgeList.forEach(edge => {
-      const { parent, children, rootEdge } = edge;
-      if (!children.length) return;
-      const spineX = rootEdge ? 10 : parent.x + 10;
-      const firstY = children[0].y + children[0].h / 2;
-      const lastY = children[children.length - 1].y + children[children.length - 1].h / 2;
-      const startX = rootEdge ? parent.x + 13 : parent.x + 10;
-      const startY = parent.y + parent.h;
-      const path = svgEl('path', {
-        d: rootEdge
-          ? `M ${startX} ${startY} C ${startX - 8} ${startY + 17}, ${spineX} ${firstY - 24}, ${spineX} ${firstY}`
-          : `M ${startX} ${startY} C ${startX} ${startY + 15}, ${spineX} ${firstY - 18}, ${spineX} ${firstY}`,
-        class: 'edge'
-      });
-      world.appendChild(path);
-      if (lastY > firstY) {
-        world.appendChild(svgEl('path', { d: `M ${spineX} ${firstY} V ${lastY}`, class: 'edge' }));
-      }
-      children.forEach(child => {
-        const cy = child.y + child.h / 2;
-        world.appendChild(svgEl('path', { d: `M ${spineX} ${cy} H ${child.x}`, class: 'edge' }));
-        world.appendChild(svgEl('circle', { cx: spineX, cy, r: 2.4, class: 'edge-dot' }));
-      });
-    });
-  }
-
-  function drawNode(layout) {
-    const { node, depth, x, y, w, h, lines, fontSize, textX, root, hasChildren } = layout;
-    const group = svgEl('g', {
-      class: `map-node ${root ? 'root-node' : `depth-${Math.min(depth, 3)}`}`,
-      'data-node-id': node.id,
-      tabindex: '0',
-      role: 'button',
-      'aria-label': node.label,
-      'aria-expanded': hasChildren || root ? String(expandedByTab[activeTab].has(node.id)) : 'false'
-    });
-    const rect = svgEl('rect', { x, y, width: w, height: h, rx: 18, ry: 18 });
-    group.appendChild(rect);
-
-    if (root || hasChildren) {
-      const cx = root ? x + w - 20 : x + 19;
-      const cy = y + h / 2;
-      group.appendChild(svgEl('circle', { cx, cy, r: 9, class: 'toggle-ring' }));
-      const isOpen = expandedByTab[activeTab].has(node.id);
-      let d;
-      if (isOpen) d = `M ${cx - 3.1} ${cy - 1.2} L ${cx} ${cy + 2.1} L ${cx + 3.1} ${cy - 1.2}`;
-      else d = `M ${cx - 1.2} ${cy - 3.1} L ${cx + 2.1} ${cy} L ${cx - 1.2} ${cy + 3.1}`;
-      group.appendChild(svgEl('path', { d, class: 'toggle-mark' }));
-    } else {
-      group.appendChild(svgEl('circle', { cx: x + 16, cy: y + h / 2, r: 3.2, fill: depth === 1 ? '#0071E3' : '#C7C7CC' }));
-    }
-
-    if (root) {
-      const text = svgEl('text', {
-        x: x + 20, y: y + 33, class: 'node-label', 'font-size': fontSize,
-        'font-weight': 600, 'aria-hidden': 'true'
-      });
-      text.textContent = node.label;
-      group.appendChild(text);
-    } else {
-      const textY = y + 13 + fontSize;
-      addTextLines(group, lines, textX, textY, fontSize, depth === 1 ? 600 : 500, node.label);
-    }
-    world.appendChild(group);
-  }
-
-  function applyTransform() {
-    world.setAttribute('transform', `translate(${tx} ${ty}) scale(${scale})`);
-    zoomReadout.textContent = `${Math.round(scale * 100)}%`;
-  }
-
-  function resetView() {
-    scale = 1;
-    tx = Math.max(0, (viewport.clientWidth - sceneWidth) / 2);
-    ty = 12;
-    applyTransform();
-  }
-
-  function renderMap(reset = false) {
-    const layout = layoutTree();
-    svg.setAttribute('width', layout.width);
-    svg.setAttribute('height', layout.height);
-    svg.setAttribute('viewBox', `0 0 ${layout.width} ${layout.height}`);
-    svg.setAttribute('aria-label', `${trees[activeTab].label}思维导图`);
-    svg.style.width = `${layout.width}px`;
-    svg.style.height = `${layout.height}px`;
-    world.replaceChildren();
-    drawEdges(layout.edges);
-    layout.nodes.forEach(drawNode);
-    mapTitle.textContent = trees[activeTab].label;
-    if (reset) resetView(); else applyTransform();
-  }
-
-  function setTab(tab) {
-    activeTab = tab;
-    Object.entries(tabs).forEach(([key, button]) => button.setAttribute('aria-selected', String(key === tab)));
-    renderMap(true);
-  }
-
-  function toggleNode(id) {
-    const nodeSet = expandedByTab[activeTab];
-    if (nodeSet.has(id)) nodeSet.delete(id); else nodeSet.add(id);
-    renderMap(false);
-  }
-
-  function zoomAt(pointX, pointY, nextScale) {
-    const clamped = Math.max(.42, Math.min(2.8, nextScale));
-    const worldX = (pointX - tx) / scale;
-    const worldY = (pointY - ty) / scale;
-    tx = pointX - worldX * clamped;
-    ty = pointY - worldY * clamped;
-    scale = clamped;
-    applyTransform();
-  }
-
-  function zoomCenter(factor) {
-    zoomAt(viewport.clientWidth / 2, viewport.clientHeight / 2, scale * factor);
-  }
-
-  tabs.function.addEventListener('click', () => setTab('function'));
-  tabs.limit.addEventListener('click', () => setTab('limit'));
-  document.getElementById('expand-all').addEventListener('click', () => {
-    expandedByTab[activeTab].clear();
-    collectExpandable(trees[activeTab], expandedByTab[activeTab]);
-    renderMap(false);
+document.querySelectorAll('[data-expand-target]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const scope = document.getElementById(btn.dataset.expandTarget);
+    setExpanded(scope, btn.dataset.expand === 'true');
   });
-  document.getElementById('collapse-all').addEventListener('click', () => {
-    expandedByTab[activeTab].clear();
-    renderMap(false);
+});
+
+const chapterTabs = document.querySelectorAll('[data-chapter-tab]');
+const chapterPanels = document.querySelectorAll('[data-chapter-panel]');
+chapterTabs.forEach(btn => btn.addEventListener('click', () => {
+  chapterTabs.forEach(item => item.setAttribute('aria-selected', String(item === btn)));
+  chapterPanels.forEach(panel => panel.hidden = panel.id !== btn.dataset.chapterTab);
+}));
+
+const firstTabs = document.querySelectorAll('[data-first-tab]');
+const firstTrees = document.querySelectorAll('[data-first-tree]');
+firstTabs.forEach(btn => btn.addEventListener('click', () => {
+  firstTabs.forEach(item => item.setAttribute('aria-selected', String(item === btn)));
+  firstTrees.forEach(tree => tree.hidden = tree.id !== btn.dataset.firstTab);
+  document.querySelectorAll('[data-first-actions]').forEach(actions => {
+    actions.hidden = actions.dataset.firstActions !== btn.dataset.firstTab;
   });
-  document.getElementById('zoom-in').addEventListener('click', () => zoomCenter(1.18));
-  document.getElementById('zoom-out').addEventListener('click', () => zoomCenter(1 / 1.18));
-  document.getElementById('reset-view').addEventListener('click', resetView);
-
-  function distance(a, b) { return Math.hypot(a.x - b.x, a.y - b.y); }
-  function midpoint(a, b) { return { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 }; }
-
-  viewport.addEventListener('pointerdown', event => {
-    if (event.pointerType === 'mouse' && event.button !== 0) return;
-    event.preventDefault();
-    viewport.setPointerCapture(event.pointerId);
-    pointerMap.set(event.pointerId, { x: event.clientX, y: event.clientY });
-    if (pointerMap.size === 1) {
-      const target = event.target.closest ? event.target.closest('[data-node-id]') : null;
-      dragState = {
-        id: event.pointerId, startX: event.clientX, startY: event.clientY,
-        startTx: tx, startTy: ty, moved: false,
-        nodeId: target ? target.getAttribute('data-node-id') : null
-      };
-      pinchState = null;
-    } else if (pointerMap.size === 2) {
-      const points = Array.from(pointerMap.values());
-      const center = midpoint(points[0], points[1]);
-      pinchState = {
-        distance: Math.max(1, distance(points[0], points[1])),
-        scale,
-        worldX: (center.x - viewport.getBoundingClientRect().left - tx) / scale,
-        worldY: (center.y - viewport.getBoundingClientRect().top - ty) / scale
-      };
-      dragState = null;
-    }
-    viewport.classList.add('dragging');
-  });
-
-  viewport.addEventListener('pointermove', event => {
-    if (!pointerMap.has(event.pointerId)) return;
-    pointerMap.set(event.pointerId, { x: event.clientX, y: event.clientY });
-    const rect = viewport.getBoundingClientRect();
-    if (pointerMap.size >= 2 && pinchState) {
-      const points = Array.from(pointerMap.values());
-      const center = midpoint(points[0], points[1]);
-      const nextScale = Math.max(.42, Math.min(2.8, pinchState.scale * distance(points[0], points[1]) / pinchState.distance));
-      const localX = center.x - rect.left;
-      const localY = center.y - rect.top;
-      tx = localX - pinchState.worldX * nextScale;
-      ty = localY - pinchState.worldY * nextScale;
-      scale = nextScale;
-      applyTransform();
-    } else if (pointerMap.size === 1 && dragState) {
-      const dx = event.clientX - dragState.startX;
-      const dy = event.clientY - dragState.startY;
-      if (Math.abs(dx) + Math.abs(dy) > 6) dragState.moved = true;
-      tx = dragState.startTx + dx;
-      ty = dragState.startTy + dy;
-      applyTransform();
-    }
-  });
-
-  function finishPointer(event, allowTap) {
-    if (!pointerMap.has(event.pointerId)) return;
-    if (allowTap && dragState && dragState.id === event.pointerId && !dragState.moved && dragState.nodeId) {
-      toggleNode(dragState.nodeId);
-    }
-    pointerMap.delete(event.pointerId);
-    if (pointerMap.size === 1) {
-      const remaining = Array.from(pointerMap.entries())[0];
-      dragState = { id: remaining[0], startX: remaining[1].x, startY: remaining[1].y, startTx: tx, startTy: ty, moved: true, nodeId: null };
-      pinchState = null;
-    } else {
-      dragState = null;
-      pinchState = null;
-    }
-    if (pointerMap.size === 0) viewport.classList.remove('dragging');
-  }
-  viewport.addEventListener('pointerup', event => finishPointer(event, true));
-  viewport.addEventListener('pointercancel', event => finishPointer(event, false));
-  viewport.addEventListener('lostpointercapture', event => finishPointer(event, false));
-
-  viewport.addEventListener('wheel', event => {
-    event.preventDefault();
-    const rect = viewport.getBoundingClientRect();
-    zoomAt(event.clientX - rect.left, event.clientY - rect.top, scale * (event.deltaY < 0 ? 1.12 : 1 / 1.12));
-  }, { passive: false });
-
-  svg.addEventListener('keydown', event => {
-    if ((event.key === 'Enter' || event.key === ' ') && event.target.matches('[data-node-id]')) {
-      event.preventDefault();
-      toggleNode(event.target.getAttribute('data-node-id'));
-    }
-  });
-
-  let resizeTimer = null;
-  window.addEventListener('resize', () => {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => renderMap(true), 120);
-  });
-
-  renderMap(true);
-})();
+}));
 </script>
-<a href="index.html" style="position:fixed;left:max(12px,env(safe-area-inset-left));bottom:calc(12px + env(safe-area-inset-bottom));z-index:99;display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border-radius:12px;background:#fff;border:1px solid #E9EDF4;box-shadow:0 6px 18px rgba(31,45,81,.12);color:#172033;font:650 14px -apple-system,PingFang SC,Microsoft YaHei,sans-serif;text-decoration:none">← 返回高等数学</a>
-<script src="../assets/js/site-nav.js" data-base="../" data-site-nav=""></script>
+
 </body>
 </html>
