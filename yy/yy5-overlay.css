@@ -1,0 +1,951 @@
+/* yy5-overlay.css
+   辽宁专升本 · 英语五专题页覆盖层
+   依赖：../assets/css/site-unify.css
+   只调整界面与响应式，不改知识正文、题目、答案、单词、视频或锚点。
+*/
+
+/* ---------- 0. Shared rhythm / safe anchors ---------- */
+:root {
+  --yy5-reading: min(100%, var(--sg-reading-width, 860px));
+  --yy5-ease: cubic-bezier(.2,.7,.2,1);
+}
+
+html {
+  scroll-padding-top: 88px;
+}
+
+body {
+  background: var(--sg-bg);
+  color: var(--sg-ink);
+}
+
+.site-main {
+  padding-top: 30px;
+  padding-bottom: 56px;
+}
+
+/* ---------- 1. Global header: same family as the mathematics pages ---------- */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Defensive override: labels stay visible even if site-nav--compact was not removed yet. */
+
+
+
+
+
+
+
+
+
+
+/* ---------- 2. Hero: no eyebrow, lighter typography ---------- */
+.page-hero {
+  max-width: 980px;
+  margin: 22px 0 38px;
+}
+
+.hero-eyebrow {
+  display: none;
+}
+
+.hero-title,
+.hero-title.page-title {
+  max-width: 980px;
+  margin: 0;
+  color: var(--sg-ink);
+  font-size: clamp(32px, 3.8vw, 45px);
+  font-weight: 560;
+  line-height: 1.2;
+  letter-spacing: -.018em;
+  text-wrap: balance;
+}
+
+.hero-row {
+  display: block;
+  white-space: normal;
+}
+
+.hero-row + .hero-row {
+  margin-top: .08em;
+}
+
+.hero-title .hero-sep {
+  padding-inline: .08em;
+  color: var(--sg-ink-faint);
+  font-weight: 400;
+}
+
+.hero-rule {
+  height: 1px;
+  margin-top: 30px;
+  background: var(--sg-line);
+}
+
+/* ---------- 3. Directory: quiet glass only where it helps ---------- */
+#index-title {
+  color: var(--sg-ink);
+}
+
+.index-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-start;
+  gap: 8px 14px;
+  margin: 0 0 16px;
+}
+
+.index-head h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -.012em;
+}
+
+.index-head > span {
+  margin-right: auto;
+  color: var(--sg-ink-muted);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.index-head > a {
+  flex: none;
+  padding: 3px 0;
+  border-bottom: 1px solid var(--sg-line-strong);
+  color: var(--sg-ink-secondary);
+  font-size: 12px;
+  line-height: 1.4;
+  text-decoration: none;
+  transition:
+    color var(--sg-transition),
+    border-color var(--sg-transition);
+}
+
+.index-head > a:hover {
+  border-color: var(--sg-accent);
+  color: var(--sg-accent);
+}
+
+.chapter-index {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0,1fr));
+  gap: 10px;
+}
+
+.index-tile {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  min-height: 124px;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 17px;
+  border: 1px solid var(--sg-line);
+  border-radius: var(--sg-radius-card);
+  background: rgba(255,255,255,.78);
+  box-shadow: var(--sg-shadow-xs);
+  backdrop-filter: blur(10px) saturate(118%);
+  -webkit-backdrop-filter: blur(10px) saturate(118%);
+  transition:
+    transform 150ms var(--yy5-ease),
+    border-color 150ms var(--yy5-ease),
+    background 150ms var(--yy5-ease),
+    box-shadow 150ms var(--yy5-ease);
+}
+
+.index-tile:hover,
+.index-tile.is-current {
+  transform: translateY(-1px);
+  border-color: var(--sg-line-strong);
+  background: rgba(255,255,255,.94);
+  box-shadow: var(--sg-shadow-sm);
+}
+
+.index-tile:focus-visible {
+  outline-offset: 4px;
+}
+
+.index-tile__number {
+  color: var(--sg-ink-muted);
+  font-size: 12px;
+  font-weight: 560;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0;
+}
+
+.index-tile__total {
+  color: var(--sg-ink-faint);
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.index-tile__name {
+  display: block;
+  margin: 12px 0;
+  color: var(--sg-ink);
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: -.014em;
+}
+
+.index-tile__bottom {
+  color: var(--sg-ink-muted);
+  font-size: 11.5px;
+}
+
+.index-tile__bottom svg {
+  transition: transform 150ms var(--yy5-ease);
+}
+
+.index-tile:hover .index-tile__bottom svg {
+  transform: translateX(2px);
+}
+
+/* ---------- 4. Five-step method: restrained disclosure ---------- */
+.method-note {
+  margin-top: 14px;
+  border: 1px solid var(--sg-line);
+  border-radius: var(--sg-radius-card);
+  background: rgba(255,255,255,.68);
+  box-shadow: none;
+}
+
+.method-note > summary {
+  min-height: 48px;
+  padding: 12px 16px;
+  color: var(--sg-ink-secondary);
+  font-size: 13px;
+  font-weight: 560;
+}
+
+.method-note > summary:hover {
+  color: var(--sg-ink);
+  background: rgba(255,255,255,.58);
+}
+
+.method-note > summary::after {
+  color: var(--sg-ink-muted);
+  font-weight: 350;
+  transition: transform 150ms var(--yy5-ease);
+}
+
+.method-note[open] > summary::after {
+  transform: rotate(180deg);
+}
+
+.method-note > .md-content {
+  padding: 0 18px 18px;
+}
+
+/* ---------- 5. Chapter hierarchy ---------- */
+.chapter {
+  margin-top: 76px;
+  padding-top: 4px;
+  scroll-margin-top: 92px;
+}
+
+.chapter + .chapter {
+  margin-top: 72px;
+  padding-top: 58px;
+  border-top: 1px solid var(--sg-line);
+}
+
+.chapter-heading {
+  align-items: flex-end;
+  gap: 14px 24px;
+  margin-bottom: 26px;
+}
+
+.chapter-kicker {
+  color: var(--sg-ink-muted);
+  font-size: 12px;
+  font-weight: 560;
+  letter-spacing: 0;
+}
+
+.chapter-title {
+  margin: 5px 0 11px;
+  color: var(--sg-ink);
+  font-size: clamp(29px, 3vw, 40px);
+  font-weight: 560;
+  line-height: 1.2;
+  letter-spacing: -.018em;
+}
+
+.chapter-stats {
+  gap: 8px 18px;
+  color: var(--sg-ink-muted);
+  font-size: 12px;
+}
+
+.chapter-jumps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.chapter-jumps a {
+  min-height: 32px;
+  padding: 7px 10px;
+  border: 1px solid var(--sg-line);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--sg-ink-secondary);
+  font-size: 12px;
+  font-weight: 540;
+  line-height: 1.25;
+  transition:
+    color var(--sg-transition),
+    border-color var(--sg-transition),
+    background var(--sg-transition);
+}
+
+.chapter-jumps a:hover {
+  border-color: var(--sg-line-strong);
+  background: rgba(255,255,255,.7);
+  color: var(--sg-ink);
+}
+
+/* Source/meta notes are not learning UI. Structural deletion is still recommended. */
+.chapter-origin,
+.source-notes {
+  display: none !important;
+}
+
+/* ---------- 6. Learning blocks ---------- */
+.chapter-video,
+.knowledge-block,
+.vocab-block,
+.quiz-block {
+  margin-bottom: 46px;
+  scroll-margin-top: 96px;
+}
+
+.block-heading {
+  margin-bottom: 14px;
+}
+
+.block-heading h3 {
+  margin: 0;
+  color: var(--sg-ink);
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: -.012em;
+}
+
+.block-count {
+  color: var(--sg-ink-muted);
+  font-size: 12px;
+  letter-spacing: 0;
+}
+
+.text-action {
+  padding: 4px 1px;
+  color: var(--sg-ink-secondary);
+  font-size: 12px;
+  font-weight: 540;
+  text-decoration: none;
+  text-underline-offset: 3px;
+}
+
+.text-action:hover {
+  color: var(--sg-accent);
+  text-decoration: underline;
+}
+
+.video-frame {
+  max-width: var(--yy5-reading);
+  border: 1px solid rgba(28,36,48,.18);
+  border-radius: var(--sg-radius-card);
+  box-shadow: var(--sg-shadow-sm);
+}
+
+.knowledge-block,
+.vocab-block,
+.quiz-block,
+.reference-body {
+  max-width: var(--yy5-reading);
+}
+
+/* ---------- 7. Point cards: paper first, glass second ---------- */
+.point-list {
+  gap: 8px;
+}
+
+.point-card {
+  border: 1px solid var(--sg-line);
+  border-radius: 11px;
+  background: var(--sg-surface-strong);
+  box-shadow: none;
+}
+
+.point-card[open] {
+  border-color: var(--sg-line-strong);
+  box-shadow: var(--sg-shadow-xs);
+}
+
+.point-summary {
+  min-height: 61px;
+  padding: 13px 16px;
+  gap: 13px;
+}
+
+.point-summary:hover {
+  background: #fbfcfd;
+}
+
+.point-number {
+  color: var(--sg-ink-muted);
+  font-size: 12px;
+}
+
+.point-name {
+  color: var(--sg-ink);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: -.01em;
+}
+
+.point-indicator {
+  transition: transform 150ms var(--yy5-ease), color 150ms var(--yy5-ease);
+}
+
+.point-card[open] .point-indicator {
+  color: var(--sg-ink-muted);
+}
+
+.point-content {
+  padding: 0 18px 21px;
+  border-top-color: var(--sg-line);
+}
+
+/* ---------- 8. Reading typography ---------- */
+.md-content {
+  color: var(--sg-ink-secondary);
+  font-size: 14px;
+  line-height: 1.88;
+  letter-spacing: 0;
+}
+
+.md-content :is(h2,h3,h4) {
+  color: var(--sg-ink);
+  font-weight: 600;
+  letter-spacing: -.014em;
+}
+
+.md-content h2 {
+  font-size: 20px;
+}
+
+.md-content h3 {
+  font-size: 17px;
+}
+
+.md-content h4 {
+  font-size: 15px;
+}
+
+.md-content strong {
+  color: var(--sg-ink);
+  font-weight: 650;
+}
+
+.md-content blockquote {
+  border-left: 2px solid var(--sg-line-strong);
+  border-radius: 0 8px 8px 0;
+  background: #f8fafc;
+  color: var(--sg-ink-secondary);
+}
+
+.md-content a {
+  color: var(--sg-accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+/* ---------- 9. Tables / vocabulary ---------- */
+.table-scroll {
+  border-color: var(--sg-line);
+  border-radius: 10px;
+  box-shadow: none;
+}
+
+.table-scroll th {
+  background: #f7f9fb;
+  color: var(--sg-ink);
+  font-weight: 600;
+}
+
+.vocab-wrap {
+  border: 1px solid var(--sg-line);
+  border-radius: var(--sg-radius-card);
+  background: #fff;
+  box-shadow: none;
+}
+
+.vocab-table th {
+  background: #f7f9fb;
+  color: var(--sg-ink-muted);
+  font-size: 11.5px;
+  font-weight: 560;
+  letter-spacing: 0;
+}
+
+.vocab-english {
+  color: var(--sg-ink);
+  font-weight: 600;
+}
+
+.vocab-row:hover {
+  background: #fafbfd;
+}
+
+.meaning-button:focus-visible {
+  outline-offset: 1px;
+}
+
+/* ---------- 10. Practice ---------- */
+.quiz-grid {
+  gap: 12px;
+}
+
+.quiz-question {
+  padding: 18px;
+  border: 1px solid var(--sg-line);
+  border-radius: var(--sg-radius-card);
+  background: #fff;
+  box-shadow: none;
+}
+
+.question-number {
+  color: var(--sg-ink-muted);
+  font-weight: 600;
+}
+
+.question-prompt {
+  color: var(--sg-ink);
+  font-weight: 600;
+  letter-spacing: -.006em;
+}
+
+.choice {
+  border-color: var(--sg-line);
+  background: #fbfcfd;
+  color: var(--sg-ink-secondary);
+  transition:
+    border-color 140ms var(--yy5-ease),
+    background 140ms var(--yy5-ease),
+    color 140ms var(--yy5-ease),
+    transform 90ms var(--yy5-ease);
+}
+
+.choice:hover {
+  border-color: var(--sg-line-strong);
+  background: #fff;
+}
+
+.choice:active {
+  transform: scale(.997);
+}
+
+.answer-feedback {
+  border-color: var(--sg-line);
+  background: #fbfcfd;
+  animation-duration: 140ms;
+}
+
+.answer-reference {
+  border-color: var(--sg-line);
+  border-radius: 10px;
+}
+
+/* ---------- 11. Comparison section: keep learning content, hide housekeeping tail ---------- */
+.reference-section {
+  margin-top: 74px;
+  padding-top: 54px;
+  border-top-color: var(--sg-line);
+  scroll-margin-top: 96px;
+}
+
+.reference-heading h2 {
+  margin: 0 0 22px;
+  color: var(--sg-ink);
+  font-size: clamp(27px, 2.7vw, 34px);
+  font-weight: 560;
+  line-height: 1.25;
+  letter-spacing: -.018em;
+}
+
+
+
+.return-top {
+  width: fit-content;
+  margin-top: 18px;
+  padding: 8px 0;
+  color: var(--sg-ink-muted);
+  font-size: 12px;
+}
+
+.return-top:hover {
+  color: var(--sg-ink);
+}
+
+/* ---------- 12. Footer ---------- */
+.site-footer {
+  border-top-color: var(--sg-line);
+}
+
+.site-footer__inner {
+  min-height: 54px;
+  gap: 9px 18px;
+  color: var(--sg-ink-muted);
+}
+
+.site-footer__links {
+  gap: 16px;
+}
+
+.site-footer a:hover {
+  color: var(--sg-ink);
+}
+
+/* ---------- 13. 1440 layout ---------- */
+@media (min-width: 1440px) {
+  .site-main {
+    padding-top: 34px;
+  }
+
+  .page-hero {
+    margin-top: 24px;
+    margin-bottom: 42px;
+  }
+
+  .chapter {
+    margin-top: 82px;
+  }
+
+  .chapter + .chapter {
+    margin-top: 78px;
+    padding-top: 62px;
+  }
+}
+
+/* ---------- 14. Tablet / mobile ---------- */
+@media (max-width: 1023px) {
+  .chapter-index {
+    grid-template-columns: repeat(3, minmax(0,1fr));
+  }
+
+  .index-tile {
+    min-height: 112px;
+  }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --sg-page-gutter: 18px;
+  }
+
+  html {
+    scroll-padding-top: 122px;
+  }
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  .site-main {
+    padding-top: 22px;
+    padding-bottom: 42px;
+  }
+
+  .page-hero {
+    margin: 15px 0 28px;
+  }
+
+  .hero-title,
+  .hero-title.page-title {
+    font-size: clamp(29px, 7.7vw, 35px);
+    line-height: 1.23;
+    letter-spacing: -.016em;
+  }
+
+  .hero-rule {
+    margin-top: 24px;
+  }
+
+  .index-head {
+    flex-wrap: wrap;
+    margin-bottom: 13px;
+  }
+
+  .index-head h2 {
+    font-size: 19px;
+  }
+
+  .index-head > span {
+    margin-right: 0;
+  }
+
+  .index-head > a {
+    margin-left: auto;
+  }
+
+  .chapter-index {
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: 8px;
+  }
+
+  .index-tile {
+    min-height: 106px;
+    padding: 14px;
+  }
+
+  /* Remove the old asymmetric fifth-card layout. */
+  .index-tile:last-child {
+    grid-column: 1 / -1;
+    min-height: 106px;
+    display: flex;
+    grid-template-columns: none;
+    align-items: stretch;
+    column-gap: normal;
+  }
+
+  .index-tile:last-child .index-tile__bottom {
+    grid-column: auto;
+  }
+
+  .index-tile__name {
+    margin: 8px 0;
+    font-size: 15px;
+  }
+
+  .method-note > summary {
+    padding-inline: 14px;
+  }
+
+  .method-note > .md-content {
+    padding-inline: 15px;
+  }
+
+  .chapter {
+    margin-top: 60px;
+    padding-top: 2px;
+    scroll-margin-top: 126px;
+  }
+
+  .chapter + .chapter {
+    margin-top: 60px;
+    padding-top: 43px;
+  }
+
+  .chapter-heading {
+    gap: 13px;
+    margin-bottom: 22px;
+  }
+
+  .chapter-title {
+    font-size: clamp(28px, 7vw, 34px);
+    letter-spacing: -.016em;
+  }
+
+  .chapter-jumps {
+    width: 100%;
+    gap: 6px;
+  }
+
+  .chapter-jumps a {
+    flex: 0 1 auto;
+    min-height: 31px;
+    padding: 7px 9px;
+    text-align: center;
+  }
+
+  .chapter-video,
+  .knowledge-block,
+  .vocab-block,
+  .quiz-block {
+    margin-bottom: 38px;
+    scroll-margin-top: 126px;
+  }
+
+  .point-summary {
+    min-height: 60px;
+    padding: 12px 14px;
+    gap: 10px;
+  }
+
+  .point-name {
+    font-size: 14px;
+  }
+
+  .point-content {
+    padding: 0 14px 17px;
+  }
+
+  .md-content {
+    font-size: 13.75px;
+    line-height: 1.84;
+  }
+
+  .quiz-grid {
+    grid-template-columns: minmax(0,1fr);
+  }
+
+  .quiz-question {
+    padding: 16px;
+  }
+
+  .reference-section {
+    margin-top: 61px;
+    padding-top: 43px;
+    scroll-margin-top: 126px;
+  }
+
+  .reference-heading h2 {
+    font-size: 27px;
+  }
+}
+
+/* ---------- 15. 390 / narrow phones ---------- */
+@media (max-width: 430px) {
+  :root {
+    --sg-page-gutter: 16px;
+  }
+
+  html {
+    scroll-padding-top: 134px;
+  }
+
+  
+
+  
+
+  
+
+  .hero-title,
+  .hero-title.page-title {
+    font-size: clamp(28px, 7.8vw, 32px);
+    letter-spacing: -.014em;
+  }
+
+  .index-head h2 {
+    font-size: 18px;
+  }
+
+  .index-tile {
+    min-height: 102px;
+    padding: 13px;
+  }
+
+  .index-tile:last-child {
+    min-height: 102px;
+  }
+
+  .chapter-kicker {
+    font-size: 11.5px;
+  }
+
+  .chapter-title {
+    font-size: clamp(27px, 7.3vw, 31px);
+  }
+
+  .block-heading h3 {
+    font-size: 18px;
+  }
+
+  .chapter-jumps a {
+    font-size: 11.5px;
+  }
+
+  .vocab-table th,
+  .vocab-row td {
+    padding-inline: 9px;
+  }
+
+  .vocab-table th {
+    font-size: 10.75px;
+  }
+
+  .vocab-english,
+  .vocab-ipa,
+  .vocab-chinese,
+  .meaning-button {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 350px) {
+  .chapter-index {
+    grid-template-columns: minmax(0,1fr);
+  }
+
+  .index-tile:last-child {
+    grid-column: auto;
+  }
+}
+
+/* ---------- 16. Fallbacks / accessibility ---------- */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .index-tile {
+    background: #fff;
+  }
+}
+
+@media (hover: none) {
+  .index-tile:hover {
+    transform: none;
+    box-shadow: var(--sg-shadow-xs);
+  }
+
+  .choice:hover {
+    border-color: var(--sg-line);
+    background: #fbfcfd;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .index-tile,
+  .index-tile__bottom svg,
+  .method-note > summary::after,
+  .point-indicator,
+  .choice,
+  .answer-feedback {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ---------- 17. Hidden icon sprite: keep it out of the flow (it pushed the header down ~25px) ---------- */
+svg.defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
