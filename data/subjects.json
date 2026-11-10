@@ -26,8 +26,8 @@
       "order": 2,
       "optional": false,
       "enabled": true,
-      "summary": "第一章：函数、极限、连续，含讲解视频和练习。第四章、第五章见 gs/gs45.html。",
-      "catalog_note": "第一章小节来自 gs/index.html。第四章、第五章来自 gs/gs45.html 的考点标题。",
+      "summary": "第一章：函数、极限、连续，含讲解视频和练习，按考点梳理见 gs/gs1.html。第四章、第五章见 gs/gs45.html。",
+      "catalog_note": "第一章小节来自 gs/index.html，考点一至十一另见 gs/gs1.html。第四章、第五章来自 gs/gs45.html 的考点标题。",
       "source_ref": "gs/index.html"
     },
     {
