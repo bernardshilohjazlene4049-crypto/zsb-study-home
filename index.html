@@ -3,87 +3,545 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#F5F5F7">
-  <meta name="description" content="辽宁专升本计算机类学习站，按科目整理讲解视频、思维导图、考点与练习入口。">
+  <meta name="theme-color" content="#f8f9fb">
+  <meta name="description" content="辽宁专升本计算机类学习站，按科目进入讲义、视频、思维导图与练习。">
   <title>辽宁专升本 · 计算机类学习站</title>
-  <link rel="stylesheet" href="mobile.css">
   <link rel="stylesheet" href="assets/css/site-unify.css">
-</head>
-<body id="top">
-  <div class="site-shell">
-  <header class="site-header">
-    <div class="site-header__inner">
-      <a class="site-brand" href="#top">
-        <span class="site-brand__mark" aria-hidden="true">书</span>
-        <span class="site-brand__name">辽宁专升本 · 计算机类</span>
-      </a>
-      <nav class="site-nav site-nav--compact" aria-label="全站导航"><a class="site-nav__link is-active" aria-current="page" href="./index.html" aria-label="首页"><span class="site-nav__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m3 10 9-7 9 7v10H3z"/><path d="M9 20v-7h6v7"/></svg></span><span class="site-nav__label">首页</span></a><a class="site-nav__link" href="./index.html#subjects" aria-label="科目索引"><span class="site-nav__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m3 6 9-3 9 3v13l-9-3-9 3z"/><path d="M12 3v13"/></svg></span><span class="site-nav__label">科目索引</span></a><a class="site-nav__link" href="./study/index.html" aria-label="学习工作台"><span class="site-nav__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 9v11"/></svg></span><span class="site-nav__label">学习工作台</span></a><a class="site-nav__link" href="./tower/index.html" aria-label="学习指挥塔"><span class="site-nav__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 21h16M6 21V7l6-4 6 4v14M9 12h6M9 16h6"/></svg></span><span class="site-nav__label">学习指挥塔</span></a></nav>
-    </div>
-  </header>
+  <style>
+    /* 首页只补充页面级布局；颜色、字体、圆角和基础组件继续沿用 site-unify.css。 */
+    html {
+      scroll-padding-top: 80px;
+      background: var(--sg-bg);
+    }
 
-  <main class="site-container site-main">
-    <header class="page-hero">
-      <h1 class="page-title">辽宁专升本 · 计算机类学习站</h1>
+    body.home-index {
+      min-height: 100vh;
+      background:
+        linear-gradient(180deg, var(--sg-bg-top) 0, var(--sg-bg) 38%, #f6f7f9 100%);
+    }
+
+    .home-index .site-shell {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .home-index .site-main {
+      flex: 1;
+      padding-top: 34px;
+      padding-bottom: 64px;
+    }
+
+    .home-index .site-brand__mark {
+      font-size: 15px;
+      font-weight: 650;
+      letter-spacing: -.02em;
+    }
+
+    .home-index .site-brand,
+    .home-index .site-nav__link {
+      font-weight: 560;
+    }
+
+    .home-index .site-nav__link {
+      padding-inline: 11px;
+    }
+
+    .home-index .page-hero {
+      margin: 34px 0 42px;
+    }
+
+    .home-index .page-title {
+      max-width: 900px;
+      font-weight: 560;
+      line-height: 1.14;
+      letter-spacing: -.018em;
+      overflow-wrap: normal;
+      text-wrap: balance;
+    }
+
+    .title-primary,
+    .title-secondary {
+      white-space: nowrap;
+    }
+
+    .home-index .section {
+      margin: 0;
+    }
+
+    .home-index .section-heading {
+      margin-bottom: 17px;
+    }
+
+    .home-index .section-title {
+      font-weight: 600;
+      letter-spacing: -.018em;
+    }
+
+    .subject-board {
+      position: relative;
+      overflow: hidden;
+      padding: 24px;
+      border: 1px solid var(--sg-line);
+      border-radius: var(--sg-radius-panel);
+      background: rgba(255, 255, 255, .64);
+      box-shadow:
+        0 18px 54px rgba(31, 40, 55, .045),
+        inset 0 1px 0 rgba(255, 255, 255, .82);
+      backdrop-filter: blur(18px) saturate(125%);
+      -webkit-backdrop-filter: blur(18px) saturate(125%);
+    }
+
+    .subject-group + .subject-group {
+      margin-top: 28px;
+      padding-top: 27px;
+      border-top: 1px solid var(--sg-line);
+    }
+
+    .subject-group__heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 13px;
+    }
+
+    .subject-group__title {
+      margin: 0;
+      color: var(--sg-ink-secondary);
+      font-size: var(--sg-text-sm);
+      font-weight: 600;
+      line-height: 1.4;
+      letter-spacing: -.01em;
+    }
+
+    .subject-grid {
+      gap: 12px;
+    }
+
+    .subject-grid--public {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .subject-grid--professional {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .home-index .subject-card {
+      position: relative;
+      min-height: 142px;
+      border-color: rgba(28, 36, 48, .09);
+      background: rgba(255, 255, 255, .82);
+      box-shadow: 0 2px 8px rgba(16, 24, 40, .025);
+      isolation: isolate;
+    }
+
+    .home-index a.subject-card {
+      cursor: pointer;
+    }
+
+    .home-index .subject-card .content-card__body {
+      min-height: 142px;
+      gap: 11px;
+      padding: 18px 18px 17px;
+    }
+
+    .subject-card__top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .home-index .content-card__title {
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: -.016em;
+      text-wrap: balance;
+    }
+
+    .home-index .content-card__text {
+      max-width: 32ch;
+      color: var(--sg-ink-secondary);
+      font-size: 13px;
+      line-height: 1.72;
+      text-wrap: pretty;
+    }
+
+    .subject-card__arrow {
+      display: inline-flex;
+      flex: none;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border: 1px solid var(--sg-line);
+      border-radius: 8px;
+      color: var(--sg-ink-muted);
+      background: rgba(255, 255, 255, .58);
+      transition:
+        transform var(--sg-transition),
+        color var(--sg-transition),
+        border-color var(--sg-transition),
+        background var(--sg-transition);
+    }
+
+    .subject-card__arrow svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .subject-card--closed {
+      min-height: 142px;
+      border-color: rgba(28, 36, 48, .07);
+      background: rgba(249, 250, 252, .72);
+      box-shadow: none;
+    }
+
+    .subject-card--closed .content-card__body {
+      justify-content: space-between;
+    }
+
+    .subject-card__status {
+      margin: auto 0 0;
+      color: var(--sg-ink-faint);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .home-index a.subject-card:hover {
+        border-color: var(--sg-line-strong);
+        background: rgba(255, 255, 255, .96);
+        box-shadow: var(--sg-shadow-hover);
+      }
+
+      .home-index a.subject-card:hover .subject-card__arrow {
+        transform: translateX(2px);
+        color: var(--sg-accent);
+        border-color: var(--sg-accent-line);
+        background: var(--sg-accent-soft);
+      }
+    }
+
+    .home-index a.subject-card:focus-visible {
+      outline: 2px solid var(--sg-accent);
+      outline-offset: 3px;
+    }
+
+    .home-index .site-footer__inner > span {
+      color: var(--sg-ink-muted);
+    }
+
+    @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+      .subject-board,
+      .home-index .subject-card {
+        background: #fff;
+      }
+    }
+
+    @media (max-width: 1023px) {
+      .subject-grid--public {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .subject-grid--professional {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 767px) {
+      html {
+        scroll-padding-top: 112px;
+      }
+
+      .home-index .site-main {
+        padding-top: 18px;
+        padding-bottom: 42px;
+      }
+
+      .home-index .page-hero {
+        margin: 25px 0 30px;
+      }
+
+      .home-index .page-title {
+        font-size: clamp(28px, 7.2vw, 34px);
+      }
+
+      .subject-board {
+        padding: 18px;
+      }
+
+      .subject-group + .subject-group {
+        margin-top: 23px;
+        padding-top: 22px;
+      }
+
+      .subject-grid--public,
+      .subject-grid--professional {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .home-index .subject-card,
+      .home-index .subject-card .content-card__body,
+      .subject-card--closed {
+        min-height: 126px;
+      }
+
+      .home-index .subject-card .content-card__body {
+        padding: 16px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .title-primary,
+      .title-secondary {
+        display: block;
+      }
+
+      .title-divider {
+        display: none;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .home-index .site-nav__link {
+        padding-inline: 9px;
+      }
+
+      .home-index .page-title {
+        font-size: 30px;
+        line-height: 1.16;
+      }
+
+      .subject-board {
+        padding: 15px;
+        border-radius: var(--sg-radius-card);
+      }
+
+      .subject-grid--public,
+      .subject-grid--professional {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .home-index .subject-card,
+      .home-index .subject-card .content-card__body,
+      .subject-card--closed {
+        min-height: 110px;
+      }
+
+      .home-index .content-card__text {
+        max-width: none;
+      }
+    }
+
+    .home-index .resources-section { margin-top: 48px; }
+    .subject-grid--resources { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .home-index .resource-card,
+    .home-index .resource-card .content-card__body { min-height: 0; }
+    @media (max-width: 1023px) { .subject-grid--resources { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 430px) { .subject-grid--resources { grid-template-columns: minmax(0, 1fr); } .home-index .resources-section { margin-top: 34px; } }
+  </style>
+<style>@media (max-width:430px){.site-header .site-nav{gap:2px}.site-header .site-nav .site-nav__link{padding-inline:7px}}</style>
+</head>
+<body id="top" class="home-index">
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="site-brand" href="./index.html" aria-label="辽宁专升本首页">
+          <span class="site-brand__mark" aria-hidden="true">升</span>
+          <span class="site-brand__name">辽宁专升本</span>
+        </a>
+
+        <nav class="site-nav" aria-label="全站导航">
+          <a class="site-nav__link is-active" aria-current="page" href="./index.html"><span class="site-nav__label">首页</span></a>
+          <a class="site-nav__link" href="jsj/index.html"><span class="site-nav__label">计算机基础</span></a>
+          <a class="site-nav__link" href="gs/index.html"><span class="site-nav__label">高等数学</span></a>
+          <a class="site-nav__link" href="c/index.html"><span class="site-nav__label">C语言</span></a>
+          <a class="site-nav__link" href="yy/index.html"><span class="site-nav__label">英语</span></a>
+          <a class="site-nav__link" href="wy/index.html"><span class="site-nav__label">网页设计</span></a>
+        </nav>
+      </div>
     </header>
 
-        <section class="section" id="subjects">
-      <div class="section-heading">
-        <h2 class="section-title">科目索引</h2>
-      </div>
-      <h3 class="section-title" style="font-size:var(--sg-text-md)">公共课</h3>
-      <div class="card-grid">
-        <a class="content-card subject-card" href="yy/index.html"><div class="content-card__body"><h3 class="content-card__title">英语</h3><p class="content-card__text">语法专题笔记、6 集讲解视频和 4 张导图。</p></div></a>
-        <a class="content-card subject-card" href="gs/index.html"><div class="content-card__body"><h3 class="content-card__title">高等数学</h3><p class="content-card__text">第一章：函数、极限与连续</p></div></a>
-        <a class="content-card subject-card" href="jsj/index.html"><div class="content-card__body"><h3 class="content-card__title">计算机基础</h3><p class="content-card__text">第一章思维导图、第四章 Excel、第五章 PowerPoint 操作题。</p></div></a>
-      </div>
-      <h3 class="section-title" style="font-size:var(--sg-text-md);margin-top:28px">专业课</h3>
-      <div class="card-grid">
-        <a class="content-card subject-card" href="c/index.html"><div class="content-card__body"><span class="badge">示例</span><h3 class="content-card__title">C 语言</h3><p class="content-card__text">5 道图片示例，正式题库即将开放。</p></div></a>
-        <div class="content-card subject-card" aria-disabled="true"><div class="content-card__body"><span class="badge badge--warning">即将开放</span><h3 class="content-card__title">数据库</h3></div></div>
-        <a class="content-card subject-card" href="wy/index.html"><div class="content-card__body"><span class="badge badge--success">部分上线</span><h3 class="content-card__title">网页设计</h3><p class="content-card__text">第 1–2 章、HTML / CSS / JS 课页和第 2 章讲解视频。</p></div></a>
-        <div class="content-card subject-card" aria-disabled="true"><div class="content-card__body"><span class="badge badge--warning">即将开放</span><h3 class="content-card__title">计算机网络</h3></div></div>
-      </div>
-    </section>
+    <main class="site-main">
+      <div class="site-container">
+        <header class="page-hero">
+          <h1 class="page-title">
+            <span class="title-primary">辽宁专升本</span><span class="title-divider" aria-hidden="true"> · </span><span class="title-secondary">计算机类学习站</span>
+          </h1>
+        </header>
 
-    <section class="section" id="resources">
-      <div class="section-heading">
-        <h2 class="section-title">资料入口</h2>
+        <section class="section" id="subjects" aria-labelledby="subjects-title">
+          <div class="section-heading">
+            <h2 class="section-title" id="subjects-title">科目索引</h2>
+          </div>
+
+          <div class="glass-panel subject-board">
+            <section class="subject-group" aria-labelledby="public-subjects-title">
+              <div class="subject-group__heading">
+                <h3 class="subject-group__title" id="public-subjects-title">公共课</h3>
+              </div>
+
+              <div class="card-grid subject-grid subject-grid--public">
+                <a class="content-card subject-card" href="yy/index.html">
+                  <div class="content-card__body">
+                    <div class="subject-card__top">
+                      <h4 class="content-card__title">英语</h4>
+                      <span class="subject-card__arrow" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M5 12h14"></path>
+                          <path d="m14 7 5 5-5 5"></path>
+                        </svg>
+                      </span>
+                    </div>
+                    <p class="content-card__text">五专题系统讲义、讲解视频与思维导图。</p>
+                  </div>
+                </a>
+
+                <a class="content-card subject-card" href="gs/index.html">
+                  <div class="content-card__body">
+                    <div class="subject-card__top">
+                      <h4 class="content-card__title">高等数学</h4>
+                      <span class="subject-card__arrow" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M5 12h14"></path>
+                          <path d="m14 7 5 5-5 5"></path>
+                        </svg>
+                      </span>
+                    </div>
+                    <p class="content-card__text">第一章，以及第四、五章学习内容。</p>
+                  </div>
+                </a>
+
+                <a class="content-card subject-card" href="jsj/index.html">
+                  <div class="content-card__body">
+                    <div class="subject-card__top">
+                      <h4 class="content-card__title">计算机基础</h4>
+                      <span class="subject-card__arrow" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M5 12h14"></path>
+                          <path d="m14 7 5 5-5 5"></path>
+                        </svg>
+                      </span>
+                    </div>
+                    <p class="content-card__text">第一章思维导图、第四章 Excel、第五章 PowerPoint。</p>
+                  </div>
+                </a>
+              </div>
+            </section>
+
+            <section class="subject-group" aria-labelledby="professional-subjects-title">
+              <div class="subject-group__heading">
+                <h3 class="subject-group__title" id="professional-subjects-title">专业课</h3>
+              </div>
+
+              <div class="card-grid subject-grid subject-grid--professional">
+                <a class="content-card subject-card" href="c/index.html">
+                  <div class="content-card__body">
+                    <div class="subject-card__top">
+                      <h4 class="content-card__title">C 语言</h4>
+                      <span class="subject-card__arrow" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M5 12h14"></path>
+                          <path d="m14 7 5 5-5 5"></path>
+                        </svg>
+                      </span>
+                    </div>
+                    <p class="content-card__text">5 道图片题讲解。</p>
+                  </div>
+                </a>
+
+                <article class="content-card subject-card subject-card--closed" aria-label="数据库，即将开放">
+                  <div class="content-card__body">
+                    <div class="subject-card__top">
+                      <h4 class="content-card__title">数据库</h4>
+                    </div>
+                    <p class="subject-card__status">即将开放</p>
+                  </div>
+                </article>
+
+                <a class="content-card subject-card" href="wy/index.html">
+                  <div class="content-card__body">
+                    <div class="subject-card__top">
+                      <h4 class="content-card__title">网页设计</h4>
+                      <span class="subject-card__arrow" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M5 12h14"></path>
+                          <path d="m14 7 5 5-5 5"></path>
+                        </svg>
+                      </span>
+                    </div>
+                    <p class="content-card__text">第 1–2 章课页与第 2 章讲解视频。</p>
+                  </div>
+                </a>
+
+                <article class="content-card subject-card subject-card--closed" aria-label="计算机网络，即将开放">
+                  <div class="content-card__body">
+                    <div class="subject-card__top">
+                      <h4 class="content-card__title">计算机网络</h4>
+                    </div>
+                    <p class="subject-card__status">即将开放</p>
+                  </div>
+                </article>
+              </div>
+            </section>
+          </div>
+        </section>
+
+        <section class="section resources-section" id="resources" aria-labelledby="resources-title">
+          <div class="section-heading">
+            <h2 class="section-title" id="resources-title">资料入口</h2>
+          </div>
+          <div class="card-grid subject-grid subject-grid--resources">
+                <a class="content-card subject-card resource-card" href="jsj/index.html">
+                  <div class="content-card__body">
+                    <div class="subject-card__top">
+                      <h3 class="content-card__title">Excel 视频讲解</h3>
+                      <span class="subject-card__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m14 7 5 5-5 5"></path></svg></span>
+                    </div>
+                  </div>
+                </a>
+                <a class="content-card subject-card resource-card" href="jsj/index.html#qbank">
+                  <div class="content-card__body">
+                    <div class="subject-card__top">
+                      <h3 class="content-card__title">题库入口</h3>
+                      <span class="subject-card__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m14 7 5 5-5 5"></path></svg></span>
+                    </div>
+                  </div>
+                </a>
+                <a class="content-card subject-card resource-card" href="c/index.html">
+                  <div class="content-card__body">
+                    <div class="subject-card__top">
+                      <h3 class="content-card__title">C 语言示例题</h3>
+                      <span class="subject-card__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m14 7 5 5-5 5"></path></svg></span>
+                    </div>
+                  </div>
+                </a>
+                <a class="content-card subject-card resource-card" href="yy/index.html">
+                  <div class="content-card__body">
+                    <div class="subject-card__top">
+                      <h3 class="content-card__title">英语思维导图</h3>
+                      <span class="subject-card__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m14 7 5 5-5 5"></path></svg></span>
+                    </div>
+                  </div>
+                </a>
+          </div>
+        </section>
       </div>
-      <div class="card-grid">
-        <a class="content-card" href="jsj/index.html">
-          <div class="content-card__body">
-            <h3 class="content-card__title">Excel 视频讲解</h3>
-          </div>
-        </a>
-        <a class="content-card" href="jsj/index.html#qbank">
-          <div class="content-card__body">
-            <h3 class="content-card__title">题库入口</h3>
-          </div>
-        </a>
-        <a class="content-card" href="c/index.html">
-          <div class="content-card__body">
-            <h3 class="content-card__title">C 语言示例题</h3>
-          </div>
-        </a>
-        <a class="content-card" href="yy/index.html">
-          <div class="content-card__body">
-            <h3 class="content-card__title">英语思维导图</h3>
-          </div>
-        </a>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <span>辽宁专升本</span>
+        <nav class="site-footer__links" aria-label="页脚导航">
+          <a href="#top">首页</a>
+          <a href="study/index.html">学习工作台</a>
+          <a href="tower/index.html">学习指挥塔</a>
+        </nav>
       </div>
-    </section>
-  </main>
-  <footer class="site-footer">
-    <div class="site-footer__inner">
-      <span>辽宁专升本 · 计算机类学习站</span>
-      <nav class="site-footer__links" aria-label="页脚导航">
-        <a href="#top">首页</a>
-        <a href="study/index.html">学习工作台</a>
-        <a href="tower/index.html">学习指挥塔</a>
-      </nav>
-    </div>
-  </footer>
+    </footer>
   </div>
-  <script src="mobile.js" data-base=""></script>
 </body>
 </html>
