@@ -289,6 +289,71 @@
       "topic_ids": ["cb.ppt.51", "cb.ppt.52", "cb.ppt.53", "cb.ppt.54", "cb.ppt.55", "cb.ppt.56"],
       "provenance": { "kind": "site_asset", "verified": true, "source_ref": "jsj/ppt5.html" },
       "status": "available"
+    },
+    {
+      "id": "res-yy5-ep1",
+      "kind": "video",
+      "title": "定语从句讲解",
+      "url": "yy/yy5/videos/01-attributive.mp4",
+      "page_url": "yy/yy5.html#video-4",
+      "duration_label": "6:27",
+      "topic_ids": ["english.attributive.basics"],
+      "provenance": { "kind": "site_asset", "verified": true, "source_ref": "yy/yy5.html" },
+      "status": "available"
+    },
+    {
+      "id": "res-yy5-ep2",
+      "kind": "video",
+      "title": "名词性从句讲解",
+      "url": "yy/yy5/videos/02-nominal.mp4",
+      "page_url": "yy/yy5.html#video-5",
+      "duration_label": "6:06",
+      "topic_ids": ["english.noun.basics"],
+      "provenance": { "kind": "site_asset", "verified": true, "source_ref": "yy/yy5.html" },
+      "status": "available"
+    },
+    {
+      "id": "res-yy5-ep3",
+      "kind": "video",
+      "title": "状语从句讲解",
+      "url": "yy/yy5/videos/03-adverbial.mp4",
+      "page_url": "yy/yy5.html#video-6",
+      "duration_label": "8:25",
+      "topic_ids": ["english.adverbial.basics"],
+      "provenance": { "kind": "site_asset", "verified": true, "source_ref": "yy/yy5.html" },
+      "status": "available"
+    },
+    {
+      "id": "res-yy5-ep4",
+      "kind": "video",
+      "title": "主谓一致讲解",
+      "url": "yy/yy5/videos/04-agreement.mp4",
+      "page_url": "yy/yy5.html#video-7",
+      "duration_label": "6:17",
+      "topic_ids": ["english.agreement.basics"],
+      "provenance": { "kind": "site_asset", "verified": true, "source_ref": "yy/yy5.html" },
+      "status": "available"
+    },
+    {
+      "id": "res-yy5-ep5",
+      "kind": "video",
+      "title": "特殊句型讲解",
+      "url": "yy/yy5/videos/05-special.mp4",
+      "page_url": "yy/yy5.html#video-8",
+      "duration_label": "7:54",
+      "topic_ids": ["english.special.basics"],
+      "provenance": { "kind": "site_asset", "verified": true, "source_ref": "yy/yy5.html" },
+      "status": "available"
+    },
+    {
+      "id": "res-yy5-md",
+      "kind": "notes",
+      "title": "五专题系统讲义（Markdown）",
+      "url": "yy/yy5/yy5.md",
+      "page_url": "yy/yy5.html",
+      "topic_ids": ["english.yy5.guide"],
+      "provenance": { "kind": "site_asset", "verified": true, "source_ref": "yy/yy5.html" },
+      "status": "available"
     }
   ]
 }

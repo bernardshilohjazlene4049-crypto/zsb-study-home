@@ -12,8 +12,8 @@
       "order": 1,
       "optional": false,
       "enabled": true,
-      "summary": "语法专题笔记、6 集讲解视频和 4 张导图。",
-      "catalog_note": "目录只覆盖 yy/index.html 已列出的专题，未核验为完整考试范围。",
+      "summary": "语法专题笔记、6 集讲解视频、4 张导图，以及五专题系统讲义（yy/yy5.html）。",
+      "catalog_note": "目录覆盖 yy/index.html 已列出的专题，以及 yy/yy5.html 的五专题系统讲义。未核验为完整考试范围。",
       "source_ref": "yy/index.html"
     },
     {
