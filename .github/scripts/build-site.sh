@@ -5,7 +5,7 @@ set -euo pipefail
 cd "$(git rev-parse --show-toplevel)"
 
 OUT=_site
-ROOT_FILES=(index.html 404.html style.css mobile.css mobile.js study-bridge.js)
+ROOT_FILES=(index.html 404.html search.html style.css mobile.css mobile.js study-bridge.js)
 SITE_DIRS=(assets c config data gs jsj study tower wy yy)
 FORBIDDEN=(shots docs tests gpt_brief.md .github node_modules)
 
@@ -17,6 +17,13 @@ for f in "${ROOT_FILES[@]}"; do
 done
 git ls-files -z -- "${SITE_DIRS[@]}" | xargs -0 cp --parents -t "$OUT"
 touch "$OUT/.nojekyll"
+
+# 站内搜索索引：Pagefind（npm 包，版本固定），输出到 _site/pagefind/，与站点同源。
+if [ "${SKIP_PAGEFIND:-}" != "1" ]; then
+  node .github/scripts/search-anchors.mjs "$OUT"
+  npx --yes pagefind@1.6.0
+  [ -f "$OUT/pagefind/pagefind.js" ] || { echo "搜索索引生成失败" >&2; exit 1; }
+fi
 
 for p in "${FORBIDDEN[@]}"; do
   if [ -e "$OUT/$p" ]; then echo "发布目录不应包含：$p" >&2; exit 1; fi

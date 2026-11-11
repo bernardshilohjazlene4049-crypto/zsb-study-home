@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>搜索 · 辽宁专升本</title>
+  <link rel="stylesheet" href="assets/css/site-unify.css">
+  <link rel="stylesheet" href="assets/css/site-search.css">
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="site-brand" href="./index.html" aria-label="辽宁专升本首页">
+          <span class="site-brand__mark" aria-hidden="true">升</span>
+          <span class="site-brand__name">辽宁专升本</span>
+        </a>
+        <nav class="site-nav" aria-label="全站导航">
+          <a class="site-nav__link" href="./index.html"><span class="site-nav__label">首页</span></a>
+          <a class="site-nav__link is-active" aria-current="page" href="./search.html"><span class="site-nav__label">搜索</span></a>
+        </nav>
+      </div>
+    </header>
+    <main class="site-main zsb-page"><div class="zsb-wrap">
+      <div class="zsb-head"><h1 class="zsb-title">搜索</h1></div>
+      <form role="search" id="zsb-search-form"><label class="zsb-sr-only" for="zsb-search">搜索知识点</label><div class="zsb-search-row"><input id="zsb-search" name="q" type="search" class="zsb-input" autocomplete="off" enterkeyhint="search"><button class="zsb-btn" type="submit">搜索</button></div></form>
+      <p id="zsb-search-status" class="zsb-status" role="status" aria-live="polite"></p>
+      <div id="zsb-search-results" class="zsb-results"></div>
+    </div></main>
+  </div>
+  <script type="module" src="./assets/js/site-search.js"></script>
+</body>
+</html>
