@@ -17,6 +17,7 @@
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="../assets/css/pvideo.css">
+<link rel="stylesheet" href="../assets/css/lecture-player.css">
 <style>
 /* 辽宁专升本 · 计算机类 — Minimal Design System
    Compatible with site-unify.css public tokens and class names.
@@ -1937,6 +1938,7 @@ A. <span aria-label="lim_{x→∞}" class="math-lim"><span>lim</span><sub>x→�
 </div></main>
 <dialog id="mapDialog" aria-label="思维导图放大图"><button class="dialog-close" id="closeDialog" type="button" aria-label="关闭">×</button><div id="mapZoomSlot"></div></dialog>
 <script src="../assets/js/pvideo-captions.js" defer></script>
+<script src="../assets/js/lecture-player.js" defer></script>
 <script>(() => {
  const bar=document.getElementById('readingProgressBar');
  const measure=()=>{const doc=document.documentElement; const limit=doc.scrollHeight-innerHeight;bar.style.width=(limit>0?Math.min(100,100*scrollY/limit):0)+'%';};
@@ -1977,6 +1979,6 @@ A. <span aria-label="lim_{x→∞}" class="math-lim"><span>lim</span><sub>x→�
  dialog.addEventListener('click',e=>{if(e.target===dialog)dismiss()});
  dialog.addEventListener('close',()=>slot.replaceChildren());
 })();</script>
-<script>(()=>{document.querySelectorAll('.pvideo-open').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const box=a.parentElement;const v=document.createElement('video');v.className='pvideo-player';v.controls=true;v.playsInline=true;v.preload='none';v.poster=a.dataset.poster;v.src=a.dataset.src;v.setAttribute('aria-label',a.getAttribute('aria-label')||[...a.querySelectorAll('span')].map(s=>s.textContent.trim()).filter(Boolean).join(' '));box.replaceChildren(v);const p=v.play();if(p&&p.catch)p.catch(()=>{});}));})();</script>
+<script>(()=>{document.querySelectorAll('.pvideo-open').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const box=a.parentElement;const v=document.createElement('video');v.className='pvideo-player';v.controls=false;v.playsInline=true;v.preload='none';v.poster=a.dataset.poster;v.src=a.dataset.src;v.setAttribute('aria-label',a.getAttribute('aria-label')||[...a.querySelectorAll('span')].map(s=>s.textContent.trim()).filter(Boolean).join(' '));box.replaceChildren(v);const p=v.play();if(p&&p.catch)p.catch(()=>{});}));})();</script>
 </body>
 </html>
