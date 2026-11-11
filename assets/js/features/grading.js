@@ -55,7 +55,7 @@ export function splitAttempts(attempts) {
   for (const attempt of attempts || []) {
     const kind = attempt?.provenance?.kind;
     if (kind === "sample") sample.push(attempt);
-    else if (kind === "verified" && attempt.counts_toward_real_stats !== false) real.push(attempt);
+    else if ((kind === "verified" || kind === "page") && attempt.counts_toward_real_stats !== false) real.push(attempt);
     else other.push(attempt);
   }
   return { real, sample, other };
