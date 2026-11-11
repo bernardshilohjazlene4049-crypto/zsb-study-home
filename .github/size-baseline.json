@@ -64,16 +64,16 @@
   "data/subjects.json": 4138,
   "data/topics.json": 26039,
   "data/video-anchors.json": 5270,
-  "gs/gs1.html": 246898,
-  "gs/gs45.html": 243045,
+  "gs/gs1.html": 385898,
+  "gs/gs45.html": 244580,
   "gs/index.html": 16851,
-  "gs/mindmap.html": 16374,
+  "gs/mindmap.html": 18464,
   "gs/practice.html": 7996,
   "index.html": 20161,
-  "jsj/index.html": 26052,
+  "jsj/index.html": 26218,
   "jsj/jsj1.html": 32045,
   "jsj/learn.css": 14704,
-  "jsj/mm.html": 13922,
+  "jsj/mm.html": 14199,
   "jsj/ppt5.html": 61758,
   "mobile.css": 5030,
   "mobile.js": 563,
@@ -190,12 +190,12 @@
   "yy/yy5.html": 383250
  },
  "categories": {
-  "html": 2796231,
+  "html": 2939299,
   "css/js": 409005,
-  "图片": 24810507,
+  "图片": 24813487,
   "json": 58846,
   "音视频": 672619860,
   "其他": 5591193
  },
- "total": 706285642
+ "total": 706431690
 }
