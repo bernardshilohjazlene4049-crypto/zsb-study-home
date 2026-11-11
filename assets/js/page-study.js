@@ -31,8 +31,8 @@
     return el ? el.id : "";
   }
   function sectionOf(node) {
-    var chapter = node && node.closest(".chapter");
-    return chapter ? text(chapter.querySelector(".chapter-title")) : "";
+    var chapter = node && node.closest(".chapter, .topic-section");
+    return chapter ? text(chapter.querySelector(".chapter-title, .topic-title")) : "";
   }
   function emit(detail) {
     document.dispatchEvent(new CustomEvent("zsb:attempt", { bubbles: true, detail: detail }));
@@ -52,7 +52,12 @@
     else { input.choice = d.choice; input.correct = d.correct; }
     queue = queue.then(function () {
       return api().then(function (mod) { return mod.recordPageAttempt(input); });
-    }).catch(function (error) { console.warn("学习记录未写入", error); });
+    }).then(function () {
+      document.dispatchEvent(new CustomEvent("zsb:attempt-saved", { detail: { questionId: d.questionId } }));
+    }).catch(function (error) {
+      console.warn("学习记录未写入", error);
+      document.dispatchEvent(new CustomEvent("zsb:attempt-failed", { detail: { questionId: d.questionId } }));
+    });
   });
 
   function qid(item) {
@@ -111,7 +116,8 @@
           subjectId: box.dataset.zsbSubject || subjectId,
           rating: btn.dataset.zsbRate,
           stem: box.dataset.zsbStem || text(box.querySelector("[data-zsb-stem]")),
-          anchor: box.id || anchorOf(box)
+          anchor: box.id || anchorOf(box),
+          section: sectionOf(box)
         });
       });
     });

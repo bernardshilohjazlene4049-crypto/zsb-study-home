@@ -1,7 +1,7 @@
 import { loadRawCatalog, createCatalog } from "./features/catalog.js";
 import { commitSubmission } from "./features/records.js";
 import { gradeQuestion } from "./features/grading.js";
-import { ensureSchema, get, put } from "./core/storage.js";
+import { ensureSchema, get, getAll, put } from "./core/storage.js";
 import { PAGE_PROVENANCE, normalizePagePayload } from "./features/page-attempts.js";
 
 export async function recordExternalAttempt(payload = {}) {
@@ -66,4 +66,15 @@ export async function migratePageRecords(storageKey, payloads = []) {
   const prev = await get("meta", flagId);
   await put("meta", { key: flagId, value: { last_run_at: new Date().toISOString(), seen: payloads.length, written: (prev?.value?.written || 0) + written } });
   return { written, skipped };
+}
+
+// 某道正文页题目的作答历史与错题档案（按时间升序）。
+export async function pageQuestionHistory(questionId) {
+  const schema = await ensureSchema();
+  if (!schema.ok) throw new Error(schema.message || "本机数据库不可用");
+  const attempts = (await getAll("attempts"))
+    .filter((a) => a.question_id === questionId)
+    .sort((a, b) => String(a.submitted_at).localeCompare(String(b.submitted_at)));
+  const mistake = (await getAll("mistake_entries")).find((m) => m.question_id === questionId && !m.deleted_at) || null;
+  return { attempts, mistake };
 }
