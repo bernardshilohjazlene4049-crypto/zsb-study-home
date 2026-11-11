@@ -1,0 +1,7 @@
+# 本地开发产物，不进入线上站点
+shots/
+node_modules/
+__pycache__/
+*.pyc
+.DS_Store
+*.log
