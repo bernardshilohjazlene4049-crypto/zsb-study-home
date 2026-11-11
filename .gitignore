@@ -1,0 +1,7 @@
+# 本地与构建产物
+_site/
+node_modules/
+__pycache__/
+*.pyc
+.DS_Store
+*.log

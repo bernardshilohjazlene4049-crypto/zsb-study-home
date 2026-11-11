@@ -1,0 +1,70 @@
+name: 发布站点
+
+# 只把白名单里的站点文件打包成 _site/ 发布，开发资料不会上线。
+# 需要先把仓库 Settings → Pages → Source 改成「GitHub Actions」；
+# 在改之前，deploy 会自动跳过，线上仍由原来的分支发布方式提供。
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: 生成发布目录
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: 按白名单生成 _site/
+        run: bash .github/scripts/build-site.sh
+
+      - name: 上传 Pages 产物
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: _site
+
+  mode:
+    name: 读取 Pages 发布方式
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-24.04
+    permissions:
+      pages: read
+    outputs:
+      build_type: ${{ steps.read.outputs.build_type }}
+    steps:
+      - id: read
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          t=$(gh api "repos/${{ github.repository }}/pages" --jq .build_type 2>/dev/null || echo unknown)
+          echo "build_type=$t" >> "$GITHUB_OUTPUT"
+          if [ "$t" != "workflow" ]; then
+            echo "::notice::Pages 发布方式是 $t，不是 GitHub Actions，本次跳过 deploy。"
+          fi
+
+  deploy:
+    name: 发布到 GitHub Pages
+    needs: [build, mode]
+    if: needs.mode.outputs.build_type == 'workflow'
+    runs-on: ubuntu-24.04
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5
