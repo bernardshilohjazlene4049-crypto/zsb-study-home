@@ -5,7 +5,7 @@ set -euo pipefail
 cd "$(git rev-parse --show-toplevel)"
 
 OUT=_site
-ROOT_FILES=(index.html 404.html search.html style.css mobile.css mobile.js study-bridge.js)
+ROOT_FILES=(index.html 404.html search.html sw.js manifest.webmanifest style.css mobile.css mobile.js study-bridge.js)
 SITE_DIRS=(assets c config data gs jsj study tower wy yy)
 FORBIDDEN=(shots docs tests gpt_brief.md .github node_modules)
 
@@ -24,6 +24,9 @@ if [ "${SKIP_PAGEFIND:-}" != "1" ]; then
   npx --yes pagefind@1.6.0
   [ -f "$OUT/pagefind/pagefind.js" ] || { echo "搜索索引生成失败" >&2; exit 1; }
 fi
+
+# 离线缓存：写入版本号（commit SHA）与预缓存清单。
+node .github/scripts/sw-build.mjs "$OUT"
 
 for p in "${FORBIDDEN[@]}"; do
   if [ -e "$OUT/$p" ]; then echo "发布目录不应包含：$p" >&2; exit 1; fi
