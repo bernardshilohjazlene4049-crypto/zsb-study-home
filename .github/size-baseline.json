@@ -2,6 +2,7 @@
  "note": "由 .github/scripts/site-budget.mjs --update 生成；单位为字节。",
  "files": {
   "404.html": 2443,
+  "assets/css/fn-graph.css": 4230,
   "assets/css/gs-hub.css": 1821,
   "assets/css/jsj-notes.css": 19696,
   "assets/css/lecture-player.css": 9334,
@@ -44,6 +45,8 @@
   "assets/js/features/subjects.js": 11136,
   "assets/js/features/topic.js": 4874,
   "assets/js/features/video.js": 2697,
+  "assets/js/fn-graph-data.js": 9526,
+  "assets/js/fn-graph.js": 11079,
   "assets/js/lecture-player.js": 13129,
   "assets/js/page-study.js": 6365,
   "assets/js/pvideo-captions.js": 915,
@@ -64,16 +67,16 @@
   "data/subjects.json": 4138,
   "data/topics.json": 26039,
   "data/video-anchors.json": 5270,
-  "gs/gs1.html": 246898,
-  "gs/gs45.html": 243045,
+  "gs/gs1.html": 387888,
+  "gs/gs45.html": 244580,
   "gs/index.html": 16851,
-  "gs/mindmap.html": 16374,
+  "gs/mindmap.html": 18464,
   "gs/practice.html": 7996,
   "index.html": 20161,
-  "jsj/index.html": 26052,
+  "jsj/index.html": 26218,
   "jsj/jsj1.html": 32045,
   "jsj/learn.css": 14704,
-  "jsj/mm.html": 13922,
+  "jsj/mm.html": 14199,
   "jsj/ppt5.html": 61758,
   "mobile.css": 5030,
   "mobile.js": 563,
@@ -190,12 +193,12 @@
   "yy/yy5.html": 383250
  },
  "categories": {
-  "html": 2796231,
-  "css/js": 409005,
-  "图片": 24810507,
+  "html": 2941289,
+  "css/js": 433840,
+  "图片": 26499398,
   "json": 58846,
-  "音视频": 672619860,
-  "其他": 5591193
+  "音视频": 785722761,
+  "其他": 5698015
  },
- "total": 706285642
+ "total": 821354149
 }
