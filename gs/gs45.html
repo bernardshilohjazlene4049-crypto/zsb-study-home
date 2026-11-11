@@ -372,6 +372,7 @@ body {background:var(--study-paper)}
 </style>
 <link rel="stylesheet" href="../assets/css/viz-plane.css">
 <link rel="stylesheet" href="../assets/css/video-facade.css">
+<link rel="stylesheet" href="../assets/css/lecture-player.css">
 <link rel="manifest" href="../manifest.webmanifest"><script src="../assets/js/sw-register.js" defer></script>
 </head>
 <body>
@@ -1879,10 +1880,11 @@ f<sub>xy</sub>=<span class="math-frac"><span class="frac-top">∂</span><span cl
   }));
 })();
 </script>
-<script>(()=>{document.querySelectorAll('.pvideo-open').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const box=a.parentElement;const v=document.createElement('video');v.className='pvideo-player';v.controls=true;v.playsInline=true;v.preload='none';v.poster=a.dataset.poster;v.src=a.dataset.src;v.setAttribute('aria-label',a.getAttribute('aria-label')||[...a.querySelectorAll('span')].map(s=>s.textContent.trim()).filter(Boolean).join(' '));box.replaceChildren(v);const p=v.play();if(p&&p.catch)p.catch(()=>{});}));})();</script>
+<script>(()=>{document.querySelectorAll('.pvideo-open').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const box=a.parentElement;const v=document.createElement('video');v.className='pvideo-player';v.controls=false;v.playsInline=true;v.preload='none';v.poster=a.dataset.poster;v.src=a.dataset.src;v.setAttribute('aria-label',a.getAttribute('aria-label')||[...a.querySelectorAll('span')].map(s=>s.textContent.trim()).filter(Boolean).join(' '));box.replaceChildren(v);const p=v.play();if(p&&p.catch)p.catch(()=>{});}));})();</script>
 <script src="../study-bridge.js"></script>
 <script src="../assets/js/page-study.js" data-page="gs45" data-subject="math"></script>
 <script src="../assets/js/viz-plane.js"></script>
 <script src="../assets/js/video-facade.js"></script>
+<script src="../assets/js/lecture-player.js" defer></script>
 </body>
 </html>
