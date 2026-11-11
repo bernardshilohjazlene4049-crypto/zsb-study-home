@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bernardshilohjazlene4049-crypto.github.io/zsb-study-home/sitemap.xml
