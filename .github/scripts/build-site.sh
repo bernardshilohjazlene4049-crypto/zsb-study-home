@@ -17,6 +17,19 @@ for f in "${ROOT_FILES[@]}"; do
   cp "$f" "$OUT/"
 done
 git ls-files -z -- "${SITE_DIRS[@]}" | xargs -0 cp --parents -t "$OUT"
+# 白名单目录里的开发稿不进入发布目录（.md / .py / .txt；根目录 robots.txt 不在其中）。
+EXCLUDED=()
+for d in "${SITE_DIRS[@]}"; do
+  if [ -d "$OUT/$d" ]; then
+    while IFS= read -r -d '' f; do
+      EXCLUDED+=("${f#"$OUT/"}")
+      rm -f "$f"
+    done < <(find "$OUT/$d" -type f \( -name '*.md' -o -name '*.py' -o -name '*.txt' \) -print0)
+  fi
+done
+if [ "${#EXCLUDED[@]}" -gt 0 ]; then
+  printf '已排除开发文件：%s\n' "${EXCLUDED[*]}"
+fi
 touch "$OUT/.nojekyll"
 
 # 站内搜索索引：Pagefind（npm 包，版本固定），输出到 _site/pagefind/，与站点同源。
@@ -32,6 +45,8 @@ node .github/scripts/sw-build.mjs "$OUT"
 for p in "${FORBIDDEN[@]}"; do
   if [ -e "$OUT/$p" ]; then echo "发布目录不应包含：$p" >&2; exit 1; fi
 done
+leftover=$(for d in "${SITE_DIRS[@]}"; do [ -d "$OUT/$d" ] && find "$OUT/$d" -type f \( -name '*.md' -o -name '*.py' -o -name '*.txt' \); done)
+if [ -n "$leftover" ]; then echo "发布目录仍有开发文件："$leftover >&2; exit 1; fi
 
 files=$(find "$OUT" -type f | wc -l)
 size=$(du -sm "$OUT" | cut -f1)
