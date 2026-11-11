@@ -30,6 +30,7 @@ jobs:
       - name: 单元测试
         run: node --test tests/stage1-data.mjs tests/stage1-logic.mjs
 
+      # 404.html 会出现在任意层级路径下，只能用 /zsb-study-home/ 绝对路径，所以不参与离线检查。
       - name: 站内链接（离线，含锚点）
         uses: lycheeverse/lychee-action@v2
         with:
@@ -38,6 +39,7 @@ jobs:
             --no-progress
             --include-fragments
             --root-dir ${{ github.workspace }}
+            --exclude-path '(^|/)404\.html$'
             './**/*.html'
           fail: true
 
