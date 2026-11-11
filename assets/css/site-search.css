@@ -1,0 +1,23 @@
+/* 站内搜索页（GPT search.html 样式，zsb- 作用域）。 */
+:root{--zsb-ink:var(--text-primary,#20252b);--zsb-muted:var(--text-secondary,#68727e);--zsb-line:var(--border-color,rgba(35,45,55,.12));--zsb-panel:var(--surface,#fff);--zsb-tint:var(--surface-soft,#f6f7f8);--zsb-accent:var(--accent,#3468aa);--zsb-radius:var(--radius-lg,18px)}
+.zsb-wrap{width:min(100% - 36px,1040px);margin-inline:auto}
+.zsb-page{min-height:70vh;padding-block:clamp(32px,7vw,82px);color:var(--zsb-ink)}
+.zsb-head{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:34px}
+.zsb-title{font-size:clamp(28px,4vw,44px);font-weight:650;letter-spacing:-.035em;line-height:1.17;margin:0}
+.zsb-muted{color:var(--zsb-muted)}
+.zsb-btn,.zsb-link{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:inherit;font-weight:580;text-decoration:none;cursor:pointer}
+.zsb-btn{min-height:44px;border:1px solid var(--zsb-line);border-radius:12px;background:var(--zsb-panel);color:var(--zsb-ink);padding:10px 15px}
+.zsb-btn:hover{background:var(--zsb-tint)}
+.zsb-btn:focus-visible,.zsb-link:focus-visible,.zsb-input:focus-visible,.zsb-result:focus-visible,summary:focus-visible{outline:3px solid #78a4e6;outline-offset:3px}
+.zsb-input{display:block;width:100%;min-width:0;min-height:54px;padding:0 18px;border-radius:14px;border:1px solid var(--zsb-line);background:var(--zsb-panel);color:var(--zsb-ink);font:inherit;font-size:17px}
+.zsb-search-row{display:flex;align-items:center;gap:10px}
+.zsb-search-row .zsb-input{flex:1}
+.zsb-results{display:grid;gap:10px;margin-top:24px}
+.zsb-result{display:block;color:inherit;text-decoration:none;border:1px solid var(--zsb-line);border-radius:14px;padding:19px 22px;background:var(--zsb-panel)}
+.zsb-result:hover{border-color:rgba(52,104,170,.42);background:var(--zsb-tint)}
+.zsb-result h2{font-size:17px;font-weight:620;margin:0 0 6px}
+.zsb-result p{font-size:14px;line-height:1.7;color:var(--zsb-muted);margin:0}
+.zsb-result mark{color:inherit;background:#e6edf8;border-radius:3px}
+.zsb-status{min-height:22px;color:var(--zsb-muted);font-size:14px}
+.zsb-sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:700px){.zsb-wrap{width:min(100% - 28px,1040px)}.zsb-head{align-items:start;flex-direction:column;margin-bottom:22px}.zsb-search-row{align-items:stretch}}
