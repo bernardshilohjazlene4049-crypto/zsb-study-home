@@ -24,8 +24,8 @@
   --sg-line-strong: rgba(28,36,48,.15);
   --sg-ink: #1b212b;
   --sg-ink-secondary: #596475;
-  --sg-ink-muted: #778395;
-  --sg-ink-faint: #9ca5b1;
+  --sg-ink-muted: #646f80;
+  --sg-ink-faint: #646f7e;
   --sg-on-accent: #fff;
   --sg-accent: #1668dc;
   --sg-accent-hover: #0f59c2;
@@ -34,7 +34,7 @@
   --sg-accent-line: rgba(22,104,220,.18);
   --sg-success: #237a55;
   --sg-success-soft: #edf6f0;
-  --sg-warning: #a87528;
+  --sg-warning: #916523;
   --sg-warning-soft: #faf3e9;
   --sg-danger: #b84e59;
   --sg-danger-soft: #fbf0f1;
@@ -402,7 +402,7 @@ iframe {max-width:100%}
 /* Reference-page components: original layout and class names */
 
 :root{
-  --sg-paper:#fbfcfe;--sg-card:#fff;--sg-ink:#17202c;--sg-ink-secondary:#4a5666;--sg-ink-muted:#7a8797;
+  --sg-paper:#fbfcfe;--sg-card:#fff;--sg-ink:#17202c;--sg-ink-secondary:#4a5666;--sg-ink-muted:#636f7e;
   --sg-line:rgba(28,36,48,.105);--sg-line-strong:rgba(28,36,48,.16);--sg-accent:#1668dc;--sg-accent-soft:#edf4ff;
   --sg-success:#237a55;--sg-page-gutter:32px;--sg-shadow:0 18px 55px rgba(27,43,68,.065);
   --sg-font:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",Arial,sans-serif;
@@ -512,7 +512,7 @@ body {background:var(--study-paper)}
 }
 .index-link:hover {background:#f1f4f8;color:var(--sg-ink)}
 .index-link.is-active {color:var(--sg-accent);background:var(--sg-accent-soft);border-color:rgba(22,104,220,.08)}
-.index-number {flex:none;min-width:30px;color:#9aa5b3;font-size:10px;font-variant-numeric:tabular-nums}
+.index-number {flex:none;min-width:30px;color:#616f81;font-size:10px;font-variant-numeric:tabular-nums}
 .index-link.is-active .index-number {color:var(--sg-accent);font-weight:700}
 .index-link--practice {margin-top:7px;border-top:1px solid var(--sg-line);border-radius:0 0 9px 9px;padding-top:12px}
 .study-content {min-width:0}
@@ -710,7 +710,7 @@ body {background:var(--study-paper)}
 .learning-block{padding:24px 26px;border-bottom:1px solid var(--sg-line)}
 .learning-block__head{display:flex;align-items:center;gap:10px;margin-bottom:16px}
 .learning-block__head h3{margin:0;font-size:15px;line-height:1.3;font-weight:740;letter-spacing:-.025em}
-.block-index{display:grid;place-items:center;width:27px;height:27px;border-radius:8px;background:#f2f5f9;color:#7b8796;font-size:9px;font-weight:800;font-variant-numeric:tabular-nums}
+.block-index{display:grid;place-items:center;width:27px;height:27px;border-radius:8px;background:#f2f5f9;color:#636f7d;font-size:9px;font-weight:800;font-variant-numeric:tabular-nums}
 .learning-block__body>.knowledge-content{padding:0}.learning-block__body .knowledge-content{padding-left:0;padding-right:0;padding-bottom:0}
 .learning-block__body .method-content{padding:0}.method-block{background:#fcfdff}.example-block{background:#fff}
 .routine-source{margin:0 0 12px;padding:12px 14px;border-left:2px solid #b7cae8;border-radius:0 10px 10px 0;background:#f7faff;color:#334155;font-size:12px;line-height:1.85}
@@ -783,7 +783,7 @@ body {background:var(--sg-paper);font-size:14px;line-height:1.7;letter-spacing:-
 .index-link{display:flex;align-items:center;gap:11px;min-height:39px;padding:7px 10px;border:1px solid transparent;border-radius:9px;color:var(--sg-ink-secondary);font-size:12px;line-height:1.45;transition:background var(--sg-transition),color var(--sg-transition),border-color var(--sg-transition)}
 .index-link:hover{color:var(--sg-ink);background:#f1f4f8}
 .index-link.is-active{color:var(--sg-accent);background:var(--sg-accent-soft);border-color:rgba(22,104,220,.085)}
-.index-number{display:inline-block;flex:none;min-width:27px;color:#a0aab8;font-size:10px;font-variant-numeric:tabular-nums;font-weight:700}
+.index-number{display:inline-block;flex:none;min-width:27px;color:#616f82;font-size:10px;font-variant-numeric:tabular-nums;font-weight:700}
 .index-link.is-active .index-number{color:var(--sg-accent)}
 .index-label{min-width:0;overflow-wrap:anywhere}
 .study-content{min-width:0}
@@ -797,7 +797,7 @@ body {background:var(--sg-paper);font-size:14px;line-height:1.7;letter-spacing:-
 .learning-block:last-child{border-bottom:0}
 .learning-block__head{display:flex;align-items:center;gap:10px;margin-bottom:13px}
 .learning-block__head h3{margin:0;font-size:14px;font-weight:740;line-height:1.35;letter-spacing:-.018em}
-.block-index{display:grid;place-items:center;flex:none;width:25px;height:25px;border-radius:8px;background:#f1f4f8;color:#8794a4;font-size:10px;font-variant-numeric:tabular-nums;font-weight:700}
+.block-index{display:grid;place-items:center;flex:none;width:25px;height:25px;border-radius:8px;background:#f1f4f8;color:#616f80;font-size:10px;font-variant-numeric:tabular-nums;font-weight:700}
 .knowledge-content{min-width:0;font-size:13px;line-height:1.92;color:#3b4858}
 .knowledge-content :is(ul,ol){margin:0;padding-left:1.45em}
 .knowledge-content li{margin:6px 0;padding-left:3px}
@@ -824,11 +824,11 @@ body {background:var(--sg-paper);font-size:14px;line-height:1.7;letter-spacing:-
 .question-card.practice-card:hover{transform:translateY(-1px);border-color:rgba(22,104,220,.23);box-shadow:0 5px 17px rgba(25,45,75,.045)}
 .question-card.practice-card:target{border-color:rgba(22,104,220,.48);box-shadow:0 0 0 3px rgba(22,104,220,.07)}
 .practice-card__top{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
-.practice-id{font-size:11px;font-weight:760;color:#697b91;font-variant-numeric:tabular-nums}
+.practice-id{font-size:11px;font-weight:760;color:#5f7084;font-variant-numeric:tabular-nums}
 .question-stem{margin:0 0 12px;padding:0;background:transparent;border:0;color:#293443;font-size:13px;line-height:1.85;overflow-wrap:anywhere}
 .question-stem p{margin:0 0 5px}
 .question-stem p:last-child{margin-bottom:0}
-.question-lead{display:block;width:max-content;margin:0 0 3px;color:#8a97a7;font-size:10px;font-weight:690;letter-spacing:.01em}
+.question-lead{display:block;width:max-content;margin:0 0 3px;color:#616f81;font-size:10px;font-weight:690;letter-spacing:.01em}
 .solution-toggle{margin-top:auto}
 .solution-toggle>summary{display:inline-flex;align-items:center;gap:7px;padding:7px 10px;min-height:34px;border:1px solid rgba(22,104,220,.16);border-radius:8px;background:#f7faff;color:var(--sg-accent);font-size:11px;line-height:1.2;font-weight:680;cursor:pointer;list-style:none;user-select:none;transition:background .18s ease,border-color .18s ease}
 .solution-toggle>summary:hover{background:#edf4ff;border-color:rgba(22,104,220,.3)}
@@ -861,7 +861,7 @@ body {background:var(--sg-paper);font-size:14px;line-height:1.7;letter-spacing:-
 .method-table-wrap{max-width:100%;overflow-x:auto;padding:7px 26px 25px;scrollbar-width:thin}
 .method-table{width:100%;border-collapse:collapse;table-layout:fixed;font-size:12px;line-height:1.85}
 .method-table th,.method-table td{padding:12px 9px;border-bottom:1px solid var(--sg-line);text-align:left;vertical-align:top;overflow-wrap:anywhere}
-.method-table thead th{color:#8693a3;font-size:11px;font-weight:730}
+.method-table thead th{color:#616f80;font-size:11px;font-weight:730}
 .method-table tbody th{width:47%;font-size:12px;color:#35465a;font-weight:650}
 .method-table tbody tr:hover{background:#fafcff}
 .method-table tbody tr:last-child th,.method-table tbody tr:last-child td{border-bottom:0}
@@ -922,20 +922,21 @@ sub.math-script{vertical-align:sub}
 .pvideo-open:hover{border-color:rgba(22,104,220,.3);color:var(--sg-accent);background:#f7faff}
 .pvideo-open:focus-visible{outline:2px solid var(--sg-accent);outline-offset:2px}
 .pvideo-open svg{width:10px;height:10px;fill:currentColor;flex:none}
-.pvideo-dur{color:#8593a6;font-weight:600;font-variant-numeric:tabular-nums}
+.pvideo-dur{color:#606f84;font-weight:600;font-variant-numeric:tabular-nums}
 .pvideo-player{display:block;width:100%;max-width:100%;aspect-ratio:16/9;border-radius:10px;background:#000}
 @media (prefers-reduced-motion:reduce){.pvideo-open{transition:none}}
 .kdvideo{margin:0;padding:18px 26px 0}
 @media (max-width:600px){.kdvideo{padding:14px 17px 0}}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 </style>
 </head>
 <body>
 <header class="site-header">
  <div class="site-container site-header__inner">
-   <a class="site-brand" href="../index.html" aria-label="返回首页"><span class="site-brand__mark">升</span><span class="site-brand__name">辽宁专升本</span></a>
+   <a class="site-brand" href="../index.html"><span class="site-brand__mark">升</span><span class="site-brand__name">辽宁专升本</span><span class="sr-only">首页</span></a>
    <nav class="site-nav site-nav--compact" aria-label="主导航">
     <a class="site-nav__link" href="../index.html" aria-label="首页"><span class="site-nav__icon" aria-hidden="true">⌂</span><span class="site-nav__label">首页</span></a>
-    <a class="site-nav__link" href="../search.html"><span class="site-nav__label">搜索</span></a>
+    <a class="site-nav__link" href="../search.html" aria-label="搜索"><span class="site-nav__icon" aria-hidden="true"><svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg></span><span class="site-nav__label">搜索</span></a>
     <a class="site-nav__link is-active" href="./index.html" aria-current="page" aria-label="高等数学"><span class="site-nav__icon" aria-hidden="true">∫</span><span class="site-nav__label">高等数学</span></a>
    </nav>
  </div><div class="reading-progress" aria-hidden="true"><div class="reading-progress__bar" id="readingProgressBar"></div></div>
@@ -978,14 +979,14 @@ sub.math-script{vertical-align:sub}
 </div><p class="flow-principle">求极限先判断类型：不是未定式就直接代入；是未定式再按上面的方法处理。
 </p></div>
 </section>
-     <section class="topic-section" id="point-1" data-point="point-1"><header class="topic-header"><span class="topic-number">01</span><h2 class="topic-title">考点一：定义域</h2></header><div class="pvideo kdvideo" data-kdvideo="kd1"><a class="pvideo-open" href="gs1/kdvideos/kd1-domain.mp4" data-src="gs1/kdvideos/kd1-domain.mp4" data-poster="gs1/kdposters/kd1.jpg" aria-label="考点一讲解视频，3:00"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>考点讲解</span><span class="pvideo-dur">3:00</span></a></div><div class="core-stack"><section class="learning-block memory-block" aria-labelledby="memory-1"><div class="learning-block__head"><span class="block-index">01</span><h3 id="memory-1">必背结论</h3></div><div class="learning-block__body knowledge-content"><p>两个函数相同，当且仅当定义域相同且对应法则相同。</p>
+     <section class="topic-section" id="point-1" data-point="point-1"><header class="topic-header"><span class="topic-number">01</span><h2 class="topic-title">考点一：定义域</h2></header><div class="pvideo kdvideo" data-kdvideo="kd1"><a class="pvideo-open" href="gs1/kdvideos/kd1-domain.mp4" data-src="gs1/kdvideos/kd1-domain.mp4" data-poster="gs1/kdposters/kd1.jpg"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span class="sr-only">考点一</span><span>考点讲解</span><span class="pvideo-dur">3:00</span></a></div><div class="core-stack"><section class="learning-block memory-block" aria-labelledby="memory-1"><div class="learning-block__head"><span class="block-index">01</span><h3 id="memory-1">必背结论</h3></div><div class="learning-block__body knowledge-content"><p>两个函数相同，当且仅当定义域相同且对应法则相同。</p>
 <ul>
 <li><span aria-label="1/□" class="math-frac"><span class="frac-top">1</span><span class="frac-bottom">□</span></span>：□≠0；偶次根号：□≥0；奇次根号：□取任意实数</li>
 <li>log、ln、lg □：□&gt;0；arcsin□、arccos□：|□|≤1</li>
 </ul>
 </div></section><section class="learning-block method-block" aria-labelledby="method-1"><div class="learning-block__head"><span class="block-index">02</span><h3 id="method-1">解题套路</h3></div><div class="tip-grid"><div class="tip-item"><div class="tip-text"><p>做题：每个条件列出来，最后取交集。</p>
 </div></div></div></section><section class="learning-block mistake-block" aria-labelledby="mistakes-1"><div class="learning-block__head"><span class="block-index">03</span><h3 id="mistakes-1">易错点</h3></div><div class="tip-grid"><div class="tip-item"><div class="tip-text"><p>偶次根号：□≥0；奇次根号：□取任意实数</p>
-</div></div></div></section></div></section><section class="topic-section" id="point-2" data-point="point-2"><header class="topic-header"><span class="topic-number">02</span><h2 class="topic-title">考点二：函数性质</h2></header><div class="pvideo kdvideo" data-kdvideo="kd2"><a class="pvideo-open" href="gs1/kdvideos/kd2-properties.mp4" data-src="gs1/kdvideos/kd2-properties.mp4" data-poster="gs1/kdposters/kd2.jpg" aria-label="考点二讲解视频，3:08"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>考点讲解</span><span class="pvideo-dur">3:08</span></a></div><div class="core-stack"><section class="learning-block memory-block" aria-labelledby="memory-2"><div class="learning-block__head"><span class="block-index">01</span><h3 id="memory-2">必背结论</h3></div><div class="learning-block__body knowledge-content"><ul>
+</div></div></div></section></div></section><section class="topic-section" id="point-2" data-point="point-2"><header class="topic-header"><span class="topic-number">02</span><h2 class="topic-title">考点二：函数性质</h2></header><div class="pvideo kdvideo" data-kdvideo="kd2"><a class="pvideo-open" href="gs1/kdvideos/kd2-properties.mp4" data-src="gs1/kdvideos/kd2-properties.mp4" data-poster="gs1/kdposters/kd2.jpg"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span class="sr-only">考点二</span><span>考点讲解</span><span class="pvideo-dur">3:08</span></a></div><div class="core-stack"><section class="learning-block memory-block" aria-labelledby="memory-2"><div class="learning-block__head"><span class="block-index">01</span><h3 id="memory-2">必背结论</h3></div><div class="learning-block__body knowledge-content"><ul>
 <li>奇偶性（前提：定义域关于原点对称）：f(-x)=-f(x) 为奇（关于原点对称），f(-x)=f(x) 为偶（关于 y 轴对称）</li>
 <li>常见奇函数：x<sup aria-label="^(2n+1)" class="math-script">(2n+1)</sup>, sinx, tanx, cotx, cscx, arcsinx, arctanx</li>
 <li>常见偶函数：x<sup aria-label="^(2n)" class="math-script">(2n)</sup>, cosx, secx, |x|, 常数 C</li>
@@ -995,10 +996,10 @@ sub.math-script{vertical-align:sub}
 </ul>
 </div></section><section class="learning-block method-block" aria-labelledby="method-2"><div class="learning-block__head"><span class="block-index">02</span><h3 id="method-2">解题套路</h3></div><div class="tip-grid"><div class="tip-item"><div class="tip-text"><p>奇偶性（前提：定义域关于原点对称）：f(-x)=-f(x) 为奇（关于原点对称），f(-x)=f(x) 为偶（关于 y 轴对称）</p>
 </div></div></div></section><section class="learning-block mistake-block" aria-labelledby="mistakes-2"><div class="learning-block__head"><span class="block-index">03</span><h3 id="mistakes-2">易错点</h3></div><div class="tip-grid"><div class="tip-item"><div class="tip-text"><p>奇±偶=非奇非偶</p>
-</div></div></div></section></div></section><section class="topic-section" id="point-3" data-point="point-3"><header class="topic-header"><span class="topic-number">03</span><h2 class="topic-title">考点三：数列极限</h2></header><div class="pvideo kdvideo" data-kdvideo="kd3"><a class="pvideo-open" href="gs1/kdvideos/kd3-sequence.mp4" data-src="gs1/kdvideos/kd3-sequence.mp4" data-poster="gs1/kdposters/kd3.jpg" aria-label="考点三讲解视频，2:17"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>考点讲解</span><span class="pvideo-dur">2:17</span></a></div><div class="core-stack"><section class="learning-block memory-block" aria-labelledby="memory-3"><div class="learning-block__head"><span class="block-index">01</span><h3 id="memory-3">必背结论</h3></div><div class="learning-block__body knowledge-content"><p>收敛数列极限唯一、必有界（有界不一定收敛，无界一定发散）；四则运算对和、差、积、商（分母极限不为 0）成立。</p>
+</div></div></div></section></div></section><section class="topic-section" id="point-3" data-point="point-3"><header class="topic-header"><span class="topic-number">03</span><h2 class="topic-title">考点三：数列极限</h2></header><div class="pvideo kdvideo" data-kdvideo="kd3"><a class="pvideo-open" href="gs1/kdvideos/kd3-sequence.mp4" data-src="gs1/kdvideos/kd3-sequence.mp4" data-poster="gs1/kdposters/kd3.jpg"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span class="sr-only">考点三</span><span>考点讲解</span><span class="pvideo-dur">2:17</span></a></div><div class="core-stack"><section class="learning-block memory-block" aria-labelledby="memory-3"><div class="learning-block__head"><span class="block-index">01</span><h3 id="memory-3">必背结论</h3></div><div class="learning-block__body knowledge-content"><p>收敛数列极限唯一、必有界（有界不一定收敛，无界一定发散）；四则运算对和、差、积、商（分母极限不为 0）成立。</p>
 </div></section><section class="learning-block method-block" aria-labelledby="method-3"><div class="learning-block__head"><span class="block-index">02</span><h3 id="method-3">解题套路</h3></div><div class="tip-grid"><div class="tip-item"><div class="tip-text"><p>四则运算对和、差、积、商（分母极限不为 0）成立。</p>
 </div></div></div></section><section class="learning-block mistake-block" aria-labelledby="mistakes-3"><div class="learning-block__head"><span class="block-index">03</span><h3 id="mistakes-3">易错点</h3></div><div class="tip-grid"><div class="tip-item"><div class="tip-text"><p>有界不一定收敛，无界一定发散</p>
-</div></div></div></section></div></section><section class="topic-section" id="point-4" data-point="point-4"><header class="topic-header"><span class="topic-number">04</span><h2 class="topic-title">考点四：函数极限</h2></header><div class="pvideo kdvideo" data-kdvideo="kd4"><a class="pvideo-open" href="gs1/kdvideos/kd4-function-limit.mp4" data-src="gs1/kdvideos/kd4-function-limit.mp4" data-poster="gs1/kdposters/kd4.jpg" aria-label="考点四讲解视频，3:23"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>考点讲解</span><span class="pvideo-dur">3:23</span></a></div><div class="core-stack"><section class="learning-block memory-block" aria-labelledby="memory-4"><div class="learning-block__head"><span class="block-index">01</span><h3 id="memory-4">必背结论</h3></div><div class="learning-block__body knowledge-content"><ul>
+</div></div></div></section></div></section><section class="topic-section" id="point-4" data-point="point-4"><header class="topic-header"><span class="topic-number">04</span><h2 class="topic-title">考点四：函数极限</h2></header><div class="pvideo kdvideo" data-kdvideo="kd4"><a class="pvideo-open" href="gs1/kdvideos/kd4-function-limit.mp4" data-src="gs1/kdvideos/kd4-function-limit.mp4" data-poster="gs1/kdposters/kd4.jpg"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span class="sr-only">考点四</span><span>考点讲解</span><span class="pvideo-dur">3:23</span></a></div><div class="core-stack"><section class="learning-block memory-block" aria-labelledby="memory-4"><div class="learning-block__head"><span class="block-index">01</span><h3 id="memory-4">必背结论</h3></div><div class="learning-block__body knowledge-content"><ul>
 <li>x→x₀ 极限存在，当且仅当左右极限都存在且相等；与 f(x₀) 有无定义、取何值无关</li>
 <li>x→∞ 极限存在，当且仅当 x→+∞ 与 x→-∞ 极限都存在且相等</li>
 <li>有理分式 x→∞ 看最高次：n=m 为 aₙ/bₘ，n&lt;m 为 0，n&gt;m 为 ∞</li>
@@ -1318,7 +1319,7 @@ x(<span aria-label="√(x²+100)" class="math-root"><span class="root-sign">√<
 </div></section><section class="solution-part solution-part--易错点"><h4>易错点</h4><div class="solution-part__text"><p>α 前面的负号不影响阶数。</p>
 </div></section><section class="solution-part solution-part--通用方法"><h4>通用方法</h4><div class="solution-part__text"><p>比较阶数 → 全部等价成 c·xᵏ，比较 k。</p>
 </div></section></div></details>
-</article></div></section></section><section class="topic-section" id="point-5" data-point="point-5"><header class="topic-header"><span class="topic-number">05</span><h2 class="topic-title">考点五：无穷小与无穷大</h2></header><div class="pvideo kdvideo" data-kdvideo="kd5"><a class="pvideo-open" href="gs1/kdvideos/kd5-infinitesimal.mp4" data-src="gs1/kdvideos/kd5-infinitesimal.mp4" data-poster="gs1/kdposters/kd5.jpg" aria-label="考点五讲解视频，2:38"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>考点讲解</span><span class="pvideo-dur">2:38</span></a></div><div class="core-stack"><section class="learning-block memory-block" aria-labelledby="memory-5"><div class="learning-block__head"><span class="block-index">01</span><h3 id="memory-5">必背结论</h3></div><div class="learning-block__body knowledge-content"><p>有限个无穷小的和、差、积仍是无穷小；有界函数乘无穷小仍是无穷小（如 x→∞ 时 <span aria-label="sinx/x" class="math-frac"><span class="frac-top">sinx</span><span class="frac-bottom">x</span></span>→0）；无穷大与非零无穷小互为倒数。</p>
+</article></div></section></section><section class="topic-section" id="point-5" data-point="point-5"><header class="topic-header"><span class="topic-number">05</span><h2 class="topic-title">考点五：无穷小与无穷大</h2></header><div class="pvideo kdvideo" data-kdvideo="kd5"><a class="pvideo-open" href="gs1/kdvideos/kd5-infinitesimal.mp4" data-src="gs1/kdvideos/kd5-infinitesimal.mp4" data-poster="gs1/kdposters/kd5.jpg"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span class="sr-only">考点五</span><span>考点讲解</span><span class="pvideo-dur">2:38</span></a></div><div class="core-stack"><section class="learning-block memory-block" aria-labelledby="memory-5"><div class="learning-block__head"><span class="block-index">01</span><h3 id="memory-5">必背结论</h3></div><div class="learning-block__body knowledge-content"><p>有限个无穷小的和、差、积仍是无穷小；有界函数乘无穷小仍是无穷小（如 x→∞ 时 <span aria-label="sinx/x" class="math-frac"><span class="frac-top">sinx</span><span class="frac-bottom">x</span></span>→0）；无穷大与非零无穷小互为倒数。</p>
 </div></section><section class="learning-block method-block" aria-labelledby="method-5"><div class="learning-block__head"><span class="block-index">02</span><h3 id="method-5">解题套路</h3></div><div class="tip-grid"><div class="tip-item"><a href="#q-5-1" class="tip-ref" aria-label="查看题目 5-1">5-1</a><div class="tip-text"><p>判断无穷小/无穷大，就是逐个求极限看是 0 还是 ∞。</p>
 </div></div>
 <div class="tip-item"><a href="#q-5-2" class="tip-ref" aria-label="查看题目 5-2">5-2</a><div class="tip-text"><p>指数里有 <span aria-label="1/x" class="math-frac"><span class="frac-top">1</span><span class="frac-bottom">x</span></span>，先看 <span aria-label="1/x" class="math-frac"><span class="frac-top">1</span><span class="frac-bottom">x</span></span> 趋向 +∞ 还是 -∞。</p>
@@ -1366,7 +1367,7 @@ x(<span aria-label="√(x²+100)" class="math-root"><span class="root-sign">√<
 </div></section><section class="solution-part solution-part--易错点"><h4>易错点</h4><div class="solution-part__text"><p>不要尝试求 sin<span aria-label="√(n²+1)" class="math-root"><span class="root-sign">√</span><span class="root-body">(n²+1)</span></span> 的极限，它不存在。</p>
 </div></section><section class="solution-part solution-part--通用方法"><h4>通用方法</h4><div class="solution-part__text"><p>看到 sin(…)、cos(…) 里面趋于 ∞ → 想“有界 × 无穷小 = 0”。</p>
 </div></section></div></details>
-</article></div></section></section><section class="topic-section" id="point-6" data-point="point-6"><header class="topic-header"><span class="topic-number">06</span><h2 class="topic-title">考点六：无穷小的比较（看 lim f/g）</h2></header><div class="pvideo kdvideo" data-kdvideo="kd6"><a class="pvideo-open" href="gs1/kdvideos/kd6-equivalent.mp4" data-src="gs1/kdvideos/kd6-equivalent.mp4" data-poster="gs1/kdposters/kd6.jpg" aria-label="考点六讲解视频，3:06"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>考点讲解</span><span class="pvideo-dur">3:06</span></a></div><div class="core-stack"><section class="learning-block memory-block" aria-labelledby="memory-6"><div class="learning-block__head"><span class="block-index">01</span><h3 id="memory-6">必背结论</h3></div><div class="learning-block__body knowledge-content"><p>=0 为高阶，=∞ 为低阶，=c(c≠0,1) 为同阶，=1 为等价。</p>
+</article></div></section></section><section class="topic-section" id="point-6" data-point="point-6"><header class="topic-header"><span class="topic-number">06</span><h2 class="topic-title">考点六：无穷小的比较（看 lim f/g）</h2></header><div class="pvideo kdvideo" data-kdvideo="kd6"><a class="pvideo-open" href="gs1/kdvideos/kd6-equivalent.mp4" data-src="gs1/kdvideos/kd6-equivalent.mp4" data-poster="gs1/kdposters/kd6.jpg"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span class="sr-only">考点六</span><span>考点讲解</span><span class="pvideo-dur">3:06</span></a></div><div class="core-stack"><section class="learning-block memory-block" aria-labelledby="memory-6"><div class="learning-block__head"><span class="block-index">01</span><h3 id="memory-6">必背结论</h3></div><div class="learning-block__body knowledge-content"><p>=0 为高阶，=∞ 为低阶，=c(c≠0,1) 为同阶，=1 为等价。</p>
 <ul>
 <li>八个等价（x→0）：sinx, tanx, arcsinx, arctanx, eˣ-1, ln(1+x) 都等价于 x；1-cosx~<span aria-label="x²/2" class="math-frac"><span class="frac-top">x²</span><span class="frac-bottom">2</span></span>；(1+x)^m-1~mx</li>
 <li>补充：aˣ-1~x·lna，secx-1~<span aria-label="x²/2" class="math-frac"><span class="frac-top">x²</span><span class="frac-bottom">2</span></span></li>
@@ -1629,7 +1630,7 @@ A. <span aria-label="lim_{x→∞}" class="math-lim"><span>lim</span><sub>x→�
 </div></section><section class="solution-part solution-part--易错点"><h4>易错点</h4><div class="solution-part__text"><p><span aria-label="1/x" class="math-frac"><span class="frac-top">1</span><span class="frac-bottom">x</span></span> - <span aria-label="1/(eˣ-1)" class="math-frac"><span class="frac-top">1</span><span class="frac-bottom">(eˣ-1)</span></span> 不能把 eˣ-1 换成 x 得 0（加减中不能替换）。</p>
 </div></section><section class="solution-part solution-part--通用方法"><h4>通用方法</h4><div class="solution-part__text"><p>∞-∞ 先通分，分子出现差函数就用 eˣ-1-x ~ <span aria-label="x²/2" class="math-frac"><span class="frac-top">x²</span><span class="frac-bottom">2</span></span> 这类公式。</p>
 </div></section></div></details>
-</article></div></section></section><section class="topic-section" id="point-7" data-point="point-7"><header class="topic-header"><span class="topic-number">07</span><h2 class="topic-title">考点七：两个重要极限</h2></header><div class="pvideo kdvideo" data-kdvideo="kd7"><a class="pvideo-open" href="gs1/kdvideos/kd7-important-limits.mp4" data-src="gs1/kdvideos/kd7-important-limits.mp4" data-poster="gs1/kdposters/kd7.jpg" aria-label="考点七讲解视频，2:55"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>考点讲解</span><span class="pvideo-dur">2:55</span></a></div><div class="core-stack"><section class="learning-block memory-block" aria-labelledby="memory-7"><div class="learning-block__head"><span class="block-index">01</span><h3 id="memory-7">必背结论</h3></div><div class="learning-block__body knowledge-content"><ul>
+</article></div></section></section><section class="topic-section" id="point-7" data-point="point-7"><header class="topic-header"><span class="topic-number">07</span><h2 class="topic-title">考点七：两个重要极限</h2></header><div class="pvideo kdvideo" data-kdvideo="kd7"><a class="pvideo-open" href="gs1/kdvideos/kd7-important-limits.mp4" data-src="gs1/kdvideos/kd7-important-limits.mp4" data-poster="gs1/kdposters/kd7.jpg"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span class="sr-only">考点七</span><span>考点讲解</span><span class="pvideo-dur">2:55</span></a></div><div class="core-stack"><section class="learning-block memory-block" aria-labelledby="memory-7"><div class="learning-block__head"><span class="block-index">01</span><h3 id="memory-7">必背结论</h3></div><div class="learning-block__body knowledge-content"><ul>
 <li><span aria-label="0/0" class="math-frac"><span class="frac-top">0</span><span class="frac-bottom">0</span></span> 型：□→0 时 sin□/□→1（注意 x→∞ 时 <span aria-label="sinx/x" class="math-frac"><span class="frac-top">sinx</span><span class="frac-bottom">x</span></span>→0）</li>
 <li>1^∞ 型：□→∞ 时 (1+<span aria-label="1/□" class="math-frac"><span class="frac-top">1</span><span class="frac-bottom">□</span></span>)^□→e；□→0 时 (1+□)<sup aria-label="^(1/□)" class="math-script">(1/□)</sup>→e</li>
 </ul>
@@ -1815,19 +1816,19 @@ A. <span aria-label="lim_{x→∞}" class="math-lim"><span>lim</span><sub>x→�
 </div></section><section class="solution-part solution-part--易错点"><h4>易错点</h4><div class="solution-part__text"><p>谁趋于 ∞ 要看清（这里是 t），x 是常数。</p>
 </div></section><section class="solution-part solution-part--通用方法"><h4>通用方法</h4><div class="solution-part__text"><p>“极限定义的函数” → 先把 f(x) 求出来，再代值。</p>
 </div></section></div></details>
-</article></div></section></section><section class="topic-section" id="point-8" data-point="point-8"><header class="topic-header"><span class="topic-number">08</span><h2 class="topic-title">考点八：渐近线</h2></header><div class="pvideo kdvideo" data-kdvideo="kd8"><a class="pvideo-open" href="gs1/kdvideos/kd8-asymptote.mp4" data-src="gs1/kdvideos/kd8-asymptote.mp4" data-poster="gs1/kdposters/kd8.jpg" aria-label="考点八讲解视频，2:33"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>考点讲解</span><span class="pvideo-dur">2:33</span></a></div><div class="core-stack"><section class="learning-block memory-block" aria-labelledby="memory-8"><div class="learning-block__head"><span class="block-index">01</span><h3 id="memory-8">必背结论</h3></div><div class="learning-block__body knowledge-content"><p>水平：x→±∞ 时 f(x)→b，则 y=b；垂直：x→x₀ 时 f(x)→∞，则 x=x₀（从无定义点里找）。</p>
+</article></div></section></section><section class="topic-section" id="point-8" data-point="point-8"><header class="topic-header"><span class="topic-number">08</span><h2 class="topic-title">考点八：渐近线</h2></header><div class="pvideo kdvideo" data-kdvideo="kd8"><a class="pvideo-open" href="gs1/kdvideos/kd8-asymptote.mp4" data-src="gs1/kdvideos/kd8-asymptote.mp4" data-poster="gs1/kdposters/kd8.jpg"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span class="sr-only">考点八</span><span>考点讲解</span><span class="pvideo-dur">2:33</span></a></div><div class="core-stack"><section class="learning-block memory-block" aria-labelledby="memory-8"><div class="learning-block__head"><span class="block-index">01</span><h3 id="memory-8">必背结论</h3></div><div class="learning-block__body knowledge-content"><p>水平：x→±∞ 时 f(x)→b，则 y=b；垂直：x→x₀ 时 f(x)→∞，则 x=x₀（从无定义点里找）。</p>
 </div></section><section class="learning-block method-block" aria-labelledby="method-8"><div class="learning-block__head"><span class="block-index">02</span><h3 id="method-8">解题套路</h3></div><div class="tip-grid"><div class="tip-item"><div class="tip-text"><p>水平：x→±∞ 时 f(x)→b，则 y=b；垂直：x→x₀ 时 f(x)→∞，则 x=x₀（从无定义点里找）。</p>
 </div></div></div></section><section class="learning-block mistake-block" aria-labelledby="mistakes-8"><div class="learning-block__head"><span class="block-index">03</span><h3 id="mistakes-8">易错点</h3></div><div class="tip-grid"><div class="tip-item"><div class="tip-text"><p>从无定义点里找</p>
-</div></div></div></section></div></section><section class="topic-section" id="point-9" data-point="point-9"><header class="topic-header"><span class="topic-number">09</span><h2 class="topic-title">考点九：连续定义</h2></header><div class="pvideo kdvideo" data-kdvideo="kd9"><a class="pvideo-open" href="gs1/kdvideos/kd9-continuity.mp4" data-src="gs1/kdvideos/kd9-continuity.mp4" data-poster="gs1/kdposters/kd9.jpg" aria-label="考点九讲解视频，2:13"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>考点讲解</span><span class="pvideo-dur">2:13</span></a></div><div class="core-stack"><section class="learning-block memory-block" aria-labelledby="memory-9"><div class="learning-block__head"><span class="block-index">01</span><h3 id="memory-9">必背结论</h3></div><div class="learning-block__body knowledge-content"><p>三条同时满足：x₀ 处有定义、极限存在、极限等于 f(x₀)。连续当且仅当左连续且右连续。</p>
+</div></div></div></section></div></section><section class="topic-section" id="point-9" data-point="point-9"><header class="topic-header"><span class="topic-number">09</span><h2 class="topic-title">考点九：连续定义</h2></header><div class="pvideo kdvideo" data-kdvideo="kd9"><a class="pvideo-open" href="gs1/kdvideos/kd9-continuity.mp4" data-src="gs1/kdvideos/kd9-continuity.mp4" data-poster="gs1/kdposters/kd9.jpg"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span class="sr-only">考点九</span><span>考点讲解</span><span class="pvideo-dur">2:13</span></a></div><div class="core-stack"><section class="learning-block memory-block" aria-labelledby="memory-9"><div class="learning-block__head"><span class="block-index">01</span><h3 id="memory-9">必背结论</h3></div><div class="learning-block__body knowledge-content"><p>三条同时满足：x₀ 处有定义、极限存在、极限等于 f(x₀)。连续当且仅当左连续且右连续。</p>
 </div></section><section class="learning-block method-block" aria-labelledby="method-9"><div class="learning-block__head"><span class="block-index">02</span><h3 id="method-9">解题套路</h3></div><div class="tip-grid"><div class="tip-item"><div class="tip-text"><p>三条同时满足：x₀ 处有定义、极限存在、极限等于 f(x₀)。</p>
 </div></div></div></section><section class="learning-block mistake-block" aria-labelledby="mistakes-9"><div class="learning-block__head"><span class="block-index">03</span><h3 id="mistakes-9">易错点</h3></div><div class="tip-grid"><div class="tip-item"><div class="tip-text"><p>连续当且仅当左连续且右连续。</p>
-</div></div></div></section></div></section><section class="topic-section" id="point-10" data-point="point-10"><header class="topic-header"><span class="topic-number">10</span><h2 class="topic-title">考点十：间断点类型</h2></header><div class="pvideo kdvideo" data-kdvideo="kd10"><a class="pvideo-open" href="gs1/kdvideos/kd10-discontinuity.mp4" data-src="gs1/kdvideos/kd10-discontinuity.mp4" data-poster="gs1/kdposters/kd10.jpg" aria-label="考点十讲解视频，2:09"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>考点讲解</span><span class="pvideo-dur">2:09</span></a></div><div class="core-stack"><section class="learning-block memory-block" aria-labelledby="memory-10"><div class="learning-block__head"><span class="block-index">01</span><h3 id="memory-10">必背结论</h3></div><div class="learning-block__body knowledge-content"><ul>
+</div></div></div></section></div></section><section class="topic-section" id="point-10" data-point="point-10"><header class="topic-header"><span class="topic-number">10</span><h2 class="topic-title">考点十：间断点类型</h2></header><div class="pvideo kdvideo" data-kdvideo="kd10"><a class="pvideo-open" href="gs1/kdvideos/kd10-discontinuity.mp4" data-src="gs1/kdvideos/kd10-discontinuity.mp4" data-poster="gs1/kdposters/kd10.jpg"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span class="sr-only">考点十</span><span>考点讲解</span><span class="pvideo-dur">2:09</span></a></div><div class="core-stack"><section class="learning-block memory-block" aria-labelledby="memory-10"><div class="learning-block__head"><span class="block-index">01</span><h3 id="memory-10">必背结论</h3></div><div class="learning-block__body knowledge-content"><ul>
 <li>第一类（左右极限都存在）：可去（相等）、跳跃（不等）</li>
 <li>第二类（至少一侧不存在）：无穷、振荡</li>
 </ul>
 </div></section><section class="learning-block method-block" aria-labelledby="method-10"><div class="learning-block__head"><span class="block-index">02</span><h3 id="method-10">解题套路</h3></div><div class="tip-grid"><div class="tip-item"><div class="tip-text"><p>做题：一定要分别求左右极限。</p>
 </div></div></div></section><section class="learning-block mistake-block" aria-labelledby="mistakes-10"><div class="learning-block__head"><span class="block-index">03</span><h3 id="mistakes-10">易错点</h3></div><div class="tip-grid"><div class="tip-item"><div class="tip-text"><p>第一类（左右极限都存在）：可去（相等）、跳跃（不等）</p>
-</div></div></div></section></div></section><section class="topic-section" id="point-11" data-point="point-11"><header class="topic-header"><span class="topic-number">11</span><h2 class="topic-title">考点十一：闭区间上连续函数性质</h2></header><div class="pvideo kdvideo" data-kdvideo="kd11"><a class="pvideo-open" href="gs1/kdvideos/kd11-closed-interval.mp4" data-src="gs1/kdvideos/kd11-closed-interval.mp4" data-poster="gs1/kdposters/kd11.jpg" aria-label="考点十一讲解视频，2:26"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>考点讲解</span><span class="pvideo-dur">2:26</span></a></div><div class="core-stack"><section class="learning-block memory-block" aria-labelledby="memory-11"><div class="learning-block__head"><span class="block-index">01</span><h3 id="memory-11">必背结论</h3></div><div class="learning-block__body knowledge-content"><p>最值定理；有界性定理；介值定理（C 介于 f(a)、f(b) 之间必能取到，推论：介于最小值和最大值之间也能取到）；零点定理（f(a)f(b)&lt;0 则 (a,b) 内有根，常用来证明方程有根）。</p>
+</div></div></div></section></div></section><section class="topic-section" id="point-11" data-point="point-11"><header class="topic-header"><span class="topic-number">11</span><h2 class="topic-title">考点十一：闭区间上连续函数性质</h2></header><div class="pvideo kdvideo" data-kdvideo="kd11"><a class="pvideo-open" href="gs1/kdvideos/kd11-closed-interval.mp4" data-src="gs1/kdvideos/kd11-closed-interval.mp4" data-poster="gs1/kdposters/kd11.jpg"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span class="sr-only">考点十一</span><span>考点讲解</span><span class="pvideo-dur">2:26</span></a></div><div class="core-stack"><section class="learning-block memory-block" aria-labelledby="memory-11"><div class="learning-block__head"><span class="block-index">01</span><h3 id="memory-11">必背结论</h3></div><div class="learning-block__body knowledge-content"><p>最值定理；有界性定理；介值定理（C 介于 f(a)、f(b) 之间必能取到，推论：介于最小值和最大值之间也能取到）；零点定理（f(a)f(b)&lt;0 则 (a,b) 内有根，常用来证明方程有根）。</p>
 </div></section><section class="learning-block method-block" aria-labelledby="method-11"><div class="learning-block__head"><span class="block-index">02</span><h3 id="method-11">解题套路</h3></div><div class="tip-grid"><div class="tip-item"><div class="tip-text"><p>零点定理（f(a)f(b)&lt;0 则 (a,b) 内有根，常用来证明方程有根）</p>
 </div></div></div></section><section class="learning-block mistake-block" aria-labelledby="mistakes-11"><div class="learning-block__head"><span class="block-index">03</span><h3 id="mistakes-11">易错点</h3></div><div class="tip-grid"><div class="tip-item"><div class="tip-text"><p>介值定理（C 介于 f(a)、f(b) 之间必能取到，推论：介于最小值和最大值之间也能取到）</p>
 </div></div></div></section></div></section>
@@ -1971,6 +1972,6 @@ A. <span aria-label="lim_{x→∞}" class="math-lim"><span>lim</span><sub>x→�
  dialog.addEventListener('click',e=>{if(e.target===dialog)dismiss()});
  dialog.addEventListener('close',()=>slot.replaceChildren());
 })();</script>
-<script>(()=>{document.querySelectorAll('.pvideo-open').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const box=a.parentElement;const v=document.createElement('video');v.className='pvideo-player';v.controls=true;v.playsInline=true;v.preload='none';v.poster=a.dataset.poster;v.src=a.dataset.src;v.setAttribute('aria-label',a.getAttribute('aria-label'));box.replaceChildren(v);const p=v.play();if(p&&p.catch)p.catch(()=>{});}));})();</script>
+<script>(()=>{document.querySelectorAll('.pvideo-open').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const box=a.parentElement;const v=document.createElement('video');v.className='pvideo-player';v.controls=true;v.playsInline=true;v.preload='none';v.poster=a.dataset.poster;v.src=a.dataset.src;v.setAttribute('aria-label',a.getAttribute('aria-label')||[...a.querySelectorAll('span')].map(s=>s.textContent.trim()).filter(Boolean).join(' '));box.replaceChildren(v);const p=v.play();if(p&&p.catch)p.catch(()=>{});}));})();</script>
 </body>
 </html>

@@ -7,7 +7,7 @@
 <title>第四章 向量代数与空间解析几何 · 第五章 多元函数微积分</title>
 <style>
 :root{
-  --sg-paper:#fbfcfe;--sg-card:#fff;--sg-ink:#17202c;--sg-ink-secondary:#4a5666;--sg-ink-muted:#7a8797;
+  --sg-paper:#fbfcfe;--sg-card:#fff;--sg-ink:#17202c;--sg-ink-secondary:#4a5666;--sg-ink-muted:#636f7e;
   --sg-line:rgba(28,36,48,.105);--sg-line-strong:rgba(28,36,48,.16);--sg-accent:#1668dc;--sg-accent-soft:#edf4ff;
   --sg-success:#237a55;--sg-page-gutter:32px;--sg-shadow:0 18px 55px rgba(27,43,68,.065);
   --sg-font:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",Arial,sans-serif;
@@ -117,7 +117,7 @@ body {background:var(--study-paper)}
 }
 .index-link:hover {background:#f1f4f8;color:var(--sg-ink)}
 .index-link.is-active {color:var(--sg-accent);background:var(--sg-accent-soft);border-color:rgba(22,104,220,.08)}
-.index-number {flex:none;min-width:30px;color:#9aa5b3;font-size:10px;font-variant-numeric:tabular-nums}
+.index-number {flex:none;min-width:30px;color:#616f81;font-size:10px;font-variant-numeric:tabular-nums}
 .index-link.is-active .index-number {color:var(--sg-accent);font-weight:700}
 .index-link--practice {margin-top:7px;border-top:1px solid var(--sg-line);border-radius:0 0 9px 9px;padding-top:12px}
 .study-content {min-width:0}
@@ -315,7 +315,7 @@ body {background:var(--study-paper)}
 .learning-block{padding:24px 26px;border-bottom:1px solid var(--sg-line)}
 .learning-block__head{display:flex;align-items:center;gap:10px;margin-bottom:16px}
 .learning-block__head h3{margin:0;font-size:15px;line-height:1.3;font-weight:740;letter-spacing:-.025em}
-.block-index{display:grid;place-items:center;width:27px;height:27px;border-radius:8px;background:#f2f5f9;color:#7b8796;font-size:9px;font-weight:800;font-variant-numeric:tabular-nums}
+.block-index{display:grid;place-items:center;width:27px;height:27px;border-radius:8px;background:#f2f5f9;color:#636f7d;font-size:9px;font-weight:800;font-variant-numeric:tabular-nums}
 .learning-block__body>.knowledge-content{padding:0}.learning-block__body .knowledge-content{padding-left:0;padding-right:0;padding-bottom:0}
 .learning-block__body .method-content{padding:0}.method-block{background:#fcfdff}.example-block{background:#fff}
 .routine-source{margin:0 0 12px;padding:12px 14px;border-left:2px solid #b7cae8;border-radius:0 10px 10px 0;background:#f7faff;color:#334155;font-size:12px;line-height:1.85}
@@ -358,12 +358,13 @@ body {background:var(--study-paper)}
 .pvideo-open:hover{border-color:rgba(22,104,220,.3);color:var(--sg-accent);background:#f7faff}
 .pvideo-open:focus-visible{outline:2px solid var(--sg-accent);outline-offset:2px}
 .pvideo-open svg{width:10px;height:10px;fill:currentColor;flex:none}
-.pvideo-dur{color:#8593a6;font-weight:600;font-variant-numeric:tabular-nums}
+.pvideo-dur{color:#606f84;font-weight:600;font-variant-numeric:tabular-nums}
 .pvideo-player{display:block;width:100%;max-width:100%;aspect-ratio:16/9;border-radius:10px;background:#000}
 @media (prefers-reduced-motion:reduce){.pvideo-open{transition:none}}
 .kdvideo{margin:0;padding:18px 26px 0}
 @media (max-width:850px){.kdvideo{padding:16px 20px 0}}
 @media (max-width:560px){.kdvideo{padding:14px 14px 0}}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 </style>
 <link rel="stylesheet" href="../assets/css/viz-plane.css">
 <link rel="stylesheet" href="../assets/css/video-facade.css">
@@ -371,7 +372,7 @@ body {background:var(--study-paper)}
 <body>
 <header class="site-header">
   <div class="site-container site-header__inner">
-    <a class="site-brand" href="../index.html" aria-label="返回首页"><span class="site-brand__mark">升</span><span class="site-brand__name">辽宁专升本</span></a>
+    <a class="site-brand" href="../index.html"><span class="site-brand__mark">升</span><span class="site-brand__name">辽宁专升本</span><span class="sr-only">首页</span></a>
     <nav class="site-nav site-nav--compact" aria-label="主导航">
       <a class="site-nav__link" href="../index.html"><span class="site-nav__icon">⌂</span><span class="site-nav__label">首页</span></a>
       <a class="site-nav__link is-active" href="../gs/index.html" aria-current="page"><span class="site-nav__icon">∫</span><span class="site-nav__label">高等数学</span></a>
@@ -399,7 +400,7 @@ body {background:var(--study-paper)}
       <div class="study-content">
         <section class="section topic-section" id="point-36" data-point="36">
       <div class="topic-header"><span class="topic-number">36</span><h2 class="topic-title">考点三十六：向量的基本概念、计算及关系</h2></div>
-      <div class="pvideo kdvideo" data-kdvideo="kd36"><a class="pvideo-open" href="gs45/kdvideos/kd36-vectors.mp4" data-src="gs45/kdvideos/kd36-vectors.mp4" data-poster="gs45/kdposters/kd36.jpg" aria-label="考点三十六讲解视频，2:58"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>考点讲解</span><span class="pvideo-dur">2:58</span></a></div>
+      <div class="pvideo kdvideo" data-kdvideo="kd36"><a class="pvideo-open" href="gs45/kdvideos/kd36-vectors.mp4" data-src="gs45/kdvideos/kd36-vectors.mp4" data-poster="gs45/kdposters/kd36.jpg"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span class="sr-only">考点三十六</span><span>考点讲解</span><span class="pvideo-dur">2:58</span></a></div>
       <div class="core-stack">
         <section class="learning-block memory-block">
           <div class="learning-block__head"><span class="block-index">01</span><h3>必背结论</h3></div>
@@ -610,7 +611,7 @@ k<span class="math-vector">a</span>=(ka<sub>1</sub>,ka<sub>2</sub>,ka<sub>3</sub
       </section>
     </section><section class="section topic-section" id="point-37" data-point="37">
       <div class="topic-header"><span class="topic-number">37</span><h2 class="topic-title">考点三十七：求平面方程</h2></div>
-      <div class="pvideo kdvideo" data-kdvideo="kd37"><a class="pvideo-open" href="gs45/kdvideos/kd37-plane.mp4" data-src="gs45/kdvideos/kd37-plane.mp4" data-poster="gs45/kdposters/kd37.jpg" aria-label="考点三十七讲解视频，2:39"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>考点讲解</span><span class="pvideo-dur">2:39</span></a></div>
+      <div class="pvideo kdvideo" data-kdvideo="kd37"><a class="pvideo-open" href="gs45/kdvideos/kd37-plane.mp4" data-src="gs45/kdvideos/kd37-plane.mp4" data-poster="gs45/kdposters/kd37.jpg"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span class="sr-only">考点三十七</span><span>考点讲解</span><span class="pvideo-dur">2:39</span></a></div>
       <div class="core-stack">
         <section class="learning-block memory-block">
           <div class="learning-block__head"><span class="block-index">01</span><h3>必背结论</h3></div>
@@ -826,7 +827,7 @@ l<sub>2</sub>:(x,y,z)=(0,0,0)+t(1,1,1).</div>
       </section>
     </section><section class="section topic-section" id="point-38" data-point="38">
       <div class="topic-header"><span class="topic-number">38</span><h2 class="topic-title">考点三十八：求直线方程</h2><a class="video-jump" href="#video-plane-line">跳到讲解视频</a></div>
-      <div class="pvideo kdvideo" data-kdvideo="kd38"><a class="pvideo-open" href="gs45/kdvideos/kd38-line.mp4" data-src="gs45/kdvideos/kd38-line.mp4" data-poster="gs45/kdposters/kd38.jpg" aria-label="考点三十八讲解视频，2:57"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>考点讲解</span><span class="pvideo-dur">2:57</span></a></div>
+      <div class="pvideo kdvideo" data-kdvideo="kd38"><a class="pvideo-open" href="gs45/kdvideos/kd38-line.mp4" data-src="gs45/kdvideos/kd38-line.mp4" data-poster="gs45/kdposters/kd38.jpg"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span class="sr-only">考点三十八</span><span>考点讲解</span><span class="pvideo-dur">2:57</span></a></div>
       <div class="core-stack">
         <section class="learning-block memory-block">
           <div class="learning-block__head"><span class="block-index">01</span><h3>必背结论</h3></div>
@@ -940,7 +941,7 @@ l<sub>2</sub>:(x,y,z)=(0,0,0)+t(1,1,1).</div>
       </section>
     </section><section class="section topic-section" id="point-39" data-point="39">
       <div class="topic-header"><span class="topic-number">39</span><h2 class="topic-title">考点三十九：二元函数求定义域（补充）</h2></div>
-      <div class="pvideo kdvideo" data-kdvideo="kd39"><a class="pvideo-open" href="gs45/kdvideos/kd39-domain.mp4" data-src="gs45/kdvideos/kd39-domain.mp4" data-poster="gs45/kdposters/kd39.jpg" aria-label="考点三十九讲解视频，2:34"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>考点讲解</span><span class="pvideo-dur">2:34</span></a></div>
+      <div class="pvideo kdvideo" data-kdvideo="kd39"><a class="pvideo-open" href="gs45/kdvideos/kd39-domain.mp4" data-src="gs45/kdvideos/kd39-domain.mp4" data-poster="gs45/kdposters/kd39.jpg"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span class="sr-only">考点三十九</span><span>考点讲解</span><span class="pvideo-dur">2:34</span></a></div>
       <div class="core-stack">
         <section class="learning-block memory-block">
           <div class="learning-block__head"><span class="block-index">01</span><h3>必背结论</h3></div>
@@ -997,7 +998,7 @@ l<sub>2</sub>:(x,y,z)=(0,0,0)+t(1,1,1).</div>
       </section>
     </section><section class="section topic-section" id="point-40" data-point="40">
       <div class="topic-header"><span class="topic-number">40</span><h2 class="topic-title">考点四十：二元函数的偏导数（补充）</h2><a class="video-jump" href="#video-partial-dz">跳到讲解视频</a></div>
-      <div class="pvideo kdvideo" data-kdvideo="kd40"><a class="pvideo-open" href="gs45/kdvideos/kd40-partial.mp4" data-src="gs45/kdvideos/kd40-partial.mp4" data-poster="gs45/kdposters/kd40.jpg" aria-label="考点四十讲解视频，2:32"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>考点讲解</span><span class="pvideo-dur">2:32</span></a></div>
+      <div class="pvideo kdvideo" data-kdvideo="kd40"><a class="pvideo-open" href="gs45/kdvideos/kd40-partial.mp4" data-src="gs45/kdvideos/kd40-partial.mp4" data-poster="gs45/kdposters/kd40.jpg"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span class="sr-only">考点四十</span><span>考点讲解</span><span class="pvideo-dur">2:32</span></a></div>
       <div class="core-stack">
         <section class="learning-block memory-block">
           <div class="learning-block__head"><span class="block-index">01</span><h3>必背结论</h3></div>
@@ -1073,7 +1074,7 @@ f<sub>xy</sub>=<span class="math-frac"><span class="frac-top">∂</span><span cl
       </section>
     </section><section class="section topic-section" id="point-41" data-point="41">
       <div class="topic-header"><span class="topic-number">41</span><h2 class="topic-title">考点四十一：二元函数的高阶偏导数</h2></div>
-      <div class="pvideo kdvideo" data-kdvideo="kd41"><a class="pvideo-open" href="gs45/kdvideos/kd41-higher-partial.mp4" data-src="gs45/kdvideos/kd41-higher-partial.mp4" data-poster="gs45/kdposters/kd41.jpg" aria-label="考点四十一讲解视频，2:21"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>考点讲解</span><span class="pvideo-dur">2:21</span></a></div>
+      <div class="pvideo kdvideo" data-kdvideo="kd41"><a class="pvideo-open" href="gs45/kdvideos/kd41-higher-partial.mp4" data-src="gs45/kdvideos/kd41-higher-partial.mp4" data-poster="gs45/kdposters/kd41.jpg"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span class="sr-only">考点四十一</span><span>考点讲解</span><span class="pvideo-dur">2:21</span></a></div>
       <div class="core-stack">
         <section class="learning-block memory-block">
           <div class="learning-block__head"><span class="block-index">01</span><h3>必背结论</h3></div>
@@ -1128,7 +1129,7 @@ f<sub>xy</sub>=<span class="math-frac"><span class="frac-top">∂</span><span cl
       </section>
     </section><section class="section topic-section" id="point-42" data-point="42">
       <div class="topic-header"><span class="topic-number">42</span><h2 class="topic-title">考点四十二：二元函数的全微分</h2></div>
-      <div class="pvideo kdvideo" data-kdvideo="kd42"><a class="pvideo-open" href="gs45/kdvideos/kd42-total-differential.mp4" data-src="gs45/kdvideos/kd42-total-differential.mp4" data-poster="gs45/kdposters/kd42.jpg" aria-label="考点四十二讲解视频，2:51"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>考点讲解</span><span class="pvideo-dur">2:51</span></a></div>
+      <div class="pvideo kdvideo" data-kdvideo="kd42"><a class="pvideo-open" href="gs45/kdvideos/kd42-total-differential.mp4" data-src="gs45/kdvideos/kd42-total-differential.mp4" data-poster="gs45/kdposters/kd42.jpg"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span class="sr-only">考点四十二</span><span>考点讲解</span><span class="pvideo-dur">2:51</span></a></div>
       <div class="core-stack">
         <section class="learning-block memory-block">
           <div class="learning-block__head"><span class="block-index">01</span><h3>必背结论</h3></div>
@@ -1208,7 +1209,7 @@ f<sub>xy</sub>=<span class="math-frac"><span class="frac-top">∂</span><span cl
       </section>
     </section><section class="section topic-section" id="point-43" data-point="43">
       <div class="topic-header"><span class="topic-number">43</span><h2 class="topic-title">考点四十三：二元函数求极值</h2></div>
-      <div class="pvideo kdvideo" data-kdvideo="kd43"><a class="pvideo-open" href="gs45/kdvideos/kd43-extrema.mp4" data-src="gs45/kdvideos/kd43-extrema.mp4" data-poster="gs45/kdposters/kd43.jpg" aria-label="考点四十三讲解视频，2:54"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>考点讲解</span><span class="pvideo-dur">2:54</span></a></div>
+      <div class="pvideo kdvideo" data-kdvideo="kd43"><a class="pvideo-open" href="gs45/kdvideos/kd43-extrema.mp4" data-src="gs45/kdvideos/kd43-extrema.mp4" data-poster="gs45/kdposters/kd43.jpg"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span class="sr-only">考点四十三</span><span>考点讲解</span><span class="pvideo-dur">2:54</span></a></div>
       <div class="core-stack">
         <section class="learning-block memory-block">
           <div class="learning-block__head"><span class="block-index">01</span><h3>必背结论</h3></div>
@@ -1280,7 +1281,7 @@ f<sub>xy</sub>=<span class="math-frac"><span class="frac-top">∂</span><span cl
       </section>
     </section><section class="section topic-section" id="point-44" data-point="44">
       <div class="topic-header"><span class="topic-number">44</span><h2 class="topic-title">考点四十四：二元函数的最值应用</h2><a class="video-jump" href="#video-extremum">跳到讲解视频</a></div>
-      <div class="pvideo kdvideo" data-kdvideo="kd44"><a class="pvideo-open" href="gs45/kdvideos/kd44-max-application.mp4" data-src="gs45/kdvideos/kd44-max-application.mp4" data-poster="gs45/kdposters/kd44.jpg" aria-label="考点四十四讲解视频，2:24"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>考点讲解</span><span class="pvideo-dur">2:24</span></a></div>
+      <div class="pvideo kdvideo" data-kdvideo="kd44"><a class="pvideo-open" href="gs45/kdvideos/kd44-max-application.mp4" data-src="gs45/kdvideos/kd44-max-application.mp4" data-poster="gs45/kdposters/kd44.jpg"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span class="sr-only">考点四十四</span><span>考点讲解</span><span class="pvideo-dur">2:24</span></a></div>
       <div class="core-stack">
         <section class="learning-block memory-block">
           <div class="learning-block__head"><span class="block-index">01</span><h3>必背结论</h3></div>
@@ -1325,7 +1326,7 @@ f<sub>xy</sub>=<span class="math-frac"><span class="frac-top">∂</span><span cl
       </section>
     </section><section class="section topic-section" id="point-45" data-point="45">
       <div class="topic-header"><span class="topic-number">45</span><h2 class="topic-title">考点四十五：多元复合函数求一阶偏导数</h2><a class="video-jump" href="#video-partial-dz">跳到讲解视频</a></div>
-      <div class="pvideo kdvideo" data-kdvideo="kd45"><a class="pvideo-open" href="gs45/kdvideos/kd45-chain-rule.mp4" data-src="gs45/kdvideos/kd45-chain-rule.mp4" data-poster="gs45/kdposters/kd45.jpg" aria-label="考点四十五讲解视频，2:38"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>考点讲解</span><span class="pvideo-dur">2:38</span></a></div>
+      <div class="pvideo kdvideo" data-kdvideo="kd45"><a class="pvideo-open" href="gs45/kdvideos/kd45-chain-rule.mp4" data-src="gs45/kdvideos/kd45-chain-rule.mp4" data-poster="gs45/kdposters/kd45.jpg"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span class="sr-only">考点四十五</span><span>考点讲解</span><span class="pvideo-dur">2:38</span></a></div>
       <div class="core-stack">
         <section class="learning-block memory-block">
           <div class="learning-block__head"><span class="block-index">01</span><h3>必背结论</h3></div>
@@ -1380,7 +1381,7 @@ f<sub>xy</sub>=<span class="math-frac"><span class="frac-top">∂</span><span cl
       </section>
     </section><section class="section topic-section" id="point-46" data-point="46">
       <div class="topic-header"><span class="topic-number">46</span><h2 class="topic-title">考点四十六：二重积分的性质</h2></div>
-      <div class="pvideo kdvideo" data-kdvideo="kd46"><a class="pvideo-open" href="gs45/kdvideos/kd46-double-integral-props.mp4" data-src="gs45/kdvideos/kd46-double-integral-props.mp4" data-poster="gs45/kdposters/kd46.jpg" aria-label="考点四十六讲解视频，2:33"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>考点讲解</span><span class="pvideo-dur">2:33</span></a></div>
+      <div class="pvideo kdvideo" data-kdvideo="kd46"><a class="pvideo-open" href="gs45/kdvideos/kd46-double-integral-props.mp4" data-src="gs45/kdvideos/kd46-double-integral-props.mp4" data-poster="gs45/kdposters/kd46.jpg"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span class="sr-only">考点四十六</span><span>考点讲解</span><span class="pvideo-dur">2:33</span></a></div>
       <div class="core-stack">
         <section class="learning-block memory-block">
           <div class="learning-block__head"><span class="block-index">01</span><h3>必背结论</h3></div>
@@ -1499,7 +1500,7 @@ f<sub>xy</sub>=<span class="math-frac"><span class="frac-top">∂</span><span cl
       </section>
     </section><section class="section topic-section" id="point-47" data-point="47">
       <div class="topic-header"><span class="topic-number">47</span><h2 class="topic-title">考点四十七：直角坐标系下二重积分的计算</h2></div>
-      <div class="pvideo kdvideo" data-kdvideo="kd47"><a class="pvideo-open" href="gs45/kdvideos/kd47-double-integral.mp4" data-src="gs45/kdvideos/kd47-double-integral.mp4" data-poster="gs45/kdposters/kd47.jpg" aria-label="考点四十七讲解视频，2:27"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>考点讲解</span><span class="pvideo-dur">2:27</span></a></div>
+      <div class="pvideo kdvideo" data-kdvideo="kd47"><a class="pvideo-open" href="gs45/kdvideos/kd47-double-integral.mp4" data-src="gs45/kdvideos/kd47-double-integral.mp4" data-poster="gs45/kdposters/kd47.jpg"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span class="sr-only">考点四十七</span><span>考点讲解</span><span class="pvideo-dur">2:27</span></a></div>
       <div class="core-stack">
         <section class="learning-block memory-block">
           <div class="learning-block__head"><span class="block-index">01</span><h3>必背结论</h3></div>
@@ -1570,7 +1571,7 @@ f<sub>xy</sub>=<span class="math-frac"><span class="frac-top">∂</span><span cl
       </section>
     </section><section class="section topic-section" id="point-48" data-point="48">
       <div class="topic-header"><span class="topic-number">48</span><h2 class="topic-title">考点四十八：交换积分次序</h2><a class="video-jump" href="#video-double-integral">跳到讲解视频</a></div>
-      <div class="pvideo kdvideo" data-kdvideo="kd48"><a class="pvideo-open" href="gs45/kdvideos/kd48-change-order.mp4" data-src="gs45/kdvideos/kd48-change-order.mp4" data-poster="gs45/kdposters/kd48.jpg" aria-label="考点四十八讲解视频，2:03"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>考点讲解</span><span class="pvideo-dur">2:03</span></a></div>
+      <div class="pvideo kdvideo" data-kdvideo="kd48"><a class="pvideo-open" href="gs45/kdvideos/kd48-change-order.mp4" data-src="gs45/kdvideos/kd48-change-order.mp4" data-poster="gs45/kdposters/kd48.jpg"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span class="sr-only">考点四十八</span><span>考点讲解</span><span class="pvideo-dur">2:03</span></a></div>
       <div class="core-stack">
         <section class="learning-block memory-block">
           <div class="learning-block__head"><span class="block-index">01</span><h3>必背结论</h3></div>
@@ -1634,7 +1635,7 @@ f<sub>xy</sub>=<span class="math-frac"><span class="frac-top">∂</span><span cl
         <section class="section topic-section special-section" id="suji" data-point="suji">
   <div class="topic-header"><span class="topic-number">速记</span><h2 class="topic-title">速记</h2></div>
   <div class="suji-sheet reading-column"><h3>考前 10 分钟必背</h3>
-<div class="table-wrap"><table>
+<div class="table-wrap" tabindex="0"><table>
 <thead><tr><th>主题</th><th>公式</th></tr></thead><tbody>
 <tr><td>数量积</td><td><span class="math-inline">a· b=a<sub>1</sub>b<sub>1</sub>+a<sub>2</sub>b<sub>2</sub>+a<sub>3</sub>b<sub>3</sub>=lvert arvertlvert brvert<span class="math-op">cos</span>θ</span>；⊥ ⟺ 点积 <span class="math-inline">0</span></td></tr>
 <tr><td>向量积</td><td><span class="math-inline">a× b=(a<sub>2</sub>b<sub>3</sub>-a<sub>3</sub>b<sub>2</sub>, a<sub>3</sub>b<sub>1</sub>-a<sub>1</sub>b<sub>3</sub>, a<sub>1</sub>b<sub>2</sub>-a<sub>2</sub>b<sub>1</sub>)</span>；∥ ⟺ 叉积 <span class="math-inline">0</span>；面积 <span class="math-inline">lvert a× brvert</span>（三角形 ÷2）</td></tr>
@@ -1780,7 +1781,7 @@ f<sub>xy</sub>=<span class="math-frac"><span class="frac-top">∂</span><span cl
     </article></div></section>
         <section class="section topic-section special-section" id="answer-key" data-point="answers">
 <div class="topic-header"><span class="topic-number">答</span><h2 class="topic-title">答案速查表</h2></div>
-<div class="answer-key special-copy"><div class="table-wrap"><table>
+<div class="answer-key special-copy"><div class="table-wrap" tabindex="0"><table>
 <thead><tr><th>题号</th><th>答案</th><th>题号</th><th>答案</th></tr></thead><tbody>
 <tr><td>36-1</td><td><span class="math-inline">π/2</span></td><td>36-2</td><td><span class="math-inline">7<span class="math-root"><span class="root-sign">√</span><span class="root-body">2</span></span>/18</span></td></tr>
 <tr><td>36-3</td><td><span class="math-inline">4</span></td><td>36-4</td><td><span class="math-inline"><span class="math-root"><span class="root-sign">√</span><span class="root-body">19</span></span></span></td></tr>
@@ -1871,7 +1872,7 @@ f<sub>xy</sub>=<span class="math-frac"><span class="frac-top">∂</span><span cl
   }));
 })();
 </script>
-<script>(()=>{document.querySelectorAll('.pvideo-open').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const box=a.parentElement;const v=document.createElement('video');v.className='pvideo-player';v.controls=true;v.playsInline=true;v.preload='none';v.poster=a.dataset.poster;v.src=a.dataset.src;v.setAttribute('aria-label',a.getAttribute('aria-label'));box.replaceChildren(v);const p=v.play();if(p&&p.catch)p.catch(()=>{});}));})();</script>
+<script>(()=>{document.querySelectorAll('.pvideo-open').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const box=a.parentElement;const v=document.createElement('video');v.className='pvideo-player';v.controls=true;v.playsInline=true;v.preload='none';v.poster=a.dataset.poster;v.src=a.dataset.src;v.setAttribute('aria-label',a.getAttribute('aria-label')||[...a.querySelectorAll('span')].map(s=>s.textContent.trim()).filter(Boolean).join(' '));box.replaceChildren(v);const p=v.play();if(p&&p.catch)p.catch(()=>{});}));})();</script>
 <script src="../study-bridge.js"></script>
 <script src="../assets/js/page-study.js" data-page="gs45" data-subject="math"></script>
 <script src="../assets/js/viz-plane.js"></script>

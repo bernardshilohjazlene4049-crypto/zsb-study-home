@@ -508,7 +508,7 @@
 
 <header class="site-header">
       <div class="site-header__inner">
-        <a class="site-brand" href="../index.html" aria-label="辽宁专升本首页">
+        <a class="site-brand" href="../index.html">
           <span class="site-brand__mark" aria-hidden="true">升</span>
           <span class="site-brand__name">辽宁专升本</span>
         </a>
@@ -599,7 +599,7 @@
       <h3>3. URL（Uniform Resource Locator，统一资源定位器，即网址）</h3>
       <p>用来描述 Internet 上资源的位置和访问方法。</p>
       <p>组成格式：</p>
-      <pre><code>协议类型://服务器地址(端口号)/路径/文件名</code></pre>
+      <pre tabindex="0"><code>协议类型://服务器地址(端口号)/路径/文件名</code></pre>
       <p>常见顶级域名：</p>
       <div class="tablewrap"><table>
         <thead><tr><th>域名</th><th>含义</th></tr></thead>
@@ -724,13 +724,13 @@
       <div class="tablewrap"><table><thead><tr><th>类型</th><th>说明</th><th>示例</th></tr></thead><tbody><tr><td><strong>双标签</strong></td><td>开始标签 + 结束标签，中间包内容</td><td><code>&lt;p&gt;这是一个段落&lt;/p&gt;</code></td></tr><tr><td><strong>单标签</strong></td><td>只有一个标签，无包裹内容</td><td><code>&lt;img&gt;</code>、<code>&lt;br/&gt;</code></td></tr></tbody></table></div>
       <h3>属性</h3>
       <p>给标签提供额外信息或样式，写法：<code>name="value"</code>，写在开始标签内。</p>
-      <pre><code>&lt;img src="photo.jpg" alt="一张风景照" width="300"/&gt;</code></pre>
+      <pre tabindex="0"><code>&lt;img src="photo.jpg" alt="一张风景照" width="300"/&gt;</code></pre>
       <p><code>src</code>、<code>alt</code>、<code>width</code> 都是属性。</p>
 
       <h2 id="s22">2.2 HTML5 文档结构</h2>
       <p>当前主流版本是 <strong>HTML5</strong>。文档结构四部分：<strong>声明、根标签、头标签、体标签</strong>。</p>
       <h3>最小完整示例</h3>
-      <pre><code>&lt;!doctype html&gt;
+      <pre tabindex="0"><code>&lt;!doctype html&gt;
 &lt;html&gt;
   &lt;head&gt;
     &lt;meta charset="utf-8"&gt;
@@ -758,11 +758,11 @@
       <h2 id="s23">2.3 <code>&lt;meta&gt;</code> 标签详解</h2>
       <p><code>&lt;meta&gt;</code> 用来定义网页的<strong>元数据</strong>（描述性信息），不直接显示在页面上，但会被浏览器和搜索引擎识别。</p>
       <ol>
-        <li><strong>关键字</strong>（供搜索引擎抓取）<pre><code>&lt;meta name="keywords" content="HTML,前端开发,学习教程"&gt;</code></pre></li>
-        <li><strong>网页描述</strong>（搜索结果中会显示）<pre><code>&lt;meta name="description" content="这是 HTML 基础入门教程，适合新手学习"&gt;</code></pre></li>
-        <li><strong>作者</strong><pre><code>&lt;meta name="author" content="马斯克"&gt;</code></pre></li>
-        <li><strong>字符集</strong>（防止乱码）<pre><code>&lt;meta charset="utf-8"&gt;</code></pre>笔记补充：也可用 <strong>GB2312</strong>（中文简体）。</li>
-        <li><strong>自动刷新 / 跳转</strong><pre><code>&lt;meta http-equiv="refresh" content="10;url=https://www.example.com"&gt;</code></pre><ul><li><code>10</code>：秒数</li><li><code>url</code>：跳转目标</li><li>也可表示每隔 10 秒刷新当前页面（不写 url 时）</li></ul></li>
+        <li><strong>关键字</strong>（供搜索引擎抓取）<pre tabindex="0"><code>&lt;meta name="keywords" content="HTML,前端开发,学习教程"&gt;</code></pre></li>
+        <li><strong>网页描述</strong>（搜索结果中会显示）<pre tabindex="0"><code>&lt;meta name="description" content="这是 HTML 基础入门教程，适合新手学习"&gt;</code></pre></li>
+        <li><strong>作者</strong><pre tabindex="0"><code>&lt;meta name="author" content="马斯克"&gt;</code></pre></li>
+        <li><strong>字符集</strong>（防止乱码）<pre tabindex="0"><code>&lt;meta charset="utf-8"&gt;</code></pre>笔记补充：也可用 <strong>GB2312</strong>（中文简体）。</li>
+        <li><strong>自动刷新 / 跳转</strong><pre tabindex="0"><code>&lt;meta http-equiv="refresh" content="10;url=https://www.example.com"&gt;</code></pre><ul><li><code>10</code>：秒数</li><li><code>url</code>：跳转目标</li><li>也可表示每隔 10 秒刷新当前页面（不写 url 时）</li></ul></li>
       </ol>
 
       <h2 id="s24">2.4 <code>&lt;body&gt;</code> 标签详解</h2>
