@@ -107,6 +107,7 @@ function mountShell() {
       h("aside", { class: "dashboard-sidebar sidebar glass-panel" }, [
         h("nav", { class: "nav-list", "aria-label": "学习导航" }, [
           navLink("home", "#/home", "工作台首页", "home"),
+          navLink("overview", "./overview.html", "学习总览", "plan"),
           navLink("subject", "#/subjects", "七科知识目录", "layers"),
           navLink("practice", "#/practice", "在线练习", "pencil"),
           navLink("mistakes", "#/mistakes", "错题与复习 ", "notebook", mistakeCount),
@@ -282,7 +283,7 @@ function renderHome() {
   const diagnosis = renderDiagnosis();
   const continued = renderContinue();
   return h("div", {}, [
-    pageHead("", "工作台", ""),
+    pageHead("", "工作台", "", [h("a", { class: "btn", href: "./overview.html" }, "学习总览")]),
     state.dbMessage ? h("p", { class: "notice" }, state.dbMessage) : null,
     h("div", { class: "metrics stat-grid" }, [
       metric("累计练习", attempts.length, "", "target"),

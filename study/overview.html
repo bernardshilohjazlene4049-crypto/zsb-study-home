@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f5f7fb">
+  <title>学习总览 · 辽宁专升本计算机组</title>
+  <link rel="stylesheet" href="../assets/css/site-unify.css">
+  <link rel="stylesheet" href="../assets/css/study-enhancements.css">
+</head>
+<body>
+  <div class="site-shell">
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-brand" href="../index.html">
+        <span class="site-brand__mark" aria-hidden="true">书</span>
+        <span class="site-brand__name">辽宁专升本 · 计算机类</span>
+      </a>
+      <nav class="site-nav site-nav--compact" aria-label="全站导航"><a class="site-nav__link" href="../index.html" aria-label="首页"><span class="site-nav__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m3 10 9-7 9 7v10H3z"/><path d="M9 20v-7h6v7"/></svg></span><span class="site-nav__label">首页</span></a><a class="site-nav__link" href="../index.html#subjects" aria-label="科目索引"><span class="site-nav__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m3 6 9-3 9 3v13l-9-3-9 3z"/><path d="M12 3v13"/></svg></span><span class="site-nav__label">科目索引</span></a><a class="site-nav__link" href="../study/index.html" aria-label="学习工作台"><span class="site-nav__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 9v11"/></svg></span><span class="site-nav__label">学习工作台</span></a><a class="site-nav__link" href="../tower/index.html" aria-label="学习指挥塔"><span class="site-nav__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 21h16M6 21V7l6-4 6 4v14M9 12h6M9 16h6"/></svg></span><span class="site-nav__label">学习指挥塔</span></a></nav>
+    </div>
+  </header>
+  <main class="site-main zsb-page"><div class="zsb-wrap">
+    <div class="zsb-head"><h1 class="zsb-title">学习总览</h1><div id="zsb-continue" aria-live="polite"></div></div>
+    <p id="zsb-overview-status" class="zsb-status" role="status"></p>
+    <div class="zsb-stack">
+      <section class="zsb-metrics" aria-label="学习记录" data-zsb-stats hidden><div class="zsb-card zsb-metric"><strong id="zsb-due-count">0</strong><span>今日到期复习</span></div><div class="zsb-card zsb-metric"><strong id="zsb-streak-count">0</strong><span>连续学习天数</span></div><div class="zsb-card zsb-metric"><strong id="zsb-subject-count">0 / 0</strong><span>已完成科目</span></div></section>
+      <section class="zsb-card" data-zsb-stats hidden><h2 class="zsb-section-title">今日到期复习</h2><ul class="zsb-queue" id="zsb-due-list"></ul></section>
+      <div class="zsb-grid" data-zsb-stats hidden><section class="zsb-card"><h2 class="zsb-section-title">各科进度</h2><div id="zsb-subjects"></div></section><section class="zsb-card"><h2 class="zsb-section-title">最近 30 天</h2><div id="zsb-heatmap" class="zsb-heatmap" role="img" aria-label="近 30 天学习记录热力图"></div><p id="zsb-activity-text" class="zsb-muted"></p></section></div>
+    </div>
+  </div></main>
+  </div>
+  <script src="../assets/js/site-nav.js" data-base="../" data-site-nav=""></script>
+  <script type="module" src="../assets/js/study-overview-adapter.js"></script>
+  <script type="module" src="../assets/js/study-overview.js"></script>
+</body>
+</html>
