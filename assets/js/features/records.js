@@ -34,9 +34,16 @@ export async function commitSubmission({
   elapsedMs = null,
   reasonTags = [],
   learnerId = LEARNER_ID,
-  source
+  source,
+  attemptId = null,
+  page = null,
+  migratedFrom = null
 }) {
   const now = new Date().toISOString();
+  if (attemptId) {
+    const seen = await get("attempts", attemptId);
+    if (seen) return { attempt: seen, mistake: null, decision: null, progress: [], duplicate: true };
+  }
   const attempt = buildAttempt({
     question,
     response,
@@ -46,9 +53,11 @@ export async function commitSubmission({
     helpLevel,
     elapsedMs,
     learnerId,
-    id: createId("att"),
+    id: attemptId || createId("att"),
     now,
-    source
+    source,
+    page,
+    migratedFrom
   });
   const duplicate = await get("attempts", attempt.id);
   if (duplicate) throw new Error("这次提交的编号已存在，没有覆盖旧记录。");

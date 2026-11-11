@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "subjects": [
+    {
+      "id": "web_design",
+      "url": "wy/html/quiz.html",
+      "pages": [
+        "wy/html/quiz.html"
+      ],
+      "questions": [
+        "page:wy-html-quiz:1",
+        "page:wy-html-quiz:2",
+        "page:wy-html-quiz:3",
+        "page:wy-html-quiz:4",
+        "page:wy-html-quiz:5",
+        "page:wy-html-quiz:6"
+      ]
+    },
+    {
+      "id": "english",
+      "url": "yy/yy5.html",
+      "pages": [
+        "yy/yy5.html"
+      ],
+      "questions": [
+        "page:yy5:4-1",
+        "page:yy5:4-2",
+        "page:yy5:4-3",
+        "page:yy5:4-4",
+        "page:yy5:4-5",
+        "page:yy5:4-6",
+        "page:yy5:4-7",
+        "page:yy5:4-8",
+        "page:yy5:4-9",
+        "page:yy5:4-10",
+        "page:yy5:5-1",
+        "page:yy5:5-2",
+        "page:yy5:5-3",
+        "page:yy5:5-4",
+        "page:yy5:5-5",
+        "page:yy5:5-6",
+        "page:yy5:5-7",
+        "page:yy5:5-8",
+        "page:yy5:5-9",
+        "page:yy5:5-10",
+        "page:yy5:6-1",
+        "page:yy5:6-2",
+        "page:yy5:6-3",
+        "page:yy5:6-4",
+        "page:yy5:6-5",
+        "page:yy5:6-6",
+        "page:yy5:6-7",
+        "page:yy5:6-8",
+        "page:yy5:6-9",
+        "page:yy5:6-10",
+        "page:yy5:7-1",
+        "page:yy5:7-2",
+        "page:yy5:7-3",
+        "page:yy5:7-4",
+        "page:yy5:7-5",
+        "page:yy5:7-6",
+        "page:yy5:7-7",
+        "page:yy5:7-8",
+        "page:yy5:7-9",
+        "page:yy5:7-10",
+        "page:yy5:8-1",
+        "page:yy5:8-2",
+        "page:yy5:8-3",
+        "page:yy5:8-4",
+        "page:yy5:8-5",
+        "page:yy5:8-6",
+        "page:yy5:8-7",
+        "page:yy5:8-8",
+        "page:yy5:8-9",
+        "page:yy5:8-10"
+      ]
+    }
+  ]
+}
