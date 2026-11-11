@@ -1972,6 +1972,6 @@ A. <span aria-label="lim_{x→∞}" class="math-lim"><span>lim</span><sub>x→�
  dialog.addEventListener('click',e=>{if(e.target===dialog)dismiss()});
  dialog.addEventListener('close',()=>slot.replaceChildren());
 })();</script>
-<script>(()=>{document.querySelectorAll('.pvideo-open').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const box=a.parentElement;const v=document.createElement('video');v.className='pvideo-player';v.controls=true;v.playsInline=true;v.preload='none';v.poster=a.dataset.poster;v.src=a.dataset.src;v.setAttribute('aria-label',a.getAttribute('aria-label'));box.replaceChildren(v);const p=v.play();if(p&&p.catch)p.catch(()=>{});}));})();</script>
+<script>(()=>{document.querySelectorAll('.pvideo-open').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const box=a.parentElement;const v=document.createElement('video');v.className='pvideo-player';v.controls=true;v.playsInline=true;v.preload='none';v.poster=a.dataset.poster;v.src=a.dataset.src;v.setAttribute('aria-label',a.getAttribute('aria-label')||[...a.querySelectorAll('span')].map(s=>s.textContent.trim()).filter(Boolean).join(' '));box.replaceChildren(v);const p=v.play();if(p&&p.catch)p.catch(()=>{});}));})();</script>
 </body>
 </html>
