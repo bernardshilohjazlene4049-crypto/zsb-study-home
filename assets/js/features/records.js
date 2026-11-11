@@ -76,6 +76,8 @@ export async function commitSubmission({
       grading,
       understanding,
       previousStep: existingMistake?.interval_step || 0,
+      previous: existingMistake,
+      guessed: attempt.guessed,
       now: Date.parse(now)
     });
     decision.schedule = schedule;
