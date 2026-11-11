@@ -1,0 +1,71 @@
+name: 站点检查
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: check-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    name: 测试 · 链接 · 体积
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: 单元测试
+        run: node --test tests/stage1-data.mjs tests/stage1-logic.mjs
+
+      # 404.html 会出现在任意层级路径下，只能用 /zsb-study-home/ 绝对路径，所以不参与离线检查。
+      - name: 站内链接（离线，含锚点）
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --offline
+            --no-progress
+            --include-fragments
+            --root-dir ${{ github.workspace }}
+            --exclude-path '(^|/)404\.html$'
+            './**/*.html'
+          fail: true
+
+      - name: 体积与本地资源
+        run: node .github/scripts/site-budget.mjs
+
+  a11y:
+    name: 可访问性抽查（只报告）
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: 安装 Playwright 与 axe-core（仅 CI 内使用）
+        run: |
+          npm install --no-save --no-audit --no-fund playwright@1 @axe-core/playwright@4
+          npx playwright install --with-deps chromium
+
+      - name: 扫描关键页面
+        run: |
+          python3 -m http.server 8080 >/dev/null 2>&1 &
+          for i in $(seq 1 20); do curl -sf http://127.0.0.1:8080/index.html >/dev/null && break; sleep 0.5; done
+          node .github/scripts/a11y.mjs

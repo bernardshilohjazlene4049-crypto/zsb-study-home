@@ -1,8 +1,19 @@
 (function () {
+  // 预览 iframe 是 sandbox="allow-scripts"（不开 allow-same-origin），浏览器不给 Web Storage；
+  // 这里给预览注入一个只存在于本次运行内存里的 localStorage / sessionStorage，示例代码照常可用，
+  // 也不会读写站点真实的存储。
+  var STORAGE_SHIM = "<script>(function(){function m(){var d=Object.create(null);return{getItem:function(k){k=String(k);return k in d?d[k]:null},setItem:function(k,v){d[String(k)]=String(v)},removeItem:function(k){delete d[String(k)]},clear:function(){d=Object.create(null)},key:function(i){var a=Object.keys(d);return i>=0&&i<a.length?a[i]:null},get length(){return Object.keys(d).length}}}[\"localStorage\",\"sessionStorage\"].forEach(function(n){try{window[n].length}catch(e){try{Object.defineProperty(window,n,{value:m(),configurable:true})}catch(_){}}})})();<\/script>";
+
+  function withShim(doc) {
+    if (/<head(\s[^>]*)?>/i.test(doc)) return doc.replace(/<head(\s[^>]*)?>/i, function (m) { return m + STORAGE_SHIM; });
+    if (/<html(\s[^>]*)?>/i.test(doc)) return doc.replace(/<html(\s[^>]*)?>/i, function (m) { return m + STORAGE_SHIM; });
+    return STORAGE_SHIM + doc;
+  }
+
   function wrapHtml(src) {
     var t = String(src || "").trim();
-    if (/<!doctype|<html[\s>]/i.test(t)) return t;
-    return "<!doctype html><html><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><style>body{font:14px/1.6 -apple-system,PingFang SC,sans-serif;margin:16px;color:#1D1D1F}h1,h2,h3{line-height:1.25}table{border-collapse:collapse}td,th{border:1px solid #ccc;padding:6px 8px}a{color:#0071E3}</style></head><body>" + t + "</body></html>";
+    if (/<!doctype|<html[\s>]/i.test(t)) return withShim(t);
+    return "<!doctype html><html><head>" + STORAGE_SHIM + "<meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><style>body{font:14px/1.6 -apple-system,PingFang SC,sans-serif;margin:16px;color:#1D1D1F}h1,h2,h3{line-height:1.25}table{border-collapse:collapse}td,th{border:1px solid #ccc;padding:6px 8px}a{color:#0071E3}</style></head><body>" + t + "</body></html>";
   }
 
   function runOne(box) {
