@@ -2,6 +2,16 @@
   "schema_version": 1,
   "subjects": [
     {
+      "id": "math",
+      "url": "gs/gs45.html",
+      "pages": [
+        "gs/gs45.html"
+      ],
+      "questions": [
+        "page:gs45:37-4"
+      ]
+    },
+    {
       "id": "web_design",
       "url": "wy/html/quiz.html",
       "pages": [
