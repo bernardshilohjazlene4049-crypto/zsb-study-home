@@ -1931,6 +1931,7 @@ A. <span aria-label="lim_{x→∞}" class="math-lim"><span>lim</span><sub>x→�
   </div>
 </div></main>
 <dialog id="mapDialog" aria-label="思维导图放大图"><button class="dialog-close" id="closeDialog" type="button" aria-label="关闭">×</button><div id="mapZoomSlot"></div></dialog>
+<script src="../assets/js/pvideo-captions.js" defer></script>
 <script>(() => {
  const bar=document.getElementById('readingProgressBar');
  const measure=()=>{const doc=document.documentElement; const limit=doc.scrollHeight-innerHeight;bar.style.width=(limit>0?Math.min(100,100*scrollY/limit):0)+'%';};
@@ -1972,6 +1973,5 @@ A. <span aria-label="lim_{x→∞}" class="math-lim"><span>lim</span><sub>x→�
  dialog.addEventListener('close',()=>slot.replaceChildren());
 })();</script>
 <script>(()=>{document.querySelectorAll('.pvideo-open').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const box=a.parentElement;const v=document.createElement('video');v.className='pvideo-player';v.controls=true;v.playsInline=true;v.preload='none';v.poster=a.dataset.poster;v.src=a.dataset.src;v.setAttribute('aria-label',a.getAttribute('aria-label'));box.replaceChildren(v);const p=v.play();if(p&&p.catch)p.catch(()=>{});}));})();</script>
-<script src="../assets/js/pvideo-captions.js" defer></script>
 </body>
 </html>
