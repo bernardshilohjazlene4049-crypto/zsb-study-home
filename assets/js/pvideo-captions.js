@@ -10,3 +10,12 @@ document.querySelectorAll('.pvideo-open[data-src]').forEach(link=>{
     video.append(track);
   });
 });
+
+(function(){
+  const cur=document.currentScript;
+  if(!cur||!cur.src||document.querySelector('script[data-zsb-caption-position]'))return;
+  const s=document.createElement('script');
+  s.src=cur.src.replace(/[^/]+(?:\?.*)?$/,'caption-position.js');
+  s.setAttribute('data-zsb-caption-position','');
+  document.head.append(s);
+})();
