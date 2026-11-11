@@ -1,0 +1,9 @@
+/* 考点/真题讲解视频按钮与播放器（gs1、gs45 共用）。 */
+.pvideo{margin:2px 0 12px}
+.pvideo-open{display:inline-flex;align-items:center;gap:7px;min-height:34px;padding:7px 10px;border:1px solid var(--sg-line);border-radius:8px;background:#fff;color:var(--sg-ink-secondary,#4a5565);font-size:11px;line-height:1.2;font-weight:680;text-decoration:none;transition:background .18s ease,border-color .18s ease,color .18s ease}
+.pvideo-open:hover{border-color:rgba(22,104,220,.3);color:var(--sg-accent);background:#f7faff}
+.pvideo-open:focus-visible{outline:2px solid var(--sg-accent);outline-offset:2px}
+.pvideo-open svg{width:10px;height:10px;fill:currentColor;flex:none}
+.pvideo-dur{color:#606f84;font-weight:600;font-variant-numeric:tabular-nums}
+.pvideo-player{display:block;width:100%;max-width:100%;aspect-ratio:16/9;border-radius:10px;background:#000}
+@media (prefers-reduced-motion:reduce){.pvideo-open{transition:none}}
