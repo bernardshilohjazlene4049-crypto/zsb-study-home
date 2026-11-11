@@ -1,0 +1,10 @@
+# 站内搜索索引（CI 在 _site/ 上运行 npx pagefind，输出 _site/pagefind/，同源发布）。
+site: _site
+force_language: zh
+glob: "{index.html,gs/**/*.html,yy/**/*.html,wy/**/*.html,jsj/**/*.html,c/**/*.html}"
+exclude_selectors:
+  - ".site-header"
+  - ".site-footer"
+  - "script"
+  - "style"
+  - "[data-pagefind-ignore]"

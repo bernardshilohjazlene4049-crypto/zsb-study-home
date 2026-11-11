@@ -26,7 +26,11 @@ jobs:
         with:
           fetch-depth: 1
 
-      - name: 按白名单生成 _site/
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: 按白名单生成 _site/（含站内搜索索引）
         run: bash .github/scripts/build-site.sh
 
       - name: 上传 Pages 产物
