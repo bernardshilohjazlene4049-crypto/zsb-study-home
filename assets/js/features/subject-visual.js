@@ -4,7 +4,7 @@ export const SUBJECT_VISUAL = {
   math: { color: "#5d8d9c", tint: "#eaf3f5", ico: "∑" },
   computer_basics: { color: "#6d91bd", tint: "#edf3fa", ico: "⌘" },
   c_language: { color: "#7894b8", tint: "#eff3f8", ico: "C" },
-  database: { color: "#8b87b8", tint: "#f1eff9", ico: "DB" },
+  database: { color: "#6a65a4", tint: "#f1eff9", ico: "DB" },
   web_design: { color: "#bf956e", tint: "#f8f1ea", ico: "</>" },
   network: { color: "#6d9f91", tint: "#edf6f2", ico: "↗" },
   digital_electronics: { color: "#8d93a3", tint: "#f2f3f6", ico: "电" }

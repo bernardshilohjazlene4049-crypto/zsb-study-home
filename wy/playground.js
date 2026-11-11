@@ -28,6 +28,7 @@
     box.dataset.ready = "1";
     var ta = box.querySelector(".tryit-code");
     if (ta && !box.dataset.original) box.dataset.original = ta.value;
+    if (ta && !ta.hasAttribute("aria-label")) ta.setAttribute("aria-label", "代码");
     var runBtn = box.querySelector(".tryit-run");
     var resetBtn = box.querySelector(".tryit-reset");
     if (runBtn) runBtn.addEventListener("click", function () { runOne(box); });
@@ -96,6 +97,10 @@
   document.addEventListener("DOMContentLoaded", function () {
     initAll(document);
     initQuiz(document);
+    // 横向可滚动的代码块需要能用键盘聚焦
+    document.querySelectorAll("pre").forEach(function (pre) {
+      if (pre.scrollWidth > pre.clientWidth && !pre.hasAttribute("tabindex")) pre.setAttribute("tabindex", "0");
+    });
     initTocToggle();
   });
 })();

@@ -15,8 +15,8 @@
   --sg-line-strong: rgba(28,36,48,.15);
   --sg-ink: #1b212b;
   --sg-ink-secondary: #596475;
-  --sg-ink-muted: #778395;
-  --sg-ink-faint: #9ca5b1;
+  --sg-ink-muted: #646f80;
+  --sg-ink-faint: #646f7e;
   --sg-on-accent: #fff;
   --sg-accent: #1668dc;
   --sg-accent-hover: #0f59c2;
@@ -25,7 +25,7 @@
   --sg-accent-line: rgba(22,104,220,.18);
   --sg-success: #237a55;
   --sg-success-soft: #edf6f0;
-  --sg-warning: #a87528;
+  --sg-warning: #916523;
   --sg-warning-soft: #faf3e9;
   --sg-danger: #b84e59;
   --sg-danger-soft: #fbf0f1;
@@ -390,3 +390,6 @@ iframe {max-width:100%}
     animation-duration:.01ms!important;animation-iteration-count:1!important;
     transition-duration:.01ms!important}
 }
+
+/* 只给读屏软件的文字 */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}

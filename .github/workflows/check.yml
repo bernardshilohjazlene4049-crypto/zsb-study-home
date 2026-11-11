@@ -47,7 +47,7 @@ jobs:
         run: node .github/scripts/site-budget.mjs
 
   a11y:
-    name: 可访问性抽查（只报告）
+    name: 可访问性检查
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     steps:
@@ -68,4 +68,4 @@ jobs:
         run: |
           python3 -m http.server 8080 >/dev/null 2>&1 &
           for i in $(seq 1 20); do curl -sf http://127.0.0.1:8080/index.html >/dev/null && break; sleep 0.5; done
-          node .github/scripts/a11y.mjs
+          A11Y_FAIL=1 node .github/scripts/a11y.mjs

@@ -1,5 +1,5 @@
-// 可访问性抽查：用 axe-core 扫描关键页面，把结果写进 CI 摘要。
-// 目前只报告、不阻塞合并；已有问题清理完后可把 A11Y_FAIL 设为 1 改成阻塞。
+// 可访问性检查：用 axe-core 扫描关键页面，把结果写进 CI 摘要。
+// A11Y_FAIL=1 时出现 serious/critical 问题即失败（CI 已开启）。
 import { chromium } from "playwright";
 import AxeBuilder from "@axe-core/playwright";
 import { appendFileSync } from "node:fs";
@@ -7,7 +7,8 @@ import { appendFileSync } from "node:fs";
 const BASE = process.env.SITE_BASE || "http://127.0.0.1:8080/";
 const PAGES = [
   "index.html", "gs/index.html", "gs/gs1.html", "gs/gs45.html", "yy/index.html", "yy/yy5.html",
-  "c/index.html", "jsj/index.html", "wy/index.html", "wy/html5/webstorage.html", "study/index.html"
+  "c/index.html", "jsj/index.html", "wy/index.html", "wy/html5/webstorage.html", "wy/html/quiz.html",
+  "study/index.html", "study/overview.html", "search.html"
 ];
 const browser = await chromium.launch(process.env.CHROME_PATH ? { executablePath: process.env.CHROME_PATH } : {});
 const rows = [];
