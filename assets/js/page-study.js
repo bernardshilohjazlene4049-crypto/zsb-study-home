@@ -30,6 +30,10 @@
     var el = node && node.closest("[id]");
     return el ? el.id : "";
   }
+  function sectionOf(node) {
+    var chapter = node && node.closest(".chapter");
+    return chapter ? text(chapter.querySelector(".chapter-title")) : "";
+  }
   function emit(detail) {
     document.dispatchEvent(new CustomEvent("zsb:attempt", { bubbles: true, detail: detail }));
   }
@@ -42,7 +46,7 @@
       questionId: d.questionId,
       subjectId: d.subjectId || subjectId,
       stem: d.stem || "",
-      page: { url: pageUrl, title: pageTitle, anchor: d.anchor || "" }
+      page: { url: pageUrl, title: d.section || pageTitle, anchor: d.anchor || "" }
     };
     if (d.rating) input.rating = d.rating;
     else { input.choice = d.choice; input.correct = d.correct; }
@@ -65,7 +69,8 @@
           choice: btn.dataset.choice,
           correct: card.dataset.correct,
           stem: text(card.querySelector(".question-prompt")),
-          anchor: anchorOf(card)
+          anchor: anchorOf(card),
+          section: sectionOf(card)
         });
       });
     });
@@ -128,7 +133,7 @@
               subjectId: subjectId,
               correct: card.dataset.correct,
               stem: text(card.querySelector(".question-prompt")),
-              page: { url: pageUrl, title: pageTitle, anchor: anchorOf(card) }
+              page: { url: pageUrl, title: sectionOf(card) || pageTitle, anchor: anchorOf(card) }
             };
           });
           return mods[0].migratePageRecords(legacyKey, mods[1].migrateChoiceMap(legacyKey, saved, questions));
