@@ -28,7 +28,7 @@ jobs:
           node-version: "22"
 
       - name: 单元测试
-        run: node --test tests/stage1-data.mjs tests/stage1-logic.mjs tests/stage2-page.mjs tests/stage3-fsrs.mjs
+        run: node --test tests/stage1-data.mjs tests/stage1-logic.mjs tests/stage2-page.mjs tests/stage3-fsrs.mjs tests/stage3-consolidate.mjs
 
       # 404.html 会出现在任意层级路径下，只能用 /zsb-study-home/ 绝对路径，所以不参与离线检查。
       - name: 站内链接（离线，含锚点）

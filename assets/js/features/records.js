@@ -6,6 +6,8 @@ import {
   applyReasonTags,
   buildAttempt,
   classifyOutcome,
+  consolidationOutcome,
+  FIRST_CONSOLIDATION_STEP,
   initialMistake,
   mergeMistake,
   nextProgress,
@@ -71,19 +73,21 @@ export async function commitSubmission({
   const allMistakes = await getAll("mistake_entries");
   const existingMistake = allMistakes.find((item) => item.learner_id === learnerId && item.question_id === question.id && !item.deleted_at) || null;
   let mistake = existingMistake;
-  if (decision.entersReview || existingMistake) {
+  const consolidate = !decision.entersReview;
+  if (decision.entersReview || existingMistake || consolidate) {
     const schedule = scheduleReview({
       grading,
       understanding,
-      previousStep: existingMistake?.interval_step || 0,
+      previousStep: existingMistake ? existingMistake.interval_step || 0 : consolidate ? FIRST_CONSOLIDATION_STEP : 0,
       previous: existingMistake,
       guessed: attempt.guessed,
       now: Date.parse(now)
     });
     decision.schedule = schedule;
+    const entry = consolidate ? consolidationOutcome({ existing: existingMistake, schedule }) : decision;
     const patch = initialMistake(
       attempt,
-      decision,
+      entry,
       schedule,
       existingMistake?.id || mistakeId(learnerId, question.id),
       now
@@ -97,7 +101,7 @@ export async function commitSubmission({
       mistake_id: mistake.id,
       attempt_id: attempt.id,
       outcome: `${grading.status}:${understanding}`,
-      category: decision.category,
+      category: entry.category,
       reviewed_at: now,
       next_review_at: mistake.next_review_at,
       created_at: now,

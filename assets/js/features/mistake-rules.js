@@ -74,6 +74,20 @@ export function scheduleReview({ grading, understanding, previousStep = 0, now =
   };
 }
 
+// 「会」也安排一次复习：新题从第 2 档起（答对且会 = 7 天；FSRS 下按 good 评分），
+// 已有档案按规则顺延；1/3/7/14 规则下到 14 天那一档后再答「会」才转为暂歇。
+export const CONSOLIDATE = "consolidate";
+export const FIRST_CONSOLIDATION_STEP = 1;
+
+export function consolidationOutcome({ existing, schedule }) {
+  const graduated = Boolean(existing) && schedule.rule !== "fsrs_5" && (existing.interval_step || 0) >= STEPS.length - 1;
+  return { entersReview: !graduated, category: existing ? null : CONSOLIDATE };
+}
+
+export function isMistakeRecord(item) {
+  return Boolean(item) && !item.deleted_at && item.category !== CONSOLIDATE;
+}
+
 export function buildAttempt({
   question,
   response,

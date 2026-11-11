@@ -8,6 +8,7 @@ import { renderQuiz } from "./features/quiz.js";
 import { renderMistakes } from "./features/mistakes.js";
 import { renderSettings } from "./features/settings.js";
 import { loadLearningState } from "./features/records.js";
+import { isMistakeRecord } from "./features/mistake-rules.js";
 import { visualFor } from "./features/subject-visual.js";
 import { icon } from "./features/icons.js";
 
@@ -182,7 +183,7 @@ function renderChrome(route) {
     if (on) link.setAttribute("aria-current", "page");
     else link.removeAttribute("aria-current");
   }
-  const mistakes = (state.learning.mistakes || []).filter((item) => !item.deleted_at);
+  const mistakes = (state.learning.mistakes || []).filter(isMistakeRecord);
   const count = document.querySelector("#mistakeCount");
   if (count) count.textContent = String(mistakes.length);
   const save = document.querySelector("#saveStatus");
@@ -236,7 +237,7 @@ function toolCard(href, iconName, title, note) {
 
 function learningCounts() {
   const attempts = state.learning.attempts || [];
-  const mistakes = (state.learning.mistakes || []).filter((item) => !item.deleted_at);
+  const mistakes = (state.learning.mistakes || []).filter(isMistakeRecord);
   const recorded = new Set((state.learning.progress || []).map((item) => item.topic_id));
   const days = new Set(attempts.map((item) => String(item.submitted_at || "").slice(0, 10)).filter(Boolean));
   return { attempts, mistakes, recorded, days };
