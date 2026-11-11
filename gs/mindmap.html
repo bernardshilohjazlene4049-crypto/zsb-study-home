@@ -97,7 +97,8 @@
     gap:12px;
   }
   .mind-tree>li>details>summary.tree-node{margin-inline:auto}
-  .mind-tree>li>details>ul{
+  .mind-tree>li>details>ul,
+  .mind-tree>li>a.tree-node+ul{
     display:grid;
     margin:18px 0 0;
     padding-left:0;
@@ -107,9 +108,12 @@
   #tree-limit>li>details>ul{grid-template-columns:repeat(3,minmax(0,1fr))}
   #tree-fortyfive>li>details>ul{grid-template-columns:repeat(2,minmax(0,1fr))}
   .mind-tree>li>details>ul::before,
-  .mind-tree>li>details>ul>li::before{display:none}
+  .mind-tree>li>details>ul>li::before,
+  .mind-tree>li>a.tree-node+ul::before,
+  .mind-tree>li>a.tree-node+ul>li::before{display:none}
   .mind-tree>li>details>ul>li>details>summary.tree-node,
-  .mind-tree>li>details>ul>li>.tree-node{
+  .mind-tree>li>details>ul>li>.tree-node,
+  .mind-tree>li>a.tree-node+ul>li>.tree-node{
     width:100%;
     font-weight:580;
   }
@@ -337,14 +341,29 @@
 
 <script>
 const trees = {
-  function: {"label": "函数", "children": [{"label": "定义", "children": [{"label": "定义域 ★★★", "children": [{"label": "判断两函数是否相同 P32第9题"}]}, {"label": "对应法则 表达式"}]}, {"label": "图像", "children": [{"label": "基本初等函数 反对幂指三"}, {"label": "常函数"}]}, {"label": "形式", "children": [{"label": "初等函数 一个式子"}, {"label": "分段函数 多个式子"}]}, {"label": "性质", "children": [{"label": "单调性", "children": [{"label": "看图像"}, {"label": "求导 第二章 f'≥0增 f'≤0减"}]}, {"label": "奇偶性 P2", "children": [{"label": "图像 性质 定义"}]}, {"label": "周期性"}, {"label": "有界性"}]}]},
-  limit: {"label": "极限", "children": [{"label": "数列极限 函数极限", "children": [{"label": "未定式 0/0 ∞/∞ ∞-∞ 0·∞ 1^∞ ∞^0 0^0"}, {"label": "抓大头 x→∞ 看分子分母最高次 ★"}, {"label": "代入 不是未定式直接得数"}, {"label": "化简 有理化 公式 通分 约分 0/0"}, {"label": "等价替换 0/0 0·∞"}, {"label": "重要极限 1^∞ ★★★"}, {"label": "洛必达 第二章"}]}, {"label": "无穷大与无穷小 P4", "children": [{"label": "定义"}, {"label": "无穷小比较", "children": [{"label": "高阶"}, {"label": "低阶"}, {"label": "同阶非等价"}, {"label": "等价 等价替换公式 ★★★"}]}]}, {"label": "函数的渐近线 ★", "children": [{"label": "水平渐近线 x→∞时 lim f(x)=数"}, {"label": "垂直渐近线 铅直 x→x0时 lim f(x)=∞"}]}]},
-  fortyfive: {"label": "第四五章", "children": [{"label": "向量与空间解析几何", "children": [{"label": "三十六 基本概念计算关系", "children": [{"label": "坐标与模"}, {"label": "方向余弦"}, {"label": "点积叉积"}]}, {"label": "三十七 平面方程", "children": [{"label": "点法式与十种特例"}, {"label": "两平面关系"}]}, {"label": "三十八 直线方程", "children": [{"label": "参数式与点向式"}, {"label": "两直线与线面关系"}]}]}, {"label": "多元函数微积分", "children": [{"label": "三十九 定义域"}, {"label": "四十 一阶偏导"}, {"label": "四十一 高阶偏导"}, {"label": "四十二 全微分", "children": [{"label": "连续可微偏导关系"}]}, {"label": "四十三 极值", "children": [{"label": "驻点与二阶判别"}]}, {"label": "四十四 最值应用", "children": [{"label": "边界与条件极值"}]}, {"label": "四十五 复合函数偏导", "children": [{"label": "连线相乘分线相加"}]}, {"label": "四十六 积分性质", "children": [{"label": "性质一至八"}, {"label": "对称估值中值"}]}, {"label": "四十七 直角坐标积分", "children": [{"label": "X型先y后x"}]}]}]}
+  function: {"label": "函数", "children": [{"label": "定义", "href": "gs1.html#point-1", "children": [{"label": "定义域 ★★★", "href": "gs1.html#point-1", "children": [{"label": "判断两函数是否相同 P32第9题", "href": "gs1.html#point-1"}]}, {"label": "对应法则 表达式", "href": "gs1.html#point-1"}]}, {"label": "图像", "children": [{"label": "基本初等函数 反对幂指三"}, {"label": "常函数"}]}, {"label": "形式", "children": [{"label": "初等函数 一个式子"}, {"label": "分段函数 多个式子"}]}, {"label": "性质", "href": "gs1.html#point-2", "children": [{"label": "单调性", "children": [{"label": "看图像"}, {"label": "求导 第二章 f'≥0增 f'≤0减"}]}, {"label": "奇偶性 P2", "href": "gs1.html#point-2", "children": [{"label": "图像 性质 定义", "href": "gs1.html#point-2"}]}, {"label": "周期性", "href": "gs1.html#point-2"}, {"label": "有界性", "href": "gs1.html#point-2"}]}]},
+  limit: {"label": "极限", "children": [{"label": "数列极限 函数极限", "children": [{"label": "未定式 0/0 ∞/∞ ∞-∞ 0·∞ 1^∞ ∞^0 0^0", "href": "gs1.html#point-4"}, {"label": "抓大头 x→∞ 看分子分母最高次 ★", "href": "gs1.html#point-4"}, {"label": "代入 不是未定式直接得数", "href": "gs1.html#point-4"}, {"label": "化简 有理化 公式 通分 约分 0/0", "href": "gs1.html#point-4"}, {"label": "等价替换 0/0 0·∞", "href": "gs1.html#point-6"}, {"label": "重要极限 1^∞ ★★★", "href": "gs1.html#point-7"}, {"label": "洛必达 第二章"}]}, {"label": "无穷大与无穷小 P4", "href": "gs1.html#point-5", "children": [{"label": "定义", "href": "gs1.html#point-5"}, {"label": "无穷小比较", "href": "gs1.html#point-6", "children": [{"label": "高阶", "href": "gs1.html#point-6"}, {"label": "低阶", "href": "gs1.html#point-6"}, {"label": "同阶非等价", "href": "gs1.html#point-6"}, {"label": "等价 等价替换公式 ★★★", "href": "gs1.html#point-6"}]}]}, {"label": "函数的渐近线 ★", "href": "gs1.html#point-8", "children": [{"label": "水平渐近线 x→∞时 lim f(x)=数", "href": "gs1.html#point-8"}, {"label": "垂直渐近线 铅直 x→x0时 lim f(x)=∞", "href": "gs1.html#point-8"}]}]},
+  fortyfive: {"label": "第四五章", "children": [{"label": "向量与空间解析几何", "children": [{"label": "三十六 基本概念计算关系", "href": "gs45.html#point-36", "children": [{"label": "坐标与模", "href": "gs45.html#point-36"}, {"label": "方向余弦", "href": "gs45.html#point-36"}, {"label": "点积叉积", "href": "gs45.html#point-36"}]}, {"label": "三十七 平面方程", "href": "gs45.html#point-37", "children": [{"label": "点法式与十种特例", "href": "gs45.html#point-37"}, {"label": "两平面关系", "href": "gs45.html#point-37"}]}, {"label": "三十八 直线方程", "href": "gs45.html#point-38", "children": [{"label": "参数式与点向式", "href": "gs45.html#point-38"}, {"label": "两直线与线面关系", "href": "gs45.html#point-38"}]}]}, {"label": "多元函数微积分", "children": [{"label": "三十九 定义域", "href": "gs45.html#point-39"}, {"label": "四十 一阶偏导", "href": "gs45.html#point-40"}, {"label": "四十一 高阶偏导", "href": "gs45.html#point-41"}, {"label": "四十二 全微分", "href": "gs45.html#point-42", "children": [{"label": "连续可微偏导关系", "href": "gs45.html#point-42"}]}, {"label": "四十三 极值", "href": "gs45.html#point-43", "children": [{"label": "驻点与二阶判别", "href": "gs45.html#point-43"}]}, {"label": "四十四 最值应用", "href": "gs45.html#point-44", "children": [{"label": "边界与条件极值", "href": "gs45.html#point-44"}]}, {"label": "四十五 复合函数偏导", "href": "gs45.html#point-45", "children": [{"label": "连线相乘分线相加", "href": "gs45.html#point-45"}]}, {"label": "四十六 积分性质", "href": "gs45.html#point-46", "children": [{"label": "性质一至八", "href": "gs45.html#point-46"}, {"label": "对称估值中值", "href": "gs45.html#point-46"}]}, {"label": "四十七 直角坐标积分", "href": "gs45.html#point-47", "children": [{"label": "X型先y后x", "href": "gs45.html#point-47"}]}]}]}
 };
+
+function nodeLabel(node) {
+  if (node.href) {
+    const a = document.createElement('a');
+    a.className = 'tree-node';
+    a.href = node.href;
+    a.textContent = node.label;
+    return a;
+  }
+  const span = document.createElement('span');
+  span.className = 'tree-node';
+  span.textContent = node.label;
+  return span;
+}
 
 function buildTree(node) {
   const li = document.createElement('li');
-  if (node.children && node.children.length) {
+  const kids = node.children && node.children.length;
+  if (kids && !node.href) {
     const details = document.createElement('details');
     details.open = true;
     const summary = document.createElement('summary');
@@ -355,11 +374,13 @@ function buildTree(node) {
     node.children.forEach(child => ul.appendChild(buildTree(child)));
     details.appendChild(ul);
     li.appendChild(details);
+  } else if (kids) {
+    li.appendChild(nodeLabel(node));
+    const ul = document.createElement('ul');
+    node.children.forEach(child => ul.appendChild(buildTree(child)));
+    li.appendChild(ul);
   } else {
-    const span = document.createElement('span');
-    span.className = 'tree-node';
-    span.textContent = node.label;
-    li.appendChild(span);
+    li.appendChild(nodeLabel(node));
   }
   return li;
 }
