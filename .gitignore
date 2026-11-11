@@ -1,5 +1,5 @@
-# 本地开发产物，不进入线上站点
-shots/
+# 本地与构建产物
+_site/
 node_modules/
 __pycache__/
 *.pyc
