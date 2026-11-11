@@ -5,9 +5,10 @@ set -euo pipefail
 cd "$(git rev-parse --show-toplevel)"
 
 OUT=_site
-ROOT_FILES=(index.html 404.html search.html sw.js manifest.webmanifest style.css mobile.css mobile.js study-bridge.js)
+ROOT_FILES=(index.html 404.html search.html style.css mobile.css mobile.js study-bridge.js)
 SITE_DIRS=(assets c config data gs jsj study tower wy yy)
 FORBIDDEN=(shots docs tests gpt_brief.md .github node_modules)
+ROOT_FILES+=(sw.js manifest.webmanifest)
 
 rm -rf "$OUT"
 mkdir -p "$OUT"
