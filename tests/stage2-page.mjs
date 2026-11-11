@@ -132,3 +132,16 @@ test("data/page-questions.json 与正文页一致", () => {
   const english = actual.subjects.find((s) => s.id === "english");
   assert.equal(english.questions.length, 50);
 });
+
+test("全站页面都有图标、搜索入口和描述", () => {
+  const pages = listHtml();
+  assert.ok(pages.length >= 118, `页面数 ${pages.length}`);
+  const missing = { favicon: [], search: [], description: [] };
+  for (const file of pages) {
+    const html = readFileSync(file, "utf8");
+    if (!/rel=["']icon["']/i.test(html)) missing.favicon.push(file);
+    if (!html.includes("search.html")) missing.search.push(file);
+    if (!/<meta\s+name=["']description["']/i.test(html)) missing.description.push(file);
+  }
+  assert.deepEqual(missing, { favicon: [], search: [], description: [] });
+});
