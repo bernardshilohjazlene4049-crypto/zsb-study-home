@@ -82,7 +82,9 @@ function mistakeCard(ctx, item) {
     h("p", { class: "muted" }, `首次作答 ${item.first_attempt_id} · 最近 ${item.last_attempt_id} · 共 ${item.attempt_ids?.length || attempts.length} 次`),
     h("p", { class: "muted" }, `下次复习参考 ${formatWhen(item.next_review_at)}`),
     h("div", { class: "row" }, [
-      h("a", { class: "btn btn-primary", href: `#/quiz/${item.question_id}?mode=retry` }, "重练"),
+      item.page?.url
+        ? h("a", { class: "btn btn-primary", href: `../${item.page.url}${item.page.anchor ? `#${item.page.anchor}` : ""}` }, "回到原题")
+        : h("a", { class: "btn btn-primary", href: `#/quiz/${item.question_id}?mode=retry` }, "重练"),
       question ? h("a", { class: "btn", href: `#/topic/${question.topic_ids?.[0] || ""}` }, "知识点") : null
     ]),
     h("details", {}, [

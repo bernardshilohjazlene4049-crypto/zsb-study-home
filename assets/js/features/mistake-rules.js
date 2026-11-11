@@ -62,7 +62,9 @@ export function buildAttempt({
   learnerId,
   id,
   now,
-  source
+  source,
+  page = null,
+  migratedFrom = null
 }) {
   const provenance = question.provenance || { kind: "unknown", verified: false };
   return {
@@ -79,14 +81,16 @@ export function buildAttempt({
     help_level: helpLevel || "none",
     elapsed_ms: elapsedMs,
     provenance,
-    counts_toward_real_stats: provenance.kind === "verified",
+    counts_toward_real_stats: provenance.kind === "verified" || provenance.kind === "page",
     stem_snapshot: question.stem || "",
     answer_snapshot: question.answer || null,
     topic_ids: [...(question.topic_ids || [])],
     subject_id: question.subject_id || null,
     submitted_at: now,
     created_at: now,
-    source: source || question.source || "local"
+    source: source || question.source || "local",
+    ...(page?.url ? { page: { url: page.url, title: page.title || "", anchor: page.anchor || "" } } : {}),
+    ...(migratedFrom ? { migrated_from: migratedFrom } : {})
   };
 }
 
@@ -121,7 +125,8 @@ export function initialMistake(attempt, decision, schedule, id, now) {
     updated_at: now,
     source: "local",
     alias_ids: [],
-    deleted_at: null
+    deleted_at: null,
+    ...(attempt.page ? { page: attempt.page } : {})
   };
 }
 
@@ -159,7 +164,8 @@ export function mergeMistake(existing, incoming) {
     first_category: existing.first_category,
     stem_snapshot: existing.stem_snapshot,
     provenance: existing.provenance,
-    counts_toward_real_stats: existing.counts_toward_real_stats
+    counts_toward_real_stats: existing.counts_toward_real_stats,
+    ...(existing.page || incoming.page ? { page: existing.page || incoming.page } : {})
   };
 }
 
