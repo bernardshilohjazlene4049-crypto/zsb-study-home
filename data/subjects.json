@@ -82,8 +82,8 @@
       "order": 6,
       "optional": false,
       "enabled": true,
-      "summary": "第 1–2 章、HTML / CSS / JS 课页和第 2 章讲解视频。",
-      "catalog_note": "早期需求稿写的「建设中」已过时。目录只挂仓库里真实存在的入口。",
+      "summary": "第 1–2 章、HTML / CSS / JS / HTML5 各课页和第 2 章讲解视频。",
+      "catalog_note": "目录挂接仓库里真实存在的入口，包括 wy/index.html 各节和 HTML / HTML5 / CSS / JS 各课页。",
       "source_ref": "wy/index.html"
     },
     {

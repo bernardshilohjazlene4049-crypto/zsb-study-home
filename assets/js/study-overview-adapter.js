@@ -12,17 +12,19 @@ window.ZSBStudyAdapter = {
   async getSnapshot() {
     const schema = await ensureSchema();
     if (!schema.ok) throw new Error(schema.message || "本机数据库不可用");
-    const [attempts, mistakes, registry, subjects] = await Promise.all([
+    const [attempts, mistakes, registry, subjects, topicsDoc] = await Promise.all([
       getAll("attempts"),
       getAll("mistake_entries"),
       json("../../data/page-questions.json"),
-      json("../../data/subjects.json")
+      json("../../data/subjects.json"),
+      json("../../data/topics.json")
     ]);
     return buildOverviewSnapshot({
       attempts,
       mistakes,
       registry,
       subjects: Array.isArray(subjects) ? subjects : subjects.subjects || [],
+      topics: topicsDoc.topics || [],
       base: "../"
     });
   }

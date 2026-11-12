@@ -9,8 +9,12 @@ import {
   migrationAttemptId,
   normalizePagePayload,
   pageQuestionId,
-  ratingOutcome
+  ratingOutcome,
+  isExcludedQuestionId,
+  topicIdsForQuestionId,
+  enrichTopicIds
 } from "../assets/js/features/page-attempts.js";
+import { withResolvedTopics } from "../assets/js/features/records.js";
 import { buildAttempt, classifyOutcome, initialMistake, mergeMistake, scheduleReview } from "../assets/js/features/mistake-rules.js";
 import { splitAttempts } from "../assets/js/features/grading.js";
 import { buildRegistry, listHtml } from "../.github/scripts/page-questions.mjs";
@@ -144,4 +148,67 @@ test("全站页面都有图标、搜索入口和描述", () => {
     if (!/<meta\s+name=["']description["']/i.test(html)) missing.description.push(file);
   }
   assert.deepEqual(missing, { favicon: [], search: [], description: [] });
+});
+
+
+test("正文题按知识点汇总，存疑题不进入复习和错题汇总", () => {
+  assert.deepEqual(topicIdsForQuestionId("page:yy5:4-1"), ["english.attributive.basics"]);
+  assert.deepEqual(topicIdsForQuestionId("page:yy5:7-3"), ["english.agreement.basics"]);
+  assert.deepEqual(topicIdsForQuestionId("page:gs45:37-4"), ["math.p37"]);
+  assert.deepEqual(topicIdsForQuestionId("page:wy-html-quiz:1"), ["web.html.quiz"]);
+  assert.equal(isExcludedQuestionId("page:gs45:36-7"), true);
+  assert.equal(isExcludedQuestionId("page:gs45:38-2"), true);
+  assert.equal(isExcludedQuestionId("page:gs45:46-5"), true);
+  assert.equal(isExcludedQuestionId("page:gs45:补-5"), true);
+  assert.equal(isExcludedQuestionId("page:gs45:-5"), true);
+  assert.equal(isExcludedQuestionId("page:gs1:补-5"), false);
+  assert.deepEqual(topicIdsForQuestionId("page:gs45:36-7"), []);
+  const payload = normalizePagePayload({ questionId: "page:yy5:4-1", subjectId: "english", stem: "q", choice: "A", correct: "B", page });
+  assert.deepEqual(payload.topicIds, ["english.attributive.basics"]);
+  const iso = new Date(NOW).toISOString();
+  const legacy = {
+    id: "att_old",
+    question_id: "page:yy5:4-1",
+    topic_ids: [],
+    learner_id: "local-guest",
+    grading: { status: "incorrect" },
+    understanding: "still_confused",
+    provenance: { kind: "page", verified: true },
+    counts_toward_real_stats: true,
+    submitted_at: iso,
+    stem_snapshot: "old"
+  };
+  const excluded = {
+    ...legacy,
+    id: "att_ex",
+    question_id: "page:gs45:36-7",
+    stem_snapshot: "excluded"
+  };
+  const learning = withResolvedTopics({
+    attempts: [legacy, excluded],
+    mistakes: [
+      { id: "m1", question_id: "page:yy5:4-1", topic_ids: [], deleted_at: null, category: "wrong", status: "active", next_review_at: iso, provenance: { kind: "page" }, counts_toward_real_stats: true, stem_snapshot: "old" },
+      { id: "m2", question_id: "page:gs45:36-7", topic_ids: [], deleted_at: null, category: "wrong", status: "active", next_review_at: iso, provenance: { kind: "page" }, counts_toward_real_stats: true, stem_snapshot: "excluded" }
+    ],
+    progress: [],
+    notes: [],
+    marks: [],
+    reviews: []
+  });
+  assert.deepEqual(learning.attempts[0].topic_ids, ["english.attributive.basics"]);
+  assert.equal(learning.attempts[0].id, "att_old");
+  assert.equal(learning.progress.some((p) => p.topic_id === "english.attributive.basics"), true);
+  const snap = buildOverviewSnapshot({
+    attempts: [legacy, excluded],
+    mistakes: learning.mistakes,
+    registry: { subjects: [{ id: "math", url: "gs/gs45.html", questions: ["page:gs45:37-4", "page:gs45:36-7"] }] },
+    subjects: [{ id: "math", name: "高等数学" }, { id: "english", name: "英语" }],
+    topics: [{ id: "english.attributive.basics", title: "定语从句" }, { id: "math.p37", title: "求平面方程" }],
+    now: new Date(NOW)
+  });
+  assert.equal(snap.reviews.some((r) => r.id === "m2" || (r.title || "").includes("excluded")), false);
+  assert.equal(snap.subjects[0].questions === undefined, true);
+  assert.equal(snap.subjects[0].total, 1);
+  assert.equal(snap.topics.some((t) => t.id === "english.attributive.basics"), true);
+  assert.equal(enrichTopicIds(legacy).topic_ids[0], "english.attributive.basics");
 });

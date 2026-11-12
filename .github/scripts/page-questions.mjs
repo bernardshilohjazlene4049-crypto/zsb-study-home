@@ -2,6 +2,7 @@
 // 用法：node .github/scripts/page-questions.mjs [--write]
 import { execFileSync } from "node:child_process";
 import { readFileSync, writeFileSync } from "node:fs";
+import { isExcludedQuestionId } from "../../assets/js/features/topic-index.js";
 
 const SAFE = /[^0-9A-Za-z_.\-]/g;
 
@@ -17,7 +18,7 @@ export function scanPage(file, html) {
   let n = 0;
   for (const _ of html.matchAll(/class="qitem"[^>]*data-answer=/g)) items.push(String(++n));
   for (const m of html.matchAll(/data-zsb-question="([^"]+)"/g)) items.push(m[1]);
-  const questions = [...new Set(items)].map((item) => `page:${page}:${item.replace(SAFE, "-")}`);
+  const questions = [...new Set(items)].map((item) => `page:${page}:${item.replace(SAFE, "-")}`).filter((id) => !isExcludedQuestionId(id));
   return { subject, url: file, questions };
 }
 

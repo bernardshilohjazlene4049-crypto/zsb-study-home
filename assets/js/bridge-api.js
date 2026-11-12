@@ -3,10 +3,12 @@ import { commitSubmission } from "./features/records.js";
 import { gradeQuestion } from "./features/grading.js";
 import { ensureSchema, get, getAll, put } from "./core/storage.js";
 import { PAGE_PROVENANCE, normalizePagePayload } from "./features/page-attempts.js";
+import { isExcludedQuestionId, topicIdsForQuestionId } from "./features/topic-index.js";
 
 export async function recordExternalAttempt(payload = {}) {
   const questionId = payload.questionId || payload.question_id;
   if (!questionId) throw new Error("recordAttempt 需要 questionId。");
+  if (isExcludedQuestionId(questionId)) return { skipped: true, reason: "excluded" };
   const schema = await ensureSchema();
   if (!schema.ok || schema.readOnly) throw new Error(schema.message || "本机数据库现在不能写入。");
   const raw = await loadRawCatalog();
@@ -15,7 +17,7 @@ export async function recordExternalAttempt(payload = {}) {
   const question = known || {
     id: questionId,
     subject_id: payload.subjectId || payload.subject_id || null,
-    topic_ids: payload.topicIds || payload.topic_ids || [],
+    topic_ids: (payload.topicIds || payload.topic_ids || []).length ? (payload.topicIds || payload.topic_ids) : topicIdsForQuestionId(questionId),
     type: payload.type || "short_answer",
     stem: payload.stem || "",
     answer: payload.answer || null,
@@ -60,7 +62,7 @@ export async function migratePageRecords(storageKey, payloads = []) {
   let skipped = 0;
   for (const payload of payloads) {
     const result = await recordExternalAttempt(payload);
-    if (result.duplicate) skipped += 1;
+    if (result.duplicate || result.skipped) skipped += 1;
     else written += 1;
   }
   const prev = await get("meta", flagId);

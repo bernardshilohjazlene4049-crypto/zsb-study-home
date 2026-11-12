@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "disclaimer": "以下章节和小节来自现有学习站页面的导航草案，verified 均为 false。标题沿用原页面用词，不代表官方考纲、考频或完整考试范围。",
+  "disclaimer": "以下章节和小节来自现有学习站页面的导航草案，verified 均为 false。标题沿用原页面用词，不代表官方考纲、考频或完整考试范围。 知识点编号、先修边表的组织方式参考了 https://github.com/xiaoyang111222/cn-math-taxonomy 的结构思路，未复制其文本或数据。该项目采用 CC BY-NC 4.0 许可证。高数第四、五章与英语专题之间的先修关系为草稿，待核对。",
   "chapters": [
     {
       "id": "math.ch1",
@@ -17,7 +17,7 @@
       "parent_id": "math.ch1",
       "title": "第一节 函数",
       "order": 1,
-      "source_ref": "gs/index.html#_4",
+      "source_ref": "gs/gs1.html",
       "verified": false
     },
     {
@@ -26,7 +26,7 @@
       "parent_id": "math.ch1",
       "title": "第二节 极限",
       "order": 2,
-      "source_ref": "gs/index.html#_7",
+      "source_ref": "gs/gs1.html",
       "verified": false
     },
     {
@@ -35,7 +35,7 @@
       "parent_id": "math.ch1",
       "title": "第三节 连续",
       "order": 3,
-      "source_ref": "gs/index.html#_13",
+      "source_ref": "gs/gs1.html",
       "verified": false
     },
     {
@@ -172,6 +172,51 @@
       "order": 6,
       "source_ref": "yy/yy5.html#topic-8",
       "verified": false
+    },
+    {
+      "id": "web.html",
+      "subject_id": "web_design",
+      "parent_id": null,
+      "title": "HTML 基础课页",
+      "order": 4,
+      "source_ref": "wy/html/index.html",
+      "verified": false
+    },
+    {
+      "id": "web.html5",
+      "subject_id": "web_design",
+      "parent_id": null,
+      "title": "HTML5 课页",
+      "order": 5,
+      "source_ref": "wy/html5/index.html",
+      "verified": false
+    },
+    {
+      "id": "web.css",
+      "subject_id": "web_design",
+      "parent_id": null,
+      "title": "CSS / CSS3 课页",
+      "order": 6,
+      "source_ref": "wy/css/index.html",
+      "verified": false
+    },
+    {
+      "id": "web.js",
+      "subject_id": "web_design",
+      "parent_id": null,
+      "title": "JavaScript / DOM 课页",
+      "order": 7,
+      "source_ref": "wy/js/index.html",
+      "verified": false
+    },
+    {
+      "id": "web.more",
+      "subject_id": "web_design",
+      "parent_id": null,
+      "title": "实例与速查",
+      "order": 8,
+      "source_ref": "wy/examples/index.html",
+      "verified": false
     }
   ],
   "topics": [
@@ -185,7 +230,7 @@
         "函数定义域"
       ],
       "prereq_ids": [],
-      "source_ref": "gs/index.html#_5",
+      "source_ref": "gs/gs1.html#point-1",
       "legacy_url": "gs/gs1.html#point-1",
       "verified": false,
       "blurb": "第 1 集。"
@@ -203,7 +248,7 @@
       "prereq_ids": [
         "math.domain"
       ],
-      "source_ref": "gs/index.html#_6",
+      "source_ref": "gs/gs1.html#point-2",
       "legacy_url": "gs/gs1.html#point-2",
       "verified": false,
       "blurb": "第 1 集。"
@@ -218,7 +263,7 @@
       "prereq_ids": [
         "math.function_properties"
       ],
-      "source_ref": "gs/index.html#_8",
+      "source_ref": "gs/gs1.html#point-3",
       "legacy_url": "gs/gs1.html#point-3",
       "verified": false,
       "blurb": "第 2 集。"
@@ -235,8 +280,8 @@
       "prereq_ids": [
         "math.sequence_limit"
       ],
-      "source_ref": "gs/index.html#_9",
-      "legacy_url": "gs/gs1.html#practice-4",
+      "source_ref": "gs/gs1.html#point-4",
+      "legacy_url": "gs/gs1.html#point-4",
       "verified": false,
       "blurb": "练习讲解在高等数学页面。"
     },
@@ -253,7 +298,7 @@
       "prereq_ids": [
         "math.function_limit"
       ],
-      "source_ref": "gs/index.html#_10",
+      "source_ref": "gs/gs1.html#point-5",
       "legacy_url": "gs/gs1.html#point-5",
       "verified": false,
       "blurb": "第 3 集。"
@@ -270,8 +315,8 @@
       "prereq_ids": [
         "math.infinitesimal"
       ],
-      "source_ref": "gs/index.html#lim-fg",
-      "legacy_url": "gs/gs1.html#practice-6",
+      "source_ref": "gs/gs1.html#point-6",
+      "legacy_url": "gs/gs1.html#point-6",
       "verified": false,
       "blurb": "练习讲解在高等数学页面。"
     },
@@ -288,7 +333,7 @@
       "prereq_ids": [
         "math.equivalent"
       ],
-      "source_ref": "gs/index.html#_11",
+      "source_ref": "gs/gs1.html#point-7",
       "legacy_url": "gs/gs1.html#point-7",
       "verified": false,
       "blurb": "第 4 集。"
@@ -306,7 +351,7 @@
       "prereq_ids": [
         "math.important_limits"
       ],
-      "source_ref": "gs/index.html#_12",
+      "source_ref": "gs/gs1.html#point-8",
       "legacy_url": "gs/gs1.html#point-8",
       "verified": false,
       "blurb": "第 4 集。"
@@ -323,7 +368,7 @@
       "prereq_ids": [
         "math.function_limit"
       ],
-      "source_ref": "gs/index.html#_14",
+      "source_ref": "gs/gs1.html#point-9",
       "legacy_url": "gs/gs1.html#point-9",
       "verified": false,
       "blurb": "第 5 集。"
@@ -340,7 +385,7 @@
       "prereq_ids": [
         "math.continuity"
       ],
-      "source_ref": "gs/index.html#_15",
+      "source_ref": "gs/gs1.html#point-10",
       "legacy_url": "gs/gs1.html#point-10",
       "verified": false,
       "blurb": "第三节。"
@@ -358,7 +403,7 @@
       "prereq_ids": [
         "math.continuity"
       ],
-      "source_ref": "gs/index.html#_16",
+      "source_ref": "gs/gs1.html#point-11",
       "legacy_url": "gs/gs1.html#point-11",
       "verified": false,
       "blurb": "第三节。"
@@ -422,7 +467,9 @@
       "aliases": [
         "先行词"
       ],
-      "prereq_ids": [],
+      "prereq_ids": [
+        "english.nonfinite.advanced"
+      ],
       "source_ref": "yy/index.html#yyvideos",
       "legacy_url": "yy/index.html#yyvideos",
       "verified": false,
@@ -437,7 +484,9 @@
       "aliases": [
         "名词性从句"
       ],
-      "prereq_ids": [],
+      "prereq_ids": [
+        "english.attributive.basics"
+      ],
       "source_ref": "yy/index.html#yyvideos",
       "legacy_url": "yy/index.html#yyvideos",
       "verified": false,
@@ -452,7 +501,10 @@
       "aliases": [
         "状语从句"
       ],
-      "prereq_ids": [],
+      "prereq_ids": [
+        "english.attributive.basics",
+        "english.noun.basics"
+      ],
       "source_ref": "yy/index.html#yyvideos",
       "legacy_url": "yy/index.html#yyvideos",
       "verified": false,
@@ -468,8 +520,8 @@
         "Excel 基础知识"
       ],
       "prereq_ids": [],
-      "source_ref": "jsj/index.html",
-      "legacy_url": "jsj/index.html",
+      "source_ref": "jsj/index.html#video-4-1",
+      "legacy_url": "jsj/index.html#video-4-1",
       "verified": false,
       "blurb": "第四章讲解视频。"
     },
@@ -485,8 +537,8 @@
       "prereq_ids": [
         "cb.excel.41"
       ],
-      "source_ref": "jsj/index.html",
-      "legacy_url": "jsj/index.html",
+      "source_ref": "jsj/index.html#video-4-2",
+      "legacy_url": "jsj/index.html#video-4-2",
       "verified": false,
       "blurb": "第四章讲解视频。"
     },
@@ -502,8 +554,8 @@
       "prereq_ids": [
         "cb.excel.42"
       ],
-      "source_ref": "jsj/index.html",
-      "legacy_url": "jsj/index.html",
+      "source_ref": "jsj/index.html#video-4-3",
+      "legacy_url": "jsj/index.html#video-4-3",
       "verified": false,
       "blurb": "第四章讲解视频。"
     },
@@ -519,8 +571,8 @@
       "prereq_ids": [
         "cb.excel.43"
       ],
-      "source_ref": "jsj/index.html",
-      "legacy_url": "jsj/index.html",
+      "source_ref": "jsj/index.html#video-4-4",
+      "legacy_url": "jsj/index.html#video-4-4",
       "verified": false,
       "blurb": "第四章讲解视频。"
     },
@@ -537,8 +589,8 @@
       "prereq_ids": [
         "cb.excel.44"
       ],
-      "source_ref": "jsj/index.html",
-      "legacy_url": "jsj/index.html",
+      "source_ref": "jsj/index.html#video-4-5",
+      "legacy_url": "jsj/index.html#video-4-5",
       "verified": false,
       "blurb": "第四章讲解视频。"
     },
@@ -554,8 +606,8 @@
       "prereq_ids": [
         "cb.excel.45"
       ],
-      "source_ref": "jsj/index.html",
-      "legacy_url": "jsj/index.html",
+      "source_ref": "jsj/index.html#video-4-6",
+      "legacy_url": "jsj/index.html#video-4-6",
       "verified": false,
       "blurb": "第四章讲解视频。"
     },
@@ -571,8 +623,8 @@
       "prereq_ids": [
         "cb.excel.46"
       ],
-      "source_ref": "jsj/index.html",
-      "legacy_url": "jsj/index.html",
+      "source_ref": "jsj/index.html#video-4-7",
+      "legacy_url": "jsj/index.html#video-4-7",
       "verified": false,
       "blurb": "第四章讲解视频。"
     },
@@ -610,7 +662,7 @@
       "id": "web.concepts",
       "subject_id": "web_design",
       "chapter_id": "web.ch1",
-      "title": "网页相关概念",
+      "title": "1.1 网页相关概念",
       "order": 1,
       "aliases": [
         "网站"
@@ -625,7 +677,7 @@
       "id": "web.html5_structure",
       "subject_id": "web_design",
       "chapter_id": "web.ch2",
-      "title": "HTML5 文档结构",
+      "title": "第2章 HTML5 文档结构",
       "order": 1,
       "aliases": [
         "文档结构"
@@ -698,8 +750,8 @@
       "order": 1,
       "aliases": [],
       "prereq_ids": [],
-      "source_ref": "jsj/jsj1.html",
-      "legacy_url": "jsj/jsj1.html",
+      "source_ref": "jsj/jsj1.html#mind-1.1",
+      "legacy_url": "jsj/jsj1.html#mind-1.1",
       "verified": false
     },
     {
@@ -710,8 +762,8 @@
       "order": 2,
       "aliases": [],
       "prereq_ids": [],
-      "source_ref": "jsj/jsj1.html",
-      "legacy_url": "jsj/jsj1.html",
+      "source_ref": "jsj/jsj1.html#mind-1.2",
+      "legacy_url": "jsj/jsj1.html#mind-1.2",
       "verified": false
     },
     {
@@ -722,8 +774,8 @@
       "order": 3,
       "aliases": [],
       "prereq_ids": [],
-      "source_ref": "jsj/jsj1.html",
-      "legacy_url": "jsj/jsj1.html",
+      "source_ref": "jsj/jsj1.html#mind-1.3",
+      "legacy_url": "jsj/jsj1.html#mind-1.3",
       "verified": false
     },
     {
@@ -734,8 +786,8 @@
       "order": 4,
       "aliases": [],
       "prereq_ids": [],
-      "source_ref": "jsj/jsj1.html",
-      "legacy_url": "jsj/jsj1.html",
+      "source_ref": "jsj/jsj1.html#mind-1.4",
+      "legacy_url": "jsj/jsj1.html#mind-1.4",
       "verified": false
     },
     {
@@ -829,7 +881,9 @@
       "title": "求平面方程",
       "order": 37,
       "aliases": [],
-      "prereq_ids": [],
+      "prereq_ids": [
+        "math.p36"
+      ],
       "source_ref": "gs/gs45.html#point-37",
       "legacy_url": "gs/gs45.html#point-37",
       "verified": false
@@ -841,7 +895,10 @@
       "title": "求直线方程",
       "order": 38,
       "aliases": [],
-      "prereq_ids": [],
+      "prereq_ids": [
+        "math.p36",
+        "math.p37"
+      ],
       "source_ref": "gs/gs45.html#point-38",
       "legacy_url": "gs/gs45.html#point-38",
       "verified": false
@@ -853,7 +910,9 @@
       "title": "二元函数求定义域（补充）",
       "order": 39,
       "aliases": [],
-      "prereq_ids": [],
+      "prereq_ids": [
+        "math.domain"
+      ],
       "source_ref": "gs/gs45.html#point-39",
       "legacy_url": "gs/gs45.html#point-39",
       "verified": false
@@ -865,7 +924,9 @@
       "title": "二元函数的偏导数（补充）",
       "order": 40,
       "aliases": [],
-      "prereq_ids": [],
+      "prereq_ids": [
+        "math.p39"
+      ],
       "source_ref": "gs/gs45.html#point-40",
       "legacy_url": "gs/gs45.html#point-40",
       "verified": false
@@ -877,7 +938,9 @@
       "title": "二元函数的高阶偏导数",
       "order": 41,
       "aliases": [],
-      "prereq_ids": [],
+      "prereq_ids": [
+        "math.p40"
+      ],
       "source_ref": "gs/gs45.html#point-41",
       "legacy_url": "gs/gs45.html#point-41",
       "verified": false
@@ -889,7 +952,9 @@
       "title": "二元函数的全微分",
       "order": 42,
       "aliases": [],
-      "prereq_ids": [],
+      "prereq_ids": [
+        "math.p40"
+      ],
       "source_ref": "gs/gs45.html#point-42",
       "legacy_url": "gs/gs45.html#point-42",
       "verified": false
@@ -901,7 +966,9 @@
       "title": "二元函数求极值",
       "order": 43,
       "aliases": [],
-      "prereq_ids": [],
+      "prereq_ids": [
+        "math.p41"
+      ],
       "source_ref": "gs/gs45.html#point-43",
       "legacy_url": "gs/gs45.html#point-43",
       "verified": false
@@ -913,7 +980,9 @@
       "title": "二元函数的最值应用",
       "order": 44,
       "aliases": [],
-      "prereq_ids": [],
+      "prereq_ids": [
+        "math.p43"
+      ],
       "source_ref": "gs/gs45.html#point-44",
       "legacy_url": "gs/gs45.html#point-44",
       "verified": false
@@ -925,7 +994,9 @@
       "title": "多元复合函数求一阶偏导数",
       "order": 45,
       "aliases": [],
-      "prereq_ids": [],
+      "prereq_ids": [
+        "math.p40"
+      ],
       "source_ref": "gs/gs45.html#point-45",
       "legacy_url": "gs/gs45.html#point-45",
       "verified": false
@@ -937,7 +1008,9 @@
       "title": "二重积分的性质",
       "order": 46,
       "aliases": [],
-      "prereq_ids": [],
+      "prereq_ids": [
+        "math.p39"
+      ],
       "source_ref": "gs/gs45.html#point-46",
       "legacy_url": "gs/gs45.html#point-46",
       "verified": false
@@ -949,21 +1022,11 @@
       "title": "直角坐标系下二重积分的计算",
       "order": 47,
       "aliases": [],
-      "prereq_ids": [],
+      "prereq_ids": [
+        "math.p46"
+      ],
       "source_ref": "gs/gs45.html#point-47",
       "legacy_url": "gs/gs45.html#point-47",
-      "verified": false
-    },
-    {
-      "id": "math.p123",
-      "subject_id": "math",
-      "chapter_id": "math.ch4",
-      "title": "专项练习",
-      "order": 90,
-      "aliases": [],
-      "prereq_ids": [],
-      "source_ref": "gs/gs45.html#p123-practice",
-      "legacy_url": "gs/gs45.html#p123-practice",
       "verified": false
     },
     {
@@ -992,7 +1055,9 @@
         "就近原则",
         "中心词原则"
       ],
-      "prereq_ids": [],
+      "prereq_ids": [
+        "english.noun.basics"
+      ],
       "source_ref": "yy/yy5.html#topic-7",
       "legacy_url": "yy/yy5.html#topic-7",
       "verified": false,
@@ -1010,11 +1075,1513 @@
         "省略",
         "虚拟语气"
       ],
-      "prereq_ids": [],
+      "prereq_ids": [
+        "english.adverbial.basics"
+      ],
       "source_ref": "yy/yy5.html#topic-8",
       "legacy_url": "yy/yy5.html#topic-8",
       "verified": false,
       "blurb": "系统讲义专题八，含讲解视频与原创练习。"
+    },
+    {
+      "id": "math.p48",
+      "subject_id": "math",
+      "chapter_id": "math.ch5",
+      "title": "交换积分次序",
+      "order": 48,
+      "aliases": [],
+      "prereq_ids": [
+        "math.p47"
+      ],
+      "source_ref": "gs/gs45.html#point-48",
+      "legacy_url": "gs/gs45.html#point-48",
+      "verified": false
+    },
+    {
+      "id": "web.process",
+      "subject_id": "web_design",
+      "chapter_id": "web.ch1",
+      "title": "1.2 网页设计基本流程",
+      "order": 2,
+      "aliases": [],
+      "prereq_ids": [
+        "web.concepts"
+      ],
+      "source_ref": "wy/index.html#s12",
+      "legacy_url": "wy/index.html#s12",
+      "verified": false
+    },
+    {
+      "id": "web.layers",
+      "subject_id": "web_design",
+      "chapter_id": "web.ch1",
+      "title": "1.3 网页的层次结构",
+      "order": 3,
+      "aliases": [],
+      "prereq_ids": [
+        "web.process"
+      ],
+      "source_ref": "wy/index.html#s13",
+      "legacy_url": "wy/index.html#s13",
+      "verified": false
+    },
+    {
+      "id": "web.tools",
+      "subject_id": "web_design",
+      "chapter_id": "web.ch1",
+      "title": "补充：常用网页制作开发工具",
+      "order": 4,
+      "aliases": [],
+      "prereq_ids": [
+        "web.concepts"
+      ],
+      "source_ref": "wy/index.html#s-extra",
+      "legacy_url": "wy/index.html#s-extra",
+      "verified": false
+    },
+    {
+      "id": "web.s21",
+      "subject_id": "web_design",
+      "chapter_id": "web.ch2",
+      "title": "2.1 HTML 简介",
+      "order": 2,
+      "aliases": [],
+      "prereq_ids": [
+        "web.html5_structure"
+      ],
+      "source_ref": "wy/index.html#s21",
+      "legacy_url": "wy/index.html#s21",
+      "verified": false
+    },
+    {
+      "id": "web.s22",
+      "subject_id": "web_design",
+      "chapter_id": "web.ch2",
+      "title": "2.2 HTML5 文档结构",
+      "order": 3,
+      "aliases": [],
+      "prereq_ids": [
+        "web.s21"
+      ],
+      "source_ref": "wy/index.html#s22",
+      "legacy_url": "wy/index.html#s22",
+      "verified": false
+    },
+    {
+      "id": "web.s22b",
+      "subject_id": "web_design",
+      "chapter_id": "web.ch2",
+      "title": "2.2 HTML5 编写注意事项（必记）",
+      "order": 4,
+      "aliases": [],
+      "prereq_ids": [
+        "web.s22"
+      ],
+      "source_ref": "wy/index.html#s22b",
+      "legacy_url": "wy/index.html#s22b",
+      "verified": false
+    },
+    {
+      "id": "web.s23",
+      "subject_id": "web_design",
+      "chapter_id": "web.ch2",
+      "title": "2.3 <meta> 标签详解",
+      "order": 5,
+      "aliases": [],
+      "prereq_ids": [
+        "web.s22b"
+      ],
+      "source_ref": "wy/index.html#s23",
+      "legacy_url": "wy/index.html#s23",
+      "verified": false
+    },
+    {
+      "id": "web.s24",
+      "subject_id": "web_design",
+      "chapter_id": "web.ch2",
+      "title": "2.4 <body> 标签详解",
+      "order": 6,
+      "aliases": [],
+      "prereq_ids": [
+        "web.s23"
+      ],
+      "source_ref": "wy/index.html#s24",
+      "legacy_url": "wy/index.html#s24",
+      "verified": false
+    },
+    {
+      "id": "web.quiz_points",
+      "subject_id": "web_design",
+      "chapter_id": "web.ch2",
+      "title": "自测要点（考前速记）",
+      "order": 7,
+      "aliases": [],
+      "prereq_ids": [
+        "web.s24"
+      ],
+      "source_ref": "wy/index.html#s-quiz",
+      "legacy_url": "wy/index.html#s-quiz",
+      "verified": false
+    },
+    {
+      "id": "web.figs",
+      "subject_id": "web_design",
+      "chapter_id": "web.ch2",
+      "title": "讲义原图",
+      "order": 8,
+      "aliases": [],
+      "prereq_ids": [],
+      "source_ref": "wy/index.html#s-figs",
+      "legacy_url": "wy/index.html#s-figs",
+      "verified": false
+    },
+    {
+      "id": "web.css.intro",
+      "subject_id": "web_design",
+      "chapter_id": "web.css",
+      "title": "CSS 简介",
+      "order": 1,
+      "aliases": [],
+      "prereq_ids": [
+        "web.css_intro"
+      ],
+      "source_ref": "wy/css/intro.html",
+      "legacy_url": "wy/css/intro.html",
+      "verified": false
+    },
+    {
+      "id": "web.css.syntax",
+      "subject_id": "web_design",
+      "chapter_id": "web.css",
+      "title": "CSS 语法",
+      "order": 2,
+      "aliases": [],
+      "prereq_ids": [
+        "web.css.intro"
+      ],
+      "source_ref": "wy/css/syntax.html",
+      "legacy_url": "wy/css/syntax.html",
+      "verified": false
+    },
+    {
+      "id": "web.css.selectors",
+      "subject_id": "web_design",
+      "chapter_id": "web.css",
+      "title": "选择器",
+      "order": 3,
+      "aliases": [],
+      "prereq_ids": [
+        "web.css.syntax"
+      ],
+      "source_ref": "wy/css/selectors.html",
+      "legacy_url": "wy/css/selectors.html",
+      "verified": false
+    },
+    {
+      "id": "web.css.howto",
+      "subject_id": "web_design",
+      "chapter_id": "web.css",
+      "title": "三种引入",
+      "order": 4,
+      "aliases": [],
+      "prereq_ids": [
+        "web.css.selectors"
+      ],
+      "source_ref": "wy/css/howto.html",
+      "legacy_url": "wy/css/howto.html",
+      "verified": false
+    },
+    {
+      "id": "web.css.colors",
+      "subject_id": "web_design",
+      "chapter_id": "web.css",
+      "title": "颜色",
+      "order": 5,
+      "aliases": [],
+      "prereq_ids": [
+        "web.css.howto"
+      ],
+      "source_ref": "wy/css/colors.html",
+      "legacy_url": "wy/css/colors.html",
+      "verified": false
+    },
+    {
+      "id": "web.css.background",
+      "subject_id": "web_design",
+      "chapter_id": "web.css",
+      "title": "背景",
+      "order": 6,
+      "aliases": [],
+      "prereq_ids": [
+        "web.css.colors"
+      ],
+      "source_ref": "wy/css/background.html",
+      "legacy_url": "wy/css/background.html",
+      "verified": false
+    },
+    {
+      "id": "web.css.text",
+      "subject_id": "web_design",
+      "chapter_id": "web.css",
+      "title": "文本",
+      "order": 7,
+      "aliases": [],
+      "prereq_ids": [
+        "web.css.background"
+      ],
+      "source_ref": "wy/css/text.html",
+      "legacy_url": "wy/css/text.html",
+      "verified": false
+    },
+    {
+      "id": "web.css.font",
+      "subject_id": "web_design",
+      "chapter_id": "web.css",
+      "title": "字体",
+      "order": 8,
+      "aliases": [],
+      "prereq_ids": [
+        "web.css.text"
+      ],
+      "source_ref": "wy/css/font.html",
+      "legacy_url": "wy/css/font.html",
+      "verified": false
+    },
+    {
+      "id": "web.css.link",
+      "subject_id": "web_design",
+      "chapter_id": "web.css",
+      "title": "链接样式",
+      "order": 9,
+      "aliases": [],
+      "prereq_ids": [
+        "web.css.font"
+      ],
+      "source_ref": "wy/css/link.html",
+      "legacy_url": "wy/css/link.html",
+      "verified": false
+    },
+    {
+      "id": "web.css.list",
+      "subject_id": "web_design",
+      "chapter_id": "web.css",
+      "title": "列表样式",
+      "order": 10,
+      "aliases": [],
+      "prereq_ids": [
+        "web.css.link"
+      ],
+      "source_ref": "wy/css/list.html",
+      "legacy_url": "wy/css/list.html",
+      "verified": false
+    },
+    {
+      "id": "web.css.table",
+      "subject_id": "web_design",
+      "chapter_id": "web.css",
+      "title": "表格样式",
+      "order": 11,
+      "aliases": [],
+      "prereq_ids": [
+        "web.css.list"
+      ],
+      "source_ref": "wy/css/table.html",
+      "legacy_url": "wy/css/table.html",
+      "verified": false
+    },
+    {
+      "id": "web.css.box",
+      "subject_id": "web_design",
+      "chapter_id": "web.css",
+      "title": "盒子模型",
+      "order": 12,
+      "aliases": [],
+      "prereq_ids": [
+        "web.css.table"
+      ],
+      "source_ref": "wy/css/box.html",
+      "legacy_url": "wy/css/box.html",
+      "verified": false
+    },
+    {
+      "id": "web.css.border",
+      "subject_id": "web_design",
+      "chapter_id": "web.css",
+      "title": "边框",
+      "order": 13,
+      "aliases": [],
+      "prereq_ids": [
+        "web.css.box"
+      ],
+      "source_ref": "wy/css/border.html",
+      "legacy_url": "wy/css/border.html",
+      "verified": false
+    },
+    {
+      "id": "web.css.margin",
+      "subject_id": "web_design",
+      "chapter_id": "web.css",
+      "title": "外边距",
+      "order": 14,
+      "aliases": [],
+      "prereq_ids": [
+        "web.css.border"
+      ],
+      "source_ref": "wy/css/margin.html",
+      "legacy_url": "wy/css/margin.html",
+      "verified": false
+    },
+    {
+      "id": "web.css.padding",
+      "subject_id": "web_design",
+      "chapter_id": "web.css",
+      "title": "内边距",
+      "order": 15,
+      "aliases": [],
+      "prereq_ids": [
+        "web.css.margin"
+      ],
+      "source_ref": "wy/css/padding.html",
+      "legacy_url": "wy/css/padding.html",
+      "verified": false
+    },
+    {
+      "id": "web.css.display",
+      "subject_id": "web_design",
+      "chapter_id": "web.css",
+      "title": "display",
+      "order": 16,
+      "aliases": [],
+      "prereq_ids": [
+        "web.css.padding"
+      ],
+      "source_ref": "wy/css/display.html",
+      "legacy_url": "wy/css/display.html",
+      "verified": false
+    },
+    {
+      "id": "web.css.position",
+      "subject_id": "web_design",
+      "chapter_id": "web.css",
+      "title": "position",
+      "order": 17,
+      "aliases": [],
+      "prereq_ids": [
+        "web.css.display"
+      ],
+      "source_ref": "wy/css/position.html",
+      "legacy_url": "wy/css/position.html",
+      "verified": false
+    },
+    {
+      "id": "web.css.float",
+      "subject_id": "web_design",
+      "chapter_id": "web.css",
+      "title": "float",
+      "order": 18,
+      "aliases": [],
+      "prereq_ids": [
+        "web.css.position"
+      ],
+      "source_ref": "wy/css/float.html",
+      "legacy_url": "wy/css/float.html",
+      "verified": false
+    },
+    {
+      "id": "web.css.align",
+      "subject_id": "web_design",
+      "chapter_id": "web.css",
+      "title": "对齐",
+      "order": 19,
+      "aliases": [],
+      "prereq_ids": [
+        "web.css.float"
+      ],
+      "source_ref": "wy/css/align.html",
+      "legacy_url": "wy/css/align.html",
+      "verified": false
+    },
+    {
+      "id": "web.css.combinators",
+      "subject_id": "web_design",
+      "chapter_id": "web.css",
+      "title": "组合选择符",
+      "order": 20,
+      "aliases": [],
+      "prereq_ids": [
+        "web.css.align"
+      ],
+      "source_ref": "wy/css/combinators.html",
+      "legacy_url": "wy/css/combinators.html",
+      "verified": false
+    },
+    {
+      "id": "web.css.pseudo",
+      "subject_id": "web_design",
+      "chapter_id": "web.css",
+      "title": "伪类",
+      "order": 21,
+      "aliases": [],
+      "prereq_ids": [
+        "web.css.combinators"
+      ],
+      "source_ref": "wy/css/pseudo.html",
+      "legacy_url": "wy/css/pseudo.html",
+      "verified": false
+    },
+    {
+      "id": "web.css.navbar",
+      "subject_id": "web_design",
+      "chapter_id": "web.css",
+      "title": "导航栏",
+      "order": 22,
+      "aliases": [],
+      "prereq_ids": [
+        "web.css.pseudo"
+      ],
+      "source_ref": "wy/css/navbar.html",
+      "legacy_url": "wy/css/navbar.html",
+      "verified": false
+    },
+    {
+      "id": "web.css.dropdown",
+      "subject_id": "web_design",
+      "chapter_id": "web.css",
+      "title": "下拉菜单",
+      "order": 23,
+      "aliases": [],
+      "prereq_ids": [
+        "web.css.navbar"
+      ],
+      "source_ref": "wy/css/dropdown.html",
+      "legacy_url": "wy/css/dropdown.html",
+      "verified": false
+    },
+    {
+      "id": "web.css.tooltip",
+      "subject_id": "web_design",
+      "chapter_id": "web.css",
+      "title": "提示工具",
+      "order": 24,
+      "aliases": [],
+      "prereq_ids": [
+        "web.css.dropdown"
+      ],
+      "source_ref": "wy/css/tooltip.html",
+      "legacy_url": "wy/css/tooltip.html",
+      "verified": false
+    },
+    {
+      "id": "web.css.attr_sel",
+      "subject_id": "web_design",
+      "chapter_id": "web.css",
+      "title": "属性选择器",
+      "order": 25,
+      "aliases": [],
+      "prereq_ids": [
+        "web.css.tooltip"
+      ],
+      "source_ref": "wy/css/attr-sel.html",
+      "legacy_url": "wy/css/attr-sel.html",
+      "verified": false
+    },
+    {
+      "id": "web.css.form",
+      "subject_id": "web_design",
+      "chapter_id": "web.css",
+      "title": "表单样式",
+      "order": 26,
+      "aliases": [],
+      "prereq_ids": [
+        "web.css.attr_sel"
+      ],
+      "source_ref": "wy/css/form.html",
+      "legacy_url": "wy/css/form.html",
+      "verified": false
+    },
+    {
+      "id": "web.css.layout",
+      "subject_id": "web_design",
+      "chapter_id": "web.css",
+      "title": "网站布局",
+      "order": 27,
+      "aliases": [],
+      "prereq_ids": [
+        "web.css.form"
+      ],
+      "source_ref": "wy/css/layout.html",
+      "legacy_url": "wy/css/layout.html",
+      "verified": false
+    },
+    {
+      "id": "web.css.border_radius",
+      "subject_id": "web_design",
+      "chapter_id": "web.css",
+      "title": "CSS3 圆角",
+      "order": 28,
+      "aliases": [],
+      "prereq_ids": [
+        "web.css.layout"
+      ],
+      "source_ref": "wy/css/border-radius.html",
+      "legacy_url": "wy/css/border-radius.html",
+      "verified": false
+    },
+    {
+      "id": "web.css.gradients",
+      "subject_id": "web_design",
+      "chapter_id": "web.css",
+      "title": "CSS3 渐变",
+      "order": 29,
+      "aliases": [],
+      "prereq_ids": [
+        "web.css.border_radius"
+      ],
+      "source_ref": "wy/css/gradients.html",
+      "legacy_url": "wy/css/gradients.html",
+      "verified": false
+    },
+    {
+      "id": "web.css.transform",
+      "subject_id": "web_design",
+      "chapter_id": "web.css",
+      "title": "转换",
+      "order": 30,
+      "aliases": [],
+      "prereq_ids": [
+        "web.css.gradients"
+      ],
+      "source_ref": "wy/css/transform.html",
+      "legacy_url": "wy/css/transform.html",
+      "verified": false
+    },
+    {
+      "id": "web.css.transition",
+      "subject_id": "web_design",
+      "chapter_id": "web.css",
+      "title": "过渡",
+      "order": 31,
+      "aliases": [],
+      "prereq_ids": [
+        "web.css.transform"
+      ],
+      "source_ref": "wy/css/transition.html",
+      "legacy_url": "wy/css/transition.html",
+      "verified": false
+    },
+    {
+      "id": "web.css.animation",
+      "subject_id": "web_design",
+      "chapter_id": "web.css",
+      "title": "动画",
+      "order": 32,
+      "aliases": [],
+      "prereq_ids": [
+        "web.css.transition"
+      ],
+      "source_ref": "wy/css/animation.html",
+      "legacy_url": "wy/css/animation.html",
+      "verified": false
+    },
+    {
+      "id": "web.css.flexbox",
+      "subject_id": "web_design",
+      "chapter_id": "web.css",
+      "title": "弹性盒子",
+      "order": 33,
+      "aliases": [],
+      "prereq_ids": [
+        "web.css.animation"
+      ],
+      "source_ref": "wy/css/flexbox.html",
+      "legacy_url": "wy/css/flexbox.html",
+      "verified": false
+    },
+    {
+      "id": "web.css.mediaq",
+      "subject_id": "web_design",
+      "chapter_id": "web.css",
+      "title": "媒体查询",
+      "order": 34,
+      "aliases": [],
+      "prereq_ids": [
+        "web.css.flexbox"
+      ],
+      "source_ref": "wy/css/mediaq.html",
+      "legacy_url": "wy/css/mediaq.html",
+      "verified": false
+    },
+    {
+      "id": "web.html.intro",
+      "subject_id": "web_design",
+      "chapter_id": "web.html",
+      "title": "HTML 简介",
+      "order": 1,
+      "aliases": [],
+      "prereq_ids": [
+        "web.html_intro"
+      ],
+      "source_ref": "wy/html/intro.html",
+      "legacy_url": "wy/html/intro.html",
+      "verified": false
+    },
+    {
+      "id": "web.html.editors",
+      "subject_id": "web_design",
+      "chapter_id": "web.html",
+      "title": "HTML 编辑器",
+      "order": 2,
+      "aliases": [],
+      "prereq_ids": [
+        "web.html.intro"
+      ],
+      "source_ref": "wy/html/editors.html",
+      "legacy_url": "wy/html/editors.html",
+      "verified": false
+    },
+    {
+      "id": "web.html.basic",
+      "subject_id": "web_design",
+      "chapter_id": "web.html",
+      "title": "HTML 基础",
+      "order": 3,
+      "aliases": [],
+      "prereq_ids": [
+        "web.html.editors"
+      ],
+      "source_ref": "wy/html/basic.html",
+      "legacy_url": "wy/html/basic.html",
+      "verified": false
+    },
+    {
+      "id": "web.html.elements",
+      "subject_id": "web_design",
+      "chapter_id": "web.html",
+      "title": "HTML 元素",
+      "order": 4,
+      "aliases": [],
+      "prereq_ids": [
+        "web.html.basic"
+      ],
+      "source_ref": "wy/html/elements.html",
+      "legacy_url": "wy/html/elements.html",
+      "verified": false
+    },
+    {
+      "id": "web.html.attributes",
+      "subject_id": "web_design",
+      "chapter_id": "web.html",
+      "title": "HTML 属性",
+      "order": 5,
+      "aliases": [],
+      "prereq_ids": [
+        "web.html.elements"
+      ],
+      "source_ref": "wy/html/attributes.html",
+      "legacy_url": "wy/html/attributes.html",
+      "verified": false
+    },
+    {
+      "id": "web.html.headings",
+      "subject_id": "web_design",
+      "chapter_id": "web.html",
+      "title": "HTML 标题",
+      "order": 6,
+      "aliases": [],
+      "prereq_ids": [
+        "web.html.attributes"
+      ],
+      "source_ref": "wy/html/headings.html",
+      "legacy_url": "wy/html/headings.html",
+      "verified": false
+    },
+    {
+      "id": "web.html.paragraphs",
+      "subject_id": "web_design",
+      "chapter_id": "web.html",
+      "title": "HTML 段落",
+      "order": 7,
+      "aliases": [],
+      "prereq_ids": [
+        "web.html.headings"
+      ],
+      "source_ref": "wy/html/paragraphs.html",
+      "legacy_url": "wy/html/paragraphs.html",
+      "verified": false
+    },
+    {
+      "id": "web.html.formatting",
+      "subject_id": "web_design",
+      "chapter_id": "web.html",
+      "title": "HTML 文本格式化",
+      "order": 8,
+      "aliases": [],
+      "prereq_ids": [
+        "web.html.paragraphs"
+      ],
+      "source_ref": "wy/html/formatting.html",
+      "legacy_url": "wy/html/formatting.html",
+      "verified": false
+    },
+    {
+      "id": "web.html.links",
+      "subject_id": "web_design",
+      "chapter_id": "web.html",
+      "title": "HTML 链接",
+      "order": 9,
+      "aliases": [],
+      "prereq_ids": [
+        "web.html.formatting"
+      ],
+      "source_ref": "wy/html/links.html",
+      "legacy_url": "wy/html/links.html",
+      "verified": false
+    },
+    {
+      "id": "web.html.head",
+      "subject_id": "web_design",
+      "chapter_id": "web.html",
+      "title": "HTML 头部",
+      "order": 10,
+      "aliases": [],
+      "prereq_ids": [
+        "web.html.links"
+      ],
+      "source_ref": "wy/html/head.html",
+      "legacy_url": "wy/html/head.html",
+      "verified": false
+    },
+    {
+      "id": "web.html.css_inline",
+      "subject_id": "web_design",
+      "chapter_id": "web.html",
+      "title": "HTML 中的 CSS",
+      "order": 11,
+      "aliases": [],
+      "prereq_ids": [
+        "web.html.head"
+      ],
+      "source_ref": "wy/html/css-inline.html",
+      "legacy_url": "wy/html/css-inline.html",
+      "verified": false
+    },
+    {
+      "id": "web.html.images",
+      "subject_id": "web_design",
+      "chapter_id": "web.html",
+      "title": "HTML 图像",
+      "order": 12,
+      "aliases": [],
+      "prereq_ids": [
+        "web.html.css_inline"
+      ],
+      "source_ref": "wy/html/images.html",
+      "legacy_url": "wy/html/images.html",
+      "verified": false
+    },
+    {
+      "id": "web.html.tables",
+      "subject_id": "web_design",
+      "chapter_id": "web.html",
+      "title": "HTML 表格",
+      "order": 13,
+      "aliases": [],
+      "prereq_ids": [
+        "web.html.images"
+      ],
+      "source_ref": "wy/html/tables.html",
+      "legacy_url": "wy/html/tables.html",
+      "verified": false
+    },
+    {
+      "id": "web.html.lists",
+      "subject_id": "web_design",
+      "chapter_id": "web.html",
+      "title": "HTML 列表",
+      "order": 14,
+      "aliases": [],
+      "prereq_ids": [
+        "web.html.tables"
+      ],
+      "source_ref": "wy/html/lists.html",
+      "legacy_url": "wy/html/lists.html",
+      "verified": false
+    },
+    {
+      "id": "web.html.blocks",
+      "subject_id": "web_design",
+      "chapter_id": "web.html",
+      "title": "HTML 区块",
+      "order": 15,
+      "aliases": [],
+      "prereq_ids": [
+        "web.html.lists"
+      ],
+      "source_ref": "wy/html/blocks.html",
+      "legacy_url": "wy/html/blocks.html",
+      "verified": false
+    },
+    {
+      "id": "web.html.layouts",
+      "subject_id": "web_design",
+      "chapter_id": "web.html",
+      "title": "HTML 布局",
+      "order": 16,
+      "aliases": [],
+      "prereq_ids": [
+        "web.html.blocks"
+      ],
+      "source_ref": "wy/html/layouts.html",
+      "legacy_url": "wy/html/layouts.html",
+      "verified": false
+    },
+    {
+      "id": "web.html.forms",
+      "subject_id": "web_design",
+      "chapter_id": "web.html",
+      "title": "HTML 表单",
+      "order": 17,
+      "aliases": [],
+      "prereq_ids": [
+        "web.html.layouts"
+      ],
+      "source_ref": "wy/html/forms.html",
+      "legacy_url": "wy/html/forms.html",
+      "verified": false
+    },
+    {
+      "id": "web.html.iframes",
+      "subject_id": "web_design",
+      "chapter_id": "web.html",
+      "title": "HTML 框架（iframe）",
+      "order": 18,
+      "aliases": [],
+      "prereq_ids": [
+        "web.html.forms"
+      ],
+      "source_ref": "wy/html/iframes.html",
+      "legacy_url": "wy/html/iframes.html",
+      "verified": false
+    },
+    {
+      "id": "web.html.colors",
+      "subject_id": "web_design",
+      "chapter_id": "web.html",
+      "title": "HTML 颜色",
+      "order": 19,
+      "aliases": [],
+      "prereq_ids": [
+        "web.html.iframes"
+      ],
+      "source_ref": "wy/html/colors.html",
+      "legacy_url": "wy/html/colors.html",
+      "verified": false
+    },
+    {
+      "id": "web.html.scripts",
+      "subject_id": "web_design",
+      "chapter_id": "web.html",
+      "title": "HTML 脚本",
+      "order": 20,
+      "aliases": [],
+      "prereq_ids": [
+        "web.html.colors"
+      ],
+      "source_ref": "wy/html/scripts.html",
+      "legacy_url": "wy/html/scripts.html",
+      "verified": false
+    },
+    {
+      "id": "web.html.entities",
+      "subject_id": "web_design",
+      "chapter_id": "web.html",
+      "title": "HTML 字符实体",
+      "order": 21,
+      "aliases": [],
+      "prereq_ids": [
+        "web.html.scripts"
+      ],
+      "source_ref": "wy/html/entities.html",
+      "legacy_url": "wy/html/entities.html",
+      "verified": false
+    },
+    {
+      "id": "web.html.url",
+      "subject_id": "web_design",
+      "chapter_id": "web.html",
+      "title": "HTML URL",
+      "order": 22,
+      "aliases": [],
+      "prereq_ids": [
+        "web.html.entities"
+      ],
+      "source_ref": "wy/html/url.html",
+      "legacy_url": "wy/html/url.html",
+      "verified": false
+    },
+    {
+      "id": "web.html.cheatsheet",
+      "subject_id": "web_design",
+      "chapter_id": "web.html",
+      "title": "HTML 速查（精简）",
+      "order": 23,
+      "aliases": [],
+      "prereq_ids": [
+        "web.html.url"
+      ],
+      "source_ref": "wy/html/cheatsheet.html",
+      "legacy_url": "wy/html/cheatsheet.html",
+      "verified": false
+    },
+    {
+      "id": "web.html.summary",
+      "subject_id": "web_design",
+      "chapter_id": "web.html",
+      "title": "HTML 总结",
+      "order": 24,
+      "aliases": [],
+      "prereq_ids": [
+        "web.html.cheatsheet"
+      ],
+      "source_ref": "wy/html/summary.html",
+      "legacy_url": "wy/html/summary.html",
+      "verified": false
+    },
+    {
+      "id": "web.html.quiz",
+      "subject_id": "web_design",
+      "chapter_id": "web.html",
+      "title": "HTML 自测",
+      "order": 25,
+      "aliases": [],
+      "prereq_ids": [
+        "web.html.summary"
+      ],
+      "source_ref": "wy/html/quiz.html",
+      "legacy_url": "wy/html/quiz.html",
+      "verified": false
+    },
+    {
+      "id": "web.html5.intro",
+      "subject_id": "web_design",
+      "chapter_id": "web.html5",
+      "title": "HTML5 简介",
+      "order": 1,
+      "aliases": [],
+      "prereq_ids": [
+        "web.html5_index"
+      ],
+      "source_ref": "wy/html5/intro.html",
+      "legacy_url": "wy/html5/intro.html",
+      "verified": false
+    },
+    {
+      "id": "web.html5.browsers",
+      "subject_id": "web_design",
+      "chapter_id": "web.html5",
+      "title": "浏览器支持",
+      "order": 2,
+      "aliases": [],
+      "prereq_ids": [
+        "web.html5.intro"
+      ],
+      "source_ref": "wy/html5/browsers.html",
+      "legacy_url": "wy/html5/browsers.html",
+      "verified": false
+    },
+    {
+      "id": "web.html5.new_elements",
+      "subject_id": "web_design",
+      "chapter_id": "web.html5",
+      "title": "HTML5 新元素",
+      "order": 3,
+      "aliases": [],
+      "prereq_ids": [
+        "web.html5.browsers"
+      ],
+      "source_ref": "wy/html5/new-elements.html",
+      "legacy_url": "wy/html5/new-elements.html",
+      "verified": false
+    },
+    {
+      "id": "web.html5.semantic",
+      "subject_id": "web_design",
+      "chapter_id": "web.html5",
+      "title": "语义元素",
+      "order": 4,
+      "aliases": [],
+      "prereq_ids": [
+        "web.html5.new_elements"
+      ],
+      "source_ref": "wy/html5/semantic.html",
+      "legacy_url": "wy/html5/semantic.html",
+      "verified": false
+    },
+    {
+      "id": "web.html5.canvas",
+      "subject_id": "web_design",
+      "chapter_id": "web.html5",
+      "title": "Canvas 概述",
+      "order": 5,
+      "aliases": [],
+      "prereq_ids": [
+        "web.html5.semantic"
+      ],
+      "source_ref": "wy/html5/canvas.html",
+      "legacy_url": "wy/html5/canvas.html",
+      "verified": false
+    },
+    {
+      "id": "web.html5.svg",
+      "subject_id": "web_design",
+      "chapter_id": "web.html5",
+      "title": "SVG 概述",
+      "order": 6,
+      "aliases": [],
+      "prereq_ids": [
+        "web.html5.canvas"
+      ],
+      "source_ref": "wy/html5/svg.html",
+      "legacy_url": "wy/html5/svg.html",
+      "verified": false
+    },
+    {
+      "id": "web.html5.drag",
+      "subject_id": "web_design",
+      "chapter_id": "web.html5",
+      "title": "拖放",
+      "order": 7,
+      "aliases": [],
+      "prereq_ids": [
+        "web.html5.svg"
+      ],
+      "source_ref": "wy/html5/drag.html",
+      "legacy_url": "wy/html5/drag.html",
+      "verified": false
+    },
+    {
+      "id": "web.html5.video",
+      "subject_id": "web_design",
+      "chapter_id": "web.html5",
+      "title": "HTML5 Video",
+      "order": 8,
+      "aliases": [],
+      "prereq_ids": [
+        "web.html5.drag"
+      ],
+      "source_ref": "wy/html5/video.html",
+      "legacy_url": "wy/html5/video.html",
+      "verified": false
+    },
+    {
+      "id": "web.html5.audio",
+      "subject_id": "web_design",
+      "chapter_id": "web.html5",
+      "title": "HTML5 Audio",
+      "order": 9,
+      "aliases": [],
+      "prereq_ids": [
+        "web.html5.video"
+      ],
+      "source_ref": "wy/html5/audio.html",
+      "legacy_url": "wy/html5/audio.html",
+      "verified": false
+    },
+    {
+      "id": "web.html5.input_types",
+      "subject_id": "web_design",
+      "chapter_id": "web.html5",
+      "title": "HTML5 Input 类型",
+      "order": 10,
+      "aliases": [],
+      "prereq_ids": [
+        "web.html5.audio"
+      ],
+      "source_ref": "wy/html5/input-types.html",
+      "legacy_url": "wy/html5/input-types.html",
+      "verified": false
+    },
+    {
+      "id": "web.html5.form_elements",
+      "subject_id": "web_design",
+      "chapter_id": "web.html5",
+      "title": "HTML5 表单元素",
+      "order": 11,
+      "aliases": [],
+      "prereq_ids": [
+        "web.html5.input_types"
+      ],
+      "source_ref": "wy/html5/form-elements.html",
+      "legacy_url": "wy/html5/form-elements.html",
+      "verified": false
+    },
+    {
+      "id": "web.html5.form_attrs",
+      "subject_id": "web_design",
+      "chapter_id": "web.html5",
+      "title": "表单属性",
+      "order": 12,
+      "aliases": [],
+      "prereq_ids": [
+        "web.html5.form_elements"
+      ],
+      "source_ref": "wy/html5/form-attrs.html",
+      "legacy_url": "wy/html5/form-attrs.html",
+      "verified": false
+    },
+    {
+      "id": "web.html5.webstorage",
+      "subject_id": "web_design",
+      "chapter_id": "web.html5",
+      "title": "Web 存储概述",
+      "order": 13,
+      "aliases": [],
+      "prereq_ids": [
+        "web.html5.form_attrs"
+      ],
+      "source_ref": "wy/html5/webstorage.html",
+      "legacy_url": "wy/html5/webstorage.html",
+      "verified": false
+    },
+    {
+      "id": "web.html5.media",
+      "subject_id": "web_design",
+      "chapter_id": "web.html5",
+      "title": "HTML 媒体概述",
+      "order": 14,
+      "aliases": [],
+      "prereq_ids": [
+        "web.html5.webstorage"
+      ],
+      "source_ref": "wy/html5/media.html",
+      "legacy_url": "wy/html5/media.html",
+      "verified": false
+    },
+    {
+      "id": "web.js.intro",
+      "subject_id": "web_design",
+      "chapter_id": "web.js",
+      "title": "JavaScript 简介",
+      "order": 1,
+      "aliases": [],
+      "prereq_ids": [
+        "web.js_intro"
+      ],
+      "source_ref": "wy/js/intro.html",
+      "legacy_url": "wy/js/intro.html",
+      "verified": false
+    },
+    {
+      "id": "web.js.howto",
+      "subject_id": "web_design",
+      "chapter_id": "web.js",
+      "title": "引入方式",
+      "order": 2,
+      "aliases": [],
+      "prereq_ids": [
+        "web.js.intro"
+      ],
+      "source_ref": "wy/js/howto.html",
+      "legacy_url": "wy/js/howto.html",
+      "verified": false
+    },
+    {
+      "id": "web.js.output",
+      "subject_id": "web_design",
+      "chapter_id": "web.js",
+      "title": "输出",
+      "order": 3,
+      "aliases": [],
+      "prereq_ids": [
+        "web.js.howto"
+      ],
+      "source_ref": "wy/js/output.html",
+      "legacy_url": "wy/js/output.html",
+      "verified": false
+    },
+    {
+      "id": "web.js.statements",
+      "subject_id": "web_design",
+      "chapter_id": "web.js",
+      "title": "语句",
+      "order": 4,
+      "aliases": [],
+      "prereq_ids": [
+        "web.js.output"
+      ],
+      "source_ref": "wy/js/statements.html",
+      "legacy_url": "wy/js/statements.html",
+      "verified": false
+    },
+    {
+      "id": "web.js.syntax",
+      "subject_id": "web_design",
+      "chapter_id": "web.js",
+      "title": "语法",
+      "order": 5,
+      "aliases": [],
+      "prereq_ids": [
+        "web.js.statements"
+      ],
+      "source_ref": "wy/js/syntax.html",
+      "legacy_url": "wy/js/syntax.html",
+      "verified": false
+    },
+    {
+      "id": "web.js.comments",
+      "subject_id": "web_design",
+      "chapter_id": "web.js",
+      "title": "注释",
+      "order": 6,
+      "aliases": [],
+      "prereq_ids": [
+        "web.js.syntax"
+      ],
+      "source_ref": "wy/js/comments.html",
+      "legacy_url": "wy/js/comments.html",
+      "verified": false
+    },
+    {
+      "id": "web.js.variables",
+      "subject_id": "web_design",
+      "chapter_id": "web.js",
+      "title": "变量",
+      "order": 7,
+      "aliases": [],
+      "prereq_ids": [
+        "web.js.comments"
+      ],
+      "source_ref": "wy/js/variables.html",
+      "legacy_url": "wy/js/variables.html",
+      "verified": false
+    },
+    {
+      "id": "web.js.datatypes",
+      "subject_id": "web_design",
+      "chapter_id": "web.js",
+      "title": "数据类型",
+      "order": 8,
+      "aliases": [],
+      "prereq_ids": [
+        "web.js.variables"
+      ],
+      "source_ref": "wy/js/datatypes.html",
+      "legacy_url": "wy/js/datatypes.html",
+      "verified": false
+    },
+    {
+      "id": "web.js.objects",
+      "subject_id": "web_design",
+      "chapter_id": "web.js",
+      "title": "对象",
+      "order": 9,
+      "aliases": [],
+      "prereq_ids": [
+        "web.js.datatypes"
+      ],
+      "source_ref": "wy/js/objects.html",
+      "legacy_url": "wy/js/objects.html",
+      "verified": false
+    },
+    {
+      "id": "web.js.functions",
+      "subject_id": "web_design",
+      "chapter_id": "web.js",
+      "title": "函数",
+      "order": 10,
+      "aliases": [],
+      "prereq_ids": [
+        "web.js.objects"
+      ],
+      "source_ref": "wy/js/functions.html",
+      "legacy_url": "wy/js/functions.html",
+      "verified": false
+    },
+    {
+      "id": "web.js.scope",
+      "subject_id": "web_design",
+      "chapter_id": "web.js",
+      "title": "作用域",
+      "order": 11,
+      "aliases": [],
+      "prereq_ids": [
+        "web.js.functions"
+      ],
+      "source_ref": "wy/js/scope.html",
+      "legacy_url": "wy/js/scope.html",
+      "verified": false
+    },
+    {
+      "id": "web.js.events",
+      "subject_id": "web_design",
+      "chapter_id": "web.js",
+      "title": "事件",
+      "order": 12,
+      "aliases": [],
+      "prereq_ids": [
+        "web.js.scope"
+      ],
+      "source_ref": "wy/js/events.html",
+      "legacy_url": "wy/js/events.html",
+      "verified": false
+    },
+    {
+      "id": "web.js.strings",
+      "subject_id": "web_design",
+      "chapter_id": "web.js",
+      "title": "字符串",
+      "order": 13,
+      "aliases": [],
+      "prereq_ids": [
+        "web.js.events"
+      ],
+      "source_ref": "wy/js/strings.html",
+      "legacy_url": "wy/js/strings.html",
+      "verified": false
+    },
+    {
+      "id": "web.js.numbers",
+      "subject_id": "web_design",
+      "chapter_id": "web.js",
+      "title": "数字",
+      "order": 14,
+      "aliases": [],
+      "prereq_ids": [
+        "web.js.strings"
+      ],
+      "source_ref": "wy/js/numbers.html",
+      "legacy_url": "wy/js/numbers.html",
+      "verified": false
+    },
+    {
+      "id": "web.js.arrays",
+      "subject_id": "web_design",
+      "chapter_id": "web.js",
+      "title": "数组",
+      "order": 15,
+      "aliases": [],
+      "prereq_ids": [
+        "web.js.numbers"
+      ],
+      "source_ref": "wy/js/arrays.html",
+      "legacy_url": "wy/js/arrays.html",
+      "verified": false
+    },
+    {
+      "id": "web.js.ifelse",
+      "subject_id": "web_design",
+      "chapter_id": "web.js",
+      "title": "条件",
+      "order": 16,
+      "aliases": [],
+      "prereq_ids": [
+        "web.js.arrays"
+      ],
+      "source_ref": "wy/js/ifelse.html",
+      "legacy_url": "wy/js/ifelse.html",
+      "verified": false
+    },
+    {
+      "id": "web.js.loops",
+      "subject_id": "web_design",
+      "chapter_id": "web.js",
+      "title": "循环",
+      "order": 17,
+      "aliases": [],
+      "prereq_ids": [
+        "web.js.ifelse"
+      ],
+      "source_ref": "wy/js/loops.html",
+      "legacy_url": "wy/js/loops.html",
+      "verified": false
+    },
+    {
+      "id": "web.js.dom",
+      "subject_id": "web_design",
+      "chapter_id": "web.js",
+      "title": "HTML DOM",
+      "order": 18,
+      "aliases": [],
+      "prereq_ids": [
+        "web.js.loops"
+      ],
+      "source_ref": "wy/js/dom.html",
+      "legacy_url": "wy/js/dom.html",
+      "verified": false
+    },
+    {
+      "id": "web.js.dom_html",
+      "subject_id": "web_design",
+      "chapter_id": "web.js",
+      "title": "改内容与样式",
+      "order": 19,
+      "aliases": [],
+      "prereq_ids": [
+        "web.js.dom"
+      ],
+      "source_ref": "wy/js/dom-html.html",
+      "legacy_url": "wy/js/dom-html.html",
+      "verified": false
+    },
+    {
+      "id": "web.js.dom_events",
+      "subject_id": "web_design",
+      "chapter_id": "web.js",
+      "title": "DOM 事件",
+      "order": 20,
+      "aliases": [],
+      "prereq_ids": [
+        "web.js.dom_html"
+      ],
+      "source_ref": "wy/js/dom-events.html",
+      "legacy_url": "wy/js/dom-events.html",
+      "verified": false
+    },
+    {
+      "id": "web.html5_index",
+      "subject_id": "web_design",
+      "chapter_id": "web.lessons",
+      "title": "HTML5",
+      "order": 4,
+      "aliases": [
+        "HTML5"
+      ],
+      "prereq_ids": [
+        "web.html_intro"
+      ],
+      "source_ref": "wy/html5/index.html",
+      "legacy_url": "wy/html5/index.html",
+      "verified": false
+    },
+    {
+      "id": "web.examples",
+      "subject_id": "web_design",
+      "chapter_id": "web.more",
+      "title": "实例入口",
+      "order": 1,
+      "aliases": [],
+      "prereq_ids": [
+        "web.html_intro"
+      ],
+      "source_ref": "wy/examples/index.html",
+      "legacy_url": "wy/examples/index.html",
+      "verified": false
+    },
+    {
+      "id": "web.reference",
+      "subject_id": "web_design",
+      "chapter_id": "web.more",
+      "title": "标签与属性速查",
+      "order": 2,
+      "aliases": [
+        "标签速查"
+      ],
+      "prereq_ids": [
+        "web.html_intro"
+      ],
+      "source_ref": "wy/reference/index.html",
+      "legacy_url": "wy/reference/index.html",
+      "verified": false
     }
   ]
 }

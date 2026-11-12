@@ -1,5 +1,8 @@
 // 正文页（gs45、yy5、网页设计小测验等）作答的统一约定：题目 ID、作答事件、迁移、总览快照。
 // 纯函数，浏览器与 node 测试共用；写库仍走 records.js 的 commitSubmission。
+import { enrichTopicIds, isExcludedQuestionId, topicIdsForQuestionId } from "./topic-index.js";
+
+export { enrichTopicIds, isExcludedQuestionId, topicIdsForQuestionId };
 
 export const PAGE_PROVENANCE = Object.freeze({ kind: "page", verified: true });
 
@@ -62,7 +65,7 @@ export function normalizePagePayload(input = {}) {
   return {
     questionId,
     subjectId: input.subjectId || null,
-    topicIds: input.topicIds || [],
+    topicIds: (input.topicIds && input.topicIds.length) ? input.topicIds : topicIdsForQuestionId(questionId),
     type: input.rating ? "self_rated" : "single_choice",
     stem: String(input.stem || "").replace(/\s+/g, " ").trim(),
     answer: input.rating ? null : { option_ids: [String(input.correct || "")] },
@@ -112,19 +115,34 @@ function pageHref(page, base) {
 }
 
 // 学习总览快照（GPT study-overview.js 的 adapter 约定）。只用真实记录；迁移来的旧记录不计入每日活跃。
-export function buildOverviewSnapshot({ attempts = [], mistakes = [], registry = { subjects: [] }, subjects = [], now = new Date(), base = "../" } = {}) {
-  const real = attempts.filter(isRealRecord);
+export function buildOverviewSnapshot({ attempts = [], mistakes = [], registry = { subjects: [] }, subjects = [], topics = [], now = new Date(), base = "../" } = {}) {
+  const visibleAttempts = attempts.filter((a) => !isExcludedQuestionId(a.question_id)).map(enrichTopicIds);
+  const visibleMistakes = mistakes.filter((m) => !isExcludedQuestionId(m.question_id)).map(enrichTopicIds);
+  const real = visibleAttempts.filter(isRealRecord);
   const names = new Map(subjects.map((s) => [s.id, s.name || s.title || s.id]));
+  const topicNames = new Map((topics || []).map((t) => [t.id, t.title || t.id]));
   const latest = new Map();
   for (const a of [...real].sort((x, y) => String(x.submitted_at).localeCompare(String(y.submitted_at)))) latest.set(a.question_id, a);
 
   const subjectRows = [];
   for (const group of registry.subjects || []) {
-    const ids = group.questions || [];
+    const ids = (group.questions || []).filter((id) => !isExcludedQuestionId(id));
     if (!ids.length) continue;
     const completed = ids.filter((id) => latest.get(id)?.grading?.status === "correct").length;
     subjectRows.push({ id: group.id, title: names.get(group.id) || group.id, completed, total: ids.length, url: group.url ? `${base}${group.url}` : "" });
   }
+
+  const byTopic = new Map();
+  for (const a of latest.values()) {
+    for (const topicId of a.topic_ids || topicIdsForQuestionId(a.question_id)) {
+      const row = byTopic.get(topicId) || { id: topicId, title: topicNames.get(topicId) || topicId, completed: 0, total: 0, url: "" };
+      row.total += 1;
+      if (a.grading?.status === "correct") row.completed += 1;
+      if (!row.url && a.page?.url) row.url = pageHref(a.page, base);
+      byTopic.set(topicId, row);
+    }
+  }
+  const topicRows = [...byTopic.values()];
 
   const counts = new Map();
   for (const a of real) {
@@ -134,18 +152,23 @@ export function buildOverviewSnapshot({ attempts = [], mistakes = [], registry =
   }
   const activity = [...counts].sort().map(([date, count]) => ({ date, count }));
 
-  const reviews = mistakes
+  const reviews = visibleMistakes
     .filter((m) => !m.deleted_at && m.status === "active" && m.next_review_at && isRealRecord(m))
-    .map((m) => ({
-      id: m.id,
-      title: (m.page?.title ? `${m.page.title} · ` : "") + String(m.stem_snapshot || m.question_id).slice(0, 48),
-      dueAt: m.next_review_at,
-      url: m.page?.url ? pageHref(m.page, base) : `./index.html#/quiz/${encodeURIComponent(m.question_id)}?mode=retry`
-    }));
+    .map((m) => {
+      const topicId = (m.topic_ids || [])[0] || topicIdsForQuestionId(m.question_id)[0] || "";
+      return {
+        id: m.id,
+        title: (m.page?.title ? `${m.page.title} · ` : "") + String(m.stem_snapshot || m.question_id).slice(0, 48),
+        dueAt: m.next_review_at,
+        url: m.page?.url ? pageHref(m.page, base) : `./index.html#/quiz/${encodeURIComponent(m.question_id)}?mode=retry`,
+        topicId,
+        topicTitle: topicId ? (topicNames.get(topicId) || topicId) : ""
+      };
+    });
 
   const visited = [...real].filter((a) => a.page?.url).sort((x, y) => String(y.submitted_at).localeCompare(String(x.submitted_at)));
   const pick = visited.find((a) => !a.migrated_from) || visited[0];
   const lastVisited = pick ? { title: pick.page.title || pick.stem_snapshot, url: pageHref(pick.page, base) } : null;
 
-  return { hasRecords: real.length > 0, today: localDay(now), subjects: subjectRows, activity, reviews, lastVisited };
+  return { hasRecords: real.length > 0, today: localDay(now), subjects: subjectRows, topics: topicRows, activity, reviews, lastVisited };
 }

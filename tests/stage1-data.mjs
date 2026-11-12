@@ -52,3 +52,55 @@ test("the old homepage keeps subject cards and gains a reversible study link", (
   assert.equal(html.includes("数据库"), true);
   assert.equal(html.includes("计算机网络"), true);
 });
+
+
+function htmlIds(rel) {
+  const html = fs.readFileSync(path.join(root, rel), "utf8");
+  const ids = new Set();
+  for (const match of html.matchAll(/\bid=["']([^"']+)["']/g)) ids.add(match[1]);
+  for (const match of html.matchAll(/\bname=["']([^"']+)["']/g)) ids.add(match[1]);
+  return ids;
+}
+
+function assertTarget(label, ref) {
+  if (!ref) return;
+  const [file, hash] = ref.split("#");
+  assert.equal(fs.existsSync(path.join(root, file)), true, `${label} 缺少文件 ${file}`);
+  if (hash) {
+    assert.equal(htmlIds(file).has(hash), true, `${label} 缺少锚点 ${ref}`);
+  }
+}
+
+test("知识点目录锚点真实存在，先修边与 prereq_ids 一致", () => {
+  const topics = read("data/topics.json");
+  const deps = read("data/dependencies.json");
+  const topicIds = new Set(topics.topics.map((t) => t.id));
+  const fromEdges = new Map();
+  for (const edge of deps.edges) {
+    assert.equal(Boolean(edge.topicId && edge.prerequisiteId), true);
+    assert.equal(["hard", "soft"].includes(edge.strength), true, edge.topicId);
+    assert.equal(typeof edge.reason, "string");
+    assert.equal(topicIds.has(edge.topicId), true, edge.topicId);
+    assert.equal(topicIds.has(edge.prerequisiteId), true, edge.prerequisiteId);
+    const list = fromEdges.get(edge.topicId) || [];
+    list.push(edge.prerequisiteId);
+    fromEdges.set(edge.topicId, list);
+  }
+  for (const item of [...topics.topics, ...topics.chapters]) {
+    assertTarget(item.id, item.source_ref);
+    assertTarget(item.id, item.legacy_url);
+  }
+  for (const topic of topics.topics) {
+    assert.deepEqual(topic.prereq_ids || [], fromEdges.get(topic.id) || []);
+  }
+  const blob = JSON.stringify({ topics, deps });
+  for (const banned of ["36-7", "38-2", "46-5", "补-5", "math.p123"]) {
+    assert.equal(blob.includes(banned), false, banned);
+  }
+  assert.equal(topics.topics.some((t) => t.id === "math.function_limit" && t.legacy_url === "gs/gs1.html#point-4"), true);
+  assert.equal(topics.topics.some((t) => t.id === "math.p48" && t.legacy_url === "gs/gs45.html#point-48"), true);
+  assert.equal(topics.topics.some((t) => t.id === "web.html.quiz"), true);
+  assert.equal(topics.chapters.some((c) => c.subject_id === "database" || c.subject_id === "network"), false);
+  assert.deepEqual(topics.chapters.filter((c) => c.subject_id === "c_language").map((c) => c.id), ["c.existing"]);
+  assert.equal(blob.includes("cn-math-taxonomy"), true);
+});
