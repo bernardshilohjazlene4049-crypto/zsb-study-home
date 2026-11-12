@@ -17,542 +17,99 @@
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="assets/css/site-unify.css">
-  <style>
-    /* 首页只补充页面级布局；颜色、字体、圆角和基础组件继续沿用 site-unify.css。 */
-    html {
-      scroll-padding-top: 80px;
-      background: var(--sg-bg);
-    }
-
-    body.home-index {
-      min-height: 100vh;
-      background:
-        linear-gradient(180deg, var(--sg-bg-top) 0, var(--sg-bg) 38%, #f6f7f9 100%);
-    }
-
-    .home-index .site-shell {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .home-index .site-main {
-      flex: 1;
-      padding-top: 34px;
-      padding-bottom: 64px;
-    }
-
-    .home-index .site-brand__mark {
-      font-size: 15px;
-      font-weight: 650;
-      letter-spacing: -.02em;
-    }
-
-    .home-index .site-brand,
-    .home-index .site-nav__link {
-      font-weight: 560;
-    }
-
-    .home-index .site-nav__link {
-      padding-inline: 11px;
-    }
-
-    .home-index .page-hero {
-      margin: 34px 0 42px;
-    }
-
-    .home-index .page-title {
-      max-width: 900px;
-      font-weight: 560;
-      line-height: 1.14;
-      letter-spacing: -.018em;
-      overflow-wrap: normal;
-      text-wrap: balance;
-    }
-
-    .title-primary,
-    .title-secondary {
-      white-space: nowrap;
-    }
-
-    .home-index .section {
-      margin: 0;
-    }
-
-    .home-index .section-heading {
-      margin-bottom: 17px;
-    }
-
-    .home-index .section-title {
-      font-weight: 600;
-      letter-spacing: -.018em;
-    }
-
-    .subject-board {
-      position: relative;
-      overflow: hidden;
-      padding: 24px;
-      border: 1px solid var(--sg-line);
-      border-radius: var(--sg-radius-panel);
-      background: rgba(255, 255, 255, .64);
-      box-shadow:
-        0 18px 54px rgba(31, 40, 55, .045),
-        inset 0 1px 0 rgba(255, 255, 255, .82);
-      backdrop-filter: blur(18px) saturate(125%);
-      -webkit-backdrop-filter: blur(18px) saturate(125%);
-    }
-
-    .subject-group + .subject-group {
-      margin-top: 28px;
-      padding-top: 27px;
-      border-top: 1px solid var(--sg-line);
-    }
-
-    .subject-group__heading {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 13px;
-    }
-
-    .subject-group__title {
-      margin: 0;
-      color: var(--sg-ink-secondary);
-      font-size: var(--sg-text-sm);
-      font-weight: 600;
-      line-height: 1.4;
-      letter-spacing: -.01em;
-    }
-
-    .subject-grid {
-      gap: 12px;
-    }
-
-    .subject-grid--public {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .subject-grid--professional {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-
-    .home-index .subject-card {
-      position: relative;
-      min-height: 142px;
-      border-color: rgba(28, 36, 48, .09);
-      background: rgba(255, 255, 255, .82);
-      box-shadow: 0 2px 8px rgba(16, 24, 40, .025);
-      isolation: isolate;
-    }
-
-    .home-index a.subject-card {
-      cursor: pointer;
-    }
-
-    .home-index .subject-card .content-card__body {
-      min-height: 142px;
-      gap: 11px;
-      padding: 18px 18px 17px;
-    }
-
-    .subject-card__top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      min-width: 0;
-    }
-
-    .home-index .content-card__title {
-      font-size: 17px;
-      font-weight: 600;
-      letter-spacing: -.016em;
-      text-wrap: balance;
-    }
-
-    .home-index .content-card__text {
-      max-width: 32ch;
-      color: var(--sg-ink-secondary);
-      font-size: 13px;
-      line-height: 1.72;
-      text-wrap: pretty;
-    }
-
-    .subject-card__arrow {
-      display: inline-flex;
-      flex: none;
-      align-items: center;
-      justify-content: center;
-      width: 28px;
-      height: 28px;
-      border: 1px solid var(--sg-line);
-      border-radius: 8px;
-      color: var(--sg-ink-muted);
-      background: rgba(255, 255, 255, .58);
-      transition:
-        transform var(--sg-transition),
-        color var(--sg-transition),
-        border-color var(--sg-transition),
-        background var(--sg-transition);
-    }
-
-    .subject-card__arrow svg {
-      width: 14px;
-      height: 14px;
-    }
-
-    .subject-card--closed {
-      min-height: 142px;
-      border-color: rgba(28, 36, 48, .07);
-      background: rgba(249, 250, 252, .72);
-      box-shadow: none;
-    }
-
-    .subject-card--closed .content-card__body {
-      justify-content: space-between;
-    }
-
-    .subject-card__status {
-      margin: auto 0 0;
-      color: var(--sg-ink-faint);
-      font-size: 12px;
-      line-height: 1.5;
-    }
-
-    @media (hover: hover) and (pointer: fine) {
-      .home-index a.subject-card:hover {
-        border-color: var(--sg-line-strong);
-        background: rgba(255, 255, 255, .96);
-        box-shadow: var(--sg-shadow-hover);
-      }
-
-      .home-index a.subject-card:hover .subject-card__arrow {
-        transform: translateX(2px);
-        color: var(--sg-accent);
-        border-color: var(--sg-accent-line);
-        background: var(--sg-accent-soft);
-      }
-    }
-
-    .home-index a.subject-card:focus-visible {
-      outline: 2px solid var(--sg-accent);
-      outline-offset: 3px;
-    }
-
-    .home-index .site-footer__inner > span {
-      color: var(--sg-ink-muted);
-    }
-
-    @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-      .subject-board,
-      .home-index .subject-card {
-        background: #fff;
-      }
-    }
-
-    @media (max-width: 1023px) {
-      .subject-grid--public {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-
-      .subject-grid--professional {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 767px) {
-      html {
-        scroll-padding-top: 112px;
-      }
-
-      .home-index .site-main {
-        padding-top: 18px;
-        padding-bottom: 42px;
-      }
-
-      .home-index .page-hero {
-        margin: 25px 0 30px;
-      }
-
-      .home-index .page-title {
-        font-size: clamp(28px, 7.2vw, 34px);
-      }
-
-      .subject-board {
-        padding: 18px;
-      }
-
-      .subject-group + .subject-group {
-        margin-top: 23px;
-        padding-top: 22px;
-      }
-
-      .subject-grid--public,
-      .subject-grid--professional {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .home-index .subject-card,
-      .home-index .subject-card .content-card__body,
-      .subject-card--closed {
-        min-height: 126px;
-      }
-
-      .home-index .subject-card .content-card__body {
-        padding: 16px;
-      }
-    }
-
-    @media (max-width: 520px) {
-      .title-primary,
-      .title-secondary {
-        display: block;
-      }
-
-      .title-divider {
-        display: none;
-      }
-    }
-
-    @media (max-width: 430px) {
-      .home-index .site-nav__link {
-        padding-inline: 9px;
-      }
-
-      .home-index .page-title {
-        font-size: 30px;
-        line-height: 1.16;
-      }
-
-      .subject-board {
-        padding: 15px;
-        border-radius: var(--sg-radius-card);
-      }
-
-      .subject-grid--public,
-      .subject-grid--professional {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .home-index .subject-card,
-      .home-index .subject-card .content-card__body,
-      .subject-card--closed {
-        min-height: 110px;
-      }
-
-      .home-index .content-card__text {
-        max-width: none;
-      }
-    }
-
-    .home-index .resources-section { margin-top: 48px; }
-    .subject-grid--resources { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-    .home-index .resource-card,
-    .home-index .resource-card .content-card__body { min-height: 0; }
-    @media (max-width: 1023px) { .subject-grid--resources { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-    @media (max-width: 430px) { .subject-grid--resources { grid-template-columns: minmax(0, 1fr); } .home-index .resources-section { margin-top: 34px; } }
-  </style>
-<style>@media (max-width:430px){.site-header .site-nav{gap:2px}.site-header .site-nav .site-nav__link{padding-inline:7px}}</style>
+  <link rel="stylesheet" href="assets/css/site-shell.css">
+  <script src="assets/js/site-shell.js"></script>
 <link rel="manifest" href="manifest.webmanifest"><script src="assets/js/sw-register.js" defer></script>
 </head>
-<body id="top" class="home-index">
+<body id="top" class="home-index shell-page">
   <div class="site-shell">
     <header class="site-header">
       <div class="site-header__inner">
-        <a class="site-brand" href="./index.html">
-          <span class="site-brand__mark" aria-hidden="true">升</span>
-          <span class="site-brand__name">辽宁专升本</span>
-        </a>
-
+        <a class="site-brand" href="./index.html"><span class="site-brand__name">辽宁专升本 · 计算机类学习站</span></a>
         <nav class="site-nav" aria-label="全站导航">
-          <a class="site-nav__link is-active" aria-current="page" href="./index.html"><span class="site-nav__label">首页</span></a>
-          <a class="site-nav__link" href="search.html"><span class="site-nav__label">搜索</span></a>
-          <a class="site-nav__link" href="jsj/index.html"><span class="site-nav__label">计算机基础</span></a>
-          <a class="site-nav__link" href="gs/index.html"><span class="site-nav__label">高等数学</span></a>
-          <a class="site-nav__link" href="c/index.html"><span class="site-nav__label">C语言</span></a>
-          <a class="site-nav__link" href="yy/index.html"><span class="site-nav__label">英语</span></a>
-          <a class="site-nav__link" href="wy/index.html"><span class="site-nav__label">网页设计</span></a>
+          <a class="site-nav__link" href="./index.html">首页</a>
+          <a class="site-nav__link" href="study/index.html">学习工作台</a>
+          <a class="site-nav__link" href="tower/index.html">指挥塔</a>
+          <a class="site-nav__link" href="study/overview.html">学习总览</a>
+          <a class="site-nav__link" href="search.html">搜索</a>
         </nav>
       </div>
     </header>
 
-    <main class="site-main">
-      <div class="site-container">
-        <header class="page-hero">
-          <h1 class="page-title">
-            <span class="title-primary">辽宁专升本</span><span class="title-divider" aria-hidden="true"> · </span><span class="title-secondary">计算机类学习站</span>
-          </h1>
+    <main class="site-main home-main" id="main">
+      <div class="home-wrap">
+        <header class="home-hero">
+          <h1 class="home-hero__title">辽宁专升本 · 计算机类学习站</h1>
+          <form class="home-search" role="search" action="search.html" method="get">
+            <label class="sh-sr" for="home-q">搜索知识点、章节、资料</label>
+            <span class="home-search__icon" data-icon="search" aria-hidden="true"></span>
+            <input id="home-q" name="q" type="search" placeholder="搜索知识点、章节、资料…" autocomplete="off" enterkeyhint="search">
+            <kbd class="home-search__kbd" aria-hidden="true">/</kbd>
+          </form>
         </header>
 
-        <section class="section" id="subjects" aria-labelledby="subjects-title">
-          <div class="section-heading">
-            <h2 class="section-title" id="subjects-title">科目索引</h2>
+        <div class="home-grid">
+          <section class="sh-card home-continue" id="continue" aria-labelledby="continue-title">
+            <header class="sh-card__head"><h2 class="sh-card__title" id="continue-title"><span class="sh-ico" data-icon="playCircle" aria-hidden="true"></span><span>继续学习</span></h2></header>
+            <div class="home-continue__body" data-slot="continue"><p class="sh-empty-line">还没有学习记录。</p></div>
+          </section>
+          <section class="sh-card home-due" id="due" aria-labelledby="due-title">
+            <header class="sh-card__head"><h2 class="sh-card__title" id="due-title"><span class="sh-ico" data-icon="clock" aria-hidden="true"></span><span>今日到期复习</span><small class="sh-card__sub">（知识点）</small></h2></header>
+            <div data-slot="due"><p class="sh-empty-line">今天没有到期的复习。</p></div>
+          </section>
+        </div>
+
+        <section class="sh-card home-map" id="subjects" aria-labelledby="subjects-title">
+          <header class="sh-card__head"><h2 class="sh-card__title" id="subjects-title"><span class="sh-ico" data-icon="layers" aria-hidden="true"></span><span>学习科目地图</span></h2></header>
+          <div class="home-map__row">
+            <h3 class="home-map__group">公共课</h3>
+            <div class="home-map__list home-map__list--public">
+            <a class="home-subject" href="yy/index.html" data-subject="english">
+              <span class="home-subject__icon" data-icon="english" aria-hidden="true"></span>
+              <span class="home-subject__body"><span class="home-subject__name">英语</span><span class="home-subject__meta" data-subject-meta></span></span>
+              <span class="home-subject__chev" aria-hidden="true"></span>
+            </a>
+            <a class="home-subject" href="gs/index.html" data-subject="math">
+              <span class="home-subject__icon" data-icon="sigma" aria-hidden="true"></span>
+              <span class="home-subject__body"><span class="home-subject__name">高等数学</span><span class="home-subject__meta" data-subject-meta></span></span>
+              <span class="home-subject__chev" aria-hidden="true"></span>
+            </a>
+            <a class="home-subject" href="jsj/index.html" data-subject="computer_basics">
+              <span class="home-subject__icon" data-icon="monitor" aria-hidden="true"></span>
+              <span class="home-subject__body"><span class="home-subject__name">计算机基础</span><span class="home-subject__meta" data-subject-meta></span></span>
+              <span class="home-subject__chev" aria-hidden="true"></span>
+            </a>
+            </div>
           </div>
-
-          <div class="glass-panel subject-board">
-            <section class="subject-group" aria-labelledby="public-subjects-title">
-              <div class="subject-group__heading">
-                <h3 class="subject-group__title" id="public-subjects-title">公共课</h3>
-              </div>
-
-              <div class="card-grid subject-grid subject-grid--public">
-                <a class="content-card subject-card" href="yy/index.html">
-                  <div class="content-card__body">
-                    <div class="subject-card__top">
-                      <h4 class="content-card__title">英语</h4>
-                      <span class="subject-card__arrow" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                          <path d="M5 12h14"></path>
-                          <path d="m14 7 5 5-5 5"></path>
-                        </svg>
-                      </span>
-                    </div>
-                    <p class="content-card__text">五专题系统讲义、讲解视频与思维导图。</p>
-                  </div>
-                </a>
-
-                <a class="content-card subject-card" href="gs/index.html">
-                  <div class="content-card__body">
-                    <div class="subject-card__top">
-                      <h4 class="content-card__title">高等数学</h4>
-                      <span class="subject-card__arrow" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                          <path d="M5 12h14"></path>
-                          <path d="m14 7 5 5-5 5"></path>
-                        </svg>
-                      </span>
-                    </div>
-                    <p class="content-card__text">第一章，以及第四、五章学习内容。</p>
-                  </div>
-                </a>
-
-                <a class="content-card subject-card" href="jsj/index.html">
-                  <div class="content-card__body">
-                    <div class="subject-card__top">
-                      <h4 class="content-card__title">计算机基础</h4>
-                      <span class="subject-card__arrow" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                          <path d="M5 12h14"></path>
-                          <path d="m14 7 5 5-5 5"></path>
-                        </svg>
-                      </span>
-                    </div>
-                    <p class="content-card__text">第一章思维导图、第四章 Excel、第五章 PowerPoint。</p>
-                  </div>
-                </a>
-              </div>
-            </section>
-
-            <section class="subject-group" aria-labelledby="professional-subjects-title">
-              <div class="subject-group__heading">
-                <h3 class="subject-group__title" id="professional-subjects-title">专业课</h3>
-              </div>
-
-              <div class="card-grid subject-grid subject-grid--professional">
-                <a class="content-card subject-card" href="c/index.html">
-                  <div class="content-card__body">
-                    <div class="subject-card__top">
-                      <h4 class="content-card__title">C 语言</h4>
-                      <span class="subject-card__arrow" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                          <path d="M5 12h14"></path>
-                          <path d="m14 7 5 5-5 5"></path>
-                        </svg>
-                      </span>
-                    </div>
-                    <p class="content-card__text">5 道图片题讲解。</p>
-                  </div>
-                </a>
-
-                <article class="content-card subject-card subject-card--closed" aria-label="数据库，即将开放">
-                  <div class="content-card__body">
-                    <div class="subject-card__top">
-                      <h4 class="content-card__title">数据库</h4>
-                    </div>
-                    <p class="subject-card__status">即将开放</p>
-                  </div>
-                </article>
-
-                <a class="content-card subject-card" href="wy/index.html">
-                  <div class="content-card__body">
-                    <div class="subject-card__top">
-                      <h4 class="content-card__title">网页设计</h4>
-                      <span class="subject-card__arrow" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                          <path d="M5 12h14"></path>
-                          <path d="m14 7 5 5-5 5"></path>
-                        </svg>
-                      </span>
-                    </div>
-                    <p class="content-card__text">第 1–2 章课页与第 2 章讲解视频。</p>
-                  </div>
-                </a>
-
-                <article class="content-card subject-card subject-card--closed" aria-label="计算机网络，即将开放">
-                  <div class="content-card__body">
-                    <div class="subject-card__top">
-                      <h4 class="content-card__title">计算机网络</h4>
-                    </div>
-                    <p class="subject-card__status">即将开放</p>
-                  </div>
-                </article>
-              </div>
-            </section>
-          </div>
-        </section>
-
-        <section class="section resources-section" id="resources" aria-labelledby="resources-title">
-          <div class="section-heading">
-            <h2 class="section-title" id="resources-title">资料入口</h2>
-          </div>
-          <div class="card-grid subject-grid subject-grid--resources">
-                <a class="content-card subject-card resource-card" href="jsj/index.html">
-                  <div class="content-card__body">
-                    <div class="subject-card__top">
-                      <h3 class="content-card__title">Excel 视频讲解</h3>
-                      <span class="subject-card__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m14 7 5 5-5 5"></path></svg></span>
-                    </div>
-                  </div>
-                </a>
-                <a class="content-card subject-card resource-card" href="jsj/index.html#qbank">
-                  <div class="content-card__body">
-                    <div class="subject-card__top">
-                      <h3 class="content-card__title">题库入口</h3>
-                      <span class="subject-card__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m14 7 5 5-5 5"></path></svg></span>
-                    </div>
-                  </div>
-                </a>
-                <a class="content-card subject-card resource-card" href="c/index.html">
-                  <div class="content-card__body">
-                    <div class="subject-card__top">
-                      <h3 class="content-card__title">C 语言示例题</h3>
-                      <span class="subject-card__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m14 7 5 5-5 5"></path></svg></span>
-                    </div>
-                  </div>
-                </a>
-                <a class="content-card subject-card resource-card" href="yy/index.html">
-                  <div class="content-card__body">
-                    <div class="subject-card__top">
-                      <h3 class="content-card__title">英语思维导图</h3>
-                      <span class="subject-card__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m14 7 5 5-5 5"></path></svg></span>
-                    </div>
-                  </div>
-                </a>
+          <div class="home-map__row">
+            <h3 class="home-map__group">专业课</h3>
+            <div class="home-map__list home-map__list--pro">
+            <a class="home-subject" href="c/index.html" data-subject="c_language">
+              <span class="home-subject__icon" data-icon="code" aria-hidden="true"></span>
+              <span class="home-subject__body"><span class="home-subject__name">C 语言</span><span class="home-subject__meta" data-subject-meta></span></span>
+              <span class="home-subject__chev" aria-hidden="true"></span>
+            </a>
+            <a class="home-subject" href="wy/index.html" data-subject="web_design">
+              <span class="home-subject__icon" data-icon="web" aria-hidden="true"></span>
+              <span class="home-subject__body"><span class="home-subject__name">网页设计</span><span class="home-subject__meta" data-subject-meta></span></span>
+              <span class="home-subject__chev" aria-hidden="true"></span>
+            </a>
+            <div class="home-subject home-subject--closed" data-subject="database">
+              <span class="home-subject__icon" data-icon="db" aria-hidden="true"></span>
+              <span class="home-subject__body"><span class="home-subject__name">数据库</span><span class="home-subject__soon">即将开放</span></span>
+            </div>
+            <div class="home-subject home-subject--closed" data-subject="network">
+              <span class="home-subject__icon" data-icon="network" aria-hidden="true"></span>
+              <span class="home-subject__body"><span class="home-subject__name">计算机网络</span><span class="home-subject__soon">即将开放</span></span>
+            </div>
+            </div>
           </div>
         </section>
       </div>
     </main>
 
     <footer class="site-footer">
-      <div class="site-footer__inner">
-        <span>辽宁专升本</span>
-        <nav class="site-footer__links" aria-label="页脚导航">
-          <a href="#top">首页</a>
-          <a href="study/index.html">学习工作台</a>
-          <a href="tower/index.html">学习指挥塔</a>
-        </nav>
-      </div>
+      <div class="site-footer__inner"><span>辽宁专升本 · 计算机类学习站</span></div>
     </footer>
   </div>
 </body>
