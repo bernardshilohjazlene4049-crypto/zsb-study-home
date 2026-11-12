@@ -16,28 +16,37 @@
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="assets/css/site-unify.css">
-  <link rel="stylesheet" href="assets/css/site-search.css">
 <link rel="manifest" href="manifest.webmanifest"><script src="assets/js/sw-register.js" defer></script>
+<link rel="stylesheet" href="assets/css/site-shell.css"><script src="assets/js/site-shell.js"></script>
 </head>
-<body>
+<body class="shell-page shell-search">
   <div class="site-shell">
     <header class="site-header">
       <div class="site-header__inner">
-        <a class="site-brand" href="./index.html">
-          <span class="site-brand__mark" aria-hidden="true">升</span>
-          <span class="site-brand__name">辽宁专升本</span>
-        </a>
+        <a class="site-brand" href="./index.html"><span class="site-brand__name">辽宁专升本 · 计算机类学习站</span></a>
         <nav class="site-nav" aria-label="全站导航">
-          <a class="site-nav__link" href="./index.html"><span class="site-nav__label">首页</span></a>
-          <a class="site-nav__link is-active" aria-current="page" href="./search.html"><span class="site-nav__label">搜索</span></a>
+          <a class="site-nav__link" href="./index.html">首页</a>
+          <a class="site-nav__link" aria-current="page" href="./search.html">搜索</a>
         </nav>
       </div>
     </header>
-    <main class="site-main zsb-page"><div class="zsb-wrap">
-      <div class="zsb-head"><h1 class="zsb-title">搜索</h1></div>
-      <form role="search" id="zsb-search-form"><label class="zsb-sr-only" for="zsb-search">搜索知识点</label><div class="zsb-search-row"><input id="zsb-search" name="q" type="search" class="zsb-input" autocomplete="off" enterkeyhint="search"><button class="zsb-btn" type="submit">搜索</button></div></form>
-      <p id="zsb-search-status" class="zsb-status" role="status" aria-live="polite"></p>
-      <div id="zsb-search-results" class="zsb-results"></div>
+    <main class="site-main srch" id="main"><div class="srch-wrap">
+      <h1 class="srch-title"><span class="sh-ico" data-icon="search" data-size="24" aria-hidden="true"></span><span>搜索</span></h1>
+      <form role="search" id="zsb-search-form" class="srch-form">
+        <label class="sh-sr" for="zsb-search">搜索知识点、章节、讲义</label>
+        <span class="srch-form__icon sh-ico" data-icon="search" aria-hidden="true"></span>
+        <input id="zsb-search" name="q" type="search" autocomplete="off" enterkeyhint="search" placeholder="搜索知识点、章节、讲义…">
+        <button class="srch-form__clear" type="button" id="srch-clear" aria-label="清空" hidden><span class="sh-ico" data-icon="close" data-size="16" aria-hidden="true"></span></button>
+        <button class="srch-form__go" type="submit" aria-label="搜索"><span class="sh-ico" data-icon="search" data-size="18" aria-hidden="true"></span></button>
+      </form>
+      <div class="srch-tabs" id="srch-tabs" role="tablist" aria-label="按科目筛选" hidden></div>
+      <div class="srch-layout">
+        <aside class="srch-filters sh-card" id="srch-filters" aria-label="筛选" hidden></aside>
+        <div class="srch-main">
+          <div class="srch-bar"><p id="zsb-search-status" class="srch-status" role="status" aria-live="polite"></p><button type="button" class="sh-btn srch-filter-btn" id="srch-filter-btn" aria-controls="srch-filters" hidden><span class="sh-ico" data-icon="filter" data-size="16" aria-hidden="true"></span><span>筛选</span></button></div>
+          <div id="zsb-search-results" class="srch-results"></div>
+        </div>
+      </div>
     </div></main>
   </div>
   <script type="module" src="./assets/js/site-search.js"></script>

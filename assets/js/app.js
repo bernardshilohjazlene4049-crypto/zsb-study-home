@@ -177,6 +177,8 @@ function bindSearch() {
 
 function renderChrome(route) {
   const key = navKey(route);
+  const layout = document.querySelector(".dashboard-layout");
+  if (layout) layout.classList.toggle("is-wide", route.name === "topic" || route.name === "mistakes");
   for (const link of document.querySelectorAll("[data-nav]")) {
     const on = link.dataset.nav === key;
     link.classList.toggle("active", on);
