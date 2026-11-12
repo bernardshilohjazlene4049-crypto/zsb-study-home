@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "disclaimer": "以下章节和小节来自现有学习站页面的导航草案，verified 均为 false。标题沿用原页面用词，不代表官方考纲、考频或完整考试范围。 知识点编号、先修边表的组织方式参考了 https://github.com/xiaoyang111222/cn-math-taxonomy 的结构思路，未复制其文本或数据。该项目采用 CC BY-NC 4.0 许可证。高数第四、五章与英语专题之间的先修关系为草稿，待核对。",
+  "disclaimer": "以下章节和小节来自现有学习站页面的导航草案，verified 均为 false。标题沿用原页面用词，不代表官方考纲、考频或完整考试范围。 知识点编号、先修边表的组织方式参考了 https://github.com/xiaoyang111222/cn-math-taxonomy 的结构思路，未复制其文本或数据。该项目采用 CC BY-NC 4.0 许可证。高数先修边已按核对意见修订；英语专题之间的先修关系仍为草稿，待核对。",
   "chapters": [
     {
       "id": "math.ch1",
@@ -313,7 +313,8 @@
         "等价无穷小"
       ],
       "prereq_ids": [
-        "math.infinitesimal"
+        "math.infinitesimal",
+        "math.important_limits"
       ],
       "source_ref": "gs/gs1.html#point-6",
       "legacy_url": "gs/gs1.html#point-6",
@@ -331,7 +332,7 @@
         "洛必达"
       ],
       "prereq_ids": [
-        "math.equivalent"
+        "math.function_limit"
       ],
       "source_ref": "gs/gs1.html#point-7",
       "legacy_url": "gs/gs1.html#point-7",
@@ -349,7 +350,7 @@
         "垂直渐近线"
       ],
       "prereq_ids": [
-        "math.important_limits"
+        "math.infinitesimal"
       ],
       "source_ref": "gs/gs1.html#point-8",
       "legacy_url": "gs/gs1.html#point-8",
@@ -366,7 +367,9 @@
         "连续"
       ],
       "prereq_ids": [
-        "math.function_limit"
+        "math.function_limit",
+        "math.equivalent",
+        "math.important_limits"
       ],
       "source_ref": "gs/gs1.html#point-9",
       "legacy_url": "gs/gs1.html#point-9",
@@ -383,6 +386,7 @@
         "间断点"
       ],
       "prereq_ids": [
+        "math.infinitesimal",
         "math.continuity"
       ],
       "source_ref": "gs/gs1.html#point-10",
@@ -981,6 +985,7 @@
       "order": 44,
       "aliases": [],
       "prereq_ids": [
+        "math.continuous_properties",
         "math.p43"
       ],
       "source_ref": "gs/gs45.html#point-44",
@@ -1023,6 +1028,7 @@
       "order": 47,
       "aliases": [],
       "prereq_ids": [
+        "math.p39",
         "math.p46"
       ],
       "source_ref": "gs/gs45.html#point-47",
