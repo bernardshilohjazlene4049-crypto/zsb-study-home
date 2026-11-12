@@ -55,7 +55,7 @@ test("自评三档沿用 mistake-rules 的复习间隔", () => {
   assert.equal(classifyOutcome({ ...fuzzy }).category, "not_understood");
   assert.equal(classifyOutcome({ ...again }).category, "wrong");
   assert.equal(scheduleReview({ ...again, now: NOW }).interval_days, 1);
-  assert.equal(scheduleReview({ ...fuzzy, now: NOW }).interval_days, 1);
+  assert.equal(scheduleReview({ ...fuzzy, now: NOW }).interval_days, 2);
   assert.equal(scheduleReview({ ...good, previousStep: 0, now: NOW }).interval_days, 3);
   assert.equal(scheduleReview({ ...good, previousStep: 1, now: NOW }).interval_days, 7);
   assert.throws(() => ratingOutcome("maybe"));

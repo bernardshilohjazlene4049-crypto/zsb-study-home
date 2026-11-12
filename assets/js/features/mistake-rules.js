@@ -47,11 +47,15 @@ export function reviewRating({ grading, understanding, guessed = false }) {
 
 export function scheduleReview({ grading, understanding, previousStep = 0, now = Date.now(), previous = null, guessed = false, scheduler = REVIEW_SCHEDULER }) {
   if (scheduler === "fsrs") {
-    const { days, state } = fsrs.review(previous?.fsrs || null, reviewRating({ grading, understanding, guessed }), now);
+    const rating = reviewRating({ grading, understanding, guessed });
+    const { days, state } = fsrs.review(previous?.fsrs || null, rating, now);
+    // 新题答「会」的巩固复习保持 7 天；已有档案（含无 fsrs 字段的旧记录）仍按 FSRS 评分。
+    const firstConsolidate = !previous && previousStep === FIRST_CONSOLIDATION_STEP && rating === "good";
+    const interval = firstConsolidate ? 7 : days;
     return {
-      next_review_at: new Date(now + days * 86400000).toISOString(),
+      next_review_at: new Date(now + interval * 86400000).toISOString(),
       interval_step: previousStep || 0,
-      interval_days: days,
+      interval_days: interval,
       rule: "fsrs_5",
       fsrs: state
     };

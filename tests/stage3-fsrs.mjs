@@ -9,12 +9,36 @@ const DAY = 86400000;
 const wrong = { status: "incorrect" };
 const right = { status: "correct" };
 
-test("默认仍用 1/3/7/14 规则", () => {
-  assert.equal(REVIEW_SCHEDULER, "heuristic");
+test("默认使用 FSRS-5，已有记录的字段保持可回滚", () => {
+  assert.equal(REVIEW_SCHEDULER, "fsrs");
   const s = scheduleReview({ grading: wrong, understanding: "still_confused", now: T0 });
-  assert.equal(s.rule, "heuristic_1_3_7_14");
+  assert.equal(s.rule, "fsrs_5");
   assert.equal(s.interval_days, 1);
-  assert.equal("fsrs" in s, false);
+  assert.ok(s.fsrs);
+  assert.equal(s.fsrs.reps, 1);
+});
+
+test("新题答「会」在 FSRS 下仍安排 7 天后巩固，并写入 fsrs 状态", () => {
+  const s = scheduleReview({ grading: right, understanding: "mastered", previousStep: 1, now: T0 });
+  assert.equal(s.rule, "fsrs_5");
+  assert.equal(s.interval_days, 7);
+  assert.ok(s.fsrs);
+  assert.equal(s.fsrs.reps, 1);
+  const later = scheduleReview({ grading: right, understanding: "mastered", previous: { fsrs: s.fsrs }, now: T0 + 7 * DAY });
+  assert.equal(later.rule, "fsrs_5");
+  assert.notEqual(later.interval_days, 7);
+  assert.ok(later.interval_days > 7);
+});
+
+test("无 fsrs 字段的旧档案下次复习按 FSRS 新建状态，旧字段不被丢弃", () => {
+  const prev = { interval_step: 2, interval_rule: "heuristic_1_3_7_14", next_review_at: "2026-03-08T08:00:00.000Z" };
+  const s = scheduleReview({ grading: right, understanding: "mastered", previousStep: prev.interval_step, previous: prev, now: T0 });
+  assert.equal(s.rule, "fsrs_5");
+  assert.ok(s.fsrs);
+  const merged = mergeMistake(prev, { ...prev, interval_rule: s.rule, interval_days: s.interval_days, next_review_at: s.next_review_at, fsrs: s.fsrs, updated_at: new Date(T0).toISOString() });
+  assert.equal(merged.interval_step, 2);
+  assert.equal(merged.fsrs.reps, 1);
+  assert.equal(merged.interval_rule, "fsrs_5");
 });
 
 test("FSRS 新题四档的初始间隔与 ts-fsrs 长期模式一致", () => {
