@@ -1,4 +1,8 @@
+import { createFsrs } from "./fsrs.js";
+import { REVIEW_SCHEDULER } from "./review-config.js";
+
 const STEPS = [1, 3, 7, 14];
+const fsrs = createFsrs();
 
 export const UNDERSTANDING = [
   { id: "mastered", label: "会了", detail: "我独立会做，理解了" },
@@ -32,7 +36,26 @@ export function classifyOutcome({ grading, understanding, guessed }) {
   return { entersReview: true, category: "unanswered" };
 }
 
-export function scheduleReview({ grading, understanding, previousStep = 0, now = Date.now() }) {
+// 把一次作答换成 FSRS 评分：答错/未作答/看过仍不懂 = again，猜对或答对但不理解 = hard，会了 = good。
+export function reviewRating({ grading, understanding, guessed = false }) {
+  const status = grading?.status;
+  if (status !== "correct" && status !== "pending") return "again";
+  if (understanding === "still_confused" || understanding === "want_steps") return "again";
+  if (guessed) return "hard";
+  return understanding === "mastered" ? "good" : "hard";
+}
+
+export function scheduleReview({ grading, understanding, previousStep = 0, now = Date.now(), previous = null, guessed = false, scheduler = REVIEW_SCHEDULER }) {
+  if (scheduler === "fsrs") {
+    const { days, state } = fsrs.review(previous?.fsrs || null, reviewRating({ grading, understanding, guessed }), now);
+    return {
+      next_review_at: new Date(now + days * 86400000).toISOString(),
+      interval_step: previousStep || 0,
+      interval_days: days,
+      rule: "fsrs_5",
+      fsrs: state
+    };
+  }
   let step = 0;
   let days = 1;
   const correctAndClear = grading?.status === "correct" && understanding === "mastered" && !grading?.pending;
@@ -49,6 +72,20 @@ export function scheduleReview({ grading, understanding, previousStep = 0, now =
     interval_days: days,
     rule: "heuristic_1_3_7_14"
   };
+}
+
+// 「会」也安排一次复习：新题从第 2 档起（答对且会 = 7 天；FSRS 下按 good 评分），
+// 已有档案按规则顺延；1/3/7/14 规则下到 14 天那一档后再答「会」才转为暂歇。
+export const CONSOLIDATE = "consolidate";
+export const FIRST_CONSOLIDATION_STEP = 1;
+
+export function consolidationOutcome({ existing, schedule }) {
+  const graduated = Boolean(existing) && schedule.rule !== "fsrs_5" && (existing.interval_step || 0) >= STEPS.length - 1;
+  return { entersReview: !graduated, category: existing ? null : CONSOLIDATE };
+}
+
+export function isMistakeRecord(item) {
+  return Boolean(item) && !item.deleted_at && item.category !== CONSOLIDATE;
 }
 
 export function buildAttempt({
@@ -120,6 +157,7 @@ export function initialMistake(attempt, decision, schedule, id, now) {
     next_review_at: schedule.next_review_at,
     interval_step: schedule.interval_step,
     interval_rule: schedule.rule,
+    ...(schedule.fsrs ? { fsrs: schedule.fsrs } : {}),
     last_reviewed_at: now,
     created_at: now,
     updated_at: now,
@@ -150,6 +188,7 @@ export function mergeMistake(existing, incoming) {
     next_review_at: incoming.next_review_at || existing.next_review_at,
     interval_step: incoming.interval_step ?? existing.interval_step,
     interval_rule: incoming.interval_rule || existing.interval_rule,
+    ...(incoming.fsrs || existing.fsrs ? { fsrs: incoming.fsrs || existing.fsrs } : {}),
     last_reviewed_at: incoming.last_reviewed_at || existing.last_reviewed_at,
     updated_at: incoming.updated_at || existing.updated_at,
     alias_ids: [...alias],

@@ -1,10 +1,11 @@
 import { h } from "../core/dom.js";
 import { CATEGORY_LABEL, formatWhen, isSampleQuestion } from "./labels.js";
+import { isMistakeRecord } from "./mistake-rules.js";
 
 export function renderMistakes(ctx) {
   const subject = ctx.subjectFilter || "";
   const category = ctx.categoryFilter || "";
-  const rows = (ctx.learning.mistakes || []).filter((item) => !item.deleted_at);
+  const rows = (ctx.learning.mistakes || []).filter(isMistakeRecord);
   const filtered = rows.filter((item) => {
     if (subject && item.subject_id !== subject) return false;
     if (category && item.category !== category) return false;

@@ -11,3 +11,12 @@ document.querySelectorAll('.zsb-video[data-video-src]').forEach(container=>{
     container.replaceChildren(video);video.focus({preventScroll:true});video.play().catch(()=>{});
   },{once:true});
 });
+
+(function(){
+  const cur=document.currentScript;
+  if(!cur||!cur.src||document.querySelector('script[data-zsb-caption-position]'))return;
+  const s=document.createElement('script');
+  s.src=cur.src.replace(/[^/]+(?:\?.*)?$/,'caption-position.js');
+  s.setAttribute('data-zsb-caption-position','');
+  document.head.append(s);
+})();

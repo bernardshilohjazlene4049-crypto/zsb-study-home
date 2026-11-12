@@ -1,5 +1,5 @@
 import { h } from "../core/dom.js";
-import { UNDERSTANDING, REASON_TAGS } from "./mistake-rules.js";
+import { UNDERSTANDING, REASON_TAGS, isMistakeRecord } from "./mistake-rules.js";
 import { gradeQuestion } from "./grading.js";
 import { commitSubmission, getDraft, saveDraft, toggleMark, updateMistakeTags } from "./records.js";
 import { CATEGORY_LABEL, GRADING_LABEL, formatWhen, isSampleQuestion } from "./labels.js";
@@ -209,7 +209,8 @@ function renderSubmitted(ctx, question, submittedId) {
       h("a", { class: "btn", href: `#/quiz/${question.id}` }, "重新作答")
     ]);
   }
-  const mistake = (ctx.learning.mistakes || []).find((item) => item.question_id === question.id && !item.deleted_at);
+  const entry = (ctx.learning.mistakes || []).find((item) => item.question_id === question.id && !item.deleted_at);
+  const mistake = isMistakeRecord(entry) ? entry : null;
   const topicId = question.topic_ids?.[0];
   const others = (ctx.learning.attempts || []).filter((item) => item.question_id === question.id);
   const list = topicId ? ctx.catalog.questionsForTopic(topicId) : [];
@@ -247,7 +248,7 @@ function renderSubmitted(ctx, question, submittedId) {
     h("p", { class: "muted" }, `共 ${others.length} 条作答`),
     mistake ? h("p", {}, `错题档案：${CATEGORY_LABEL[mistake.category] || mistake.category} · 首次作答 ${mistake.first_attempt_id}`) : h("p", {}, "这次没有进入错题本。"),
     mistake ? h("div", { class: "stack" }, [h("h2", {}, "错因"), tags]) : null,
-    mistake?.next_review_at ? h("p", { class: "muted" }, `下次复习 ${formatWhen(mistake.next_review_at)}`) : null,
+    entry?.next_review_at ? h("p", { class: "muted" }, `下次复习 ${formatWhen(entry.next_review_at)}`) : null,
     h("div", { class: "row" }, [
       h("a", { class: "btn btn-primary", href: `#/quiz/${question.id}?mode=retry` }, "重练本题"),
       next ? h("a", { class: "btn", href: `#/quiz/${next.id}` }, "下一题") : null,

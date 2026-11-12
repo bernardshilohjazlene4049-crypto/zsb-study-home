@@ -23,16 +23,6 @@ export function mountVideo(container, { resource, anchor, dbOk, onPlay }) {
   if (resource.poster) {
     video.poster = isHttpUrl(resource.poster) ? resource.poster : siteUrl(resource.poster);
   }
-  const rate = h("select", { "aria-label": "播放倍速" });
-  for (const value of [0.75, 1, 1.25, 1.5]) {
-    const option = h("option", { value: String(value) }, `${value} 倍`);
-    if (value === 1) option.selected = true;
-    rate.append(option);
-  }
-  rate.addEventListener("change", () => {
-    video.playbackRate = Number(rate.value) || 1;
-  });
-
   const status = h("p", { class: "notice" }, located
     ? `从 ${formatClock(anchor.start_sec)} 开始。`
     : "暂无定位。");
@@ -51,10 +41,6 @@ export function mountVideo(container, { resource, anchor, dbOk, onPlay }) {
       if (!saved || !Number.isFinite(saved.current_time)) return;
       video.addEventListener("loadedmetadata", () => {
         if (saved.current_time < (video.duration || Infinity)) video.currentTime = saved.current_time;
-        if (saved.playback_rate) {
-          video.playbackRate = saved.playback_rate;
-          rate.value = String(saved.playback_rate);
-        }
       }, { once: true });
     }).catch(() => {});
     let savedAt = 0;
@@ -70,7 +56,7 @@ export function mountVideo(container, { resource, anchor, dbOk, onPlay }) {
     });
   }
 
-  const actions = [h("label", { class: "inline-field" }, ["倍速", rate])];
+  const actions = [];
   if (resource.page_url) {
     actions.push(h("a", { class: "btn", href: siteUrl(resource.page_url) }, "打开原页面"));
   }
