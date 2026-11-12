@@ -68,6 +68,8 @@
 .shell-nav__link:hover { color: var(--sh-ink); background: rgba(91, 75, 214, .06); }
 .shell-nav__link.is-active { color: var(--sh-accent); background: var(--sh-accent-soft); font-weight: 620; }
 .shell-nav__link:focus-visible, .shell-tab:focus-visible, .shell-header__search:focus-visible, .shell-brand:focus-visible { outline: 2px solid var(--sh-accent); outline-offset: 2px; }
+/* 跳转到正文：平时在屏幕外，键盘聚焦时出现在左上角。 */
+.skip-link:focus { left: 12px !important; top: 12px !important; padding: 8px 12px; border-radius: var(--sh-radius-sm); background: #fff; color: var(--sh-ink); outline: 2px solid var(--sh-accent); outline-offset: 2px; }
 .shell-nav__icon { display: inline-flex; color: currentColor; opacity: .9; }
 .shell-header__search { display: none; }
 .shell-tabbar { display: none; }
