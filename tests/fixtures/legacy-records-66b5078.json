@@ -1,0 +1,576 @@
+{
+ "_source": "由提交 66b5078（FSRS 上线前）的站点代码在浏览器中真实写入：先在 4a0f33b 的 yy/yy5.html 作答两题（localStorage liaoning.yy5.quiz.2026），再在 66b5078 打开 yy5（迁移）、作答两题、在 gs45 的 37-4 点「不会」。导出自 IndexedDB zsb-study。",
+ "localStorage": {
+  "liaoning.yy5.quiz.2026": "{\"4-1\":\"A\",\"4-3\":\"B\",\"7-1\":\"A\",\"8-1\":\"B\"}"
+ },
+ "attempts": [
+  {
+   "id": "att_02d205e3-fff0-4e25-a716-9ad7114084cc",
+   "schema_version": 1,
+   "question_id": "page:yy5:7-1",
+   "question_revision": 1,
+   "learner_id": "local-guest",
+   "response": {
+    "option_ids": [
+     "A"
+    ],
+    "text": ""
+   },
+   "grading": {
+    "status": "incorrect",
+    "auto": true,
+    "score": 0
+   },
+   "understanding": "still_confused",
+   "guessed": false,
+   "confidence": "still_confused",
+   "help_level": "none",
+   "elapsed_ms": null,
+   "provenance": {
+    "kind": "page",
+    "verified": true
+   },
+   "counts_toward_real_stats": true,
+   "stem_snapshot": "Neither my brothers nor my father ___ at home now.",
+   "answer_snapshot": {
+    "option_ids": [
+     "B"
+    ]
+   },
+   "topic_ids": [],
+   "subject_id": "english",
+   "submitted_at": "2026-11-12T14:24:47.952Z",
+   "created_at": "2026-11-12T14:24:47.952Z",
+   "source": "study-bridge",
+   "page": {
+    "url": "yy/yy5.html",
+    "title": "主谓一致",
+    "anchor": "quiz-7"
+   }
+  },
+  {
+   "id": "att_7cf3c3d6-3148-4ea0-babf-4315831e8799",
+   "schema_version": 1,
+   "question_id": "page:gs45:37-4",
+   "question_revision": 1,
+   "learner_id": "local-guest",
+   "response": {
+    "option_ids": [],
+    "text": "",
+    "rating": "again"
+   },
+   "grading": {
+    "status": "incorrect",
+    "auto": false,
+    "method": "self_report",
+    "score": 0
+   },
+   "understanding": "still_confused",
+   "guessed": false,
+   "confidence": "still_confused",
+   "help_level": "none",
+   "elapsed_ms": null,
+   "provenance": {
+    "kind": "page",
+    "verified": true
+   },
+   "counts_toward_real_stats": true,
+   "stem_snapshot": "过 (1,2,3) 且平行于 3x-2y+z=0 的平面",
+   "answer_snapshot": null,
+   "topic_ids": [],
+   "subject_id": "math",
+   "submitted_at": "2026-11-12T14:24:49.779Z",
+   "created_at": "2026-11-12T14:24:49.779Z",
+   "source": "study-bridge",
+   "page": {
+    "url": "gs/gs45.html",
+    "title": "考点三十七：求平面方程",
+    "anchor": "viz-37-4"
+   }
+  },
+  {
+   "id": "att_9526b998-db4d-4499-bbac-38b39fa7ba3b",
+   "schema_version": 1,
+   "question_id": "page:yy5:8-1",
+   "question_revision": 1,
+   "learner_id": "local-guest",
+   "response": {
+    "option_ids": [
+     "B"
+    ],
+    "text": ""
+   },
+   "grading": {
+    "status": "incorrect",
+    "auto": true,
+    "score": 0
+   },
+   "understanding": "still_confused",
+   "guessed": false,
+   "confidence": "still_confused",
+   "help_level": "none",
+   "elapsed_ms": null,
+   "provenance": {
+    "kind": "page",
+    "verified": true
+   },
+   "counts_toward_real_stats": true,
+   "stem_snapshot": "Here ___ the school buses.",
+   "answer_snapshot": {
+    "option_ids": [
+     "C"
+    ]
+   },
+   "topic_ids": [],
+   "subject_id": "english",
+   "submitted_at": "2026-11-12T14:24:48.151Z",
+   "created_at": "2026-11-12T14:24:48.151Z",
+   "source": "study-bridge",
+   "page": {
+    "url": "yy/yy5.html",
+    "title": "特殊句型",
+    "anchor": "quiz-8"
+   }
+  },
+  {
+   "id": "att_mig_2ea91c26",
+   "schema_version": 1,
+   "question_id": "page:yy5:4-3",
+   "question_revision": 1,
+   "learner_id": "local-guest",
+   "response": {
+    "option_ids": [
+     "B"
+    ],
+    "text": ""
+   },
+   "grading": {
+    "status": "incorrect",
+    "auto": true,
+    "score": 0
+   },
+   "understanding": "still_confused",
+   "guessed": false,
+   "confidence": "still_confused",
+   "help_level": "none",
+   "elapsed_ms": null,
+   "provenance": {
+    "kind": "page",
+    "verified": true
+   },
+   "counts_toward_real_stats": true,
+   "stem_snapshot": "I will never forget the evening ___ we talked under the stars.",
+   "answer_snapshot": {
+    "option_ids": [
+     "A"
+    ]
+   },
+   "topic_ids": [],
+   "subject_id": "english",
+   "submitted_at": "2026-11-12T14:24:45.876Z",
+   "created_at": "2026-11-12T14:24:45.876Z",
+   "source": "study-bridge",
+   "page": {
+    "url": "yy/yy5.html",
+    "title": "定语从句",
+    "anchor": "quiz-4"
+   },
+   "migrated_from": "liaoning.yy5.quiz.2026"
+  },
+  {
+   "id": "att_mig_a0b55627",
+   "schema_version": 1,
+   "question_id": "page:yy5:4-1",
+   "question_revision": 1,
+   "learner_id": "local-guest",
+   "response": {
+    "option_ids": [
+     "A"
+    ],
+    "text": ""
+   },
+   "grading": {
+    "status": "incorrect",
+    "auto": true,
+    "score": 0
+   },
+   "understanding": "still_confused",
+   "guessed": false,
+   "confidence": "still_confused",
+   "help_level": "none",
+   "elapsed_ms": null,
+   "provenance": {
+    "kind": "page",
+    "verified": true
+   },
+   "counts_toward_real_stats": true,
+   "stem_snapshot": "The nurse ___ helped my grandmother was very kind.",
+   "answer_snapshot": {
+    "option_ids": [
+     "B"
+    ]
+   },
+   "topic_ids": [],
+   "subject_id": "english",
+   "submitted_at": "2026-11-12T14:24:45.869Z",
+   "created_at": "2026-11-12T14:24:45.869Z",
+   "source": "study-bridge",
+   "page": {
+    "url": "yy/yy5.html",
+    "title": "定语从句",
+    "anchor": "quiz-4"
+   },
+   "migrated_from": "liaoning.yy5.quiz.2026"
+  }
+ ],
+ "mistake_entries": [
+  {
+   "id": "mst:local-guest:page:gs45:37-4",
+   "schema_version": 1,
+   "question_id": "page:gs45:37-4",
+   "learner_id": "local-guest",
+   "subject_id": "math",
+   "topic_ids": [],
+   "stem_snapshot": "过 (1,2,3) 且平行于 3x-2y+z=0 的平面",
+   "answer_snapshot": null,
+   "provenance": {
+    "kind": "page",
+    "verified": true
+   },
+   "counts_toward_real_stats": true,
+   "category": "wrong",
+   "first_category": "wrong",
+   "reason_tags": [],
+   "status": "active",
+   "first_attempt_id": "att_7cf3c3d6-3148-4ea0-babf-4315831e8799",
+   "first_response": {
+    "option_ids": [],
+    "text": "",
+    "rating": "again"
+   },
+   "first_grading": {
+    "status": "incorrect",
+    "auto": false,
+    "method": "self_report",
+    "score": 0
+   },
+   "first_understanding": "still_confused",
+   "last_attempt_id": "att_7cf3c3d6-3148-4ea0-babf-4315831e8799",
+   "attempt_ids": [
+    "att_7cf3c3d6-3148-4ea0-babf-4315831e8799"
+   ],
+   "note": "",
+   "next_review_at": "2026-11-13T14:24:49.779Z",
+   "interval_step": 0,
+   "interval_rule": "heuristic_1_3_7_14",
+   "last_reviewed_at": "2026-11-12T14:24:49.779Z",
+   "created_at": "2026-11-12T14:24:49.779Z",
+   "updated_at": "2026-11-12T14:24:49.779Z",
+   "source": "local",
+   "alias_ids": [],
+   "deleted_at": null,
+   "page": {
+    "url": "gs/gs45.html",
+    "title": "考点三十七：求平面方程",
+    "anchor": "viz-37-4"
+   }
+  },
+  {
+   "id": "mst:local-guest:page:yy5:4-1",
+   "schema_version": 1,
+   "question_id": "page:yy5:4-1",
+   "learner_id": "local-guest",
+   "subject_id": "english",
+   "topic_ids": [],
+   "stem_snapshot": "The nurse ___ helped my grandmother was very kind.",
+   "answer_snapshot": {
+    "option_ids": [
+     "B"
+    ]
+   },
+   "provenance": {
+    "kind": "page",
+    "verified": true
+   },
+   "counts_toward_real_stats": true,
+   "category": "wrong",
+   "first_category": "wrong",
+   "reason_tags": [],
+   "status": "active",
+   "first_attempt_id": "att_mig_a0b55627",
+   "first_response": {
+    "option_ids": [
+     "A"
+    ],
+    "text": ""
+   },
+   "first_grading": {
+    "status": "incorrect",
+    "auto": true,
+    "score": 0
+   },
+   "first_understanding": "still_confused",
+   "last_attempt_id": "att_mig_a0b55627",
+   "attempt_ids": [
+    "att_mig_a0b55627"
+   ],
+   "note": "",
+   "next_review_at": "2026-11-13T14:24:45.869Z",
+   "interval_step": 0,
+   "interval_rule": "heuristic_1_3_7_14",
+   "last_reviewed_at": "2026-11-12T14:24:45.869Z",
+   "created_at": "2026-11-12T14:24:45.869Z",
+   "updated_at": "2026-11-12T14:24:45.869Z",
+   "source": "local",
+   "alias_ids": [],
+   "deleted_at": null,
+   "page": {
+    "url": "yy/yy5.html",
+    "title": "定语从句",
+    "anchor": "quiz-4"
+   }
+  },
+  {
+   "id": "mst:local-guest:page:yy5:4-3",
+   "schema_version": 1,
+   "question_id": "page:yy5:4-3",
+   "learner_id": "local-guest",
+   "subject_id": "english",
+   "topic_ids": [],
+   "stem_snapshot": "I will never forget the evening ___ we talked under the stars.",
+   "answer_snapshot": {
+    "option_ids": [
+     "A"
+    ]
+   },
+   "provenance": {
+    "kind": "page",
+    "verified": true
+   },
+   "counts_toward_real_stats": true,
+   "category": "wrong",
+   "first_category": "wrong",
+   "reason_tags": [],
+   "status": "active",
+   "first_attempt_id": "att_mig_2ea91c26",
+   "first_response": {
+    "option_ids": [
+     "B"
+    ],
+    "text": ""
+   },
+   "first_grading": {
+    "status": "incorrect",
+    "auto": true,
+    "score": 0
+   },
+   "first_understanding": "still_confused",
+   "last_attempt_id": "att_mig_2ea91c26",
+   "attempt_ids": [
+    "att_mig_2ea91c26"
+   ],
+   "note": "",
+   "next_review_at": "2026-11-13T14:24:45.876Z",
+   "interval_step": 0,
+   "interval_rule": "heuristic_1_3_7_14",
+   "last_reviewed_at": "2026-11-12T14:24:45.876Z",
+   "created_at": "2026-11-12T14:24:45.876Z",
+   "updated_at": "2026-11-12T14:24:45.876Z",
+   "source": "local",
+   "alias_ids": [],
+   "deleted_at": null,
+   "page": {
+    "url": "yy/yy5.html",
+    "title": "定语从句",
+    "anchor": "quiz-4"
+   }
+  },
+  {
+   "id": "mst:local-guest:page:yy5:7-1",
+   "schema_version": 1,
+   "question_id": "page:yy5:7-1",
+   "learner_id": "local-guest",
+   "subject_id": "english",
+   "topic_ids": [],
+   "stem_snapshot": "Neither my brothers nor my father ___ at home now.",
+   "answer_snapshot": {
+    "option_ids": [
+     "B"
+    ]
+   },
+   "provenance": {
+    "kind": "page",
+    "verified": true
+   },
+   "counts_toward_real_stats": true,
+   "category": "wrong",
+   "first_category": "wrong",
+   "reason_tags": [],
+   "status": "active",
+   "first_attempt_id": "att_02d205e3-fff0-4e25-a716-9ad7114084cc",
+   "first_response": {
+    "option_ids": [
+     "A"
+    ],
+    "text": ""
+   },
+   "first_grading": {
+    "status": "incorrect",
+    "auto": true,
+    "score": 0
+   },
+   "first_understanding": "still_confused",
+   "last_attempt_id": "att_02d205e3-fff0-4e25-a716-9ad7114084cc",
+   "attempt_ids": [
+    "att_02d205e3-fff0-4e25-a716-9ad7114084cc"
+   ],
+   "note": "",
+   "next_review_at": "2026-11-13T14:24:47.952Z",
+   "interval_step": 0,
+   "interval_rule": "heuristic_1_3_7_14",
+   "last_reviewed_at": "2026-11-12T14:24:47.952Z",
+   "created_at": "2026-11-12T14:24:47.952Z",
+   "updated_at": "2026-11-12T14:24:47.952Z",
+   "source": "local",
+   "alias_ids": [],
+   "deleted_at": null,
+   "page": {
+    "url": "yy/yy5.html",
+    "title": "主谓一致",
+    "anchor": "quiz-7"
+   }
+  },
+  {
+   "id": "mst:local-guest:page:yy5:8-1",
+   "schema_version": 1,
+   "question_id": "page:yy5:8-1",
+   "learner_id": "local-guest",
+   "subject_id": "english",
+   "topic_ids": [],
+   "stem_snapshot": "Here ___ the school buses.",
+   "answer_snapshot": {
+    "option_ids": [
+     "C"
+    ]
+   },
+   "provenance": {
+    "kind": "page",
+    "verified": true
+   },
+   "counts_toward_real_stats": true,
+   "category": "wrong",
+   "first_category": "wrong",
+   "reason_tags": [],
+   "status": "active",
+   "first_attempt_id": "att_9526b998-db4d-4499-bbac-38b39fa7ba3b",
+   "first_response": {
+    "option_ids": [
+     "B"
+    ],
+    "text": ""
+   },
+   "first_grading": {
+    "status": "incorrect",
+    "auto": true,
+    "score": 0
+   },
+   "first_understanding": "still_confused",
+   "last_attempt_id": "att_9526b998-db4d-4499-bbac-38b39fa7ba3b",
+   "attempt_ids": [
+    "att_9526b998-db4d-4499-bbac-38b39fa7ba3b"
+   ],
+   "note": "",
+   "next_review_at": "2026-11-13T14:24:48.151Z",
+   "interval_step": 0,
+   "interval_rule": "heuristic_1_3_7_14",
+   "last_reviewed_at": "2026-11-12T14:24:48.151Z",
+   "created_at": "2026-11-12T14:24:48.151Z",
+   "updated_at": "2026-11-12T14:24:48.151Z",
+   "source": "local",
+   "alias_ids": [],
+   "deleted_at": null,
+   "page": {
+    "url": "yy/yy5.html",
+    "title": "特殊句型",
+    "anchor": "quiz-8"
+   }
+  }
+ ],
+ "review_events": [
+  {
+   "id": "rev_0f738f85-f3ea-4861-bfdd-738650539f3b",
+   "schema_version": 1,
+   "mistake_id": "mst:local-guest:page:yy5:7-1",
+   "attempt_id": "att_02d205e3-fff0-4e25-a716-9ad7114084cc",
+   "outcome": "incorrect:still_confused",
+   "category": "wrong",
+   "reviewed_at": "2026-11-12T14:24:47.952Z",
+   "next_review_at": "2026-11-13T14:24:47.952Z",
+   "created_at": "2026-11-12T14:24:47.952Z",
+   "source": "local"
+  },
+  {
+   "id": "rev_1049045c-aa1c-4c06-85df-21c0e9527c7a",
+   "schema_version": 1,
+   "mistake_id": "mst:local-guest:page:gs45:37-4",
+   "attempt_id": "att_7cf3c3d6-3148-4ea0-babf-4315831e8799",
+   "outcome": "incorrect:still_confused",
+   "category": "wrong",
+   "reviewed_at": "2026-11-12T14:24:49.779Z",
+   "next_review_at": "2026-11-13T14:24:49.779Z",
+   "created_at": "2026-11-12T14:24:49.779Z",
+   "source": "local"
+  },
+  {
+   "id": "rev_3bf12c25-c371-4769-897e-8e177502c6bd",
+   "schema_version": 1,
+   "mistake_id": "mst:local-guest:page:yy5:4-3",
+   "attempt_id": "att_mig_2ea91c26",
+   "outcome": "incorrect:still_confused",
+   "category": "wrong",
+   "reviewed_at": "2026-11-12T14:24:45.876Z",
+   "next_review_at": "2026-11-13T14:24:45.876Z",
+   "created_at": "2026-11-12T14:24:45.876Z",
+   "source": "local"
+  },
+  {
+   "id": "rev_ae41579a-aa2d-46d1-93e6-bd00121bcd67",
+   "schema_version": 1,
+   "mistake_id": "mst:local-guest:page:yy5:4-1",
+   "attempt_id": "att_mig_a0b55627",
+   "outcome": "incorrect:still_confused",
+   "category": "wrong",
+   "reviewed_at": "2026-11-12T14:24:45.869Z",
+   "next_review_at": "2026-11-13T14:24:45.869Z",
+   "created_at": "2026-11-12T14:24:45.869Z",
+   "source": "local"
+  },
+  {
+   "id": "rev_fa89f306-7336-4993-925a-df91bd665ba0",
+   "schema_version": 1,
+   "mistake_id": "mst:local-guest:page:yy5:8-1",
+   "attempt_id": "att_9526b998-db4d-4499-bbac-38b39fa7ba3b",
+   "outcome": "incorrect:still_confused",
+   "category": "wrong",
+   "reviewed_at": "2026-11-12T14:24:48.151Z",
+   "next_review_at": "2026-11-13T14:24:48.151Z",
+   "created_at": "2026-11-12T14:24:48.151Z",
+   "source": "local"
+  }
+ ],
+ "meta": [
+  {
+   "key": "migration:liaoning.yy5.quiz.2026",
+   "value": {
+    "last_run_at": "2026-11-12T14:24:45.879Z",
+    "seen": 2,
+    "written": 2
+   }
+  },
+  {
+   "key": "schema",
+   "schema_version": 1,
+   "created_at": "2026-11-12T14:24:45.858Z"
+  }
+ ]
+}
