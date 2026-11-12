@@ -1,0 +1,918 @@
+{
+  "schema_version": 1,
+  "disclaimer": "独立的先修边表，与 data/topics.json 中各知识点的 prereq_ids 保持一致。 strength 为 hard（需先掌握）或 soft（建议先学）。 高数先修边已按核对意见修订；英语专题之间的边仍为草稿，待核对。 组织方式参考了 https://github.com/xiaoyang111222/cn-math-taxonomy 的结构思路，未复制其文本或数据。该项目采用 CC BY-NC 4.0 许可证。",
+  "edges": [
+    {
+      "topicId": "math.function_properties",
+      "prerequisiteId": "math.domain",
+      "strength": "hard",
+      "reason": "函数性质建立在定义域之上。"
+    },
+    {
+      "topicId": "math.sequence_limit",
+      "prerequisiteId": "math.function_properties",
+      "strength": "soft",
+      "reason": "数列极限不依赖函数的奇偶性或周期性，只是学习顺序上常排在函数性质之后。"
+    },
+    {
+      "topicId": "math.function_limit",
+      "prerequisiteId": "math.sequence_limit",
+      "strength": "soft",
+      "reason": "函数极限有独立定义，不必先掌握数列极限，二者可以对照着学。"
+    },
+    {
+      "topicId": "math.infinitesimal",
+      "prerequisiteId": "math.function_limit",
+      "strength": "hard",
+      "reason": "无穷小与无穷大以函数极限为基础。"
+    },
+    {
+      "topicId": "math.equivalent",
+      "prerequisiteId": "math.infinitesimal",
+      "strength": "hard",
+      "reason": "无穷小的比较以无穷小概念为基础。"
+    },
+    {
+      "topicId": "math.equivalent",
+      "prerequisiteId": "math.important_limits",
+      "strength": "soft",
+      "reason": "等价无穷小常用来简化两个重要极限的计算，建议在学过两个重要极限后再作比较。"
+    },
+    {
+      "topicId": "math.important_limits",
+      "prerequisiteId": "math.function_limit",
+      "strength": "hard",
+      "reason": "两个重要极限是函数极限的具体形式，需先掌握函数极限。"
+    },
+    {
+      "topicId": "math.asymptote",
+      "prerequisiteId": "math.infinitesimal",
+      "strength": "hard",
+      "reason": "水平与垂直渐近线由函数趋于无穷或无穷小的性态来判定。"
+    },
+    {
+      "topicId": "math.continuity",
+      "prerequisiteId": "math.function_limit",
+      "strength": "hard",
+      "reason": "连续定义建立在函数极限之上。"
+    },
+    {
+      "topicId": "math.continuity",
+      "prerequisiteId": "math.equivalent",
+      "strength": "soft",
+      "reason": "判断连续时有时会用到等价无穷小，建议对照着学。"
+    },
+    {
+      "topicId": "math.continuity",
+      "prerequisiteId": "math.important_limits",
+      "strength": "soft",
+      "reason": "用两个重要极限判断连续时，可以对照着学。"
+    },
+    {
+      "topicId": "math.discontinuity",
+      "prerequisiteId": "math.infinitesimal",
+      "strength": "soft",
+      "reason": "无穷间断等类型需要用到无穷大的概念，可与间断点分类对照着学。"
+    },
+    {
+      "topicId": "math.discontinuity",
+      "prerequisiteId": "math.continuity",
+      "strength": "hard",
+      "reason": "间断点类型以连续定义为前提。"
+    },
+    {
+      "topicId": "math.continuous_properties",
+      "prerequisiteId": "math.continuity",
+      "strength": "hard",
+      "reason": "闭区间上连续函数性质以连续定义为前提。"
+    },
+    {
+      "topicId": "english.nonfinite.object",
+      "prerequisiteId": "english.nonfinite.basics",
+      "strength": "hard",
+      "reason": "非谓语作宾语建立在非谓语基础之上。"
+    },
+    {
+      "topicId": "english.nonfinite.advanced",
+      "prerequisiteId": "english.nonfinite.object",
+      "strength": "hard",
+      "reason": "非谓语进阶接在作宾语之后。"
+    },
+    {
+      "topicId": "english.attributive.basics",
+      "prerequisiteId": "english.nonfinite.advanced",
+      "strength": "soft",
+      "reason": "定语从句与非谓语作定语有交叉，建议先掌握非谓语。（草稿，待核对）"
+    },
+    {
+      "topicId": "english.noun.basics",
+      "prerequisiteId": "english.attributive.basics",
+      "strength": "soft",
+      "reason": "名词性从句与定语从句都要判断连接词，建议先学定语从句。（草稿，待核对）"
+    },
+    {
+      "topicId": "english.adverbial.basics",
+      "prerequisiteId": "english.attributive.basics",
+      "strength": "soft",
+      "reason": "三大从句综合判定建立在定语从句之上。（草稿，待核对）"
+    },
+    {
+      "topicId": "english.adverbial.basics",
+      "prerequisiteId": "english.noun.basics",
+      "strength": "soft",
+      "reason": "三大从句综合判定建立在名词性从句之上。（草稿，待核对）"
+    },
+    {
+      "topicId": "cb.excel.42",
+      "prerequisiteId": "cb.excel.41",
+      "strength": "hard",
+      "reason": "基本操作建立在基础知识之上。"
+    },
+    {
+      "topicId": "cb.excel.43",
+      "prerequisiteId": "cb.excel.42",
+      "strength": "hard",
+      "reason": "数据美化建立在基本操作之上。"
+    },
+    {
+      "topicId": "cb.excel.44",
+      "prerequisiteId": "cb.excel.43",
+      "strength": "hard",
+      "reason": "数据计算安排在数据美化之后。"
+    },
+    {
+      "topicId": "cb.excel.45",
+      "prerequisiteId": "cb.excel.44",
+      "strength": "hard",
+      "reason": "数据管理安排在数据计算之后。"
+    },
+    {
+      "topicId": "cb.excel.46",
+      "prerequisiteId": "cb.excel.45",
+      "strength": "hard",
+      "reason": "图表安排在数据管理之后。"
+    },
+    {
+      "topicId": "cb.excel.47",
+      "prerequisiteId": "cb.excel.46",
+      "strength": "hard",
+      "reason": "页面设置与打印安排在图表之后。"
+    },
+    {
+      "topicId": "web.html5_structure",
+      "prerequisiteId": "web.concepts",
+      "strength": "hard",
+      "reason": "文档结构建立在网页基本概念之上。"
+    },
+    {
+      "topicId": "web.html_intro",
+      "prerequisiteId": "web.concepts",
+      "strength": "hard",
+      "reason": "HTML 基础课页建立在网页基本概念之上。"
+    },
+    {
+      "topicId": "web.css_intro",
+      "prerequisiteId": "web.html_intro",
+      "strength": "hard",
+      "reason": "CSS 课页安排在 HTML 基础课页之后。"
+    },
+    {
+      "topicId": "web.js_intro",
+      "prerequisiteId": "web.html_intro",
+      "strength": "hard",
+      "reason": "JavaScript 课页安排在 HTML 基础课页之后。"
+    },
+    {
+      "topicId": "math.p37",
+      "prerequisiteId": "math.p36",
+      "strength": "hard",
+      "reason": "求平面方程要用到法向量和向量运算。"
+    },
+    {
+      "topicId": "math.p38",
+      "prerequisiteId": "math.p36",
+      "strength": "hard",
+      "reason": "求直线方程要用到方向向量和向量运算。"
+    },
+    {
+      "topicId": "math.p38",
+      "prerequisiteId": "math.p37",
+      "strength": "soft",
+      "reason": "直线也可看成两平面之交。"
+    },
+    {
+      "topicId": "math.p39",
+      "prerequisiteId": "math.domain",
+      "strength": "hard",
+      "reason": "二元函数定义域是一元定义域在两个自变量上的推广，需先掌握定义域。"
+    },
+    {
+      "topicId": "math.p40",
+      "prerequisiteId": "math.p39",
+      "strength": "soft",
+      "reason": "求偏导数不一定要先完整求出定义域，二者可以对照着学。"
+    },
+    {
+      "topicId": "math.p41",
+      "prerequisiteId": "math.p40",
+      "strength": "hard",
+      "reason": "高阶偏导数建立在一阶偏导数之上。"
+    },
+    {
+      "topicId": "math.p42",
+      "prerequisiteId": "math.p40",
+      "strength": "hard",
+      "reason": "全微分由一阶偏导数构成。"
+    },
+    {
+      "topicId": "math.p43",
+      "prerequisiteId": "math.p41",
+      "strength": "hard",
+      "reason": "二元函数极值判别常用二阶偏导数。"
+    },
+    {
+      "topicId": "math.p44",
+      "prerequisiteId": "math.continuous_properties",
+      "strength": "soft",
+      "reason": "有界闭区域上的最值存在性，可对照闭区间上连续函数的性质。"
+    },
+    {
+      "topicId": "math.p44",
+      "prerequisiteId": "math.p43",
+      "strength": "hard",
+      "reason": "最值应用建立在极值判定之上。"
+    },
+    {
+      "topicId": "math.p45",
+      "prerequisiteId": "math.p40",
+      "strength": "hard",
+      "reason": "复合函数求一阶偏导数以偏导数为基础。"
+    },
+    {
+      "topicId": "math.p46",
+      "prerequisiteId": "math.p39",
+      "strength": "soft",
+      "reason": "理解二重积分的性质前需熟悉二元函数的定义域。"
+    },
+    {
+      "topicId": "math.p47",
+      "prerequisiteId": "math.p39",
+      "strength": "soft",
+      "reason": "在直角坐标系下确定积分区域，需要二元函数的定义域。"
+    },
+    {
+      "topicId": "math.p47",
+      "prerequisiteId": "math.p46",
+      "strength": "soft",
+      "reason": "计算二重积分时常会用到性质，但不是必须先单独掌握全部性质。"
+    },
+    {
+      "topicId": "english.agreement.basics",
+      "prerequisiteId": "english.noun.basics",
+      "strength": "soft",
+      "reason": "主谓一致常需先判断主语（含从句主语）。（草稿，待核对）"
+    },
+    {
+      "topicId": "english.special.basics",
+      "prerequisiteId": "english.adverbial.basics",
+      "strength": "soft",
+      "reason": "倒装、强调、省略等特殊句型常与从句结构有关。（草稿，待核对）"
+    },
+    {
+      "topicId": "math.p48",
+      "prerequisiteId": "math.p47",
+      "strength": "hard",
+      "reason": "交换积分次序建立在直角坐标系下二重积分计算之上。"
+    },
+    {
+      "topicId": "web.process",
+      "prerequisiteId": "web.concepts",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.layers",
+      "prerequisiteId": "web.process",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.tools",
+      "prerequisiteId": "web.concepts",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.s21",
+      "prerequisiteId": "web.html5_structure",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.s22",
+      "prerequisiteId": "web.s21",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.s22b",
+      "prerequisiteId": "web.s22",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.s23",
+      "prerequisiteId": "web.s22b",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.s24",
+      "prerequisiteId": "web.s23",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.quiz_points",
+      "prerequisiteId": "web.s24",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.css.intro",
+      "prerequisiteId": "web.css_intro",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.css.syntax",
+      "prerequisiteId": "web.css.intro",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.css.selectors",
+      "prerequisiteId": "web.css.syntax",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.css.howto",
+      "prerequisiteId": "web.css.selectors",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.css.colors",
+      "prerequisiteId": "web.css.howto",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.css.background",
+      "prerequisiteId": "web.css.colors",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.css.text",
+      "prerequisiteId": "web.css.background",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.css.font",
+      "prerequisiteId": "web.css.text",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.css.link",
+      "prerequisiteId": "web.css.font",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.css.list",
+      "prerequisiteId": "web.css.link",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.css.table",
+      "prerequisiteId": "web.css.list",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.css.box",
+      "prerequisiteId": "web.css.table",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.css.border",
+      "prerequisiteId": "web.css.box",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.css.margin",
+      "prerequisiteId": "web.css.border",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.css.padding",
+      "prerequisiteId": "web.css.margin",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.css.display",
+      "prerequisiteId": "web.css.padding",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.css.position",
+      "prerequisiteId": "web.css.display",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.css.float",
+      "prerequisiteId": "web.css.position",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.css.align",
+      "prerequisiteId": "web.css.float",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.css.combinators",
+      "prerequisiteId": "web.css.align",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.css.pseudo",
+      "prerequisiteId": "web.css.combinators",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.css.navbar",
+      "prerequisiteId": "web.css.pseudo",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.css.dropdown",
+      "prerequisiteId": "web.css.navbar",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.css.tooltip",
+      "prerequisiteId": "web.css.dropdown",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.css.attr_sel",
+      "prerequisiteId": "web.css.tooltip",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.css.form",
+      "prerequisiteId": "web.css.attr_sel",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.css.layout",
+      "prerequisiteId": "web.css.form",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.css.border_radius",
+      "prerequisiteId": "web.css.layout",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.css.gradients",
+      "prerequisiteId": "web.css.border_radius",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.css.transform",
+      "prerequisiteId": "web.css.gradients",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.css.transition",
+      "prerequisiteId": "web.css.transform",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.css.animation",
+      "prerequisiteId": "web.css.transition",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.css.flexbox",
+      "prerequisiteId": "web.css.animation",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.css.mediaq",
+      "prerequisiteId": "web.css.flexbox",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.html.intro",
+      "prerequisiteId": "web.html_intro",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.html.editors",
+      "prerequisiteId": "web.html.intro",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.html.basic",
+      "prerequisiteId": "web.html.editors",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.html.elements",
+      "prerequisiteId": "web.html.basic",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.html.attributes",
+      "prerequisiteId": "web.html.elements",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.html.headings",
+      "prerequisiteId": "web.html.attributes",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.html.paragraphs",
+      "prerequisiteId": "web.html.headings",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.html.formatting",
+      "prerequisiteId": "web.html.paragraphs",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.html.links",
+      "prerequisiteId": "web.html.formatting",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.html.head",
+      "prerequisiteId": "web.html.links",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.html.css_inline",
+      "prerequisiteId": "web.html.head",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.html.images",
+      "prerequisiteId": "web.html.css_inline",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.html.tables",
+      "prerequisiteId": "web.html.images",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.html.lists",
+      "prerequisiteId": "web.html.tables",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.html.blocks",
+      "prerequisiteId": "web.html.lists",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.html.layouts",
+      "prerequisiteId": "web.html.blocks",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.html.forms",
+      "prerequisiteId": "web.html.layouts",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.html.iframes",
+      "prerequisiteId": "web.html.forms",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.html.colors",
+      "prerequisiteId": "web.html.iframes",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.html.scripts",
+      "prerequisiteId": "web.html.colors",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.html.entities",
+      "prerequisiteId": "web.html.scripts",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.html.url",
+      "prerequisiteId": "web.html.entities",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.html.cheatsheet",
+      "prerequisiteId": "web.html.url",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.html.summary",
+      "prerequisiteId": "web.html.cheatsheet",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.html.quiz",
+      "prerequisiteId": "web.html.summary",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.html5.intro",
+      "prerequisiteId": "web.html5_index",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.html5.browsers",
+      "prerequisiteId": "web.html5.intro",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.html5.new_elements",
+      "prerequisiteId": "web.html5.browsers",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.html5.semantic",
+      "prerequisiteId": "web.html5.new_elements",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.html5.canvas",
+      "prerequisiteId": "web.html5.semantic",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.html5.svg",
+      "prerequisiteId": "web.html5.canvas",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.html5.drag",
+      "prerequisiteId": "web.html5.svg",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.html5.video",
+      "prerequisiteId": "web.html5.drag",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.html5.audio",
+      "prerequisiteId": "web.html5.video",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.html5.input_types",
+      "prerequisiteId": "web.html5.audio",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.html5.form_elements",
+      "prerequisiteId": "web.html5.input_types",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.html5.form_attrs",
+      "prerequisiteId": "web.html5.form_elements",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.html5.webstorage",
+      "prerequisiteId": "web.html5.form_attrs",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.html5.media",
+      "prerequisiteId": "web.html5.webstorage",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.js.intro",
+      "prerequisiteId": "web.js_intro",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.js.howto",
+      "prerequisiteId": "web.js.intro",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.js.output",
+      "prerequisiteId": "web.js.howto",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.js.statements",
+      "prerequisiteId": "web.js.output",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.js.syntax",
+      "prerequisiteId": "web.js.statements",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.js.comments",
+      "prerequisiteId": "web.js.syntax",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.js.variables",
+      "prerequisiteId": "web.js.comments",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.js.datatypes",
+      "prerequisiteId": "web.js.variables",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.js.objects",
+      "prerequisiteId": "web.js.datatypes",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.js.functions",
+      "prerequisiteId": "web.js.objects",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.js.scope",
+      "prerequisiteId": "web.js.functions",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.js.events",
+      "prerequisiteId": "web.js.scope",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.js.strings",
+      "prerequisiteId": "web.js.events",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.js.numbers",
+      "prerequisiteId": "web.js.strings",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.js.arrays",
+      "prerequisiteId": "web.js.numbers",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.js.ifelse",
+      "prerequisiteId": "web.js.arrays",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.js.loops",
+      "prerequisiteId": "web.js.ifelse",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.js.dom",
+      "prerequisiteId": "web.js.loops",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.js.dom_html",
+      "prerequisiteId": "web.js.dom",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.js.dom_events",
+      "prerequisiteId": "web.js.dom_html",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.html5_index",
+      "prerequisiteId": "web.html_intro",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.examples",
+      "prerequisiteId": "web.html_intro",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.reference",
+      "prerequisiteId": "web.html_intro",
+      "strength": "soft",
+      "reason": "按原页面目录顺序，先学习前置课页。"
+    }
+  ]
+}

@@ -13,6 +13,7 @@ import {
   nextProgress,
   scheduleReview
 } from "./mistake-rules.js";
+import { enrichTopicIds, isExcludedQuestionId, topicIdsForQuestionId } from "./topic-index.js";
 
 export async function loadLearningState() {
   const [attempts, mistakes, notes, progress, marks, reviews] = await Promise.all([
@@ -23,7 +24,43 @@ export async function loadLearningState() {
     getAll("marks"),
     getAll("review_events")
   ]);
-  return { attempts, mistakes, notes, progress, marks, reviews };
+  return withResolvedTopics({ attempts, mistakes, notes, progress, marks, reviews });
+}
+
+export function withResolvedTopics(learning) {
+  const attempts = (learning.attempts || []).map(enrichTopicIds);
+  const mistakes = (learning.mistakes || []).map(enrichTopicIds);
+  const progress = [...(learning.progress || [])];
+  const have = new Set(progress.map((item) => item.topic_id));
+  const byTopic = new Map();
+  for (const attempt of attempts) {
+    if (isExcludedQuestionId(attempt.question_id)) continue;
+    for (const topicId of attempt.topic_ids || []) {
+      const list = byTopic.get(topicId) || [];
+      list.push(attempt);
+      byTopic.set(topicId, list);
+    }
+  }
+  for (const [topicId, list] of byTopic) {
+    if (have.has(topicId)) continue;
+    const ordered = [...list].sort((a, b) => String(a.submitted_at).localeCompare(String(b.submitted_at)));
+    const latest = ordered[ordered.length - 1];
+    progress.push({
+      id: `prog:${latest.learner_id}:${topicId}`,
+      schema_version: 1,
+      topic_id: topicId,
+      learner_id: latest.learner_id,
+      mastery_state: "practicing",
+      evidence_attempt_ids: ordered.map((item) => item.id),
+      independent_correct_count: 0,
+      next_review_at: null,
+      updated_at: latest.submitted_at,
+      created_at: ordered[0].submitted_at,
+      source: "derived",
+      counts_toward_real_stats: ordered.some((item) => item.counts_toward_real_stats)
+    });
+  }
+  return { ...learning, attempts, mistakes, progress };
 }
 
 export async function commitSubmission({
@@ -41,6 +78,14 @@ export async function commitSubmission({
   page = null,
   migratedFrom = null
 }) {
+  if (isExcludedQuestionId(question?.id)) {
+    return { attempt: null, mistake: null, decision: null, progress: [], skipped: "excluded" };
+  }
+  const resolvedQuestion = {
+    ...question,
+    topic_ids: (question.topic_ids && question.topic_ids.length) ? question.topic_ids : topicIdsForQuestionId(question.id)
+  };
+  question = resolvedQuestion;
   const now = new Date().toISOString();
   if (attemptId) {
     const seen = await get("attempts", attemptId);

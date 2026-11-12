@@ -21,7 +21,8 @@ export function renderTopic(ctx) {
   const questions = ctx.catalog.questionsForTopic(topic.id);
   const progress = (ctx.learning.progress || []).find((item) => item.topic_id === topic.id);
   const note = (ctx.learning.notes || []).find((item) => (item.topic_ids || []).includes(topic.id));
-  const prereqs = (topic.prereq_ids || []).map((id) => ctx.catalog.topic(id)).filter(Boolean);
+  const prereqs = ctx.catalog.prerequisites ? ctx.catalog.prerequisites(topic.id) : (topic.prereq_ids || []).map((id) => ctx.catalog.topic(id)).filter(Boolean);
+  const nextTopics = ctx.catalog.dependents ? ctx.catalog.dependents(topic.id) : [];
 
   const videoHost = h("div");
   const mapHost = h("div");
@@ -39,6 +40,10 @@ export function renderTopic(ctx) {
       chapter ? h("p", { class: "muted" }, `所在章节：${chapter.title}`) : null
     ]),
     prereqs.length ? h("p", { class: "muted" }, ["前置：", ...prereqs.flatMap((item, index) => [
+      index ? "、" : "",
+      h("a", { href: `#/topic/${item.id}` }, item.title)
+    ])]) : null,
+    nextTopics.length ? h("p", { class: "muted" }, ["后续：", ...nextTopics.flatMap((item, index) => [
       index ? "、" : "",
       h("a", { href: `#/topic/${item.id}` }, item.title)
     ])]) : null,

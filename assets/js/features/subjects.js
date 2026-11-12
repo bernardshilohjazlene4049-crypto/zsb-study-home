@@ -249,10 +249,30 @@ function renderChapter(catalog, chapter, query) {
         h("small", {}, [
           catalog.videosForTopic(topic.id).length ? "有视频" : "视频待添加",
           catalog.questionsForTopic(topic.id).some((question) => question.provenance?.kind === "sample") ? " · 示例" : ""
-        ].join(""))
+        ].join("")),
+        relatedLinks(catalog, topic)
       ]),
       h("a", { class: "btn small", href: `#/topic/${topic.id}` }, "打开")
     ]))) : h("p", { class: "muted" }, "这一层还没有知识点。"),
     ...children.map((child) => renderChapter(catalog, child, query))
   ]);
+}
+
+function relatedLinks(catalog, topic) {
+  const prereqs = catalog.prerequisites ? catalog.prerequisites(topic.id) : [];
+  const nextTopics = catalog.dependents ? catalog.dependents(topic.id) : [];
+  const parts = [];
+  if (prereqs.length) {
+    parts.push(h("p", { class: "muted" }, ["前置：", ...prereqs.flatMap((item, index) => [
+      index ? "、" : "",
+      h("a", { href: `#/topic/${item.id}` }, item.title)
+    ])]));
+  }
+  if (nextTopics.length) {
+    parts.push(h("p", { class: "muted" }, ["后续：", ...nextTopics.flatMap((item, index) => [
+      index ? "、" : "",
+      h("a", { href: `#/topic/${item.id}` }, item.title)
+    ])]));
+  }
+  return parts.length ? h("div", {}, parts) : null;
 }

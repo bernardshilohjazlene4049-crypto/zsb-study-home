@@ -1,4 +1,5 @@
 import { siteUrl } from "../core/paths.js";
+import { mergePrereqIds, topicIdsForQuestionId, isExcludedQuestionId } from "./topic-index.js";
 
 async function readJson(path) {
   const response = await fetch(siteUrl(path));
@@ -7,14 +8,15 @@ async function readJson(path) {
 }
 
 export async function loadRawCatalog() {
-  const [subjectsDoc, topicsDoc, resourcesDoc, anchorsDoc, questionsDoc] = await Promise.all([
+  const [subjectsDoc, topicsDoc, resourcesDoc, anchorsDoc, questionsDoc, dependenciesDoc] = await Promise.all([
     readJson("data/subjects.json"),
     readJson("data/topics.json"),
     readJson("data/resources.json"),
     readJson("data/video-anchors.json"),
-    readJson("data/questions/sample.json")
+    readJson("data/questions/sample.json"),
+    readJson("data/dependencies.json")
   ]);
-  return { subjectsDoc, topicsDoc, resourcesDoc, anchorsDoc, questionsDoc };
+  return { subjectsDoc, topicsDoc, resourcesDoc, anchorsDoc, questionsDoc, dependenciesDoc };
 }
 
 export function publicAnchor(anchor) {
@@ -74,8 +76,21 @@ export function createCatalog(raw, importedQuestions = []) {
   const topicMap = indexBy(topics, "id", warnings, "知识点");
   const resourceMap = indexBy(resources, "id", warnings, "资源");
   const questionMap = indexBy(questions, "id", warnings, "题目");
+  const edges = (raw.dependenciesDoc?.edges || []).filter((edge) => {
+    if (!edge?.topicId || !edge?.prerequisiteId) {
+      warnings.push("先修边缺少 topicId 或 prerequisiteId");
+      return false;
+    }
+    if (!topicMap.has(edge.topicId) || !topicMap.has(edge.prerequisiteId)) {
+      warnings.push(`先修边 ${edge.topicId} ← ${edge.prerequisiteId} 指向不存在的知识点，已跳过`);
+      return false;
+    }
+    return true;
+  });
+  const prereqMap = mergePrereqIds(topics, edges);
 
   return {
+    edges,
     disclaimer: raw.topicsDoc?.disclaimer || raw.subjectsDoc?.disclaimer || "",
     warnings,
     subjects,
@@ -108,7 +123,21 @@ export function createCatalog(raw, importedQuestions = []) {
       return anchors.filter((anchor) => anchor.topic_id === topicId);
     },
     questionsForTopic(topicId) {
-      return questions.filter((question) => (question.topic_ids || []).includes(topicId));
+      return questions.filter((question) => (question.topic_ids || []).includes(topicId) && !isExcludedQuestionId(question.id));
+    },
+    prereqIds(topicId) {
+      return prereqMap.get(topicId) || [];
+    },
+    prerequisites(topicId) {
+      return this.prereqIds(topicId).map((id) => topicMap.get(id)).filter(Boolean);
+    },
+    dependents(topicId) {
+      return topics.filter((item) => this.prereqIds(item.id).includes(topicId));
+    },
+    topicIdsForQuestion(questionId) {
+      const known = questionMap.get(questionId);
+      if (known?.topic_ids?.length) return [...known.topic_ids];
+      return topicIdsForQuestionId(questionId);
     },
     primaryVideo(topicId) {
       const videos = this.videosForTopic(topicId);

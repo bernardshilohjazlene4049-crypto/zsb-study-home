@@ -1,11 +1,12 @@
 import { h } from "../core/dom.js";
 import { CATEGORY_LABEL, formatWhen, isSampleQuestion } from "./labels.js";
 import { isMistakeRecord } from "./mistake-rules.js";
+import { enrichTopicIds, isExcludedQuestionId } from "./topic-index.js";
 
 export function renderMistakes(ctx) {
   const subject = ctx.subjectFilter || "";
   const category = ctx.categoryFilter || "";
-  const rows = (ctx.learning.mistakes || []).filter(isMistakeRecord);
+  const rows = (ctx.learning.mistakes || []).filter(isMistakeRecord).filter((item) => !isExcludedQuestionId(item.question_id)).map(enrichTopicIds);
   const filtered = rows.filter((item) => {
     if (subject && item.subject_id !== subject) return false;
     if (category && item.category !== category) return false;
@@ -33,15 +34,15 @@ export function renderMistakes(ctx) {
     ]),
     h("section", { class: "stack" }, [
       h("h2", {}, `错题 · ${real.length}`),
-      real.length ? h("ul", { class: "stack list-plain" }, real.map((item) => mistakeCard(ctx, item))) : h("p", { class: "muted" }, "暂无内容")
+      real.length ? groupedMistakeList(ctx, real) : h("p", { class: "muted" }, "暂无内容")
     ]),
     h("section", { class: "stack" }, [
       h("h2", {}, `示例 · ${sample.length}`),
-      sample.length ? h("ul", { class: "stack list-plain" }, sample.map((item) => mistakeCard(ctx, item))) : h("p", { class: "muted" }, "暂无内容")
+      sample.length ? groupedMistakeList(ctx, sample) : h("p", { class: "muted" }, "暂无内容")
     ]),
     other.length ? h("section", { class: "stack" }, [
       h("h2", {}, `其他来源 · ${other.length}`),
-      h("ul", { class: "stack list-plain" }, other.map((item) => mistakeCard(ctx, item)))
+      groupedMistakeList(ctx, other)
     ]) : null
   ]);
 }
@@ -86,7 +87,7 @@ function mistakeCard(ctx, item) {
       item.page?.url
         ? h("a", { class: "btn btn-primary", href: `../${item.page.url}${item.page.anchor ? `#${item.page.anchor}` : ""}` }, "回到原题")
         : h("a", { class: "btn btn-primary", href: `#/quiz/${item.question_id}?mode=retry` }, "重练"),
-      question ? h("a", { class: "btn", href: `#/topic/${question.topic_ids?.[0] || ""}` }, "知识点") : null
+      (question?.topic_ids?.[0] || item.topic_ids?.[0]) ? h("a", { class: "btn", href: `#/topic/${question?.topic_ids?.[0] || item.topic_ids[0]}` }, "知识点") : null
     ]),
     h("details", {}, [
       h("summary", {}, "查看历次作答存档"),
@@ -104,4 +105,33 @@ function formatResponse(response) {
   const options = (response.option_ids || []).join("、");
   const text = response.text || "";
   return [options, text].filter(Boolean).join(" / ") || "（空）";
+}
+
+function groupedMistakeList(ctx, items) {
+  const groups = new Map();
+  const loose = [];
+  for (const item of items) {
+    const topicId = item.topic_ids?.[0] || "";
+    if (!topicId) { loose.push(item); continue; }
+    const list = groups.get(topicId) || [];
+    list.push(item);
+    groups.set(topicId, list);
+  }
+  const blocks = [];
+  for (const [topicId, list] of groups) {
+    const topic = ctx.catalog.topic(topicId);
+    const title = topic?.title || topicId;
+    blocks.push(h("div", { class: "stack" }, [
+      h("p", { class: "muted" }, [
+        "知识点：",
+        h("a", { href: `#/topic/${topicId}` }, title),
+        ` · ${list.length}`
+      ]),
+      h("ul", { class: "stack list-plain" }, list.map((item) => mistakeCard(ctx, item)))
+    ]));
+  }
+  if (loose.length) {
+    blocks.push(h("ul", { class: "stack list-plain" }, loose.map((item) => mistakeCard(ctx, item))));
+  }
+  return h("div", { class: "stack" }, blocks);
 }
