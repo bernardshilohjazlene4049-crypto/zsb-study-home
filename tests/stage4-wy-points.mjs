@@ -160,12 +160,13 @@ function jpegInfo(bytes) {
   return { width, height, orientation };
 }
 
+// #56 压缩版按 jpegtran -perfect 无损旋转到正确方向（不二次有损编码）。
 test("三张替换 JPEG 尺寸与 EXIF 方向正确，SHA256 与输入校验值相同", async () => {
   const { createHash } = await import("node:crypto");
   const photos = [
-    ["01M6NNXVKR97GSZJ4XDP4AVTX0",4096,3072,"24c0b2da0dd45dcef474c6dba028cfb864eb0c20f3c7ac2e89a97691ba459195"],
-    ["01M6NNY28N880ZDJ4CV661VSQC",4096,3072,"ce6f7fbdc1e9cad3af9ad8aed601a8db577a2f246db6fc353e37967010622c9c"],
-    ["01M6NP1DJPVH3E0P1HHABH7S8E",3072,4096,"27eea978d79dbe8077277f387e8173efc40a255e588e64cc21f9af183f726452"]
+    ["01M6NNXVKR97GSZJ4XDP4AVTX0",4096,3072,"370e0b2c46f667232f9c1e7c27b6082c333add9218f609e021899672dc39606e"],
+    ["01M6NNY28N880ZDJ4CV661VSQC",4096,3072,"dd13d8c147af2dbb317cd918a918bc238ec6f92975879c84db9516be828b9667"],
+    ["01M6NP1DJPVH3E0P1HHABH7S8E",3072,4096,"5f73d01a85d4f9beea9ba1d1271dc04e03db4307e1b3348c720d460760cf49bc"]
   ];
   for (const [id,w,h,sha] of photos) {
     const bytes = readFileSync(resolve(root, `wy/原图/${id}.jpg`));
