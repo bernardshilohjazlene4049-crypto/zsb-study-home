@@ -1,30 +1,55 @@
-// 构建时给 _site/sw.js 写入版本号（commit SHA）与预缓存清单（页面、脚本、样式、数据、图标；不含视频与图片素材）。
-import { readFileSync, writeFileSync, readdirSync, statSync } from "node:fs";
-import { join, relative } from "node:path";
+// 构建时给 _site/sw.js 写入版本号（commit SHA）与预缓存清单（首页外壳所需的最小文件集）。
+import { readFileSync, writeFileSync, existsSync } from "node:fs";
+import { join } from "node:path";
 import { execSync } from "node:child_process";
 
 const out = process.argv[2] || "_site";
 const sha = (process.env.GITHUB_SHA || execSync("git rev-parse HEAD").toString().trim()).slice(0, 12);
-const keep = /\.(html|js|css|json|webmanifest|svg)$/i;
-const skip = /^(pagefind\/|sw\.js$|404\.html$)/;
-const files = [];
-(function walk(dir) {
-  for (const name of readdirSync(dir)) {
-    const full = join(dir, name);
-    if (statSync(full).isDirectory()) walk(full);
-    else {
-      const rel = relative(out, full).split("\\").join("/");
-      if (keep.test(rel) && !skip.test(rel)) files.push(rel);
-    }
-  }
-})(out);
-files.sort();
-const precache = ["./", ...files.filter((f) => f !== "index.html"), "index.html"];
+
+// 预缓存清单：仅保留离线启动首页所需的最小外壳。
+// 讲义页、科目主页、工作台等不预缓存；访问后会通过运行时 networkFirst 写入缓存。
+const SHELL = [
+  "./",
+  "index.html",
+  "offline.html",
+  "manifest.webmanifest",
+  "assets/css/site-unify.css",
+  "assets/css/site-shell.css",
+  "assets/js/site-shell.js",
+  "assets/js/sw-register.js",
+  // 首页动态 import 的模块树（home.js → model.js → ui.js / common.js → features / core）
+  "assets/js/shell/home.js",
+  "assets/js/shell/model.js",
+  "assets/js/shell/ui.js",
+  "assets/js/shell/common.js",
+  "assets/js/core/storage.js",
+  "assets/js/core/schema.js",
+  "assets/js/core/ids.js",
+  "assets/js/core/events.js",
+  "assets/js/features/records.js",
+  "assets/js/features/mistake-rules.js",
+  "assets/js/features/fsrs.js",
+  "assets/js/features/review-config.js",
+  "assets/js/features/topic-index.js",
+  // 首页渲染「继续学习 / 科目进度」所需的数据
+  "data/subjects.json",
+  "data/topics.json",
+  "data/dependencies.json",
+  "data/page-questions.json",
+];
+
+// 验证所有条目（除 "./"）都存在于发布目录
+const missing = SHELL.filter((p) => p !== "./" && !existsSync(join(out, p)));
+if (missing.length) throw new Error(`预缓存清单中以下文件在发布目录中不存在：\n${missing.join("\n")}`);
+
 const swPath = join(out, "sw.js");
 let sw = readFileSync(swPath, "utf8");
 sw = sw.replace('const VERSION = "dev";', `const VERSION = ${JSON.stringify(sha)};`)
-       .replace("const PRECACHE = [];", `const PRECACHE = ${JSON.stringify(precache)};`);
+       .replace("const PRECACHE = [];", `const PRECACHE = ${JSON.stringify(SHELL)};`);
 if (!sw.includes(sha)) throw new Error("sw.js 版本号写入失败");
 writeFileSync(swPath, sw);
-const bytes = files.reduce((sum, f) => sum + statSync(join(out, f)).size, 0);
-console.log(`sw.js：版本 ${sha}，预缓存 ${precache.length} 个文件，约 ${(bytes / 1048576).toFixed(1)} MB`);
+
+const bytes = SHELL.filter((p) => p !== "./").reduce((sum, f) => {
+  try { return sum + readFileSync(join(out, f)).length; } catch { return sum; }
+}, 0);
+console.log(`sw.js：版本 ${sha}，预缓存 ${SHELL.length} 个条目，约 ${(bytes / 1048576).toFixed(2)} MB`);

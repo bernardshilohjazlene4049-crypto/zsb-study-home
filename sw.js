@@ -37,6 +37,10 @@ async function networkFirst(request) {
     const hit = await cache.match(request, { ignoreSearch: true })
       || (url.pathname.endsWith("/") && await cache.match(url.pathname + "index.html", { ignoreSearch: true }));
     if (hit) return hit;
+    if (request.mode === "navigate") {
+      const offline = await cache.match("offline.html");
+      if (offline) return offline;
+    }
     throw error;
   }
 }
