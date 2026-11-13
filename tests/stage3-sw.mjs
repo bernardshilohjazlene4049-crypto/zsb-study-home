@@ -13,6 +13,48 @@ const read = (path) => readFileSync(join(root, path), "utf8");
 const sha = execFileSync("git", ["rev-parse", "HEAD"], { cwd: root, encoding: "utf8" }).trim();
 const tracked = execFileSync("git", ["ls-files", "-z"], { cwd: root, encoding: "utf8" }).split("\0").filter(Boolean);
 
+// 精简预缓存清单中所有非 "./" 的条目（与 sw-build.mjs 保持一致）。
+const PRECACHE_SHELL = [
+  "index.html",
+  "offline.html",
+  "manifest.webmanifest",
+  "assets/css/site-unify.css",
+  "assets/css/site-shell.css",
+  "assets/js/site-shell.js",
+  "assets/js/sw-register.js",
+  "assets/js/shell/home.js",
+  "assets/js/shell/model.js",
+  "assets/js/shell/ui.js",
+  "assets/js/shell/common.js",
+  "assets/js/core/storage.js",
+  "assets/js/core/schema.js",
+  "assets/js/core/ids.js",
+  "assets/js/core/events.js",
+  "assets/js/features/records.js",
+  "assets/js/features/mistake-rules.js",
+  "assets/js/features/fsrs.js",
+  "assets/js/features/review-config.js",
+  "assets/js/features/topic-index.js",
+  "data/subjects.json",
+  "data/topics.json",
+  "data/dependencies.json",
+  "data/page-questions.json",
+];
+
+// 明确不得出现在预缓存清单中的讲义和未引用 CSS
+const MUST_EXCLUDE = [
+  "gs/gs1.html",
+  "gs/gs45.html",
+  "yy/yy5.html",
+  "jsj/jsj1.html",
+  "style.css",
+  "assets/css/tokens.css",
+  "jsj/learn.css",
+];
+
+// 预缓存条目数上限（精简后应远小于旧的 ~204 项）
+const PRECACHE_MAX = 40;
+
 function shellArray(source, name) {
   const groups = [...source.matchAll(new RegExp(`^${name}(?:\\+)?=\\(([^)]*)\\)`, "gm"))];
   assert.ok(groups.length, `${name} 白名单应存在`);
@@ -23,8 +65,13 @@ function fixture(t) {
   // 本地可指定仓库外 tools 目录并保留产物，CI 使用系统临时目录并在测试后清理。
   const dir = mkdtempSync(join(process.env.SW_TEST_ARTIFACTS || tmpdir(), "zsb-sw-"));
   if (!process.env.SW_TEST_ARTIFACTS) t.after(() => rmSync(dir, { recursive: true, force: true }));
-  const paths = new Set([...shellArray(read(".github/scripts/build-site.sh"), "ROOT_FILES"), "assets/js/sw-register.js", "assets/icons/favicon.svg", "data/subjects.json"]);
-  // 选择 git 中真实存在的最小文件，覆盖不应预缓存的媒体/位图/字幕扩展名。
+
+  // 收集 fixture 所需文件：根目录白名单 + 精简预缓存清单所有文件（确保 sw-build.mjs 存在性校验通过）
+  const paths = new Set([
+    ...shellArray(read(".github/scripts/build-site.sh"), "ROOT_FILES"),
+    ...PRECACHE_SHELL,
+  ]);
+  // 覆盖不应预缓存的媒体/位图/字幕扩展名（用于验证排除逻辑）
   for (const extension of ["mp4", "webm", "png", "jpg", "vtt"]) {
     const files = tracked.filter((path) => path.endsWith("." + extension) && existsSync(join(root, path)));
     files.sort((a, b) => statSync(join(root, a)).size - statSync(join(root, b)).size);
@@ -60,20 +107,55 @@ test("发布根目录白名单文件均存在且被 git 追踪", () => {
   assert.ok(files.includes("manifest.webmanifest"));
 });
 
-test("sw-build 写入 git HEAD 前 12 位及完整、相对、去重的预缓存清单", (t) => {
-  const { dir, paths } = fixture(t);
+test("sw-build 写入 git HEAD 前 12 位，预缓存清单相对、去重、无禁止项", (t) => {
+  const { dir } = fixture(t);
   const result = build(dir);
   assert.equal(result.version, sha.slice(0, 12));
   assert.match(result.version, /^[a-f0-9]{12}$/);
-  const included = paths.filter((path) => /\.(html|js|css|json|webmanifest|svg)$/i.test(path) && !["sw.js", "404.html", "index.html"].includes(path)).sort();
-  assert.deepEqual(result.precache, ["./", ...included, "index.html"]);
-  assert.equal(result.precache.length, new Set(result.precache).size);
+  // 去重
+  assert.equal(result.precache.length, new Set(result.precache).size, "预缓存清单不可含重复项");
+  // 相对路径、无禁止项
   for (const path of result.precache) {
     assert.doesNotMatch(path, /^(?:\/|[a-z]+:)|\\|\.\./i, `${path} 应为站点内相对路径`);
-    assert.ok(existsSync(join(dir, path)), `${path} 应存在`);
-    assert.doesNotMatch(path, /\.(?:mp4|webm|m4v|mov|mp3|m4a)$/i);
-    assert.ok(!["sw.js", "404.html"].includes(path));
-    assert.ok(!path.startsWith("pagefind/"));
+    assert.doesNotMatch(path, /\.(?:mp4|webm|m4v|mov|mp3|m4a)$/i, `${path} 音视频不应进入预缓存`);
+    assert.ok(!["sw.js", "404.html"].includes(path), `${path} 不应进入预缓存`);
+    assert.ok(!path.startsWith("pagefind/"), `${path} pagefind/ 不应进入预缓存`);
+    // 未引用的 CSS 和讲义页不应出现
+    for (const ex of MUST_EXCLUDE) {
+      assert.ok(path !== ex, `${ex} 不应出现在预缓存清单中`);
+    }
+  }
+});
+
+test("预缓存清单必须包含首页、离线页和外壳 CSS/JS", (t) => {
+  const { dir } = fixture(t);
+  const { precache } = build(dir);
+  const required = [
+    "index.html",
+    "offline.html",
+    "manifest.webmanifest",
+    "assets/css/site-unify.css",
+    "assets/css/site-shell.css",
+    "assets/js/site-shell.js",
+    "assets/js/sw-register.js",
+    "data/subjects.json",
+    "data/topics.json",
+    "data/dependencies.json",
+  ];
+  for (const path of required) {
+    assert.ok(precache.includes(path), `预缓存清单应包含 ${path}`);
+  }
+});
+
+test("预缓存清单规模有上限且不含讲义页", (t) => {
+  const { dir } = fixture(t);
+  const { precache } = build(dir);
+  assert.ok(
+    precache.length <= PRECACHE_MAX,
+    `预缓存清单条目数 ${precache.length} 超过上限 ${PRECACHE_MAX}`
+  );
+  for (const ex of MUST_EXCLUDE) {
+    assert.ok(!precache.includes(ex), `预缓存清单不得包含 ${ex}`);
   }
 });
 
