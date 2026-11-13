@@ -76,10 +76,35 @@
     // Track may be injected by pvideo-captions after the video is created.
     new MutationObserver(syncCaptions).observe(video,{childList:true});video.textTracks?.addEventListener?.('change',syncCaptions);
     video.playbackRate=sharedRate;sync();players.set(video,{host,show,setRate});if(wasPlaying)video.play().catch(()=>{});
+    video.addEventListener('play', () => {
+      video.querySelectorAll('track[data-src]').forEach(track => {
+        if (!track.getAttribute('src') && track.dataset.src) {
+          track.src = track.dataset.src;
+        }
+      });
+    }, { once: true });
   }
   enhance.count=0;
   function scan(root){if(root.nodeType!==1&&root.nodeType!==9)return;if(root.matches?.('video'))enhance(root);root.querySelectorAll?.(SELECTOR).forEach(enhance)}
   function start(){scan(document);new MutationObserver(records=>{for(const r of records)for(const n of r.addedNodes)scan(n)}).observe(document.documentElement,{childList:true,subtree:true})}
   window.zsbLecturePlayer={enhance,scan,setGlobalRate(n){const value=Number(n);if(value<.5||value>3||!Number.isFinite(value))return;writeRate(value);document.querySelectorAll('.zlp video').forEach(v=>v.playbackRate=value)}};
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();
+  if('IntersectionObserver' in window){
+    const obs = new IntersectionObserver((entries, o) => {
+      entries.forEach(e => {
+        if(e.isIntersecting) {
+          const v = e.target;
+          if(v.tagName === 'VIDEO' && v.dataset.poster && !v.poster) {
+            v.poster = v.dataset.poster;
+          }
+          o.unobserve(v);
+        }
+      });
+    }, { rootMargin: '200px 0px' });
+    function observeVideos() {
+      document.querySelectorAll('video[data-poster]').forEach(v => obs.observe(v));
+    }
+    if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', observeVideos, {once:true});
+    else observeVideos();
+  }
 })();
