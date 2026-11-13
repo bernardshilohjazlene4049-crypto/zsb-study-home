@@ -91,3 +91,22 @@ test("高数导图页的考点节点会生成可聚焦的链接", () => {
   assert.match(html, /a\.className = 'tree-node'/);
   assert.match(html, /a\.href = node\.href/);
 });
+
+test("gs1 和 jsj 导图按需加载与属性检查", () => {
+  const gs1Html = read("gs/gs1.html");
+  const gs1ImgMatch = gs1Html.match(/<img[^>]*id="mindmapImg"[^>]*>/)[0];
+  assert.equal(/\s+src=/.test(gs1ImgMatch), false);
+  assert.match(gs1ImgMatch, /data-src="gs1\/mindmap\.jpg"/);
+  assert.match(gs1ImgMatch, /width="2000"/);
+  assert.match(gs1ImgMatch, /height="1377"/);
+  assert.match(gs1Html, /MutationObserver/);
+  assert.match(gs1Html, /loadMindmap/);
+
+  const jsjHtml = read("jsj/index.html");
+  const jsjImgMatch = jsjHtml.match(/<img[^>]*data-src="mindmap\.png"[^>]*>/)[0];
+  assert.equal(/\s+src=/.test(jsjImgMatch), false);
+  assert.match(jsjImgMatch, /width="2400"/);
+  assert.match(jsjImgMatch, /height="1210"/);
+  assert.match(jsjHtml, /IntersectionObserver/);
+  assert.match(jsjHtml, /ResizeObserver/);
+});
