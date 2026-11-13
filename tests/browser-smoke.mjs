@@ -323,9 +323,9 @@ try {
   await page.goto(`${base}/study/index.html#/ocr`);
   await page.waitFor("即将开放");
   await page.goto(`${base}/tower/index.html`);
-  await page.waitFor("查看该科目学习入口");
+  await page.waitFor("进入该科目");
   const towerText = await page.text();
-  check("指挥塔进入科目", towerText.includes("七层学习空间") && towerText.includes("查看该科目学习入口"));
+  check("指挥塔进入科目", towerText.includes("七层学习空间") && towerText.includes("进入该科目"));
   check("指挥塔不再出现实现说明", !towerText.includes("没有机器人") && !towerText.includes("尚未实现"));
 
   console.log(checks.join("\n"));
