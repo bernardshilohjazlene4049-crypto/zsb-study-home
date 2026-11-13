@@ -2464,7 +2464,7 @@ A. <span aria-label="lim_{x→∞}" class="math-lim"><span>lim</span><sub>x→�
 </a></li></ul></li></ul></li><li><a class="tree-node" href="#point-8">函数的渐近线
 </a><ul><li><a class="tree-node" href="#point-8">水平渐近线 x→∞时 lim f(x)=数
 </a></li><li><a class="tree-node" href="#point-8">垂直渐近线 铅直 x→x0时 lim f(x)=∞
-</a></li></ul></li></ul></li></ul></section></div><button id="mindmapZoom" class="mindmap-zoom" type="button" aria-label="放大思维导图"><img id="mindmapImg" src="gs1/mindmap.jpg" alt="极限思维导图（老师课堂版）" hidden><span class="zoom-icon" aria-hidden="true">↗</span></button></section>
+</a></li></ul></li></ul></li></ul></section></div><button id="mindmapZoom" class="mindmap-zoom" type="button" aria-label="放大思维导图"><img id="mindmapImg" data-src="gs1/mindmap.jpg" alt="极限思维导图（老师课堂版）" width="2000" height="1377" hidden><span class="zoom-icon" aria-hidden="true">↗</span></button></section>
     </div>
   </div>
 </div></main>
@@ -2502,12 +2502,32 @@ A. <span aria-label="lim_{x→∞}" class="math-lim"><span>lim</span><sub>x→�
     const d=target.querySelector('details');if(d)d.open=true;
  }));
  const img=document.getElementById('mindmapImg'),open=document.getElementById('mindmapZoom');
+ const mapSection=document.getElementById('mindmap');
+ const loadMindmap=()=>{
+   if(img && !img.getAttribute('src') && img.dataset.src){
+     img.src = img.dataset.src;
+   }
+ };
  const showImage=()=>{img.hidden=false;open.hidden=false};
  const hidePhoto=()=>{open.hidden=true};
  img.addEventListener('load',showImage);img.addEventListener('error',hidePhoto);
- if(img.complete){if(img.naturalWidth>0)showImage();else hidePhoto()}
+ if(img.complete && img.getAttribute('src')){if(img.naturalWidth>0)showImage();else hidePhoto()}
+
+ if(mapSection){
+   const checkAndLoad = () => {
+     if(!mapSection.hasAttribute('hidden')) loadMindmap();
+   };
+   if('MutationObserver' in window){
+     const mo=new MutationObserver(checkAndLoad);
+     mo.observe(mapSection,{attributes:true,attributeFilter:['hidden']});
+   }
+ }
+
  const dialog=document.getElementById('mapDialog'),slot=document.getElementById('mapZoomSlot'),close=document.getElementById('closeDialog');
- const showZoom=()=>{const c=img.cloneNode(true);c.hidden=false;c.removeAttribute('id');slot.replaceChildren(c);if(typeof dialog.showModal==='function')dialog.showModal();else dialog.setAttribute('open','');};
+ const showZoom=()=>{
+   loadMindmap();
+   const c=img.cloneNode(true);c.hidden=false;c.removeAttribute('id');slot.replaceChildren(c);if(typeof dialog.showModal==='function')dialog.showModal();else dialog.setAttribute('open','');
+ };
  const dismiss=()=>{if(typeof dialog.close==='function')dialog.close();else dialog.removeAttribute('open');slot.replaceChildren();};
  open.addEventListener('click',showZoom);close.addEventListener('click',dismiss);
  dialog.addEventListener('click',e=>{if(e.target===dialog)dismiss()});

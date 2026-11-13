@@ -106,7 +106,7 @@ body{overflow-x:clip}
 <article class="content-card video-card" id="video-4-6"><div class="media-frame"><video controls playsinline preload="none" poster="posters/4.6.jpg?v=2" src="videos/4.6.mp4?v=2" aria-label="4.6 图表 讲解视频"><track kind="captions" srclang="zh" label="中文字幕" src="videos/4.6.vtt"></video></div><div class="content-card__body"><div class="video-label"><span class="video-number">4.6</span><h3 class="content-card__title">图表</h3><span class="video-duration">5:28</span></div></div></article>
 <article class="content-card video-card" id="video-4-7"><div class="media-frame"><video controls playsinline preload="none" poster="posters/4.7.jpg?v=2" src="videos/4.7.mp4?v=2" aria-label="4.7 页面设置与打印 讲解视频"><track kind="captions" srclang="zh" label="中文字幕" src="videos/4.7.vtt"></video></div><div class="content-card__body"><div class="video-label"><span class="video-number">4.7</span><h3 class="content-card__title">页面设置与打印</h3><span class="video-duration">4:59</span></div></div></article></div>
 <div style="margin-top:13px"><a class="resource-link" href="https://bernardshilohjazlene4049-crypto.github.io/zsb-excel-videos/" target="_blank" rel="noopener noreferrer"><strong>Excel 讲解视频（在线版）</strong><span class="arrow" aria-hidden="true">↗</span></a></div></section>
-<section class="section" id="mindmap"><div class="section-heading"><h2 class="section-title">Excel 选项卡思维导图</h2></div><div class="map-layout"><figure class="content-card map-picture"><img src="mindmap.png" loading="lazy" alt="第四章 Excel 思维导图" width="2400" height="1210"></figure><a href="mm.html" class="resource-link"><strong>交互版思维导图</strong><span class="arrow" aria-hidden="true">→</span></a></div></section>
+<section class="section" id="mindmap"><div class="section-heading"><h2 class="section-title">Excel 选项卡思维导图</h2></div><div class="map-layout"><figure class="content-card map-picture"><img data-src="mindmap.png" loading="lazy" alt="第四章 Excel 思维导图" width="2400" height="1210"></figure><a href="mm.html" class="resource-link"><strong>交互版思维导图</strong><span class="arrow" aria-hidden="true">→</span></a></div></section>
 <section class="section" id="excel"><div class="section-heading"><h2 class="section-title">操作题考点汇总</h2></div><div class="content-card study-panel">
 <h3>第四章 Excel 操作题：选项卡 / 组 / 命令汇总</h3>
 <p class="legend"><code>**</code> 表示由题目给出的内容。「题型」是模板里的通用答题格式；「例」是模板原有的具体例题，模板里只有 5 道（第 5、13、14、23a、23b 号）。</p>
@@ -438,5 +438,43 @@ body{overflow-x:clip}
 <footer class="site-footer"><div class="site-footer__inner"><nav class="site-footer__links" aria-label="页脚导航"><a href="../index.html">首页</a><a href="#chapters">章节</a><a href="#videos">讲解视频</a><a href="#qbank">题库样本</a></nav></div></footer>
 <script>
 (()=>{const header=document.querySelector('.site-header');const sub=document.querySelector('.site-subnav');const update=()=>{const height=(header?.getBoundingClientRect().height||0)+(sub?.getBoundingClientRect().height||0);document.documentElement.style.setProperty('--sticky-clearance',Math.ceil(height)+'px')};update();addEventListener('resize',update,{passive:true});if('ResizeObserver'in window){new ResizeObserver(update).observe(header)}const videos=[...document.querySelectorAll('video')];videos.forEach(v=>v.addEventListener('play',()=>videos.forEach(other=>{if(other!==v&&!other.paused)other.pause()})));
+window.addEventListener('load', () => {
+  const img = document.querySelector('.map-picture img[data-src]');
+  if (!img) return;
+  if (!('IntersectionObserver' in window)) {
+    img.src = img.dataset.src;
+    return;
+  }
+  let timer = null;
+  let lastHeight = document.documentElement.scrollHeight;
+  const startObserving = () => {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          img.src = img.dataset.src;
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '100px 0px' });
+    observer.observe(img);
+  };
+
+  const ro = new ResizeObserver(() => {
+    const h = document.documentElement.scrollHeight;
+    if (h !== lastHeight) {
+      lastHeight = h;
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        ro.disconnect();
+        startObserving();
+      }, 150);
+    }
+  });
+  ro.observe(document.documentElement);
+  timer = setTimeout(() => {
+    ro.disconnect();
+    startObserving();
+  }, 300);
+});
 })();
 </script></body></html>
