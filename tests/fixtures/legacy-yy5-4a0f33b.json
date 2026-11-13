@@ -1,0 +1,57 @@
+{
+  "provenance": {
+    "commit": "4a0f33b6fd9f0052120e3795ebba55ccad2df4f4",
+    "operations": [
+      "打开 yy/yy5.html，点击 4-1 的 A 选项（真实 .choice 按钮）",
+      "打开 yy/yy5.html，点击 4-2 的 C 选项（真实 .choice 按钮）",
+      "打开 yy/yy5.html，点击 5-1 的 B 选项（真实 .choice 按钮）",
+      "打开 gs/gs45.html，勾选学习路径第 1 天和第 3 天"
+    ],
+    "generated_by": "tools/batch-c-browser.mjs --capture (Playwright / Chrome; real DOM clicks; no storage injection)",
+    "captured_at": "2026-11-13T00:06:46.738Z"
+  },
+  "questions": [
+    {
+      "itemKey": "4-1",
+      "questionId": "page:yy5:4-1",
+      "subjectId": "english",
+      "correct": "B",
+      "stem": "The nurse ___ helped my grandmother was very kind.",
+      "page": {
+        "url": "yy/yy5.html",
+        "title": "定语从句",
+        "anchor": "quiz-4"
+      }
+    },
+    {
+      "itemKey": "4-2",
+      "questionId": "page:yy5:4-2",
+      "subjectId": "english",
+      "correct": "C",
+      "stem": "This is the camera ___ my brother bought last month.",
+      "page": {
+        "url": "yy/yy5.html",
+        "title": "定语从句",
+        "anchor": "quiz-4"
+      }
+    },
+    {
+      "itemKey": "5-1",
+      "questionId": "page:yy5:5-1",
+      "subjectId": "english",
+      "correct": "A",
+      "stem": "___ she said in class made everyone think.",
+      "page": {
+        "url": "yy/yy5.html",
+        "title": "名词性从句",
+        "anchor": "quiz-5"
+      }
+    }
+  ],
+  "localStorage": {
+    "gs45-study-route-v1": "{\"1\":true,\"2\":false,\"3\":true,\"4\":false,\"5\":false,\"6\":false,\"7\":false,\"8\":false}",
+    "liaoning.yy5.quiz.2026": "{\"4-1\":\"A\",\"4-2\":\"C\",\"5-1\":\"B\"}"
+  },
+  "database": null,
+  "stores": {}
+}

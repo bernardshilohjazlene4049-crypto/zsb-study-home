@@ -1,0 +1,564 @@
+{
+  "provenance": {
+    "commit": "66b5078e325848dee2378ac201df75f966d99f21",
+    "operations": [
+      "在 4a0f33b 的 yy/yy5.html 依次点击 4-1 A、4-2 C、5-1 B；在 gs/gs45.html 勾选学习路径第 1、3 天",
+      "同源切换到 66b5078，打开 yy/yy5.html 等待迁移完成",
+      "打开 gs/gs45.html#viz-37-4，依次点击「模糊」「不会」，每次等待 zsb:attempt-saved"
+    ],
+    "generated_by": "tools/batch-c-browser.mjs --capture (Playwright / Chrome; real DOM clicks; no storage injection)",
+    "captured_at": "2026-11-13T00:06:49.931Z"
+  },
+  "localStorage": {
+    "gs45-study-route-v1": "{\"1\":true,\"2\":false,\"3\":true,\"4\":false,\"5\":false,\"6\":false,\"7\":false,\"8\":false}",
+    "liaoning.yy5.quiz.2026": "{\"4-1\":\"A\",\"4-2\":\"C\",\"5-1\":\"B\"}"
+  },
+  "database": {
+    "name": "zsb-study",
+    "version": 1,
+    "stores": {
+      "attempts": {
+        "keyPath": "id",
+        "indexes": [
+          {
+            "name": "learner_id",
+            "keyPath": "learner_id",
+            "unique": false
+          },
+          {
+            "name": "question_id",
+            "keyPath": "question_id",
+            "unique": false
+          },
+          {
+            "name": "submitted_at",
+            "keyPath": "submitted_at",
+            "unique": false
+          }
+        ]
+      },
+      "drafts": {
+        "keyPath": "id",
+        "indexes": []
+      },
+      "imported_questions": {
+        "keyPath": "id",
+        "indexes": []
+      },
+      "marks": {
+        "keyPath": "id",
+        "indexes": []
+      },
+      "meta": {
+        "keyPath": "key",
+        "indexes": []
+      },
+      "mistake_entries": {
+        "keyPath": "id",
+        "indexes": [
+          {
+            "name": "learner_question",
+            "keyPath": [
+              "learner_id",
+              "question_id"
+            ],
+            "unique": false
+          },
+          {
+            "name": "question_id",
+            "keyPath": "question_id",
+            "unique": false
+          }
+        ]
+      },
+      "note_entries": {
+        "keyPath": "id",
+        "indexes": [
+          {
+            "name": "updated_at",
+            "keyPath": "updated_at",
+            "unique": false
+          }
+        ]
+      },
+      "playback": {
+        "keyPath": "id",
+        "indexes": []
+      },
+      "review_events": {
+        "keyPath": "id",
+        "indexes": [
+          {
+            "name": "mistake_id",
+            "keyPath": "mistake_id",
+            "unique": false
+          }
+        ]
+      },
+      "user_topic_progress": {
+        "keyPath": "id",
+        "indexes": [
+          {
+            "name": "topic_id",
+            "keyPath": "topic_id",
+            "unique": false
+          }
+        ]
+      }
+    }
+  },
+  "stores": {
+    "attempts": [
+      {
+        "id": "att_925d496c-bad9-4d65-8fc0-44f445625104",
+        "schema_version": 1,
+        "question_id": "page:gs45:37-4",
+        "question_revision": 1,
+        "learner_id": "local-guest",
+        "response": {
+          "option_ids": [],
+          "text": "",
+          "rating": "fuzzy"
+        },
+        "grading": {
+          "status": "pending",
+          "auto": false,
+          "method": "self_report",
+          "score": null
+        },
+        "understanding": "not_understood",
+        "guessed": false,
+        "confidence": "not_understood",
+        "help_level": "none",
+        "elapsed_ms": null,
+        "provenance": {
+          "kind": "page",
+          "verified": true
+        },
+        "counts_toward_real_stats": true,
+        "stem_snapshot": "过 (1,2,3) 且平行于 3x-2y+z=0 的平面",
+        "answer_snapshot": null,
+        "topic_ids": [],
+        "subject_id": "math",
+        "submitted_at": "2026-11-13T00:06:49.782Z",
+        "created_at": "2026-11-13T00:06:49.782Z",
+        "source": "study-bridge",
+        "page": {
+          "url": "gs/gs45.html",
+          "title": "考点三十七：求平面方程",
+          "anchor": "viz-37-4"
+        }
+      },
+      {
+        "id": "att_f5408b3b-a0df-4904-be8c-eadf99fe903a",
+        "schema_version": 1,
+        "question_id": "page:gs45:37-4",
+        "question_revision": 1,
+        "learner_id": "local-guest",
+        "response": {
+          "option_ids": [],
+          "text": "",
+          "rating": "again"
+        },
+        "grading": {
+          "status": "incorrect",
+          "auto": false,
+          "method": "self_report",
+          "score": 0
+        },
+        "understanding": "still_confused",
+        "guessed": false,
+        "confidence": "still_confused",
+        "help_level": "none",
+        "elapsed_ms": null,
+        "provenance": {
+          "kind": "page",
+          "verified": true
+        },
+        "counts_toward_real_stats": true,
+        "stem_snapshot": "过 (1,2,3) 且平行于 3x-2y+z=0 的平面",
+        "answer_snapshot": null,
+        "topic_ids": [],
+        "subject_id": "math",
+        "submitted_at": "2026-11-13T00:06:49.866Z",
+        "created_at": "2026-11-13T00:06:49.866Z",
+        "source": "study-bridge",
+        "page": {
+          "url": "gs/gs45.html",
+          "title": "考点三十七：求平面方程",
+          "anchor": "viz-37-4"
+        }
+      },
+      {
+        "id": "att_mig_1c931af8",
+        "schema_version": 1,
+        "question_id": "page:yy5:4-2",
+        "question_revision": 1,
+        "learner_id": "local-guest",
+        "response": {
+          "option_ids": [
+            "C"
+          ],
+          "text": ""
+        },
+        "grading": {
+          "status": "correct",
+          "auto": true,
+          "score": 1
+        },
+        "understanding": "mastered",
+        "guessed": false,
+        "confidence": "mastered",
+        "help_level": "none",
+        "elapsed_ms": null,
+        "provenance": {
+          "kind": "page",
+          "verified": true
+        },
+        "counts_toward_real_stats": true,
+        "stem_snapshot": "This is the camera ___ my brother bought last month.",
+        "answer_snapshot": {
+          "option_ids": [
+            "C"
+          ]
+        },
+        "topic_ids": [],
+        "subject_id": "english",
+        "submitted_at": "2026-11-13T00:06:47.210Z",
+        "created_at": "2026-11-13T00:06:47.210Z",
+        "source": "study-bridge",
+        "page": {
+          "url": "yy/yy5.html",
+          "title": "定语从句",
+          "anchor": "quiz-4"
+        },
+        "migrated_from": "liaoning.yy5.quiz.2026"
+      },
+      {
+        "id": "att_mig_2c9683fb",
+        "schema_version": 1,
+        "question_id": "page:yy5:5-1",
+        "question_revision": 1,
+        "learner_id": "local-guest",
+        "response": {
+          "option_ids": [
+            "B"
+          ],
+          "text": ""
+        },
+        "grading": {
+          "status": "incorrect",
+          "auto": true,
+          "score": 0
+        },
+        "understanding": "still_confused",
+        "guessed": false,
+        "confidence": "still_confused",
+        "help_level": "none",
+        "elapsed_ms": null,
+        "provenance": {
+          "kind": "page",
+          "verified": true
+        },
+        "counts_toward_real_stats": true,
+        "stem_snapshot": "___ she said in class made everyone think.",
+        "answer_snapshot": {
+          "option_ids": [
+            "A"
+          ]
+        },
+        "topic_ids": [],
+        "subject_id": "english",
+        "submitted_at": "2026-11-13T00:06:47.247Z",
+        "created_at": "2026-11-13T00:06:47.247Z",
+        "source": "study-bridge",
+        "page": {
+          "url": "yy/yy5.html",
+          "title": "名词性从句",
+          "anchor": "quiz-5"
+        },
+        "migrated_from": "liaoning.yy5.quiz.2026"
+      },
+      {
+        "id": "att_mig_a0b55627",
+        "schema_version": 1,
+        "question_id": "page:yy5:4-1",
+        "question_revision": 1,
+        "learner_id": "local-guest",
+        "response": {
+          "option_ids": [
+            "A"
+          ],
+          "text": ""
+        },
+        "grading": {
+          "status": "incorrect",
+          "auto": true,
+          "score": 0
+        },
+        "understanding": "still_confused",
+        "guessed": false,
+        "confidence": "still_confused",
+        "help_level": "none",
+        "elapsed_ms": null,
+        "provenance": {
+          "kind": "page",
+          "verified": true
+        },
+        "counts_toward_real_stats": true,
+        "stem_snapshot": "The nurse ___ helped my grandmother was very kind.",
+        "answer_snapshot": {
+          "option_ids": [
+            "B"
+          ]
+        },
+        "topic_ids": [],
+        "subject_id": "english",
+        "submitted_at": "2026-11-13T00:06:47.179Z",
+        "created_at": "2026-11-13T00:06:47.179Z",
+        "source": "study-bridge",
+        "page": {
+          "url": "yy/yy5.html",
+          "title": "定语从句",
+          "anchor": "quiz-4"
+        },
+        "migrated_from": "liaoning.yy5.quiz.2026"
+      }
+    ],
+    "drafts": [],
+    "imported_questions": [],
+    "marks": [],
+    "meta": [
+      {
+        "key": "migration:liaoning.yy5.quiz.2026",
+        "value": {
+          "last_run_at": "2026-11-13T00:06:47.253Z",
+          "seen": 3,
+          "written": 3
+        }
+      },
+      {
+        "key": "schema",
+        "schema_version": 1,
+        "created_at": "2026-11-13T00:06:47.141Z"
+      }
+    ],
+    "mistake_entries": [
+      {
+        "id": "mst:local-guest:page:gs45:37-4",
+        "schema_version": 1,
+        "question_id": "page:gs45:37-4",
+        "learner_id": "local-guest",
+        "subject_id": "math",
+        "topic_ids": [],
+        "stem_snapshot": "过 (1,2,3) 且平行于 3x-2y+z=0 的平面",
+        "answer_snapshot": null,
+        "provenance": {
+          "kind": "page",
+          "verified": true
+        },
+        "counts_toward_real_stats": true,
+        "category": "wrong",
+        "first_category": "not_understood",
+        "reason_tags": [],
+        "status": "active",
+        "first_attempt_id": "att_925d496c-bad9-4d65-8fc0-44f445625104",
+        "first_response": {
+          "option_ids": [],
+          "text": "",
+          "rating": "fuzzy"
+        },
+        "first_grading": {
+          "status": "pending",
+          "auto": false,
+          "method": "self_report",
+          "score": null
+        },
+        "first_understanding": "not_understood",
+        "last_attempt_id": "att_f5408b3b-a0df-4904-be8c-eadf99fe903a",
+        "attempt_ids": [
+          "att_925d496c-bad9-4d65-8fc0-44f445625104",
+          "att_f5408b3b-a0df-4904-be8c-eadf99fe903a"
+        ],
+        "note": "",
+        "next_review_at": "2026-11-14T00:06:49.866Z",
+        "interval_step": 0,
+        "interval_rule": "heuristic_1_3_7_14",
+        "last_reviewed_at": "2026-11-13T00:06:49.866Z",
+        "created_at": "2026-11-13T00:06:49.782Z",
+        "updated_at": "2026-11-13T00:06:49.866Z",
+        "source": "local",
+        "alias_ids": [],
+        "deleted_at": null,
+        "page": {
+          "url": "gs/gs45.html",
+          "title": "考点三十七：求平面方程",
+          "anchor": "viz-37-4"
+        }
+      },
+      {
+        "id": "mst:local-guest:page:yy5:4-1",
+        "schema_version": 1,
+        "question_id": "page:yy5:4-1",
+        "learner_id": "local-guest",
+        "subject_id": "english",
+        "topic_ids": [],
+        "stem_snapshot": "The nurse ___ helped my grandmother was very kind.",
+        "answer_snapshot": {
+          "option_ids": [
+            "B"
+          ]
+        },
+        "provenance": {
+          "kind": "page",
+          "verified": true
+        },
+        "counts_toward_real_stats": true,
+        "category": "wrong",
+        "first_category": "wrong",
+        "reason_tags": [],
+        "status": "active",
+        "first_attempt_id": "att_mig_a0b55627",
+        "first_response": {
+          "option_ids": [
+            "A"
+          ],
+          "text": ""
+        },
+        "first_grading": {
+          "status": "incorrect",
+          "auto": true,
+          "score": 0
+        },
+        "first_understanding": "still_confused",
+        "last_attempt_id": "att_mig_a0b55627",
+        "attempt_ids": [
+          "att_mig_a0b55627"
+        ],
+        "note": "",
+        "next_review_at": "2026-11-14T00:06:47.179Z",
+        "interval_step": 0,
+        "interval_rule": "heuristic_1_3_7_14",
+        "last_reviewed_at": "2026-11-13T00:06:47.179Z",
+        "created_at": "2026-11-13T00:06:47.179Z",
+        "updated_at": "2026-11-13T00:06:47.179Z",
+        "source": "local",
+        "alias_ids": [],
+        "deleted_at": null,
+        "page": {
+          "url": "yy/yy5.html",
+          "title": "定语从句",
+          "anchor": "quiz-4"
+        }
+      },
+      {
+        "id": "mst:local-guest:page:yy5:5-1",
+        "schema_version": 1,
+        "question_id": "page:yy5:5-1",
+        "learner_id": "local-guest",
+        "subject_id": "english",
+        "topic_ids": [],
+        "stem_snapshot": "___ she said in class made everyone think.",
+        "answer_snapshot": {
+          "option_ids": [
+            "A"
+          ]
+        },
+        "provenance": {
+          "kind": "page",
+          "verified": true
+        },
+        "counts_toward_real_stats": true,
+        "category": "wrong",
+        "first_category": "wrong",
+        "reason_tags": [],
+        "status": "active",
+        "first_attempt_id": "att_mig_2c9683fb",
+        "first_response": {
+          "option_ids": [
+            "B"
+          ],
+          "text": ""
+        },
+        "first_grading": {
+          "status": "incorrect",
+          "auto": true,
+          "score": 0
+        },
+        "first_understanding": "still_confused",
+        "last_attempt_id": "att_mig_2c9683fb",
+        "attempt_ids": [
+          "att_mig_2c9683fb"
+        ],
+        "note": "",
+        "next_review_at": "2026-11-14T00:06:47.247Z",
+        "interval_step": 0,
+        "interval_rule": "heuristic_1_3_7_14",
+        "last_reviewed_at": "2026-11-13T00:06:47.247Z",
+        "created_at": "2026-11-13T00:06:47.247Z",
+        "updated_at": "2026-11-13T00:06:47.247Z",
+        "source": "local",
+        "alias_ids": [],
+        "deleted_at": null,
+        "page": {
+          "url": "yy/yy5.html",
+          "title": "名词性从句",
+          "anchor": "quiz-5"
+        }
+      }
+    ],
+    "note_entries": [],
+    "playback": [],
+    "review_events": [
+      {
+        "id": "rev_17b08447-8041-4bba-8fcd-a3d941e09397",
+        "schema_version": 1,
+        "mistake_id": "mst:local-guest:page:gs45:37-4",
+        "attempt_id": "att_f5408b3b-a0df-4904-be8c-eadf99fe903a",
+        "outcome": "incorrect:still_confused",
+        "category": "wrong",
+        "reviewed_at": "2026-11-13T00:06:49.866Z",
+        "next_review_at": "2026-11-14T00:06:49.866Z",
+        "created_at": "2026-11-13T00:06:49.866Z",
+        "source": "local"
+      },
+      {
+        "id": "rev_339a4f80-b504-499e-b3da-13f139a43fe6",
+        "schema_version": 1,
+        "mistake_id": "mst:local-guest:page:yy5:5-1",
+        "attempt_id": "att_mig_2c9683fb",
+        "outcome": "incorrect:still_confused",
+        "category": "wrong",
+        "reviewed_at": "2026-11-13T00:06:47.247Z",
+        "next_review_at": "2026-11-14T00:06:47.247Z",
+        "created_at": "2026-11-13T00:06:47.247Z",
+        "source": "local"
+      },
+      {
+        "id": "rev_a60c1323-f790-4209-bd11-52db4d943bdb",
+        "schema_version": 1,
+        "mistake_id": "mst:local-guest:page:gs45:37-4",
+        "attempt_id": "att_925d496c-bad9-4d65-8fc0-44f445625104",
+        "outcome": "pending:not_understood",
+        "category": "not_understood",
+        "reviewed_at": "2026-11-13T00:06:49.782Z",
+        "next_review_at": "2026-11-14T00:06:49.782Z",
+        "created_at": "2026-11-13T00:06:49.782Z",
+        "source": "local"
+      },
+      {
+        "id": "rev_d9ba2c4f-51e9-4824-9c39-10de42506225",
+        "schema_version": 1,
+        "mistake_id": "mst:local-guest:page:yy5:4-1",
+        "attempt_id": "att_mig_a0b55627",
+        "outcome": "incorrect:still_confused",
+        "category": "wrong",
+        "reviewed_at": "2026-11-13T00:06:47.179Z",
+        "next_review_at": "2026-11-14T00:06:47.179Z",
+        "created_at": "2026-11-13T00:06:47.179Z",
+        "source": "local"
+      }
+    ],
+    "user_topic_progress": []
+  }
+}
