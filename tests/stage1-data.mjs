@@ -104,3 +104,14 @@ test("知识点目录锚点真实存在，先修边与 prereq_ids 一致", () =>
   assert.deepEqual(topics.chapters.filter((c) => c.subject_id === "c_language").map((c) => c.id), ["c.existing"]);
   assert.equal(blob.includes("cn-math-taxonomy"), true);
 });
+
+test("subject summaries do not contain file paths (.html or .json)", () => {
+  const subjects = read("data/subjects.json");
+  for (const subject of subjects.subjects) {
+    if (subject.summary) {
+      assert.equal(subject.summary.includes(".html"), false, `Subject ${subject.id} summary contains .html: ${subject.summary}`);
+      assert.equal(subject.summary.includes(".json"), false, `Subject ${subject.id} summary contains .json: ${subject.summary}`);
+    }
+  }
+});
+
