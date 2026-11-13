@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>2.2 HTML5 文档结构 · 网页设计 · 辽宁专升本</title>
+<meta name="description" content="网页设计 · 2.2 HTML5 文档结构">
+<link rel="icon" href="../../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../assets/css/site-unify.css">
+<link rel="stylesheet" href="../../assets/css/site-shell.css">
+<script src="../../assets/js/site-shell.js"></script>
+<link rel="stylesheet" href="../../assets/css/wy-points.css">
+<script src="../../assets/js/wy-points.js" defer></script>
+
+</head>
+<body class="wy-points-page">
+<header class="site-header"><div class="site-header__inner"><a class="site-brand" href="../../index.html">辽宁专升本</a><nav class="site-nav" aria-label="全站导航"><a href="../../search.html">搜索</a></nav></div></header>
+<main class="site-main"><div class="site-container">
+<div class="wy-layout" data-chapter="web.ch2">
+<article class="sh-card wy-sheet"><header class="wy-point-head"><span class="wy-point-no">2.2</span><h1>2.2 HTML5 文档结构</h1></header>
+<div class="wy-tabs" role="tablist" aria-label="学习内容"><button type="button" class="sh-btn" role="tab" id="tab-lecture" aria-controls="lecture" aria-selected="true" tabindex="0">讲义</button><button type="button" class="sh-btn" role="tab" id="tab-mindmap" aria-controls="mindmap" aria-selected="false" tabindex="-1">思维导图</button><button type="button" class="sh-btn" role="tab" id="tab-practice" aria-controls="practice" aria-selected="false" tabindex="-1">习题</button></div><div id="lecture" class="wy-tab-panel" role="tabpanel" aria-labelledby="tab-lecture" tabindex="0"><section aria-labelledby="source-heading"><div class="wy-section-head"><h2 id="source-heading">讲义原文</h2><button class="sh-btn" type="button" data-open-photo>打开原图</button></div><div class="wy-paper"><div class="wy-source-row wy-source-title"><h3>2.2 HTML5 文档结构</h3></div>
+<div class="wy-source-row"><p>HTML 语言目前所用的版本是 HTML5,该版本文档结构由声明、根标签、头部标签和主体标签四部分组成：</p></div>
+<div class="wy-source-row"><p>2. 结构说明：</p></div>
+<div class="wy-bracket">
+<div class="wy-source-row"><p>●<code>&lt;!doctype html&gt;</code>：<u class="wy-ul">文档类型声明</u>，告诉浏览器当前是 HTML5 标准。</p></div>
+<div class="wy-source-row"><p>●<code>&lt;html&gt;</code>：<u class="wy-ul">根标签</u>，包裹整个 HTML 文档。</p></div>
+<div class="wy-source-row"><p>●<code>&lt;head&gt;</code>：<u class="wy-ul">文件头标签</u>，存放网页的基础配置信息（如编码、标题、元数据）。</p></div>
+<div class="wy-source-row"><p>●<code>&lt;meta&gt;</code>：<u class="wy-ul">元数据标签</u>。</p><span class="wy-hand">utf-8 万国码 设置网页的编码格式 GB2312</span></div>
+<div class="wy-source-row"><p>●<code>&lt;title&gt;</code>：<u class="wy-ul">网页标题标签</u>，显示在浏览器标签栏。</p><span class="wy-hand">唯一 必须在<code>&lt;head&gt;&lt;/head&gt;</code>里</span></div>
+<div class="wy-source-row"><p>●<code>&lt;body&gt;</code>：<u class="wy-ul">文件体标签</u>，所有页面可见内容都写在这里，会在浏览器主窗口中显示。</p></div>
+</div>
+<div class="wy-source-row"><p>浏览器运行效果如图所示：</p></div>
+<div class="wy-browser"><div class="wy-browser-tab">myweb</div><div class="wy-browser-address">127.0.0.1:8848/网页教材示...</div><div class="wy-browser-body">中国，你好！</div></div></div></section><section class="wy-organized" aria-labelledby="organized-heading"><h2 id="organized-heading">整理</h2><div class="wy-paper"><p>当前主流版本是 <strong>HTML5</strong>。文档结构四部分：<strong>声明、根标签、头标签、体标签</strong>。</p>
+      <h3>最小完整示例</h3>
+      <pre tabindex="0"><code>&lt;!doctype html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;title&gt;myweb&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    中国，你好！
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      <p>浏览器标签栏显示 <code>myweb</code>，主窗口显示「中国，你好！」。</p>
+      <h3>结构说明</h3>
+      <div class="tablewrap"><table><thead><tr><th>标签</th><th>作用</th></tr></thead><tbody><tr><td><code>&lt;!doctype html&gt;</code></td><td>文档类型声明，告诉浏览器当前是 HTML5 标准</td></tr><tr><td><code>&lt;html&gt;</code></td><td><strong>根标签</strong>，包裹整个 HTML 文档</td></tr><tr><td><code>&lt;head&gt;</code></td><td><strong>文件头</strong>，存放基础配置（编码、标题、元数据）</td></tr><tr><td><code>&lt;meta&gt;</code></td><td>元数据标签（如设置编码 utf-8 / GB2312）</td></tr><tr><td><code>&lt;title&gt;</code></td><td>网页标题，显示在浏览器<strong>标签栏</strong>；★ <strong>唯一必须写在 <code>&lt;head&gt;&lt;/head&gt;</code> 里的内容</strong></td></tr><tr><td><code>&lt;body&gt;</code></td><td><strong>文件体</strong>，所有页面可见内容写在这里，显示在浏览器主窗口</td></tr></tbody></table></div></div></section></div>
+<div id="mindmap" class="wy-tab-panel" role="tabpanel" aria-labelledby="tab-mindmap" tabindex="0"><div class="wy-section-head"><h2>思维导图</h2><div class="wy-mm-controls"><button type="button" class="sh-btn" data-mm-zoom="out" aria-label="缩小思维导图">−</button><button type="button" class="sh-btn" data-mm-zoom="in" aria-label="放大思维导图">+</button><button type="button" class="sh-btn" data-mm-zoom="reset" aria-label="重置思维导图">重置</button></div></div><div class="wy-mm-frame" tabindex="0" aria-label="思维导图"><div class="wy-mm-space"><ul class="wy-mm-src"><li><span>2.2 HTML5 文档结构</span><ul><li><span>声明、根标签、头部标签和主体标签四部分组成</span></li><li><span>结构说明</span><ul><li><span><code>&lt;!doctype html&gt;</code>：文档类型声明</span></li><li><span><code>&lt;html&gt;</code>：根标签</span></li><li><span><code>&lt;head&gt;</code>：文件头标签</span></li><li><span><code>&lt;meta&gt;</code>：元数据标签</span><ul><li><span class="wy-mm-hand">〔手写〕utf-8 万国码</span></li><li><span class="wy-mm-hand">〔手写〕设置网页的编码格式</span></li><li><span class="wy-mm-hand">〔手写〕GB2312</span></li></ul></li><li><span><code>&lt;title&gt;</code>：网页标题标签</span><ul><li><span>显示在浏览器标签栏</span></li><li><span class="wy-mm-hand">〔手写〕唯一 必须在<code>&lt;head&gt;&lt;/head&gt;</code>里</span></li></ul></li><li><span><code>&lt;body&gt;</code>：文件体标签</span><ul><li><span>所有页面可见内容都写在这里</span></li></ul></li></ul></li></ul></li></ul></div></div></div>
+<div id="practice" class="wy-tab-panel" role="tabpanel" aria-labelledby="tab-practice" tabindex="0"><h2>自测要点（考前速记）</h2><ol class="wy-practice"><li class="sh-card"><span class="rn">3</span><span>HTML5 四部分结构：声明、根、头、体</span></li><li class="sh-card"><span class="rn">4</span><span><code>&lt;title&gt;</code> 是唯一必须在 <code>&lt;head&gt;</code> 里的内容</span></li></ol></div>
+</article>
+</div>
+</div></main>
+<dialog class="wy-photo" aria-label="讲义原图"><header><strong>讲义原图</strong><div><button type="button" class="sh-btn" data-photo-zoom aria-pressed="false">放大</button><button type="button" class="sh-btn" data-photo-close>关闭</button></div></header><div class="wy-photo-tabs" aria-label="原图"><button type="button" class="sh-btn" data-photo="../原图/01M6NNXP4W98VHZ3243W11M55Z.jpg" data-width="3072" data-height="4096">第2章 · 原图 1</button><button type="button" class="sh-btn" data-photo="../原图/01M6NNXVKR97GSZJ4XDP4AVTX0.jpg" data-width="4096" data-height="3072">第2章 · 原图 2</button></div><div class="wy-photo-scroll" tabindex="0"><img alt="讲义原图" width="3072" height="4096"></div></dialog>
+</body>
+</html>

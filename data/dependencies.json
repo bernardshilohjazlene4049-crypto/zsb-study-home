@@ -333,12 +333,6 @@
       "reason": "按原页面目录顺序，先学习前置课页。"
     },
     {
-      "topicId": "web.quiz_points",
-      "prerequisiteId": "web.s24",
-      "strength": "soft",
-      "reason": "按原页面目录顺序，先学习前置课页。"
-    },
-    {
       "topicId": "web.css.intro",
       "prerequisiteId": "web.css_intro",
       "strength": "soft",

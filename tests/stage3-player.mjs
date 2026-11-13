@@ -15,7 +15,7 @@ const VIDEO_PAGES = [
   "yy/index.html",
   "yy/yy5.html",
   "jsj/index.html",
-  "wy/index.html",
+  "wy/ch2/index.html",
   "study/index.html"
 ];
 
@@ -64,8 +64,8 @@ test("讲解视频页引入共享播放器，教学示例页不引入", () => {
     assert.match(html, /assets\/js\/lecture-player\.js/, `${path} 应引入 lecture-player.js`);
     const css = html.match(/href="([^"]*lecture-player\.css)"/)[1];
     const js = html.match(/src="([^"]*lecture-player\.js)"/)[1];
-    assert.match(css, /^\.\.?\/assets\//, `${path} CSS 须用相对路径`);
-    assert.match(js, /^\.\.?\/assets\//, `${path} JS 须用相对路径`);
+    assert.match(css, /^(?:\.\.?\/)+assets\//, `${path} CSS 须用相对路径`);
+    assert.match(js, /^(?:\.\.?\/)+assets\//, `${path} JS 须用相对路径`);
     assert.doesNotMatch(css, /https?:|cdn\./i, `${path} CSS 不能用 CDN 或绝对网址`);
     assert.doesNotMatch(js, /https?:|cdn\./i, `${path} JS 不能用 CDN 或绝对网址`);
   }
@@ -126,7 +126,7 @@ test("控件显示时时长标签不再压住全屏按钮", () => {
     "CSS 需要在控件可见时隐藏容器里的 .dur"
   );
   // 隐藏规则作用于播放器容器的直接子节点，页面结构必须保持这样。
-  const pages = [["wy/index.html", "vthumb"], ["yy/index.html", "media-frame"]];
+  const pages = [["wy/ch2/index.html", "vthumb"], ["yy/index.html", "media-frame"]];
   for (const [path, container] of pages) {
     const html = readFileSync(join(root, path), "utf8");
     const open = `<div class="${container}">`;
