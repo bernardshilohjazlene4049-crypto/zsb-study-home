@@ -3,7 +3,7 @@ import test from "node:test";
 import { existsSync, readFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { directoryTopics, lectureChapterIds } from "../assets/js/shell/lecture.js";
+import { directoryTopics, lectureChapterIds, chapterPageNeighbors } from "../assets/js/shell/lecture.js";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const read = path => readFileSync(resolve(root, path), "utf8");
@@ -24,8 +24,12 @@ test("基线第1/2章、16条自测和视频文字逐块保留（209条）", () 
   assert.equal(fixture.baseline, "511d360f0514ba8f1b721643837b663dd6cf7078");
   assert.equal(fixture.blocks.length, 209);
   const all = pages.map(p => text(read(p))).join(" ");
-  const missing = fixture.blocks.filter(s => !all.includes(s));
+  // 唯一允许的改动：用户要求去掉「速记」，习题标题「自测要点（考前速记）」改为「自测要点」。
+  const RENAMED = { "自测要点（考前速记）": "自测要点" };
+  assert.deepEqual(fixture.blocks.filter(s => s in RENAMED), Object.keys(RENAMED));
+  const missing = fixture.blocks.filter(s => !all.includes(RENAMED[s] ?? s));
   assert.deepEqual(missing, [], `缺失旧文字：\n${missing.join("\n")}`);
+  for (const p of pages) assert.doesNotMatch(read(p), /速记/, `${p} 不应出现「速记」`);
 });
 
 test("照片应显示的正文与手写批注逐字出现在对应讲义原文中（122条）", () => {
@@ -44,7 +48,11 @@ test("九张导图的节点与原始子树逐字相同，无添加或遗漏", ()
   const fixture = json("tests/fixtures/wy-ch12-mindmap-text.json");
   for (const id of ids) {
     const source = read(pathFor(id)).match(/<ul class="wy-mm-src">([\s\S]*?)<\/div><\/div>/)[1];
-    const nodes = [...source.matchAll(/<li><span(?: class="wy-mm-hand")?>([\s\S]*?)<\/span>/g)].map(m => text(m[1]));
+    // 节点 = li 的直接 span（可内含 code、手写片段）；手写批注的读屏标签「手写批注：」对应原始子树里的「〔手写〕」。
+    assert.doesNotMatch(source, /〔手写〕/, `${id} 导图不应显示「〔手写〕」字样`);
+    const SR = '<span class="sh-sr">手写批注：</span>';
+    const nodes = [...source.matchAll(/<li><span(?: class="wy-mm-hand")?>([\s\S]*?)<\/span>(?=<ul|<\/li>)/g)]
+      .map(m => text(m[1].replaceAll(SR, "〔手写〕")));
     assert.deepEqual(nodes, fixture[id].map(norm), id);
   }
 });
@@ -183,4 +191,16 @@ test("外壳章节显式选择只作用于新页；其他讲义沿用原推断�
   for (const legacy of ["gs/gs1.html", "gs/gs45.html", "yy/yy5.html", "jsj/jsj1.html", "jsj/ppt5.html"]) {
     assert.ok(read("assets/js/shell/lecture.js").includes(`"${legacy}"`));
   }
+});
+
+test("章节页的上一节/下一节：上一章末尾知识点 / 本章第一个知识点", () => {
+  const { topics } = json("data/topics.json");
+  const model = { topLevel: (id) => (/^web\.ch[12]$/.test(id) ? { id } : null) };
+  const order = directoryTopics(topics.filter(t => /^web\.ch[12]$/.test(t.chapter_id)), true);
+  const ch1 = chapterPageNeighbors(model, order, "web.ch1");
+  assert.equal(ch1.prev, null);
+  assert.equal(ch1.next.id, "web.concepts");
+  const ch2 = chapterPageNeighbors(model, order, "web.ch2");
+  assert.equal(ch2.prev.id, "web.tools");
+  assert.equal(ch2.next.id, "web.s21");
 });

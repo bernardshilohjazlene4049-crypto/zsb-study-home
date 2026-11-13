@@ -24,6 +24,13 @@ export function directoryTopics(topics, chapterPoints = false) {
   return chapterPoints ? topics.filter((t) => !/^wy\/ch[12]\/index\.html$/.test(pagePath(t.legacy_url))) : topics;
 }
 
+// 章节页本身不在知识点顺序里：上一节 = 上一章最后一个知识点，下一节 = 本章第一个知识点。
+export function chapterPageNeighbors(model, order, chapterId) {
+  const k = order.findIndex((t) => model.topLevel(t.chapter_id)?.id === chapterId);
+  if (k < 0) return { prev: null, next: null };
+  return { prev: k > 0 ? order[k - 1] : null, next: order[k] };
+}
+
 export function lectureChapterIds(model, onPage, all, explicit = "") {
   if (explicit && model.topLevel(explicit)) return [model.topLevel(explicit).id];
   return [...new Set((onPage.length ? onPage : all.slice(0, 1)).map((t) => model.topLevel(t.chapter_id)?.id).filter(Boolean))];
@@ -186,15 +193,13 @@ export function pathCard(model, topicId, base, { compact = false } = {}) {
     el("span", { class: "lx-path__label", text: label }),
     el("div", { class: "lx-path__chips" }, list.length ? list.map((e) => chip(e, dir)) : [el("span", { class: "lx-path__none", text: dir === "pre" ? "暂无先修" : "暂无后续" })])
   ]);
-  const unreviewed = [...pre, ...post].some((e) => !e.reviewed);
   const card = el("section", { class: `sh-card lx-path${compact ? " lx-path--inline" : ""}`, "aria-label": "学习路径" }, [
     el("header", { class: "sh-card__head" }, [
       el("h2", { class: "sh-card__title" }, [icon("graph", 18), el("span", { text: "学习路径" })]),
       el("a", { class: "lx-path__graph", href: `${base}study/graph.html?topic=${encodeURIComponent(topicId)}` }, [el("span", { text: "关系图" }), icon("chevron", 14)])
     ]),
     row("先修", pre, "pre"),
-    row("后续", post, "post"),
-    unreviewed ? el("p", { class: "sh-note" }, [icon("alert", 15), el("span", { text: "先修关系尚未核对。" })]) : null
+    row("后续", post, "post")
   ]);
   return card;
 }
@@ -526,8 +531,8 @@ export async function mount(shell) {
     const topic = current ? model.topicById.get(current) : null;
     crumbSlot.replaceChildren(crumbs(model, topic, base, subjectId, explicitChapter));
     const i = topic ? order.findIndex((t) => t.id === topic.id) : -1;
-    const prev = i > 0 ? order[i - 1] : null;
-    const next = i >= 0 && i < order.length - 1 ? order[i + 1] : null;
+    const { prev, next } = i < 0 && explicitChapter ? chapterPageNeighbors(model, order, explicitChapter)
+      : { prev: i > 0 ? order[i - 1] : null, next: i >= 0 && i < order.length - 1 ? order[i + 1] : null };
     if (pointTabs) pointTabs.paintPager(pager);
     else pager.replaceChildren(
       el(prev ? "a" : "span", { class: `sh-btn lx-pager__btn${prev ? "" : " is-off"}`, href: prev ? linkFor(prev) : null, "aria-disabled": prev ? null : "true", title: prev?.title || null }, [icon("chevronLeft", 15), el("span", { text: "上一节" })]),

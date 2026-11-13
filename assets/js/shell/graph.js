@@ -129,7 +129,6 @@ export async function mount(shell) {
         href ? el("a", { class: "sh-btn", href, text: "继续学习本知识点" }) : null
       ]));
     }
-    if ([...pre, ...post].some((e) => !e.reviewed)) content.push(el("p", { class: "sh-note graph-note" }, [icon("shield", 15), el("span", { text: "部分先修关系尚未核对。" })]));
     stage.replaceChildren(...content);
     requestAnimationFrame(() => drawEdges(canvas, svg));
   }
