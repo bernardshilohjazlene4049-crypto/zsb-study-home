@@ -2,7 +2,7 @@
    全站统一顶栏。规则取自 assets/css/site-unify.css 的顶栏部分，
    加上首页/英语/C语言/计算机基础入口页（PR #14）里同一套顶栏微调，
    放在各页样式之后引入，保证每页顶栏的标记和样式完全一致。
-   导航标签常显，不使用 site-nav--compact，不依赖 site-nav.js / mobile.js。 */
+   导航标签常显，不使用 site-nav--compact。 */
 .site-header{position:sticky;top:0;z-index:90;min-height:var(--sg-header-height);
   border-bottom:1px solid var(--sg-line);background:rgba(251,252,254,.88);
   backdrop-filter:blur(var(--sg-glass-blur)) saturate(var(--sg-glass-saturation));

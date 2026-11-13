@@ -37,6 +37,19 @@
 .sh-ico { display: inline-flex; flex: none; align-items: center; justify-content: center; line-height: 0; }
 .sh-ico svg { display: block; }
 
+/* 跳转链接仅在聚焦时露出，并置于固定导航之上。 */
+.skip-link:focus {
+  position: fixed !important; left: 12px !important; top: 8px !important; z-index: 200;
+  padding: 8px 12px; border-radius: 8px;
+  background: var(--sh-bg); color: var(--sh-ink);
+  outline: 2px solid var(--sh-accent); outline-offset: 3px;
+}
+.skip:focus { z-index: 200; }
+/* 仅在键盘聚焦滚动时避开顶栏和底栏，不改变元素尺寸与排版。 */
+:focus-visible {
+  scroll-margin-block: calc(var(--sh-header) + 16px) calc(var(--sh-tabbar) + 16px);
+}
+
 /* ── 旧顶栏在外壳接管前隐藏（只在脚本可用时） ───────────────── */
 .shell-js .site-header:not(.shell-header) { visibility: hidden; }
 .shell-js .site-subnav { display: none !important; }
