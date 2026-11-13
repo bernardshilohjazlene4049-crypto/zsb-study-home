@@ -6,11 +6,11 @@ import { splitChapterTitle } from "./subject.js";
 
 const WY = { subject: "web_design", wrap: ".wy-layout", hide: [".wy-side", ".mobile-toc-btn"] };
 const PAGES = {
-  "gs/gs1.html": { subject: "math", wrap: ".study-layout", hide: [".study-index"], hero: ".page-hero", nav: ".study-index a[href^='#']", sections: true },
-  "gs/gs45.html": { subject: "math", wrap: ".study-layout", hide: [".study-index"], hero: ".page-hero", before: [".route-panel"], nav: ".study-index a[href^='#']", sections: true },
-  "yy/yy5.html": { subject: "english", children: "main .site-container", sections: true },
-  "jsj/jsj1.html": { subject: "computer_basics", wrap: "main.learn-main", hero: ".hero-area", hide: [".map-index"], sections: true, proxy: (id) => document.querySelector(`.map-index__item[data-chapter="${id.replace(/^mind-/, "")}"]`) },
-  "jsj/ppt5.html": { subject: "computer_basics", wrap: "main.learn-main", hero: ".hero-area", sections: true, anchor: (t) => /^(\d\.\d)/.test(t.title) ? `chapter-${t.title.slice(0, 3)}` : "" }
+  "gs/gs1.html": { subject: "math", wrap: ".study-layout", hide: [".study-index"], hero: ".page-hero", nav: ".study-index a[href^='#']", panels: ".study-content > section", sections: true },
+  "gs/gs45.html": { subject: "math", wrap: ".study-layout", hide: [".study-index"], hero: ".page-hero", before: [".route-panel"], nav: ".study-index a[href^='#']", panels: ".route-panel, .study-content > section", sections: true },
+  "yy/yy5.html": { subject: "english", children: "main .site-container", panels: ":scope > section", sections: true },
+  "jsj/jsj1.html": { subject: "computer_basics", wrap: "main.learn-main", hero: ".hero-area", hide: [".map-index"], panels: ".map-stage > article", sections: true, proxy: (id) => document.querySelector(`.map-index__item[data-chapter="${id.replace(/^mind-/, "")}"]`) },
+  "jsj/ppt5.html": { subject: "computer_basics", wrap: "main.learn-main", hero: ".hero-area", panels: ".ppt-card-stack > article", sections: true, anchor: (t) => /^(\d\.\d)/.test(t.title) ? `chapter-${t.title.slice(0, 3)}` : "" }
 };
 
 function configFor(rel) {
@@ -20,6 +20,31 @@ function configFor(rel) {
 }
 
 function q(sel) { return sel ? document.querySelector(sel) : null; }
+
+// 纯数据接口也供 node:test 使用；anchors 包含分区内全部原始 id。
+export function pointTabLabel(id, original = "") {
+  const numbered = /^(point|topic)-(\d+)$/.exec(id);
+  if (numbered) return (numbered[1] === "point" ? "考点" : "专题") + cnNumber(Number(numbered[2]));
+  const chapter = /^chapter-(\d+(?:\.\d+)+)$/.exec(id);
+  return chapter ? chapter[1] : original;
+}
+
+export function panelForHash(panels, hash) {
+  let id = String(hash || "").replace(/^#/, "");
+  try { id = decodeURIComponent(id); } catch { /* 保留不完整的 URL 编码。 */ }
+  if (!id) return null;
+  return panels.find((panel) => panel.id === id || panel.anchors?.includes(id)) || null;
+}
+
+export function pointNeighbors(panels, index, order, rel) {
+  if (index < 0 || index >= panels.length) return { previous: null, next: null };
+  const pageIndices = order.map((topic, i) => pagePath(topic.legacy_url) === rel ? i : -1).filter((i) => i >= 0);
+  const first = pageIndices[0], last = pageIndices.at(-1);
+  return {
+    previous: index > 0 ? panels[index - 1] : (first > 0 ? order[first - 1] : null),
+    next: index + 1 < panels.length ? panels[index + 1] : (last !== undefined ? order[last + 1] || null : null)
+  };
+}
 
 function labelPrefix(topic, anchor) {
   let m = /^point-(\d+)$/.exec(anchor);
@@ -200,6 +225,225 @@ export function crumbs(model, topic, base, subjectId) {
   return nav;
 }
 
+function mountPointTabs({ sk, cfg, tracked, anchorFor, order, rel, linkFor, openToc, closeToc, onCurrent }) {
+  const panels = [...sk.body.querySelectorAll(cfg.panels)].map((node, i) => {
+    if (!node.id) node.id = `lx-point-panel-${i + 1}`;
+    const topic = tracked.find((t) => node.id === anchorFor(t) || node.contains(document.getElementById(anchorFor(t))));
+    const originalLink = [...document.querySelectorAll(cfg.nav || "nav a[href^='#']")].find((a) => a.getAttribute("href") === `#${node.id}`);
+    const original = originalLink?.querySelector(".index-label, .index-tile__name")?.textContent.trim()
+      || originalLink?.querySelector(":scope > span:last-child")?.textContent.trim()
+      || originalLink?.textContent.trim()
+      || node.querySelector("h2, h3")?.textContent.trim() || "";
+    return { id: node.id, node, topic, anchors: [...node.querySelectorAll("[id]")].map((n) => n.id), label: pointTabLabel(node.id, original) };
+  });
+  if (panels.length < 2) return null;
+  document.body.classList.add("lx-point-mode");
+  const strip = el("div", { class: "lx-point-switch" });
+  const list = el("div", { class: "lx-point-tabs", role: "tablist", "aria-label": "考点切换", "aria-orientation": "horizontal" });
+  const arrow = (previous) => el("button", { type: "button", class: "lx-point-arrow", "aria-label": previous ? "上一个考点" : "下一个考点", hidden: true }, [icon(previous ? "chevronLeft" : "chevron", 16)]);
+  const left = arrow(true), right = arrow(false);
+  const drawer = el("button", { type: "button", class: "lx-point-directory", "aria-label": "本章目录", "aria-controls": "lx-toc" }, [icon("chevronDown", 18)]);
+  drawer.addEventListener("click", openToc);
+  strip.append(el("strong", { class: "lx-point-switch__label", text: "考点切换" }), left, list, right, drawer);
+  // 整条放在 hero 之后；保留各页原来的正文容器及所有正文节点。
+  const hero = sk.body.querySelector(cfg.hero || ".page-hero");
+  if (hero) hero.after(strip); else sk.body.prepend(strip);
+  let active = null, printing = false, proxyObserver = null;
+  let alignFrame = 0, routeFrame = 0, alignTimer = 0, layoutObserver = null;
+  const alignmentCleanups = [];
+  const pagers = new Map();
+  const hashFor = (panel) => `#${encodeURIComponent(panel.id)}`;
+  const headerBottom = () => document.querySelector(".shell-header")?.getBoundingClientRect().bottom || 0;
+
+  function stopAlignment() {
+    cancelAnimationFrame(alignFrame);
+    clearTimeout(alignTimer);
+    layoutObserver?.disconnect();
+    layoutObserver = null;
+    while (alignmentCleanups.length) alignmentCleanups.pop()();
+  }
+  // 一次布局帧内合并定位；图片/字体完成时仅在用户尚未滚动的短窗口内校正。
+  function alignTarget(target, focus = false) {
+    stopAlignment();
+    let settling = true;
+    const align = () => {
+      cancelAnimationFrame(alignFrame);
+      alignFrame = requestAnimationFrame(() => {
+        if (!settling || !target.isConnected) return;
+        const top = Math.min(document.documentElement.scrollHeight - innerHeight, Math.max(0, scrollY + target.getBoundingClientRect().top - headerBottom() - 16));
+        if (Math.abs(scrollY - top) > 1) scrollTo({ top, behavior: "instant" });
+        if (focus) {
+          if (!target.hasAttribute("tabindex")) target.setAttribute("tabindex", "-1");
+          target.focus({ preventScroll: true });
+          focus = false;
+        }
+      });
+    };
+    const stop = () => { settling = false; stopAlignment(); };
+    // stopAlignment 也取消旧目标的异步字体回调。
+    const observer = new ResizeObserver(align);
+    layoutObserver = observer;
+    observer.observe(active?.node || target);
+    // 浏览器首次加载/恢复历史时的原生锚点滚动可能晚于分区折叠。
+    addEventListener("scroll", align, { passive: true });
+    addEventListener("load", align, { once: true });
+    alignmentCleanups.push(() => { removeEventListener("scroll", align); removeEventListener("load", align); });
+    align();
+    document.fonts?.ready.then(() => { if (layoutObserver === observer) align(); });
+    alignTimer = setTimeout(stop, 4000);
+  }
+  for (const event of ["wheel", "touchmove", "pointerdown", "keydown"]) addEventListener(event, stopAlignment, { passive: true, capture: true });
+
+  function showTab(panel) {
+    const tab = panel.tab;
+    if (tab.offsetLeft < list.scrollLeft) list.scrollLeft = tab.offsetLeft;
+    else if (tab.offsetLeft + tab.offsetWidth > list.scrollLeft + list.clientWidth) list.scrollLeft = tab.offsetLeft + tab.offsetWidth - list.clientWidth;
+    updateOverflow();
+  }
+  function updateOverflow() {
+    const overflow = list.scrollWidth > list.clientWidth + 1;
+    left.hidden = right.hidden = !overflow;
+    left.disabled = list.scrollLeft <= 1;
+    right.disabled = list.scrollLeft + list.clientWidth >= list.scrollWidth - 1;
+  }
+  function paintPager(host, panel = active) {
+    const neighbors = pointNeighbors(panels, panels.indexOf(panel), order, rel);
+    host.replaceChildren(...[neighbors.previous, neighbors.next].map((item, i) => {
+      const href = item ? (item.node ? hashFor(item) : linkFor(item)) : null;
+      return el(href ? "a" : "button", { type: href ? null : "button", class: `sh-btn lx-pager__btn${href ? "" : " is-off"}`, href, disabled: !href, "aria-disabled": href ? null : "true" }, i === 0
+        ? [icon("chevronLeft", 15), el("span", { text: "上一个考点" })]
+        : [el("span", { text: "下一个考点" }), icon("chevron", 15)]);
+    }));
+  }
+  function observeProxy() {
+    if (proxyObserver) for (const panel of panels) proxyObserver.observe(panel.node, { attributes: true, attributeFilter: ["hidden"] });
+  }
+  function activate(panel, { proxy = true, historyMode = null, revealBar = false, focus = false } = {}) {
+    if (!panel || printing) return;
+    stopAlignment();
+    const bounds = strip.getBoundingClientRect();
+    const outOfView = bounds.top < headerBottom() || bounds.bottom > innerHeight;
+    proxyObserver?.disconnect();
+    if (cfg.proxy && proxy) cfg.proxy(panel.id)?.click();
+    active = panel;
+    for (const entry of panels) {
+      const selected = entry === panel;
+      if (selected) entry.node.removeAttribute("hidden");
+      else entry.node.setAttribute("hidden", "until-found");
+      entry.tab.setAttribute("aria-selected", String(selected));
+      entry.tab.tabIndex = selected ? 0 : -1;
+    }
+    observeProxy();
+    if (historyMode) history[historyMode](null, "", hashFor(panel));
+    onCurrent(panel.topic?.id);
+    for (const [entry, hosts] of pagers) for (const host of hosts) paintPager(host, entry);
+    showTab(panel);
+    if (focus) panel.tab.focus({ preventScroll: true });
+    if (revealBar && outOfView) alignTarget(strip);
+  }
+
+  panels.forEach((panel, i) => {
+    const tab = el("button", { type: "button", class: "lx-point-tab", id: `lx-point-tab-${i + 1}`, role: "tab", "aria-selected": "false", "aria-controls": panel.id, tabindex: "-1", text: panel.label });
+    panel.tab = tab;
+    panel.node.classList.add("lx-point-panel");
+    panel.node.setAttribute("role", "tabpanel");
+    panel.node.setAttribute("aria-labelledby", tab.id);
+    panel.node.setAttribute("tabindex", "0");
+    list.append(tab);
+    tab.addEventListener("click", () => activate(panel, { historyMode: "replaceState", revealBar: true }));
+    tab.addEventListener("keydown", (event) => {
+      let index = i;
+      if (event.key === "ArrowLeft") index = (i + panels.length - 1) % panels.length;
+      else if (event.key === "ArrowRight") index = (i + 1) % panels.length;
+      else if (event.key === "Home") index = 0;
+      else if (event.key === "End") index = panels.length - 1;
+      else if (event.key !== "Enter" && event.key !== " ") return;
+      event.preventDefault();
+      activate(panels[index], { historyMode: "replaceState", revealBar: true, focus: true });
+    });
+    panel.node.addEventListener("beforematch", () => activate(panel, { historyMode: "replaceState" }));
+    let head = panel.node.querySelector(":scope > .topic-header, :scope > .chapter-heading, :scope > .chapter-top, :scope > .mind-head, :scope > .route-heading, :scope > .reference-heading, :scope > .index-head");
+    if (!head) {
+      const title = panel.node.querySelector("h2, h3");
+      head = el("div");
+      if (title) { title.before(head); head.append(title); } else panel.node.prepend(head);
+    }
+    head.classList.add("lx-point-heading");
+    const top = el("div", { class: "lx-pager lx-point-pager lx-point-pager--top" });
+    const bottom = el("div", { class: "lx-pager lx-point-pager lx-point-pager--bottom" });
+    head.append(top);
+    panel.node.append(bottom);
+    pagers.set(panel, [top, bottom]);
+  });
+  const slide = (direction) => list.scrollBy({ left: direction * list.clientWidth * .75, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth" });
+  left.addEventListener("click", () => slide(-1));
+  right.addEventListener("click", () => slide(1));
+  list.addEventListener("scroll", updateOverflow, { passive: true });
+  new ResizeObserver(() => { if (active) showTab(active); else updateOverflow(); }).observe(list);
+
+  function navigateHash({ focus = false } = {}) {
+    cancelAnimationFrame(routeFrame);
+    routeFrame = requestAnimationFrame(() => {
+      const panel = panelForHash(panels, location.hash);
+      let id = location.hash.slice(1);
+      try { id = decodeURIComponent(id); } catch { /* 原始 id */ }
+      const target = id ? document.getElementById(id) : null;
+      if (panel) activate(panel);
+      else if (!active || !location.hash) activate(panels.find((p) => p.topic) || panels[0]);
+      if (target) {
+        for (let ancestor = target.parentElement; ancestor && ancestor !== panel?.node; ancestor = ancestor.parentElement) {
+          if (ancestor.tagName === "DETAILS") ancestor.open = true;
+        }
+        alignTarget(target, focus);
+      }
+    });
+  }
+  document.addEventListener("click", (event) => {
+    const a = event.target.closest("a[href]");
+    if (!a || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || a.hasAttribute("download") || (a.target && a.target !== "_self")) return;
+    const url = new URL(a.href, location.href);
+    if (url.origin !== location.origin || url.pathname !== location.pathname || url.search !== location.search || !url.hash) return;
+    let id = url.hash.slice(1);
+    try { id = decodeURIComponent(id); } catch { /* 原始 id */ }
+    if (!document.getElementById(id)) return;
+    event.preventDefault();
+    // 旧讲义的平滑滚动处理不能在分区切换前抢先定位。
+    event.stopPropagation();
+    if (sk.toc.classList.contains("is-open")) closeToc();
+    history.pushState(null, "", url.hash);
+    navigateHash({ focus: true });
+  }, true);
+  // hash-scroll 将既有校正窗口交给标签控制器，避免两个定位器互相拉动。
+  globalThis.zsbHashScroll?.setNavigator(navigateHash);
+  addEventListener("hashchange", navigateHash);
+  addEventListener("popstate", navigateHash);
+
+  if (cfg.proxy) {
+    proxyObserver = new MutationObserver(() => {
+      if (printing) return;
+      const visible = panels.find((p) => !p.node.hasAttribute("hidden"));
+      if (visible && visible !== active) activate(visible, { proxy: false, historyMode: "replaceState" });
+    });
+  }
+  let printHidden = null;
+  addEventListener("beforeprint", () => {
+    if (printing) return;
+    printing = true;
+    stopAlignment();
+    proxyObserver?.disconnect();
+    printHidden = panels.map((p) => p.node.getAttribute("hidden"));
+    for (const panel of panels) panel.node.removeAttribute("hidden");
+  });
+  addEventListener("afterprint", () => {
+    if (!printing) return;
+    panels.forEach((p, i) => { if (printHidden[i] === null) p.node.removeAttribute("hidden"); else p.node.setAttribute("hidden", printHidden[i]); });
+    printing = false;
+    observeProxy();
+  });
+  navigateHash();
+  return { paintPager };
+}
+
 export async function mount(shell) {
   const cfg = configFor(shell.rel);
   if (!cfg) return;
@@ -266,13 +510,15 @@ export async function mount(shell) {
     const a = anchorFor(t);
     return pagePath(t.legacy_url) === rel && a ? `#${a}` : topicHref(t, base);
   };
+  let pointTabs = null;
   function paint() {
     const topic = current ? model.topicById.get(current) : null;
     crumbSlot.replaceChildren(crumbs(model, topic, base, subjectId));
     const i = topic ? order.findIndex((t) => t.id === topic.id) : -1;
     const prev = i > 0 ? order[i - 1] : null;
     const next = i >= 0 && i < order.length - 1 ? order[i + 1] : null;
-    pager.replaceChildren(
+    if (pointTabs) pointTabs.paintPager(pager);
+    else pager.replaceChildren(
       el(prev ? "a" : "span", { class: `sh-btn lx-pager__btn${prev ? "" : " is-off"}`, href: prev ? linkFor(prev) : null, "aria-disabled": prev ? null : "true", title: prev?.title || null }, [icon("chevronLeft", 15), el("span", { text: "上一节" })]),
       el(next ? "a" : "span", { class: `sh-btn lx-pager__btn${next ? "" : " is-off"}`, href: next ? linkFor(next) : null, "aria-disabled": next ? null : "true", title: next?.title || null }, [el("span", { text: "下一节" }), icon("chevron", 15)])
     );
@@ -285,33 +531,11 @@ export async function mount(shell) {
   }
   paint();
 
-  // 手机：每个知识点正文后面放一张学习路径卡（多知识点长页）。
-  if (tracked.length > 1 && !cfg.proxy) {
-    for (const t of tracked) {
-      const sec = document.getElementById(anchorFor(t));
-      if (!sec) continue;
-      const inline = pathCard(model, t.id, base, { compact: true });
-      sec.after(inline);
-    }
+  if (tracked.length > 1) {
+    pointTabs = mountPointTabs({ sk, cfg, tracked, anchorFor, order, rel, linkFor, openToc, closeToc,
+      onCurrent: (id) => { if (id) current = id; paint(); } });
+    paint();
   } else {
     document.body.classList.add("lx-single");
-  }
-
-  if (tracked.length > 1) {
-    const els = tracked.map((t) => [t.id, document.getElementById(anchorFor(t))]);
-    let ticking = false;
-    const spy = () => {
-      ticking = false;
-      const line = (parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--sh-header")) || 60) + 120;
-      let id = els[0][0];
-      for (const [tid, node] of els) {
-        if (node.hidden) continue;
-        if (node.getBoundingClientRect().top <= line) id = tid;
-      }
-      if (id !== current) { current = id; paint(); }
-    };
-    addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(spy); } }, { passive: true });
-    addEventListener("hashchange", spy);
-    setTimeout(spy, 300);
   }
 }

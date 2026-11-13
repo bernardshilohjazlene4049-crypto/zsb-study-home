@@ -11,6 +11,7 @@
   const KEYS = new Set([" ", "ArrowUp", "ArrowDown", "PageUp", "PageDown", "Home", "End"]);
 
   let installed = false;
+  let navigator = null;
   let active = false;
   let userScrolled = false;
   let revealed = [];
@@ -110,6 +111,7 @@
   }
 
   function begin() {
+    if (navigator) { navigator(); return; }
     if (!hashId()) return;
     userScrolled = false;
     unbindTemporary();
@@ -185,6 +187,13 @@
 
   return {
     install,
+    // 分区式讲义接管定位；先终止原长页的图片/字体校正窗口。
+    setNavigator(callback) {
+      active = false;
+      unbindTemporary();
+      restore();
+      navigator = callback;
+    },
     begin,
     scrollToHash,
     hashId,
