@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>2.3 &lt;meta&gt; 标签详解 · 网页设计 · 辽宁专升本</title>
+<meta name="description" content="网页设计 · 2.3 &lt;meta&gt; 标签详解">
+<link rel="icon" href="../../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../assets/css/site-unify.css">
+<link rel="stylesheet" href="../../assets/css/site-shell.css">
+<script src="../../assets/js/site-shell.js"></script>
+<link rel="stylesheet" href="../../assets/css/wy-points.css">
+<script src="../../assets/js/wy-points.js" defer></script>
+
+</head>
+<body class="wy-points-page">
+<header class="site-header"><div class="site-header__inner"><a class="site-brand" href="../../index.html">辽宁专升本</a><nav class="site-nav" aria-label="全站导航"><a href="../../search.html">搜索</a></nav></div></header>
+<main class="site-main"><div class="site-container">
+<div class="wy-layout" data-chapter="web.ch2">
+<article class="sh-card wy-sheet"><header class="wy-point-head"><span class="wy-point-no">2.3</span><h1>2.3 &lt;meta&gt; 标签详解</h1></header>
+<div class="wy-tabs" role="tablist" aria-label="学习内容"><button type="button" class="sh-btn" role="tab" id="tab-lecture" aria-controls="lecture" aria-selected="true" tabindex="0">讲义</button><button type="button" class="sh-btn" role="tab" id="tab-mindmap" aria-controls="mindmap" aria-selected="false" tabindex="-1">思维导图</button><button type="button" class="sh-btn" role="tab" id="tab-practice" aria-controls="practice" aria-selected="false" tabindex="-1">习题</button></div><div id="lecture" class="wy-tab-panel" role="tabpanel" aria-labelledby="tab-lecture" tabindex="0"><section aria-labelledby="source-heading"><div class="wy-section-head"><h2 id="source-heading">讲义原文</h2><button class="sh-btn" type="button" data-open-photo>打开原图</button></div><div class="wy-paper"><div class="wy-source-row wy-source-title"><h3>2.3&lt;meta&gt;标签详解</h3></div>
+<div class="wy-source-row"><p><code>&lt;meta&gt;</code>标签用于定义网页的元数据（描述性信息），不会直接显示在页面上，但会被浏览器和搜索引擎识别。</p></div>
+<div class="wy-source-row"><p>常用 meta 属性示例：</p></div>
+<div class="wy-source-row"><p>1. 设置网页<u class="wy-ul">关键字</u>（供搜索引擎抓取）</p></div>
+<div class="wy-source-row"><pre tabindex="0"><code>&lt;meta name=&quot;<u class="wy-ul">keywords</u>&quot; content=&quot;HTML,前端开发,学习教程&quot;&gt;</code></pre></div>
+<div class="wy-source-row"><p>2. 设置网页<u class="wy-ul">描述</u>（搜索引擎结果中会显示）</p></div>
+<div class="wy-source-row"><pre tabindex="0"><code>&lt;meta name=&quot;<u class="wy-ul">description</u>&quot; content=&quot;这是 HTML 基础入门教程，适合新手学习&quot;&gt;</code></pre></div>
+<div class="wy-source-row"><p>3. 设置<u class="wy-ul">网页作者</u></p></div>
+<div class="wy-source-row"><pre tabindex="0"><code>&lt;meta name=&quot;<u class="wy-ul">author</u>&quot; content=&quot;马斯克&quot;&gt;</code></pre></div>
+<div class="wy-source-row"><p>4. 设置字符集（防止乱码）</p></div>
+<div class="wy-source-row"><pre tabindex="0"><code>&lt;meta charset=&quot;utf-8&quot;&gt;</code></pre><span class="wy-hand">GB2312 中文简体</span></div>
+<div class="wy-source-row"><p>5. 设置页面<u class="wy-ul">自动刷新与跳转</u>（<u class="wy-ul">10 秒后跳转到指定网址</u>）</p></div>
+<div class="wy-source-row"><pre tabindex="0"><code>&lt;meta http-equiv=&quot;<u class="wy-ul">refresh</u>&quot; <u class="wy-ul">content=&quot;10;url=https://www.example.com&quot;</u>&gt;</code></pre></div></div></section><section class="wy-organized" aria-labelledby="organized-heading"><h2 id="organized-heading">整理</h2><div class="wy-paper"><p><code>&lt;meta&gt;</code> 用来定义网页的<strong>元数据</strong>（描述性信息），不直接显示在页面上，但会被浏览器和搜索引擎识别。</p>
+      <ol>
+        <li><strong>关键字</strong>（供搜索引擎抓取）<pre tabindex="0"><code>&lt;meta name="keywords" content="HTML,前端开发,学习教程"&gt;</code></pre></li>
+        <li><strong>网页描述</strong>（搜索结果中会显示）<pre tabindex="0"><code>&lt;meta name="description" content="这是 HTML 基础入门教程，适合新手学习"&gt;</code></pre></li>
+        <li><strong>作者</strong><pre tabindex="0"><code>&lt;meta name="author" content="马斯克"&gt;</code></pre></li>
+        <li><strong>字符集</strong>（防止乱码）<pre tabindex="0"><code>&lt;meta charset="utf-8"&gt;</code></pre>笔记补充：也可用 <strong>GB2312</strong>（中文简体）。</li>
+        <li><strong>自动刷新 / 跳转</strong><pre tabindex="0"><code>&lt;meta http-equiv="refresh" content="10;url=https://www.example.com"&gt;</code></pre><ul><li><code>10</code>：秒数</li><li><code>url</code>：跳转目标</li><li>也可表示每隔 10 秒刷新当前页面（不写 url 时）</li></ul></li>
+      </ol></div></section></div>
+<div id="mindmap" class="wy-tab-panel" role="tabpanel" aria-labelledby="tab-mindmap" tabindex="0"><div class="wy-section-head"><h2>思维导图</h2><div class="wy-mm-controls"><button type="button" class="sh-btn" data-mm-zoom="out" aria-label="缩小思维导图">−</button><button type="button" class="sh-btn" data-mm-zoom="in" aria-label="放大思维导图">+</button><button type="button" class="sh-btn" data-mm-zoom="reset" aria-label="重置思维导图">重置</button></div></div><div class="wy-mm-frame" tabindex="0" aria-label="思维导图"><div class="wy-mm-space"><ul class="wy-mm-src"><li><span>2.3&lt;meta&gt;标签详解</span><ul><li><span>定义网页的元数据（描述性信息）</span></li><li><span>不会直接显示在页面上</span></li><li><span>设置网页关键字：keywords</span></li><li><span>设置网页描述：description</span></li><li><span>设置网页作者：author</span></li><li><span>设置字符集（防止乱码）：charset=&quot;utf-8&quot;</span><ul><li><span class="wy-mm-hand">〔手写〕GB2312 中文简体</span></li></ul></li><li><span>设置页面自动刷新与跳转：http-equiv=&quot;refresh&quot;</span><ul><li><span>10 秒后跳转到指定网址</span></li><li><span class="wy-mm-hand">〔手写〕只写 content=10（不写URL）表示每隔10秒刷新当前网页</span></li></ul></li></ul></li></ul></div></div></div>
+<div id="practice" class="wy-tab-panel" role="tabpanel" aria-labelledby="tab-practice" tabindex="0"><h2>自测要点（考前速记）</h2><ol class="wy-practice"><li class="sh-card"><span class="rn">6</span><span>meta：keywords / description / author / charset / refresh</span></li></ol></div>
+</article>
+</div>
+</div></main>
+<dialog class="wy-photo" aria-label="讲义原图"><header><strong>讲义原图</strong><div><button type="button" class="sh-btn" data-photo-zoom aria-pressed="false">放大</button><button type="button" class="sh-btn" data-photo-close>关闭</button></div></header><div class="wy-photo-tabs" aria-label="原图"><button type="button" class="sh-btn" data-photo="../原图/01M6NNY28N880ZDJ4CV661VSQC.jpg" data-width="4096" data-height="3072">第2章 · 原图 4</button><button type="button" class="sh-btn" data-photo="../原图/01M6NP1DJPVH3E0P1HHABH7S8E.jpg" data-width="3072" data-height="4096">第2章 · 原图 5</button></div><div class="wy-photo-scroll" tabindex="0"><img alt="讲义原图" width="4096" height="3072"></div></dialog>
+</body>
+</html>

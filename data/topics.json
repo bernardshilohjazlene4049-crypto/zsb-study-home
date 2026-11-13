@@ -134,7 +134,7 @@
       "parent_id": null,
       "title": "第1章 网页基本概念",
       "order": 1,
-      "source_ref": "wy/index.html#s11",
+      "source_ref": "wy/ch1/index.html",
       "verified": false
     },
     {
@@ -143,7 +143,7 @@
       "parent_id": null,
       "title": "第2章 HTML5 文档结构",
       "order": 2,
-      "source_ref": "wy/index.html#ch2",
+      "source_ref": "wy/ch2/index.html",
       "verified": false
     },
     {
@@ -672,8 +672,8 @@
         "网站"
       ],
       "prereq_ids": [],
-      "source_ref": "wy/index.html#s11",
-      "legacy_url": "wy/index.html#s11",
+      "source_ref": "wy/ch1/s11.html",
+      "legacy_url": "wy/ch1/s11.html",
       "verified": false,
       "blurb": "正文在网页设计页面。"
     },
@@ -689,8 +689,8 @@
       "prereq_ids": [
         "web.concepts"
       ],
-      "source_ref": "wy/index.html#ch2",
-      "legacy_url": "wy/index.html#ch2",
+      "source_ref": "wy/ch2/index.html",
+      "legacy_url": "wy/ch2/index.html",
       "verified": false,
       "blurb": "第 2 章视频在网页设计页面，整集约 6:51。"
     },
@@ -1113,8 +1113,8 @@
       "prereq_ids": [
         "web.concepts"
       ],
-      "source_ref": "wy/index.html#s12",
-      "legacy_url": "wy/index.html#s12",
+      "source_ref": "wy/ch1/s12.html",
+      "legacy_url": "wy/ch1/s12.html",
       "verified": false
     },
     {
@@ -1127,8 +1127,8 @@
       "prereq_ids": [
         "web.process"
       ],
-      "source_ref": "wy/index.html#s13",
-      "legacy_url": "wy/index.html#s13",
+      "source_ref": "wy/ch1/s13.html",
+      "legacy_url": "wy/ch1/s13.html",
       "verified": false
     },
     {
@@ -1141,8 +1141,8 @@
       "prereq_ids": [
         "web.concepts"
       ],
-      "source_ref": "wy/index.html#s-extra",
-      "legacy_url": "wy/index.html#s-extra",
+      "source_ref": "wy/ch1/s-extra.html",
+      "legacy_url": "wy/ch1/s-extra.html",
       "verified": false
     },
     {
@@ -1155,8 +1155,8 @@
       "prereq_ids": [
         "web.html5_structure"
       ],
-      "source_ref": "wy/index.html#s21",
-      "legacy_url": "wy/index.html#s21",
+      "source_ref": "wy/ch2/s21.html",
+      "legacy_url": "wy/ch2/s21.html",
       "verified": false
     },
     {
@@ -1169,8 +1169,8 @@
       "prereq_ids": [
         "web.s21"
       ],
-      "source_ref": "wy/index.html#s22",
-      "legacy_url": "wy/index.html#s22",
+      "source_ref": "wy/ch2/s22.html",
+      "legacy_url": "wy/ch2/s22.html",
       "verified": false
     },
     {
@@ -1183,8 +1183,8 @@
       "prereq_ids": [
         "web.s22"
       ],
-      "source_ref": "wy/index.html#s22b",
-      "legacy_url": "wy/index.html#s22b",
+      "source_ref": "wy/ch2/s22b.html",
+      "legacy_url": "wy/ch2/s22b.html",
       "verified": false
     },
     {
@@ -1197,8 +1197,8 @@
       "prereq_ids": [
         "web.s22b"
       ],
-      "source_ref": "wy/index.html#s23",
-      "legacy_url": "wy/index.html#s23",
+      "source_ref": "wy/ch2/s23.html",
+      "legacy_url": "wy/ch2/s23.html",
       "verified": false
     },
     {
@@ -1211,34 +1211,8 @@
       "prereq_ids": [
         "web.s23"
       ],
-      "source_ref": "wy/index.html#s24",
-      "legacy_url": "wy/index.html#s24",
-      "verified": false
-    },
-    {
-      "id": "web.quiz_points",
-      "subject_id": "web_design",
-      "chapter_id": "web.ch2",
-      "title": "自测要点（考前速记）",
-      "order": 7,
-      "aliases": [],
-      "prereq_ids": [
-        "web.s24"
-      ],
-      "source_ref": "wy/index.html#s-quiz",
-      "legacy_url": "wy/index.html#s-quiz",
-      "verified": false
-    },
-    {
-      "id": "web.figs",
-      "subject_id": "web_design",
-      "chapter_id": "web.ch2",
-      "title": "讲义原图",
-      "order": 8,
-      "aliases": [],
-      "prereq_ids": [],
-      "source_ref": "wy/index.html#s-figs",
-      "legacy_url": "wy/index.html#s-figs",
+      "source_ref": "wy/ch2/s24.html",
+      "legacy_url": "wy/ch2/s24.html",
       "verified": false
     },
     {
