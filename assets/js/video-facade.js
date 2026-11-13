@@ -1,28 +1,40 @@
 /* 视频点击才加载（GPT video-facade）：.zsb-video[data-video-src] 内放封面 img + button，点击前不请求视频。 */
 (function(){
+  function loadPoster(target) {
+    const img = target.querySelector?.('img[data-src]');
+    if (img && !img.getAttribute('src') && img.dataset.src) img.src = img.dataset.src;
+    if (target.tagName === 'VIDEO' && target.dataset.poster && !target.getAttribute('poster')) {
+      target.poster = target.dataset.poster;
+    }
+  }
+
+  /* 等 window load 后再观察，避免上方图片未撑开时把首屏以下封面误判为进入视口。rootMargin 为 0：科目主页视频均在首屏以下，打开不滚动时不应请求封面。 */
   const observer = ('IntersectionObserver' in window) ? new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const target = entry.target;
-        const img = target.querySelector('img[data-src]');
-        if (img && !img.src && img.dataset.src) {
-          img.src = img.dataset.src;
-        }
-        if (target.tagName === 'VIDEO' && target.dataset.poster && !target.poster) {
-          target.poster = target.dataset.poster;
-        }
-        obs.unobserve(target);
+      const r = entry.target.getBoundingClientRect();
+      if (entry.isIntersecting && r.bottom > 0 && r.top < window.innerHeight) {
+        loadPoster(entry.target);
+        obs.unobserve(entry.target);
       }
     });
-  }, { rootMargin: '200px 0px' }) : null;
+  }, { rootMargin: '0px' }) : null;
+
+  function whenLayoutStable(fn) {
+    let timer;
+    const ro = new ResizeObserver(() => {
+      clearTimeout(timer);
+      timer = setTimeout(() => { ro.disconnect(); fn(); }, 150);
+    });
+    const begin = () => { ro.observe(document.documentElement); clearTimeout(timer); timer = setTimeout(() => { ro.disconnect(); fn(); }, 150); };
+    if (document.readyState === 'complete') begin();
+    else window.addEventListener('load', begin, { once: true });
+  }
 
   function observeElement(el) {
-    if (observer) observer.observe(el);
-    else {
-      const img = el.querySelector?.('img[data-src]');
-      if (img && !img.src && img.dataset.src) img.src = img.dataset.src;
-      if (el.tagName === 'VIDEO' && el.dataset.poster && !el.poster) el.poster = el.dataset.poster;
-    }
+    whenLayoutStable(() => {
+      if (observer) observer.observe(el);
+      else loadPoster(el);
+    });
   }
 
   document.querySelectorAll('.zsb-video[data-video-src]').forEach(container=>{

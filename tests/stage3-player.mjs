@@ -159,4 +159,10 @@ test("科目主页视频实现按需加载封面与播放时取字幕", () => {
   const playerJs = readFileSync(join(root, "assets/js/lecture-player.js"), "utf8");
   assert.ok(facadeJs.includes("IntersectionObserver") || playerJs.includes("IntersectionObserver"), "共享脚本应包含 IntersectionObserver 逻辑");
   assert.ok(playerJs.includes("data-src") || facadeJs.includes("data-src"), "共享脚本应在播放时加载字幕轨 src");
+  assert.match(facadeJs, /addEventListener\(['"]load['"]/, "video-facade 应在 window load 后再观察封面");
+  assert.match(playerJs, /addEventListener\(['"]load['"]/, "lecture-player 应在 window load 后再观察封面");
+  assert.match(facadeJs, /ResizeObserver/, "video-facade 应等外壳布局稳定后再观察封面");
+  assert.match(playerJs, /ResizeObserver/, "lecture-player 应等外壳布局稳定后再观察封面");
+  assert.match(facadeJs, /rootMargin:\s*['"]0px['"]/, "封面观察的 rootMargin 应为 0，避免首屏以下封面在未滚动时被请求");
+  assert.match(playerJs, /rootMargin:\s*['"]0px['"]/, "封面观察的 rootMargin 应为 0，避免首屏以下封面在未滚动时被请求");
 });

@@ -92,19 +92,29 @@
   if('IntersectionObserver' in window){
     const obs = new IntersectionObserver((entries, o) => {
       entries.forEach(e => {
-        if(e.isIntersecting) {
+        const r = e.target.getBoundingClientRect();
+        if(e.isIntersecting && r.bottom > 0 && r.top < window.innerHeight) {
           const v = e.target;
-          if(v.tagName === 'VIDEO' && v.dataset.poster && !v.poster) {
+          if(v.tagName === 'VIDEO' && v.dataset.poster && !v.getAttribute('poster')) {
             v.poster = v.dataset.poster;
           }
           o.unobserve(v);
         }
       });
-    }, { rootMargin: '200px 0px' });
+    }, { rootMargin: '0px' });
     function observeVideos() {
       document.querySelectorAll('video[data-poster]').forEach(v => obs.observe(v));
     }
-    if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', observeVideos, {once:true});
-    else observeVideos();
+    function whenLayoutStable(fn) {
+      let timer;
+      const ro = new ResizeObserver(() => {
+        clearTimeout(timer);
+        timer = setTimeout(() => { ro.disconnect(); fn(); }, 150);
+      });
+      const begin = () => { ro.observe(document.documentElement); clearTimeout(timer); timer = setTimeout(() => { ro.disconnect(); fn(); }, 150); };
+      if (document.readyState === 'complete') begin();
+      else window.addEventListener('load', begin, { once: true });
+    }
+    whenLayoutStable(observeVideos);
   }
 })();
