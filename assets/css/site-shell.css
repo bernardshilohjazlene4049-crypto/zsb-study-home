@@ -49,6 +49,11 @@
 :focus-visible {
   scroll-margin-block: calc(var(--sh-header) + 16px) calc(var(--sh-tabbar) + 16px);
 }
+/* 可聚焦的横向滚动表格容器：描边用负偏移画在容器自身的裁剪范围内，
+   避免焦点外框被 overflow 或滚动条截掉一半；未聚焦外观不变。 */
+:is(.table-wrap, .tablewrap, .table-scroll, .table-scroller):focus-visible {
+  outline: 2px solid var(--sh-accent); outline-offset: -2px;
+}
 
 /* ── 旧顶栏在外壳接管前隐藏（只在脚本可用时） ───────────────── */
 .shell-js .site-header:not(.shell-header) { visibility: hidden; }
