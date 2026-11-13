@@ -65,3 +65,7 @@
   .zsb-video.zlp--facade-active .zlp__icon:hover,
   .zsb-video.zlp--facade-active .zlp__icon[aria-expanded=true]{background:#e6edf6}
 }
+/* 修复：控件条出现时（≤600px 时控件条落到画面下方，>600px 时叠在画面底部），
+   封面右下角的 .dur 时长标签会压住控件条最右侧的全屏按钮。控件条内已有时长显示，
+   所以控件可见时隐藏封面标签；控件隐藏时标签仍留在封面右下角。 */
+:is(.vthumb,.media-frame,.video-frame):has(.zlp--show,.zlp--menu,.zlp--keyboard:focus-within)>.dur{display:none}

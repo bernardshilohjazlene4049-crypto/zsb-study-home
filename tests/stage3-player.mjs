@@ -116,3 +116,28 @@ test("全站倍速写入 0.5–3.0，越界不保存，下次读取沿用上次"
   invalid.api.setGlobalRate(1);
   assert.equal(invalid.store[STORAGE], "1");
 });
+test("控件显示时时长标签不再压住全屏按钮", () => {
+  const css = readFileSync(join(root, "assets/css/lecture-player.css"), "utf8");
+  // 共享样式：控件条可见（.zlp--show / 倍速菜单 / 键盘聚焦）时隐藏封面右下角的 .dur，
+  // 控件隐藏时标签照旧显示，避免标签盖住控件条最右侧的 .zlp__full。
+  assert.match(
+    css,
+    /:is\(\.vthumb,\.media-frame,\.video-frame\):has\(\.zlp--show,\.zlp--menu,\.zlp--keyboard:focus-within\)>\.dur\{display:none\}/,
+    "CSS 需要在控件可见时隐藏容器里的 .dur"
+  );
+  // 隐藏规则作用于播放器容器的直接子节点，页面结构必须保持这样。
+  const pages = [["wy/index.html", "vthumb"], ["yy/index.html", "media-frame"]];
+  for (const [path, container] of pages) {
+    const html = readFileSync(join(root, path), "utf8");
+    const open = `<div class="${container}">`;
+    const marks = [...html.matchAll(/<span class="dur">[\d:]+<\/span>/g)];
+    assert.ok(marks.length > 0, `${path} 应有时长标签`);
+    for (const m of marks) {
+      const start = html.lastIndexOf(open, m.index);
+      assert.ok(start >= 0 && start < m.index, `${path} 时长标签应在 .${container} 内`);
+      const between = html.slice(start + open.length, m.index);
+      assert.doesNotMatch(between, /<\/div>/, `${path} 时长标签应是 .${container} 的直接子节点`);
+      assert.match(between, /<\/video>/, `${path} 时长标签应紧跟播放器`);
+    }
+  }
+});
