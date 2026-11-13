@@ -12,7 +12,7 @@
       "order": 1,
       "optional": false,
       "enabled": true,
-      "summary": "语法专题笔记、6 集讲解视频、4 张导图，以及五专题系统讲义（yy/yy5.html）。",
+      "summary": "语法专题笔记、6 集讲解视频、4 张导图，以及五专题系统讲义。",
       "catalog_note": "目录覆盖 yy/index.html 已列出的专题，以及 yy/yy5.html 的五专题系统讲义。未核验为完整考试范围。",
       "source_ref": "yy/index.html"
     },
@@ -26,7 +26,7 @@
       "order": 2,
       "optional": false,
       "enabled": true,
-      "summary": "第一章：函数、极限、连续，含讲解视频和练习，按考点梳理见 gs/gs1.html。第四章、第五章见 gs/gs45.html。",
+      "summary": "第一章：函数、极限、连续，含讲解视频和练习，按考点梳理；另有第四章、第五章。",
       "catalog_note": "第一章小节来自 gs/index.html，考点一至十一另见 gs/gs1.html。第四章、第五章来自 gs/gs45.html 的考点标题。",
       "source_ref": "gs/index.html"
     },
