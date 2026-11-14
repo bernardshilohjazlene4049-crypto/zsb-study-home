@@ -1,3 +1,5 @@
+import { mapLearningTopics } from "./topic-merges.js";
+import { siteUrl } from "../core/paths.js";
 import { LEARNER_ID } from "../core/schema.js";
 import { createId, draftId, markId, mistakeId, playbackId, progressId } from "../core/ids.js";
 import { get, getAll, put, remove } from "../core/storage.js";
@@ -24,10 +26,14 @@ export async function loadLearningState() {
     getAll("marks"),
     getAll("review_events")
   ]);
-  return withResolvedTopics({ attempts, mistakes, notes, progress, marks, reviews });
+  const response = await fetch(siteUrl("data/topics.json"));
+  if (!response.ok) throw new Error("目录没有载入。");
+  const { merged_topics = {} } = await response.json();
+  return withResolvedTopics({ attempts, mistakes, notes, progress, marks, reviews }, merged_topics);
 }
 
-export function withResolvedTopics(learning) {
+export function withResolvedTopics(learning, merged = {}) {
+  learning = mapLearningTopics(learning, merged);
   const attempts = (learning.attempts || []).map(enrichTopicIds);
   const mistakes = (learning.mistakes || []).map(enrichTopicIds);
   const progress = [...(learning.progress || [])];

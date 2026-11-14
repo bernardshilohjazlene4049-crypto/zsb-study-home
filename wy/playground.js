@@ -36,7 +36,7 @@
       if (ta) ta.value = box.dataset.original || "";
       runOne(box);
     });
-    runOne(box);
+    if (!document.body.classList.contains("wy-points-page")) runOne(box);
   }
 
   function initAll(root) {

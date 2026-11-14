@@ -264,10 +264,11 @@
       "title": "第2章 HTML5 文档结构",
       "url": "wy/videos/ch2.mp4",
       "poster": "wy/posters/ch2.jpg",
-      "page_url": "wy/index.html#ch2",
+      "page_url": "wy/ch2/s21.html#video",
       "duration_label": "6:51",
-      "topic_ids": ["web.html5_structure"],
-      "provenance": { "kind": "site_asset", "verified": true, "source_ref": "wy/index.html" },
+      "chapter_id": "web.ch2",
+      "topic_ids": ["web.s21", "web.s22", "web.s22b", "web.s23", "web.s24"],
+      "provenance": { "kind": "site_asset", "verified": true, "source_ref": "wy/ch2/s21.html#video" },
       "status": "available"
     },
     {

@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { readFileSync } from "node:fs";
+import { resolve, dirname } from "node:path";
 import {
   PAGE_PROVENANCE,
   buildOverviewSnapshot,
@@ -142,7 +143,14 @@ test("全站页面都有图标、搜索入口和描述", () => {
   assert.ok(pages.length >= 118, `页面数 ${pages.length}`);
   const missing = { favicon: [], search: [], description: [] };
   for (const file of pages) {
-    const html = readFileSync(file, "utf8");
+    let html = readFileSync(file, "utf8");
+    const redirect = html.match(/<meta http-equiv="refresh" content="0;url=([^"]+)"/i);
+    if (redirect) {
+      assert.match(html, /<link rel="canonical"/);
+      assert.match(html, /location\.replace\(/);
+      assert.match(html, /data-pagefind-ignore/);
+      html = readFileSync(resolve(dirname(file), redirect[1].split("#")[0]), "utf8");
+    }
     if (!/rel=["']icon["']/i.test(html)) missing.favicon.push(file);
     if (!html.includes("search.html")) missing.search.push(file);
     if (!/<meta\s+name=["']description["']/i.test(html)) missing.description.push(file);

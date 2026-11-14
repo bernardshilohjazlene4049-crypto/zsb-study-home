@@ -1,5 +1,6 @@
 // 外壳共用的数据层：目录（subjects / topics / dependencies）+ 本机学习记录（IndexedDB zsb-study，只读）。
 // 进度与状态只来自本机记录；没有记录时一律返回空，不生成任何示例数字。
+import { mapLearningTopics, resolveTopicId } from "../features/topic-merges.js";
 import { getAll } from "../core/storage.js";
 import { withResolvedTopics } from "../features/records.js";
 import { isExcludedQuestionId, topicIdsForQuestionId } from "../features/topic-index.js";
@@ -29,12 +30,15 @@ export function loadSite() {
       readJson("data/subjects.json"),
       readJson("data/topics.json"),
       readJson("data/dependencies.json"),
-      readJson("data/page-questions.json").catch(() => ({ subjects: [] }))
-    ]).then(([subjectsDoc, topicsDoc, depsDoc, registry]) => ({
+      readJson("data/page-questions.json").catch(() => ({ subjects: [] })),
+      readJson("data/resources.json")
+    ]).then(([subjectsDoc, topicsDoc, depsDoc, registry, resourcesDoc]) => ({
       subjects: [...(subjectsDoc.subjects || [])].sort((a, b) => a.order - b.order),
       chapters: [...(topicsDoc.chapters || [])],
       topics: [...(topicsDoc.topics || [])],
+      merged_topics: { ...(topicsDoc.merged_topics || {}) },
       edges: [...(depsDoc.edges || [])],
+      resources: [...(resourcesDoc.resources || [])],
       registry
     }));
   }
@@ -53,7 +57,8 @@ export function loadLearning() {
         const [attempts, mistakes, progress] = await Promise.all([
           getAll("attempts"), getAll("mistake_entries"), getAll("user_topic_progress")
         ]);
-        const resolved = withResolvedTopics({ attempts, mistakes, progress });
+        const site = await loadSite();
+        const resolved = withResolvedTopics({ attempts, mistakes, progress }, site.merged_topics);
         return {
           ok: true,
           attempts: resolved.attempts.filter((a) => realRecord(a) && !isExcludedQuestionId(a.question_id)),
@@ -83,6 +88,7 @@ export function cnNumber(n) {
 }
 
 export function buildModel(site, learning, now = Date.now()) {
+  learning = mapLearningTopics(learning, site.merged_topics);
   const topicById = new Map(site.topics.map((t) => [t.id, t]));
   const chapterById = new Map(site.chapters.map((c) => [c.id, c]));
   const subjectById = new Map(site.subjects.map((s) => [s.id, s]));
@@ -145,7 +151,10 @@ export function buildModel(site, learning, now = Date.now()) {
   for (const group of site.registry?.subjects || []) {
     for (const q of group.questions || []) {
       if (isExcludedQuestionId(q)) continue;
-      for (const id of topicIdsForQuestionId(q)) questionTotals.set(id, (questionTotals.get(id) || 0) + 1);
+      for (const oldId of topicIdsForQuestionId(q)) {
+        const id = resolveTopicId(oldId, site.merged_topics);
+        questionTotals.set(id, (questionTotals.get(id) || 0) + 1);
+      }
     }
   }
 
@@ -177,7 +186,7 @@ export function buildModel(site, learning, now = Date.now()) {
   for (const p of learning.progress) {
     if (!p.topic_id) continue;
     const s = stat(p.topic_id);
-    s.progress = p;
+    if (!s.progress || String(p.updated_at || "") >= String(s.progress.updated_at || "")) s.progress = p;
     if (String(p.updated_at || "") > s.last) s.last = String(p.updated_at || "");
   }
 

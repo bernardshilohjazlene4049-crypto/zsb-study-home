@@ -20,7 +20,7 @@ test("空轨道或没有 cues 时不抛错", () => {
 });
 
 test("带静态字幕轨的页面引入定位脚本，动态播放器会加载它", () => {
-  for (const path of ["jsj/index.html", "wy/index.html", "yy/index.html"]) {
+  for (const path of ["jsj/index.html", "wy/ch2/s21.html", "yy/index.html"]) {
     const html = readFileSync(path, "utf8");
     assert.match(html, /assets\/js\/caption-position\.js/, `${path} 应引入 caption-position.js`);
   }

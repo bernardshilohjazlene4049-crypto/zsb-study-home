@@ -15,8 +15,25 @@ const PAGES = {
 
 function configFor(rel) {
   if (PAGES[rel]) return PAGES[rel];
+  if (/^wy\/ch[12]\/[^/]+\.html$/.test(rel)) return { ...WY, chapterPoints: true };
   if (/^wy\//.test(rel)) return WY;
   return null;
+}
+
+export function directoryTopics(topics, chapterPoints = false) {
+  return chapterPoints ? topics.filter((t) => !/^wy\/ch[12]\/index\.html$/.test(pagePath(t.legacy_url))) : topics;
+}
+
+// 章节页本身不在知识点顺序里：上一节 = 上一章最后一个知识点，下一节 = 本章第一个知识点。
+export function chapterPageNeighbors(model, order, chapterId) {
+  const k = order.findIndex((t) => model.topLevel(t.chapter_id)?.id === chapterId);
+  if (k < 0) return { prev: null, next: null };
+  return { prev: k > 0 ? order[k - 1] : null, next: order[k] };
+}
+
+export function lectureChapterIds(model, onPage, all, explicit = "") {
+  if (explicit && model.topLevel(explicit)) return [model.topLevel(explicit).id];
+  return [...new Set((onPage.length ? onPage : all.slice(0, 1)).map((t) => model.topLevel(t.chapter_id)?.id).filter(Boolean))];
 }
 
 function q(sel) { return sel ? document.querySelector(sel) : null; }
@@ -100,10 +117,15 @@ function tocItem(model, t, base, rel, cfg, current) {
   return el("li", {}, [a]);
 }
 
+export function tocChapterIds(chapterIds, chapterPoints = false) {
+  return chapterPoints ? ["web.ch1", "web.ch2"] : chapterIds;
+}
+
 export function renderToc(model, { toc, subjectId, chapterIds, rel, base, cfg = {}, current, extras = { before: [], after: [] }, onPick }) {
   const subject = model.subjectById.get(subjectId);
   const nodes = model.chaptersOf(subjectId);
-  const mine = nodes.filter((n) => chapterIds.includes(n.chapter.id));
+  const visibleChapterIds = tocChapterIds(chapterIds, cfg.chapterPoints);
+  const mine = nodes.filter((n) => visibleChapterIds.includes(n.chapter.id)).map((n) => ({ ...n, topics: directoryTopics(n.topics, cfg.chapterPoints) }));
   const head = el("div", { class: "lx-toc__subject" }, [
     el("a", { class: "lx-toc__subject-link", href: subject?.homeUrl ? base + subject.homeUrl : null }, [
       el("span", { class: "lx-toc__subject-icon" }, [icon("book", 18)]),
@@ -134,7 +156,10 @@ export function renderToc(model, { toc, subjectId, chapterIds, rel, base, cfg = 
 
   panelToc.append(extraList(extras.before, "is-before") || "");
   for (const node of mine) {
-    const group = el("section", { class: "lx-toc__group" }, [el("h3", { class: "lx-toc__chapter", text: node.chapter.title })]);
+    const heading = cfg.chapterPoints
+      ? el("h3", { class: "lx-toc__chapter" }, [el("a", { href: base + node.chapter.source_ref, text: node.chapter.title })])
+      : el("h3", { class: "lx-toc__chapter", text: node.chapter.title });
+    const group = el("section", { class: "lx-toc__group" }, [heading]);
     if (node.sections.length) {
       for (const sec of node.sections) {
         if (!sec.topics.length) continue;
@@ -157,7 +182,10 @@ export function renderToc(model, { toc, subjectId, chapterIds, rel, base, cfg = 
   })));
 
   const close = el("button", { type: "button", class: "lx-toc__close", "aria-label": "关闭目录" }, [icon("close", 18)]);
-  toc.replaceChildren(close, head, prog || "", tabs, panelToc, panelMap);
+  if (cfg.chapterPoints) {
+    panelToc.removeAttribute("role");
+    toc.replaceChildren(close, head, prog || "", panelToc);
+  } else toc.replaceChildren(close, head, prog || "", tabs, panelToc, panelMap);
   toc.addEventListener("click", (e) => {
     const a = e.target.closest("a.lx-toc__item");
     if (a && onPick) onPick(a, e);
@@ -176,15 +204,13 @@ export function pathCard(model, topicId, base, { compact = false } = {}) {
     el("span", { class: "lx-path__label", text: label }),
     el("div", { class: "lx-path__chips" }, list.length ? list.map((e) => chip(e, dir)) : [el("span", { class: "lx-path__none", text: dir === "pre" ? "暂无先修" : "暂无后续" })])
   ]);
-  const unreviewed = [...pre, ...post].some((e) => !e.reviewed);
   const card = el("section", { class: `sh-card lx-path${compact ? " lx-path--inline" : ""}`, "aria-label": "学习路径" }, [
     el("header", { class: "sh-card__head" }, [
       el("h2", { class: "sh-card__title" }, [icon("graph", 18), el("span", { text: "学习路径" })]),
       el("a", { class: "lx-path__graph", href: `${base}study/graph.html?topic=${encodeURIComponent(topicId)}` }, [el("span", { text: "关系图" }), icon("chevron", 14)])
     ]),
     row("先修", pre, "pre"),
-    row("后续", post, "post"),
-    unreviewed ? el("p", { class: "sh-note" }, [icon("alert", 15), el("span", { text: "先修关系尚未核对。" })]) : null
+    row("后续", post, "post")
   ]);
   return card;
 }
@@ -210,9 +236,9 @@ export function statusCard(model, topicId, base) {
   ]);
 }
 
-export function crumbs(model, topic, base, subjectId) {
+export function crumbs(model, topic, base, subjectId, chapterId = "") {
   const subject = model.subjectById.get(subjectId);
-  const chapter = topic ? model.topLevel(topic.chapter_id) : null;
+  const chapter = model.topLevel(topic?.chapter_id || chapterId);
   const nav = el("nav", { class: "lx-crumbs", "aria-label": "当前位置" }, [
     el("a", { href: `${base}index.html`, class: "lx-crumbs__home", "aria-label": "首页" }, [icon("home", 15)]),
     icon("chevron", 13, "lx-crumbs__sep"),
@@ -461,7 +487,8 @@ export async function mount(shell) {
   const seenAnchor = new Set();
   const tracked = sectionTopics.filter((t) => { const a = anchorFor(t); if (seenAnchor.has(a)) return false; seenAnchor.add(a); return true; });
   let current = (tracked[0] || onPage[0] || null)?.id || null;
-  const chapterIds = [...new Set((onPage.length ? onPage : all.slice(0, 1)).map((t) => model.topLevel(t.chapter_id)?.id).filter(Boolean))];
+  const explicitChapter = cfg.chapterPoints ? q(cfg.wrap)?.dataset.chapter || "" : "";
+  const chapterIds = lectureChapterIds(model, onPage, all, explicitChapter);
 
   // 原页面目录里不是知识点的条目（如总流程、方法索引、思维导图）。
   const topicAnchors = new Set(onPage.map(anchorFor).filter(Boolean));
@@ -505,7 +532,7 @@ export async function mount(shell) {
   const crumbSlot = el("div", { class: "lx-bar__crumbs" });
   sk.bar.replaceChildren(crumbSlot, el("div", { class: "lx-bar__actions" }, [tocBtn, pager]));
 
-  const order = all.filter((t) => topicHref(t, base));
+  const order = directoryTopics(all.filter((t) => topicHref(t, base)), cfg.chapterPoints);
   const linkFor = (t) => {
     const a = anchorFor(t);
     return pagePath(t.legacy_url) === rel && a ? `#${a}` : topicHref(t, base);
@@ -513,16 +540,23 @@ export async function mount(shell) {
   let pointTabs = null;
   function paint() {
     const topic = current ? model.topicById.get(current) : null;
-    crumbSlot.replaceChildren(crumbs(model, topic, base, subjectId));
+    crumbSlot.replaceChildren(crumbs(model, topic, base, subjectId, explicitChapter));
     const i = topic ? order.findIndex((t) => t.id === topic.id) : -1;
-    const prev = i > 0 ? order[i - 1] : null;
-    const next = i >= 0 && i < order.length - 1 ? order[i + 1] : null;
+    const { prev, next } = i < 0 && explicitChapter ? chapterPageNeighbors(model, order, explicitChapter)
+      : { prev: i > 0 ? order[i - 1] : null, next: i >= 0 && i < order.length - 1 ? order[i + 1] : null };
     if (pointTabs) pointTabs.paintPager(pager);
     else pager.replaceChildren(
       el(prev ? "a" : "span", { class: `sh-btn lx-pager__btn${prev ? "" : " is-off"}`, href: prev ? linkFor(prev) : null, "aria-disabled": prev ? null : "true", title: prev?.title || null }, [icon("chevronLeft", 15), el("span", { text: "上一节" })]),
       el(next ? "a" : "span", { class: `sh-btn lx-pager__btn${next ? "" : " is-off"}`, href: next ? linkFor(next) : null, "aria-disabled": next ? null : "true", title: next?.title || null }, [el("span", { text: "下一节" }), icon("chevron", 15)])
     );
     sk.side.replaceChildren(...(topic ? [pathCard(model, topic.id, base), statusCard(model, topic.id, base)] : []));
+    if (cfg.chapterPoints) {
+      const targets = [...sk.body.querySelectorAll(".wy-entry, #extension, #mindmap, #video, #practice")];
+      if (targets.length) sk.side.append(el("section", { class: "sh-card wy-page-toc" }, [
+        el("h2", { class: "sh-card__title", text: "本页内容" }),
+        el("nav", { "aria-label": "本页内容" }, targets.map((n) => el("a", { href: `#${n.id}`, text: n.querySelector("h2")?.textContent || "" })))
+      ]));
+    }
     for (const a of sk.toc.querySelectorAll(".lx-toc__item[data-topic]")) {
       const on = a.dataset.topic === current;
       a.classList.toggle("is-current", on);

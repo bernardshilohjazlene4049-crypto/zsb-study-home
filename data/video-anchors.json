@@ -26,6 +26,6 @@
     {"id": "anc-xl-45", "resource_id": "res-jsj-45", "topic_id": "cb.excel.45", "verified": false, "match_method": "page_episode_title", "note": "整集对应 4.5，无片内秒数。"},
     {"id": "anc-xl-46", "resource_id": "res-jsj-46", "topic_id": "cb.excel.46", "verified": false, "match_method": "page_episode_title", "note": "整集对应 4.6，无片内秒数。"},
     {"id": "anc-xl-47", "resource_id": "res-jsj-47", "topic_id": "cb.excel.47", "verified": false, "match_method": "page_episode_title", "note": "整集对应 4.7，无片内秒数。"},
-    {"id": "anc-wy-ch2", "resource_id": "res-wy-ch2", "topic_id": "web.html5_structure", "verified": false, "match_method": "page_episode_title", "note": "网页设计页给出整集和第 6:51 时长标记，无片内秒数。"}
+    {"id": "anc-wy-ch2", "resource_id": "res-wy-ch2", "topic_id": "web.s21", "verified": false, "match_method": "page_episode_title", "note": "网页设计页给出整集和第 6:51 时长标记，无片内秒数。"}
   ]
 }

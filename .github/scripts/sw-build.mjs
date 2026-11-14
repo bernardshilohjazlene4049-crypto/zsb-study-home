@@ -23,6 +23,7 @@ const SHELL = [
   "assets/js/shell/ui.js",
   "assets/js/shell/common.js",
   "assets/js/core/storage.js",
+  "assets/js/core/paths.js",
   "assets/js/core/schema.js",
   "assets/js/core/ids.js",
   "assets/js/core/events.js",
@@ -31,10 +32,12 @@ const SHELL = [
   "assets/js/features/fsrs.js",
   "assets/js/features/review-config.js",
   "assets/js/features/topic-index.js",
+  "assets/js/features/topic-merges.js",
   // 首页渲染「继续学习 / 科目进度」所需的数据
   "data/subjects.json",
   "data/topics.json",
   "data/dependencies.json",
+  "data/resources.json",
   "data/page-questions.json",
 ];
 

@@ -27,6 +27,7 @@ const PRECACHE_SHELL = [
   "assets/js/shell/ui.js",
   "assets/js/shell/common.js",
   "assets/js/core/storage.js",
+  "assets/js/core/paths.js",
   "assets/js/core/schema.js",
   "assets/js/core/ids.js",
   "assets/js/core/events.js",
@@ -35,9 +36,11 @@ const PRECACHE_SHELL = [
   "assets/js/features/fsrs.js",
   "assets/js/features/review-config.js",
   "assets/js/features/topic-index.js",
+  "assets/js/features/topic-merges.js",
   "data/subjects.json",
   "data/topics.json",
   "data/dependencies.json",
+  "data/resources.json",
   "data/page-questions.json",
 ];
 
@@ -96,6 +99,16 @@ function build(dir, githubSha) {
   };
 }
 
+test("首页离线模块的全部静态依赖均进入预缓存", () => {
+  for (const file of PRECACHE_SHELL.filter((p) => p.endsWith(".js"))) {
+    for (const match of read(file).matchAll(/from\s+["']([^"']+)["']/g)) {
+      if (!match[1].startsWith(".")) continue;
+      const dependency = new URL(match[1], `https://local/${file}`).pathname.slice(1);
+      assert.ok(PRECACHE_SHELL.includes(dependency), `${file} 的依赖 ${dependency} 应被预缓存`);
+    }
+  }
+});
+
 test("发布根目录白名单文件均存在且被 git 追踪", () => {
   const files = shellArray(read(".github/scripts/build-site.sh"), "ROOT_FILES");
   assert.equal(files.length, new Set(files).size, "白名单不可重复");
@@ -141,6 +154,8 @@ test("预缓存清单必须包含首页、离线页和外壳 CSS/JS", (t) => {
     "data/subjects.json",
     "data/topics.json",
     "data/dependencies.json",
+    "data/resources.json",
+    "assets/js/features/topic-merges.js",
   ];
   for (const path of required) {
     assert.ok(precache.includes(path), `预缓存清单应包含 ${path}`);

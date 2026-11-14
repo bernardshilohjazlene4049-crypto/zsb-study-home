@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>2.1 HTML 简介 · 网页设计 · 辽宁专升本</title>
+<meta name="description" content="网页设计 · 2.1 HTML 简介">
+<link rel="icon" href="../../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../assets/css/site-unify.css">
+<link rel="stylesheet" href="../../assets/css/site-shell.css">
+<script src="../../assets/js/site-shell.js"></script>
+<link rel="stylesheet" href="../../assets/css/wy-points.css">
+<script src="../../assets/js/wy-points.js" defer></script>
+
+<script src="../playground.js" defer></script>
+<link rel="stylesheet" href="../../assets/css/lecture-player.css">
+<script src="../../assets/js/caption-position.js" defer></script>
+<script src="../../assets/js/lecture-player.js" defer></script>
+</head>
+<body class="wy-points-page">
+<header class="site-header"><div class="site-header__inner"><a class="site-brand" href="../../index.html">辽宁专升本</a><nav class="site-nav" aria-label="全站导航"><a href="../../search.html">搜索</a></nav></div></header>
+<main class="site-main"><div class="site-container">
+<div class="wy-layout" data-chapter="web.ch2">
+<article class="sh-card wy-sheet"><header class="wy-point-head"><span class="wy-point-no">2.1</span><h1>2.1 HTML 简介</h1></header>
+<section class="wy-entry" id="s21-entry-1"><div class="wy-entry-top"><h2>引言：HTML 全称</h2><button class="sh-btn" type="button" data-open-photo data-photos="1">打开原图</button></div><div class="wy-source wy-paper"><div class="wy-source-row wy-source-title"><h3>2.1 HTML 简介</h3></div><div class="wy-source-row"><p>HTML（<u class="wy-ul">Hyper Text Markup Language</u>，<u class="wy-ul">超文本标记语言</u>）是一种用来描述网页结构和内容的标记语言。代码由标记（也称为标签，或者元素）和属性构成。</p><span class="wy-hand">超【看不清】　标记　语言</span></div><div class="wy-source-row"><p>HTML 标签就像是包裹着文字、图片或其他元素的“盒子”，它告诉浏览器如何显示内容。标签通常用尖括号 &lt; &gt; 包围，主要分为两种形式：</p></div></div><div class="wy-supplement wy-paper"><h3>整理</h3><p><strong>HTML</strong> = Hyper Text Markup Language = <strong>超文本标记语言</strong>，用来描述网页的结构和内容。</p><p>HTML 代码由<strong>标记（标签 / 元素）</strong>和<strong>属性</strong>组成。标签像「盒子」包住文字、图片等，告诉浏览器如何显示。标签写在尖括号 <code>&lt; &gt;</code> 里。</p></div><div class="wy-selfcheck"><h3>自测要点</h3><ol class="wy-practice"><li class="sh-card"><span class="rn">1</span><span>HTML 全称与中文名：超文本标记语言</span></li></ol></div></section>
+<section class="wy-entry" id="s21-entry-2"><div class="wy-entry-top"><h2>1、双标签（成对出现）</h2><button class="sh-btn" type="button" data-open-photo data-photos="1">打开原图</button></div><div class="wy-source wy-paper"><div class="wy-source-row"><p>1、<u class="wy-ul">双标签</u>（成对出现）：由一个“开始标签”和一个“结束标签”组成，中间包裹着具体内容。例如段落标签 <code>&lt;p&gt;这是一个段落&lt;/p&gt;</code>，浏览器看到它就知道要把中间的文字当作一个独立的段落来展示。</p></div></div></section>
+<section class="wy-entry" id="s21-entry-3"><div class="wy-entry-top"><h2>2. 单标签（自闭合标签）</h2><button class="sh-btn" type="button" data-open-photo data-photos="1">打开原图</button></div><div class="wy-source wy-paper"><div class="wy-source-row"><p>2. <u class="wy-ul">单标签</u>（自闭合标签）：只有一个标签，不需要包裹内容，因为它本身就是一个独立的元素。例如插入图片的标签 <code>&lt;img/&gt;</code> 或换行标签 <code>&lt;br/&gt;</code>。</p></div></div><div class="wy-supplement wy-paper"><h3>整理</h3><h3>双标签 vs 单标签</h3><div class="tablewrap"><table><thead><tr><th>类型</th><th>说明</th><th>示例</th></tr></thead><tbody><tr><td><strong>双标签</strong></td><td>开始标签 + 结束标签，中间包内容</td><td><code>&lt;p&gt;这是一个段落&lt;/p&gt;</code></td></tr><tr><td><strong>单标签</strong></td><td>只有一个标签，无包裹内容</td><td><code>&lt;img&gt;</code>、<code>&lt;br/&gt;</code></td></tr></tbody></table></div></div><div class="wy-selfcheck"><h3>自测要点</h3><ol class="wy-practice"><li class="sh-card"><span class="rn">2</span><span>双标签 vs 单标签</span></li></ol></div></section>
+<section class="wy-entry" id="s21-entry-4"><div class="wy-entry-top"><h2>HTML 属性</h2><button class="sh-btn" type="button" data-open-photo data-photos="1">打开原图</button></div><div class="wy-source wy-paper"><div class="wy-source-row"><p>HTML 属性是用来补充说明标签的样式或附加功能的。属性总是以“属性=&quot;属性值&quot;”的形式出现（例如 name=&quot;value&quot;），并且写在标签的开始标签内部。举个例子，在图片标签中：</p></div><div class="wy-source-row"><p><code>&lt;img src=&quot;photo.jpg&quot; alt=&quot;一张风景照&quot; width=&quot;300&quot;/&gt;</code>，src，alt，width 都是属性，具体含义后面章节详细介绍。</p></div></div><div class="wy-supplement wy-paper"><h3>整理</h3><h3>属性</h3><p>给标签提供额外信息或样式，写法：<code>name="value"</code>，写在开始标签内。</p><pre tabindex="0"><code>&lt;img src="photo.jpg" alt="一张风景照" width="300"/&gt;</code></pre><p><code>src</code>、<code>alt</code>、<code>width</code> 都是属性。</p></div></section><section id="extension" class="wy-unit wy-extension"><h2>延伸</h2><div class="wy-ext-block" id="ext-html-intro"><div class="page-hero page-hero--compact">
+  <h3>HTML 简介</h3>
+
+  <p class="lead">HTML（Hyper Text Markup Language）是<strong>超文本标记语言</strong>，用来描述网页的结构和内容。辽宁专升本网页设计科目，多数题目从「标签含义、属性写法、文档结构」切入。</p>
+</div>
+<h4>它做什么</h4>
+<ul>
+<li>用标签把文字、图片、链接等「框」起来，告诉浏览器这是标题、段落还是列表。</li>
+<li>本身不负责华丽外观（那是 CSS），也不负责复杂交互（那是 JavaScript）。</li>
+</ul>
+<h4>和三层结构的关系</h4>
+<p>回顾第1章：结构层 HTML、样式层 CSS、行为层 JavaScript。学 HTML 时先把骨架写对，再谈美化和交互。</p>
+<h4>最小认识</h4>
+<pre tabindex="0"><code>&lt;p&gt;这是一个段落&lt;/p&gt;</code></pre>
+<p><code>&lt;p&gt;</code> 是开始标签，<code>&lt;/p&gt;</code> 是结束标签，中间是内容。</p>
+<div class="tryit">
+  <div class="tryit-bar"><strong>试一试</strong>
+    <div class="tryit-actions">
+      <button type="button" class="btn btn-primary tryit-run">运行</button>
+      <button type="button" class="btn btn-secondary tryit-reset">重置</button>
+    </div>
+  </div>
+  <div class="tryit-grid">
+    <textarea aria-label="试一试" class="tryit-code" spellcheck="false">&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;title&gt;你好 HTML&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;辽宁专升本 · 网页设计&lt;/h1&gt;
+  &lt;p&gt;我正在学习 HTML。&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</textarea>
+    <iframe class="tryit-preview" sandbox="allow-scripts" title="预览"></iframe>
+  </div>
+</div></div><div class="wy-ext-block" id="ext-html-attributes"><div class="page-hero page-hero--compact">
+  <h3>HTML 属性</h3>
+
+  <p class="lead">属性写在<strong>开始标签</strong>里，格式 <code>名字="值"</code>，给元素补充信息。</p>
+</div>
+<ul>
+<li><code>id</code>：页面内唯一标识</li>
+<li><code>class</code>：样式分类名（可重复）</li>
+<li><code>title</code>：鼠标悬停提示</li>
+<li><code>style</code>：行内样式（能用外链 CSS 时少用）</li>
+</ul>
+<div class="tryit">
+  <div class="tryit-bar"><strong>试一试</strong>
+    <div class="tryit-actions">
+      <button type="button" class="btn btn-primary tryit-run">运行</button>
+      <button type="button" class="btn btn-secondary tryit-reset">重置</button>
+    </div>
+  </div>
+  <div class="tryit-grid">
+    <textarea aria-label="试一试" class="tryit-code" spellcheck="false">&lt;p id=&quot;p1&quot; class=&quot;note&quot; title=&quot;悬停看看&quot; style=&quot;color:#245444;font-weight:700&quot;&gt;
+  带属性的段落
+&lt;/p&gt;
+&lt;p&gt;把上面的颜色改成橙色试试。&lt;/p&gt;</textarea>
+    <iframe class="tryit-preview" sandbox="allow-scripts" title="预览"></iframe>
+  </div>
+</div></div><div id="ext-html-elements-lead"><h3>HTML 元素</h3><p class="lead">元素 ≈ 开始标签 + 内容 + 结束标签。没有内容的叫空元素（单标签），如 <code>&lt;br&gt;</code>、<code>&lt;img&gt;</code>。</p></div></section><div id="mindmap" class="wy-unit"><div class="wy-section-head"><h2>思维导图</h2><div class="wy-mm-controls"><button type="button" class="sh-btn" data-mm-zoom="out" aria-label="缩小思维导图">−</button><button type="button" class="sh-btn" data-mm-zoom="in" aria-label="放大思维导图">+</button><button type="button" class="sh-btn" data-mm-zoom="reset" aria-label="重置思维导图">重置</button></div></div><div class="wy-mm-frame" tabindex="0" aria-label="思维导图"><div class="wy-mm-space"><ul class="wy-mm-src"><li><span>2.1 HTML 简介</span><ul><li><span>Hyper Text Markup Language，超文本标记语言</span></li><li><span>代码由标记（也称为标签，或者元素）和属性构成</span></li><li><span>双标签（成对出现）</span><ul><li><span>一个“开始标签”和一个“结束标签”</span></li><li><span><code>&lt;p&gt;这是一个段落&lt;/p&gt;</code></span></li></ul></li><li><span>单标签（自闭合标签）</span><ul><li><span>只有一个标签，不需要包裹内容</span></li><li><span><code>&lt;img/&gt;</code></span></li><li><span><code>&lt;br/&gt;</code></span></li></ul></li><li><span>HTML 属性</span><ul><li><span>属性=&quot;属性值&quot;</span></li><li><span>写在标签的开始标签内部</span></li><li><span>src，alt，width 都是属性</span></li></ul></li></ul></li></ul></div></div></div><section id="video" class="wy-unit"><h2>视频</h2><h3>第2章 HTML5 文档结构</h3><div class="card-grid card-grid--2 video-grid"><article class="card vcard content-card video-card"><div class="vthumb"><video controls playsinline preload="none" poster="../posters/ch2.jpg?v=1" src="../videos/ch2.mp4?v=1" aria-label="第2章 HTML5 文档结构 讲解视频"><track kind="captions" srclang="zh" label="中文字幕" src="../videos/ch2.vtt"></video><span class="dur">6:51</span></div><div class="vbody"><span class="vnum">2</span><div><h3>讲解视频：HTML5 文档结构</h3><p>HTML 简介 · 文档结构 · meta · body 属性 · 含字幕</p></div></div></article></div></section><section id="practice" class="wy-unit"><h2>习题</h2><ul class="wy-practice-links"><li><a href="#s21-entry-1">HTML 全称与中文名：超文本标记语言</a></li><li><a href="#s21-entry-3">双标签 vs 单标签</a></li></ul></section></article>
+</div></div></main>
+<dialog class="wy-photo" aria-labelledby="wy-photo-title"><header><strong id="wy-photo-title">第2章 · 原图 1</strong><div><button type="button" class="sh-btn" data-photo-zoom aria-pressed="false">放大</button><button type="button" class="sh-btn" data-photo-close>关闭</button></div></header><div class="wy-photo-tabs" aria-label="原图"><button type="button" class="sh-btn" data-photo-number="1" data-photo="../原图/01M6NNXP4W98VHZ3243W11M55Z.jpg" data-width="3072" data-height="4096">第2章 · 原图 1</button></div><div class="wy-photo-scroll" tabindex="0"><img alt="第2章 · 原图 1" width="3072" height="4096"></div></dialog>
+</body></html>

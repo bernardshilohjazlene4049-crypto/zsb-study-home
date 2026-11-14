@@ -1,0 +1,673 @@
+{
+  "s11": [
+    {
+      "id": "s11-entry-1",
+      "title": "1. 网站",
+      "photos": [
+        1
+      ],
+      "checks": [],
+      "source": [
+        "<div class=\"wy-source-row wy-source-title\"><h3>1.1 网页相关概念</h3></div>",
+        "<div class=\"wy-source-row\"><p>1. 网站：网站(Web Site)是一个<u class=\"wy-ul\">存放在网络服务器</u>上的相关信息的<u class=\"wy-ul\">集合体</u>。<u class=\"wy-ul\">它包含一个或多个网页</u>，这些网页以一定的方式<u class=\"wy-ul\">链接</u>在一起，成为一个整体，用来描述一组完整的信息或达到某种期望的宣传效果。</p></div>"
+      ],
+      "supplement": [
+        "<h3>1. 网站（Web Site）</h3>",
+        "<p>部署在<strong>网络服务器</strong>上的一组信息集合。它包含<strong>一个或多个网页</strong>，这些网页按某种方式<strong>链接在</strong>一起，形成一个整体，用以描述信息或达到宣传效果。</p>"
+      ]
+    },
+    {
+      "id": "s11-entry-2",
+      "title": "2. 网页",
+      "photos": [
+        1
+      ],
+      "checks": [],
+      "source": [
+        "<div class=\"wy-source-row\"><p>2. 网页：<u class=\"wy-ul\">网页(Web pages)是网站的组成部分</u>，由文字、图形、图像、音频、视频、动画、脚本程序、超链接等网页元素组成。通过<u class=\"wy-ul\">浏览器</u>访问。每个网页都<u class=\"wy-ul\">有唯一的 URL 地址</u>，用于定位和访问。</p></div>"
+      ],
+      "supplement": [
+        "<h3>2. 网页（Web pages）</h3>",
+        "<p>网站的<strong>组成部分</strong>，由文字、图形、图像、声音、视频、动画、脚本、超链接等组成。每个网页都有一个<strong>唯一的 URL</strong> 地址，用于定位和访问。</p>"
+      ]
+    },
+    {
+      "id": "s11-entry-3",
+      "title": "3. URL",
+      "photos": [
+        1
+      ],
+      "checks": [
+        2
+      ],
+      "source": [
+        "<div class=\"wy-source-row\"><p>3. URL(Uniform Resource Locator，统一资源定位器，即网址)：用于描述 Internet 上资源位置和访问方式。</p></div>",
+        "<div class=\"wy-source-row\"><p>URL 组成：<em>协议类型://服务器地址（端口号）/路径/文件名</em></p></div>",
+        "<div class=\"wy-source-row\"><p>顶级域名：<u class=\"wy-ul\">com</u>（公司）、<u class=\"wy-ul\">net</u>（网络机构）、<u class=\"wy-ul\">org</u>（组织机构）、<u class=\"wy-ul\">edu</u>（教育）、<u class=\"wy-ul\">gov</u>（政府部门）、<u class=\"wy-ul\">mil</u>（军事机构）和 <u class=\"wy-ul\">ac</u>（科研机构）</p></div>"
+      ],
+      "supplement": [
+        "<h3>3. URL（Uniform Resource Locator，统一资源定位器，即网址）</h3>",
+        "<p>用来描述 Internet 上资源的位置和访问方法。</p>",
+        "<p>组成格式：</p>",
+        "<pre tabindex=\"0\"><code>协议类型://服务器地址(端口号)/路径/文件名</code></pre>",
+        "<p>常见顶级域名：</p>",
+        "<div class=\"tablewrap\"><table>\n        <thead><tr><th>域名</th><th>含义</th></tr></thead>\n        <tbody>\n          <tr><td><strong>com</strong></td><td>公司企业</td></tr>\n          <tr><td><strong>net</strong></td><td>网络组织</td></tr>\n          <tr><td><strong>org</strong></td><td>组织机构</td></tr>\n          <tr><td><strong>edu</strong></td><td>教育机构</td></tr>\n          <tr><td><strong>gov</strong></td><td>政府部门</td></tr>\n          <tr><td><strong>mil</strong></td><td>军事组织</td></tr>\n          <tr><td><strong>ac</strong></td><td>科研机构</td></tr>\n        </tbody>\n      </table></div>"
+      ]
+    },
+    {
+      "id": "s11-entry-4",
+      "title": "4. DNS",
+      "photos": [
+        1
+      ],
+      "checks": [
+        3
+      ],
+      "source": [
+        "<div class=\"wy-source-row\"><p>4. DNS：DNS (Domain Name System,域名系统)就是管理和安排域名的分布式数据库系统，<u class=\"wy-ul\">为了实现域名和 IP 地址的映射</u>。<u class=\"wy-ul\">一个域名只能映射到<span class=\"wy-overwrite\" data-note=\"多\">一</span>个 IP 地址</u>，反之，<u class=\"wy-ul\">一个 IP 地址可以映射到多个域名</u>。<span class=\"sh-sr wy-hand\">多</span></p></div>"
+      ],
+      "supplement": [
+        "<h3>4. DNS（Domain Name System，域名系统）</h3>",
+        "<p>管理、安排域名的分布式数据库系统，实现域名与 IP 地址的映射。</p>",
+        "<p>要点：</p>",
+        "<ul>\n        <li><strong>一个</strong>域名只能映射到<strong>一个</strong> IP 地址</li>\n        <li><strong>一个 IP 地址可以映射到多个域名</strong></li>\n      </ul>"
+      ]
+    },
+    {
+      "id": "s11-entry-5",
+      "title": "5. 首页",
+      "photos": [
+        1
+      ],
+      "checks": [
+        4
+      ],
+      "source": [
+        "<div class=\"wy-source-row\"><p>5. <u class=\"wy-ul\">首页</u>：<u class=\"wy-ul\">即主页</u>，网站的第一个网页。常见<u class=\"wy-ul\">首页</u>文件名 <u class=\"wy-ul\">index.html</u>,<u class=\"wy-ul\">default.html</u>。</p><span class=\"wy-hand\">…站的【看不清】</span></div>"
+      ],
+      "supplement": [
+        "<h3>5. 首页（Home page）</h3>",
+        "<p>网站的第一个网页，反映<strong>站的主题</strong>。常见首页文件名：<code>index.html</code>、<code>default.html</code>。</p>"
+      ]
+    },
+    {
+      "id": "s11-entry-6",
+      "title": "6. 互联网（Internet）",
+      "photos": [
+        1
+      ],
+      "checks": [],
+      "source": [
+        "<div class=\"wy-source-row\"><p>6. <u class=\"wy-ul\">互联网（Internet）</u>：又称<span class=\"wy-circle\">国际网络</span>或<span class=\"wy-circle\">因特网</span>，是由全球范围内众多计算机网络通过通用协议（如 TCP/IP）相互连接而成的庞大<u class=\"wy-ul\">网络基础设施</u>。它并非单一网络，而是“网络的网络”，将分散的局域网、广域网等整合为一个逻辑上统一的全球性系统。</p></div>"
+      ],
+      "supplement": [
+        "<h3>6. Internet（互联网，又称国际网络或因特网）</h3>",
+        "<p>由世界各地众多计算机网络通过共同协议（如 <strong>TCP/IP</strong>）互联而成的巨大网络基础设施。它不是单一网络，而是「网络的网络」。</p>"
+      ]
+    },
+    {
+      "id": "s11-entry-7",
+      "title": "7. 网站，网页，互联网三者的联系",
+      "photos": [
+        1
+      ],
+      "checks": [
+        1
+      ],
+      "source": [
+        "<div class=\"wy-source-row\"><p>7. 网站，网页，互联网三者的联系：</p><span class=\"wy-hand\">WWW 服务：最广泛的服务</span></div>",
+        "<div class=\"wy-source-row\"><p>互联网是全球性的网络基础设施，网站是部署在互联网上的信息集合体，而网页则是构成网站的基本单元。</p></div>"
+      ],
+      "supplement": [
+        "<h3>7. 网站、网页与 Internet 的关系</h3>",
+        "<ul>\n        <li>Internet：全球网络基础设施</li>\n        <li>网站：部署在 Internet 上的信息集合</li>\n        <li>网页：构成网站的基本单元</li>\n      </ul>",
+        "<p>补充：WWW 服务是 Internet 上<strong>最广泛的服务</strong>。</p>"
+      ]
+    },
+    {
+      "id": "s11-entry-8",
+      "title": "8. 浏览器/服务器交互过程",
+      "photos": [
+        1,
+        2
+      ],
+      "checks": [
+        5
+      ],
+      "source": [
+        "<div class=\"wy-source-row\"><p>8. 浏览器/服务器交互过程：</p></div>",
+        "<div class=\"wy-source-row\"><p>(1)浏览器从网址中获取输入的域名；</p></div>",
+        "<div class=\"wy-source-row\"><p>(2)浏览器向 DNS 请求解析域名对应的 IP 地址；</p></div>",
+        "<div class=\"wy-source-row\"><p>(3)浏览器与该服务器建立 TCP 连接；</p></div>",
+        "<div class=\"wy-source-row\"><p>(4)浏览器发出 HTTP 请求，请求网页；</p></div>",
+        "<div class=\"wy-source-row\"><p>(5)服务器通过 HTTP 响应把网页发送给浏览器；</p></div>",
+        "<div class=\"wy-source-row\"><p>(6)TCP 连接释放；</p></div>",
+        "<div class=\"wy-source-row\"><p>(7)浏览器将首页文件进行解析，并将 Web 页显示给用户。</p></div>"
+      ],
+      "supplement": [
+        "<h3>8. 浏览器与服务器的交互过程</h3>",
+        "<ol>\n        <li>浏览器从输入的 URL 中取得域名</li>\n        <li>浏览器请求 DNS 解析该域名对应的 IP 地址</li>\n        <li>浏览器与服务器建立 TCP 连接</li>\n        <li>浏览器发出 HTTP 请求，请求网页</li>\n        <li>服务器通过 HTTP 响应把网页发送给浏览器</li>\n        <li>TCP 连接释放</li>\n        <li>浏览器解析首页文件，并将 Web 页面显示给用户</li>\n      </ol>"
+      ]
+    },
+    {
+      "id": "s11-entry-9",
+      "title": "9. HTTP 协议",
+      "photos": [
+        2
+      ],
+      "checks": [],
+      "source": [
+        "<div class=\"wy-source-row\"><p>9. HTTP 协议：HTTP(Hypertext Transfer Protocol)超文本传输协议，详细规定了浏览器和万维网服务器之间互相通信的规则。</p></div>"
+      ],
+      "supplement": [
+        "<h3>9. HTTP 协议</h3>",
+        "<p>HTTP（Hypertext Transfer Protocol，超文本传输协议）详细规定了浏览器和万维网服务器之间互相通信的规则。</p>"
+      ]
+    },
+    {
+      "id": "s11-entry-10",
+      "title": "10. 静态网页和动态网页",
+      "photos": [
+        2
+      ],
+      "checks": [
+        6
+      ],
+      "source": [
+        "<div class=\"wy-source-row\"><p>10. <u class=\"wy-ul\">静态网页</u>和<u class=\"wy-ul\">动态网页</u>：</p></div>",
+        "<div class=\"wy-source-row\"><p>静态网页：内容固定，无数据库交互，常见扩展名有<u class=\"wy-ul\">.htm</u> 或<u class=\"wy-ul\">.html</u>；</p></div>",
+        "<div class=\"wy-source-row\"><p>动态网页：内容不固定，按需生成，有数据库交互，常见扩展名为：.asp、.php、.jsp</p><span class=\"wy-hand\">、aspx ASP.Net</span></div>"
+      ],
+      "supplement": [
+        "<h3>10. 静态网页和动态网页</h3>",
+        "<div class=\"tablewrap\"><table>\n        <thead><tr><th>类型</th><th>特点</th><th>常见扩展名</th></tr></thead>\n        <tbody>\n          <tr><td><strong>静态网页</strong></td><td>内容固定，无数据库交互</td><td><code>.htm</code>、<code>.html</code></td></tr>\n          <tr><td><strong>动态网页</strong></td><td>内容不固定，按需生成，有数据库交互</td><td><code>.asp</code>、<code>.php</code>、<code>.jsp</code>、<code>.aspx</code>（含 ASP.Net）</td></tr>\n        </tbody>\n      </table></div>"
+      ]
+    }
+  ],
+  "s12": [
+    {
+      "id": "s12-entry-1",
+      "title": "1. 分析",
+      "photos": [
+        2
+      ],
+      "checks": [],
+      "source": [
+        "<div class=\"wy-source-row wy-source-title\"><h3>1.2 网页设计基本流程</h3></div>",
+        "<div class=\"wy-source-row\"><p>1. <u class=\"wy-ul\">分析</u>：主要指认识网页将要服务的目标群体，如群体特征、可能的需求等，以此确定网页信息内容及其功能设计。</p></div>"
+      ],
+      "supplement": [
+        "<li><strong>分析</strong>：认识网页将要服务的目标群体（群体特征、可能需求等），确定网页信息内容及其功能设计。</li>"
+      ]
+    },
+    {
+      "id": "s12-entry-2",
+      "title": "2. 设计",
+      "photos": [
+        2
+      ],
+      "checks": [],
+      "source": [
+        "<div class=\"wy-source-row\"><p>2. <u class=\"wy-ul\">设计</u>：是网页<u class=\"wy-ul\">设计</u>与制作的关键环节，关系用户对网页的接受和利用程度，主要内容包括收集网页中用到的素材、确定网页的内容结构、链接方式和网页模型的可视化<u class=\"wy-ul\">设计</u>三个内容。</p></div>"
+      ],
+      "supplement": [
+        "<li><strong>设计</strong>：关键环节，影响用户对网页的接受和利用程度。包括：收集素材、确定内容结构与链接方式、网页模型可视化设计。</li>"
+      ]
+    },
+    {
+      "id": "s12-entry-3",
+      "title": "3. 制作",
+      "photos": [
+        2
+      ],
+      "checks": [],
+      "source": [
+        "<div class=\"wy-source-row\"><p>3. <u class=\"wy-ul\">制作</u>：在完成设计后，只要选择一种自己熟悉的网页<u class=\"wy-ul\">制作</u>工具，就可以<u class=\"wy-ul\">制作</u>网页了。说<u class=\"wy-ul\">制作</u>网页就是将文字、图片、动画、声音、视频、程序等素材按照设计的要求合成起来。</p></div>"
+      ],
+      "supplement": [
+        "<li><strong>制作</strong>：选择熟悉的网页制作工具，把文字、图片、动画、声音、视频、程序等素材按设计要求合成。</li>"
+      ]
+    },
+    {
+      "id": "s12-entry-4",
+      "title": "4. 测试",
+      "photos": [
+        2
+      ],
+      "checks": [],
+      "source": [
+        "<div class=\"wy-source-row\"><p>4. <u class=\"wy-ul\">测试</u>：制作完网页之后，应该对网页做全面的检测，包括检查网页内容的科学性、版面编排的合理性、超链接的正确性以及对网页内容做适当的增减等。</p></div>"
+      ],
+      "supplement": [
+        "<li><strong>测试</strong>：全面检测内容科学性、版面合理性、超链接正确性，并对内容做适当增减。</li>"
+      ]
+    },
+    {
+      "id": "s12-entry-5",
+      "title": "发布",
+      "photos": [
+        2
+      ],
+      "checks": [
+        7
+      ],
+      "source": [
+        "<div class=\"wy-source-row\"><p><u class=\"wy-ul\">发布</u>：制作网页的目的是要将网页<u class=\"wy-ul\">发布</u>到网上，让更多的浏览者来访问<u class=\"wy-ul\">发布</u>的站点，因此<u class=\"wy-ul\">发布</u>网页这一环节必不可少，否则失去了制作网页的意义。</p></div>"
+      ],
+      "supplement": [
+        "<li><strong>发布</strong>：把网页发布到网上，让更多浏览者访问；不发布就失去制作意义。</li>"
+      ]
+    },
+    {
+      "id": "s12-entry-6",
+      "title": "记忆口诀",
+      "photos": [],
+      "checks": [],
+      "source": [],
+      "supplement": [
+        "<p>记忆口诀：<strong>分析 → 设计 → 制作 → 测试 → 发布</strong></p>"
+      ]
+    }
+  ],
+  "s13": [
+    {
+      "id": "s13-entry-1",
+      "title": "1. 结构层",
+      "photos": [
+        2
+      ],
+      "checks": [],
+      "source": [
+        "<div class=\"wy-source-row wy-source-title\"><h3>1.3 网页的层次结构</h3></div>",
+        "<div class=\"wy-source-row\"><p>1. <u class=\"wy-ul\">结构层</u>：网页的骨架，<u class=\"wy-ul\">HTML</u> 是网页内容的载体，内容就是网页制作者放在页面上想要让用户浏览的信息，可以包含文字、图像、视频等。</p></div>"
+      ],
+      "supplement": [
+        "<h3>1. 结构层</h3>",
+        "<p>网页的骨架。<strong>HTML</strong> 是网页内容的载体；内容是制作者放在页面上想让用户浏览的信息，可包含文字、图像、视频等。</p>"
+      ]
+    },
+    {
+      "id": "s13-entry-2",
+      "title": "2. 样式层",
+      "photos": [
+        2
+      ],
+      "checks": [],
+      "source": [
+        "<div class=\"wy-source-row\"><p>2. <u class=\"wy-ul\">样式层</u>：<u class=\"wy-ul\">CSS</u> 样式是<u class=\"wy-ul\">表现</u>。就像网页的外衣，比如，标题字体、颜色变化，或为标题加入背景图片、边框等，所有这些用来改变内容外观的东西称之为<u class=\"wy-ul\">表现</u></p><span class=\"wy-hand\">层</span></div>"
+      ],
+      "supplement": [
+        "<h3>2. 样式层</h3>",
+        "<p><strong>CSS</strong> 样式是<strong>表现</strong>，像网页的外衣。例如标题字体、颜色变化，或为标题加入背景图片、边框等——凡用来改变内容外观的，都叫表现。</p>"
+      ]
+    },
+    {
+      "id": "s13-entry-3",
+      "title": "3. 行为层",
+      "photos": [
+        3
+      ],
+      "checks": [
+        8
+      ],
+      "source": [
+        "<div class=\"wy-source-row\"><p>3. <u class=\"wy-ul\">行为层</u>：<u class=\"wy-ul\">Java Script</u> 是用来实现网页上的特效效果。如：鼠标滑过弹出下拉菜单、鼠标滑过表格的背景颜色改变，或者焦点新闻（新闻图片）的轮换。可以这么理解，有交互的一般都是用 <u class=\"wy-ul\">Java Script</u> 来实现的。</p><span class=\"wy-hand\">实现网页动态性和交互性</span></div>"
+      ],
+      "supplement": [
+        "<h3>3. 行为层</h3>",
+        "<p><strong>JavaScript</strong> 用来实现网页上的特效效果，例如：</p>",
+        "<ul>\n        <li>鼠标滑过弹出下拉菜单</li>\n        <li>鼠标滑过表格背景颜色改变</li>\n        <li>焦点新闻（新闻图片）轮换</li>\n      </ul>",
+        "<p>有交互的一般都用 JavaScript 实现 → <strong>实现网页动态性和交互性</strong>。</p>"
+      ]
+    }
+  ],
+  "s-extra": [
+    {
+      "id": "s-extra-entry-1",
+      "title": "网页制作开发工具",
+      "photos": [
+        3
+      ],
+      "checks": [],
+      "source": [
+        "<div class=\"wy-hand wy-tools-hand\">网页制作开发工具<br>\n记事本、HBuilder、vscode</div>"
+      ],
+      "supplement": [
+        "<p>记事本、HBuilder、VS Code</p>"
+      ]
+    }
+  ],
+  "s21": [
+    {
+      "id": "s21-entry-1",
+      "title": "引言：HTML 全称",
+      "photos": [
+        1
+      ],
+      "checks": [
+        1
+      ],
+      "source": [
+        "<div class=\"wy-source-row wy-source-title\"><h3>2.1 HTML 简介</h3></div>",
+        "<div class=\"wy-source-row\"><p>HTML（<u class=\"wy-ul\">Hyper Text Markup Language</u>，<u class=\"wy-ul\">超文本标记语言</u>）是一种用来描述网页结构和内容的标记语言。代码由标记（也称为标签，或者元素）和属性构成。</p><span class=\"wy-hand\">超【看不清】　标记　语言</span></div>",
+        "<div class=\"wy-source-row\"><p>HTML 标签就像是包裹着文字、图片或其他元素的“盒子”，它告诉浏览器如何显示内容。标签通常用尖括号 &lt; &gt; 包围，主要分为两种形式：</p></div>"
+      ],
+      "supplement": [
+        "<p><strong>HTML</strong> = Hyper Text Markup Language = <strong>超文本标记语言</strong>，用来描述网页的结构和内容。</p>",
+        "<p>HTML 代码由<strong>标记（标签 / 元素）</strong>和<strong>属性</strong>组成。标签像「盒子」包住文字、图片等，告诉浏览器如何显示。标签写在尖括号 <code>&lt; &gt;</code> 里。</p>"
+      ]
+    },
+    {
+      "id": "s21-entry-2",
+      "title": "1、双标签（成对出现）",
+      "photos": [
+        1
+      ],
+      "checks": [],
+      "source": [
+        "<div class=\"wy-source-row\"><p>1、<u class=\"wy-ul\">双标签</u>（成对出现）：由一个“开始标签”和一个“结束标签”组成，中间包裹着具体内容。例如段落标签 <code>&lt;p&gt;这是一个段落&lt;/p&gt;</code>，浏览器看到它就知道要把中间的文字当作一个独立的段落来展示。</p></div>"
+      ],
+      "supplement": []
+    },
+    {
+      "id": "s21-entry-3",
+      "title": "2. 单标签（自闭合标签）",
+      "photos": [
+        1
+      ],
+      "checks": [
+        2
+      ],
+      "source": [
+        "<div class=\"wy-source-row\"><p>2. <u class=\"wy-ul\">单标签</u>（自闭合标签）：只有一个标签，不需要包裹内容，因为它本身就是一个独立的元素。例如插入图片的标签 <code>&lt;img/&gt;</code> 或换行标签 <code>&lt;br/&gt;</code>。</p></div>"
+      ],
+      "supplement": [
+        "<h3>双标签 vs 单标签</h3>",
+        "<div class=\"tablewrap\"><table><thead><tr><th>类型</th><th>说明</th><th>示例</th></tr></thead><tbody><tr><td><strong>双标签</strong></td><td>开始标签 + 结束标签，中间包内容</td><td><code>&lt;p&gt;这是一个段落&lt;/p&gt;</code></td></tr><tr><td><strong>单标签</strong></td><td>只有一个标签，无包裹内容</td><td><code>&lt;img&gt;</code>、<code>&lt;br/&gt;</code></td></tr></tbody></table></div>"
+      ]
+    },
+    {
+      "id": "s21-entry-4",
+      "title": "HTML 属性",
+      "photos": [
+        1
+      ],
+      "checks": [],
+      "source": [
+        "<div class=\"wy-source-row\"><p>HTML 属性是用来补充说明标签的样式或附加功能的。属性总是以“属性=&quot;属性值&quot;”的形式出现（例如 name=&quot;value&quot;），并且写在标签的开始标签内部。举个例子，在图片标签中：</p></div>",
+        "<div class=\"wy-source-row\"><p><code>&lt;img src=&quot;photo.jpg&quot; alt=&quot;一张风景照&quot; width=&quot;300&quot;/&gt;</code>，src，alt，width 都是属性，具体含义后面章节详细介绍。</p></div>"
+      ],
+      "supplement": [
+        "<h3>属性</h3>",
+        "<p>给标签提供额外信息或样式，写法：<code>name=\"value\"</code>，写在开始标签内。</p>",
+        "<pre tabindex=\"0\"><code>&lt;img src=\"photo.jpg\" alt=\"一张风景照\" width=\"300\"/&gt;</code></pre>",
+        "<p><code>src</code>、<code>alt</code>、<code>width</code> 都是属性。</p>"
+      ]
+    }
+  ],
+  "s22": [
+    {
+      "id": "s22-entry-1",
+      "title": "引言：四部分组成",
+      "photos": [
+        1
+      ],
+      "checks": [
+        3
+      ],
+      "source": [
+        "<div class=\"wy-source-row wy-source-title\"><h3>2.2 HTML5 文档结构</h3></div>",
+        "<div class=\"wy-source-row\"><p>HTML 语言目前所用的版本是 HTML5,该版本文档结构由声明、根标签、头部标签和主体标签四部分组成：</p></div>"
+      ],
+      "supplement": [
+        "<p>当前主流版本是 <strong>HTML5</strong>。文档结构四部分：<strong>声明、根标签、头标签、体标签</strong>。</p>"
+      ]
+    },
+    {
+      "id": "s22-entry-2",
+      "title": "最小完整示例",
+      "photos": [],
+      "checks": [],
+      "source": [],
+      "supplement": [
+        "<h3>最小完整示例</h3>",
+        "<pre tabindex=\"0\"><code>&lt;!doctype html&gt;\n&lt;html&gt;\n  &lt;head&gt;\n    &lt;meta charset=\"utf-8\"&gt;\n    &lt;title&gt;myweb&lt;/title&gt;\n  &lt;/head&gt;\n  &lt;body&gt;\n    中国，你好！\n  &lt;/body&gt;\n&lt;/html&gt;</code></pre>",
+        "<p>浏览器标签栏显示 <code>myweb</code>，主窗口显示「中国，你好！」。</p>"
+      ]
+    },
+    {
+      "id": "s22-entry-3",
+      "title": "2. 结构说明",
+      "photos": [
+        2
+      ],
+      "checks": [
+        4
+      ],
+      "source": [
+        "<div class=\"wy-source-row\"><p>2. 结构说明：</p></div>",
+        "<div class=\"wy-bracket\">\n<div class=\"wy-source-row\"><p>●<code>&lt;!doctype html&gt;</code>：<u class=\"wy-ul\">文档类型声明</u>，告诉浏览器当前是 HTML5 标准。</p></div>\n<div class=\"wy-source-row\"><p>●<code>&lt;html&gt;</code>：<u class=\"wy-ul\">根标签</u>，包裹整个 HTML 文档。</p></div>\n<div class=\"wy-source-row\"><p>●<code>&lt;head&gt;</code>：<u class=\"wy-ul\">文件头标签</u>，存放网页的基础配置信息（如编码、标题、元数据）。</p></div>\n<div class=\"wy-source-row\"><p>●<code>&lt;meta&gt;</code>：<u class=\"wy-ul\">元数据标签</u>。</p><span class=\"wy-hand\">utf-8 万国码 设置网页的编码格式 GB2312</span></div>\n<div class=\"wy-source-row\"><p>●<code>&lt;title&gt;</code>：<u class=\"wy-ul\">网页标题标签</u>，显示在浏览器标签栏。</p><span class=\"wy-hand\">唯一 必须在<code>&lt;head&gt;&lt;/head&gt;</code>里</span></div>\n<div class=\"wy-source-row\"><p>●<code>&lt;body&gt;</code>：<u class=\"wy-ul\">文件体标签</u>，所有页面可见内容都写在这里，会在浏览器主窗口中显示。</p></div>\n</div>",
+        "<div class=\"wy-source-row\"><p>浏览器运行效果如图所示：</p></div>",
+        "<div class=\"wy-browser\"><div class=\"wy-browser-tab\">myweb</div><div class=\"wy-browser-address\">127.0.0.1:8848/网页教材示...</div><div class=\"wy-browser-body\">中国，你好！</div></div>"
+      ],
+      "supplement": [
+        "<h3>结构说明</h3>",
+        "<div class=\"tablewrap\"><table><thead><tr><th>标签</th><th>作用</th></tr></thead><tbody><tr><td><code>&lt;!doctype html&gt;</code></td><td>文档类型声明，告诉浏览器当前是 HTML5 标准</td></tr><tr><td><code>&lt;html&gt;</code></td><td><strong>根标签</strong>，包裹整个 HTML 文档</td></tr><tr><td><code>&lt;head&gt;</code></td><td><strong>文件头</strong>，存放基础配置（编码、标题、元数据）</td></tr><tr><td><code>&lt;meta&gt;</code></td><td>元数据标签（如设置编码 utf-8 / GB2312）</td></tr><tr><td><code>&lt;title&gt;</code></td><td>网页标题，显示在浏览器<strong>标签栏</strong>；★ <strong>唯一必须写在 <code>&lt;head&gt;&lt;/head&gt;</code> 里的内容</strong></td></tr><tr><td><code>&lt;body&gt;</code></td><td><strong>文件体</strong>，所有页面可见内容写在这里，显示在浏览器主窗口</td></tr></tbody></table></div>"
+      ]
+    }
+  ],
+  "s22b": [
+    {
+      "id": "s22b-entry-1",
+      "title": "1. 标记可以嵌套使用，但不能交叉嵌套",
+      "photos": [
+        3
+      ],
+      "checks": [],
+      "source": [
+        "<div class=\"wy-source-row wy-source-title\"><h3>2.2 HTML5 编写注意事项</h3></div>",
+        "<div class=\"wy-source-row\"><p>1. 标记可以嵌套使用，但不能交叉嵌套</p></div>",
+        "<div class=\"wy-source-row\"><p>正确示例：</p></div>",
+        "<pre tabindex=\"0\"><code>&lt;div&gt;\n    &lt;p&gt;这是一段嵌套的文本/p&gt;\n&lt;/div&gt;</code></pre>",
+        "<div class=\"wy-source-row\"><p>错误示例：</p></div>",
+        "<pre tabindex=\"0\"><code>&lt;div&gt;\n    &lt;p&gt;交叉嵌套的文本&lt;/div&gt;\n&lt;/p&gt;</code></pre>"
+      ],
+      "supplement": [
+        "<li><strong>标记可以嵌套，但不能交叉嵌套</strong><br>正确：<code>&lt;div&gt;&lt;p&gt;这是一段嵌套的文本&lt;/p&gt;&lt;/div&gt;</code><br>错误：<code>&lt;div&gt;&lt;p&gt;交叉嵌套的文本&lt;/div&gt;&lt;/p&gt;</code></li>"
+      ]
+    },
+    {
+      "id": "s22b-entry-2",
+      "title": "2. 不区分大小写，建议用小写",
+      "photos": [
+        3
+      ],
+      "checks": [],
+      "source": [
+        "<div class=\"wy-source-row\"><p>2. <u class=\"wy-ul\">不区分大小写</u>，<u class=\"wy-ul\">建议用小写</u></p></div>"
+      ],
+      "supplement": [
+        "<li><strong>不区分大小写，建议用小写</strong></li>"
+      ]
+    },
+    {
+      "id": "s22b-entry-3",
+      "title": "3. 标记中可以放各种属性，属性值建议用双引号包裹",
+      "photos": [
+        3
+      ],
+      "checks": [],
+      "source": [
+        "<div class=\"wy-source-row\"><p>3. 标记中可以放各种属性，属性值建议用双引号包裹</p></div>"
+      ],
+      "supplement": [
+        "<li>标记中可以放各种属性，<strong>属性值建议用双引号包裹</strong></li>"
+      ]
+    },
+    {
+      "id": "s22b-entry-4",
+      "title": "4. 缩进书写，便于阅读",
+      "photos": [
+        3
+      ],
+      "checks": [],
+      "source": [
+        "<div class=\"wy-source-row\"><p>4. 缩进书写，便于阅读</p></div>"
+      ],
+      "supplement": [
+        "<li><strong>缩进书写</strong>，便于阅读</li>"
+      ]
+    },
+    {
+      "id": "s22b-entry-5",
+      "title": "5. 标点符号全部使用英文输入法输入",
+      "photos": [
+        3
+      ],
+      "checks": [],
+      "source": [
+        "<div class=\"wy-source-row\"><p>5. <u class=\"wy-ul\">标点符号全部使用英文输入法输入</u></p></div>"
+      ],
+      "supplement": [
+        "<li><strong>标点符号全部使用英文输入法输入</strong>（★常考）</li>"
+      ]
+    },
+    {
+      "id": "s22b-entry-6",
+      "title": "6. 允许部分属性值省略",
+      "photos": [
+        3
+      ],
+      "checks": [
+        8
+      ],
+      "source": [
+        "<div class=\"wy-source-row\"><p>6. 允许部分属性值省略</p></div>",
+        "<div class=\"wy-source-row\"><p><u class=\"wy-ul\">如布尔属性 checked</u>，可以简写为<code>&lt;input type=&quot;checkbox&quot; checked&gt;</code>，无需写 checked=&quot;checked&quot;。</p></div>"
+      ],
+      "supplement": [
+        "<li><strong>允许部分属性值省略</strong>（布尔属性）：如 <code>&lt;input type=\"checkbox\" checked&gt;</code>，不必写成 <code>checked=\"checked\"</code></li>"
+      ]
+    },
+    {
+      "id": "s22b-entry-7",
+      "title": "7. <!--注释内容-->表示注释语句",
+      "photos": [
+        3
+      ],
+      "checks": [
+        5
+      ],
+      "source": [
+        "<div class=\"wy-source-row\"><p>7. <code><u class=\"wy-ul\">&lt;!--注释内容--&gt;</u></code>表示注释语句，注释不会在浏览器中显示，用于代码说明。</p></div>"
+      ],
+      "supplement": [
+        "<li><strong>注释</strong>：<code>&lt;!--注释内容--&gt;</code>，注释不会在浏览器中显示，用于代码说明。</li>"
+      ]
+    }
+  ],
+  "s23": [
+    {
+      "id": "s23-entry-1",
+      "title": "1. 设置网页关键字（供搜索引擎抓取）",
+      "photos": [
+        4
+      ],
+      "checks": [],
+      "source": [
+        "<div class=\"wy-source-row wy-source-title\"><h3>2.3&lt;meta&gt;标签详解</h3></div>",
+        "<div class=\"wy-source-row\"><p><code>&lt;meta&gt;</code>标签用于定义网页的元数据（描述性信息），不会直接显示在页面上，但会被浏览器和搜索引擎识别。</p></div>",
+        "<div class=\"wy-source-row\"><p>常用 meta 属性示例：</p></div>",
+        "<div class=\"wy-source-row\"><p>1. 设置网页<u class=\"wy-ul\">关键字</u>（供搜索引擎抓取）</p></div>",
+        "<div class=\"wy-source-row\"><pre tabindex=\"0\"><code>&lt;meta name=&quot;<u class=\"wy-ul\">keywords</u>&quot; content=&quot;HTML,前端开发,学习教程&quot;&gt;</code></pre></div>"
+      ],
+      "supplement": [
+        "<p><code>&lt;meta&gt;</code> 用来定义网页的<strong>元数据</strong>（描述性信息），不直接显示在页面上，但会被浏览器和搜索引擎识别。</p>",
+        "<li><strong>关键字</strong>（供搜索引擎抓取）<pre tabindex=\"0\"><code>&lt;meta name=\"keywords\" content=\"HTML,前端开发,学习教程\"&gt;</code></pre></li>"
+      ]
+    },
+    {
+      "id": "s23-entry-2",
+      "title": "2. 设置网页描述（搜索引擎结果中会显示）",
+      "photos": [
+        4
+      ],
+      "checks": [],
+      "source": [
+        "<div class=\"wy-source-row\"><p>2. 设置网页<u class=\"wy-ul\">描述</u>（搜索引擎结果中会显示）</p></div>",
+        "<div class=\"wy-source-row\"><pre tabindex=\"0\"><code>&lt;meta name=&quot;<u class=\"wy-ul\">description</u>&quot; content=&quot;这是 HTML 基础入门教程，适合新手学习&quot;&gt;</code></pre></div>"
+      ],
+      "supplement": [
+        "<li><strong>网页描述</strong>（搜索结果中会显示）<pre tabindex=\"0\"><code>&lt;meta name=\"description\" content=\"这是 HTML 基础入门教程，适合新手学习\"&gt;</code></pre></li>"
+      ]
+    },
+    {
+      "id": "s23-entry-3",
+      "title": "3. 设置网页作者",
+      "photos": [
+        5
+      ],
+      "checks": [],
+      "source": [
+        "<div class=\"wy-source-row\"><p>3. 设置<u class=\"wy-ul\">网页作者</u></p></div>",
+        "<div class=\"wy-source-row\"><pre tabindex=\"0\"><code>&lt;meta name=&quot;<u class=\"wy-ul\">author</u>&quot; content=&quot;马斯克&quot;&gt;</code></pre></div>"
+      ],
+      "supplement": [
+        "<li><strong>作者</strong><pre tabindex=\"0\"><code>&lt;meta name=\"author\" content=\"马斯克\"&gt;</code></pre></li>"
+      ]
+    },
+    {
+      "id": "s23-entry-4",
+      "title": "4. 设置字符集（防止乱码）",
+      "photos": [
+        5
+      ],
+      "checks": [],
+      "source": [
+        "<div class=\"wy-source-row\"><p>4. 设置字符集（防止乱码）</p></div>",
+        "<div class=\"wy-source-row\"><pre tabindex=\"0\"><code>&lt;meta charset=&quot;utf-8&quot;&gt;</code></pre><span class=\"wy-hand\">GB2312 中文简体</span></div>"
+      ],
+      "supplement": [
+        "<li><strong>字符集</strong>（防止乱码）<pre tabindex=\"0\"><code>&lt;meta charset=\"utf-8\"&gt;</code></pre>笔记补充：也可用 <strong>GB2312</strong>（中文简体）。</li>"
+      ]
+    },
+    {
+      "id": "s23-entry-5",
+      "title": "5. 设置页面自动刷新与跳转（10 秒后跳转到指定网址）",
+      "photos": [
+        5
+      ],
+      "checks": [
+        6
+      ],
+      "source": [
+        "<div class=\"wy-source-row\"><p>5. 设置页面<u class=\"wy-ul\">自动刷新与跳转</u>（<u class=\"wy-ul\">10 秒后跳转到指定网址</u>）</p></div>",
+        "<div class=\"wy-source-row\"><pre tabindex=\"0\"><code>&lt;meta http-equiv=&quot;<u class=\"wy-ul\">refresh</u>&quot; <u class=\"wy-ul\">content=&quot;10;url=https://www.example.com&quot;</u>&gt;</code></pre></div>"
+      ],
+      "supplement": [
+        "<li><strong>自动刷新 / 跳转</strong><pre tabindex=\"0\"><code>&lt;meta http-equiv=\"refresh\" content=\"10;url=https://www.example.com\"&gt;</code></pre><ul><li><code>10</code>：秒数</li><li><code>url</code>：跳转目标</li><li>也可表示每隔 10 秒刷新当前页面（不写 url 时）</li></ul></li>"
+      ]
+    }
+  ],
+  "s24": [
+    {
+      "id": "s24-entry-1",
+      "title": "1. 常用 body 属性说明",
+      "photos": [
+        5
+      ],
+      "checks": [
+        7
+      ],
+      "source": [
+        "<div class=\"wy-source-row wy-source-title\"><h3>2.4&lt;body&gt;标签详解</h3><span class=\"wy-hand\">只写 content=10（不写URL）表示每隔10秒刷新当前网页</span></div>",
+        "<div class=\"wy-source-row\"><p>1. 常用 body 属性说明</p></div>",
+        "<div class=\"wy-attributes\"><table><thead><tr><th scope=\"col\">属性</th><th scope=\"col\">作用</th><th scope=\"col\">手写批注</th></tr></thead><tbody><tr class=\"wy-bracket-row\"><th scope=\"row\"><code><u class=\"wy-ul\">bgcolor</u></code></th><td>设置页面的<u class=\"wy-ul\">背景颜色</u></td><td><span class=\"wy-hand\">同时设置背景【看不清】和图像</span></td></tr>\n<tr class=\"wy-bracket-row\"><th scope=\"row\"><code><u class=\"wy-ul\">background</u></code></th><td>设置页面的<u class=\"wy-ul\">背景图像</u></td><td><span class=\"wy-hand\">显示背景图像</span></td></tr></tbody><tbody><tr class=\"wy-bracket-row\"><th scope=\"row\"><code><u class=\"wy-ul\">link</u></code></th><td>设置<u class=\"wy-ul\">未访问过的链接颜色</u></td><td><span class=\"wy-hand\">默认蓝色</span></td></tr>\n<tr class=\"wy-bracket-row\"><th scope=\"row\"><code><u class=\"wy-ul\">alink</u></code></th><td>设置<u class=\"wy-ul\">活动链接</u>（<u class=\"wy-ul\">点击瞬间）的颜色</u></td><td><span class=\"wy-hand\">默认红色</span></td></tr>\n<tr class=\"wy-bracket-row\"><th scope=\"row\"><code><u class=\"wy-ul\">vlink</u></code></th><td>设置<u class=\"wy-ul\">访问过的链接颜色</u></td><td><span class=\"wy-hand\">默认紫色</span></td></tr>\n<tr class=\"wy-bracket-row\"><th scope=\"row\"><code><u class=\"wy-ul\">text</u></code></th><td>设置<u class=\"wy-ul\">非链接文本的默认颜色</u></td><td></td></tr></tbody><tbody><tr><th scope=\"row\"><code><u class=\"wy-ul\">topmargin</u></code></th><td>设置页面<u class=\"wy-ul\">上页边距</u></td><td><span class=\"wy-hand\">像素px为单位</span></td></tr>\n<tr><th scope=\"row\"><code><u class=\"wy-ul\">leftmargin</u></code></th><td>设置页面<u class=\"wy-ul\">左页边距</u></td><td><span class=\"wy-hand\">像素px为单位</span></td></tr></tbody></table></div>"
+      ],
+      "supplement": [
+        "<div class=\"tablewrap\"><table><thead><tr><th>属性</th><th>作用</th><th>备注</th></tr></thead><tbody><tr><td><code>bgcolor</code></td><td>设置页面背景色</td><td>可与背景图同时设置</td></tr><tr><td><code>background</code></td><td>设置页面背景图像</td><td>显示背景图像</td></tr><tr><td><code>link</code></td><td>未访问链接颜色</td><td>默认蓝色</td></tr><tr><td><code>alink</code></td><td>正在点击时的链接颜色</td><td>默认红色</td></tr><tr><td><code>vlink</code></td><td>已访问链接颜色</td><td>默认紫色</td></tr><tr><td><code>text</code></td><td>非链接文字默认颜色</td><td></td></tr><tr><td><code>topmargin</code></td><td>页面上边距</td><td>单位：像素 px</td></tr><tr><td><code>leftmargin</code></td><td>页面左边距</td><td>单位：像素 px</td></tr></tbody></table></div>",
+        "<p>记忆：<code>link</code> / <code>alink</code> / <code>vlink</code> 管三种链接状态；<code>topmargin</code>、<code>leftmargin</code> 用 <strong>px</strong>。</p>"
+      ]
+    }
+  ]
+}
