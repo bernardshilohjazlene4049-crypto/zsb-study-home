@@ -159,12 +159,6 @@
       "reason": "页面设置与打印安排在图表之后。"
     },
     {
-      "topicId": "web.html5_structure",
-      "prerequisiteId": "web.concepts",
-      "strength": "hard",
-      "reason": "文档结构建立在网页基本概念之上。"
-    },
-    {
       "topicId": "web.html_intro",
       "prerequisiteId": "web.concepts",
       "strength": "hard",
@@ -304,7 +298,7 @@
     },
     {
       "topicId": "web.s21",
-      "prerequisiteId": "web.html5_structure",
+      "prerequisiteId": "web.concepts",
       "strength": "soft",
       "reason": "按原页面目录顺序，先学习前置课页。"
     },
@@ -537,38 +531,14 @@
       "reason": "按原页面目录顺序，先学习前置课页。"
     },
     {
-      "topicId": "web.html.intro",
+      "topicId": "web.html.editors",
       "prerequisiteId": "web.html_intro",
       "strength": "soft",
       "reason": "按原页面目录顺序，先学习前置课页。"
     },
     {
-      "topicId": "web.html.editors",
-      "prerequisiteId": "web.html.intro",
-      "strength": "soft",
-      "reason": "按原页面目录顺序，先学习前置课页。"
-    },
-    {
-      "topicId": "web.html.basic",
-      "prerequisiteId": "web.html.editors",
-      "strength": "soft",
-      "reason": "按原页面目录顺序，先学习前置课页。"
-    },
-    {
-      "topicId": "web.html.elements",
-      "prerequisiteId": "web.html.basic",
-      "strength": "soft",
-      "reason": "按原页面目录顺序，先学习前置课页。"
-    },
-    {
-      "topicId": "web.html.attributes",
-      "prerequisiteId": "web.html.elements",
-      "strength": "soft",
-      "reason": "按原页面目录顺序，先学习前置课页。"
-    },
-    {
       "topicId": "web.html.headings",
-      "prerequisiteId": "web.html.attributes",
+      "prerequisiteId": "web.html.editors",
       "strength": "soft",
       "reason": "按原页面目录顺序，先学习前置课页。"
     },
@@ -591,14 +561,8 @@
       "reason": "按原页面目录顺序，先学习前置课页。"
     },
     {
-      "topicId": "web.html.head",
-      "prerequisiteId": "web.html.links",
-      "strength": "soft",
-      "reason": "按原页面目录顺序，先学习前置课页。"
-    },
-    {
       "topicId": "web.html.css_inline",
-      "prerequisiteId": "web.html.head",
+      "prerequisiteId": "web.html.links",
       "strength": "soft",
       "reason": "按原页面目录顺序，先学习前置课页。"
     },
@@ -687,14 +651,8 @@
       "reason": "按原页面目录顺序，先学习前置课页。"
     },
     {
-      "topicId": "web.html5.intro",
-      "prerequisiteId": "web.html5_index",
-      "strength": "soft",
-      "reason": "按原页面目录顺序，先学习前置课页。"
-    },
-    {
       "topicId": "web.html5.browsers",
-      "prerequisiteId": "web.html5.intro",
+      "prerequisiteId": "web.html5_index",
       "strength": "soft",
       "reason": "按原页面目录顺序，先学习前置课页。"
     },

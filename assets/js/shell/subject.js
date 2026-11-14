@@ -38,6 +38,18 @@ export function groupChapterTopics(node) {
   return groups;
 }
 
+export function chapterVideos(resources, chapterId) {
+  return (resources || []).filter((r) => r.kind === "video" && r.chapter_id === chapterId && r.page_url);
+}
+
+export function chapterVideoRow(resource, base) {
+  return el("a", { class: "chapter-video", href: base + resource.page_url }, [
+    resource.poster ? el("img", { src: base + resource.poster, loading: "lazy", width: "160", height: "90", alt: "" }) : icon("play", 24),
+    el("strong", { text: resource.title }),
+    el("span", { text: resource.duration_label || "" })
+  ]);
+}
+
 function firstHref(node, base) {
   const pick = node.topics.find((t) => topicHref(t, base));
   if (pick) return topicHref(pick, base);
@@ -81,7 +93,9 @@ export async function mount(shell) {
   }
 
   function topicList(node, prefix) {
-    return el("div", { class: "subj-topics", id: prefix }, groupChapterTopics(node).flatMap((group) => [
+    return el("div", { class: "subj-topics", id: prefix }, [
+      ...chapterVideos(model.site.resources, node.chapter.id).map((r) => chapterVideoRow(r, base)),
+      ...groupChapterTopics(node).flatMap((group) => [
       group.chapter ? el("h3", { class: "subj-topics__section", text: group.chapter.title }) : null,
       el("ol", { class: "subj-topics__list" }, group.topics.map((topic) => {
         const isCurrent = topic.id === currentTopic?.id;
@@ -95,7 +109,7 @@ export async function mount(shell) {
           href ? icon("chevron", 14, "subj-topic__chev") : null
         ])]);
       }))
-    ]));
+    ])]);
   }
 
   function chapterList(prefix) {

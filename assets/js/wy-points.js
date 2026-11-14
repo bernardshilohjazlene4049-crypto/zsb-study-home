@@ -1,7 +1,6 @@
-/* 静态正文渐进增强：标签、可选择文字的导图与按需原图。 */
+/* 静态正文渐进增强：可选择文字的导图与按条目加载原图。 */
 (() => {
   "use strict";
-  const tabs = [...document.querySelectorAll('.wy-tabs [role="tab"]')];
   const mapPanel = document.getElementById("mindmap");
   const frame = document.querySelector(".wy-mm-frame");
   const space = document.querySelector(".wy-mm-space");
@@ -44,35 +43,6 @@
     cancelAnimationFrame(fitRequest);
     fitRequest = requestAnimationFrame(() => layoutMap(true));
   }
-  function activate(id, { updateHash = false, focus = false } = {}) {
-    const active = tabs.find(t => t.getAttribute("aria-controls") === id) || tabs[0];
-    if (!active) return;
-    for (const tab of tabs) {
-      const on = tab === active;
-      tab.setAttribute("aria-selected", String(on));
-      tab.tabIndex = on ? 0 : -1;
-      document.getElementById(tab.getAttribute("aria-controls")).hidden = !on;
-    }
-    if (updateHash) history.replaceState(null, "", `#${active.getAttribute("aria-controls")}`);
-    if (focus) active.focus({ preventScroll: true });
-    if (!mapPanel.hidden) scheduleFit();
-  }
-  tabs.forEach((tab, i) => {
-    tab.addEventListener("click", () => activate(tab.getAttribute("aria-controls"), { updateHash: true }));
-    tab.addEventListener("keydown", event => {
-      let next;
-      if (event.key === "ArrowRight") next = (i + 1) % tabs.length;
-      else if (event.key === "ArrowLeft") next = (i - 1 + tabs.length) % tabs.length;
-      else if (event.key === "Home") next = 0;
-      else if (event.key === "End") next = tabs.length - 1;
-      else return;
-      event.preventDefault();
-      activate(tabs[next].getAttribute("aria-controls"), { updateHash: true, focus: true });
-    });
-  });
-  const fromHash = () => activate(location.hash.slice(1) || "lecture");
-  addEventListener("hashchange", fromHash);
-  fromHash();
   if (frame) {
     new ResizeObserver(() => {
       if (Math.abs(frame.clientWidth - frameWidth) < 1) return;
@@ -109,8 +79,9 @@
   }
 
   const dialog = document.querySelector(".wy-photo");
-  const opener = document.querySelector("[data-open-photo]");
-  if (!dialog || !opener) return;
+  const openers = [...document.querySelectorAll("[data-open-photo]")];
+  if (!dialog || !openers.length) return;
+  let opener = null;
   const image = dialog.querySelector("img");
   const photos = [...dialog.querySelectorAll("[data-photo]")];
   const zoomButton = dialog.querySelector("[data-photo-zoom]");
@@ -123,18 +94,28 @@
     image.width = Number(button.dataset.width);
     image.height = Number(button.dataset.height);
     image.alt = button.textContent;
+    dialog.querySelector("#wy-photo-title").textContent = button.textContent;
     // 唯一下载入口：页内 dialog 打开之后或在 dialog 内切图。
     image.src = button.dataset.photo;
     photoZoom(false);
     dialog.querySelector(".wy-photo-scroll").scrollTo(0, 0);
   }
-  opener.addEventListener("click", () => {
+  for (const button of openers) button.addEventListener("click", () => {
+    opener = button;
+    const numbers = button.dataset.photos.split(",");
+    for (const photo of photos) photo.hidden = !numbers.includes(photo.dataset.photoNumber);
+    const available = photos.filter((photo) => !photo.hidden);
+    dialog.querySelector(".wy-photo-tabs").hidden = available.length < 2;
     dialog.showModal();
-    selectPhoto(photos[0]);
+    selectPhoto(available[0]);
   });
   for (const button of photos) button.addEventListener("click", () => selectPhoto(button));
   dialog.querySelector("[data-photo-close]").addEventListener("click", () => dialog.close());
   zoomButton.addEventListener("click", () => photoZoom(!dialog.classList.contains("is-enlarged")));
-  dialog.addEventListener("click", event => { if (event.target === dialog) dialog.close(); });
-  dialog.addEventListener("close", () => opener.focus({ preventScroll: true }));
+  dialog.addEventListener("click", event => {
+    if (event.target !== dialog) return;
+    const r = dialog.getBoundingClientRect();
+    if (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom) dialog.close();
+  });
+  dialog.addEventListener("close", () => opener?.focus({ preventScroll: true }));
 })();

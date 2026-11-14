@@ -6,7 +6,8 @@
 // 3. 给按钮、工具栏等非学习文字加上 data-pagefind-ignore，避免搜索摘要里出现
 //    「全部展开」「全部折叠」「查看原图」等控件上的字。正文仍会进入索引。
 import { readdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
-import { join } from "node:path";
+import { join, resolve } from "node:path";
+import { pathToFileURL } from "node:url";
 
 export function addAnchors(html) {
   const ids = new Set([...html.matchAll(/\sid="([^"]+)"/g)].map((m) => m[1]));
@@ -83,6 +84,8 @@ export function addSectionContext(html) {
 // 工具栏、操作按钮等非学习文字。只给这些控件加属性，不改标签里的字。
 const UI_CONTAINERS = [
   "map-actions",
+  "wy-photo",
+  "wy-mm-controls",
   "block-controls",
   "tryit-actions",
   "example-actions",
@@ -106,6 +109,7 @@ const UI_TEXT = new Set([
   "全部折叠",
   "全部收起",
   "查看原图",
+  "打开原图",
   "跳到讲解视频",
   "运行",
   "重置",
@@ -175,7 +179,7 @@ export function ignoreUi(html) {
   let added = 0;
   const classAlt = UI_CONTAINERS.slice().sort((a, b) => b.length - a.length).map(escapeClass).join("|");
   const classRe = new RegExp(
-    `<(a|article|aside|button|div|footer|header|menu|nav|ol|p|section|span|ul)\\b[^>]*\\bclass\\s*=\\s*["'][^"']*\\b(?:${classAlt})\\b[^"']*["'][^>]*>`,
+    `<(a|article|aside|button|dialog|div|footer|header|menu|nav|ol|p|section|span|ul)\\b[^>]*\\bclass\\s*=\\s*["'][^"']*\\b(?:${classAlt})\\b[^"']*["'][^>]*>`,
     "gi"
   );
   let out = html.replace(classRe, (tag) => {
@@ -202,7 +206,7 @@ function walk(dir, files = []) {
   return files;
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
   const root = process.argv[2] || "_site";
   let anchors = 0;
   let contexts = 0;

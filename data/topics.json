@@ -678,23 +678,6 @@
       "blurb": "正文在网页设计页面。"
     },
     {
-      "id": "web.html5_structure",
-      "subject_id": "web_design",
-      "chapter_id": "web.ch2",
-      "title": "第2章 HTML5 文档结构",
-      "order": 1,
-      "aliases": [
-        "文档结构"
-      ],
-      "prereq_ids": [
-        "web.concepts"
-      ],
-      "source_ref": "wy/ch2/index.html",
-      "legacy_url": "wy/ch2/index.html",
-      "verified": false,
-      "blurb": "第 2 章视频在网页设计页面，整集约 6:51。"
-    },
-    {
       "id": "web.html_intro",
       "subject_id": "web_design",
       "chapter_id": "web.lessons",
@@ -1150,10 +1133,10 @@
       "subject_id": "web_design",
       "chapter_id": "web.ch2",
       "title": "2.1 HTML 简介",
-      "order": 2,
+      "order": 1,
       "aliases": [],
       "prereq_ids": [
-        "web.html5_structure"
+        "web.concepts"
       ],
       "source_ref": "wy/ch2/s21.html",
       "legacy_url": "wy/ch2/s21.html",
@@ -1164,7 +1147,7 @@
       "subject_id": "web_design",
       "chapter_id": "web.ch2",
       "title": "2.2 HTML5 文档结构",
-      "order": 3,
+      "order": 2,
       "aliases": [],
       "prereq_ids": [
         "web.s21"
@@ -1178,7 +1161,7 @@
       "subject_id": "web_design",
       "chapter_id": "web.ch2",
       "title": "2.2 HTML5 编写注意事项（必记）",
-      "order": 4,
+      "order": 3,
       "aliases": [],
       "prereq_ids": [
         "web.s22"
@@ -1192,7 +1175,7 @@
       "subject_id": "web_design",
       "chapter_id": "web.ch2",
       "title": "2.3 <meta> 标签详解",
-      "order": 5,
+      "order": 4,
       "aliases": [],
       "prereq_ids": [
         "web.s22b"
@@ -1206,7 +1189,7 @@
       "subject_id": "web_design",
       "chapter_id": "web.ch2",
       "title": "2.4 <body> 标签详解",
-      "order": 6,
+      "order": 5,
       "aliases": [],
       "prereq_ids": [
         "web.s23"
@@ -1692,73 +1675,17 @@
       "verified": false
     },
     {
-      "id": "web.html.intro",
+      "id": "web.html.editors",
       "subject_id": "web_design",
       "chapter_id": "web.html",
-      "title": "HTML 简介",
+      "title": "HTML 编辑器",
       "order": 1,
       "aliases": [],
       "prereq_ids": [
         "web.html_intro"
       ],
-      "source_ref": "wy/html/intro.html",
-      "legacy_url": "wy/html/intro.html",
-      "verified": false
-    },
-    {
-      "id": "web.html.editors",
-      "subject_id": "web_design",
-      "chapter_id": "web.html",
-      "title": "HTML 编辑器",
-      "order": 2,
-      "aliases": [],
-      "prereq_ids": [
-        "web.html.intro"
-      ],
       "source_ref": "wy/html/editors.html",
       "legacy_url": "wy/html/editors.html",
-      "verified": false
-    },
-    {
-      "id": "web.html.basic",
-      "subject_id": "web_design",
-      "chapter_id": "web.html",
-      "title": "HTML 基础",
-      "order": 3,
-      "aliases": [],
-      "prereq_ids": [
-        "web.html.editors"
-      ],
-      "source_ref": "wy/html/basic.html",
-      "legacy_url": "wy/html/basic.html",
-      "verified": false
-    },
-    {
-      "id": "web.html.elements",
-      "subject_id": "web_design",
-      "chapter_id": "web.html",
-      "title": "HTML 元素",
-      "order": 4,
-      "aliases": [],
-      "prereq_ids": [
-        "web.html.basic"
-      ],
-      "source_ref": "wy/html/elements.html",
-      "legacy_url": "wy/html/elements.html",
-      "verified": false
-    },
-    {
-      "id": "web.html.attributes",
-      "subject_id": "web_design",
-      "chapter_id": "web.html",
-      "title": "HTML 属性",
-      "order": 5,
-      "aliases": [],
-      "prereq_ids": [
-        "web.html.elements"
-      ],
-      "source_ref": "wy/html/attributes.html",
-      "legacy_url": "wy/html/attributes.html",
       "verified": false
     },
     {
@@ -1766,10 +1693,10 @@
       "subject_id": "web_design",
       "chapter_id": "web.html",
       "title": "HTML 标题",
-      "order": 6,
+      "order": 2,
       "aliases": [],
       "prereq_ids": [
-        "web.html.attributes"
+        "web.html.editors"
       ],
       "source_ref": "wy/html/headings.html",
       "legacy_url": "wy/html/headings.html",
@@ -1780,7 +1707,7 @@
       "subject_id": "web_design",
       "chapter_id": "web.html",
       "title": "HTML 段落",
-      "order": 7,
+      "order": 3,
       "aliases": [],
       "prereq_ids": [
         "web.html.headings"
@@ -1794,7 +1721,7 @@
       "subject_id": "web_design",
       "chapter_id": "web.html",
       "title": "HTML 文本格式化",
-      "order": 8,
+      "order": 4,
       "aliases": [],
       "prereq_ids": [
         "web.html.paragraphs"
@@ -1808,7 +1735,7 @@
       "subject_id": "web_design",
       "chapter_id": "web.html",
       "title": "HTML 链接",
-      "order": 9,
+      "order": 5,
       "aliases": [],
       "prereq_ids": [
         "web.html.formatting"
@@ -1818,28 +1745,14 @@
       "verified": false
     },
     {
-      "id": "web.html.head",
-      "subject_id": "web_design",
-      "chapter_id": "web.html",
-      "title": "HTML 头部",
-      "order": 10,
-      "aliases": [],
-      "prereq_ids": [
-        "web.html.links"
-      ],
-      "source_ref": "wy/html/head.html",
-      "legacy_url": "wy/html/head.html",
-      "verified": false
-    },
-    {
       "id": "web.html.css_inline",
       "subject_id": "web_design",
       "chapter_id": "web.html",
       "title": "HTML 中的 CSS",
-      "order": 11,
+      "order": 6,
       "aliases": [],
       "prereq_ids": [
-        "web.html.head"
+        "web.html.links"
       ],
       "source_ref": "wy/html/css-inline.html",
       "legacy_url": "wy/html/css-inline.html",
@@ -1850,7 +1763,7 @@
       "subject_id": "web_design",
       "chapter_id": "web.html",
       "title": "HTML 图像",
-      "order": 12,
+      "order": 7,
       "aliases": [],
       "prereq_ids": [
         "web.html.css_inline"
@@ -1864,7 +1777,7 @@
       "subject_id": "web_design",
       "chapter_id": "web.html",
       "title": "HTML 表格",
-      "order": 13,
+      "order": 8,
       "aliases": [],
       "prereq_ids": [
         "web.html.images"
@@ -1878,7 +1791,7 @@
       "subject_id": "web_design",
       "chapter_id": "web.html",
       "title": "HTML 列表",
-      "order": 14,
+      "order": 9,
       "aliases": [],
       "prereq_ids": [
         "web.html.tables"
@@ -1892,7 +1805,7 @@
       "subject_id": "web_design",
       "chapter_id": "web.html",
       "title": "HTML 区块",
-      "order": 15,
+      "order": 10,
       "aliases": [],
       "prereq_ids": [
         "web.html.lists"
@@ -1906,7 +1819,7 @@
       "subject_id": "web_design",
       "chapter_id": "web.html",
       "title": "HTML 布局",
-      "order": 16,
+      "order": 11,
       "aliases": [],
       "prereq_ids": [
         "web.html.blocks"
@@ -1920,7 +1833,7 @@
       "subject_id": "web_design",
       "chapter_id": "web.html",
       "title": "HTML 表单",
-      "order": 17,
+      "order": 12,
       "aliases": [],
       "prereq_ids": [
         "web.html.layouts"
@@ -1934,7 +1847,7 @@
       "subject_id": "web_design",
       "chapter_id": "web.html",
       "title": "HTML 框架（iframe）",
-      "order": 18,
+      "order": 13,
       "aliases": [],
       "prereq_ids": [
         "web.html.forms"
@@ -1948,7 +1861,7 @@
       "subject_id": "web_design",
       "chapter_id": "web.html",
       "title": "HTML 颜色",
-      "order": 19,
+      "order": 14,
       "aliases": [],
       "prereq_ids": [
         "web.html.iframes"
@@ -1962,7 +1875,7 @@
       "subject_id": "web_design",
       "chapter_id": "web.html",
       "title": "HTML 脚本",
-      "order": 20,
+      "order": 15,
       "aliases": [],
       "prereq_ids": [
         "web.html.colors"
@@ -1976,7 +1889,7 @@
       "subject_id": "web_design",
       "chapter_id": "web.html",
       "title": "HTML 字符实体",
-      "order": 21,
+      "order": 16,
       "aliases": [],
       "prereq_ids": [
         "web.html.scripts"
@@ -1990,7 +1903,7 @@
       "subject_id": "web_design",
       "chapter_id": "web.html",
       "title": "HTML URL",
-      "order": 22,
+      "order": 17,
       "aliases": [],
       "prereq_ids": [
         "web.html.entities"
@@ -2004,7 +1917,7 @@
       "subject_id": "web_design",
       "chapter_id": "web.html",
       "title": "HTML 速查（精简）",
-      "order": 23,
+      "order": 18,
       "aliases": [],
       "prereq_ids": [
         "web.html.url"
@@ -2018,7 +1931,7 @@
       "subject_id": "web_design",
       "chapter_id": "web.html",
       "title": "HTML 总结",
-      "order": 24,
+      "order": 19,
       "aliases": [],
       "prereq_ids": [
         "web.html.cheatsheet"
@@ -2032,7 +1945,7 @@
       "subject_id": "web_design",
       "chapter_id": "web.html",
       "title": "HTML 自测",
-      "order": 25,
+      "order": 20,
       "aliases": [],
       "prereq_ids": [
         "web.html.summary"
@@ -2042,28 +1955,14 @@
       "verified": false
     },
     {
-      "id": "web.html5.intro",
-      "subject_id": "web_design",
-      "chapter_id": "web.html5",
-      "title": "HTML5 简介",
-      "order": 1,
-      "aliases": [],
-      "prereq_ids": [
-        "web.html5_index"
-      ],
-      "source_ref": "wy/html5/intro.html",
-      "legacy_url": "wy/html5/intro.html",
-      "verified": false
-    },
-    {
       "id": "web.html5.browsers",
       "subject_id": "web_design",
       "chapter_id": "web.html5",
       "title": "浏览器支持",
-      "order": 2,
+      "order": 1,
       "aliases": [],
       "prereq_ids": [
-        "web.html5.intro"
+        "web.html5_index"
       ],
       "source_ref": "wy/html5/browsers.html",
       "legacy_url": "wy/html5/browsers.html",
@@ -2074,7 +1973,7 @@
       "subject_id": "web_design",
       "chapter_id": "web.html5",
       "title": "HTML5 新元素",
-      "order": 3,
+      "order": 2,
       "aliases": [],
       "prereq_ids": [
         "web.html5.browsers"
@@ -2088,7 +1987,7 @@
       "subject_id": "web_design",
       "chapter_id": "web.html5",
       "title": "语义元素",
-      "order": 4,
+      "order": 3,
       "aliases": [],
       "prereq_ids": [
         "web.html5.new_elements"
@@ -2102,7 +2001,7 @@
       "subject_id": "web_design",
       "chapter_id": "web.html5",
       "title": "Canvas 概述",
-      "order": 5,
+      "order": 4,
       "aliases": [],
       "prereq_ids": [
         "web.html5.semantic"
@@ -2116,7 +2015,7 @@
       "subject_id": "web_design",
       "chapter_id": "web.html5",
       "title": "SVG 概述",
-      "order": 6,
+      "order": 5,
       "aliases": [],
       "prereq_ids": [
         "web.html5.canvas"
@@ -2130,7 +2029,7 @@
       "subject_id": "web_design",
       "chapter_id": "web.html5",
       "title": "拖放",
-      "order": 7,
+      "order": 6,
       "aliases": [],
       "prereq_ids": [
         "web.html5.svg"
@@ -2144,7 +2043,7 @@
       "subject_id": "web_design",
       "chapter_id": "web.html5",
       "title": "HTML5 Video",
-      "order": 8,
+      "order": 7,
       "aliases": [],
       "prereq_ids": [
         "web.html5.drag"
@@ -2158,7 +2057,7 @@
       "subject_id": "web_design",
       "chapter_id": "web.html5",
       "title": "HTML5 Audio",
-      "order": 9,
+      "order": 8,
       "aliases": [],
       "prereq_ids": [
         "web.html5.video"
@@ -2172,7 +2071,7 @@
       "subject_id": "web_design",
       "chapter_id": "web.html5",
       "title": "HTML5 Input 类型",
-      "order": 10,
+      "order": 9,
       "aliases": [],
       "prereq_ids": [
         "web.html5.audio"
@@ -2186,7 +2085,7 @@
       "subject_id": "web_design",
       "chapter_id": "web.html5",
       "title": "HTML5 表单元素",
-      "order": 11,
+      "order": 10,
       "aliases": [],
       "prereq_ids": [
         "web.html5.input_types"
@@ -2200,7 +2099,7 @@
       "subject_id": "web_design",
       "chapter_id": "web.html5",
       "title": "表单属性",
-      "order": 12,
+      "order": 11,
       "aliases": [],
       "prereq_ids": [
         "web.html5.form_elements"
@@ -2214,7 +2113,7 @@
       "subject_id": "web_design",
       "chapter_id": "web.html5",
       "title": "Web 存储概述",
-      "order": 13,
+      "order": 12,
       "aliases": [],
       "prereq_ids": [
         "web.html5.form_attrs"
@@ -2228,7 +2127,7 @@
       "subject_id": "web_design",
       "chapter_id": "web.html5",
       "title": "HTML 媒体概述",
-      "order": 14,
+      "order": 13,
       "aliases": [],
       "prereq_ids": [
         "web.html5.webstorage"
@@ -2563,5 +2462,14 @@
       "legacy_url": "wy/reference/index.html",
       "verified": false
     }
-  ]
+  ],
+  "merged_topics": {
+    "web.html5_structure": "web.s21",
+    "web.html.intro": "web.s21",
+    "web.html.attributes": "web.s21",
+    "web.html.elements": "web.s21",
+    "web.html.basic": "web.s22",
+    "web.html5.intro": "web.s22",
+    "web.html.head": "web.s23"
+  }
 }

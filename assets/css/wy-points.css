@@ -17,7 +17,43 @@
 .wy-section-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 16px; }
 .wy-section-head h2 { margin: 0; }
 .wy-tab-panel section > h2, .wy-section-head h2 { border-left: 4px solid var(--sh-accent); padding-left: 10px; }
-.wy-organized { margin-top: 28px; }
+.wy-entry, .wy-unit { padding: 24px; min-width: 0; scroll-margin-top: 90px; border-bottom: 1px solid var(--sh-line); }
+.wy-entry-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+.wy-entry-top h2 { margin: 0; align-self: center; }
+.wy-entry-top .sh-btn { flex: none; }
+.wy-source.wy-paper { padding: 0; border: 0; background: transparent; }
+.wy-source .wy-source-title { margin: 0 0 16px; padding: 0 0 10px; background: transparent; }
+.wy-source .wy-source-title h3 { margin: 0; font-size: 14px; color: var(--sh-ink-2); }
+.wy-supplement { margin-top: 16px; background: var(--sh-accent-softer); }
+.wy-supplement > h3:first-child, .wy-selfcheck > h3 { font-size: 12px; color: var(--sh-ink-2); margin: 0 0 10px; }
+.wy-selfcheck { margin-top: 12px; padding: 12px; border-radius: var(--sh-radius-sm); background: var(--sh-accent-soft); font-size: 13px; }
+.wy-selfcheck .sh-card { padding: 0; border: 0; box-shadow: none; background: transparent; }
+.wy-selfcheck .rn { min-width: 32px; }
+.wy-practice-links { list-style: none; padding: 0; margin: 0; }
+.wy-practice-links a, .wy-page-toc a { display: flex; align-items: center; min-height: 44px; padding: 8px 4px; }
+.wy-page-toc nav { display: grid; font-size: 12px; }
+.wy-points-page .lx-toc__chapter a { display: flex; align-items: center; min-height: 44px; }
+.wy-extension { line-height: 1.85; overflow-wrap: anywhere; }
+.wy-ext-block + .wy-ext-block { padding-top: 20px; margin-top: 20px; border-top: 1px solid var(--sh-line); }
+.wy-extension .page-hero { padding: 0; background: transparent; margin: 0; }
+.wy-extension pre { max-width: 100%; overflow: auto; background: var(--sh-accent-softer); padding: 14px; border-radius: var(--sh-radius-sm); font: 13px/1.7 var(--sg-font-mono); }
+.wy-extension .tryit { border: 1px solid var(--sh-line); border-radius: var(--sh-radius-sm); overflow: hidden; margin-block: 16px; }
+.wy-extension .tryit-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; padding: 10px; gap: 8px; background: var(--sh-accent-softer); }
+.wy-extension .tryit-actions { display: flex; gap: 8px; }
+.wy-extension .tryit-actions button { font: inherit; min-height: 44px; min-width: 44px; border: 1px solid var(--sh-line-strong); border-radius: var(--sh-radius-sm); background: var(--sh-surface); color: var(--sh-ink); padding: 8px 12px; cursor: pointer; }
+.wy-extension .tryit-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); }
+.wy-extension .tryit-code { min-width: 0; width: 100%; min-height: 240px; resize: vertical; border: 0; padding: 12px; background: var(--sh-bg); color: var(--sh-ink); font: 12px/1.7 var(--sg-font-mono); }
+.wy-extension .tryit-preview { width: 100%; height: 100%; min-height: 240px; border: 0; background: white; }
+.wy-chapter-dot { width: 14px; height: 14px; border: 1.5px solid var(--sh-ink-3); border-radius: 50%; flex: none; }
+.wy-chapter-row > .wy-chapter-label { flex: 1; }
+.wy-points-page .chapter-video { margin-bottom: 16px; }
+@media (max-width: 760px) {
+  .wy-entry, .wy-unit { padding: 20px 14px; }
+  .wy-extension .tryit-grid { grid-template-columns: minmax(0,1fr); }
+  .wy-page-toc { display: none; }
+  .wy-photo header { flex-wrap: wrap; }
+  .wy-photo header > div { margin-left: auto; }
+}
 .wy-paper { padding: 20px; border: 1px solid var(--sh-line); border-radius: var(--sh-radius); background: var(--sh-surface); font-size: 14px; line-height: 1.85; overflow-wrap: anywhere; }
 .wy-source-row { display: flex; align-items: flex-start; gap: 18px; margin-bottom: 16px; }
 .wy-source-row > :first-child { flex: 1; min-width: 0; margin: 0; }
@@ -59,8 +95,14 @@
 .wy-chapter-list { margin-bottom: 20px; }
 .wy-chapter-list ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 9px; }
 .wy-chapter-row { display: flex; align-items: center; gap: 12px; min-height: 58px; padding: 10px 12px; border: 1px solid var(--sh-line); border-radius: var(--sh-radius-sm); font-size: 14px; }
-.wy-chapter-row > :nth-child(2) { flex: 1; }
+.wy-chapter-row > .wy-chapter-label { flex: 1; }
 .wy-chapter-row:hover { background: var(--sh-accent-softer); border-color: var(--sh-accent-line); }
+.wy-points-page .zlp button { min-width: 44px; min-height: 44px; }
+.wy-points-page .zlp__controls { flex-wrap: wrap; }
+.wy-points-page .zlp input { min-height: 44px; }
+.wy-points-page .zlp input[type="range"] { min-height: 44px; min-width: 44px; }
+.wy-layout .video-grid { display: block; }
+.wy-photo-tabs[hidden], .wy-photo-tabs button[hidden] { display: none; }
 .wy-layout .vcard { overflow: hidden; border: 1px solid var(--sh-line); border-radius: var(--sh-radius); background: var(--sh-surface); box-shadow: var(--sh-shadow); }
 .wy-layout .vthumb { position: relative; aspect-ratio: 16/9; background: var(--sg-stage); }
 .wy-layout .vthumb video { width: 100%; height: 100%; object-fit: contain; }

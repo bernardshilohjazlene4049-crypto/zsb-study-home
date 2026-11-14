@@ -117,10 +117,15 @@ function tocItem(model, t, base, rel, cfg, current) {
   return el("li", {}, [a]);
 }
 
+export function tocChapterIds(chapterIds, chapterPoints = false) {
+  return chapterPoints ? ["web.ch1", "web.ch2"] : chapterIds;
+}
+
 export function renderToc(model, { toc, subjectId, chapterIds, rel, base, cfg = {}, current, extras = { before: [], after: [] }, onPick }) {
   const subject = model.subjectById.get(subjectId);
   const nodes = model.chaptersOf(subjectId);
-  const mine = nodes.filter((n) => chapterIds.includes(n.chapter.id)).map((n) => ({ ...n, topics: directoryTopics(n.topics, cfg.chapterPoints) }));
+  const visibleChapterIds = tocChapterIds(chapterIds, cfg.chapterPoints);
+  const mine = nodes.filter((n) => visibleChapterIds.includes(n.chapter.id)).map((n) => ({ ...n, topics: directoryTopics(n.topics, cfg.chapterPoints) }));
   const head = el("div", { class: "lx-toc__subject" }, [
     el("a", { class: "lx-toc__subject-link", href: subject?.homeUrl ? base + subject.homeUrl : null }, [
       el("span", { class: "lx-toc__subject-icon" }, [icon("book", 18)]),
@@ -151,7 +156,10 @@ export function renderToc(model, { toc, subjectId, chapterIds, rel, base, cfg = 
 
   panelToc.append(extraList(extras.before, "is-before") || "");
   for (const node of mine) {
-    const group = el("section", { class: "lx-toc__group" }, [el("h3", { class: "lx-toc__chapter", text: node.chapter.title })]);
+    const heading = cfg.chapterPoints
+      ? el("h3", { class: "lx-toc__chapter" }, [el("a", { href: base + node.chapter.source_ref, text: node.chapter.title })])
+      : el("h3", { class: "lx-toc__chapter", text: node.chapter.title });
+    const group = el("section", { class: "lx-toc__group" }, [heading]);
     if (node.sections.length) {
       for (const sec of node.sections) {
         if (!sec.topics.length) continue;
@@ -174,7 +182,10 @@ export function renderToc(model, { toc, subjectId, chapterIds, rel, base, cfg = 
   })));
 
   const close = el("button", { type: "button", class: "lx-toc__close", "aria-label": "关闭目录" }, [icon("close", 18)]);
-  toc.replaceChildren(close, head, prog || "", tabs, panelToc, panelMap);
+  if (cfg.chapterPoints) {
+    panelToc.removeAttribute("role");
+    toc.replaceChildren(close, head, prog || "", panelToc);
+  } else toc.replaceChildren(close, head, prog || "", tabs, panelToc, panelMap);
   toc.addEventListener("click", (e) => {
     const a = e.target.closest("a.lx-toc__item");
     if (a && onPick) onPick(a, e);
@@ -539,6 +550,13 @@ export async function mount(shell) {
       el(next ? "a" : "span", { class: `sh-btn lx-pager__btn${next ? "" : " is-off"}`, href: next ? linkFor(next) : null, "aria-disabled": next ? null : "true", title: next?.title || null }, [el("span", { text: "下一节" }), icon("chevron", 15)])
     );
     sk.side.replaceChildren(...(topic ? [pathCard(model, topic.id, base), statusCard(model, topic.id, base)] : []));
+    if (cfg.chapterPoints) {
+      const targets = [...sk.body.querySelectorAll(".wy-entry, #extension, #mindmap, #video, #practice")];
+      if (targets.length) sk.side.append(el("section", { class: "sh-card wy-page-toc" }, [
+        el("h2", { class: "sh-card__title", text: "本页内容" }),
+        el("nav", { "aria-label": "本页内容" }, targets.map((n) => el("a", { href: `#${n.id}`, text: n.querySelector("h2")?.textContent || "" })))
+      ]));
+    }
     for (const a of sk.toc.querySelectorAll(".lx-toc__item[data-topic]")) {
       const on = a.dataset.topic === current;
       a.classList.toggle("is-current", on);

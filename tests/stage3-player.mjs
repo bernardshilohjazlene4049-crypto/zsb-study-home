@@ -15,7 +15,7 @@ const VIDEO_PAGES = [
   "yy/index.html",
   "yy/yy5.html",
   "jsj/index.html",
-  "wy/ch2/index.html",
+  "wy/ch2/s21.html",
   "study/index.html"
 ];
 
@@ -126,7 +126,7 @@ test("控件显示时时长标签不再压住全屏按钮", () => {
     "CSS 需要在控件可见时隐藏容器里的 .dur"
   );
   // 隐藏规则作用于播放器容器的直接子节点，页面结构必须保持这样。
-  const pages = [["wy/ch2/index.html", "vthumb"], ["yy/index.html", "media-frame"]];
+  const pages = [["wy/ch2/s21.html", "vthumb"], ["yy/index.html", "media-frame"]];
   for (const [path, container] of pages) {
     const html = readFileSync(join(root, path), "utf8");
     const open = `<div class="${container}">`;
