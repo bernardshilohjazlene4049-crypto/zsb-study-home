@@ -82,8 +82,8 @@ test("9张导图节点逐字一致，无添加或遗漏", () => {
   }
 });
 
-test("41个实际条目各一次；每个原文/整理片段的文本计数与原HTML均保留", () => {
-  assert.equal(Object.values(manifest).flat().length, 41);
+test("40个实际条目各一次；每个原文/整理片段的文本计数与原HTML均保留", () => {
+  assert.equal(Object.values(manifest).flat().length, 40);
   for (const id of ids) {
     const html = read(pathFor(id)), entries = parts(html, "wy-entry");
     assert.equal(entries.length, manifest[id].length);
@@ -115,7 +115,7 @@ test("41个实际条目各一次；每个原文/整理片段的文本计数与�
 });
 
 test("16条自测正文编号只出现一次，位置固定；习题仅以原文字链接回条目", () => {
-  const expected = { s11: {1:7,2:3,3:4,4:5,5:8,6:10}, s12:{7:5},s13:{8:3},"s-extra":{},s21:{1:1,2:3},s22:{3:1,4:3},s22b:{5:7,8:6},s23:{6:6},s24:{7:1} };
+  const expected = { s11: {1:7,2:3,3:4,4:5,5:8,6:10}, s12:{7:5},s13:{8:3},"s-extra":{},s21:{1:1,2:3},s22:{3:1,4:3},s22b:{5:7,8:6},s23:{6:5},s24:{7:1} };
   let count = 0;
   for (const id of ids) {
     const html = read(pathFor(id));

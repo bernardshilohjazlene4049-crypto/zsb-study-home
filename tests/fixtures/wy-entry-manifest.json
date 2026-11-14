@@ -244,7 +244,7 @@
     },
     {
       "id": "s12-entry-5",
-      "title": "发布（原文无编号）",
+      "title": "发布",
       "photos": [
         2
       ],
@@ -324,7 +324,7 @@
   "s-extra": [
     {
       "id": "s-extra-entry-1",
-      "title": "〔手写〕网页制作开发工具",
+      "title": "网页制作开发工具",
       "photos": [
         3
       ],
@@ -388,7 +388,7 @@
     },
     {
       "id": "s21-entry-4",
-      "title": "HTML 属性（无编号段）",
+      "title": "HTML 属性",
       "photos": [
         1
       ],
@@ -459,7 +459,7 @@
   "s22b": [
     {
       "id": "s22b-entry-1",
-      "title": "1. 不能交叉嵌套",
+      "title": "1. 标记可以嵌套使用，但不能交叉嵌套",
       "photos": [
         3
       ],
@@ -478,7 +478,7 @@
     },
     {
       "id": "s22b-entry-2",
-      "title": "2. 不区分大小写",
+      "title": "2. 不区分大小写，建议用小写",
       "photos": [
         3
       ],
@@ -492,7 +492,7 @@
     },
     {
       "id": "s22b-entry-3",
-      "title": "3. 属性值双引号",
+      "title": "3. 标记中可以放各种属性，属性值建议用双引号包裹",
       "photos": [
         3
       ],
@@ -506,7 +506,7 @@
     },
     {
       "id": "s22b-entry-4",
-      "title": "4. 缩进书写",
+      "title": "4. 缩进书写，便于阅读",
       "photos": [
         3
       ],
@@ -520,7 +520,7 @@
     },
     {
       "id": "s22b-entry-5",
-      "title": "5. 英文标点",
+      "title": "5. 标点符号全部使用英文输入法输入",
       "photos": [
         3
       ],
@@ -534,7 +534,7 @@
     },
     {
       "id": "s22b-entry-6",
-      "title": "6. 属性值省略",
+      "title": "6. 允许部分属性值省略",
       "photos": [
         3
       ],
@@ -551,7 +551,7 @@
     },
     {
       "id": "s22b-entry-7",
-      "title": "7. 注释",
+      "title": "7. <!--注释内容-->表示注释语句",
       "photos": [
         3
       ],
@@ -569,17 +569,7 @@
   "s23": [
     {
       "id": "s23-entry-1",
-      "title": "引言（整理独有：meta 定义元数据）",
-      "photos": [],
-      "checks": [],
-      "source": [],
-      "supplement": [
-        "<p><code>&lt;meta&gt;</code> 用来定义网页的<strong>元数据</strong>（描述性信息），不直接显示在页面上，但会被浏览器和搜索引擎识别。</p>"
-      ]
-    },
-    {
-      "id": "s23-entry-2",
-      "title": "1. 关键字",
+      "title": "1. 设置网页关键字（供搜索引擎抓取）",
       "photos": [
         4
       ],
@@ -592,12 +582,13 @@
         "<div class=\"wy-source-row\"><pre tabindex=\"0\"><code>&lt;meta name=&quot;<u class=\"wy-ul\">keywords</u>&quot; content=&quot;HTML,前端开发,学习教程&quot;&gt;</code></pre></div>"
       ],
       "supplement": [
+        "<p><code>&lt;meta&gt;</code> 用来定义网页的<strong>元数据</strong>（描述性信息），不直接显示在页面上，但会被浏览器和搜索引擎识别。</p>",
         "<li><strong>关键字</strong>（供搜索引擎抓取）<pre tabindex=\"0\"><code>&lt;meta name=\"keywords\" content=\"HTML,前端开发,学习教程\"&gt;</code></pre></li>"
       ]
     },
     {
-      "id": "s23-entry-3",
-      "title": "2. 描述",
+      "id": "s23-entry-2",
+      "title": "2. 设置网页描述（搜索引擎结果中会显示）",
       "photos": [
         4
       ],
@@ -611,8 +602,8 @@
       ]
     },
     {
-      "id": "s23-entry-4",
-      "title": "3. 作者",
+      "id": "s23-entry-3",
+      "title": "3. 设置网页作者",
       "photos": [
         5
       ],
@@ -626,8 +617,8 @@
       ]
     },
     {
-      "id": "s23-entry-5",
-      "title": "4. 字符集",
+      "id": "s23-entry-4",
+      "title": "4. 设置字符集（防止乱码）",
       "photos": [
         5
       ],
@@ -641,8 +632,8 @@
       ]
     },
     {
-      "id": "s23-entry-6",
-      "title": "5. 自动刷新与跳转",
+      "id": "s23-entry-5",
+      "title": "5. 设置页面自动刷新与跳转（10 秒后跳转到指定网址）",
       "photos": [
         5
       ],
