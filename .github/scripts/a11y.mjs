@@ -16,11 +16,31 @@ const PAGES = [
 const browser = await chromium.launch(process.env.CHROME_PATH ? { executablePath: process.env.CHROME_PATH } : {});
 const rows = [];
 let serious = 0;
+async function loadPage(page, path) {
+  let lastError;
+  for (let attempt = 1; attempt <= 2; attempt++) {
+    try {
+      await page.goto(BASE + path, { waitUntil: "domcontentloaded", timeout: 30000 });
+      return null;
+    } catch (error) {
+      lastError = error;
+      if (attempt === 1) await page.waitForTimeout(1000);
+    }
+  }
+  return lastError;
+}
 for (const [w, h] of [[1440, 900], [390, 844]]) {
   const ctx = await browser.newContext({ viewport: { width: w, height: h } });
   for (const p of PAGES) {
     const page = await ctx.newPage();
-    await page.goto(BASE + p, { waitUntil: "load" });
+    const loadError = await loadPage(page, p);
+    if (loadError) {
+      serious += 1;
+      rows.push(`| ${w} | ${p} | critical | navigation-error | 1 |`);
+      console.error(`页面载入失败（重试后）：${p}`, loadError);
+      await page.close();
+      continue;
+    }
     const r = await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"]).analyze();
     for (const v of r.violations) {
       if (v.impact === "serious" || v.impact === "critical") serious += v.nodes.length;
