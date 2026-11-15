@@ -3,6 +3,7 @@
 import { loadModel, topicHref, pagePath, anchorOf, cnNumber } from "./model.js";
 import { el, icon, bar, statusDot, shortSubjectName, formatDay, STATUS_LABEL } from "./ui.js";
 import { splitChapterTitle } from "./subject.js";
+import { saveRecentTopic } from "../features/recent-learning.js";
 
 const WY = { subject: "web_design", wrap: ".wy-layout", hide: [".wy-side", ".mobile-toc-btn"] };
 const PAGES = {
@@ -489,6 +490,19 @@ export async function mount(shell) {
   let current = (tracked[0] || onPage[0] || null)?.id || null;
   const explicitChapter = cfg.chapterPoints ? q(cfg.wrap)?.dataset.chapter || "" : "";
   const chapterIds = lectureChapterIds(model, onPage, all, explicitChapter);
+  const remember = (topicId) => {
+    const topic = topicId ? model.topicById.get(topicId) : null;
+    if (!topic) return;
+    void saveRecentTopic({
+      topicId: topic.id,
+      pageUrl: rel,
+      anchor: location.hash.slice(1),
+      title: topic.title
+    }).catch(() => {
+      // 最近学习不影响讲义正文与现有答题记录。
+    });
+  };
+  remember(current);
 
   // 原页面目录里不是知识点的条目（如总流程、方法索引、思维导图）。
   const topicAnchors = new Set(onPage.map(anchorFor).filter(Boolean));
@@ -567,7 +581,13 @@ export async function mount(shell) {
 
   if (tracked.length > 1) {
     pointTabs = mountPointTabs({ sk, cfg, tracked, anchorFor, order, rel, linkFor, openToc, closeToc,
-      onCurrent: (id) => { if (id) current = id; paint(); } });
+      onCurrent: (id) => {
+        if (id && id !== current) {
+          current = id;
+          remember(id);
+        }
+        paint();
+      } });
     paint();
   } else {
     document.body.classList.add("lx-single");

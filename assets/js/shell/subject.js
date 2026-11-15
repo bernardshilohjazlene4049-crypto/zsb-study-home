@@ -2,6 +2,7 @@
 import { loadModel, topicHref } from "./model.js";
 import { el, icon, bar, SUBJECT_ICON, shortSubjectName, statusDot } from "./ui.js";
 import { hydrateIcons } from "./common.js";
+import { saveRecentTopic } from "../features/recent-learning.js";
 
 const SUBJECT_BY_PAGE = { "gs/index.html": "math", "yy/index.html": "english", "jsj/index.html": "computer_basics", "c/index.html": "c_language", "wy/index.html": "web_design" };
 const PRACTICE = { math: "gs/practice.html" };
@@ -78,6 +79,26 @@ export async function mount(shell) {
   const progress = model.subjectProgress(subjectId);
   const { chapter: current, topic: currentTopic } = selectCurrentTopic(nodes, subjectId, model.continueItem(), model.topicStatus);
   const mobile = matchMedia("(max-width: 760px)");
+  const allTopics = nodes.flatMap((node) => node.topics);
+  const remember = (topic, anchor = location.hash.slice(1)) => {
+    if (!topic) return;
+    void saveRecentTopic({
+      topicId: topic.id,
+      pageUrl: topic.legacy_url || "",
+      anchor,
+      title: topic.title
+    }).catch(() => {
+      // 记录失败不影响科目目录与讲义跳转。
+    });
+  };
+  const topicForCurrentHash = () => allTopics.find((topic) => {
+    const href = topicHref(topic, base);
+    if (!href) return false;
+    const target = new URL(href, location.href);
+    return target.pathname === location.pathname && target.hash === location.hash;
+  });
+  remember(topicForCurrentHash());
+  addEventListener("hashchange", () => remember(topicForCurrentHash()));
 
   function subjectCard(compact = false) {
     return el(compact ? "div" : "header", { class: `subj-head${compact ? " subj-head--compact" : " sh-card"}` }, [
@@ -100,14 +121,16 @@ export async function mount(shell) {
       el("ol", { class: "subj-topics__list" }, group.topics.map((topic) => {
         const isCurrent = topic.id === currentTopic?.id;
         const href = topicHref(topic, base);
-        return el("li", {}, [el(href ? "a" : "div", {
+        const topicLink = el(href ? "a" : "div", {
           class: `subj-topic${isCurrent ? " is-current" : ""}`, href: href || null, "aria-current": isCurrent ? "true" : null
         }, [
           statusDot(isCurrent ? "current" : model.topicStatus(topic.id)),
           Number.isFinite(topic.order) ? el("span", { class: "subj-topic__no", text: String(topic.order) }) : null,
           el("span", { class: "subj-topic__title", text: topic.title }),
           href ? icon("chevron", 14, "subj-topic__chev") : null
-        ])]);
+        ]);
+        if (href) topicLink.addEventListener("click", () => remember(topic, new URL(href, location.href).hash.slice(1)));
+        return el("li", {}, [topicLink]);
       }))
     ])]);
   }

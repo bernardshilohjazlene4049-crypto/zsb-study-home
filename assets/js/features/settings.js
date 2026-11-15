@@ -6,6 +6,12 @@ import { validateImportedQuestion } from "./catalog.js";
 
 export function renderSettings(ctx) {
   const report = h("div", { class: "notice", role: "status" });
+  let lastExport = "";
+  try { lastExport = localStorage.getItem(UI_KEYS.lastExportAt) || ""; } catch { /* ignore */ }
+  const lastExportDate = lastExport ? new Date(lastExport) : null;
+  const lastExportLabel = lastExportDate && !Number.isNaN(lastExportDate.getTime())
+    ? lastExportDate.toLocaleString("zh-CN", { hour12: false })
+    : "还没有导出过备份";
   const optional = h("input", { type: "checkbox" });
   optional.checked = ctx.optionalOn;
   optional.addEventListener("change", () => {
@@ -22,7 +28,13 @@ export function renderSettings(ctx) {
       h("label", { class: "choice" }, [optional, h("span", {}, "显示数字电子技术（不计入七科）")])
     ]),
     h("section", { class: "panel stack" }, [
+      h("h2", {}, "保存方式"),
+      h("p", { class: "sh-note", role: "note" }, "学习记录、错题和笔记只保存在当前浏览器。GitHub 登录不会自动同步本站数据；更换浏览器、清理网站数据或换设备前，请先导出备份。"),
+      h("p", { class: "muted" }, `备份状态：${lastExportLabel}`)
+    ]),
+    h("section", { class: "panel stack" }, [
       h("h2", {}, "导出与恢复"),
+      h("p", { class: "muted" }, "备份文件包含作答、错题、复习、笔记和题目；可在新浏览器中导入恢复。"),
       h("div", { class: "row" }, [
         h("button", { class: "btn btn-primary", type: "button", onclick: () => downloadBackup(ctx, report) }, "导出备份"),
         h("label", { class: "btn" }, ["导入学习备份", h("input", { class: "file-input", type: "file", accept: "application/json", onchange: (event) => importLearning(ctx, event, report) })])

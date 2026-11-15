@@ -998,12 +998,12 @@ sub.math-script{vertical-align:sub}
 <li>奇偶性（前提：定义域关于原点对称）：f(-x)=-f(x) 为奇（关于原点对称），f(-x)=f(x) 为偶（关于 y 轴对称）</li>
 <li>常见奇函数：x<sup aria-label="^(2n+1)" class="math-script">(2n+1)</sup>, sinx, tanx, cotx, cscx, arcsinx, arctanx</li>
 <li>常见偶函数：x<sup aria-label="^(2n)" class="math-script">(2n)</sup>, cosx, secx, |x|, 常数 C</li>
-<li>运算：奇±奇=奇，偶±偶=偶，奇±偶=非奇非偶；奇×÷奇=偶，偶×÷偶=偶，奇×÷偶=奇；复合函数内奇同外、内偶则偶</li>
+<li>运算（在同一关于原点对称的定义域上）：奇±奇=奇，偶±偶=偶；奇±偶一般非奇非偶，若其中一个函数恒为零，则需单独判断（例如 x+0=x 仍为奇函数）；奇×÷奇=偶，偶×÷偶=偶，奇×÷偶=奇；复合函数内奇同外、内偶则偶</li>
 <li>周期：Asin/Acos(ωx+φ)+B 为 2π/|ω|；Atan/Acot(ωx+φ)+B 为 π/|ω|</li>
 <li>常考有界函数：sinx, cosx, arcsinx, arccosx, arctanx, arccotx</li>
 </ul>
 </div></section><section class="learning-block method-block" aria-labelledby="method-2"><div class="learning-block__head"><span class="block-index">02</span><h3 id="method-2">解题套路</h3></div><div class="tip-grid"><div class="tip-item"><div class="tip-text"><p>奇偶性（前提：定义域关于原点对称）：f(-x)=-f(x) 为奇（关于原点对称），f(-x)=f(x) 为偶（关于 y 轴对称）</p>
-</div></div></div></section><section class="learning-block mistake-block" aria-labelledby="mistakes-2"><div class="learning-block__head"><span class="block-index">03</span><h3 id="mistakes-2">易错点</h3></div><div class="tip-grid"><div class="tip-item"><div class="tip-text"><p>奇±偶=非奇非偶</p>
+</div></div></div></section><section class="learning-block mistake-block" aria-labelledby="mistakes-2"><div class="learning-block__head"><span class="block-index">03</span><h3 id="mistakes-2">易错点</h3></div><div class="tip-grid"><div class="tip-item"><div class="tip-text"><p>奇±偶一般非奇非偶；若其中一个函数恒为零，则需单独判断。</p>
 </div></div></div></section></div></section><section class="topic-section" id="point-3" data-point="point-3"><header class="topic-header"><span class="topic-number">03</span><h2 class="topic-title">考点三：数列极限</h2></header><div class="pvideo kdvideo" data-kdvideo="kd3"><a class="pvideo-open" href="gs1/kdvideos/kd3-sequence.mp4" data-src="gs1/kdvideos/kd3-sequence.mp4" data-poster="gs1/kdposters/kd3.jpg"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span class="sr-only">考点三</span><span>考点讲解</span><span class="pvideo-dur">2:17</span></a></div><div class="core-stack"><section class="learning-block memory-block" aria-labelledby="memory-3"><div class="learning-block__head"><span class="block-index">01</span><h3 id="memory-3">必背结论</h3></div><div class="learning-block__body knowledge-content"><p>收敛数列极限唯一、必有界（有界不一定收敛，无界一定发散）；四则运算对和、差、积、商（分母极限不为 0）成立。</p>
 </div></section><section class="learning-block method-block" aria-labelledby="method-3"><div class="learning-block__head"><span class="block-index">02</span><h3 id="method-3">解题套路</h3></div><div class="tip-grid"><div class="tip-item"><div class="tip-text"><p>四则运算对和、差、积、商（分母极限不为 0）成立。</p>
 </div></div></div></section><section class="learning-block mistake-block" aria-labelledby="mistakes-3"><div class="learning-block__head"><span class="block-index">03</span><h3 id="mistakes-3">易错点</h3></div><div class="tip-grid"><div class="tip-item"><div class="tip-text"><p>有界不一定收敛，无界一定发散</p>
@@ -1380,7 +1380,8 @@ x(<span aria-label="√(x²+100)" class="math-root"><span class="root-sign">√<
 <li>八个等价（x→0）：sinx, tanx, arcsinx, arctanx, eˣ-1, ln(1+x) 都等价于 x；1-cosx~<span aria-label="x²/2" class="math-frac"><span class="frac-top">x²</span><span class="frac-bottom">2</span></span>；(1+x)^m-1~mx</li>
 <li>补充：aˣ-1~x·lna，secx-1~<span aria-label="x²/2" class="math-frac"><span class="frac-top">x²</span><span class="frac-bottom">2</span></span></li>
 <li>差函数：x-ln(1+x)~<span aria-label="x²/2" class="math-frac"><span class="frac-top">x²</span><span class="frac-bottom">2</span></span>，eˣ-1-x~<span aria-label="x²/2" class="math-frac"><span class="frac-top">x²</span><span class="frac-bottom">2</span></span>，eˣ-1-ln(1+x)~x²；x-sinx~<span aria-label="x³/6" class="math-frac"><span class="frac-top">x³</span><span class="frac-bottom">6</span></span>，arcsinx-x~<span aria-label="x³/6" class="math-frac"><span class="frac-top">x³</span><span class="frac-bottom">6</span></span>，tanx-x~<span aria-label="x³/3" class="math-frac"><span class="frac-top">x³</span><span class="frac-bottom">3</span></span></li>
-<li>大小顺序：ln(1+x) &lt; x &lt; eˣ-1；arctanx &lt; sinx &lt; x &lt; arcsinx &lt; tanx</li>
+<li>函数值大小：ln(1+x) &lt; x &lt; eˣ-1 对 x&gt;-1 且 x≠0 成立；arcsinx &lt; tanx 等三角不等式必须另标适用范围。</li>
+<li>当 x→0⁺ 且 x 充分接近 0 时，可按 arctanx &lt; sinx &lt; x &lt; arcsinx &lt; tanx 帮助记忆；这是函数值比较，不表示它们属于不同无穷小阶。</li>
 </ul>
 </div></section><section class="learning-block method-block" aria-labelledby="method-6"><div class="learning-block__head"><span class="block-index">02</span><h3 id="method-6">解题套路</h3></div><div class="tip-grid"><div class="tip-item"><div class="tip-text"><p>做题：等价替换只用于乘除因子，加减中慎用。</p>
 </div></div>

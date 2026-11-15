@@ -247,8 +247,9 @@ function learningCounts() {
 }
 
 function renderContinue() {
-  let lastId = "";
-  try { lastId = localStorage.getItem(UI_KEYS.lastTopic) || ""; } catch { /* ignore */ }
+  let localId = "";
+  try { localId = localStorage.getItem(UI_KEYS.lastTopic) || ""; } catch { /* ignore */ }
+  const lastId = localId || state.learning.recentTopic?.topic_id || "";
   const topic = lastId ? state.catalog.topic(lastId) : null;
   if (!topic) return null;
   const subject = state.catalog.subject(topic.subject_id);
@@ -257,7 +258,7 @@ function renderContinue() {
     h("div", { class: "task-copy" }, [
       h("strong", {}, `${subject?.name || ""} · ${topic.title}`)
     ]),
-    h("a", { class: "btn small", href: `#/topic/${topic.id}` }, "继续练习")
+    h("a", { class: "btn small", href: `#/topic/${topic.id}` }, "继续学习")
   ]);
 }
 

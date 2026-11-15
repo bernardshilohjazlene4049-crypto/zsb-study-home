@@ -5,6 +5,7 @@ import { getAll } from "../core/storage.js";
 import { withResolvedTopics } from "../features/records.js";
 import { isExcludedQuestionId, topicIdsForQuestionId } from "../features/topic-index.js";
 import { isMistakeRecord } from "../features/mistake-rules.js";
+import { readRecentTopic } from "../features/recent-learning.js";
 
 const ROOT = new URL("../../../", import.meta.url);
 // 已由高数助手逐条核对过的先修边所属科目；其它科目的边仍是草稿。
@@ -54,23 +55,28 @@ export function loadLearning() {
     learningPromise = (async () => {
       try {
         if (!("indexedDB" in globalThis)) throw new Error("no-idb");
-        const [attempts, mistakes, progress] = await Promise.all([
-          getAll("attempts"), getAll("mistake_entries"), getAll("user_topic_progress")
+        const [attempts, mistakes, progress, recentTopic] = await Promise.all([
+          getAll("attempts"), getAll("mistake_entries"), getAll("user_topic_progress"), readRecentTopic()
         ]);
         const site = await loadSite();
-        const resolved = withResolvedTopics({ attempts, mistakes, progress }, site.merged_topics);
+        const resolved = withResolvedTopics({ attempts, mistakes, progress, recentTopic }, site.merged_topics);
         return {
           ok: true,
           attempts: resolved.attempts.filter((a) => realRecord(a) && !isExcludedQuestionId(a.question_id)),
           mistakes: resolved.mistakes.filter((m) => realRecord(m) && !isExcludedQuestionId(m.question_id)),
-          progress: resolved.progress.filter((p) => p.counts_toward_real_stats !== false)
+          progress: resolved.progress.filter((p) => p.counts_toward_real_stats !== false),
+          recentTopic: resolved.recentTopic || null
         };
       } catch (error) {
-        return { ok: false, attempts: [], mistakes: [], progress: [], error };
+        return { ok: false, attempts: [], mistakes: [], progress: [], recentTopic: null, error };
       }
     })();
   }
   return learningPromise;
+}
+
+export function resetLearningCache() {
+  learningPromise = null;
 }
 
 function endOfToday(now) {
@@ -188,6 +194,14 @@ export function buildModel(site, learning, now = Date.now()) {
     const s = stat(p.topic_id);
     if (!s.progress || String(p.updated_at || "") >= String(s.progress.updated_at || "")) s.progress = p;
     if (String(p.updated_at || "") > s.last) s.last = String(p.updated_at || "");
+  }
+  const recentTopicId = learning.recentTopic?.topic_id
+    ? resolveTopicId(learning.recentTopic.topic_id, site.merged_topics)
+    : "";
+  if (recentTopicId && topicById.has(recentTopicId)) {
+    const s = stat(recentTopicId);
+    const at = String(learning.recentTopic.opened_at || "");
+    if (at > s.last) s.last = at;
   }
 
   function topicStats(id) {

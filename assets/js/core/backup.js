@@ -1,6 +1,7 @@
-import { SCHEMA_VERSION } from "./schema.js";
+import { SCHEMA_VERSION, UI_KEYS } from "./schema.js";
 import { clearAllStores, dumpStores, getAll, put } from "./storage.js";
 import { mergeMistake } from "../features/mistake-rules.js";
+import { readRecentTopic, RECENT_TOPIC_META_KEY, saveRecentTopic } from "../features/recent-learning.js";
 
 export function validateBundle(data) {
   if (!data || typeof data !== "object" || Array.isArray(data)) {
@@ -56,6 +57,22 @@ export async function importBundle(data) {
   validateBundle(data);
   const report = { added: {}, skipped: {}, mergedMistakes: 0 };
   const incoming = data.stores || {};
+
+  const recentTopic = (incoming.meta || []).find((item) => item?.key === RECENT_TOPIC_META_KEY && item.topic_id);
+  if (recentTopic) {
+    const currentRecent = await readRecentTopic();
+    const incomingAt = Date.parse(recentTopic.opened_at || "") || 0;
+    const currentAt = Date.parse(currentRecent?.opened_at || "") || 0;
+    if (!currentRecent || incomingAt >= currentAt) {
+      await saveRecentTopic({
+        topicId: recentTopic.topic_id,
+        pageUrl: recentTopic.page_url || "",
+        anchor: recentTopic.anchor || "",
+        title: recentTopic.title || "",
+        now: recentTopic.opened_at || new Date().toISOString()
+      });
+    }
+  }
 
   const simpleStores = ["attempts", "review_events", "note_entries", "imported_questions"];
   for (const name of simpleStores) {
@@ -169,4 +186,10 @@ export async function importBundle(data) {
 
 export async function wipeLocalLearningData() {
   await clearAllStores();
+  try {
+    localStorage.removeItem(UI_KEYS.lastTopic);
+    localStorage.removeItem(UI_KEYS.lastTopicAt);
+  } catch {
+    // 浏览器禁止 localStorage 时，IndexedDB 中的对应记录已随其他学习记录清空。
+  }
 }

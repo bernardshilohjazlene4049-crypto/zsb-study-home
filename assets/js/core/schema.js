@@ -41,6 +41,7 @@ export const STORE_DEFS = {
 export const UI_KEYS = {
   optionalSubject: "zsb.ui.optional.digital_electronics",
   lastTopic: "zsb.ui.lastTopic",
+  lastTopicAt: "zsb.ui.lastTopicAt",
   lastExportAt: "zsb.ui.lastExportAt",
   tutorApiBase: "zsb.ui.tutorApiBase",
   ocrApiBase: "zsb.ui.ocrApiBase",

@@ -1,11 +1,11 @@
 import { h } from "../core/dom.js";
 import { siteUrl } from "../core/paths.js";
-import { UI_KEYS } from "../core/schema.js";
 import { mountVideo } from "./video.js";
 import { buildMindmapNodes, mountMindmap } from "./mindmap.js";
 import { saveNote } from "./records.js";
 import { MASTERY_LABEL, isSampleQuestion } from "./labels.js";
 import { icon } from "./icons.js";
+import { saveRecentTopic } from "./recent-learning.js";
 
 export function renderTopic(ctx) {
   const topic = ctx.catalog.topic(ctx.id);
@@ -15,7 +15,13 @@ export function renderTopic(ctx) {
       h("a", { class: "btn", href: "#/subjects" }, "返回目录")
     ]);
   }
-  try { localStorage.setItem(UI_KEYS.lastTopic, topic.id); } catch { /* ignore */ }
+  void saveRecentTopic({
+    topicId: topic.id,
+    pageUrl: topic.legacy_url || "",
+    title: topic.title
+  }).catch(() => {
+    // 最近学习只是便利功能；IndexedDB 不可用时，页面本身仍可浏览。
+  });
   const subject = ctx.catalog.subject(topic.subject_id);
   const chapter = ctx.catalog.chapter(topic.chapter_id);
   const video = ctx.catalog.primaryVideo(topic.id);

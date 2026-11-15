@@ -16,20 +16,22 @@ import {
   scheduleReview
 } from "./mistake-rules.js";
 import { enrichTopicIds, isExcludedQuestionId, topicIdsForQuestionId } from "./topic-index.js";
+import { readRecentTopic } from "./recent-learning.js";
 
 export async function loadLearningState() {
-  const [attempts, mistakes, notes, progress, marks, reviews] = await Promise.all([
+  const [attempts, mistakes, notes, progress, marks, reviews, recentTopic] = await Promise.all([
     getAll("attempts"),
     getAll("mistake_entries"),
     getAll("note_entries"),
     getAll("user_topic_progress"),
     getAll("marks"),
-    getAll("review_events")
+    getAll("review_events"),
+    readRecentTopic()
   ]);
   const response = await fetch(siteUrl("data/topics.json"));
   if (!response.ok) throw new Error("目录没有载入。");
   const { merged_topics = {} } = await response.json();
-  return withResolvedTopics({ attempts, mistakes, notes, progress, marks, reviews }, merged_topics);
+  return withResolvedTopics({ attempts, mistakes, notes, progress, marks, reviews, recentTopic }, merged_topics);
 }
 
 export function withResolvedTopics(learning, merged = {}) {
