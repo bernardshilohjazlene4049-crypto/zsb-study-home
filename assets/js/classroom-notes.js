@@ -8,6 +8,19 @@
   const closeButton = dialog?.querySelector("[data-dialog-close]");
   let sourceItems = [];
 
+  const scrollRegionLabels = {
+    "class-axis": "可横向滚动的地址分类图",
+    bits: "可横向滚动的地址位图",
+    "note-table-wrap": "可横向滚动的笔记表格",
+    "code-block": "可横向滚动的代码示例"
+  };
+  for (const [className, label] of Object.entries(scrollRegionLabels)) {
+    for (const node of document.querySelectorAll(`.${className}`)) {
+      node.tabIndex = 0;
+      if (!node.hasAttribute("aria-label")) node.setAttribute("aria-label", label);
+    }
+  }
+
   function sourceCard(item) {
     const button = document.createElement("button");
     button.type = "button";

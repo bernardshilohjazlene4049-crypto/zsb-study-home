@@ -65,6 +65,7 @@ h1.notes-title{max-width:760px;margin:0;color:var(--sh-ink);font-size:clamp(30px
 .question__answer{margin:8px 0 0;padding:10px 12px;border-radius:9px;background:#f4f8f5;color:#315f46}
 .question__source,.question-source{margin:8px 0 0;color:var(--sh-ink-3);font-size:11.5px}
 .code-block{overflow:auto;margin:10px 0;padding:13px;border:1px solid #e5e4ef;border-radius:11px;background:#202337;color:#ebe9ff;font:12px/1.7 ui-monospace,SFMono-Regular,Consolas,monospace;tab-size:2}
+.class-axis:focus-visible,.bits:focus-visible,.note-table-wrap:focus-visible,.code-block:focus-visible{outline:2px solid var(--sh-accent);outline-offset:2px}
 .demo-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:14px 0}
 .demo-box{min-width:0;padding:14px;border:1px solid var(--sh-line);border-radius:12px;background:#fbfbfe}
 .demo-box strong{display:block;margin-bottom:8px;color:var(--sh-ink);font-size:12px}
