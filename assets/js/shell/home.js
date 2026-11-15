@@ -105,7 +105,8 @@ export async function mount(shell) {
 
   paint(await loadModel());
   addEventListener("pageshow", async (event) => {
-    if (!event.persisted) return;
+    const navigation = performance.getEntriesByType("navigation")[0];
+    if (!event.persisted && navigation?.type !== "back_forward") return;
     resetLearningCache();
     paint(await loadModel());
   });
