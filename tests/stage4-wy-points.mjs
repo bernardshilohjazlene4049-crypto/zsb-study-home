@@ -96,7 +96,7 @@ test("40个实际条目各一次；每个原文/整理片段的文本计数与�
         const scope = sections.map(n => n.inner).join("\n");
         for (let raw of e[key]) {
           if (id === "s24" && raw.includes(HAND)) raw = raw.replace(/<span class="wy-hand">[^<]+<\/span>/, "");
-          assert.ok(scope.includes(raw), `${id} 原片段缺失: ${text(raw)}`);
+          assert.ok(scope.replace(/\r\n?/g, "\n").includes(raw.replace(/\r\n?/g, "\n")), `${id} 原片段缺失: ${text(raw)}`);
           const tag = raw.match(/^<(\w+)/)[1];
           // 同标签/完整文本计数，避免把短词在更大段落里的出现误判为重复。
           assert.equal(nodes(scope).filter(n => n.tag === tag && text(n.raw) === text(raw)).length, 1, `${id} ${key}: ${text(raw)}`);

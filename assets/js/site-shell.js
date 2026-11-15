@@ -31,12 +31,14 @@
     { key: "tower", label: "指挥塔", short: "指挥塔", href: "tower/index.html", icon: "tower" },
     { key: "overview", label: "学习总览", short: "总览", href: "study/overview.html", icon: "chart" },
     { key: "mistakes", label: "错题与复习", short: "错题复习", href: "study/index.html#/mistakes", icon: "book" },
+    { key: "notes", label: "课堂笔记", short: "笔记", href: "notes/index.html", icon: "book", desktopOnly: true },
     { key: "search", label: "搜索", short: "搜索", href: "search.html", icon: "search", desktopOnly: true }
   ];
 
   function activeKey() {
     if (rel === "index.html") return "home";
     if (rel === "search.html") return "search";
+    if (rel.indexOf("notes/") === 0) return "notes";
     if (rel.indexOf("tower/") === 0) return "tower";
     if (rel === "study/overview.html") return "overview";
     if (rel === "study/index.html") return /^#\/mistakes/.test(location.hash) ? "mistakes" : "study";

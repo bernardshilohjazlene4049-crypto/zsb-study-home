@@ -1,0 +1,505 @@
+{
+  "subject": "network",
+  "items": [
+    {
+      "id": "net-n01",
+      "subject": "network",
+      "group": "ipv6",
+      "file": "01_p107_IPv6基本首部.png",
+      "src": "assets/network/01_p107_IPv6基本首部.png",
+      "kind": "课堂笔记",
+      "readable": true,
+      "note": ""
+    },
+    {
+      "id": "net-n02",
+      "subject": "network",
+      "group": "ipv6",
+      "file": "02_p106_IPv6数据报组成.png",
+      "src": "assets/network/02_p106_IPv6数据报组成.png",
+      "kind": "课堂笔记",
+      "readable": true,
+      "note": ""
+    },
+    {
+      "id": "net-n03",
+      "subject": "network",
+      "group": "cidr",
+      "file": "03_p102_网络前缀与点对点网络.png",
+      "src": "assets/network/03_p102_网络前缀与点对点网络.png",
+      "kind": "课堂笔记",
+      "readable": true,
+      "note": ""
+    },
+    {
+      "id": "net-n04",
+      "subject": "network",
+      "group": "ipv6",
+      "file": "04_p105_IPv6主要特点.png",
+      "src": "assets/network/04_p105_IPv6主要特点.png",
+      "kind": "课堂笔记",
+      "readable": true,
+      "note": ""
+    },
+    {
+      "id": "net-n05",
+      "subject": "network",
+      "group": "subnet",
+      "file": "05_p97_子网划分计算.png",
+      "src": "assets/network/05_p97_子网划分计算.png",
+      "kind": "课堂笔记",
+      "readable": true,
+      "note": ""
+    },
+    {
+      "id": "net-n06",
+      "subject": "network",
+      "group": "subnet",
+      "file": "06_p98_典型题子网划分.png",
+      "src": "assets/network/06_p98_典型题子网划分.png",
+      "kind": "课堂笔记",
+      "readable": true,
+      "note": ""
+    },
+    {
+      "id": "net-n07",
+      "subject": "network",
+      "group": "cidr",
+      "file": "07_p92_CIDR与网络前缀.png",
+      "src": "assets/network/07_p92_CIDR与网络前缀.png",
+      "kind": "课堂笔记",
+      "readable": true,
+      "note": ""
+    },
+    {
+      "id": "net-n08",
+      "subject": "network",
+      "group": "subnet",
+      "file": "08_p96_网络地址分配.png",
+      "src": "assets/network/08_p96_网络地址分配.png",
+      "kind": "课堂笔记",
+      "readable": true,
+      "note": ""
+    },
+    {
+      "id": "net-n09",
+      "subject": "network",
+      "group": "cidr",
+      "file": "09_p93_IP地址匹配题.png",
+      "src": "assets/network/09_p93_IP地址匹配题.png",
+      "kind": "课堂笔记",
+      "readable": true,
+      "note": ""
+    },
+    {
+      "id": "net-n10",
+      "subject": "network",
+      "group": "cidr",
+      "file": "10_p94_地址块与地址分类.png",
+      "src": "assets/network/10_p94_地址块与地址分类.png",
+      "kind": "课堂笔记",
+      "readable": true,
+      "note": ""
+    },
+    {
+      "id": "net-n11",
+      "subject": "network",
+      "group": "cidr",
+      "file": "11_p90_路由聚合.png",
+      "src": "assets/network/11_p90_路由聚合.png",
+      "kind": "课堂笔记",
+      "readable": true,
+      "note": ""
+    },
+    {
+      "id": "net-n12",
+      "subject": "network",
+      "group": "cidr",
+      "file": "12_p91_路由汇总计算.png",
+      "src": "assets/network/12_p91_路由汇总计算.png",
+      "kind": "课堂笔记",
+      "readable": true,
+      "note": ""
+    },
+    {
+      "id": "net-n13",
+      "subject": "network",
+      "group": "subnet",
+      "file": "13_p95_划分子网步骤.png",
+      "src": "assets/network/13_p95_划分子网步骤.png",
+      "kind": "课堂笔记",
+      "readable": true,
+      "note": ""
+    },
+    {
+      "id": "net-n14",
+      "subject": "network",
+      "group": "cidr",
+      "file": "14_p83_网络前缀结构.png",
+      "src": "assets/network/14_p83_网络前缀结构.png",
+      "kind": "课堂笔记",
+      "readable": true,
+      "note": ""
+    },
+    {
+      "id": "net-n15",
+      "subject": "network",
+      "group": "subnet",
+      "file": "15_p88_网络地址与广播地址.png",
+      "src": "assets/network/15_p88_网络地址与广播地址.png",
+      "kind": "课堂笔记",
+      "readable": true,
+      "note": ""
+    },
+    {
+      "id": "net-n16",
+      "subject": "network",
+      "group": "subnet",
+      "file": "16_p73_真题IP地址规划.png",
+      "src": "assets/network/16_p73_真题IP地址规划.png",
+      "kind": "课堂笔记",
+      "readable": true,
+      "note": ""
+    },
+    {
+      "id": "net-n17",
+      "subject": "network",
+      "group": "cidr",
+      "file": "17_p84_CIDR地址块.png",
+      "src": "assets/network/17_p84_CIDR地址块.png",
+      "kind": "课堂笔记",
+      "readable": true,
+      "note": ""
+    },
+    {
+      "id": "net-n18",
+      "subject": "network",
+      "group": "overview",
+      "file": "18_复习内容清单_客户端预览.webp",
+      "src": "assets/network/18_复习内容清单_客户端预览.webp",
+      "kind": "课堂笔记",
+      "readable": false,
+      "note": "客户端仅保留小尺寸预览，待补高清原图"
+    },
+    {
+      "id": "net-n19",
+      "subject": "network",
+      "group": "cidr",
+      "file": "19_p87_网络地址AND运算.png",
+      "src": "assets/network/19_p87_网络地址AND运算.png",
+      "kind": "课堂笔记",
+      "readable": true,
+      "note": ""
+    },
+    {
+      "id": "net-n20",
+      "subject": "network",
+      "group": "cidr",
+      "file": "20_p83_网络前缀结构讲解.png",
+      "src": "assets/network/20_p83_网络前缀结构讲解.png",
+      "kind": "课堂笔记",
+      "readable": true,
+      "note": ""
+    },
+    {
+      "id": "net-n21",
+      "subject": "network",
+      "group": "cidr",
+      "file": "21_p84_CIDR地址块讲解.png",
+      "src": "assets/network/21_p84_CIDR地址块讲解.png",
+      "kind": "课堂笔记",
+      "readable": true,
+      "note": ""
+    },
+    {
+      "id": "net-n22",
+      "subject": "network",
+      "group": "subnet",
+      "file": "22_p12_典型习题子网掩码.png",
+      "src": "assets/network/22_p12_典型习题子网掩码.png",
+      "kind": "课堂笔记",
+      "readable": true,
+      "note": ""
+    },
+    {
+      "id": "net-n23",
+      "subject": "network",
+      "group": "subnet",
+      "file": "23_p14_IP地址计算.png",
+      "src": "assets/network/23_p14_IP地址计算.png",
+      "kind": "课堂笔记",
+      "readable": true,
+      "note": ""
+    },
+    {
+      "id": "net-n24",
+      "subject": "network",
+      "group": "subnet",
+      "file": "24_p73_真题IP地址规划续.png",
+      "src": "assets/network/24_p73_真题IP地址规划续.png",
+      "kind": "课堂笔记",
+      "readable": true,
+      "note": ""
+    },
+    {
+      "id": "net-n25",
+      "subject": "network",
+      "group": "subnet",
+      "file": "25_p76_B类地址子网划分.png",
+      "src": "assets/network/25_p76_B类地址子网划分.png",
+      "kind": "课堂笔记",
+      "readable": true,
+      "note": ""
+    },
+    {
+      "id": "net-n26",
+      "subject": "network",
+      "group": "subnet",
+      "file": "26_p77_C类地址子网划分.png",
+      "src": "assets/network/26_p77_C类地址子网划分.png",
+      "kind": "课堂笔记",
+      "readable": true,
+      "note": ""
+    },
+    {
+      "id": "net-n27",
+      "subject": "network",
+      "group": "subnet",
+      "file": "27_p74_划分子网步骤.png",
+      "src": "assets/network/27_p74_划分子网步骤.png",
+      "kind": "课堂笔记",
+      "readable": true,
+      "note": ""
+    },
+    {
+      "id": "net-n28",
+      "subject": "network",
+      "group": "subnet",
+      "file": "28_p75_多部门子网划分.png",
+      "src": "assets/network/28_p75_多部门子网划分.png",
+      "kind": "课堂笔记",
+      "readable": true,
+      "note": ""
+    },
+    {
+      "id": "net-n29",
+      "subject": "network",
+      "group": "subnet",
+      "file": "29_p72_受限广播与子网地址.png",
+      "src": "assets/network/29_p72_受限广播与子网地址.png",
+      "kind": "课堂笔记",
+      "readable": true,
+      "note": ""
+    },
+    {
+      "id": "net-n30",
+      "subject": "network",
+      "group": "subnet",
+      "file": "30_p71_IP地址组成与子网划分.png",
+      "src": "assets/network/30_p71_IP地址组成与子网划分.png",
+      "kind": "课堂笔记",
+      "readable": true,
+      "note": ""
+    },
+    {
+      "id": "net-n31",
+      "subject": "network",
+      "group": "subnet",
+      "file": "31_p70_网络号子网号主机号.png",
+      "src": "assets/network/31_p70_网络号子网号主机号.png",
+      "kind": "课堂笔记",
+      "readable": true,
+      "note": ""
+    },
+    {
+      "id": "net-n32",
+      "subject": "network",
+      "group": "subnet",
+      "file": "32_p68_子网掩码结构.png",
+      "src": "assets/network/32_p68_子网掩码结构.png",
+      "kind": "课堂笔记",
+      "readable": true,
+      "note": ""
+    },
+    {
+      "id": "net-n33",
+      "subject": "network",
+      "group": "subnet",
+      "file": "33_p69_网络地址AND运算.png",
+      "src": "assets/network/33_p69_网络地址AND运算.png",
+      "kind": "课堂笔记",
+      "readable": true,
+      "note": ""
+    },
+    {
+      "id": "net-n34",
+      "subject": "network",
+      "group": "ip-basics",
+      "file": "34_p8_私有地址真题与作业提示.png",
+      "src": "assets/network/34_p8_私有地址真题与作业提示.png",
+      "kind": "课堂笔记",
+      "readable": true,
+      "note": ""
+    },
+    {
+      "id": "net-n35",
+      "subject": "network",
+      "group": "ip-basics",
+      "file": "35_p9_地址分类填空.png",
+      "src": "assets/network/35_p9_地址分类填空.png",
+      "kind": "课堂笔记",
+      "readable": true,
+      "note": ""
+    },
+    {
+      "id": "net-n36",
+      "subject": "network",
+      "group": "fragments",
+      "file": "36_p48_数据报分片原理.png",
+      "src": "assets/network/36_p48_数据报分片原理.png",
+      "kind": "课堂笔记",
+      "readable": true,
+      "note": ""
+    },
+    {
+      "id": "net-n37",
+      "subject": "network",
+      "group": "subnet",
+      "file": "37_p64_划分子网.png",
+      "src": "assets/network/37_p64_划分子网.png",
+      "kind": "课堂笔记",
+      "readable": true,
+      "note": ""
+    },
+    {
+      "id": "net-n38",
+      "subject": "network",
+      "group": "fragments",
+      "file": "38_p48_数据报分片定量计算.png",
+      "src": "assets/network/38_p48_数据报分片定量计算.png",
+      "kind": "课堂笔记",
+      "readable": true,
+      "note": ""
+    },
+    {
+      "id": "net-n39",
+      "subject": "network",
+      "group": "ip-basics",
+      "file": "39_p4_IP地址分类选择题.png",
+      "src": "assets/network/39_p4_IP地址分类选择题.png",
+      "kind": "课堂笔记",
+      "readable": true,
+      "note": ""
+    },
+    {
+      "id": "net-n40",
+      "subject": "network",
+      "group": "ip-basics",
+      "file": "40_p6_IP地址分类选择题续.png",
+      "src": "assets/network/40_p6_IP地址分类选择题续.png",
+      "kind": "课堂笔记",
+      "readable": true,
+      "note": ""
+    },
+    {
+      "id": "net-n41",
+      "subject": "network",
+      "group": "ip-basics",
+      "file": "41_p5_私有地址范围选择题.png",
+      "src": "assets/network/41_p5_私有地址范围选择题.png",
+      "kind": "课堂笔记",
+      "readable": true,
+      "note": ""
+    },
+    {
+      "id": "net-n42",
+      "subject": "network",
+      "group": "fragments",
+      "file": "42_p49_IPv4分片功能.png",
+      "src": "assets/network/42_p49_IPv4分片功能.png",
+      "kind": "课堂笔记",
+      "readable": true,
+      "note": ""
+    },
+    {
+      "id": "net-n43",
+      "subject": "network",
+      "group": "ip-basics",
+      "file": "43_p7_网络标识与数据报.png",
+      "src": "assets/network/43_p7_网络标识与数据报.png",
+      "kind": "课堂笔记",
+      "readable": true,
+      "note": ""
+    },
+    {
+      "id": "net-n44",
+      "subject": "network",
+      "group": "fragments",
+      "file": "44_p47_数据报分片例题.png",
+      "src": "assets/network/44_p47_数据报分片例题.png",
+      "kind": "课堂笔记",
+      "readable": true,
+      "note": ""
+    },
+    {
+      "id": "net-n45",
+      "subject": "network",
+      "group": "overview",
+      "file": "45_网络知识结构图_客户端预览.webp",
+      "src": "assets/network/45_网络知识结构图_客户端预览.webp",
+      "kind": "课堂笔记",
+      "readable": false,
+      "note": "客户端仅保留小尺寸预览，待补高清原图"
+    },
+    {
+      "id": "net-n46",
+      "subject": "network",
+      "group": "overview",
+      "file": "46_网络复习提纲_客户端预览.webp",
+      "src": "assets/network/46_网络复习提纲_客户端预览.webp",
+      "kind": "课堂笔记",
+      "readable": false,
+      "note": "客户端仅保留小尺寸预览，待补高清原图"
+    },
+    {
+      "id": "net-h01",
+      "subject": "network",
+      "group": "subnet",
+      "file": "01_p76_B类地址子网划分_含解析.jpg",
+      "src": "assets/network/01_p76_B类地址子网划分_含解析.jpg",
+      "kind": "作业原图",
+      "readable": true,
+      "note": ""
+    },
+    {
+      "id": "net-h02",
+      "subject": "network",
+      "group": "subnet",
+      "file": "02_p77_C类地址子网划分_含解析.jpg",
+      "src": "assets/network/02_p77_C类地址子网划分_含解析.jpg",
+      "kind": "作业原图",
+      "readable": true,
+      "note": ""
+    },
+    {
+      "id": "net-h03",
+      "subject": "network",
+      "group": "subnet",
+      "file": "03_p78_多部门子网规划_含解析.jpg",
+      "src": "assets/network/03_p78_多部门子网规划_含解析.jpg",
+      "kind": "作业原图",
+      "readable": true,
+      "note": ""
+    },
+    {
+      "id": "net-h04",
+      "subject": "network",
+      "group": "fragments",
+      "file": "04_IPv4数据报分片_客户端预览.webp",
+      "src": "assets/network/04_IPv4数据报分片_客户端预览.webp",
+      "kind": "作业原图",
+      "readable": false,
+      "note": "客户端仅保留小尺寸预览，待补高清原图"
+    }
+  ]
+}

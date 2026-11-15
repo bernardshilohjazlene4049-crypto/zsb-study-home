@@ -16,7 +16,7 @@ test("catalog files stay inside the repo-relative contract", () => {
 
   assert.equal(byId.web_design.homeUrl, "wy/index.html");
   assert.equal(byId.database.homeUrl, null);
-  assert.equal(byId.network.homeUrl, null);
+  assert.equal(byId.network.homeUrl, "notes/network.html");
   assert.equal(byId.english.homeUrl, "yy/index.html");
   assert.equal(byId.math.homeUrl, "gs/index.html");
   assert.equal(byId.computer_basics.homeUrl, "jsj/index.html");
@@ -46,7 +46,7 @@ test("catalog files stay inside the repo-relative contract", () => {
 
 test("the old homepage keeps subject cards and gains a reversible study link", () => {
   const html = fs.readFileSync(path.join(root, "index.html"), "utf8");
-  for (const href of ["yy/index.html", "gs/index.html", "jsj/index.html", "c/index.html", "wy/index.html", "study/index.html"]) {
+  for (const href of ["yy/index.html", "gs/index.html", "jsj/index.html", "c/index.html", "wy/index.html", "notes/network.html", "study/index.html"]) {
     assert.equal(html.includes(href), true, href);
   }
   assert.equal(html.includes("数据库"), true);
@@ -100,7 +100,8 @@ test("知识点目录锚点真实存在，先修边与 prereq_ids 一致", () =>
   assert.equal(topics.topics.some((t) => t.id === "math.function_limit" && t.legacy_url === "gs/gs1.html#point-4"), true);
   assert.equal(topics.topics.some((t) => t.id === "math.p48" && t.legacy_url === "gs/gs45.html#point-48"), true);
   assert.equal(topics.topics.some((t) => t.id === "web.html.quiz"), true);
-  assert.equal(topics.chapters.some((c) => c.subject_id === "database" || c.subject_id === "network"), false);
+  assert.equal(topics.chapters.some((c) => c.subject_id === "database"), false);
+  assert.deepEqual(topics.chapters.filter((c) => c.subject_id === "network").map((c) => c.id), ["net.ch1", "net.ch2", "net.ch3", "net.ch4", "net.ch5"]);
   assert.deepEqual(topics.chapters.filter((c) => c.subject_id === "c_language").map((c) => c.id), ["c.existing"]);
   assert.equal(blob.includes("cn-math-taxonomy"), true);
 });

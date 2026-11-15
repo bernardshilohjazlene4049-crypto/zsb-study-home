@@ -1,0 +1,175 @@
+{
+  "subject": "web_design",
+  "items": [
+    {
+      "id": "web-n01",
+      "subject": "web_design",
+      "group": "css-pseudo",
+      "file": "01_CSS基础属性示例.png",
+      "src": "assets/web/01_CSS基础属性示例.png",
+      "kind": "课堂笔记",
+      "readable": true,
+      "note": ""
+    },
+    {
+      "id": "web-n02",
+      "subject": "web_design",
+      "group": "css-pseudo",
+      "file": "02_HTML链接伪类与字体设置.png",
+      "src": "assets/web/02_HTML链接伪类与字体设置.png",
+      "kind": "课堂笔记",
+      "readable": true,
+      "note": ""
+    },
+    {
+      "id": "web-n03",
+      "subject": "web_design",
+      "group": "css-pseudo",
+      "file": "03_外部样式表_链接和背景颜色.png",
+      "src": "assets/web/03_外部样式表_链接和背景颜色.png",
+      "kind": "课堂笔记",
+      "readable": true,
+      "note": ""
+    },
+    {
+      "id": "web-n04",
+      "subject": "web_design",
+      "group": "css-pseudo",
+      "file": "04_文字修饰与行内样式.png",
+      "src": "assets/web/04_文字修饰与行内样式.png",
+      "kind": "课堂笔记",
+      "readable": true,
+      "note": ""
+    },
+    {
+      "id": "web-n05",
+      "subject": "web_design",
+      "group": "text",
+      "file": "05_text-overflow文本溢出.png",
+      "src": "assets/web/05_text-overflow文本溢出.png",
+      "kind": "课堂笔记",
+      "readable": true,
+      "note": ""
+    },
+    {
+      "id": "web-n06",
+      "subject": "web_design",
+      "group": "text",
+      "file": "06_text-shadow文字阴影.png",
+      "src": "assets/web/06_text-shadow文字阴影.png",
+      "kind": "课堂笔记",
+      "readable": true,
+      "note": ""
+    },
+    {
+      "id": "web-n07",
+      "subject": "web_design",
+      "group": "selectors",
+      "file": "07_伪类选择器_root.png",
+      "src": "assets/web/07_伪类选择器_root.png",
+      "kind": "课堂笔记",
+      "readable": true,
+      "note": ""
+    },
+    {
+      "id": "web-n08",
+      "subject": "web_design",
+      "group": "selectors",
+      "file": "08_伪类选择器_not.png",
+      "src": "assets/web/08_伪类选择器_not.png",
+      "kind": "课堂笔记",
+      "readable": true,
+      "note": ""
+    },
+    {
+      "id": "web-n09",
+      "subject": "web_design",
+      "group": "text",
+      "file": "09_text-indent首行缩进.png",
+      "src": "assets/web/09_text-indent首行缩进.png",
+      "kind": "课堂笔记",
+      "readable": true,
+      "note": ""
+    },
+    {
+      "id": "web-n10",
+      "subject": "web_design",
+      "group": "text",
+      "file": "10_white-space空白符处理.png",
+      "src": "assets/web/10_white-space空白符处理.png",
+      "kind": "课堂笔记",
+      "readable": true,
+      "note": ""
+    },
+    {
+      "id": "web-n11",
+      "subject": "web_design",
+      "group": "forms",
+      "file": "11_form与table嵌套表单.png",
+      "src": "assets/web/11_form与table嵌套表单.png",
+      "kind": "课堂笔记",
+      "readable": true,
+      "note": ""
+    },
+    {
+      "id": "web-n12",
+      "subject": "web_design",
+      "group": "forms",
+      "file": "12_form属性_表单位置与归属.png",
+      "src": "assets/web/12_form属性_表单位置与归属.png",
+      "kind": "课堂笔记",
+      "readable": true,
+      "note": ""
+    },
+    {
+      "id": "web-n13",
+      "subject": "web_design",
+      "group": "widgets",
+      "file": "13_datalist与input列表.png",
+      "src": "assets/web/13_datalist与input列表.png",
+      "kind": "课堂笔记",
+      "readable": true,
+      "note": ""
+    },
+    {
+      "id": "web-n14",
+      "subject": "web_design",
+      "group": "widgets",
+      "file": "14_input_range范围滑块.png",
+      "src": "assets/web/14_input_range范围滑块.png",
+      "kind": "课堂笔记",
+      "readable": true,
+      "note": ""
+    },
+    {
+      "id": "web-n15",
+      "subject": "web_design",
+      "group": "sketches",
+      "file": "15_网页制作课堂手绘图1_客户端预览.webp",
+      "src": "assets/web/15_网页制作课堂手绘图1_客户端预览.webp",
+      "kind": "课堂笔记",
+      "readable": false,
+      "note": "客户端仅保留小尺寸预览，待补高清原图"
+    },
+    {
+      "id": "web-n16",
+      "subject": "web_design",
+      "group": "sketches",
+      "file": "16_网页制作课堂手绘图2_客户端预览.webp",
+      "src": "assets/web/16_网页制作课堂手绘图2_客户端预览.webp",
+      "kind": "课堂笔记",
+      "readable": false,
+      "note": "客户端仅保留小尺寸预览，待补高清原图"
+    },
+    {
+      "id": "web-n17",
+      "subject": "web_design",
+      "group": "sketches",
+      "file": "17_网页制作课堂手绘图3_客户端预览.webp",
+      "src": "assets/web/17_网页制作课堂手绘图3_客户端预览.webp",
+      "kind": "课堂笔记",
+      "readable": false,
+      "note": "客户端仅保留小尺寸预览，待补高清原图"
+    }
+  ]
+}

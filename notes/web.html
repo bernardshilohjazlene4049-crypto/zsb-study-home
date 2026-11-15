@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f8f9fb">
+  <meta name="description" content="网页制作基础课堂笔记：CSS引入、链接伪类、文本属性、结构化选择器、表单与原生输入控件。">
+  <title>网页制作基础课堂笔记 · 辽宁专升本</title>
+  <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/css/site-unify.css">
+  <link rel="stylesheet" href="../assets/css/site-shell.css">
+  <link rel="stylesheet" href="../assets/css/classroom-notes.css">
+  <script src="../assets/js/site-shell.js"></script>
+</head>
+<body class="notes-page" data-note-sources="data/web-sources.json">
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-brand" href="../index.html"><span class="site-brand__name">辽宁专升本 · 计算机类学习站</span></a>
+      <nav class="site-nav" aria-label="全站导航"><a href="../index.html">首页</a><a href="index.html">课堂笔记</a><a href="../search.html">搜索</a></nav>
+    </div>
+  </header>
+  <main class="notes-main" id="main">
+    <section class="notes-hero">
+      <p class="notes-eyebrow">WEB · CLASS NOTES</p>
+      <h1 class="notes-title">网页制作基础：CSS 与表单</h1>
+      <p class="notes-lead">按悦悦老师课堂截图整理。把代码画面里的试验拆成“它解决什么问题、怎么写、容易错在哪里”，并保留 17 张原始截图供对照。</p>
+      <div class="notes-stats">
+        <span class="notes-stat"><strong>5</strong> 个主题</span>
+        <span class="notes-stat"><strong>17</strong> 张课堂图</span>
+        <span class="notes-stat"><strong>7</strong> 个自测问题</span>
+      </div>
+    </section>
+    <nav class="note-subnav" aria-label="本页主题"><a href="#css-pseudo">CSS 与链接</a><a href="#text">文本属性</a><a href="#selectors">结构化选择器</a><a href="#forms">表单结构</a><a href="#widgets">原生控件</a><a href="#source-index">原图索引</a></nav>
+    <div class="notes-layout">
+      <aside class="notes-toc" aria-label="章节目录">
+        <a class="notes-toc__subject" href="index.html"><span>网页制作基础</span><span>↗</span></a>
+        <h2 class="notes-toc__title">学习目录</h2>
+        <ol class="notes-toc__list">
+          <li><a href="#css-pseudo"><span class="notes-toc__no">01</span><span>CSS 引入、颜色与链接伪类</span></a></li>
+          <li><a href="#text"><span class="notes-toc__no">02</span><span>文本溢出、阴影、缩进与空白</span></a></li>
+          <li><a href="#selectors"><span class="notes-toc__no">03</span><span>:root 与 :not 选择器</span></a></li>
+          <li><a href="#forms"><span class="notes-toc__no">04</span><span>表单、表格与关联属性</span></a></li>
+          <li><a href="#widgets"><span class="notes-toc__no">05</span><span>datalist 与范围滑块</span></a></li>
+          <li><a href="#source-index"><span class="notes-toc__no">附</span><span>原始截图与待补清单</span></a></li>
+        </ol>
+      </aside>
+      <div class="notes-content">
+        <section class="note-section" id="css-pseudo">
+          <header class="note-section__head"><span class="note-section__no">01</span><div><h2>CSS 引入、颜色与链接伪类</h2><p class="note-section__summary">同一个页面可以同时使用外部样式表、内部 style 和行内 style；链接有未访问、已访问、悬停、按下四种状态。</p></div></header>
+          <div class="concept-grid">
+            <article class="concept-card"><h3>外部样式表</h3><p>将样式写在 `.css` 文件中，再由 HTML 的 `link` 引入，便于多个页面共享。</p><pre class="code-block"><code>&lt;link rel="stylesheet" href="css/c1.css"&gt;</code></pre></article>
+            <article class="concept-card"><h3>内部与行内样式</h3><p>内部样式写在 `&lt;style&gt;`；行内样式写在元素 `style` 属性中。样式的最终结果仍受来源、选择器优先和书写顺序影响。</p></article>
+            <article class="concept-card"><h3>颜色值</h3><p>`red`、`blue` 是颜色关键字，`#fff` 是十六进制，`rgb(0,0,255)` 表示蓝。多个属性之间用分号分隔。</p></article>
+            <article class="concept-card"><h3>链接四状态</h3><ul><li>`:link` 未访问</li><li>`:visited` 已访问</li><li>`:hover` 鼠标悬停</li><li>`:active` 按下时</li></ul></article>
+          </div>
+          <pre class="code-block"><code>a:link { color: red; }
+a:visited { color: green; }
+a:hover { color: yellow; font: 30px "楷体"; }
+a:active { color: blue; }</code></pre>
+          <details class="question"><summary>自测：给链接设置 30px 楷体，为什么放在 `a:hover` 中只会在悬停时生效？</summary><div class="question__body"><p>`a:hover` 只在指针位于链接上时匹配，字体属性自然也只在悬停状态应用。若希望链接默认就是这个字体，应写到 `a` 或 `a:link` 的普通规则。</p><p class="question__source">课堂自测，依据第 2 张链接伪类截图整理。</p></div></details>
+          <details class="source-drawer"><summary>查看本章原始截图</summary><div class="source-grid" data-source-group="css-pseudo"></div></details>
+        </section>
+        <section class="note-section" id="text">
+          <header class="note-section__head"><span class="note-section__no">02</span><div><h2>文本溢出、阴影、缩进与空白</h2><p class="note-section__summary">这组属性都作用在文本呈现上，但解决的是不同问题：截断、装饰、段落开头和空格换行规则。</p></div></header>
+          <div class="demo-pair">
+            <div class="demo-box"><strong>单行溢出</strong><p class="demo-ellipsis">这是一段故意写得足够长的文字，用来展示 text-overflow: ellipsis 的效果。</p><code>overflow:hidden; white-space:nowrap; text-overflow:ellipsis;</code></div>
+            <div class="demo-box"><strong>text-shadow</strong><p class="demo-shadow">文字阴影</p><code>3px 3px 0 #d8d2ff, 7px 7px 10px #bbb;</code></div>
+          </div>
+          <div class="concept-grid">
+            <article class="concept-card"><h3>text-overflow</h3><p>`clip` 直接裁掉；`ellipsis` 在末尾显示省略号。单行省略通常同时需要 `overflow:hidden` 和 `white-space:nowrap`。</p></article>
+            <article class="concept-card"><h3>text-shadow</h3><p>格式：水平偏移 垂直偏移 模糊半径 颜色。前两个偏移可为负，模糊半径不可为负；可写多个阴影，用逗号分隔。</p></article>
+            <article class="concept-card"><h3>text-indent</h3><p>设置首行缩进。`2em` 相当于两个当前字体字号；百分比相对包含块宽度。常用于块级元素，行内元素通常不生效。</p></article>
+            <article class="concept-card"><h3>white-space</h3><ul><li>`normal`：连续空白折叠，自动换行</li><li>`pre`：保留空白，按原样换行</li><li>`nowrap`：折叠空白，不自动换行</li><li>`pre-wrap`：保留空白并自动换行</li><li>`pre-line`：折叠部分空白但保留换行</li></ul></article>
+          </div>
+          <details class="question"><summary>自测：`text-overflow: ellipsis` 单独写为什么经常看不到省略号？</summary><div class="question__body"><p>文本必须先真正溢出并被裁剪。常见单行答案还要设置 `overflow:hidden` 与 `white-space:nowrap`。多行省略通常需要浏览器支持的额外布局方案。</p><p class="question__source">课堂自测，依据第 5–6、9–10 张截图整理。</p></div></details>
+          <details class="source-drawer"><summary>查看本章原始截图</summary><div class="source-grid" data-source-group="text"></div></details>
+        </section>
+        <section class="note-section" id="selectors">
+          <header class="note-section__head"><span class="note-section__no">03</span><div><h2>`:root` 与 `:not` 选择器</h2><p class="note-section__summary">`:root` 指向文档根元素，`:not(...)` 匹配参数条件之外的元素。</p></div></header>
+          <div class="concept-grid">
+            <article class="concept-card"><h3>`:root`</h3><p>匹配文档的根元素，HTML 中就是 `&lt;html&gt;`。常用来声明全局 CSS 自定义属性，让变量在整个文档中可继承。</p><pre class="code-block"><code>:root {
+  --brand: #5b4bde;
+  --muted: #667085;
+}</code></pre></article>
+            <article class="concept-card"><h3>`:not()`</h3><p>否定伪类，排除括号中的选择器。例如 `:not(p)` 选择不是段落的元素。它会影响“哪些元素获得样式”，并不会删除被排除元素。</p><pre class="code-block"><code>p:not(.lead) { color: #444; }</code></pre></article>
+          </div>
+          <div class="note-callout"><strong>易错：</strong>`:not(p)` 中括号里写的是要排除的条件；`:root` 不是 `.root` 类选择器，前面的冒号不能省略。</div>
+          <details class="question"><summary>自测：`:not(.tip)` 会不会选择 class 包含 `tip` 的元素？</summary><div class="question__body"><p>不会。它匹配没有 `.tip` 类的元素。若要给 `.tip` 设置样式，应直接使用 `.tip`。</p><p class="question__source">课堂自测，依据第 7–8 张截图整理。</p></div></details>
+          <details class="source-drawer"><summary>查看本章原始截图</summary><div class="source-grid" data-source-group="selectors"></div></details>
+        </section>
+        <section class="note-section" id="forms">
+          <header class="note-section__head"><span class="note-section__no">04</span><div><h2>表单、表格与 form 关联属性</h2><p class="note-section__summary">表单负责收集数据，表格负责表格数据展示。不要在表格结构允许的位置随意塞表单，并注意 HTML5 的 form 关联方式。</p></div></header>
+          <div class="concept-grid">
+            <article class="concept-card"><h3>正确嵌套</h3><p>可以把 table 放进 form，也可以在每个单元格 `td` 内放独立表单。直接把 form 塞在不允许的子元素位置会形成无效结构。</p></article>
+            <article class="concept-card"><h3>HTML5 `form` 关联</h3><p>输入控件即使位于 `&lt;form&gt;` 外，也可通过 `form="表单id"` 声明所属表单。课堂第 12 张写了“一个控件可从属多个表单”，但现行 HTML 标准的 `form` 属性是一个 ID 引用；本站示例按单个 id 整理，考场若按指定教材作答请留意这个差异。</p><pre class="code-block"><code>&lt;form id="search"&gt;…&lt;/form&gt;
+&lt;input type="text" form="search"&gt;</code></pre></article>
+          </div>
+          <pre class="code-block"><code>&lt;form action="search.php" method="get"&gt;
+  &lt;table&gt;&lt;tr&gt;&lt;td&gt;&lt;input type="text" name="q"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/form&gt;</code></pre>
+          <details class="question"><summary>自测：一个 input 放在 form 后面，还能提交到这个表单吗？</summary><div class="question__body"><p>可以。为 form 设置 id，再在 input 上写 `form="对应id"`，即可建立关联。没有关联属性时，表外的普通控件不会自动属于就近表单。</p><p class="question__source">课堂自测，依据第 11–12 张截图整理。</p></div></details>
+          <details class="source-drawer"><summary>查看本章原始截图</summary><div class="source-grid" data-source-group="forms"></div></details>
+        </section>
+        <section class="note-section" id="widgets">
+          <header class="note-section__head"><span class="note-section__no">05</span><div><h2>datalist 与范围滑块</h2><p class="note-section__summary">用原生 HTML 给文本输入提供建议值和数值范围，减少手工校验。</p></div></header>
+          <div class="concept-grid">
+            <article class="concept-card"><h3>`datalist`</h3><p>给 `&lt;datalist&gt;` 设置 id，再用输入框的 `list` 属性关联。用户仍可输入列表外的值，这点与只能从固定选项中选择的 `select` 不同。</p><pre class="code-block"><code>&lt;input list="schools"&gt;
+&lt;datalist id="schools"&gt;
+  &lt;option value="辽宁大学"&gt;
+&lt;/datalist&gt;</code></pre></article>
+            <article class="concept-card"><h3>`input[type=range]`</h3><p>用 `min`、`max`、`step`、`value` 控制范围、步长和初始值。未指定时常见默认范围是 0–100，步长为 1。</p><pre class="code-block"><code>&lt;input type="range" min="0" max="100" step="5" value="50"&gt;</code></pre></article>
+          </div>
+          <div class="demo-box"><strong>滑块示意</strong><input type="range" min="0" max="100" step="5" value="50" aria-label="范围滑块示例"></div>
+          <details class="question"><summary>自测：`list="schools"` 中的 schools 写在哪里？</summary><div class="question__body"><p>写在 `&lt;datalist&gt;` 的 `id` 上，输入框的 `list` 保存的是 datalist 的 id，而不是“值列表”的内容。</p><p class="question__source">课堂自测，依据第 13–14 张截图整理。</p></div></details>
+          <details class="source-drawer"><summary>查看本章原始截图</summary><div class="source-grid" data-source-group="widgets"></div></details>
+        </section>
+        <section class="note-section" id="source-index">
+          <header class="note-section__head"><span class="note-section__no">附</span><div><h2>原始截图与待补清单</h2><p class="note-section__summary">14 张高清截图已按主题整理；3 张课堂手绘图只有低清预览，暂不从模糊画面猜测内容。</p></div></header>
+          <div class="note-callout"><strong>资料边界：</strong>这些是课堂示例与自测，不代表官方题库或完整考试范围。代码示例以培养判断为主，实际浏览器行为还需结合兼容性与项目要求。</div>
+          <details class="source-drawer" open><summary>查看低清预览</summary><div class="source-grid" data-source-group="sketches"></div></details>
+        </section>
+      </div>
+    </div>
+  </main>
+  <dialog class="notes-dialog" data-note-dialog aria-labelledby="note-dialog-title">
+    <div class="notes-dialog__bar"><strong class="notes-dialog__title" id="note-dialog-title" data-dialog-title>原始截图</strong><button class="sh-btn" type="button" data-dialog-close>关闭</button></div>
+    <img alt="">
+  </dialog>
+  <script src="../assets/js/classroom-notes.js"></script>
+</body>
+</html>

@@ -217,6 +217,60 @@
       "order": 8,
       "source_ref": "wy/examples/index.html",
       "verified": false
+    },
+    {
+      "id": "web.classroom",
+      "subject_id": "web_design",
+      "parent_id": null,
+      "title": "课堂截图补充",
+      "order": 9,
+      "source_ref": "notes/web.html",
+      "verified": true
+    },
+    {
+      "id": "net.ch1",
+      "subject_id": "network",
+      "parent_id": null,
+      "title": "第1章 IPv4 地址与分类",
+      "order": 1,
+      "source_ref": "notes/network.html#ip-basics",
+      "verified": true
+    },
+    {
+      "id": "net.ch2",
+      "subject_id": "network",
+      "parent_id": null,
+      "title": "第2章 CIDR 与地址块",
+      "order": 2,
+      "source_ref": "notes/network.html#cidr",
+      "verified": true
+    },
+    {
+      "id": "net.ch3",
+      "subject_id": "network",
+      "parent_id": null,
+      "title": "第3章 子网划分与地址分配",
+      "order": 3,
+      "source_ref": "notes/network.html#subnet",
+      "verified": true
+    },
+    {
+      "id": "net.ch4",
+      "subject_id": "network",
+      "parent_id": null,
+      "title": "第4章 IPv4 数据报分片",
+      "order": 4,
+      "source_ref": "notes/network.html#fragments",
+      "verified": true
+    },
+    {
+      "id": "net.ch5",
+      "subject_id": "network",
+      "parent_id": null,
+      "title": "第5章 IPv6",
+      "order": 5,
+      "source_ref": "notes/network.html#ipv6",
+      "verified": true
     }
   ],
   "topics": [
@@ -2461,6 +2515,126 @@
       "source_ref": "wy/reference/index.html",
       "legacy_url": "wy/reference/index.html",
       "verified": false
+    },
+    {
+      "id": "web.class.css",
+      "subject_id": "web_design",
+      "chapter_id": "web.classroom",
+      "title": "CSS 引入、颜色与链接伪类",
+      "order": 1,
+      "aliases": ["链接伪类", "外部样式表"],
+      "prereq_ids": [],
+      "source_ref": "notes/web.html#css-pseudo",
+      "legacy_url": "notes/web.html#css-pseudo",
+      "verified": true
+    },
+    {
+      "id": "web.class.text",
+      "subject_id": "web_design",
+      "chapter_id": "web.classroom",
+      "title": "文本溢出、阴影、缩进与空白",
+      "order": 2,
+      "aliases": ["text-overflow", "text-shadow", "text-indent", "white-space"],
+      "prereq_ids": ["web.class.css"],
+      "source_ref": "notes/web.html#text",
+      "legacy_url": "notes/web.html#text",
+      "verified": true
+    },
+    {
+      "id": "web.class.selectors",
+      "subject_id": "web_design",
+      "chapter_id": "web.classroom",
+      "title": ":root 与 :not 选择器",
+      "order": 3,
+      "aliases": [":root", ":not"],
+      "prereq_ids": ["web.class.text"],
+      "source_ref": "notes/web.html#selectors",
+      "legacy_url": "notes/web.html#selectors",
+      "verified": true
+    },
+    {
+      "id": "web.class.forms",
+      "subject_id": "web_design",
+      "chapter_id": "web.classroom",
+      "title": "表单、表格与 form 关联属性",
+      "order": 4,
+      "aliases": ["form 属性", "表单嵌套"],
+      "prereq_ids": ["web.class.selectors"],
+      "source_ref": "notes/web.html#forms",
+      "legacy_url": "notes/web.html#forms",
+      "verified": true
+    },
+    {
+      "id": "web.class.widgets",
+      "subject_id": "web_design",
+      "chapter_id": "web.classroom",
+      "title": "datalist 与范围滑块",
+      "order": 5,
+      "aliases": ["datalist", "input range"],
+      "prereq_ids": ["web.class.forms"],
+      "source_ref": "notes/web.html#widgets",
+      "legacy_url": "notes/web.html#widgets",
+      "verified": true
+    },
+    {
+      "id": "net.ip_basics",
+      "subject_id": "network",
+      "chapter_id": "net.ch1",
+      "title": "IPv4 地址、分类与私有地址",
+      "order": 1,
+      "aliases": ["IP 地址分类", "私有地址"],
+      "prereq_ids": [],
+      "source_ref": "notes/network.html#ip-basics",
+      "legacy_url": "notes/network.html#ip-basics",
+      "verified": true
+    },
+    {
+      "id": "net.cidr",
+      "subject_id": "network",
+      "chapter_id": "net.ch2",
+      "title": "CIDR、掩码与地址块",
+      "order": 2,
+      "aliases": ["网络前缀", "路由聚合"],
+      "prereq_ids": ["net.ip_basics"],
+      "source_ref": "notes/network.html#cidr",
+      "legacy_url": "notes/network.html#cidr",
+      "verified": true
+    },
+    {
+      "id": "net.subnet",
+      "subject_id": "network",
+      "chapter_id": "net.ch3",
+      "title": "子网划分与地址分配",
+      "order": 3,
+      "aliases": ["子网掩码", "VLSM"],
+      "prereq_ids": ["net.cidr"],
+      "source_ref": "notes/network.html#subnet",
+      "legacy_url": "notes/network.html#subnet",
+      "verified": true
+    },
+    {
+      "id": "net.fragments",
+      "subject_id": "network",
+      "chapter_id": "net.ch4",
+      "title": "IPv4 数据报分片",
+      "order": 4,
+      "aliases": ["片偏移", "MTU"],
+      "prereq_ids": ["net.subnet"],
+      "source_ref": "notes/network.html#fragments",
+      "legacy_url": "notes/network.html#fragments",
+      "verified": true
+    },
+    {
+      "id": "net.ipv6",
+      "subject_id": "network",
+      "chapter_id": "net.ch5",
+      "title": "IPv6 首部与主要特点",
+      "order": 5,
+      "aliases": ["IPv6"],
+      "prereq_ids": ["net.fragments"],
+      "source_ref": "notes/network.html#ipv6",
+      "legacy_url": "notes/network.html#ipv6",
+      "verified": true
     }
   ],
   "merged_topics": {

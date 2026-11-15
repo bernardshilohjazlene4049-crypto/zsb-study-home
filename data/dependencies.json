@@ -865,6 +865,54 @@
       "prerequisiteId": "web.html_intro",
       "strength": "soft",
       "reason": "按原页面目录顺序，先学习前置课页。"
+    },
+    {
+      "topicId": "web.class.text",
+      "prerequisiteId": "web.class.css",
+      "strength": "soft",
+      "reason": "先理解 CSS 引入与基础样式规则，再学习具体文本属性。"
+    },
+    {
+      "topicId": "web.class.selectors",
+      "prerequisiteId": "web.class.text",
+      "strength": "soft",
+      "reason": "先通过文本属性熟悉声明写法，再学习结构化选择器。"
+    },
+    {
+      "topicId": "web.class.forms",
+      "prerequisiteId": "web.class.selectors",
+      "strength": "soft",
+      "reason": "表单示例同时用到选择器和结构化标记，建议按课堂顺序学习。"
+    },
+    {
+      "topicId": "web.class.widgets",
+      "prerequisiteId": "web.class.forms",
+      "strength": "soft",
+      "reason": "datalist 与 range 建立在表单控件和属性关联的基础之上。"
+    },
+    {
+      "topicId": "net.cidr",
+      "prerequisiteId": "net.ip_basics",
+      "strength": "soft",
+      "reason": "CIDR 使用 IPv4 地址与二进制边界，先熟悉地址分类更便于计算。"
+    },
+    {
+      "topicId": "net.subnet",
+      "prerequisiteId": "net.cidr",
+      "strength": "soft",
+      "reason": "子网划分沿用前缀长度与地址块边界，建议先掌握 CIDR。"
+    },
+    {
+      "topicId": "net.fragments",
+      "prerequisiteId": "net.subnet",
+      "strength": "soft",
+      "reason": "分片计算需要稳定的字节、长度和地址结构基础。"
+    },
+    {
+      "topicId": "net.ipv6",
+      "prerequisiteId": "net.fragments",
+      "strength": "soft",
+      "reason": "对照 IPv4 首部与分片处理，有助于理解 IPv6 的设计差异。"
     }
   ]
 }

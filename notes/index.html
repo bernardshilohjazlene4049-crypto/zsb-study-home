@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f8f9fb">
+  <meta name="description" content="辽宁专升本计算机网络与网页设计课堂笔记、原图和课堂题整理。">
+  <title>课堂笔记 · 辽宁专升本</title>
+  <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/css/site-unify.css">
+  <link rel="stylesheet" href="../assets/css/site-shell.css">
+  <link rel="stylesheet" href="../assets/css/classroom-notes.css">
+  <script src="../assets/js/site-shell.js"></script>
+</head>
+<body class="notes-page" data-note-root>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-brand" href="../index.html"><span class="site-brand__name">辽宁专升本 · 计算机类学习站</span></a>
+      <nav class="site-nav" aria-label="全站导航"><a href="../index.html">首页</a><a href="index.html">课堂笔记</a><a href="../search.html">搜索</a></nav>
+    </div>
+  </header>
+  <main class="notes-main" id="main">
+    <section class="notes-hero">
+      <p class="notes-eyebrow">CLASSROOM ARCHIVE</p>
+      <h1 class="notes-title">课堂笔记与原始题目</h1>
+      <p class="notes-lead">把计算机网络和网页制作基础两门课的课堂截图，整理成可阅读的知识笔记、例题解析和按章节归档的原图目录。看不清或只保留低清预览的资料会单独标出。</p>
+      <div class="notes-stats">
+        <span class="notes-stat"><strong>2</strong> 门课</span>
+        <span class="notes-stat"><strong>67</strong> 张课堂资料图</span>
+        <span class="notes-stat"><strong>10</strong> 个学习主题</span>
+      </div>
+    </section>
+    <div class="notes-hub-grid">
+      <a class="notes-hub-card" href="network.html">
+        <span class="notes-hub-card__icon" data-note-icon="network"></span>
+        <h2>计算机网络</h2>
+        <p>IPv4 分类与私有地址、CIDR 与路由聚合、子网划分、IPv4 分片和 IPv6。含课堂例题与 50 张截图索引，其中 4 张待补高清原图。</p>
+        <span class="notes-hub-card__foot"><span>5 个学习主题 · 50 张截图</span><strong>开始阅读 →</strong></span>
+      </a>
+      <a class="notes-hub-card" href="web.html">
+        <span class="notes-hub-card__icon" data-note-icon="web"></span>
+        <h2>网页制作基础</h2>
+        <p>CSS 引入与链接伪类、文本属性、结构化选择器、表单关联、datalist 和 range。含代码示例与 17 张截图，其中 3 张待补高清原图。</p>
+        <span class="notes-hub-card__foot"><span>5 个学习主题 · 17 张截图</span><strong>开始阅读 →</strong></span>
+      </a>
+    </div>
+  </main>
+  <dialog class="notes-dialog" data-note-dialog aria-labelledby="note-dialog-title">
+    <div class="notes-dialog__bar"><strong class="notes-dialog__title" id="note-dialog-title" data-dialog-title>原始截图</strong><button class="sh-btn" type="button" data-dialog-close>关闭</button></div>
+    <img alt="">
+  </dialog>
+  <script>
+    document.querySelectorAll("[data-note-icon]").forEach((node) => {
+      const name = node.dataset.noteIcon;
+      node.innerHTML = name === "network"
+        ? '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="5" r="2.2"/><circle cx="5" cy="18" r="2.2"/><circle cx="19" cy="18" r="2.2"/><path d="m10.8 6.8-4.5 8.7M13.2 6.8l4.5 8.7M7.2 18h9.6"/></svg>'
+        : '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="4.5" width="17" height="15" rx="2"/><path d="M3.5 9h17M7 6.8h.01M9.5 6.8h.01"/></svg>';
+    });
+  </script>
+  <script src="../assets/js/classroom-notes.js"></script>
+</body>
+</html>

@@ -17,7 +17,7 @@ input.value = params.get("q") || "";
 hydrateIcons();
 
 const TYPES = [["topic", "知识点", "list"], ["chapter", "章节", "book"], ["doc", "讲义 / 资料", "file"]];
-const SUBJECT_BY_DIR = { gs: "math", yy: "english", jsj: "computer_basics", c: "c_language", wy: "web_design" };
+const SUBJECT_BY_DIR = { gs: "math", yy: "english", jsj: "computer_basics", c: "c_language", wy: "web_design", wl: "network" };
 const state = { items: [], subject: "", types: new Set(TYPES.map((t) => t[0])), subjects: new Set(), expanded: new Set() };
 let pagefind, serial = 0, model = null;
 
@@ -39,6 +39,9 @@ function subjectForUrl(url) {
   const root = new URL("../../", import.meta.url).pathname;
   const path = new URL(url, location.href).pathname;
   const rel = path.startsWith(root) ? path.slice(root.length) : path.replace(/^\//, "");
+  if (rel === "notes/network.html") return "network";
+  if (rel === "notes/web.html") return "web_design";
+  if (rel === "notes/index.html") return "";
   return SUBJECT_BY_DIR[rel.split("/")[0]] || "";
 }
 

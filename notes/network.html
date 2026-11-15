@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f8f9fb">
+  <meta name="description" content="计算机网络课堂笔记：IPv4分类、CIDR、子网划分、IPv4分片与IPv6，附课堂题目和原始截图。">
+  <title>计算机网络课堂笔记 · 辽宁专升本</title>
+  <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/css/site-unify.css">
+  <link rel="stylesheet" href="../assets/css/site-shell.css">
+  <link rel="stylesheet" href="../assets/css/classroom-notes.css">
+  <script src="../assets/js/site-shell.js"></script>
+</head>
+<body class="notes-page" data-note-sources="data/network-sources.json">
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-brand" href="../index.html"><span class="site-brand__name">辽宁专升本 · 计算机类学习站</span></a>
+      <nav class="site-nav" aria-label="全站导航"><a href="../index.html">首页</a><a href="index.html">课堂笔记</a><a href="../search.html">搜索</a></nav>
+    </div>
+  </header>
+  <main class="notes-main" id="main">
+    <section class="notes-hero">
+      <p class="notes-eyebrow">NETWORK · CLASS NOTES</p>
+      <h1 class="notes-title">计算机网络：IP 地址与子网计算</h1>
+      <p class="notes-lead">按张老师课堂截图整理。先掌握地址结构，再学习 CIDR 和地址块，最后处理子网划分、IPv4 分片与 IPv6。例题保留原题数值，答案经过复核后给出计算过程。</p>
+      <div class="notes-stats">
+        <span class="notes-stat"><strong>5</strong> 个主题</span>
+        <span class="notes-stat"><strong>50</strong> 张课堂图</span>
+        <span class="notes-stat"><strong>7</strong> 道例题与自测</span>
+      </div>
+    </section>
+    <nav class="note-subnav" aria-label="本页主题"><a href="#ip-basics">IP 基础</a><a href="#cidr">CIDR</a><a href="#subnet">子网划分</a><a href="#fragments">IPv4 分片</a><a href="#ipv6">IPv6</a><a href="#source-index">原图索引</a></nav>
+    <div class="notes-layout">
+      <aside class="notes-toc" aria-label="章节目录">
+        <a class="notes-toc__subject" href="index.html"><span>计算机网络</span><span>↗</span></a>
+        <h2 class="notes-toc__title">学习目录</h2>
+        <ol class="notes-toc__list">
+          <li><a href="#ip-basics"><span class="notes-toc__no">01</span><span>IPv4 地址、分类与私有地址</span></a></li>
+          <li><a href="#cidr"><span class="notes-toc__no">02</span><span>CIDR、掩码与地址块</span></a></li>
+          <li><a href="#subnet"><span class="notes-toc__no">03</span><span>子网划分与地址分配</span></a></li>
+          <li><a href="#fragments"><span class="notes-toc__no">04</span><span>IPv4 数据报分片</span></a></li>
+          <li><a href="#ipv6"><span class="notes-toc__no">05</span><span>IPv6 首部与特点</span></a></li>
+          <li><a href="#source-index"><span class="notes-toc__no">附</span><span>原始截图与待补清单</span></a></li>
+        </ol>
+      </aside>
+      <div class="notes-content">
+        <section class="note-section" id="ip-basics">
+          <header class="note-section__head"><span class="note-section__no">01</span><div><h2>IPv4 地址、分类与私有地址</h2><p class="note-section__summary">先看第 1 个十进制数判断传统类别，再判断地址是否属于私有范围。</p></div></header>
+          <div class="class-axis" aria-label="传统 IPv4 地址分类">
+            <div class="class-axis__track"><span>A 类<br>1–126</span><span>127<br>回环</span><span>B 类<br>128–191</span><span>C 类<br>192–223</span><span>D 类<br>组播</span><span>E 类</span></div>
+          </div>
+          <div class="concept-grid">
+            <article class="concept-card"><h3>IPv4 怎么写</h3><p>共 32 位，用 4 个 0–255 的十进制数组成，数字之间用 3 个点分隔，因此叫“点分十进制”。</p></article>
+            <article class="concept-card"><h3>传统分类只看首字节</h3><ul><li>A：1–126，网络号 : 主机号 = 1 : 3 字节</li><li>B：128–191，2 : 2 字节</li><li>C：192–223，3 : 1 字节</li></ul></article>
+            <article class="concept-card"><h3>私有地址三段</h3><ul><li>10.0.0.0/8</li><li>172.16.0.0/12，即第二字节 16–31</li><li>192.168.0.0/16</li></ul></article>
+            <article class="concept-card"><h3>地址、网络号与广播</h3><p>教材常见的“可用主机”口径会去掉网络地址和广播地址；/31、/32 有专门用途，遇到点对点题要结合题意判断。</p></article>
+          </div>
+          <div class="note-callout"><strong>快速判断：</strong>先找各段的第一个十进制数，再比较类别范围；判断私有地址时看完整前缀，不能只看“172”或“192”。</div>
+          <div class="question-list">
+            <details class="question"><summary>例 1：126.16.1.1 属于哪类地址？10.2.3.4 与 192.168.214.2 呢？</summary><div class="question__body"><p>126 位于 A 类 1–126；10 位于 A 类；192 位于 C 类；224 位于 D 类。</p><p class="question__answer">答案：126.16.1.1 为 A 类；10.2.3.4 为 A 类；192.168.214.2 为 C 类。课堂多选题“属于 C 类”的答案选 202.38.214.2 与 192.168.214.2。</p><p class="question__source">来源：课堂第 4–6 页，原图答案经复核。</p></div></details>
+            <details class="question"><summary>例 2：下列哪些属于私有地址：10.33.42.255、172.15.44.255、172.32.100.255、192.168.7.255？</summary><div class="question__body"><p>10 属于 10/8；172.15 和 172.32 都在 172.16–172.31 之外；192.168 属于私有范围。</p><p class="question__answer">答案：10.33.42.255 与 192.168.7.255。</p><p class="question__source">来源：课堂第 5 页。原图中两个选项重复，保留原始题干现象。</p></div></details>
+          </div>
+          <details class="source-drawer"><summary>查看本章原始截图</summary><div class="source-grid" data-source-group="ip-basics"></div></details>
+        </section>
+        <section class="note-section" id="cidr">
+          <header class="note-section__head"><span class="note-section__no">02</span><div><h2>CIDR、掩码与地址块</h2><p class="note-section__summary">把掩码转成连续的 1，再根据前缀长度计算网络范围、地址数量和聚合结果。</p></div></header>
+          <div class="concept-grid concept-grid--three">
+            <article class="concept-card"><h3>前缀长度 P</h3><p>/P 表示前 P 位是网络前缀。主机位为 32−P 位，地址块大小是 2<sup>(32−P)</sup>。</p></article>
+            <article class="concept-card"><h3>掩码位数</h3><p>网络位写 1、主机位写 0。例如 255.255.255.252 的二进制末尾是 11111100，所以前缀为 /30。</p></article>
+            <article class="concept-card"><h3>地址数 vs 可用主机</h3><p>题目问“地址块有多少地址”时不扣网络地址与广播地址；只有问传统可用主机数时才减去 2。</p></article>
+          </div>
+          <div class="bits" aria-label="一个 20 位前缀的 32 位结构"><span class="is-prefix">前 20 位网络前缀</span><span class="is-host">12 位主机号</span></div>
+          <div class="note-table-wrap"><table class="note-table"><thead><tr><th>掩码</th><th>前缀</th><th>地址块大小</th><th>常见用途</th></tr></thead><tbody><tr><td>255.0.0.0</td><td>/8</td><td>16,777,216</td><td>大型地址聚合</td></tr><tr><td>255.255.240.0</td><td>/20</td><td>4,096</td><td>数十个连续 C 类网络</td></tr><tr><td>255.255.255.240</td><td>/28</td><td>16</td><td>小型子网</td></tr><tr><td>255.255.255.252</td><td>/30</td><td>4</td><td>点对点链路常用</td></tr></tbody></table></div>
+          <div class="question-list">
+            <details class="question"><summary>例 3：140.120.84.24/20 的地址块、掩码、地址数各是多少？</summary><div class="question__body"><p>主机位为 32−20=12。第 3 字节 84=01010100，只保留前 4 位前缀 0101。</p><p class="question__answer">网络地址 140.120.80.0/20；广播地址 140.120.95.255；掩码 255.255.240.0；地址数 2¹²=4096，相当于 2¹²/2⁸=16 个传统 C 类网络。</p><p class="question__source">来源：课堂第 94 页，按原图方法复核。</p></div></details>
+            <details class="question"><summary>例 4：86.32/12 的掩码是多少？哪个地址与它匹配？</summary><div class="question__body"><p>/12 的掩码为 255.240.0.0，第 2 字节只比较前 4 位。32=00100000，目标高 4 位是 0010；33=00100001，高 4 位同样是 0010。</p><p class="question__answer">网络前缀是 86.32.0.0/12；86.33.224.123 匹配。</p><p class="question__source">来源：课堂第 93 页，课堂方法 1/方法 2 对照。</p></div></details>
+          </div>
+          <details class="source-drawer"><summary>查看本章原始截图</summary><div class="source-grid" data-source-group="cidr"></div></details>
+        </section>
+        <section class="note-section" id="subnet">
+          <header class="note-section__head"><span class="note-section__no">03</span><div><h2>子网划分与地址分配</h2><p class="note-section__summary">先确定子网数量和主机需求，再借位、对齐地址块边界，最后标出网络地址、广播地址和可用主机范围。</p></div></header>
+          <div class="concept-grid">
+            <article class="concept-card"><h3>等长子网</h3><p>划分 N 个等长子网，至少借 ⌈log₂N⌉ 位；新前缀 = 原前缀 + 借位。每块地址数 = 2<sup>剩余主机位</sup>。</p></article>
+            <article class="concept-card"><h3>不定长子网 VLSM</h3><p>把主机需求从大到小排序，为每种需求选择足够容纳“主机数 + 网络地址 + 广播地址”的最小地址块，再按边界连续分配。</p></article>
+          </div>
+          <div class="note-callout"><strong>关键边界：</strong>地址块大小必须是 2 的幂。传统子网可用主机数通常为“地址数−2”；路由器直连接口所在网段是否计入主机数，要看题目图示。</div>
+          <div class="question-list">
+            <details class="question"><summary>例 5：136.23.12.64/26 继续等分为 4 个子网</summary><div class="question__body"><p>4=2²，借 2 位后前缀为 /28；每块有 2⁴=16 个地址，传统可用 14 个主机地址。</p><div class="note-table-wrap"><table class="note-table"><thead><tr><th>子网</th><th>地址块</th><th>可用范围</th></tr></thead><tbody><tr><td>A</td><td>136.23.12.64/28</td><td>.65–.78</td></tr><tr><td>B</td><td>136.23.12.80/28</td><td>.81–.94</td></tr><tr><td>C</td><td>136.23.12.96/28</td><td>.97–.110</td></tr><tr><td>D</td><td>136.23.12.112/28</td><td>.113–.126</td></tr></tbody></table></div><p class="question__source">来源：课堂第 98 页，按老师板书复核。</p></div></details>
+            <details class="question"><summary>例 6：把 30.138.118.0/23 分给需求为 LAN3=150、LAN2=91、LAN5=15、LAN1=3、LAN4=3 主机的网段</summary><div class="question__body"><p>按课堂从大到小切块。下表保留原课件的分配结果；其中部分小网段分配得比最低需求更大。</p><div class="note-table-wrap"><table class="note-table"><thead><tr><th>网段</th><th>主机需求</th><th>课堂答案</th><th>地址数</th></tr></thead><tbody><tr><td>LAN3</td><td>150</td><td>30.138.118.0/24</td><td>256</td></tr><tr><td>LAN2</td><td>91</td><td>30.138.119.0/25</td><td>128</td></tr><tr><td>LAN5</td><td>15</td><td>30.138.119.128/26</td><td>64</td></tr><tr><td>LAN1</td><td>3</td><td>30.138.119.192/27</td><td>32</td></tr><tr><td>LAN4</td><td>3</td><td>30.138.119.224/27</td><td>32</td></tr></tbody></table></div><p class="question__source">来源：课堂第 96–97 页。这里展示老师课堂给出的分法，不代表唯一可行方案。</p></div></details>
+          </div>
+          <details class="source-drawer"><summary>查看本章原始截图</summary><div class="source-grid" data-source-group="subnet"></div></details>
+        </section>
+        <section class="note-section" id="fragments">
+          <header class="note-section__head"><span class="note-section__no">04</span><div><h2>IPv4 数据报分片</h2><p class="note-section__summary">分片大小受 MTU 限制；除最后一片外，每片数据长度通常是 8 字节的倍数，片偏移也按 8 字节为单位。</p></div></header>
+          <div class="concept-grid concept-grid--three">
+            <article class="concept-card"><h3>先扣首部</h3><p>题目给出的“数据报总长度”包含首部。IPv4 基本首部通常 20 字节，所以可携带的数据长度 = 总长度 − 首部。</p></article>
+            <article class="concept-card"><h3>每片不超过 MTU</h3><p>一片含首部和数据。若 MTU=1500、首部=20，则非末片通常最多携带 1480 字节数据。</p></article>
+            <article class="concept-card"><h3>偏移的单位</h3><p>片偏移字段按“8 字节块”计数：偏移 = 该片数据相对于原始数据的字节起点 ÷ 8。</p></article>
+          </div>
+          <div class="fragment-bars" aria-label="4000 字节 IPv4 数据报按 MTU 1500 分为三片">
+            <div class="fragment-bar"><span>第 1 片</span><span class="fragment-bar__fill" style="width:100%"></span><span>20+1480，偏移 0</span></div>
+            <div class="fragment-bar"><span>第 2 片</span><span class="fragment-bar__fill" style="width:100%"></span><span>20+1480，偏移 185</span></div>
+            <div class="fragment-bar"><span>第 3 片</span><span class="fragment-bar__fill" style="width:69%"></span><span>20+1020，偏移 370</span></div>
+          </div>
+          <details class="question"><summary>例 7：总长度 4000 字节（含 20 字节首部），MTU=1500，怎样分片？</summary><div class="question__body"><p>数据共 3980 字节。第 1、2 片各放 1480 字节，第 3 片放 1020 字节。</p><p class="question__answer">片偏移分别为 0、185、370；前两片的 MF=1，最后一片 MF=0。若路径允许，正常应优先避免分片并采用合适的 MTU。</p><p class="question__source">来源：课堂第 47–49 页与作业中的分片题，计算经整理复核。</p></div></details>
+          <details class="source-drawer"><summary>查看本章原始截图</summary><div class="source-grid" data-source-group="fragments"></div></details>
+        </section>
+        <section class="note-section" id="ipv6">
+          <header class="note-section__head"><span class="note-section__no">05</span><div><h2>IPv6 首部与主要特点</h2><p class="note-section__summary">IPv6 仍是数据报服务，地址扩展到 128 位，基本首部固定为 40 字节，扩展首部按需串联。</p></div></header>
+          <div class="concept-grid">
+            <article class="concept-card"><h3>基本首部字段</h3><p>版本、通信量类、流标号、有效载荷长度、下一个首部、跳数限制、源地址、目的地址。基本首部固定 40 字节。</p></article>
+            <article class="concept-card"><h3>扩展首部</h3><p>逐跳选项、路由、分片等扩展首部放在基本首部和负载之间，用“下一个首部”字段串联。</p></article>
+            <article class="concept-card"><h3>地址变长</h3><p>IPv4 地址 32 位，IPv6 地址 128 位，地址空间显著扩大。IPv6 保留数据报服务，不建立连接。</p></article>
+            <article class="concept-card"><h3>前缀表示</h3><p>与 CIDR 一样使用“地址/前缀长度”。课堂截图提到点对点网络以 /31 表示，答题时注意题目是否按该特殊规则计算。</p></article>
+          </div>
+          <details class="question"><summary>自测：IPv6 基本首部固定多长？为什么不能套用 IPv4 的 20 字节？</summary><div class="question__body"><p>IPv6 基本首部固定 40 字节，地址分别为 128 位，字段组成也与 IPv4 不同；额外功能由扩展首部承担。</p><p class="question__source">自测依据课堂 IPv6 首部与特点两页整理。</p></div></details>
+          <details class="source-drawer"><summary>查看本章原始截图</summary><div class="source-grid" data-source-group="ipv6"></div></details>
+        </section>
+        <section class="note-section" id="source-index">
+          <header class="note-section__head"><span class="note-section__no">附</span><div><h2>原始截图与待补清单</h2><p class="note-section__summary">课堂资料全部按章节保存。标成“低清预览”的文件只保留了 120px 左右的客户端缩略图。</p></div></header>
+          <div class="note-callout"><strong>资料边界：</strong>本页是对课堂截图的整理版，不是官方考纲。三张复习结构/清单图和一张分片作业图只有低清预览，内容不据此猜测。</div>
+          <details class="source-drawer" open><summary>查看总览与待补原图</summary><div class="source-grid" data-source-group="overview"></div></details>
+        </section>
+      </div>
+    </div>
+  </main>
+  <dialog class="notes-dialog" data-note-dialog aria-labelledby="note-dialog-title">
+    <div class="notes-dialog__bar"><strong class="notes-dialog__title" id="note-dialog-title" data-dialog-title>原始截图</strong><button class="sh-btn" type="button" data-dialog-close>关闭</button></div>
+    <img alt="">
+  </dialog>
+  <script src="../assets/js/classroom-notes.js"></script>
+</body>
+</html>
