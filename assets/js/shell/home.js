@@ -47,6 +47,7 @@ function startState(model, base) {
 
 export async function mount(shell) {
   hydrateIcons();
+  for (const link of document.querySelectorAll("[data-review-href]")) link.href = link.dataset.reviewHref;
   for (const chev of document.querySelectorAll(".home-subject__chev:empty")) chev.append(icon("chevron", 16));
   const q = document.querySelector("#home-q");
   document.addEventListener("keydown", (e) => {

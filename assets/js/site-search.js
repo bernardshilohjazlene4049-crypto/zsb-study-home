@@ -16,10 +16,10 @@ const params = new URLSearchParams(location.search);
 input.value = params.get("q") || "";
 hydrateIcons();
 
-const TYPES = [["topic", "知识点", "list"], ["chapter", "章节", "book"], ["doc", "讲义 / 资料", "file"]];
+const TYPES = [["topic", "知识点", "list"], ["chapter", "章节", "book"], ["source", "课堂原图", "file"], ["example", "例题 / 自测", "list"], ["doc", "讲义 / 资料", "file"]];
 const SUBJECT_BY_DIR = { gs: "math", yy: "english", jsj: "computer_basics", c: "c_language", wy: "web_design", wl: "network" };
 const state = { items: [], subject: "", types: new Set(TYPES.map((t) => t[0])), subjects: new Set(), expanded: new Set() };
-let pagefind, serial = 0, model = null;
+let pagefind, serial = 0, model = null, noteSupportPromise = null;
 
 async function getModel() {
   if (!model) model = buildModel(await loadSite(), { ok: true, attempts: [], mistakes: [], progress: [] });
@@ -80,6 +80,41 @@ async function docItems(q) {
   return out;
 }
 
+function supportItems(q) {
+  if (!noteSupportPromise) {
+    noteSupportPromise = Promise.all([
+      fetch(new URL("../../notes/data/topic-links.json", import.meta.url)).then((r) => r.json()),
+      fetch(new URL("../../notes/data/network-sources.json", import.meta.url)).then((r) => r.json()),
+      fetch(new URL("../../notes/data/web-sources.json", import.meta.url)).then((r) => r.json())
+    ]).then(([links, network, web]) => ({ links, sources: [...network.items, ...web.items] }));
+  }
+  return noteSupportPromise.then(({ links, sources }) => {
+    const needle = q.toLowerCase();
+    const sourceItems = sources
+      .filter((item) => `${item.id} ${item.file} ${item.kind} ${item.readable ? "高清资料" : "待补高清原图"} ${item.note || ""}`.toLowerCase().includes(needle))
+      .map((item) => ({
+        type: "source",
+        subject: item.subject,
+        title: item.file.replace(/\.(png|jpe?g|webp)$/i, ""),
+        meta: `${item.subject === "network" ? "计算机网络" : "网页制作基础"} · ${item.kind}${item.readable ? "" : " · 待补高清"}`,
+        excerpt: item.note,
+        href: `notes/sources.html?subject=${encodeURIComponent(item.subject)}&source=${encodeURIComponent(item.id)}#source-${item.id}`,
+        score: item.readable ? 2.2 : 2
+      }));
+    const exampleItems = links.examples
+      .filter((item) => `${item.title} ${item.id}`.toLowerCase().includes(needle))
+      .map((item) => ({
+        type: "example",
+        subject: item.subjectId,
+        title: item.title,
+        meta: `${item.subjectId === "network" ? "计算机网络" : "网页制作基础"} · 关联 ${item.sourceIds.length} 张依据资料`,
+        href: `notes/${item.href}`,
+        score: 2.8
+      }));
+    return [...exampleItems, ...sourceItems];
+  });
+}
+
 function counts(items, key) {
   const map = new Map();
   for (const it of items) map.set(it[key], (map.get(it[key]) || 0) + 1);
@@ -138,7 +173,7 @@ function closeFilters() { if (!filters.classList.contains("is-open")) return; fi
 filterBtn.addEventListener("click", openFilters);
 
 function itemNode(it) {
-  const ico = it.type === "topic" ? "list" : it.type === "chapter" ? "book" : "file";
+  const ico = it.type === "topic" || it.type === "example" ? "list" : it.type === "chapter" ? "book" : "file";
   return el("a", { class: "srch-item", href: it.href }, [
     el("span", { class: "srch-item__icon" }, [icon(ico, 16)]),
     el("span", { class: "srch-item__body" }, [
@@ -186,11 +221,19 @@ async function search(q) {
   status.textContent = "搜索中…";
   const m = await getModel();
   const cat = catalogItems(m, query);
-  let docs = [], docError = false;
-  try { docs = await docItems(query); } catch (error) { docError = true; console.warn("Pagefind search failed", error); }
+  let docs = [], support = [], docError = false;
+  const [docsResult, supportResult] = await Promise.allSettled([docItems(query), supportItems(query)]);
+  if (docsResult.status === "fulfilled") docs = docsResult.value;
+  else {
+    docError = true;
+    console.warn("Pagefind search failed", docsResult.reason);
+  }
+  if (supportResult.status === "fulfilled") support = supportResult.value;
+  else console.warn("课堂笔记资料搜索失败", supportResult.reason);
   if (ticket !== serial) return;
   const topicHrefs = new Set(cat.filter((c) => c.type === "topic").map((c) => c.href));
-  state.items = [...cat, ...docs.filter((d) => !topicHrefs.has(d.href))];
+  const supportHrefs = new Set(support.map((item) => item.href));
+  state.items = [...cat, ...support, ...docs.filter((d) => !topicHrefs.has(d.href) && !supportHrefs.has(d.href))];
   if (!state.items.length) {
     status.textContent = docError ? "全文搜索暂不可用，请稍后重试" : "没有找到相关内容";
     list.replaceChildren(el("div", { class: "sh-card" }, [el("div", { class: "sh-empty" }, [icon("search", 22), el("p", { class: "sh-empty__title", text: docError ? "全文搜索暂不可用" : "没有找到相关内容" })])]));

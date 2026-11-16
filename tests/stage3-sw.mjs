@@ -32,6 +32,7 @@ const PRECACHE_SHELL = [
   "assets/js/core/ids.js",
   "assets/js/core/events.js",
   "assets/js/features/records.js",
+  "assets/js/features/topic-progress.js",
   "assets/js/features/recent-learning.js",
   "assets/js/features/mistake-rules.js",
   "assets/js/features/fsrs.js",

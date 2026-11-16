@@ -189,8 +189,13 @@
     const pageName = decodeURIComponent(location.pathname.split("/").pop());
     let topicData;
     let dependencyData;
+    let linkData;
     try {
-      [topicData, dependencyData] = await Promise.all([readJson("../data/topics.json"), readJson("../data/dependencies.json")]);
+      [topicData, dependencyData, linkData] = await Promise.all([
+        readJson("../data/topics.json"),
+        readJson("../data/dependencies.json"),
+        readJson("data/topic-links.json")
+      ]);
     } catch (error) {
       console.warn("学习关系加载失败", error);
       return;
@@ -201,6 +206,29 @@
     const topicById = new Map(topics.map((topic) => [topic.id, topic]));
     const sectionTopic = new Map(topics.map((topic) => [(topic.source_ref || "").split("#")[1], topic]));
     const edges = dependencyData.edges;
+    let progressModule = null;
+    const progressByTopic = new Map();
+    try {
+      progressModule = await import(new URL("../assets/js/features/records.js", location.href).href);
+      const learningState = await progressModule.loadLearningState();
+      for (const record of learningState.progress || []) progressByTopic.set(record.topic_id, record);
+    } catch (error) {
+      console.warn("学习记录暂不可用", error);
+    }
+
+    for (const example of linkData.examples.filter((item) => item.subjectId === noteSubject)) {
+      const question = document.getElementById(example.id);
+      const bodyNode = question?.querySelector(".question__body");
+      if (!bodyNode || !example.sourceIds?.length) continue;
+      const evidence = document.createElement("p");
+      evidence.className = "question__evidence";
+      const sourceQuery = encodeURIComponent(example.sourceIds.join(","));
+      evidence.append(createLink(
+        `sources.html?subject=${encodeURIComponent(example.subjectId)}&source=${sourceQuery}#source-${example.sourceIds[0]}`,
+        `查看本题依据截图（${example.sourceIds.length} 张）→`
+      ));
+      bodyNode.append(evidence);
+    }
 
     const rail = document.createElement("aside");
     rail.className = "notes-rail";
@@ -275,6 +303,68 @@
       }
       relations.append(before, after, refs);
       section.querySelector(".source-drawer")?.before(relations);
+
+      const actions = document.createElement("div");
+      actions.className = "note-study-actions";
+      const statusText = document.createElement("span");
+      statusText.className = "note-study-actions__status";
+      statusText.setAttribute("aria-live", "polite");
+      const studiedButton = document.createElement("button");
+      studiedButton.type = "button";
+      studiedButton.className = "sh-btn";
+      studiedButton.textContent = "标记已学";
+      const reviewButton = document.createElement("button");
+      reviewButton.type = "button";
+      reviewButton.className = "sh-btn";
+      reviewButton.textContent = "3 天后复习";
+      const paintProgress = (record) => {
+        if (!record) {
+          statusText.textContent = "尚未记录学习状态";
+          return;
+        }
+        const labels = {
+          studied: "已阅读课堂笔记",
+          practicing: "已开始练习",
+          independent_once: "独立做对过一次",
+          prompted_correct: "看过解析后做对",
+          needs_review: "需要复习"
+        };
+        const due = record.next_review_at ? ` · 复习：${new Date(record.next_review_at).toLocaleDateString("zh-CN")}` : "";
+        statusText.textContent = `${labels[record.mastery_state] || record.mastery_state}${due}`;
+      };
+      paintProgress(progressByTopic.get(topic.id));
+      if (!progressModule) {
+        studiedButton.disabled = true;
+        reviewButton.disabled = true;
+        statusText.textContent = "当前浏览器无法保存本地学习记录";
+      } else {
+        studiedButton.addEventListener("click", async () => {
+          studiedButton.disabled = true;
+          try {
+            const record = await progressModule.markTopicStudied(topic.id);
+            progressByTopic.set(topic.id, record);
+            paintProgress(record);
+          } catch {
+            statusText.textContent = "学习记录保存失败，请检查浏览器存储权限";
+          } finally {
+            studiedButton.disabled = false;
+          }
+        });
+        reviewButton.addEventListener("click", async () => {
+          reviewButton.disabled = true;
+          try {
+            const record = await progressModule.scheduleTopicReview(topic.id, { days: 3 });
+            progressByTopic.set(topic.id, record);
+            paintProgress(record);
+          } catch {
+            statusText.textContent = "复习计划保存失败，请检查浏览器存储权限";
+          } finally {
+            reviewButton.disabled = false;
+          }
+        });
+      }
+      actions.append(studiedButton, reviewButton, statusText);
+      section.querySelector(".source-drawer")?.before(actions);
     }
 
     const links = [...document.querySelectorAll('.notes-toc a[href^="#"], .notes-rail__path a[href^="#"]')];
@@ -293,10 +383,14 @@
     }
   }
 
-  function sourceTopicLink(item) {
+  function sourceTopicLink(item, topicId = "") {
+    const topicHref = topicId && topicUrlById.get(topicId);
+    if (topicHref) return new URL(topicHref, location.href).href;
     const href = TOPIC_LINKS[item.subject]?.[item.group];
     return href ? new URL(href, location.href).href : "";
   }
+
+  let topicUrlById = new Map();
 
   async function mountSourceLibrary() {
     if (!body.hasAttribute("data-note-library")) return;
@@ -309,9 +403,29 @@
     const searchFilter = document.querySelector("#source-search");
     if (!grid || !summary) return;
     try {
-      const [network, web] = await Promise.all([readJson("data/network-sources.json"), readJson("data/web-sources.json")]);
+      const [network, web, topicData, linkData] = await Promise.all([
+        readJson("data/network-sources.json"),
+        readJson("data/web-sources.json"),
+        readJson("../data/topics.json"),
+        readJson("data/topic-links.json")
+      ]);
       const allItems = [...network.items, ...web.items];
+      const topicById = new Map(topicData.topics.map((topic) => [topic.id, topic]));
+      topicUrlById = new Map(topicData.topics.filter((topic) => topic.source_ref).map((topic) => [topic.id, `../${topic.source_ref}`]));
+      const topicIdBySource = new Map();
+      for (const [topicId, links] of Object.entries(linkData.topics)) {
+        for (const sourceId of links.sourceIds || []) topicIdBySource.set(sourceId, topicId);
+      }
+      const examplesBySource = new Map();
+      for (const example of linkData.examples) {
+        for (const sourceId of example.sourceIds || []) {
+          const list = examplesBySource.get(sourceId) || [];
+          list.push(example);
+          examplesBySource.set(sourceId, list);
+        }
+      }
       const params = new URLSearchParams(location.search);
+      let pinnedSourceIds = new Set((params.get("source") || "").split(",").filter(Boolean));
       const groupLabels = {
         "ip-basics": "IPv4 基础",
         cidr: "CIDR 与地址块",
@@ -348,11 +462,24 @@
         const items = allItems.filter((item) => (!subject || item.subject === subject)
           && (!group || item.group === group)
           && (!status || (status === "readable" ? item.readable : !item.readable))
+          && (!pinnedSourceIds.size || pinnedSourceIds.has(item.id))
           && (!query || `${item.file} ${item.kind} ${item.group}`.toLowerCase().includes(query)));
-        summary.textContent = `当前 ${items.length} 张 · 高清 ${items.filter((item) => item.readable).length} 张 · 待补 ${items.filter((item) => !item.readable).length} 张`;
+        const url = new URL(location.href);
+        const setOrDelete = (key, value) => value ? url.searchParams.set(key, value) : url.searchParams.delete(key);
+        setOrDelete("subject", subject);
+        setOrDelete("group", group);
+        setOrDelete("status", status);
+        setOrDelete("q", query);
+        setOrDelete("source", pinnedSourceIds.size ? [...pinnedSourceIds].join(",") : "");
+        if (!pinnedSourceIds.size) url.hash = "";
+        history.replaceState(null, "", url);
+        summary.textContent = pinnedSourceIds.size
+          ? `已定位 ${items.length} 张依据资料 · 高清 ${items.filter((item) => item.readable).length} 张 · 待补 ${items.filter((item) => !item.readable).length} 张`
+          : `当前 ${items.length} 张 · 高清 ${items.filter((item) => item.readable).length} 张 · 待补 ${items.filter((item) => !item.readable).length} 张`;
         grid.replaceChildren(...items.map((item) => {
           const card = document.createElement("article");
           card.className = "source-library-card";
+          card.id = `source-${item.id}`;
           const preview = document.createElement("button");
           preview.type = "button";
           preview.className = `source-library-card__preview${item.readable ? "" : " is-low"}`;
@@ -371,21 +498,29 @@
           const links = document.createElement("div");
           links.className = "source-library-card__links";
           links.append(Object.assign(document.createElement("span"), { textContent: item.id }));
-          const topicHref = sourceTopicLink(item);
-          if (topicHref) links.append(createLink(topicHref, "对应知识点 →"));
+          const topicId = topicIdBySource.get(item.id) || "";
+          const topicHref = sourceTopicLink(item, topicId);
+          if (topicHref) links.append(createLink(topicHref, topicById.get(topicId)?.title || "对应知识点 →"));
+          const example = examplesBySource.get(item.id)?.[0];
+          if (example) links.append(createLink(example.href, "关联例题 →"));
           card.append(preview, links);
           return card;
         }));
         if (empty) empty.hidden = items.length > 0;
+        if (pinnedSourceIds.size && location.hash) {
+          requestAnimationFrame(() => document.querySelector(location.hash)?.scrollIntoView({ block: "center" }));
+        }
       };
       subjectFilter?.addEventListener("change", () => {
+        pinnedSourceIds = new Set();
         rebuildGroups();
         paint();
       });
-      groupFilter?.addEventListener("change", paint);
-      statusFilter?.addEventListener("change", paint);
-      searchFilter?.addEventListener("input", paint);
+      groupFilter?.addEventListener("change", () => { pinnedSourceIds = new Set(); paint(); });
+      statusFilter?.addEventListener("change", () => { pinnedSourceIds = new Set(); paint(); });
+      searchFilter?.addEventListener("input", () => { pinnedSourceIds = new Set(); paint(); });
       document.querySelector(".source-library-filters")?.addEventListener("reset", () => setTimeout(() => {
+        pinnedSourceIds = new Set();
         rebuildGroups();
         paint();
       }, 0));

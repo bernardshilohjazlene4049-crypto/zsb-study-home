@@ -3,6 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import test from "node:test";
 import { calculateCidr, planIpv4Fragments } from "../assets/js/network-lab.js";
+import { markTopicStudied, scheduleTopicReview } from "../assets/js/features/topic-progress.js";
 
 const root = path.resolve(import.meta.dirname, "..");
 const notesRoot = path.join(root, "notes");
@@ -104,6 +105,84 @@ test("学习地图的所有课程节点都指向真实章节", () => {
     const [file, hash] = match[1].split("#");
     assert.equal(fs.existsSync(path.join(root, "notes", file)), true, file);
     assert.equal(new Set([...readText(`notes/${file}`).matchAll(/\bid=["']([^"']+)["']/g)].map((item) => item[1])).has(hash), true, `${file}#${hash}`);
+  }
+});
+
+test("原图、知识点与例题形成可校验的双向映射", () => {
+  const links = readJson("notes/data/topic-links.json");
+  const network = readJson("notes/data/network-sources.json");
+  const web = readJson("notes/data/web-sources.json");
+  const sources = [...network.items, ...web.items];
+  const sourceIds = new Set(sources.map((item) => item.id));
+  const mappedSources = Object.values(links.topics).flatMap((topic) => topic.sourceIds);
+  assert.equal(new Set(mappedSources).size, mappedSources.length, "一张原图只能在主映射中归属一个知识点");
+  assert.deepEqual(mappedSources.filter((id) => !sourceIds.has(id)), [], "映射包含未知原图");
+  for (const item of sources.filter((source) => source.readable)) {
+    assert.equal(mappedSources.includes(item.id), true, `高清原图 ${item.id} 未关联知识点`);
+  }
+
+  const allHtml = `${readText("notes/network.html")}\n${readText("notes/web.html")}`;
+  for (const example of links.examples) {
+    assert.equal(new Set([...allHtml.matchAll(/\bid=["']([^"']+)["']/g)].map((match) => match[1])).has(example.id), true, `缺少例题 ${example.id}`);
+    assert.equal(links.topics[example.topicId].exampleIds.includes(example.id), true, `${example.id} 未反向登记到知识点`);
+    assert.equal(example.sourceIds.length > 0, true, `${example.id} 缺少依据原图`);
+    for (const sourceId of example.sourceIds) assert.equal(sourceIds.has(sourceId), true, `${example.id} 引用未知原图 ${sourceId}`);
+  }
+  assert.equal(links.examples.length, 15);
+});
+
+test("课堂笔记手动学习状态复用现有进度结构并支持复习", () => {
+  const args = { topicId: "net.cidr", learnerId: "local-guest", now: "2026-11-16T00:00:00.000Z" };
+  const previous = {
+    id: "prog:local-guest:net.cidr",
+    topic_id: "net.cidr",
+    learner_id: "local-guest",
+    mastery_state: "independent_once",
+    independent_correct_count: 1,
+    evidence_attempt_ids: ["att-1"],
+    created_at: "2026-11-01T00:00:00.000Z"
+  };
+  const studied = markTopicStudied(previous, args);
+  assert.equal(studied.mastery_state, "independent_once");
+  assert.equal(studied.independent_correct_count, 1);
+  assert.deepEqual(studied.evidence_attempt_ids, ["att-1"]);
+  assert.equal(studied.counts_toward_real_stats, true);
+  const reviewed = scheduleTopicReview(studied, { ...args, days: 3 });
+  assert.equal(reviewed.next_review_at, "2026-11-19T00:00:00.000Z");
+  assert.equal(reviewed.mastery_state, "independent_once");
+  assert.throws(() => scheduleTopicReview(null, { ...args, days: 0 }), /1–30/);
+});
+
+test("全站搜索登记课堂原图与例题类型", () => {
+  const search = readText("assets/js/site-search.js");
+  assert.match(search, /\["source", "课堂原图"/);
+  assert.match(search, /\["example", "例题 \/ 自测"/);
+  assert.match(search, /notes\/sources\.html\?subject=/);
+});
+
+test("课堂笔记与首页新增静态链接均可解析", () => {
+  const pages = ["index.html", "notes/index.html", "notes/network.html", "notes/web.html", "notes/map.html", "notes/sources.html"];
+  const cache = new Map();
+  const idsFor = (file) => {
+    if (!cache.has(file)) {
+      const html = readText(path.relative(root, file)).replace(/<(pre|code)\b[^>]*>[\s\S]*?<\/\1>/gi, "");
+      cache.set(file, new Set([...html.matchAll(/\bid=["']([^"']+)["']/g)].map((match) => match[1])));
+    }
+    return cache.get(file);
+  };
+  for (const page of pages) {
+    const file = path.join(root, page);
+    const html = readText(page).replace(/<(pre|code)\b[^>]*>[\s\S]*?<\/\1>/gi, "");
+    for (const match of html.matchAll(/\bhref=["']([^"']+)["']/g)) {
+      const href = match[1];
+      if (/^(?:https?:|mailto:|tel:|javascript:)/i.test(href)) continue;
+      const url = new URL(href, `https://local/${page}`);
+      const target = path.join(root, decodeURIComponent(url.pathname).replace(/^\/+/, ""));
+      assert.equal(fs.existsSync(target), true, `${page} 缺少链接目标 ${href}`);
+      if (url.hash && !url.hash.startsWith("#/") && target.endsWith(".html")) {
+        assert.equal(idsFor(target).has(decodeURIComponent(url.hash.slice(1))), true, `${page} 缺少锚点 ${href}`);
+      }
+    }
   }
 });
 

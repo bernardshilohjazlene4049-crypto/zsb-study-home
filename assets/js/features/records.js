@@ -17,6 +17,7 @@ import {
 } from "./mistake-rules.js";
 import { enrichTopicIds, isExcludedQuestionId, topicIdsForQuestionId } from "./topic-index.js";
 import { readRecentTopic } from "./recent-learning.js";
+import { markTopicStudied as buildStudiedProgress, scheduleTopicReview as buildReviewProgress } from "./topic-progress.js";
 
 export async function loadLearningState() {
   const [attempts, mistakes, notes, progress, marks, reviews, recentTopic] = await Promise.all([
@@ -221,6 +222,26 @@ export async function saveNote({ topicId, title, body, learnerId = LEARNER_ID })
     updated_at: now,
     source: "local"
   });
+}
+
+export async function markTopicStudied(topicId, { learnerId = LEARNER_ID, source = "classroom-note" } = {}) {
+  const id = progressId(learnerId, topicId);
+  const prev = await get("user_topic_progress", id);
+  const now = new Date().toISOString();
+  const next = buildStudiedProgress(prev, { topicId, learnerId, now, source });
+  await put("user_topic_progress", next);
+  bus.emit("topic:studied", next);
+  return next;
+}
+
+export async function scheduleTopicReview(topicId, { learnerId = LEARNER_ID, days = 3, source = "classroom-note" } = {}) {
+  const id = progressId(learnerId, topicId);
+  const prev = await get("user_topic_progress", id);
+  const now = new Date().toISOString();
+  const next = buildReviewProgress(prev, { topicId, learnerId, now, days, source });
+  await put("user_topic_progress", next);
+  bus.emit("topic:review-scheduled", next);
+  return next;
 }
 
 export async function savePlayback(resourceId, currentTime, playbackRate, learnerId = LEARNER_ID) {

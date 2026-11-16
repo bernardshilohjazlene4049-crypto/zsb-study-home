@@ -19,6 +19,7 @@ export const GRADING_LABEL = {
 };
 
 export const MASTERY_LABEL = {
+  studied: "已阅读课堂笔记",
   practicing: "已开始练习",
   needs_review: "需要复习",
   independent_once: "独立做对过一次",
