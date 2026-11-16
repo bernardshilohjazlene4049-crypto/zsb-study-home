@@ -28,9 +28,9 @@
         <a class="site-brand" href="./index.html"><span class="site-brand__name">辽宁专升本 · 计算机类学习站</span></a>
         <nav class="site-nav" aria-label="全站导航">
           <a class="site-nav__link" href="./index.html">首页</a>
-          <a class="site-nav__link" href="study/index.html">学习工作台</a>
-          <a class="site-nav__link" href="tower/index.html">指挥塔</a>
-          <a class="site-nav__link" href="study/overview.html">学习总览</a>
+          <a class="site-nav__link" href="#subjects">科目</a>
+          <a class="site-nav__link" href="notes/index.html">课堂笔记</a>
+          <a class="site-nav__link" href="study/index.html#/mistakes">学习与复习</a>
           <a class="site-nav__link" href="search.html">搜索</a>
         </nav>
       </div>
@@ -64,6 +64,39 @@
             <div data-slot="due"><p class="sh-empty-line">今天没有到期的复习。</p></div>
           </section>
         </div>
+
+        <section class="home-notes" aria-labelledby="home-notes-title">
+          <div class="home-section-head">
+            <div><h2 id="home-notes-title">课堂笔记与知识路径</h2><p>按知识点阅读，在原图中核对来源，再进入例题与复习。</p></div>
+            <a href="notes/index.html">查看全部笔记 →</a>
+          </div>
+          <div class="home-notes-grid">
+            <a class="home-note-card home-note-card--network" href="notes/network.html">
+              <span class="home-note-card__top"><span class="home-note-card__icon" data-icon="network" aria-hidden="true"></span><span class="home-note-card__tag">50 张课堂图</span></span>
+              <h3>计算机网络</h3>
+              <p>IPv4、CIDR、子网划分、分片与 IPv6，含计算过程和课堂例题。</p>
+              <strong>进入 5 个主题 →</strong>
+            </a>
+            <a class="home-note-card home-note-card--web" href="notes/web.html">
+              <span class="home-note-card__top"><span class="home-note-card__icon" data-icon="web" aria-hidden="true"></span><span class="home-note-card__tag">17 张课堂图</span></span>
+              <h3>网页制作基础</h3>
+              <p>CSS、文本属性、选择器、表单关联和原生控件，含可操作示例。</p>
+              <strong>进入 5 个主题 →</strong>
+            </a>
+            <a class="home-note-card" href="notes/map.html">
+              <span class="home-note-card__top"><span class="home-note-card__icon" data-icon="layers" aria-hidden="true"></span><span class="home-note-card__tag">知识关系</span></span>
+              <h3>可视化学习地图</h3>
+              <p>查看 10 个知识点之间的推荐顺序、先修关系和上下节连接。</p>
+              <strong>打开学习地图 →</strong>
+            </a>
+            <a class="home-note-card" href="notes/sources.html">
+              <span class="home-note-card__top"><span class="home-note-card__icon" data-icon="search" aria-hidden="true"></span><span class="home-note-card__tag">60 高清 · 7 待补</span></span>
+              <h3>课堂原图总库</h3>
+              <p>按科目、主题和清晰度筛选全部 67 张课堂资料图。</p>
+              <strong>浏览原图总库 →</strong>
+            </a>
+          </div>
+        </section>
 
         <section class="sh-card home-map" id="subjects" aria-labelledby="subjects-title">
           <header class="sh-card__head"><h2 class="sh-card__title" id="subjects-title"><span class="sh-ico" data-icon="layers" aria-hidden="true"></span><span>学习科目地图</span></h2></header>

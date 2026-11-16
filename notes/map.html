@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f8f9fb">
+  <meta name="description" content="计算机网络与网页制作课堂笔记可视化知识地图：先修关系、学习顺序、章节和课堂资料衔接。">
+  <title>课堂笔记学习地图 · 辽宁专升本</title>
+  <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/css/site-unify.css">
+  <link rel="stylesheet" href="../assets/css/site-shell.css">
+  <link rel="stylesheet" href="../assets/css/classroom-notes.css">
+  <script src="../assets/js/site-shell.js"></script>
+</head>
+<body class="notes-page knowledge-map-page">
+  <header class="site-header"><div class="site-header__inner"><a class="site-brand" href="../index.html"><span class="site-brand__name">辽宁专升本 · 计算机类学习站</span></a><nav class="site-nav" aria-label="全站导航"><a href="../index.html">首页</a><a href="index.html">课堂笔记</a><a href="../search.html">搜索</a></nav></div></header>
+  <main class="notes-main" id="main">
+    <nav class="notes-breadcrumb" aria-label="面包屑"><a href="../index.html">首页</a><span aria-hidden="true">/</span><a href="index.html">课堂笔记</a><span aria-hidden="true">/</span><span aria-current="page">学习地图</span></nav>
+    <section class="notes-hero">
+      <p class="notes-eyebrow">KNOWLEDGE MAP</p>
+      <h1 class="notes-title">两门课的知识路径</h1>
+      <p class="notes-lead">实线表示建议学习顺序，关系文字说明“先学、下一步或相关知识”。顺序来自当前课堂整理，不等同于官方考纲或严格考试顺序。</p>
+      <div class="map-legend" aria-label="图例"><span><i class="is-sequence"></i>建议顺序</span><span><i class="is-soft"></i>推荐先学</span><span><i class="is-related"></i>相关对照</span></div>
+    </section>
+
+    <section class="knowledge-board" aria-label="两门课的推荐学习顺序">
+      <article class="knowledge-track knowledge-track--network" id="network">
+        <header><div><span>NETWORK</span><h2>计算机网络</h2><p>先建立地址与前缀模型，再进入子网和分片计算。</p></div><a href="network.html#ip-basics">进入课程 →</a></header>
+        <ol class="knowledge-nodes">
+          <li><a href="network.html#ip-basics"><span class="knowledge-nodes__no">01</span><div><h3>IPv4 地址、分类与私有地址</h3><p>32 位地址、传统分类、私有范围、网络地址与广播地址。</p><span class="knowledge-nodes__meta">起点 · 6 张主题图 · 2 道例题</span></div></a></li>
+          <li><a href="network.html#cidr"><span class="knowledge-nodes__no">02</span><div><h3>CIDR、掩码与地址块</h3><p>前缀长度、连续掩码、地址数、网络范围与路由聚合。</p><span class="knowledge-nodes__meta">先学 01 · 11 张主题图 · 2 道例题</span></div></a></li>
+          <li><a href="network.html#subnet"><span class="knowledge-nodes__no">03</span><div><h3>子网划分与地址分配</h3><p>借位、等长子网、VLSM、边界对齐和可用主机范围。</p><span class="knowledge-nodes__meta">先学 02 · 22 张主题图 · 2 道例题</span></div></a></li>
+          <li><a href="network.html#fragments"><span class="knowledge-nodes__no">04</span><div><h3>IPv4 数据报分片</h3><p>MTU、首部、有效数据、8 字节片偏移和 MF 标志。</p><span class="knowledge-nodes__meta">先学地址长度概念 · 5 张主题图 · 1 道例题</span></div></a></li>
+          <li><a href="network.html#ipv6"><span class="knowledge-nodes__no">05</span><div><h3>IPv6 首部与特点</h3><p>128 位地址、40 字节基本首部、扩展首部与 IPv4 对比。</p><span class="knowledge-nodes__meta">与 IPv4 对照 · 3 张主题图 · 1 个自测</span></div></a></li>
+        </ol>
+      </article>
+      <article class="knowledge-track knowledge-track--web" id="web">
+        <header><div><span>WEB DESIGN</span><h2>网页制作基础</h2><p>从样式与链接状态开始，逐步进入文本、选择器和表单。</p></div><a href="web.html#css-pseudo">进入课程 →</a></header>
+        <ol class="knowledge-nodes">
+          <li><a href="web.html#css-pseudo"><span class="knowledge-nodes__no">01</span><div><h3>CSS 引入、颜色与链接伪类</h3><p>三种样式来源、颜色表示以及链接四状态。</p><span class="knowledge-nodes__meta">起点 · 4 张主题图 · 2 个自测</span></div></a></li>
+          <li><a href="web.html#text"><span class="knowledge-nodes__no">02</span><div><h3>文本溢出、阴影、缩进与空白</h3><p>从“要解决什么问题”理解 text-overflow 与 white-space。</p><span class="knowledge-nodes__meta">先学 01 · 4 张主题图 · 2 个自测</span></div></a></li>
+          <li><a href="web.html#selectors"><span class="knowledge-nodes__no">03</span><div><h3>:root 与 :not 选择器</h3><p>根元素变量、否定条件和元素匹配范围。</p><span class="knowledge-nodes__meta">与文本规则对照 · 2 张主题图 · 1 个自测</span></div></a></li>
+          <li><a href="web.html#forms"><span class="knowledge-nodes__no">04</span><div><h3>表单、表格与 form 关联</h3><p>结构嵌套、控件归属，以及课件表述与现行标准的差异。</p><span class="knowledge-nodes__meta">先学 HTML 结构 · 2 张主题图 · 1 个自测</span></div></a></li>
+          <li><a href="web.html#widgets"><span class="knowledge-nodes__no">05</span><div><h3>datalist 与范围滑块</h3><p>用原生控件提供建议值和可约束数值范围。</p><span class="knowledge-nodes__meta">先学表单控件 · 2 张主题图 · 1 个自测</span></div></a></li>
+        </ol>
+      </article>
+    </section>
+
+    <section class="knowledge-notes" aria-labelledby="map-notes-title">
+      <h2 id="map-notes-title">怎么使用这张图</h2>
+      <div class="concept-grid concept-grid--three">
+        <article class="concept-card"><h3>先看序号</h3><p>序号只表示当前整理建议的阅读顺序，方便连续学习；考试复习可以跳到薄弱知识点。</p></article>
+        <article class="concept-card"><h3>再看关系标签</h3><p>“先学”不代表缺它就无法理解；“相关”用于把 CIDR 与 IPv6、CSS 与表单等概念互相定位。</p></article>
+        <article class="concept-card"><h3>最后核对原图</h3><p>进入知识点后可展开本章原图。低清预览只用于确认资料存在，内容仍需高清图复核。</p></article>
+      </div>
+    </section>
+  </main>
+  <script src="../assets/js/classroom-notes.js"></script>
+</body>
+</html>

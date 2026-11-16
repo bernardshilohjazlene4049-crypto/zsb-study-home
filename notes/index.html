@@ -4,15 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#f8f9fb">
-  <meta name="description" content="辽宁专升本计算机网络与网页设计课堂笔记、原图和课堂题整理。">
-  <title>课堂笔记 · 辽宁专升本</title>
+  <meta name="description" content="辽宁专升本计算机网络与网页制作课堂笔记、可视化目录、课堂例题和 67 张资料图。">
+  <title>课堂笔记与知识路径 · 辽宁专升本</title>
   <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../assets/css/site-unify.css">
   <link rel="stylesheet" href="../assets/css/site-shell.css">
   <link rel="stylesheet" href="../assets/css/classroom-notes.css">
   <script src="../assets/js/site-shell.js"></script>
 </head>
-<body class="notes-page" data-note-root>
+<body class="notes-page notes-hub-page" data-note-root>
   <header class="site-header">
     <div class="site-header__inner">
       <a class="site-brand" href="../index.html"><span class="site-brand__name">辽宁专升本 · 计算机类学习站</span></a>
@@ -20,30 +20,60 @@
     </div>
   </header>
   <main class="notes-main" id="main">
-    <section class="notes-hero">
-      <p class="notes-eyebrow">CLASSROOM ARCHIVE</p>
-      <h1 class="notes-title">课堂笔记与原始题目</h1>
-      <p class="notes-lead">把计算机网络和网页制作基础两门课的课堂截图，整理成可阅读的知识笔记、例题解析和按章节归档的原图目录。看不清或只保留低清预览的资料会单独标出。</p>
-      <div class="notes-stats">
-        <span class="notes-stat"><strong>2</strong> 门课</span>
-        <span class="notes-stat"><strong>67</strong> 张课堂资料图</span>
-        <span class="notes-stat"><strong>10</strong> 个学习主题</span>
+    <nav class="notes-breadcrumb" aria-label="面包屑"><a href="../index.html">首页</a><span aria-hidden="true">/</span><span aria-current="page">课堂笔记</span></nav>
+    <section class="notes-hero notes-hero--hub">
+      <div>
+        <p class="notes-eyebrow">LEARNING ARCHIVE · V2</p>
+        <h1 class="notes-title">从课堂原图，到可复习的知识路径</h1>
+        <p class="notes-lead">每门课都按“目录定位 → 理解知识点 → 对照课堂原图 → 展开例题 → 进入下一节”组织。模糊资料会明确标出，不用猜测内容补齐。</p>
+        <div class="notes-actions">
+          <a class="sh-btn sh-btn--primary" href="network.html">开始计算机网络</a>
+          <a class="sh-btn" href="web.html">进入网页制作</a>
+          <a class="sh-btn" href="map.html">查看学习地图</a>
+        </div>
+      </div>
+      <div class="notes-hero__path" aria-label="建议学习流程">
+        <span><strong>01</strong>定位知识点</span>
+        <span><strong>02</strong>理解与核对原图</span>
+        <span><strong>03</strong>做题并衔接下一节</span>
       </div>
     </section>
-    <div class="notes-hub-grid">
-      <a class="notes-hub-card" href="network.html">
-        <span class="notes-hub-card__icon" data-note-icon="network"></span>
-        <h2>计算机网络</h2>
-        <p>IPv4 分类与私有地址、CIDR 与路由聚合、子网划分、IPv4 分片和 IPv6。含课堂例题与 50 张截图索引，其中 4 张待补高清原图。</p>
-        <span class="notes-hub-card__foot"><span>5 个学习主题 · 50 张截图</span><strong>开始阅读 →</strong></span>
-      </a>
-      <a class="notes-hub-card" href="web.html">
-        <span class="notes-hub-card__icon" data-note-icon="web"></span>
-        <h2>网页制作基础</h2>
-        <p>CSS 引入与链接伪类、文本属性、结构化选择器、表单关联、datalist 和 range。含代码示例与 17 张截图，其中 3 张待补高清原图。</p>
-        <span class="notes-hub-card__foot"><span>5 个学习主题 · 17 张截图</span><strong>开始阅读 →</strong></span>
-      </a>
+    <div class="notes-stats notes-stats--wide">
+      <span class="notes-stat"><strong>2</strong> 门课</span>
+      <span class="notes-stat"><strong>10</strong> 个知识点</span>
+      <span class="notes-stat"><strong>15</strong> 道例题与自测</span>
+      <span class="notes-stat"><strong>60</strong> 张高清资料</span>
+      <span class="notes-stat notes-stat--warn"><strong>7</strong> 张待补高清</span>
     </div>
+
+    <section class="notes-hub-section" aria-labelledby="course-paths-title">
+      <div class="notes-section-title"><div><p class="notes-eyebrow">CHOOSE A PATH</p><h2 id="course-paths-title">选择一门课，沿知识路径阅读</h2></div><a href="map.html">对照全图 →</a></div>
+      <div class="notes-hub-grid">
+        <a class="notes-hub-card notes-hub-card--network" href="network.html">
+          <span class="notes-hub-card__icon" data-note-icon="network"></span>
+          <div><span class="notes-hub-card__kicker">NETWORK</span><h2>计算机网络</h2><p>从地址结构出发，依次进入 CIDR、子网划分、IPv4 分片和 IPv6。计算题保留过程与边界。</p></div>
+          <div class="notes-hub-card__metrics"><span><strong>5</strong> 知识点</span><span><strong>46</strong> 高清</span><span><strong>4</strong> 待补</span></div>
+          <span class="notes-hub-card__foot"><span>IPv4 基础 → CIDR → 子网 → 分片 → IPv6</span><strong>开始阅读 →</strong></span>
+        </a>
+        <a class="notes-hub-card notes-hub-card--web" href="web.html">
+          <span class="notes-hub-card__icon" data-note-icon="web"></span>
+          <div><span class="notes-hub-card__kicker">WEB DESIGN</span><h2>网页制作基础</h2><p>从样式引入和链接状态进入文本属性、选择器、表单与原生控件，用左右比对理解代码效果。</p></div>
+          <div class="notes-hub-card__metrics"><span><strong>5</strong> 知识点</span><span><strong>14</strong> 高清</span><span><strong>3</strong> 待补</span></div>
+          <span class="notes-hub-card__foot"><span>CSS 基础 → 文本 → 选择器 → 表单 → 原生控件</span><strong>开始阅读 →</strong></span>
+        </a>
+      </div>
+    </section>
+
+    <section class="notes-hub-section" aria-labelledby="discover-title">
+      <div class="notes-section-title"><div><p class="notes-eyebrow">DISCOVER</p><h2 id="discover-title">按关系或资料浏览</h2></div></div>
+      <div class="notes-tool-grid">
+        <a class="notes-tool-card" href="map.html"><span class="notes-tool-card__icon" data-note-icon="map"></span><div><h3>可视化知识地图</h3><p>查看先修、推荐学习顺序、相关知识点和两门课的知识边界。</p></div><strong>打开地图 →</strong></a>
+        <a class="notes-tool-card" href="sources.html"><span class="notes-tool-card__icon" data-note-icon="images"></span><div><h3>课堂原图总库</h3><p>筛选全部 67 张资料，直接查看高清原图或待补高清的低清预览。</p></div><strong>浏览原图 →</strong></a>
+        <a class="notes-tool-card" href="../search.html?q=CIDR"><span class="notes-tool-card__icon" data-note-icon="search"></span><div><h3>全站搜索</h3><p>从知识点、课堂笔记、原图标题和例题直接定位到页面锚点。</p></div><strong>搜索笔记 →</strong></a>
+      </div>
+    </section>
+
+    <aside class="note-callout notes-boundary"><strong>资料边界：</strong>本页整理自当前课堂截图，不是官方考纲、完整题库或教材替代。7 张低清预览只登记来源与可见标题；获得高清原图后再补写细节。</aside>
   </main>
   <dialog class="notes-dialog" data-note-dialog aria-labelledby="note-dialog-title">
     <div class="notes-dialog__bar"><strong class="notes-dialog__title" id="note-dialog-title" data-dialog-title>原始截图</strong><button class="sh-btn" type="button" data-dialog-close>关闭</button></div>
@@ -52,9 +82,14 @@
   <script>
     document.querySelectorAll("[data-note-icon]").forEach((node) => {
       const name = node.dataset.noteIcon;
-      node.innerHTML = name === "network"
-        ? '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="5" r="2.2"/><circle cx="5" cy="18" r="2.2"/><circle cx="19" cy="18" r="2.2"/><path d="m10.8 6.8-4.5 8.7M13.2 6.8l4.5 8.7M7.2 18h9.6"/></svg>'
-        : '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="4.5" width="17" height="15" rx="2"/><path d="M3.5 9h17M7 6.8h.01M9.5 6.8h.01"/></svg>';
+      const paths = {
+        network: '<circle cx="12" cy="5" r="2.2"/><circle cx="5" cy="18" r="2.2"/><circle cx="19" cy="18" r="2.2"/><path d="m10.8 6.8-4.5 8.7M13.2 6.8l4.5 8.7M7.2 18h9.6"/>',
+        web: '<rect x="3.5" y="4.5" width="17" height="15" rx="2"/><path d="M3.5 9h17M7 6.8h.01M9.5 6.8h.01"/>',
+        map: '<circle cx="6" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="12" cy="18" r="2"/><path d="m7.6 7.1 3 8.8M16.4 7.1l-3 8.8M8 6h8"/>',
+        images: '<rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8" cy="9" r="1.4"/><path d="m4 17 5-5 3.5 3.5 2-2L20 19"/>',
+        search: '<circle cx="10.8" cy="10.8" r="6.3"/><path d="m15.6 15.6 4.9 4.9"/>'
+      };
+      node.innerHTML = `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths[name] || paths.web}</svg>`;
     });
   </script>
   <script src="../assets/js/classroom-notes.js"></script>
