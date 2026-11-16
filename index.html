@@ -6,12 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#f8f9fb">
   <link rel="canonical" href="https://bernardshilohjazlene4049-crypto.github.io/zsb-study-home/">
-  <meta name="description" content="辽宁专升本计算机类学习站，按科目进入讲义、视频、思维导图与练习。">
+  <meta name="description" content="辽宁专升本计算机类学习站：按知识路径学习计算机网络、网页制作等课程，并把课堂原图、例题自测和到期复习连接起来。">
   <title>辽宁专升本 · 计算机类学习站</title>
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="辽宁专升本">
   <meta property="og:title" content="辽宁专升本 · 计算机类学习站">
-  <meta property="og:description" content="辽宁专升本计算机类学习站，按科目进入讲义、视频、思维导图与练习。">
+  <meta property="og:description" content="按知识路径学习计算机网络与网页制作，在课堂原图、例题自测和到期复习之间直接衔接。">
   <meta property="og:url" content="https://bernardshilohjazlene4049-crypto.github.io/zsb-study-home/">
   <meta property="og:image" content="https://bernardshilohjazlene4049-crypto.github.io/zsb-study-home/assets/og/cover.png">
   <meta property="og:image:width" content="1200">
@@ -58,11 +58,17 @@
         <div class="home-grid">
           <section class="sh-card home-continue" id="continue" aria-labelledby="continue-title">
             <header class="sh-card__head"><h2 class="sh-card__title" id="continue-title"><span class="sh-ico" data-icon="playCircle" aria-hidden="true"></span><span>继续学习</span></h2></header>
-            <div class="home-continue__body" data-slot="continue"><p class="sh-empty-line">还没有学习记录。</p></div>
+            <div class="home-continue__body" data-slot="continue" aria-busy="true">
+              <div class="home-start">
+                <span class="home-start__art" data-icon="book" aria-hidden="true"></span>
+                <span class="home-start__copy"><strong>从课堂专题开始</strong><span>计算机网络与网页制作基础，共 10 个知识点。</span></span>
+                <a class="sh-btn sh-btn--primary home-start__action" href="notes/index.html">选择起点</a>
+              </div>
+            </div>
           </section>
           <section class="sh-card home-due" id="due" aria-labelledby="due-title">
             <header class="sh-card__head"><h2 class="sh-card__title" id="due-title"><span class="sh-ico" data-icon="clock" aria-hidden="true"></span><span>今日到期复习</span><small class="sh-card__sub">（知识点）</small></h2></header>
-            <div data-slot="due"><p class="sh-empty-line">今天没有到期的复习。</p></div>
+            <div data-slot="due"><div class="home-due__empty"><p class="sh-empty-line">完成一次自测后，复习任务会在这里排队。</p><a href="notes/index.html">选择第一个知识点 →</a></div></div>
           </section>
         </div>
 
@@ -73,7 +79,7 @@
           </div>
           <div class="home-notes-grid">
             <a class="home-note-card" href="notes/index.html">
-              <span class="home-note-card__top"><span class="home-note-card__icon" data-icon="book" aria-hidden="true"></span><span class="home-note-card__tag">2 门课 · 10 个知识点</span></span>
+              <span class="home-note-card__top"><span class="home-note-card__icon" data-icon="book" aria-hidden="true"></span><span class="home-note-card__tag">2 个课堂专题 · 10 个知识点</span></span>
               <h3>课堂笔记总目录</h3>
               <p>统一进入计算机网络与网页制作笔记，查看章节、例题和学习路径。</p>
               <strong>打开课堂笔记 →</strong>
@@ -131,7 +137,7 @@
             </a>
             <a class="home-subject" href="wy/index.html" data-subject="web_design">
               <span class="home-subject__icon" data-icon="web" aria-hidden="true"></span>
-              <span class="home-subject__body"><span class="home-subject__name">网页设计</span><span class="home-subject__meta" data-subject-meta></span></span>
+              <span class="home-subject__body"><span class="home-subject__name">网页设计（含制作基础专题）</span><span class="home-subject__meta" data-subject-meta></span></span>
               <span class="home-subject__chev" aria-hidden="true"></span>
             </a>
             <div class="home-subject home-subject--closed" data-subject="database">

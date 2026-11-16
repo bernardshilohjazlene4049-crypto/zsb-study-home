@@ -4,6 +4,7 @@ import path from "node:path";
 import test from "node:test";
 import { calculateCidr, planIpv4Fragments } from "../assets/js/network-lab.js";
 import { markTopicStudied, scheduleTopicReview } from "../assets/js/features/topic-progress.js";
+import { buildModel } from "../assets/js/shell/model.js";
 
 const root = path.resolve(import.meta.dirname, "..");
 const notesRoot = path.join(root, "notes");
@@ -151,6 +152,87 @@ test("课堂笔记手动学习状态复用现有进度结构并支持复习", ()
   assert.equal(reviewed.next_review_at, "2026-11-19T00:00:00.000Z");
   assert.equal(reviewed.mastery_state, "independent_once");
   assert.throws(() => scheduleTopicReview(null, { ...args, days: 0 }), /1–30/);
+});
+
+test("课堂笔记到期复习进入首页汇总且与错题提醒按知识点去重", () => {
+  const due = "2026-11-17T00:00:00.000Z";
+  const now = Date.parse("2026-11-18T12:00:00.000Z");
+  const site = {
+    subjects: [{ id: "network", name: "计算机网络", order: 1, status: "live", enabled: true }],
+    chapters: [{ id: "net-cidr-ch", title: "CIDR", subject_id: "network", order: 1 }],
+    topics: [{
+      id: "net.cidr",
+      title: "CIDR、掩码与地址块",
+      chapter_id: "net-cidr-ch",
+      subject_id: "network",
+      order: 1,
+      source_ref: "notes/network.html#cidr"
+    }],
+    merged_topics: {},
+    edges: [],
+    resources: [],
+    registry: { subjects: [] }
+  };
+  const progress = {
+    id: "prog:local-guest:net.cidr",
+    topic_id: "net.cidr",
+    learner_id: "local-guest",
+    mastery_state: "studied",
+    next_review_at: due,
+    updated_at: due,
+    counts_toward_real_stats: true
+  };
+  const mistake = {
+    id: "mistake:local-guest:eg-cidr-1",
+    question_id: "eg-cidr-1",
+    learner_id: "local-guest",
+    topic_ids: ["net.cidr"],
+    category: "wrong",
+    status: "active",
+    next_review_at: due,
+    updated_at: due,
+    counts_toward_real_stats: true
+  };
+  const model = buildModel(site, {
+    ok: true,
+    attempts: [],
+    mistakes: [mistake],
+    progress: [progress],
+    recentTopic: null
+  }, now);
+  assert.deepEqual(model.dueTopics().map((row) => ({ id: row.topic.id, count: row.count })), [
+    { id: "net.cidr", count: 1 }
+  ]);
+  assert.equal(model.topicStats("net.cidr").due, 1);
+  assert.equal(model.topicStatus("net.cidr"), "due");
+});
+
+test("课堂自评复用现有自评结果与复习记录", () => {
+  const source = readText("assets/js/classroom-notes.js");
+  assert.match(source, /classroom-note-self-check/);
+  assert.match(source, /ratingOutcome\(rating\)/);
+  assert.match(source, /commitSubmission\(/);
+  assert.match(source, /url: `notes\/\$\{pageName\}`/);
+  assert.match(source, /我做对了/);
+  assert.match(source, /我答错了/);
+  assert.match(readText("assets/js/features/records.js"), /export \{ ratingOutcome \}/);
+});
+
+test("原图标题、来源边界与考场口径入口完整", () => {
+  const source = readText("assets/js/classroom-notes.js");
+  const library = readText("notes/sources.html");
+  const hub = readText("notes/index.html");
+  assert.match(source, /function displayName\(item\)/);
+  assert.match(source, /原文件 \$\{item\.file\}/);
+  assert.match(library, /来源与使用边界/);
+  assert.match(library, /水印保持原状/);
+  assert.match(hub, /考场口径与教材差异速查/);
+  const home = readText("index.html");
+  assert.match(home, /aria-busy="true"/);
+  assert.match(home, /2 个课堂专题/);
+  for (const hash of ["network.html#cidr", "network.html#ipv6", "web.html#forms"]) {
+    assert.equal(hub.includes(`href="${hash}"`), true, `速查入口缺少 ${hash}`);
+  }
 });
 
 test("全站搜索登记课堂原图与例题类型", () => {

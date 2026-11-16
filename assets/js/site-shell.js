@@ -135,6 +135,8 @@
       .then(function (m) { return m.mount(window.ZSBShell); })
       .catch(function (error) {
         d.documentElement.classList.add("shell-failed");
+        var pending = d.querySelectorAll('[aria-busy="true"]');
+        for (var i = 0; i < pending.length; i++) pending[i].setAttribute("aria-busy", "false");
         if (window.console) console.warn("外壳模块加载失败", error);
       });
   }

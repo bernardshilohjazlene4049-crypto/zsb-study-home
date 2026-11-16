@@ -3,14 +3,34 @@ import { loadModel, resetLearningCache, topicHref } from "./model.js";
 import { el, icon, bar, shortSubjectName } from "./ui.js";
 import { hydrateIcons } from "./common.js";
 
-function firstLesson(model, base) {
-  const subject = model.subjects
+const START_SUBJECTS = ["network", "web_design", "computer_basics"];
+const START_ICONS = { network: "network", web_design: "web", computer_basics: "monitor" };
+const START_LABELS = { network: "计算机网络", web_design: "网页制作基础", computer_basics: "计算机基础" };
+
+function recommendedLessons(model, base) {
+  const ordered = model.subjects
     .filter((item) => item.status === "live" && item.enabled !== false)
-    .sort((a, b) => a.order - b.order)
-    .find((item) => model.topicsOfSubject(item.id).length);
-  if (!subject) return null;
-  const topic = model.topicsOfSubject(subject.id).find((item) => topicHref(item, base));
-  return topic ? { subject, topic, href: topicHref(topic, base) } : null;
+    .sort((a, b) => {
+      const ai = START_SUBJECTS.indexOf(a.id);
+      const bi = START_SUBJECTS.indexOf(b.id);
+      return (ai < 0 ? START_SUBJECTS.length : ai) - (bi < 0 ? START_SUBJECTS.length : bi) || a.order - b.order;
+    });
+  const rows = [];
+  for (const subject of ordered) {
+    const subjectTopics = model.topicsOfSubject(subject.id);
+    const topic = subjectTopics.find((item) => topicHref(item, base).includes("notes/"))
+      || subjectTopics.find((item) => topicHref(item, base));
+    if (!topic) continue;
+    rows.push({
+      subject,
+      label: START_LABELS[subject.id] || shortSubjectName(subject),
+      topic,
+      href: topicHref(topic, base),
+      icon: START_ICONS[subject.id] || "book"
+    });
+    if (rows.length === 2) break;
+  }
+  return rows;
 }
 
 function startState(model, base) {
@@ -24,8 +44,8 @@ function startState(model, base) {
       el("button", { class: "sh-btn home-start__action", type: "button", onclick: () => location.reload() }, "重试")
     ]);
   }
-  const first = firstLesson(model, base);
-  if (!first) {
+  const recommendations = recommendedLessons(model, base);
+  if (!recommendations.length) {
     return el("div", { class: "home-start" }, [
       el("span", { class: "home-start__art" }, [icon("book", 24)]),
       el("span", { class: "home-start__copy" }, [
@@ -35,13 +55,31 @@ function startState(model, base) {
       el("a", { class: "sh-btn sh-btn--primary home-start__action", href: "#subjects" }, "选择科目")
     ]);
   }
-  return el("div", { class: "home-start" }, [
-    el("span", { class: "home-start__art" }, [icon("book", 24)]),
-    el("span", { class: "home-start__copy" }, [
-      el("strong", { text: "从第一课开始" }),
-      el("span", { text: `${shortSubjectName(first.subject)} · ${first.topic.title}` })
-    ]),
-    el("a", { class: "sh-btn sh-btn--primary home-start__action", href: first.href }, "开始学习")
+  return el("div", { class: "home-recommendations" }, recommendations.map((item) => el(
+    "a",
+    { class: "home-start home-start--recommended", href: item.href },
+    [
+      el("span", { class: "home-start__art" }, [icon(item.icon, 22)]),
+      el("span", { class: "home-start__copy" }, [
+        el("strong", { text: `从 ${item.label} 开始` }),
+        el("span", { text: item.topic.title })
+      ]),
+      icon("chevron", 16, "home-start__chev")
+    ]
+  )));
+}
+
+function dueEmptyState(model, base) {
+  const hasRecords = model.hasRecords;
+  return el("div", { class: "home-due__empty" }, [
+    el("p", {
+      class: "sh-empty-line",
+      text: hasRecords ? "今天没有到期的复习。" : "完成一次自测后，复习任务会在这里排队。"
+    }),
+    el("a", {
+      href: hasRecords ? `${base}study/overview.html` : `${base}notes/index.html`,
+      text: hasRecords ? "查看全部学习记录 →" : "选择第一个知识点 →"
+    })
   ]);
 }
 
@@ -85,6 +123,7 @@ export async function mount(shell) {
     } else if (slot) {
       slot.replaceChildren(startState(model, base));
     }
+    slot?.setAttribute("aria-busy", "false");
 
     const due = model.dueTopics();
     const dueSlot = document.querySelector('[data-slot="due"]');
@@ -101,6 +140,8 @@ export async function mount(shell) {
       if (due.length > 5) dueSlot.append(el("a", { class: "sh-more", href: `${base}study/index.html#/mistakes`, text: `全部 ${due.length} 个` }));
     } else if (dueSlot && !model.dbOk) {
       dueSlot.replaceChildren(el("p", { class: "sh-empty-line", text: "记录恢复后才能检查到期复习。" }));
+    } else if (dueSlot) {
+      dueSlot.replaceChildren(dueEmptyState(model, base));
     }
   }
 

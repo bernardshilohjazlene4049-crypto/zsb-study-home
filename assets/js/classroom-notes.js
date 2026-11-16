@@ -51,7 +51,13 @@
   }
 
   function displayName(item) {
-    return item.file.replace(/\.(png|jpe?g|webp)$/i, "");
+    const stem = item.file.replace(/\.(png|jpe?g|webp)$/i, "");
+    const match = stem.match(/^\d+_(?:p\d+_)?(.+)$/);
+    return (match?.[1] || stem).replaceAll("_", " ");
+  }
+
+  function sourcePage(item) {
+    return item.file.match(/_p(\d+)_/i)?.[1] || "";
   }
 
   function sourceThumb(item) {
@@ -66,8 +72,8 @@
     if (!dialog || !dialogImage || !dialogTitle) return;
     dialogTrigger = trigger || null;
     dialogImage.src = new URL(item.src, location.href).href;
-    dialogImage.alt = `${item.file}${item.note ? ` · ${item.note}` : ""}`;
-    dialogTitle.textContent = `${item.file}${item.note ? ` · ${item.note}` : ""}`;
+    dialogImage.alt = `${displayName(item)} · 原文件 ${item.file}${item.note ? ` · ${item.note}` : ""}`;
+    dialogTitle.textContent = `${displayName(item)} · ${item.file}${item.note ? ` · ${item.note}` : ""}`;
     if (typeof dialog.showModal === "function") dialog.showModal();
     else dialog.setAttribute("open", "");
   }
@@ -77,9 +83,10 @@
     button.type = "button";
     button.className = `source-card${item.readable ? "" : " is-low"}`;
     button.dataset.sourceId = item.id;
+    button.title = item.file;
     const image = document.createElement("img");
     image.src = new URL(sourceThumb(item), location.href).href;
-    image.alt = `${item.file} 缩略图`;
+    image.alt = "";
     image.loading = "lazy";
     image.decoding = "async";
     const label = document.createElement("span");
@@ -208,10 +215,18 @@
     const edges = dependencyData.edges;
     let progressModule = null;
     const progressByTopic = new Map();
+    const selfCheckByQuestion = new Map();
     try {
       progressModule = await import(new URL("../assets/js/features/records.js", location.href).href);
       const learningState = await progressModule.loadLearningState();
       for (const record of learningState.progress || []) progressByTopic.set(record.topic_id, record);
+      for (const attempt of learningState.attempts || []) {
+        if (attempt.source !== "classroom-note-self-check") continue;
+        const previous = selfCheckByQuestion.get(attempt.question_id);
+        if (!previous || String(attempt.submitted_at) > String(previous.submitted_at)) {
+          selfCheckByQuestion.set(attempt.question_id, attempt);
+        }
+      }
     } catch (error) {
       console.warn("学习记录暂不可用", error);
     }
@@ -228,6 +243,99 @@
         `查看本题依据截图（${example.sourceIds.length} 张）→`
       ));
       bodyNode.append(evidence);
+
+      const actions = document.createElement("div");
+      actions.className = "question__self-check";
+      actions.setAttribute("role", "group");
+      actions.setAttribute("aria-label", `${example.title}：看过解析后自评`);
+      const prompt = document.createElement("span");
+      prompt.className = "question__self-check-prompt";
+      prompt.textContent = "看过解析后自评：";
+      const goodButton = document.createElement("button");
+      goodButton.type = "button";
+      goodButton.className = "sh-btn";
+      goodButton.textContent = "我做对了";
+      const againButton = document.createElement("button");
+      againButton.type = "button";
+      againButton.className = "sh-btn";
+      againButton.textContent = "我答错了";
+      const status = document.createElement("span");
+      status.className = "question__self-check-status";
+      status.setAttribute("role", "status");
+      status.setAttribute("aria-live", "polite");
+
+      const paintSelfCheck = (attempt) => {
+        if (!attempt) {
+          status.textContent = "自评会写入现有学习与复习记录";
+          return;
+        }
+        const rating = attempt.response?.rating;
+        const topicRecord = progressByTopic.get(example.topicId);
+        const due = topicRecord?.next_review_at
+          ? ` · 下次 ${new Date(topicRecord.next_review_at).toLocaleDateString("zh-CN")}`
+          : "";
+        status.textContent = `上次自评：${rating === "good" ? "我做对了" : "我答错了"}${due}`;
+      };
+      paintSelfCheck(selfCheckByQuestion.get(example.id));
+
+      const saveSelfCheck = async (rating) => {
+        if (!progressModule) return;
+        goodButton.disabled = true;
+        againButton.disabled = true;
+        status.textContent = "正在保存自评…";
+        try {
+          const outcome = progressModule.ratingOutcome(rating);
+          const stem = question.querySelector("summary")?.textContent?.trim() || example.title;
+          const answer = question.querySelector(".question__answer")?.textContent?.trim()
+            || question.querySelector(".question__body")?.textContent?.trim()
+            || "";
+          const result = await progressModule.commitSubmission({
+            question: {
+              id: example.id,
+              revision: 1,
+              stem,
+              answer: { text: answer },
+              topic_ids: [example.topicId],
+              subject_id: noteSubject,
+              provenance: { kind: "page", verified: true },
+              source: "classroom-note-self-check"
+            },
+            response: { option_ids: [], text: "", rating },
+            grading: outcome.grading,
+            understanding: outcome.understanding,
+            helpLevel: "saw_explanation",
+            source: "classroom-note-self-check",
+            page: {
+              url: `notes/${pageName}`,
+              title: document.title,
+              anchor: example.id
+            }
+          });
+          selfCheckByQuestion.set(example.id, result.attempt);
+          const record = (result.progress || []).find((item) => item.topic_id === example.topicId);
+          if (record) {
+            progressByTopic.set(example.topicId, record);
+            document.dispatchEvent(new CustomEvent("classroom-progress-updated", {
+              detail: { topicId: example.topicId, record }
+            }));
+          }
+          paintSelfCheck(result.attempt);
+        } catch (error) {
+          console.warn("课堂自评保存失败", error);
+          status.textContent = "自评保存失败，请检查浏览器存储权限";
+        } finally {
+          goodButton.disabled = !progressModule;
+          againButton.disabled = !progressModule;
+        }
+      };
+      goodButton.addEventListener("click", () => saveSelfCheck("good"));
+      againButton.addEventListener("click", () => saveSelfCheck("again"));
+      if (!progressModule) {
+        goodButton.disabled = true;
+        againButton.disabled = true;
+      }
+      actions.append(prompt, goodButton, againButton, status);
+      bodyNode.append(actions);
     }
 
     const rail = document.createElement("aside");
@@ -235,19 +343,26 @@
     rail.setAttribute("aria-label", "学习路径与资料");
     const pathCard = document.createElement("section");
     pathCard.className = "notes-rail__card";
-    pathCard.innerHTML = '<h2>本课学习路径</h2>';
-    const path = document.createElement("ol");
-    path.className = "notes-rail__path";
-    for (const topic of topics) {
-      const item = document.createElement("li");
-      const link = createLink(`#${(topic.source_ref || "").split("#")[1]}`, "");
-      const no = document.createElement("span");
-      no.textContent = String(topic.order).padStart(2, "0");
-      link.append(no, document.createTextNode(topic.title));
-      item.append(link);
-      path.append(item);
-    }
-    pathCard.append(path);
+    pathCard.innerHTML = '<h2>本课进度</h2>';
+    const progressSummary = document.createElement("div");
+    progressSummary.className = "notes-rail__progress";
+    const progressCount = document.createElement("strong");
+    progressCount.className = "notes-rail__progress-count";
+    const progressDetail = document.createElement("span");
+    progressDetail.className = "notes-rail__progress-detail";
+    progressSummary.append(progressCount, progressDetail);
+    pathCard.append(progressSummary);
+    const paintRailProgress = () => {
+      const tracked = topics.filter((topic) => progressByTopic.has(topic.id));
+      const due = topics.filter((topic) => {
+        const at = Date.parse(progressByTopic.get(topic.id)?.next_review_at || "");
+        return Number.isFinite(at) && at <= Date.now();
+      });
+      progressCount.textContent = `${tracked.length} / ${topics.length}`;
+      progressDetail.textContent = `${tracked.length} 个知识点已有记录${due.length ? ` · ${due.length} 个到期` : ""}`;
+    };
+    paintRailProgress();
+    document.addEventListener("classroom-progress-updated", paintRailProgress);
     const sourceTotal = sourceItems.length;
     const lowTotal = sourceItems.filter((item) => !item.readable).length;
     const stat = document.createElement("div");
@@ -338,12 +453,18 @@
         reviewButton.disabled = true;
         statusText.textContent = "当前浏览器无法保存本地学习记录";
       } else {
+        document.addEventListener("classroom-progress-updated", (event) => {
+          if (event.detail?.topicId === topic.id) paintProgress(event.detail.record);
+        });
         studiedButton.addEventListener("click", async () => {
           studiedButton.disabled = true;
           try {
             const record = await progressModule.markTopicStudied(topic.id);
             progressByTopic.set(topic.id, record);
             paintProgress(record);
+            document.dispatchEvent(new CustomEvent("classroom-progress-updated", {
+              detail: { topicId: topic.id, record }
+            }));
           } catch {
             statusText.textContent = "学习记录保存失败，请检查浏览器存储权限";
           } finally {
@@ -356,6 +477,9 @@
             const record = await progressModule.scheduleTopicReview(topic.id, { days: 3 });
             progressByTopic.set(topic.id, record);
             paintProgress(record);
+            document.dispatchEvent(new CustomEvent("classroom-progress-updated", {
+              detail: { topicId: topic.id, record }
+            }));
           } catch {
             statusText.textContent = "复习计划保存失败，请检查浏览器存储权限";
           } finally {
@@ -491,13 +615,18 @@
           const label = document.createElement("span");
           label.textContent = displayName(item);
           const state = document.createElement("small");
-          state.textContent = `${SUBJECTS[item.subject]} · ${item.kind} · ${item.readable ? "高清资料" : "待补高清原图"}`;
+          const page = sourcePage(item);
+          state.textContent = `${SUBJECTS[item.subject]} · ${item.kind}${page ? ` · 第 ${page} 页` : ""} · ${item.readable ? "高清资料" : "待补高清原图"}`;
           label.append(state);
           preview.append(image, label);
           preview.addEventListener("click", () => openSourceDialog(item, preview));
           const links = document.createElement("div");
           links.className = "source-library-card__links";
-          links.append(Object.assign(document.createElement("span"), { textContent: item.id }));
+          const fileReference = Object.assign(document.createElement("span"), {
+            textContent: item.file,
+            title: `内部编号 ${item.id} · ${item.file}`
+          });
+          links.append(fileReference);
           const topicId = topicIdBySource.get(item.id) || "";
           const topicHref = sourceTopicLink(item, topicId);
           if (topicHref) links.append(createLink(topicHref, topicById.get(topicId)?.title || "对应知识点 →"));

@@ -21,6 +21,12 @@ const SUBJECT_BY_DIR = { gs: "math", yy: "english", jsj: "computer_basics", c: "
 const state = { items: [], subject: "", types: new Set(TYPES.map((t) => t[0])), subjects: new Set(), expanded: new Set() };
 let pagefind, serial = 0, model = null, noteSupportPromise = null;
 
+function sourceTitle(file) {
+  const stem = String(file || "").replace(/\.(png|jpe?g|webp)$/i, "");
+  const match = stem.match(/^\d+_(?:p\d+_)?(.+)$/);
+  return (match?.[1] || stem).replaceAll("_", " ");
+}
+
 async function getModel() {
   if (!model) model = buildModel(await loadSite(), { ok: true, attempts: [], mistakes: [], progress: [] });
   return model;
@@ -95,7 +101,7 @@ function supportItems(q) {
       .map((item) => ({
         type: "source",
         subject: item.subject,
-        title: item.file.replace(/\.(png|jpe?g|webp)$/i, ""),
+        title: sourceTitle(item.file),
         meta: `${item.subject === "network" ? "计算机网络" : "网页制作基础"} · ${item.kind}${item.readable ? "" : " · 待补高清"}`,
         excerpt: item.note,
         href: `notes/sources.html?subject=${encodeURIComponent(item.subject)}&source=${encodeURIComponent(item.id)}#source-${item.id}`,

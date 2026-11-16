@@ -26,7 +26,7 @@
       <div>
         <p class="notes-eyebrow">LEARNING ARCHIVE · V2</p>
         <h1 class="notes-title">从课堂原图，到可复习的知识路径</h1>
-        <p class="notes-lead">每门课都按“目录定位 → 理解知识点 → 对照课堂原图 → 展开例题 → 进入下一节”组织。模糊资料会明确标出，不用猜测内容补齐。</p>
+        <p class="notes-lead">每门课都按“目录定位 → 理解知识点 → 对照课堂原图 → 展开例题并自评 → 进入复习队列”组织。模糊资料会明确标出，不用猜测内容补齐。</p>
         <div class="notes-actions">
           <a class="sh-btn sh-btn--primary" href="network.html">开始计算机网络</a>
           <a class="sh-btn" href="web.html">进入网页制作</a>
@@ -36,11 +36,11 @@
       <div class="notes-hero__path" aria-label="建议学习流程">
         <span><strong>01</strong>定位知识点</span>
         <span><strong>02</strong>理解与核对原图</span>
-        <span><strong>03</strong>做题并衔接下一节</span>
+        <span><strong>03</strong>自评并安排复习</span>
       </div>
     </section>
     <div class="notes-stats notes-stats--wide">
-      <span class="notes-stat"><strong>2</strong> 门课</span>
+      <span class="notes-stat"><strong>2</strong> 个课堂专题</span>
       <span class="notes-stat"><strong>10</strong> 个知识点</span>
       <span class="notes-stat"><strong>15</strong> 道例题与自测</span>
       <span class="notes-stat"><strong>60</strong> 张高清资料</span>
@@ -62,6 +62,15 @@
           <div class="notes-hub-card__metrics"><span><strong>5</strong> 知识点</span><span><strong>14</strong> 高清</span><span><strong>3</strong> 待补</span></div>
           <span class="notes-hub-card__foot"><span>CSS 基础 → 文本 → 选择器 → 表单 → 原生控件</span><strong>开始阅读 →</strong></span>
         </a>
+      </div>
+    </section>
+
+    <section class="notes-hub-section" id="exam-caveats" aria-labelledby="exam-caveats-title">
+      <div class="notes-section-title"><div><p class="notes-eyebrow">EXAM CHECK</p><h2 id="exam-caveats-title">考场口径与教材差异速查</h2></div></div>
+      <div class="exam-check-grid">
+        <a class="exam-check-card" href="network.html#cidr"><span>地址数量</span><strong>地址块大小 ≠ 传统可用主机数</strong><p>问“地址块有多少地址”时不减网络地址和广播地址；问传统可用主机数时再按教材口径减 2。</p><em>返回 CIDR 章节 →</em></a>
+        <a class="exam-check-card" href="network.html#ipv6"><span>点对点前缀</span><strong>IPv4 /31 与 IPv6 /127 不要混用</strong><p>/31 是 IPv4 点对点链路的特殊用法；IPv6 点对点常用 /127。作答先判断题目所属协议。</p><em>返回 IPv6 章节 →</em></a>
+        <a class="exam-check-card" href="web.html#forms"><span>表单归属</span><strong>form 属性保存一个表单 ID</strong><p>课件提到控件可从属多个表单；现行 HTML 标准的 form 属性是一个 ID 引用。按题目指定教材作答，同时保留标准差异。</p><em>返回表单章节 →</em></a>
       </div>
     </section>
 

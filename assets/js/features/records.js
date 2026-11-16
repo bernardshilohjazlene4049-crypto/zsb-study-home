@@ -19,6 +19,8 @@ import { enrichTopicIds, isExcludedQuestionId, topicIdsForQuestionId } from "./t
 import { readRecentTopic } from "./recent-learning.js";
 import { markTopicStudied as buildStudiedProgress, scheduleTopicReview as buildReviewProgress } from "./topic-progress.js";
 
+export { ratingOutcome } from "./page-attempts.js";
+
 export async function loadLearningState() {
   const [attempts, mistakes, notes, progress, marks, reviews, recentTopic] = await Promise.all([
     getAll("attempts"),

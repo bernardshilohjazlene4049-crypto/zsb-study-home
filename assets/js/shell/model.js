@@ -166,7 +166,7 @@ export function buildModel(site, learning, now = Date.now()) {
 
   const statsByTopic = new Map();
   const stat = (id) => {
-    if (!statsByTopic.has(id)) statsByTopic.set(id, { attempts: 0, questions: new Map(), mistakes: [], reviews: [], due: [], progress: null, last: "" });
+    if (!statsByTopic.has(id)) statsByTopic.set(id, { attempts: 0, questions: new Map(), mistakes: [], reviews: [], due: [], progress: null, progressDue: null, last: "" });
     return statsByTopic.get(id);
   };
   const today = endOfToday(now);
@@ -194,6 +194,8 @@ export function buildModel(site, learning, now = Date.now()) {
     const s = stat(p.topic_id);
     if (!s.progress || String(p.updated_at || "") >= String(s.progress.updated_at || "")) s.progress = p;
     if (String(p.updated_at || "") > s.last) s.last = String(p.updated_at || "");
+    const due = p.next_review_at ? new Date(p.next_review_at).getTime() : NaN;
+    if (Number.isFinite(due) && due <= today) s.progressDue = p;
   }
   const recentTopicId = learning.recentTopic?.topic_id
     ? resolveTopicId(learning.recentTopic.topic_id, site.merged_topics)
@@ -209,7 +211,10 @@ export function buildModel(site, learning, now = Date.now()) {
     const total = questionTotals.get(id) || 0;
     if (!s) return { touched: false, attempts: 0, correct: 0, answered: 0, total, mistakes: 0, reviews: 0, due: 0, mastery: "", nextReview: null };
     const latest = [...s.questions.values()];
-    const nextReview = s.reviews.map((m) => m.next_review_at).filter(Boolean).sort()[0] || null;
+    const nextReview = [
+      ...s.reviews.map((m) => m.next_review_at),
+      s.progress?.next_review_at
+    ].filter(Boolean).sort()[0] || null;
     return {
       touched: s.attempts > 0 || Boolean(s.progress),
       attempts: s.attempts,
@@ -218,7 +223,7 @@ export function buildModel(site, learning, now = Date.now()) {
       total,
       mistakes: s.mistakes.length,
       reviews: s.reviews.length,
-      due: s.due.length,
+      due: Math.max(s.due.length, s.progressDue ? 1 : 0),
       mastery: s.progress?.mastery_state || "",
       nextReview,
       last: s.last
@@ -247,8 +252,19 @@ export function buildModel(site, learning, now = Date.now()) {
     const rows = [];
     for (const [id, s] of statsByTopic) {
       const t = topicById.get(id);
-      if (!t || !s.due.length) continue;
-      rows.push({ topic: t, count: s.due.length, subject: subjectById.get(t.subject_id), chapter: topLevel(t.chapter_id), at: s.due.map((m) => m.next_review_at).sort()[0] });
+      if (!t || (!s.due.length && !s.progressDue)) continue;
+      const dates = [
+        ...s.due.map((m) => m.next_review_at),
+        s.progressDue?.next_review_at
+      ].filter(Boolean).sort();
+      rows.push({
+        topic: t,
+        count: Math.max(s.due.length, s.progressDue ? 1 : 0),
+        subject: subjectById.get(t.subject_id),
+        chapter: topLevel(t.chapter_id),
+        at: dates[0],
+        source: s.progressDue ? "topic-progress" : "mistake"
+      });
     }
     return rows.sort((a, b) => String(a.at).localeCompare(String(b.at)));
   }
