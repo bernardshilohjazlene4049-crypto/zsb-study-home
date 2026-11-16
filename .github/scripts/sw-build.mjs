@@ -15,6 +15,7 @@ const SHELL = [
   "manifest.webmanifest",
   "assets/css/site-unify.css",
   "assets/css/site-shell.css",
+  "assets/css/lesson-upgrade.css",
   "assets/js/site-shell.js",
   "assets/js/sw-register.js",
   // 首页动态 import 的模块树（home.js → model.js → ui.js / common.js → features / core）
@@ -22,6 +23,7 @@ const SHELL = [
   "assets/js/shell/model.js",
   "assets/js/shell/ui.js",
   "assets/js/shell/common.js",
+  "assets/js/shell/lesson-upgrade.js",
   "assets/js/core/storage.js",
   "assets/js/core/paths.js",
   "assets/js/core/schema.js",
@@ -42,6 +44,7 @@ const SHELL = [
   "data/dependencies.json",
   "data/resources.json",
   "data/page-questions.json",
+  "data/lesson-guides.json",
 ];
 
 // 验证所有条目（除 "./"）都存在于发布目录

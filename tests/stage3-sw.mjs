@@ -20,12 +20,14 @@ const PRECACHE_SHELL = [
   "manifest.webmanifest",
   "assets/css/site-unify.css",
   "assets/css/site-shell.css",
+  "assets/css/lesson-upgrade.css",
   "assets/js/site-shell.js",
   "assets/js/sw-register.js",
   "assets/js/shell/home.js",
   "assets/js/shell/model.js",
   "assets/js/shell/ui.js",
   "assets/js/shell/common.js",
+  "assets/js/shell/lesson-upgrade.js",
   "assets/js/core/storage.js",
   "assets/js/core/paths.js",
   "assets/js/core/schema.js",
@@ -45,6 +47,7 @@ const PRECACHE_SHELL = [
   "data/dependencies.json",
   "data/resources.json",
   "data/page-questions.json",
+  "data/lesson-guides.json",
 ];
 
 // 明确不得出现在预缓存清单中的讲义和未引用 CSS
@@ -152,6 +155,7 @@ test("预缓存清单必须包含首页、离线页和外壳 CSS/JS", (t) => {
     "manifest.webmanifest",
     "assets/css/site-unify.css",
     "assets/css/site-shell.css",
+    "assets/css/lesson-upgrade.css",
     "assets/js/site-shell.js",
     "assets/js/sw-register.js",
     "data/subjects.json",

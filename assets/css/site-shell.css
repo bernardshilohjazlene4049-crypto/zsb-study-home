@@ -133,6 +133,10 @@
 .sh-empty { display: grid; justify-items: center; gap: 8px; padding: 26px 12px; color: var(--sh-ink-3); text-align: center; }
 .sh-empty .sh-ico { width: 44px; height: 44px; border-radius: 12px; background: var(--sh-accent-softer); color: var(--sh-accent); }
 .sh-empty__title { margin: 0; color: var(--sh-ink-2); font-size: 14px; font-weight: 600; }
+.sh-empty__hint { max-width: 420px; margin: 0; color: var(--sh-ink-3); font-size: 12px; line-height: 1.65; }
+.srch-suggestions { display: flex; flex-wrap: wrap; justify-content: center; gap: 7px; margin-top: 5px; }
+.srch-suggestions a { display: inline-flex; align-items: center; min-height: 36px; padding: 0 11px; border: 1px solid var(--sh-line); border-radius: 999px; background: #fff; color: var(--sh-accent); font-size: 12px; font-weight: 600; text-decoration: none; }
+.srch-suggestions a:hover { border-color: var(--sh-accent-line); background: var(--sh-accent-softer); }
 .sh-bar { position: relative; display: block; flex: 1; min-width: 40px; height: 6px; overflow: hidden; border-radius: 99px; background: var(--sh-track); }
 .sh-bar > i { position: absolute; inset: 0 auto 0 0; border-radius: inherit; background: linear-gradient(90deg, #8a7cf6, var(--sh-accent-fill)); }
 .sh-pct { flex: none; min-width: 34px; color: var(--sh-ink-3); font-size: 12px; font-variant-numeric: tabular-nums; text-align: right; }

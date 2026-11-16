@@ -1,0 +1,68 @@
+/* 网页设计课程增强层：学习任务、复盘清单、工具筛选与运行输出。 */
+.lesson-brief { display: grid; gap: 15px; margin: 18px 0; padding: 19px; border: 1px solid var(--sh-accent-line); border-radius: 16px; background: linear-gradient(135deg, #faf9ff, #fff); box-shadow: 0 10px 28px rgba(72, 62, 150, .07); }
+.lesson-brief__head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+.lesson-brief__head h2, .lesson-review h2 { margin: 3px 0 0; color: var(--sh-ink); font-size: 18px; line-height: 1.35; }
+.lesson-brief__eyebrow { margin: 0; color: var(--sh-accent); font-size: 10px; font-weight: 750; letter-spacing: .09em; }
+.lesson-brief__chips { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px; }
+.lesson-brief__chips > span { display: inline-flex; align-items: center; gap: 5px; min-height: 30px; padding: 0 9px; border-radius: 999px; background: #f1effc; color: var(--sh-ink-2); font-size: 11px; }
+.lesson-brief__chips .sh-ico { color: var(--sh-accent); }
+.lesson-brief__objectives { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 9px; margin: 0; padding: 0; list-style: none; counter-reset: lesson-objective; }
+.lesson-brief__objectives li { min-width: 0; padding: 11px 11px 11px 37px; border: 1px solid var(--sh-line); border-radius: 11px; background: #fff; color: var(--sh-ink-2); font-size: 12.5px; line-height: 1.6; counter-increment: lesson-objective; }
+.lesson-brief__objectives li::before { content: counter(lesson-objective); float: left; display: grid; place-items: center; width: 20px; height: 20px; margin: 0 7px 0 -26px; border-radius: 7px; background: var(--sh-accent-soft); color: var(--sh-accent); font-size: 10px; font-weight: 720; }
+.lesson-brief__focus { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 8px; padding: 11px 13px; border-radius: 11px; background: #fff8e9; color: #675124; font-size: 12.5px; line-height: 1.65; }
+.lesson-brief__focus strong { color: #674713; }
+.lesson-brief__correction { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 8px; padding: 11px 13px; border: 1px solid #e6cf9f; border-radius: 11px; background: #fffdf7; color: #655638; font-size: 12px; line-height: 1.65; }
+.lesson-brief__correction strong { color: #714d12; }
+.lesson-brief__actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.lesson-brief__actions .sh-btn { min-height: 44px; }
+.lesson-review { display: grid; gap: 14px; margin: 22px 0 16px; padding: 18px; border: 1px solid var(--sh-line); border-radius: 15px; background: #fbfbfe; }
+.lesson-review__head { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; }
+.lesson-review__summary { margin: 0; color: var(--sh-ink-3); font-size: 11.5px; text-align: right; }
+.lesson-review__checks { display: grid; gap: 7px; }
+.lesson-review__check { display: flex; align-items: flex-start; gap: 9px; min-height: 40px; padding: 9px 11px; border: 1px solid var(--sh-line); border-radius: 10px; background: #fff; color: var(--sh-ink-2); font-size: 12.5px; line-height: 1.55; cursor: pointer; }
+.lesson-review__check input { width: 17px; height: 17px; flex: none; margin: 1px 0 0; accent-color: var(--sh-accent); }
+.lesson-review__check:has(input:checked) { border-color: #b7dfc8; background: #f2faf5; color: #315f46; }
+.lesson-review__source { margin: 0; padding-top: 11px; border-top: 1px solid var(--sh-line); color: var(--sh-ink-3); font-size: 11px; line-height: 1.6; }
+.lesson-review__source strong { color: var(--sh-ink-2); }
+.lesson-side-card__steps { display: grid; gap: 6px; margin: 0 0 12px; padding: 0; list-style: none; }
+.lesson-side-card__steps li { display: grid; gap: 2px; padding: 8px 9px; border-radius: 9px; background: #f8f7fc; }
+.lesson-side-card__steps strong { color: var(--sh-ink); font-size: 11.5px; }
+.lesson-side-card__steps span { color: var(--sh-ink-3); font-size: 10.5px; line-height: 1.5; }
+.tool-filter { display: grid; grid-template-columns: max-content minmax(0, 1fr) max-content; align-items: center; gap: 10px; margin: 16px 0 20px; padding: 10px 12px; border: 1px solid var(--sh-line); border-radius: 12px; background: #fbfbfe; }
+.tool-filter__label { color: var(--sh-ink); font-size: 12px; font-weight: 650; }
+.tool-filter input { width: 100%; height: 40px; padding: 0 11px; border: 1px solid var(--sh-line-strong); border-radius: 9px; background: #fff; color: var(--sh-ink); font: inherit; font-size: 13px; }
+.tool-filter input:focus-visible { outline: 2px solid var(--sh-accent); outline-offset: 1px; }
+.tool-filter__status { min-width: 68px; color: var(--sh-ink-3); font-size: 11px; text-align: right; }
+.ref-table tr[hidden], .ex-list a[hidden], .wy-article h2[hidden] { display: none !important; }
+.tryit-console { margin-top: 10px; overflow: hidden; border: 1px solid #263044; border-radius: 11px; background: #101723; color: #dce3f0; }
+.tryit-console__head { padding: 8px 11px; border-bottom: 1px solid #2b3548; background: #182131; color: #b7c2d8; font: 650 11px/1.4 ui-monospace, SFMono-Regular, Consolas, monospace; }
+.tryit-console__body { display: grid; gap: 4px; min-height: 42px; max-height: 180px; overflow: auto; padding: 9px 11px; }
+.tryit-console__line { margin: 0; color: #dce3f0; font: 11.5px/1.55 ui-monospace, SFMono-Regular, Consolas, monospace; white-space: pre-wrap; overflow-wrap: anywhere; }
+.tryit-console__line::before { content: "› "; color: #7d8ba6; }
+.tryit-console__line.is-warn { color: #ffd88a; }
+.tryit-console__line.is-error { color: #ff9d9d; }
+.tryit-console__line.is-error::before { content: "! "; }
+.tryit-console[data-state="running"] .tryit-console__head::after { content: " · 运行中"; color: #a9a0ff; }
+.box-calculator, .selector-weight { display: grid; gap: 13px; margin: 18px 0; padding: 17px; border: 1px solid var(--sh-accent-line); border-radius: 15px; background: #faf9ff; }
+.box-calculator__head { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; }
+.box-calculator h2, .selector-weight h2 { margin: 3px 0 0; color: var(--sh-ink); font-size: 17px; }
+.box-calculator label, .selector-weight label { display: grid; gap: 5px; color: var(--sh-ink-3); font-size: 11px; }
+.box-calculator input, .box-calculator select, .selector-weight input { height: 40px; min-width: 0; padding: 0 10px; border: 1px solid var(--sh-line-strong); border-radius: 9px; background: #fff; color: var(--sh-ink); font: inherit; font-size: 12.5px; }
+.box-calculator__fields { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+.box-calculator__result, .selector-weight__result { display: grid; gap: 5px; padding: 12px 13px; border-radius: 11px; background: var(--sh-accent-soft); color: var(--sh-ink-2); font-size: 12px; line-height: 1.6; }
+.box-calculator__result strong, .selector-weight__result strong { color: var(--sh-accent); font-size: 14px; }
+.selector-weight { grid-template-columns: minmax(0, 1fr); }
+@media (max-width: 820px) {
+  .lesson-brief__head, .lesson-review__head { display: grid; }
+  .lesson-brief__chips { justify-content: flex-start; }
+  .lesson-brief__objectives { grid-template-columns: 1fr; }
+  .lesson-brief__focus, .lesson-brief__correction { grid-template-columns: 1fr; }
+  .lesson-review__summary { text-align: left; }
+  .tool-filter { grid-template-columns: 1fr auto; }
+  .tool-filter__label { grid-column: 1 / -1; }
+  .box-calculator__head { display: grid; }
+  .box-calculator__fields { grid-template-columns: 1fr 1fr; }
+}
+@media print {
+  .lesson-brief__actions, .lesson-review, .lesson-side-card, .tool-filter, .tryit-console { display: none !important; }
+}

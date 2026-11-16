@@ -1708,7 +1708,7 @@
       "order": 33,
       "aliases": [],
       "prereq_ids": [
-        "web.css.animation"
+        "web.css.layout"
       ],
       "source_ref": "wy/css/flexbox.html",
       "legacy_url": "wy/css/flexbox.html",

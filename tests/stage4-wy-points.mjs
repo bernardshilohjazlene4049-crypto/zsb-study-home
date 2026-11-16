@@ -194,6 +194,7 @@ test("无标签栏、无旧大标题；原图按条目、路径存在、尺寸�
     assert.match(html,/href="\.\.\/\.\.\/assets\/css\/site-shell.css"/);
     assert.match(html,/<script src="\.\.\/\.\.\/assets\/js\/site-shell.js"><\/script>/);
     for(const m of html.matchAll(/<(?:script|link|img|video|track)\b[^>]*\s(?:src|href|poster)="([^"]+)"/g)) {
+      if(m[0].includes('rel="canonical"')) continue;
       assert.doesNotMatch(m[1],/^(https?:|\/)/);
       assert.ok(existsSync(resolve(root,dirname(page),decode(m[1]).split(/[?#]/)[0])),`${page}: ${m[1]}`);
     }

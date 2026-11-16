@@ -242,7 +242,20 @@ async function search(q) {
   state.items = [...cat, ...support, ...docs.filter((d) => !topicHrefs.has(d.href) && !supportHrefs.has(d.href))];
   if (!state.items.length) {
     status.textContent = docError ? "全文搜索暂不可用，请稍后重试" : "没有找到相关内容";
-    list.replaceChildren(el("div", { class: "sh-card" }, [el("div", { class: "sh-empty" }, [icon("search", 22), el("p", { class: "sh-empty__title", text: docError ? "全文搜索暂不可用" : "没有找到相关内容" })])]));
+    const suggestions = el("div", { class: "srch-suggestions", "aria-label": "推荐搜索词" },
+      ["CIDR", "HTML 表单", "数组", "等价无穷小"].map((word) => el("a", {
+        href: `?q=${encodeURIComponent(word)}`,
+        text: word
+      }))
+    );
+    list.replaceChildren(el("div", { class: "sh-card" }, [
+      el("div", { class: "sh-empty" }, [
+        icon("search", 22),
+        el("p", { class: "sh-empty__title", text: docError ? "全文搜索暂不可用" : "没有找到相关内容" }),
+        el("p", { class: "sh-empty__hint", text: "可以换一个更短的关键词，或试试下面的高频主题。" }),
+        suggestions
+      ])
+    ]));
     return;
   }
   paint();

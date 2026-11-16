@@ -25,7 +25,16 @@ body{min-height:100vh;display:flex;flex-direction:column;background:var(--sg-bg)
 .nf-main{flex:1;display:grid;place-items:center;padding:48px 20px 96px}
 .nf-stack{display:flex;flex-direction:column;align-items:center;gap:20px;text-align:center}
 .nf-title{margin:0;font-size:clamp(24px,4vw,30px);line-height:1.25;font-weight:650;letter-spacing:-.01em;color:var(--sg-ink)}
+.nf-help{max-width:560px;margin:0;color:var(--sg-ink-muted);font-size:14px;line-height:1.75}
+.nf-search{display:flex;width:min(100%,520px);gap:8px;padding:6px;border:1px solid var(--sg-line);border-radius:14px;background:#fff;box-shadow:var(--sg-shadow-sm)}
+.nf-search input{flex:1;min-width:0;height:42px;padding:0 12px;border:0;background:transparent;color:var(--sg-ink);font:inherit;outline:none}
+.nf-links{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+.nf-links a{display:inline-flex;align-items:center;min-height:42px;padding:0 14px;border:1px solid var(--sg-line);border-radius:10px;background:#fff;color:var(--sg-ink);font-size:13px;font-weight:600;text-decoration:none}
+.nf-links a:hover{border-color:var(--sg-accent-line);color:var(--sg-accent)}
 </style>
+  <link rel="canonical" href="https://bernardshilohjazlene4049-crypto.github.io/zsb-study-home/404.html">
+  <meta name="zsb-module" content="site">
+  <meta name="zsb-status" content="error">
 </head>
 <body>
 <header class="site-header">
@@ -43,6 +52,18 @@ body{min-height:100vh;display:flex;flex-direction:column;background:var(--sg-bg)
 <main class="nf-main">
   <div class="nf-stack">
     <h1 class="nf-title">页面不存在</h1>
+    <p class="nf-help">地址可能已变更，或链接输入有误。你可以搜索知识点，也可以直接进入已经发布的课堂笔记和学习工具。</p>
+    <form class="nf-search" action="./search.html" method="get" role="search">
+      <label class="sr-only" for="nf-query">搜索网站</label>
+      <input id="nf-query" name="q" type="search" placeholder="搜索 CIDR、HTML 表单、数组…" autocomplete="off">
+      <button class="btn btn--primary" type="submit">搜索</button>
+    </form>
+    <nav class="nf-links" aria-label="热门入口">
+      <a href="./notes/index.html">课堂笔记</a>
+      <a href="./wy/index.html">网页设计</a>
+      <a href="./study/index.html">学习与复习</a>
+      <a href="./wy/reference/index.html">标签速查</a>
+    </nav>
     <a class="btn btn--primary btn--lg" href="./index.html">返回首页</a>
   </div>
 </main>

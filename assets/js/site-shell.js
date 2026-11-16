@@ -128,7 +128,18 @@
 
   window.ZSBShell = { root: ROOT.href, rel: rel, base: base(), kind: KIND, svg: svg };
 
+  function mountLessonStyles() {
+    if (KIND !== "lecture" || rel.indexOf("wy/") !== 0) return;
+    if (d.querySelector('link[data-shell-style="lesson-upgrade"]')) return;
+    var link = d.createElement("link");
+    link.rel = "stylesheet";
+    link.href = new URL("assets/css/lesson-upgrade.css", ROOT).href;
+    link.setAttribute("data-shell-style", "lesson-upgrade");
+    d.head.appendChild(link);
+  }
+
   function start() {
+    mountLessonStyles();
     mountChrome();
     if (!KIND) return;
     import(new URL("assets/js/shell/" + KIND + ".js", ROOT).href)

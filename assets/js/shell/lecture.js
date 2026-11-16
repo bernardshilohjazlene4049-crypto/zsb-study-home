@@ -4,6 +4,7 @@ import { loadModel, topicHref, pagePath, anchorOf, cnNumber } from "./model.js";
 import { el, icon, bar, statusDot, shortSubjectName, formatDay, STATUS_LABEL } from "./ui.js";
 import { splitChapterTitle } from "./subject.js";
 import { saveRecentTopic } from "../features/recent-learning.js";
+import { enhanceLesson } from "./lesson-upgrade.js";
 
 const WY = { subject: "web_design", wrap: ".wy-layout", hide: [".wy-side", ".mobile-toc-btn"] };
 const PAGES = {
@@ -592,4 +593,5 @@ export async function mount(shell) {
   } else {
     document.body.classList.add("lx-single");
   }
+  await enhanceLesson({ shell, sk, current });
 }

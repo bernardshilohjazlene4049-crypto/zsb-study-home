@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
-  <meta name="description" content="当前无法打开此页面">
-  <title>当前无法打开此页面</title>
+  <meta name="description" content="当前离线，辽宁专升本学习站暂时无法连接网络。">
+  <title>当前离线 · 辽宁专升本</title>
   <link rel="icon" href="./assets/icons/favicon.svg" type="image/svg+xml">
   <style>
     :root {
@@ -39,6 +39,9 @@
     .main { min-height: calc(100vh - 60px); min-height: calc(100dvh - 60px); display: grid; place-items: center; padding: 32px 20px 80px; }
     .offline-content { width: 100%; max-width: 560px; text-align: center; }
     h1 { font-size: clamp(25px, 3.2vw, 36px); font-weight: 700; letter-spacing: -.035em; line-height: 1.4; margin: 0 0 30px; }
+    .offline-copy { margin: -12px auto 26px; color: var(--muted); font-size: 14px; line-height: 1.75; }
+    .offline-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+    .retry-button { min-height: 48px; min-width: 128px; padding: 12px 22px; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); color: var(--ink); font: inherit; font-size: 15px; font-weight: 650; cursor: pointer; }
     .home-button { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; min-width: 144px; padding: 12px 28px; border-radius: 14px; background: var(--accent); color: #fff; font-size: 15px; font-weight: 650; line-height: 1.35; text-decoration: none; transition: background-color .16s ease, transform .16s ease; }
     .home-button:hover { background: var(--accent-deep); }
     .home-button:active { transform: translateY(1px); }
@@ -62,6 +65,9 @@
     }
     @media (prefers-reduced-motion: reduce) { .home-button { transition: none; } .home-button:active { transform: none; } }
   </style>
+  <link rel="canonical" href="https://bernardshilohjazlene4049-crypto.github.io/zsb-study-home/offline.html">
+  <meta name="zsb-module" content="site">
+  <meta name="zsb-status" content="error">
 </head>
 <body>
   <header class="site-header">
@@ -77,8 +83,12 @@
   </header>
   <main class="main">
     <div class="offline-content">
-      <h1>当前无法打开此页面</h1>
-      <a class="home-button" href="./index.html">返回首页</a>
+      <h1>当前处于离线状态</h1>
+      <p class="offline-copy">已缓存的首页仍可打开。此前未访问过的页面可能需要联网；恢复网络后可以重试。</p>
+      <div class="offline-actions">
+        <button class="retry-button" type="button" onclick="location.reload()">重新连接</button>
+        <a class="home-button" href="./index.html">打开离线首页</a>
+      </div>
     </div>
   </main>
 </body>

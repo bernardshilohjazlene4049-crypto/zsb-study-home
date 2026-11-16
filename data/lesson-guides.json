@@ -1,0 +1,2128 @@
+{
+  "schema_version": 1,
+  "disclaimer": "站内重点用于安排复习顺序，不等同官方考纲。页面事实以现行标准、课堂资料和标注来源为准。",
+  "pages": {
+    "wy/ch1/index.html": {
+      "title": "第1章 网页基本概念",
+      "type": "CHAPTER",
+      "level": "核心重点",
+      "priority": "P0",
+      "status": "ready",
+      "focus": "第1章学习目标导读与 1.1–1.3 知识点关联概览（当前仅113字）",
+      "objectives": [
+        "能说明「第1章 网页基本概念」的核心作用和适用边界。",
+        "能围绕“第1章学习目标导读与 1.1–1.3 知识点关联概览（当前仅113字）”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：第1章学习目标导读与 1.1–1.3 知识点关联概览（当前仅113字）",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "Gemini 其余页面审查；Codex 二次核对"
+    },
+    "wy/ch1/s-extra.html": {
+      "title": "补充：常用网页制作开发工具",
+      "type": "CHAPTER",
+      "level": "拓展",
+      "priority": "P2",
+      "status": "staging",
+      "focus": "补充 VS Code / HBuilderX 常用快捷键与插件配置实操说明",
+      "objectives": [
+        "能说明「补充：常用网页制作开发工具」的核心作用和适用边界。",
+        "能围绕“补充 VS Code / HBuilderX 常用快捷键与插件配置实操说明”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：补充 VS Code / HBuilderX 常用快捷键与插件配置实操说明",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "Gemini 其余页面审查；Codex 二次核对"
+    },
+    "wy/ch1/s11.html": {
+      "title": "1.1 网页相关概念",
+      "type": "CHAPTER",
+      "level": "核心重点",
+      "priority": "P0",
+      "status": "ready",
+      "focus": "B/S 与 C/S 架构对比表、静态/动态网页辨析及 3 道概念自测题",
+      "factNote": "课堂原图写“一个域名只能映射一个 IP”，这是课堂速记口径。实际同一域名可以配置多条 A/AAAA 记录，也可能通过轮询或负载均衡返回不同地址；一个 IP 也确实可承载多个域名。题目按指定教材作答，开发时按实际 DNS 配置理解。",
+      "objectives": [
+        "能说明「1.1 网页相关概念」的核心作用和适用边界。",
+        "能围绕“B/S 与 C/S 架构对比表、静态/动态网页辨析及 3 道概念自测题”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：B/S 与 C/S 架构对比表、静态/动态网页辨析及 3 道概念自测题",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "模型复核 + Codex 事实校注；Codex 二次核对"
+    },
+    "wy/ch1/s12.html": {
+      "title": "1.2 网页设计基本流程",
+      "type": "CHAPTER",
+      "level": "重点",
+      "priority": "P1",
+      "status": "ready",
+      "focus": "网页设计五步流程可视化流程图与各阶段交付物对照表",
+      "objectives": [
+        "能说明「1.2 网页设计基本流程」的核心作用和适用边界。",
+        "能围绕“网页设计五步流程可视化流程图与各阶段交付物对照表”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：网页设计五步流程可视化流程图与各阶段交付物对照表",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "Gemini 其余页面审查；Codex 二次核对"
+    },
+    "wy/ch1/s13.html": {
+      "title": "1.3 网页的层次结构",
+      "type": "CHAPTER",
+      "level": "重点",
+      "priority": "P1",
+      "status": "ready",
+      "focus": "网站目录结构规范示例（images/css/js 命名与相对路径图解）",
+      "objectives": [
+        "能说明「1.3 网页的层次结构」的核心作用和适用边界。",
+        "能围绕“网站目录结构规范示例（images/css/js 命名与相对路径图解）”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：网站目录结构规范示例（images/css/js 命名与相对路径图解）",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "Gemini 其余页面审查；Codex 二次核对"
+    },
+    "wy/ch2/index.html": {
+      "title": "第2章 HTML5 文档结构",
+      "type": "CHAPTER",
+      "level": "核心重点",
+      "priority": "P0",
+      "status": "ready",
+      "focus": "第2章文档结构知识导图与 2.1–2.4 学习路径引导（当前170字）",
+      "objectives": [
+        "能说明「第2章 HTML5 文档结构」的核心作用和适用边界。",
+        "能围绕“第2章文档结构知识导图与 2.1–2.4 学习路径引导（当前170字）”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：第2章文档结构知识导图与 2.1–2.4 学习路径引导（当前170字）",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "Gemini 其余页面审查；Codex 二次核对"
+    },
+    "wy/ch2/s21.html": {
+      "title": "2.1 HTML 简介",
+      "type": "CHAPTER",
+      "level": "重点",
+      "priority": "P1",
+      "status": "ready",
+      "focus": "保持16个运行示例，补充 HTML4 与 HTML5 文档声明对比及自测题",
+      "objectives": [
+        "能说明「2.1 HTML 简介」的核心作用和适用边界。",
+        "能围绕“保持16个运行示例，补充 HTML4 与 HTML5 文档声明对比及自测题”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：保持16个运行示例，补充 HTML4 与 HTML5 文档声明对比及自测题",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "Gemini 其余页面审查；Codex 二次核对"
+    },
+    "wy/ch2/s22.html": {
+      "title": "2.2 HTML5 文档结构",
+      "type": "CHAPTER",
+      "level": "重点",
+      "priority": "P1",
+      "status": "ready",
+      "focus": "保持16个运行示例，补充语义化骨架标签（header/main/footer）自测",
+      "factNote": "课堂速记“title 是唯一必须写在 head 里的内容”不是完整的规范表述。head 还可包含 meta、link、style、script、base 等；现代页面至少应正确声明字符集和 viewport，并保留一个准确的 title。",
+      "objectives": [
+        "能说明「2.2 HTML5 文档结构」的核心作用和适用边界。",
+        "能围绕“保持16个运行示例，补充语义化骨架标签（header/main/footer）自测”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：保持16个运行示例，补充语义化骨架标签（header/main/footer）自测",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "模型复核 + Codex 事实校注；Codex 二次核对"
+    },
+    "wy/ch2/s22b.html": {
+      "title": "2.2 HTML5 编写注意事项（必记）",
+      "type": "CHAPTER",
+      "level": "重点",
+      "priority": "P1",
+      "status": "ready",
+      "focus": "保持8个运行示例，补充“常见错误代码改错”互动判断题",
+      "objectives": [
+        "能说明「2.2 HTML5 编写注意事项（必记）」的核心作用和适用边界。",
+        "能围绕“保持8个运行示例，补充“常见错误代码改错”互动判断题”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：保持8个运行示例，补充“常见错误代码改错”互动判断题",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "Gemini 其余页面审查；Codex 二次核对"
+    },
+    "wy/ch2/s23.html": {
+      "title": "2.3 <meta> 标签详解",
+      "type": "CHAPTER",
+      "level": "拓展",
+      "priority": "P2",
+      "status": "ready",
+      "focus": "保留标准 <meta http-equiv=\"refresh\"> 跳转至 <meta> 专题页",
+      "factNote": "keywords 可用于保留课堂知识点，但 Google 已长期不使用 meta keywords 作为网页排名依据；description 也不保证成为搜索摘要。学习时区分课堂写法与现代搜索引擎实践，不把填关键词当成排名保证。",
+      "objectives": [
+        "能说明「2.3 <meta> 标签详解」的核心作用和适用边界。",
+        "能围绕“保留标准 <meta http-equiv=\"refresh\"> 跳转至 <meta> 专题页”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：保留标准 <meta http-equiv=\"refresh\"> 跳转至 <meta> 专题页",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "模型复核 + Codex 事实校注；Codex 二次核对"
+    },
+    "wy/ch2/s24.html": {
+      "title": "2.4 <body> 标签详解",
+      "type": "CHAPTER",
+      "level": "核心重点",
+      "priority": "P0",
+      "status": "ready",
+      "focus": "补充 <body> 常用属性（bgcolor/text/margin）与 CSS 替代写法示例",
+      "factNote": "bgcolor、background、link、text、topmargin、leftmargin 属于旧式表现属性，不应作为现代页面的主要样式方案。当前实践应使用 CSS：body 背景、链接状态和页面边距分别由 background、:link/:visited/:hover/:active、margin 控制；课堂属性仍需认识以应对教材题。",
+      "objectives": [
+        "能说明「2.4 <body> 标签详解」的核心作用和适用边界。",
+        "能围绕“补充 <body> 常用属性（bgcolor/text/margin）与 CSS 替代写法示例”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：补充 <body> 常用属性（bgcolor/text/margin）与 CSS 替代写法示例",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "模型复核 + Codex 事实校注；Codex 二次核对"
+    },
+    "wy/css/align.html": {
+      "title": "对齐",
+      "type": "CSS",
+      "level": "重点",
+      "priority": "P1",
+      "status": "ready",
+      "focus": "文本、块、Flex 三种对齐机制的适用条件",
+      "objectives": [
+        "能说明「对齐」的核心作用和适用边界。",
+        "能围绕“文本、块、Flex 三种对齐机制的适用条件”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：文本、块、Flex 三种对齐机制的适用条件",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/css/animation.html": {
+      "title": "动画",
+      "type": "CSS",
+      "level": "拓展",
+      "priority": "P2",
+      "status": "ready",
+      "focus": "关键帧、迭代次数、方向及减少动画",
+      "objectives": [
+        "能说明「动画」的核心作用和适用边界。",
+        "能围绕“关键帧、迭代次数、方向及减少动画”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：关键帧、迭代次数、方向及减少动画",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/css/attr-sel.html": {
+      "title": "属性选择器",
+      "type": "CSS",
+      "level": "拓展",
+      "priority": "P2",
+      "status": "ready",
+      "focus": "属性存在、完全匹配、前缀/后缀/包含匹配",
+      "objectives": [
+        "能说明「属性选择器」的核心作用和适用边界。",
+        "能围绕“属性存在、完全匹配、前缀/后缀/包含匹配”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：属性存在、完全匹配、前缀/后缀/包含匹配",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/css/background.html": {
+      "title": "背景",
+      "type": "CSS",
+      "level": "重点",
+      "priority": "P1",
+      "status": "ready",
+      "focus": "背景重复、位置、cover/contain 的裁切差别",
+      "factNote": "background-size: cover 保证铺满容器，但可能裁切图像；contain 尽量完整显示，但可能留白。",
+      "objectives": [
+        "能说明「背景」的核心作用和适用边界。",
+        "能围绕“背景重复、位置、cover/contain 的裁切差别”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：背景重复、位置、cover/contain 的裁切差别",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "模型复核 + Codex 事实校注；Codex 二次核对"
+    },
+    "wy/css/border-radius.html": {
+      "title": "CSS3 圆角",
+      "type": "CSS",
+      "level": "拓展",
+      "priority": "P2",
+      "status": "ready",
+      "focus": "四角半径及圆形、椭圆形形成条件",
+      "factNote": "50% 不保证任何盒子都变成圆形：还要看宽高比例。正方形配合 50% 通常得到圆形，长方形一般得到椭圆形。",
+      "objectives": [
+        "能说明「CSS3 圆角」的核心作用和适用边界。",
+        "能围绕“四角半径及圆形、椭圆形形成条件”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：四角半径及圆形、椭圆形形成条件",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "模型复核 + Codex 事实校注；Codex 二次核对"
+    },
+    "wy/css/border.html": {
+      "title": "边框",
+      "type": "CSS",
+      "level": "重点",
+      "priority": "P1",
+      "status": "ready",
+      "focus": "边框宽度、样式、颜色及简写关系",
+      "objectives": [
+        "能说明「边框」的核心作用和适用边界。",
+        "能围绕“边框宽度、样式、颜色及简写关系”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：边框宽度、样式、颜色及简写关系",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/css/box.html": {
+      "title": "盒子模型",
+      "type": "CSS",
+      "level": "核心重点",
+      "priority": "P0",
+      "status": "ready",
+      "focus": "content-box/border-box 精确计算器",
+      "objectives": [
+        "能说明「盒子模型」的核心作用和适用边界。",
+        "能围绕“content-box/border-box 精确计算器”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：content-box/border-box 精确计算器",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/css/colors.html": {
+      "title": "颜色",
+      "type": "CSS",
+      "level": "拓展",
+      "priority": "P2",
+      "status": "ready",
+      "focus": "rgba() 仅背景透明与 opacity 整体连带子元素透明的考题区别、十六进制缩写还原规则（#369 -> #336699）",
+      "objectives": [
+        "能说明「颜色」的核心作用和适用边界。",
+        "能围绕“rgba() 仅背景透明与 opacity 整体连带子元素透明的考题区别、十六进制缩写还原规则（#369 -> #336699）”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：rgba() 仅背景透明与 opacity 整体连带子元素透明的考题区别、十六进制缩写还原规则（#369 -> #336699）",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "Gemini 逐页审查；Codex 二次核对"
+    },
+    "wy/css/combinators.html": {
+      "title": "组合选择符",
+      "type": "CSS",
+      "level": "核心重点",
+      "priority": "P0",
+      "status": "ready",
+      "focus": "后代、子代、相邻兄弟、通用兄弟命中范围",
+      "objectives": [
+        "能说明「组合选择符」的核心作用和适用边界。",
+        "能围绕“后代、子代、相邻兄弟、通用兄弟命中范围”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：后代、子代、相邻兄弟、通用兄弟命中范围",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/css/display.html": {
+      "title": "display",
+      "type": "CSS",
+      "level": "核心重点",
+      "priority": "P0",
+      "status": "ready",
+      "focus": "display 类型、尺寸行为与隐藏占位",
+      "factNote": "普通非替换行内元素通常不能直接设置宽高；img 等替换元素属于例外，inline-block 与 Flex/Grid 子项也会改变布局行为。",
+      "objectives": [
+        "能说明「display」的核心作用和适用边界。",
+        "能围绕“display 类型、尺寸行为与隐藏占位”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：display 类型、尺寸行为与隐藏占位",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "模型复核 + Codex 事实校注；Codex 二次核对"
+    },
+    "wy/css/dropdown.html": {
+      "title": "下拉菜单",
+      "type": "CSS",
+      "level": "拓展",
+      "priority": "P2",
+      "status": "ready",
+      "focus": "导航下拉的 hover、键盘、点击状态",
+      "objectives": [
+        "能说明「下拉菜单」的核心作用和适用边界。",
+        "能围绕“导航下拉的 hover、键盘、点击状态”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：导航下拉的 hover、键盘、点击状态",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/css/flexbox.html": {
+      "title": "弹性盒子",
+      "type": "CSS",
+      "level": "核心重点",
+      "priority": "P0",
+      "status": "ready",
+      "focus": "主轴/交叉轴与剩余空间分配",
+      "factNote": "flex: 2 描述的是伸缩分量，实际尺寸还会受 flex-basis、内容最小尺寸、收缩与容器空间限制，不能简单断言它永远是 flex:1 元素的两倍。",
+      "objectives": [
+        "能说明「弹性盒子」的核心作用和适用边界。",
+        "能围绕“主轴/交叉轴与剩余空间分配”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：主轴/交叉轴与剩余空间分配",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "模型复核 + Codex 事实校注；Codex 二次核对"
+    },
+    "wy/css/float.html": {
+      "title": "float",
+      "type": "CSS",
+      "level": "核心重点",
+      "priority": "P0",
+      "status": "ready",
+      "focus": "文字环绕、父级高度及清除浮动",
+      "objectives": [
+        "能说明「float」的核心作用和适用边界。",
+        "能围绕“文字环绕、父级高度及清除浮动”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：文字环绕、父级高度及清除浮动",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/css/font.html": {
+      "title": "字体",
+      "type": "CSS",
+      "level": "重点",
+      "priority": "P1",
+      "status": "ready",
+      "focus": "font 简写必需项、重置行为和后备字体",
+      "objectives": [
+        "能说明「字体」的核心作用和适用边界。",
+        "能围绕“font 简写必需项、重置行为和后备字体”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：font 简写必需项、重置行为和后备字体",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/css/form.html": {
+      "title": "表单样式",
+      "type": "CSS",
+      "level": "拓展",
+      "priority": "P2",
+      "status": "ready",
+      "focus": "焦点、有效/无效状态和表单视觉反馈",
+      "objectives": [
+        "能说明「表单样式」的核心作用和适用边界。",
+        "能围绕“焦点、有效/无效状态和表单视觉反馈”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：焦点、有效/无效状态和表单视觉反馈",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/css/gradients.html": {
+      "title": "CSS3 渐变",
+      "type": "CSS",
+      "level": "拓展",
+      "priority": "P2",
+      "status": "ready",
+      "focus": "线性/径向渐变、色标与角度",
+      "objectives": [
+        "能说明「CSS3 渐变」的核心作用和适用边界。",
+        "能围绕“线性/径向渐变、色标与角度”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：线性/径向渐变、色标与角度",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/css/howto.html": {
+      "title": "三种引入",
+      "type": "CSS",
+      "level": "核心重点",
+      "priority": "P0",
+      "status": "ready",
+      "focus": "行内样式、内部样式表、外部样式表（<link>）写法、维护性及与选择器权重叠加以后的覆盖优先级验证",
+      "factNote": "行内、内部、外部样式并没有绝对高低顺序。最终生效由来源、!important、层叠层、选择器权重和声明顺序共同决定；不要只凭“写在哪”下结论。",
+      "objectives": [
+        "能说明「三种引入」的核心作用和适用边界。",
+        "能围绕“行内样式、内部样式表、外部样式表（<link>）写法、维护性及与选择器权重叠加以后的覆盖优先级验证”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：行内样式、内部样式表、外部样式表（<link>）写法、维护性及与选择器权重叠加以后的覆盖优先级验证",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "模型复核 + Codex 事实校注；Codex 二次核对"
+    },
+    "wy/css/index.html": {
+      "title": "CSS / CSS3（导读页）",
+      "type": "CSS",
+      "level": "重点",
+      "priority": "P1",
+      "status": "ready",
+      "focus": "CSS 知识体系四阶段导览卡（选择器与权重 -> 盒模型与排版 -> 定位浮动与 Flex -> CSS3 动效与响应式）及 CSS 综合自测入口",
+      "objectives": [
+        "能说明「CSS / CSS3（导读页）」的核心作用和适用边界。",
+        "能围绕“CSS 知识体系四阶段导览卡（选择器与权重 -> 盒模型与排版 -> 定位浮动与 Flex -> CSS3 动效与响应式）及 CSS 综合自测…”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：CSS 知识体系四阶段导览卡（选择器与权重 -> 盒模型与排版 -> 定位浮动与 Flex -> CSS3 动效与响应式）及 CSS 综合…",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "Gemini 逐页审查；Codex 二次核对"
+    },
+    "wy/css/intro.html": {
+      "title": "CSS 简介",
+      "type": "CSS",
+      "level": "重点",
+      "priority": "P1",
+      "status": "ready",
+      "focus": "CSS 层叠性（就近覆盖）、继承性（字体文本属性可继承、盒模型属性不可继承）、优先级三大核心特性概述",
+      "objectives": [
+        "能说明「CSS 简介」的核心作用和适用边界。",
+        "能围绕“CSS 层叠性（就近覆盖）、继承性（字体文本属性可继承、盒模型属性不可继承）、优先级三大核心特性概述”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：CSS 层叠性（就近覆盖）、继承性（字体文本属性可继承、盒模型属性不可继承）、优先级三大核心特性概述",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "Gemini 逐页审查；Codex 二次核对"
+    },
+    "wy/css/layout.html": {
+      "title": "网站布局",
+      "type": "CSS",
+      "level": "重点",
+      "priority": "P1",
+      "status": "ready",
+      "focus": "完整页面骨架与小屏布局转换",
+      "objectives": [
+        "能说明「网站布局」的核心作用和适用边界。",
+        "能围绕“完整页面骨架与小屏布局转换”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：完整页面骨架与小屏布局转换",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/css/link.html": {
+      "title": "链接样式",
+      "type": "CSS",
+      "level": "重点",
+      "priority": "P1",
+      "status": "ready",
+      "focus": "LVHA、焦点样式和访问状态限制",
+      "objectives": [
+        "能说明「链接样式」的核心作用和适用边界。",
+        "能围绕“LVHA、焦点样式和访问状态限制”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：LVHA、焦点样式和访问状态限制",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/css/list.html": {
+      "title": "列表样式",
+      "type": "CSS",
+      "level": "拓展",
+      "priority": "P2",
+      "status": "ready",
+      "focus": "列表标记、位置及清除默认间距",
+      "objectives": [
+        "能说明「列表样式」的核心作用和适用边界。",
+        "能围绕“列表标记、位置及清除默认间距”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：列表标记、位置及清除默认间距",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/css/margin.html": {
+      "title": "外边距",
+      "type": "CSS",
+      "level": "核心重点",
+      "priority": "P0",
+      "status": "ready",
+      "focus": "四值简写、auto 居中、垂直外边距合并",
+      "factNote": "普通流的相邻或父子上下外边距可能发生折叠，折叠通常取较大值而不是相加；Flex/Grid 项不会按同样规则折叠。margin 也不计入 CSS width。",
+      "objectives": [
+        "能说明「外边距」的核心作用和适用边界。",
+        "能围绕“四值简写、auto 居中、垂直外边距合并”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：四值简写、auto 居中、垂直外边距合并",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "模型复核 + Codex 事实校注；Codex 二次核对"
+    },
+    "wy/css/mediaq.html": {
+      "title": "媒体查询",
+      "type": "CSS",
+      "level": "核心重点",
+      "priority": "P0",
+      "status": "ready",
+      "focus": "断点、查询条件、层叠与预览宽度",
+      "objectives": [
+        "能说明「媒体查询」的核心作用和适用边界。",
+        "能围绕“断点、查询条件、层叠与预览宽度”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：断点、查询条件、层叠与预览宽度",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/css/navbar.html": {
+      "title": "导航栏",
+      "type": "CSS",
+      "level": "拓展",
+      "priority": "P2",
+      "status": "ready",
+      "focus": "列表构建横向导航及窄屏替代",
+      "objectives": [
+        "能说明「导航栏」的核心作用和适用边界。",
+        "能围绕“列表构建横向导航及窄屏替代”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：列表构建横向导航及窄屏替代",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/css/padding.html": {
+      "title": "内边距",
+      "type": "CSS",
+      "level": "重点",
+      "priority": "P1",
+      "status": "ready",
+      "focus": "padding 与内容尺寸、背景绘制的关系",
+      "objectives": [
+        "能说明「内边距」的核心作用和适用边界。",
+        "能围绕“padding 与内容尺寸、背景绘制的关系”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：padding 与内容尺寸、背景绘制的关系",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/css/position.html": {
+      "title": "position",
+      "type": "CSS",
+      "level": "核心重点",
+      "priority": "P0",
+      "status": "ready",
+      "focus": "五种定位模式、包含块和定位偏移",
+      "factNote": "absolute 通常相对最近的非 static 祖先，但 transform、contain 等也可能建立包含块；fixed 也并非在所有特殊容器中都等同于视口定位。先掌握基础参照物，再认识例外。",
+      "objectives": [
+        "能说明「position」的核心作用和适用边界。",
+        "能围绕“五种定位模式、包含块和定位偏移”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：五种定位模式、包含块和定位偏移",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "模型复核 + Codex 事实校注；Codex 二次核对"
+    },
+    "wy/css/pseudo.html": {
+      "title": "伪类",
+      "type": "CSS",
+      "level": "重点",
+      "priority": "P1",
+      "status": "ready",
+      "focus": "状态伪类、结构伪类与伪元素",
+      "factNote": "伪类与伪元素应作为语义类别区分；虽然常见写法分别使用单冒号和双冒号，但不能只凭冒号数量死记，还要看它匹配状态还是生成内容。",
+      "objectives": [
+        "能说明「伪类」的核心作用和适用边界。",
+        "能围绕“状态伪类、结构伪类与伪元素”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：状态伪类、结构伪类与伪元素",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "模型复核 + Codex 事实校注；Codex 二次核对"
+    },
+    "wy/css/selectors.html": {
+      "title": "选择器",
+      "type": "CSS",
+      "level": "核心重点",
+      "priority": "P0",
+      "status": "ready",
+      "focus": "ID、类、元素及复合选择器权重",
+      "objectives": [
+        "能说明「选择器」的核心作用和适用边界。",
+        "能围绕“ID、类、元素及复合选择器权重”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：ID、类、元素及复合选择器权重",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/css/syntax.html": {
+      "title": "CSS 语法",
+      "type": "CSS",
+      "level": "重点",
+      "priority": "P1",
+      "status": "ready",
+      "focus": "选择器 + 声明块 { 属性: 值; } 构成解剖、CSS 注释 /* */（严禁使用 // 注释）及英文分号漏写导致后续属性失效的排错",
+      "objectives": [
+        "能说明「CSS 语法」的核心作用和适用边界。",
+        "能围绕“选择器 + 声明块 { 属性: 值; } 构成解剖、CSS 注释 /* */（严禁使用 // 注释）及英文分号漏写导致后续属性失效的排错”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：选择器 + 声明块 { 属性: 值; } 构成解剖、CSS 注释 /* */（严禁使用 // 注释）及英文分号漏写导致后续属性失效的排错",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "Gemini 逐页审查；Codex 二次核对"
+    },
+    "wy/css/table.html": {
+      "title": "表格样式",
+      "type": "CSS",
+      "level": "拓展",
+      "priority": "P2",
+      "status": "ready",
+      "focus": "合并边框、斑马纹、表头和单元格间距",
+      "objectives": [
+        "能说明「表格样式」的核心作用和适用边界。",
+        "能围绕“合并边框、斑马纹、表头和单元格间距”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：合并边框、斑马纹、表头和单元格间距",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/css/text.html": {
+      "title": "文本",
+      "type": "CSS",
+      "level": "重点",
+      "priority": "P1",
+      "status": "ready",
+      "focus": "对齐、行高、缩进、单行溢出省略",
+      "objectives": [
+        "能说明「文本」的核心作用和适用边界。",
+        "能围绕“对齐、行高、缩进、单行溢出省略”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：对齐、行高、缩进、单行溢出省略",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/css/tooltip.html": {
+      "title": "提示工具",
+      "type": "CSS",
+      "level": "拓展",
+      "priority": "P3",
+      "status": "ready",
+      "focus": "提示内容的焦点触发与定位",
+      "objectives": [
+        "能说明「提示工具」的核心作用和适用边界。",
+        "能围绕“提示内容的焦点触发与定位”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：提示内容的焦点触发与定位",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/css/transform.html": {
+      "title": "转换",
+      "type": "CSS",
+      "level": "拓展",
+      "priority": "P2",
+      "status": "ready",
+      "focus": "平移、旋转、缩放顺序和变换原点",
+      "objectives": [
+        "能说明「转换」的核心作用和适用边界。",
+        "能围绕“平移、旋转、缩放顺序和变换原点”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：平移、旋转、缩放顺序和变换原点",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/css/transition.html": {
+      "title": "过渡",
+      "type": "CSS",
+      "level": "拓展",
+      "priority": "P2",
+      "status": "ready",
+      "focus": "过渡属性、持续时间与离散过渡边界",
+      "factNote": "“display 完全不能过渡”的旧说法需要限定。现代浏览器在支持 transition-behavior: allow-discrete 等条件时可处理部分离散变化，但兼容性和具体行为不同；基础题仍以可插值属性为主。",
+      "objectives": [
+        "能说明「过渡」的核心作用和适用边界。",
+        "能围绕“过渡属性、持续时间与离散过渡边界”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：过渡属性、持续时间与离散过渡边界",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "模型复核 + Codex 事实校注；Codex 二次核对"
+    },
+    "wy/examples/index.html": {
+      "title": "实例入口",
+      "type": "TOOLS",
+      "level": "核心重点",
+      "priority": "P0",
+      "status": "ready",
+      "focus": "按章节（HTML/CSS/JS）与难度筛选全部可运行示例的聚合索引",
+      "objectives": [
+        "能说明「实例入口」的核心作用和适用边界。",
+        "能围绕“按章节（HTML/CSS/JS）与难度筛选全部可运行示例的聚合索引”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：按章节（HTML/CSS/JS）与难度筛选全部可运行示例的聚合索引",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "Gemini 其余页面审查；Codex 二次核对"
+    },
+    "wy/html5/audio.html": {
+      "title": "HTML5 Audio",
+      "type": "HTML5",
+      "level": "课程内容",
+      "priority": "",
+      "status": "ready",
+      "focus": "HTML5 Audio：属性与 video 类似：controls、autoplay、loop 等。专升本重点记标签名与 controls。",
+      "objectives": [
+        "能说明「HTML5 Audio」的核心作用和适用边界。",
+        "能围绕“HTML5 Audio：属性与 video 类似：controls、autoplay、loop 等。专升本重点记标签名与 controls。”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：HTML5 Audio：属性与 video 类似：controls、autoplay、loop 等。专升本重点记标签名与 controls。",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "站内课程目录与页面原内容整理"
+    },
+    "wy/html5/browsers.html": {
+      "title": "浏览器支持",
+      "type": "HTML5",
+      "level": "课程内容",
+      "priority": "",
+      "status": "ready",
+      "focus": "浏览器支持：不同浏览器对 HTML5 新特性支持程度不同。现代 Chrome/Edge/Firefox/Safari 对语义标签、音视频、canvas、本地存储支持良好；老旧 IE 需谨慎。",
+      "objectives": [
+        "能说明「浏览器支持」的核心作用和适用边界。",
+        "能围绕“浏览器支持：不同浏览器对 HTML5 新特性支持程度不同。现代 Chrome/Edge/Firefox/Safari 对语义标签、音视频、ca…”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：浏览器支持：不同浏览器对 HTML5 新特性支持程度不同。现代 Chrome/Edge/Firefox/Safari 对语义标签、音视频、…",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "站内课程目录与页面原内容整理"
+    },
+    "wy/html5/canvas.html": {
+      "title": "Canvas 概述",
+      "type": "HTML5",
+      "level": "课程内容",
+      "priority": "",
+      "status": "ready",
+      "focus": "Canvas 概述：<canvas> 提供绘图表面，实际图形多用 JavaScript API 绘制。考试常考「标签名 + 需脚本绘图」这一层认知。",
+      "objectives": [
+        "能说明「Canvas 概述」的核心作用和适用边界。",
+        "能围绕“Canvas 概述：<canvas> 提供绘图表面，实际图形多用 JavaScript API 绘制。考试常考「标签名 + 需脚本绘图」这一层…”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：Canvas 概述：<canvas> 提供绘图表面，实际图形多用 JavaScript API 绘制。考试常考「标签名 + 需脚本绘图」这…",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "站内课程目录与页面原内容整理"
+    },
+    "wy/html5/drag.html": {
+      "title": "拖放",
+      "type": "HTML5",
+      "level": "课程内容",
+      "priority": "",
+      "status": "ready",
+      "focus": "拖放：HTML5 拖放：元素设 draggable=\"true\"，配合 dragstart、dragover、drop 等事件。了解流程即可，实操题较少。",
+      "objectives": [
+        "能说明「拖放」的核心作用和适用边界。",
+        "能围绕“拖放：HTML5 拖放：元素设 draggable=\"true\"，配合 dragstart、dragover、drop 等事件。了解流程即可，…”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：拖放：HTML5 拖放：元素设 draggable=\"true\"，配合 dragstart、dragover、drop 等事件。了解流程即…",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "站内课程目录与页面原内容整理"
+    },
+    "wy/html5/form-attrs.html": {
+      "title": "表单属性",
+      "type": "HTML5",
+      "level": "核心重点",
+      "priority": "",
+      "status": "ready",
+      "focus": "required、pattern、readonly、disabled、novalidate",
+      "objectives": [
+        "能说明「表单属性」的核心作用和适用边界。",
+        "能围绕“required、pattern、readonly、disabled、novalidate”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：required、pattern、readonly、disabled、novalidate",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/html5/form-elements.html": {
+      "title": "HTML5 表单元素",
+      "type": "HTML5",
+      "level": "核心重点",
+      "priority": "",
+      "status": "ready",
+      "focus": "datalist、output、progress 与 meter",
+      "objectives": [
+        "能说明「HTML5 表单元素」的核心作用和适用边界。",
+        "能围绕“datalist、output、progress 与 meter”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：datalist、output、progress 与 meter",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/html5/index.html": {
+      "title": "HTML5",
+      "type": "HTML5",
+      "level": "导读",
+      "priority": "",
+      "status": "ready",
+      "focus": "HTML5 常考课已齐：语义、音视频、表单、Canvas/SVG 与表单属性等。",
+      "objectives": [
+        "能说明「HTML5」的核心作用和适用边界。",
+        "能围绕“HTML5 常考课已齐：语义、音视频、表单、Canvas/SVG 与表单属性等。”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：HTML5 常考课已齐：语义、音视频、表单、Canvas/SVG 与表单属性等。",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "站内课程目录与页面原内容整理"
+    },
+    "wy/html5/input-types.html": {
+      "title": "HTML5 Input 类型",
+      "type": "HTML5",
+      "level": "核心重点",
+      "priority": "",
+      "status": "ready",
+      "focus": "email、tel、number 与原生约束差异",
+      "objectives": [
+        "能说明「HTML5 Input 类型」的核心作用和适用边界。",
+        "能围绕“email、tel、number 与原生约束差异”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：email、tel、number 与原生约束差异",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/html5/intro.html": {
+      "title": "2.2 HTML5 文档结构",
+      "type": "HTML5",
+      "level": "课程内容",
+      "priority": "",
+      "status": "redirect",
+      "focus": "2.2 HTML5 文档结构",
+      "objectives": [
+        "能说明「2.2 HTML5 文档结构」的核心作用和适用边界。",
+        "能围绕“2.2 HTML5 文档结构”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：2.2 HTML5 文档结构",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "站内课程目录与页面原内容整理"
+    },
+    "wy/html5/media.html": {
+      "title": "HTML 媒体概述",
+      "type": "HTML5",
+      "level": "课程内容",
+      "priority": "",
+      "status": "ready",
+      "focus": "HTML 媒体概述：网页常见媒体：图像（img）、音频（audio）、视频（video）。HTML5 起音视频多为原生标签，不再依赖 Flash 等插件（了解历史对比即可）。",
+      "objectives": [
+        "能说明「HTML 媒体概述」的核心作用和适用边界。",
+        "能围绕“HTML 媒体概述：网页常见媒体：图像（img）、音频（audio）、视频（video）。HTML5 起音视频多为原生标签，不再依赖 Flas…”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：HTML 媒体概述：网页常见媒体：图像（img）、音频（audio）、视频（video）。HTML5 起音视频多为原生标签，不再依赖 Fl…",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "站内课程目录与页面原内容整理"
+    },
+    "wy/html5/new-elements.html": {
+      "title": "HTML5 新元素",
+      "type": "HTML5",
+      "level": "课程内容",
+      "priority": "",
+      "status": "ready",
+      "focus": "HTML5 新元素：常记：header、nav、main、article、section、aside、footer、figure/figcaption、time、mark，以及 audio、video、canvas。",
+      "objectives": [
+        "能说明「HTML5 新元素」的核心作用和适用边界。",
+        "能围绕“HTML5 新元素：常记：header、nav、main、article、section、aside、footer、figure/figcap…”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：HTML5 新元素：常记：header、nav、main、article、section、aside、footer、figure/figc…",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "站内课程目录与页面原内容整理"
+    },
+    "wy/html5/semantic.html": {
+      "title": "语义元素",
+      "type": "HTML5",
+      "level": "核心重点",
+      "priority": "",
+      "status": "ready",
+      "focus": "section、article、nav、aside 的结构判断",
+      "objectives": [
+        "能说明「语义元素」的核心作用和适用边界。",
+        "能围绕“section、article、nav、aside 的结构判断”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：section、article、nav、aside 的结构判断",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/html5/svg.html": {
+      "title": "SVG 概述",
+      "type": "HTML5",
+      "level": "课程内容",
+      "priority": "",
+      "status": "ready",
+      "focus": "SVG 概述：SVG（可缩放矢量图形）用 XML 描述形状，放大不糊。可内嵌在 HTML 中；适合图标、简单图表。对比 Canvas：SVG 是 DOM 节点，Canvas 是像素位图。",
+      "objectives": [
+        "能说明「SVG 概述」的核心作用和适用边界。",
+        "能围绕“SVG 概述：SVG（可缩放矢量图形）用 XML 描述形状，放大不糊。可内嵌在 HTML 中；适合图标、简单图表。对比 Canvas：SVG …”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：SVG 概述：SVG（可缩放矢量图形）用 XML 描述形状，放大不糊。可内嵌在 HTML 中；适合图标、简单图表。对比 Canvas：SV…",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "站内课程目录与页面原内容整理"
+    },
+    "wy/html5/video.html": {
+      "title": "HTML5 Video",
+      "type": "HTML5",
+      "level": "课程内容",
+      "priority": "",
+      "status": "ready",
+      "focus": "HTML5 Video：controls：显示播放控件（布尔属性）；autoplay / loop / muted / poster",
+      "objectives": [
+        "能说明「HTML5 Video」的核心作用和适用边界。",
+        "能围绕“HTML5 Video：controls：显示播放控件（布尔属性）；autoplay / loop / muted / poster”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：HTML5 Video：controls：显示播放控件（布尔属性）；autoplay / loop / muted / poster",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "站内课程目录与页面原内容整理"
+    },
+    "wy/html5/webstorage.html": {
+      "title": "Web 存储概述",
+      "type": "HTML5",
+      "level": "课程内容",
+      "priority": "",
+      "status": "ready",
+      "focus": "Web 存储概述：localStorage 持久保存键值对；sessionStorage 关闭标签页即失效。与 Cookie 不同，它们不随每次请求自动发给服务器（概述级掌握即可）。",
+      "objectives": [
+        "能说明「Web 存储概述」的核心作用和适用边界。",
+        "能围绕“Web 存储概述：localStorage 持久保存键值对；sessionStorage 关闭标签页即失效。与 Cookie 不同，它们不随每…”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：Web 存储概述：localStorage 持久保存键值对；sessionStorage 关闭标签页即失效。与 Cookie 不同，它们不…",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "站内课程目录与页面原内容整理"
+    },
+    "wy/html/attributes.html": {
+      "title": "2.1 HTML 简介",
+      "type": "HTML",
+      "level": "课程内容",
+      "priority": "",
+      "status": "redirect",
+      "focus": "2.1 HTML 简介",
+      "objectives": [
+        "能说明「2.1 HTML 简介」的核心作用和适用边界。",
+        "能围绕“2.1 HTML 简介”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：2.1 HTML 简介",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "站内课程目录与页面原内容整理"
+    },
+    "wy/html/basic.html": {
+      "title": "2.2 HTML5 文档结构",
+      "type": "HTML",
+      "level": "课程内容",
+      "priority": "",
+      "status": "redirect",
+      "focus": "2.2 HTML5 文档结构",
+      "objectives": [
+        "能说明「2.2 HTML5 文档结构」的核心作用和适用边界。",
+        "能围绕“2.2 HTML5 文档结构”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：2.2 HTML5 文档结构",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "站内课程目录与页面原内容整理"
+    },
+    "wy/html/blocks.html": {
+      "title": "HTML 区块",
+      "type": "HTML",
+      "level": "核心重点",
+      "priority": "",
+      "status": "ready",
+      "focus": "块级、行内与 CSS display 的关系",
+      "objectives": [
+        "能说明「HTML 区块」的核心作用和适用边界。",
+        "能围绕“块级、行内与 CSS display 的关系”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：块级、行内与 CSS display 的关系",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/html/cheatsheet.html": {
+      "title": "HTML 速查（精简）",
+      "type": "HTML",
+      "level": "课程内容",
+      "priority": "",
+      "status": "ready",
+      "focus": "HTML 速查（精简）：考前过一遍高频标签。完整字母表见「标签速查」页。",
+      "objectives": [
+        "能说明「HTML 速查（精简）」的核心作用和适用边界。",
+        "能围绕“HTML 速查（精简）：考前过一遍高频标签。完整字母表见「标签速查」页。”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：HTML 速查（精简）：考前过一遍高频标签。完整字母表见「标签速查」页。",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "站内课程目录与页面原内容整理"
+    },
+    "wy/html/colors.html": {
+      "title": "HTML 颜色",
+      "type": "HTML",
+      "level": "课程内容",
+      "priority": "",
+      "status": "ready",
+      "focus": "HTML 颜色：颜色可写：颜色名（如 red）、十六进制（#RRGGBB）、RGB（rgb(r,g,b)）。",
+      "objectives": [
+        "能说明「HTML 颜色」的核心作用和适用边界。",
+        "能围绕“HTML 颜色：颜色可写：颜色名（如 red）、十六进制（#RRGGBB）、RGB（rgb(r,g,b)）。”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：HTML 颜色：颜色可写：颜色名（如 red）、十六进制（#RRGGBB）、RGB（rgb(r,g,b)）。",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "站内课程目录与页面原内容整理"
+    },
+    "wy/html/css-inline.html": {
+      "title": "HTML 中的 CSS",
+      "type": "HTML",
+      "level": "核心重点",
+      "priority": "",
+      "status": "ready",
+      "focus": "行内、内部、外部 CSS 与层叠冲突",
+      "objectives": [
+        "能说明「HTML 中的 CSS」的核心作用和适用边界。",
+        "能围绕“行内、内部、外部 CSS 与层叠冲突”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：行内、内部、外部 CSS 与层叠冲突",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/html/editors.html": {
+      "title": "HTML 编辑器",
+      "type": "HTML",
+      "level": "核心重点",
+      "priority": "",
+      "status": "ready",
+      "focus": "HBuilder 新建项目、UTF-8 保存与浏览器审查",
+      "objectives": [
+        "能说明「HTML 编辑器」的核心作用和适用边界。",
+        "能围绕“HBuilder 新建项目、UTF-8 保存与浏览器审查”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：HBuilder 新建项目、UTF-8 保存与浏览器审查",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/html/elements.html": {
+      "title": "2.2 HTML5 编写注意事项（必记）",
+      "type": "HTML",
+      "level": "课程内容",
+      "priority": "",
+      "status": "redirect",
+      "focus": "2.2 HTML5 编写注意事项（必记）",
+      "objectives": [
+        "能说明「2.2 HTML5 编写注意事项（必记）」的核心作用和适用边界。",
+        "能围绕“2.2 HTML5 编写注意事项（必记）”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：2.2 HTML5 编写注意事项（必记）",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "站内课程目录与页面原内容整理"
+    },
+    "wy/html/entities.html": {
+      "title": "HTML 字符实体",
+      "type": "HTML",
+      "level": "核心重点",
+      "priority": "",
+      "status": "ready",
+      "focus": "HTML 特殊字符、实体与源码/显示差异",
+      "objectives": [
+        "能说明「HTML 字符实体」的核心作用和适用边界。",
+        "能围绕“HTML 特殊字符、实体与源码/显示差异”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：HTML 特殊字符、实体与源码/显示差异",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/html/formatting.html": {
+      "title": "HTML 文本格式化",
+      "type": "HTML",
+      "level": "核心重点",
+      "priority": "",
+      "status": "ready",
+      "focus": "strong/em 的语义与 b/i 的视觉呈现",
+      "objectives": [
+        "能说明「HTML 文本格式化」的核心作用和适用边界。",
+        "能围绕“strong/em 的语义与 b/i 的视觉呈现”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：strong/em 的语义与 b/i 的视觉呈现",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/html/forms.html": {
+      "title": "HTML 表单",
+      "type": "HTML",
+      "level": "核心重点",
+      "priority": "",
+      "status": "ready",
+      "focus": "GET/POST、name、label、radio 与表单提交数据",
+      "objectives": [
+        "能说明「HTML 表单」的核心作用和适用边界。",
+        "能围绕“GET/POST、name、label、radio 与表单提交数据”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：GET/POST、name、label、radio 与表单提交数据",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/html/head.html": {
+      "title": "2.3 <meta> 标签详解",
+      "type": "HTML",
+      "level": "课程内容",
+      "priority": "",
+      "status": "redirect",
+      "focus": "2.3 <meta> 标签详解",
+      "objectives": [
+        "能说明「2.3 <meta> 标签详解」的核心作用和适用边界。",
+        "能围绕“2.3 <meta> 标签详解”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：2.3 <meta> 标签详解",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "站内课程目录与页面原内容整理"
+    },
+    "wy/html/headings.html": {
+      "title": "HTML 标题",
+      "type": "HTML",
+      "level": "核心重点",
+      "priority": "",
+      "status": "ready",
+      "focus": "h1–h6 层级与 title 的用途区别",
+      "objectives": [
+        "能说明「HTML 标题」的核心作用和适用边界。",
+        "能围绕“h1–h6 层级与 title 的用途区别”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：h1–h6 层级与 title 的用途区别",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/html/iframes.html": {
+      "title": "HTML 框架（iframe）",
+      "type": "HTML",
+      "level": "课程内容",
+      "priority": "",
+      "status": "ready",
+      "focus": "HTML 框架（iframe）：<iframe src=\"地址\"></iframe> 在当前页嵌入另一个页面。旧式 frameset 已过时，了解即可；考试多考 iframe 基本写法与用途。",
+      "objectives": [
+        "能说明「HTML 框架（iframe）」的核心作用和适用边界。",
+        "能围绕“HTML 框架（iframe）：<iframe src=\"地址\"></iframe> 在当前页嵌入另一个页面。旧式 frameset 已过时，…”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：HTML 框架（iframe）：<iframe src=\"地址\"></iframe> 在当前页嵌入另一个页面。旧式 frameset 已过…",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "站内课程目录与页面原内容整理"
+    },
+    "wy/html/images.html": {
+      "title": "HTML 图像",
+      "type": "HTML",
+      "level": "核心重点",
+      "priority": "",
+      "status": "ready",
+      "focus": "相对图片路径、加载失败、alt 与尺寸",
+      "objectives": [
+        "能说明「HTML 图像」的核心作用和适用边界。",
+        "能围绕“相对图片路径、加载失败、alt 与尺寸”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：相对图片路径、加载失败、alt 与尺寸",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/html/index.html": {
+      "title": "HTML 基础",
+      "type": "HTML",
+      "level": "核心重点",
+      "priority": "",
+      "status": "ready",
+      "focus": "HTML 基础路线、标签语法与起始步骤",
+      "objectives": [
+        "能说明「HTML 基础」的核心作用和适用边界。",
+        "能围绕“HTML 基础路线、标签语法与起始步骤”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：HTML 基础路线、标签语法与起始步骤",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/html/intro.html": {
+      "title": "2.1 HTML 简介",
+      "type": "HTML",
+      "level": "课程内容",
+      "priority": "",
+      "status": "redirect",
+      "focus": "2.1 HTML 简介",
+      "objectives": [
+        "能说明「2.1 HTML 简介」的核心作用和适用边界。",
+        "能围绕“2.1 HTML 简介”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：2.1 HTML 简介",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "站内课程目录与页面原内容整理"
+    },
+    "wy/html/layouts.html": {
+      "title": "HTML 布局",
+      "type": "HTML",
+      "level": "课程内容",
+      "priority": "",
+      "status": "ready",
+      "focus": "HTML 布局：传统布局可用表格或多层 div；HTML5 更推荐语义分区（header / nav / main / aside / footer）。专升本先能画出「页眉-导航-内容-页脚」结构。",
+      "objectives": [
+        "能说明「HTML 布局」的核心作用和适用边界。",
+        "能围绕“HTML 布局：传统布局可用表格或多层 div；HTML5 更推荐语义分区（header / nav / main / aside / foo…”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：HTML 布局：传统布局可用表格或多层 div；HTML5 更推荐语义分区（header / nav / main / aside / f…",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "站内课程目录与页面原内容整理"
+    },
+    "wy/html/links.html": {
+      "title": "HTML 链接",
+      "type": "HTML",
+      "level": "核心重点",
+      "priority": "",
+      "status": "ready",
+      "focus": "href、target、页内锚点和相对路径",
+      "objectives": [
+        "能说明「HTML 链接」的核心作用和适用边界。",
+        "能围绕“href、target、页内锚点和相对路径”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：href、target、页内锚点和相对路径",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/html/lists.html": {
+      "title": "HTML 列表",
+      "type": "HTML",
+      "level": "核心重点",
+      "priority": "",
+      "status": "ready",
+      "focus": "ul/ol/li、dl/dt/dd 与多层嵌套",
+      "objectives": [
+        "能说明「HTML 列表」的核心作用和适用边界。",
+        "能围绕“ul/ol/li、dl/dt/dd 与多层嵌套”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：ul/ol/li、dl/dt/dd 与多层嵌套",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/html/paragraphs.html": {
+      "title": "HTML 段落",
+      "type": "HTML",
+      "level": "核心重点",
+      "priority": "",
+      "status": "ready",
+      "focus": "p/br/pre 与空白折叠",
+      "objectives": [
+        "能说明「HTML 段落」的核心作用和适用边界。",
+        "能围绕“p/br/pre 与空白折叠”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：p/br/pre 与空白折叠",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/html/quiz.html": {
+      "title": "HTML 自测",
+      "type": "HTML",
+      "level": "核心重点",
+      "priority": "",
+      "status": "ready",
+      "focus": "从现有 6 题扩展到覆盖核心知识的综合自测",
+      "objectives": [
+        "能说明「HTML 自测」的核心作用和适用边界。",
+        "能围绕“从现有 6 题扩展到覆盖核心知识的综合自测”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：从现有 6 题扩展到覆盖核心知识的综合自测",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/html/scripts.html": {
+      "title": "HTML 脚本",
+      "type": "HTML",
+      "level": "核心重点",
+      "priority": "",
+      "status": "ready",
+      "focus": "普通脚本、defer、async 的执行顺序",
+      "objectives": [
+        "能说明「HTML 脚本」的核心作用和适用边界。",
+        "能围绕“普通脚本、defer、async 的执行顺序”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：普通脚本、defer、async 的执行顺序",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/html/summary.html": {
+      "title": "HTML 总结",
+      "type": "HTML",
+      "level": "课程内容",
+      "priority": "",
+      "status": "ready",
+      "focus": "HTML 总结：HTML 描述结构；CSS 管外观；JS 管行为；文档四件套：doctype、html、head、body",
+      "objectives": [
+        "能说明「HTML 总结」的核心作用和适用边界。",
+        "能围绕“HTML 总结：HTML 描述结构；CSS 管外观；JS 管行为；文档四件套：doctype、html、head、body”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：HTML 总结：HTML 描述结构；CSS 管外观；JS 管行为；文档四件套：doctype、html、head、body",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "站内课程目录与页面原内容整理"
+    },
+    "wy/html/tables.html": {
+      "title": "HTML 表格",
+      "type": "HTML",
+      "level": "核心重点",
+      "priority": "",
+      "status": "ready",
+      "focus": "colspan/rowspan 网格占位、th 与 scope",
+      "objectives": [
+        "能说明「HTML 表格」的核心作用和适用边界。",
+        "能围绕“colspan/rowspan 网格占位、th 与 scope”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：colspan/rowspan 网格占位、th 与 scope",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/html/url.html": {
+      "title": "HTML URL",
+      "type": "HTML",
+      "level": "课程内容",
+      "priority": "",
+      "status": "ready",
+      "focus": "HTML URL：URL（统一资源定位器）指出资源位置与访问方式。格式回顾",
+      "objectives": [
+        "能说明「HTML URL」的核心作用和适用边界。",
+        "能围绕“HTML URL：URL（统一资源定位器）指出资源位置与访问方式。格式回顾”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：HTML URL：URL（统一资源定位器）指出资源位置与访问方式。格式回顾",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "站内课程目录与页面原内容整理"
+    },
+    "wy/index.html": {
+      "title": "网页设计",
+      "type": "HUB",
+      "level": "核心重点",
+      "priority": "P0",
+      "status": "ready",
+      "focus": "整合章节进度、课堂笔记（notes/web.html）与速查表三合一入口",
+      "objectives": [
+        "能说明「网页设计」的核心作用和适用边界。",
+        "能围绕“整合章节进度、课堂笔记（notes/web.html）与速查表三合一入口”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：整合章节进度、课堂笔记（notes/web.html）与速查表三合一入口",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "Gemini 其余页面审查；Codex 二次核对"
+    },
+    "wy/js/arrays.html": {
+      "title": "数组",
+      "type": "JS",
+      "level": "核心重点",
+      "priority": "P0",
+      "status": "ready",
+      "focus": "数组下标、长度及变异/非变异方法对照",
+      "objectives": [
+        "能说明「数组」的核心作用和适用边界。",
+        "能围绕“数组下标、长度及变异/非变异方法对照”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：数组下标、长度及变异/非变异方法对照",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/js/comments.html": {
+      "title": "注释",
+      "type": "JS",
+      "level": "重点",
+      "priority": "P3",
+      "status": "ready",
+      "focus": "单行、多行注释及错误注释边界",
+      "objectives": [
+        "能说明「注释」的核心作用和适用边界。",
+        "能围绕“单行、多行注释及错误注释边界”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：单行、多行注释及错误注释边界",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/js/datatypes.html": {
+      "title": "数据类型",
+      "type": "JS",
+      "level": "核心重点",
+      "priority": "P0",
+      "status": "ready",
+      "focus": "原始值、对象引用、typeof 特例",
+      "objectives": [
+        "能说明「数据类型」的核心作用和适用边界。",
+        "能围绕“原始值、对象引用、typeof 特例”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：原始值、对象引用、typeof 特例",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/js/dom-events.html": {
+      "title": "DOM 事件",
+      "type": "JS",
+      "level": "核心重点",
+      "priority": "P0",
+      "status": "ready",
+      "focus": "事件监听、传播、默认行为与取消",
+      "objectives": [
+        "能说明「DOM 事件」的核心作用和适用边界。",
+        "能围绕“事件监听、传播、默认行为与取消”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：事件监听、传播、默认行为与取消",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/js/dom-html.html": {
+      "title": "改内容与样式",
+      "type": "JS",
+      "level": "核心重点",
+      "priority": "P0",
+      "status": "ready",
+      "focus": "textContent/innerHTML/value/classList 对照",
+      "objectives": [
+        "能说明「改内容与样式」的核心作用和适用边界。",
+        "能围绕“textContent/innerHTML/value/classList 对照”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：textContent/innerHTML/value/classList 对照",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/js/dom.html": {
+      "title": "HTML DOM",
+      "type": "JS",
+      "level": "核心重点",
+      "priority": "P0",
+      "status": "ready",
+      "focus": "DOM 节点树与静态、动态选择集合",
+      "objectives": [
+        "能说明「HTML DOM」的核心作用和适用边界。",
+        "能围绕“DOM 节点树与静态、动态选择集合”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：DOM 节点树与静态、动态选择集合",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/js/events.html": {
+      "title": "事件",
+      "type": "JS",
+      "level": "重点",
+      "priority": "P1",
+      "status": "ready",
+      "focus": "click、input、change、submit 等触发条件",
+      "objectives": [
+        "能说明「事件」的核心作用和适用边界。",
+        "能围绕“click、input、change、submit 等触发条件”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：click、input、change、submit 等触发条件",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/js/functions.html": {
+      "title": "函数",
+      "type": "JS",
+      "level": "核心重点",
+      "priority": "P0",
+      "status": "ready",
+      "focus": "参数、返回值、函数声明与表达式提升",
+      "objectives": [
+        "能说明「函数」的核心作用和适用边界。",
+        "能围绕“参数、返回值、函数声明与表达式提升”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：参数、返回值、函数声明与表达式提升",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/js/howto.html": {
+      "title": "引入方式",
+      "type": "JS",
+      "level": "重点",
+      "priority": "P1",
+      "status": "ready",
+      "focus": "内联/外部脚本、defer/async 执行顺序",
+      "objectives": [
+        "能说明「引入方式」的核心作用和适用边界。",
+        "能围绕“内联/外部脚本、defer/async 执行顺序”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：内联/外部脚本、defer/async 执行顺序",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/js/ifelse.html": {
+      "title": "条件",
+      "type": "JS",
+      "level": "核心重点",
+      "priority": "P0",
+      "status": "ready",
+      "focus": "条件分支、严格比较和短路求值",
+      "objectives": [
+        "能说明「条件」的核心作用和适用边界。",
+        "能围绕“条件分支、严格比较和短路求值”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：条件分支、严格比较和短路求值",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/js/index.html": {
+      "title": "JavaScript / DOM（导读页）",
+      "type": "JS",
+      "level": "重点",
+      "priority": "P1",
+      "status": "ready",
+      "focus": "基础语法→控制流→函数→DOM 的分级路线",
+      "objectives": [
+        "能说明「JavaScript / DOM（导读页）」的核心作用和适用边界。",
+        "能围绕“基础语法→控制流→函数→DOM 的分级路线”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：基础语法→控制流→函数→DOM 的分级路线",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/js/intro.html": {
+      "title": "JavaScript 简介",
+      "type": "JS",
+      "level": "重点",
+      "priority": "P2",
+      "status": "ready",
+      "focus": "JS 与 HTML/CSS 分工及浏览器执行过程",
+      "objectives": [
+        "能说明「JavaScript 简介」的核心作用和适用边界。",
+        "能围绕“JS 与 HTML/CSS 分工及浏览器执行过程”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：JS 与 HTML/CSS 分工及浏览器执行过程",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/js/loops.html": {
+      "title": "循环",
+      "type": "JS",
+      "level": "核心重点",
+      "priority": "P0",
+      "status": "ready",
+      "focus": "for/while/do-while 边界和循环状态轨迹",
+      "objectives": [
+        "能说明「循环」的核心作用和适用边界。",
+        "能围绕“for/while/do-while 边界和循环状态轨迹”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：for/while/do-while 边界和循环状态轨迹",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/js/numbers.html": {
+      "title": "数字",
+      "type": "JS",
+      "level": "重点",
+      "priority": "P1",
+      "status": "ready",
+      "focus": "数值转换、NaN 与浮点运算陷阱",
+      "objectives": [
+        "能说明「数字」的核心作用和适用边界。",
+        "能围绕“数值转换、NaN 与浮点运算陷阱”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：数值转换、NaN 与浮点运算陷阱",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/js/objects.html": {
+      "title": "对象",
+      "type": "JS",
+      "level": "重点",
+      "priority": "P0",
+      "status": "ready",
+      "focus": "动态属性访问、对象修改与引用共享",
+      "objectives": [
+        "能说明「对象」的核心作用和适用边界。",
+        "能围绕“动态属性访问、对象修改与引用共享”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：动态属性访问、对象修改与引用共享",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/js/output.html": {
+      "title": "输出",
+      "type": "JS",
+      "level": "重点",
+      "priority": "P1",
+      "status": "ready",
+      "focus": "console、DOM 输出、alert 的真实差异",
+      "objectives": [
+        "能说明「输出」的核心作用和适用边界。",
+        "能围绕“console、DOM 输出、alert 的真实差异”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：console、DOM 输出、alert 的真实差异",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/js/scope.html": {
+      "title": "作用域",
+      "type": "JS",
+      "level": "核心重点",
+      "priority": "P0",
+      "status": "ready",
+      "focus": "函数作用域、块作用域、遮蔽与 TDZ",
+      "objectives": [
+        "能说明「作用域」的核心作用和适用边界。",
+        "能围绕“函数作用域、块作用域、遮蔽与 TDZ”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：函数作用域、块作用域、遮蔽与 TDZ",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/js/statements.html": {
+      "title": "语句",
+      "type": "JS",
+      "level": "重点",
+      "priority": "P2",
+      "status": "ready",
+      "focus": "表达式、语句、语句块与自动分号插入",
+      "objectives": [
+        "能说明「语句」的核心作用和适用边界。",
+        "能围绕“表达式、语句、语句块与自动分号插入”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：表达式、语句、语句块与自动分号插入",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/js/strings.html": {
+      "title": "字符串",
+      "type": "JS",
+      "level": "重点",
+      "priority": "P1",
+      "status": "ready",
+      "focus": "字符串索引、切片、查找与不可变性",
+      "objectives": [
+        "能说明「字符串」的核心作用和适用边界。",
+        "能围绕“字符串索引、切片、查找与不可变性”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：字符串索引、切片、查找与不可变性",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/js/syntax.html": {
+      "title": "语法",
+      "type": "JS",
+      "level": "重点",
+      "priority": "",
+      "status": "ready",
+      "focus": "标识符、运算符、大小写及常见语法错误",
+      "objectives": [
+        "能说明「语法」的核心作用和适用边界。",
+        "能围绕“标识符、运算符、大小写及常见语法错误”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：标识符、运算符、大小写及常见语法错误",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/js/variables.html": {
+      "title": "变量",
+      "type": "JS",
+      "level": "核心重点",
+      "priority": "P0",
+      "status": "ready",
+      "focus": "var/let/const 的声明、赋值及初始化差异",
+      "objectives": [
+        "能说明「变量」的核心作用和适用边界。",
+        "能围绕“var/let/const 的声明、赋值及初始化差异”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：var/let/const 的声明、赋值及初始化差异",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "GPT 最终实施矩阵；Codex 二次核对"
+    },
+    "wy/reference/index.html": {
+      "title": "标签与属性速查",
+      "type": "TOOLS",
+      "level": "核心重点",
+      "priority": "P0",
+      "status": "ready",
+      "focus": "增加实时关键词过滤输入框（支持按标签名、属性、用途秒搜）",
+      "objectives": [
+        "能说明「标签与属性速查」的核心作用和适用边界。",
+        "能围绕“增加实时关键词过滤输入框（支持按标签名、属性、用途秒搜）”判断正确写法。",
+        "能修改页面示例并解释结果变化，而不是只记结论。"
+      ],
+      "checks": [
+        "我能不用照读原文，说清本页核心结论",
+        "我能判断：增加实时关键词过滤输入框（支持按标签名、属性、用途秒搜）",
+        "我运行或推演过示例，并发现过一个常见错误"
+      ],
+      "source": "Gemini 其余页面审查；Codex 二次核对"
+    }
+  }
+}

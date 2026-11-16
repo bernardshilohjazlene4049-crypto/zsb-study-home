@@ -520,9 +520,9 @@
     },
     {
       "topicId": "web.css.flexbox",
-      "prerequisiteId": "web.css.animation",
+      "prerequisiteId": "web.css.layout",
       "strength": "soft",
-      "reason": "按原页面目录顺序，先学习前置课页。"
+      "reason": "Flex 属于布局技术，先掌握页面布局基础。"
     },
     {
       "topicId": "web.css.mediaq",
