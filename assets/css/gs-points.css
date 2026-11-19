@@ -1,0 +1,57 @@
+/* 高数第一章：讲义原文、整理与可视化并入各考点。照片弹窗、原文行、手写旁注沿用 wy-points.css。 */
+.gs-pt { min-width: 0; margin: 14px 0 18px; border: 1px solid var(--sh-line); border-radius: var(--sh-radius); background: var(--sh-surface); color: var(--sh-ink); font-family: var(--sg-font-sans); overflow: hidden; }
+.gs-pt .wy-entry { padding: 20px 22px; scroll-margin-top: 90px; }
+.gs-pt .wy-entry:last-child { border-bottom: 0; }
+.gs-pt .wy-entry-top h3 { margin: 0; align-self: center; font-size: 17px; line-height: 1.5; border-left: 4px solid var(--sh-accent); padding-left: 10px; }
+.gs-pt .sh-btn { min-height: 44px; min-width: 44px; border-radius: var(--sh-radius-sm); }
+.wy-photo .sh-btn { min-height: 44px; min-width: 44px; border-radius: var(--sh-radius-sm); }
+.gs-pt .wy-paper { font-size: 14px; line-height: 1.85; }
+.gs-pt .wy-source-row { margin-bottom: 10px; }
+.gs-pt .wy-source-row > p { margin: 0; }
+.gs-pt .wy-source-title h4, .gs-pt .gs-source-sub { margin: 0; font-size: 14px; color: var(--sh-ink-2); }
+.gs-pt .gs-source-sub { margin: 14px 0 8px; }
+.gs-pt .wy-supplement h4 { margin: 0 0 10px; font-size: 12px; color: var(--sh-ink-2); }
+.gs-pt .wy-supplement p, .gs-pt .wy-supplement li { margin: 0 0 8px; }
+.gs-pt .wy-supplement ul, .gs-pt .wy-supplement ol { margin: 0 0 8px; padding-left: 1.4em; }
+.gs-pt math { font-size: 1.08em; }
+.gs-pt .gs-mathwrap { margin: 8px 0; max-width: 100%; overflow-x: auto; }
+.gs-pt .gs-mathwrap math { display: block math; }
+.gs-pt .gs-hand { white-space: normal; }
+.gs-pt .gs-tree, .gs-pt .gs-tree ul { list-style: none; margin: 0; padding: 0; }
+.gs-pt .gs-tree ul { margin: 6px 0 0 14px; padding-left: 12px; border-left: 1px solid var(--sh-accent-line); }
+.gs-pt .gs-tree li { margin: 0 0 8px; }
+.gs-pt .gs-tree-row { display: flex; align-items: flex-start; gap: 12px; }
+.gs-pt .gs-tree-row > span:first-child { flex: 1; min-width: 0; }
+.gs-pt .gs-tree-row > .wy-hand { flex: 0 1 220px; }
+/* 可视化讲解 */
+.gs-pt .gs-viz-wrap { margin-top: 16px; }
+.gs-pt .gs-viz-wrap > h4 { margin: 0 0 8px; font-size: 14px; color: var(--sh-ink-2); }
+.gs-viz { --gs-accent: #006659; --gs-muted: #425b64; --gs-border: #c9dad7; min-width: 0; padding: 14px; border: 1px solid var(--gs-border); border-radius: 14px; background: #fff; color: #172d35; font-size: 16px; line-height: 1.6; }
+.gs-viz p { margin: 6px 0; }
+.gs-viz .gs-controls { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
+.gs-viz .gs-controls button { min-height: 44px; min-width: 44px; padding: 6px 12px; border: 1px solid var(--gs-border); border-radius: 8px; background: #fff; color: inherit; font: inherit; cursor: pointer; }
+.gs-viz .gs-controls button[aria-pressed="true"] { background: var(--gs-accent); color: #fff; border-color: var(--gs-accent); }
+.gs-viz .gs-range { display: block; margin-top: 8px; font-weight: 650; }
+.gs-viz .gs-range input { display: block; width: 100%; height: 44px; margin: 0; accent-color: var(--gs-accent); }
+.gs-viz .gs-plot { display: block; width: 100%; height: clamp(225px, 62vw, 320px); background: #fff; }
+.gs-viz .gs-plot.gs-draggable { touch-action: pan-y; cursor: grab; }
+.gs-viz .gs-numberline { height: 83px; }
+.gs-viz .gs-caption { font-size: .875rem; color: var(--gs-muted); }
+.gs-viz .gs-status { padding: 8px 10px; background: #eef5f3; border-radius: 8px; font-variant-numeric: tabular-nums; }
+.gs-viz .gs-table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; font-size: .9rem; }
+.gs-viz .gs-table th, .gs-viz .gs-table td { padding: 5px 7px; border-bottom: 1px solid var(--gs-border); text-align: right; }
+.gs-viz .gs-table th:first-child, .gs-viz .gs-table td:first-child { text-align: left; }
+.gs-viz .gs-sub { margin: 16px 0 4px; font-size: 1.05rem; }
+.gs-viz :focus-visible { outline: 3px solid #9a440e; outline-offset: 3px; }
+/* 讲义原题的数轴交集图 */
+.gs-axis { margin: 0; }
+.gs-axis svg { display: block; width: 100%; height: auto; max-width: 560px; }
+.gs-axis .ax-line { stroke: var(--sh-ink-3); stroke-width: 1.5; }
+.gs-axis .ax-fill { stroke: var(--sh-accent-strong); stroke-width: 5; stroke-linecap: butt; }
+.gs-axis .ax-dot { fill: var(--sh-surface); stroke: var(--sh-accent-strong); stroke-width: 2; }
+.gs-axis text { fill: var(--sh-ink); font: 13px var(--sg-font-sans); }
+@media (max-width: 760px) {
+  .gs-pt .wy-entry { padding: 18px 14px; }
+  .gs-pt .gs-tree-row { flex-direction: column; gap: 4px; }
+  .gs-pt .gs-tree-row > .wy-hand { flex: 0 0 auto; }
+}
