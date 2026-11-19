@@ -2,23 +2,23 @@
   "schema_version": 1,
   "disclaimer": "原图与例题只依据当前课堂清单、文件名和已经核对的页面内容建立关联；待补高清资料不推导不可见细节。",
   "topics": {
-    "net.ip_basics": {
+    "net.s11": {
       "sourceIds": ["net-n34", "net-n35", "net-n39", "net-n40", "net-n41", "net-n43"],
       "exampleIds": ["eg-ip-1", "eg-ip-2"]
     },
-    "net.cidr": {
+    "net.s21": {
       "sourceIds": ["net-n03", "net-n07", "net-n09", "net-n10", "net-n11", "net-n12", "net-n14", "net-n17", "net-n19", "net-n20", "net-n21"],
       "exampleIds": ["eg-cidr-1", "eg-cidr-2"]
     },
-    "net.subnet": {
+    "net.s31": {
       "sourceIds": ["net-n05", "net-n06", "net-n08", "net-n13", "net-n15", "net-n16", "net-n22", "net-n23", "net-n24", "net-n25", "net-n26", "net-n27", "net-n28", "net-n29", "net-n30", "net-n31", "net-n32", "net-n33", "net-n37", "net-h01", "net-h02", "net-h03"],
       "exampleIds": ["eg-subnet-1", "eg-subnet-2"]
     },
-    "net.fragments": {
+    "net.s41": {
       "sourceIds": ["net-n36", "net-n38", "net-n42", "net-n44", "net-h04"],
       "exampleIds": ["eg-fragments-1"]
     },
-    "net.ipv6": {
+    "net.s51": {
       "sourceIds": ["net-n01", "net-n02", "net-n04"],
       "exampleIds": ["eg-ipv6-1"]
     },
@@ -46,7 +46,7 @@
   "examples": [
     {
       "id": "eg-ip-1",
-      "topicId": "net.ip_basics",
+      "topicId": "net.s11",
       "subjectId": "network",
       "title": "例 1：IPv4 地址类别判断",
       "href": "network.html#eg-ip-1",
@@ -54,7 +54,7 @@
     },
     {
       "id": "eg-ip-2",
-      "topicId": "net.ip_basics",
+      "topicId": "net.s11",
       "subjectId": "network",
       "title": "例 2：私有地址范围判断",
       "href": "network.html#eg-ip-2",
@@ -62,7 +62,7 @@
     },
     {
       "id": "eg-cidr-1",
-      "topicId": "net.cidr",
+      "topicId": "net.s21",
       "subjectId": "network",
       "title": "例 3：140.120.84.24/20 地址块计算",
       "href": "network.html#eg-cidr-1",
@@ -70,7 +70,7 @@
     },
     {
       "id": "eg-cidr-2",
-      "topicId": "net.cidr",
+      "topicId": "net.s21",
       "subjectId": "network",
       "title": "例 4：86.32/12 网络前缀匹配",
       "href": "network.html#eg-cidr-2",
@@ -78,7 +78,7 @@
     },
     {
       "id": "eg-subnet-1",
-      "topicId": "net.subnet",
+      "topicId": "net.s31",
       "subjectId": "network",
       "title": "例 5：136.23.12.64/26 等分 4 个子网",
       "href": "network.html#eg-subnet-1",
@@ -86,7 +86,7 @@
     },
     {
       "id": "eg-subnet-2",
-      "topicId": "net.subnet",
+      "topicId": "net.s31",
       "subjectId": "network",
       "title": "例 6：30.138.118.0/23 多网段地址分配",
       "href": "network.html#eg-subnet-2",
@@ -94,7 +94,7 @@
     },
     {
       "id": "eg-fragments-1",
-      "topicId": "net.fragments",
+      "topicId": "net.s41",
       "subjectId": "network",
       "title": "例 7：4000 字节 IPv4 数据报分片",
       "href": "network.html#eg-fragments-1",
@@ -102,7 +102,7 @@
     },
     {
       "id": "eg-ipv6-1",
-      "topicId": "net.ipv6",
+      "topicId": "net.s51",
       "subjectId": "network",
       "title": "IPv6 基本首部长度与结构自测",
       "href": "network.html#eg-ipv6-1",

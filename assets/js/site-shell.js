@@ -37,7 +37,7 @@
     if (rel === "index.html") return location.hash === "#subjects" ? "subjects" : "home";
     if (rel === "search.html") return "search";
     if (rel.indexOf("notes/") === 0) return "notes";
-    if (/^(gs|yy|jsj|c|wy)\//.test(rel)) return "subjects";
+    if (/^(gs|yy|jsj|c|wy|wl)\//.test(rel)) return "subjects";
     if (rel.indexOf("study/") === 0 || rel.indexOf("tower/") === 0) return "review";
     return "";
   }
@@ -115,10 +115,11 @@
 
   var KIND = (function () {
     if (rel === "index.html") return "home";
-    if (/^(gs|yy|jsj|c|wy)\/index\.html$/.test(rel)) return "subject";
+    if (/^(gs|yy|jsj|c|wy|wl)\/index\.html$/.test(rel)) return "subject";
     if (/^(gs\/gs1|gs\/gs45|yy\/yy5|jsj\/jsj1|jsj\/ppt5)\.html$/.test(rel)) return "lecture";
     if (/^wy\/(html|html5|css|js)\/[^/]+\.html$/.test(rel) && !/\/index\.html$/.test(rel)) return "lecture";
     if (/^wy\/ch[12]\/[^/]+\.html$/.test(rel)) return "lecture";
+    if (/^wl\/ch[1-6]\/[^/]+\.html$/.test(rel)) return "lecture";
     if (/^wy\/(html|html5|css|js|examples|reference)\/index\.html$/.test(rel)) return "lecture";
     if (rel === "study/graph.html") return "graph";
     if (rel === "study/overview.html") return "overview";

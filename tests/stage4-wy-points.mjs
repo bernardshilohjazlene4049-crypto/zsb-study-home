@@ -224,7 +224,7 @@ test("目录仅4+5点，七个旧id映射齐全，依赖边无悬空/自环且�
   assert.equal(d.topics.filter(t=>t.chapter_id==='web.ch2').length,5);
   assert.ok(!d.topics.some(t => ['web.quiz_points', 'web.figs'].includes(t.id)));
   assert.doesNotMatch(read('data/dependencies.json'), /web\.(quiz_points|figs)/);
-  assert.equal(Object.keys(d.merged_topics).length,7);
+  assert.equal(Object.keys(d.merged_topics).filter(k=>k.startsWith('web.')).length,7);
   for(const [old,target] of Object.entries(d.merged_topics)) {assert.ok(!all.has(old));assert.ok(all.has(target));}
   assert.deepEqual(d.topics.find(t=>t.id==='web.s21').prereq_ids,['web.concepts']);
   assert.deepEqual(d.topics.find(t=>t.id==='web.html.editors').prereq_ids,['web.html_intro']);
@@ -270,9 +270,10 @@ test("旧id作答/错题/笔记/进度读取映射、去重汇总且原对象不
   const {merged_topics,topics,chapters}=json('data/topics.json');
   const original={ok:true,attempts:[{id:'a',question_id:'q',topic_ids:['web.html.intro','web.s21','web.html.attributes'],submitted_at:'2026-01-01',grading:{status:'correct'}}],mistakes:[{id:'m',topic_ids:['web.html5_structure'],category:'wrong',next_review_at:'2026-01-01'}],notes:[{topic_ids:['web.html.head']}],progress:[{topic_id:'web.html.intro',updated_at:'2026-01-01',mastery_state:'practicing',independent_correct_count:1,evidence_attempt_ids:['a']},{topic_id:'web.s21',updated_at:'2026-02-01',mastery_state:'independent_once',independent_correct_count:2,evidence_attempt_ids:['b']}]};
   const before=structuredClone(original), mapped=withResolvedTopics(original,merged_topics);
-  const allOld = Object.entries(merged_topics).map(([old, target], i) => ({ id: `old-${i}`, question_id: `old-q-${i}`, topic_ids: [old, target], submitted_at: '2026-01-01' }));
+  const webMerged = Object.fromEntries(Object.entries(merged_topics).filter(([k])=>k.startsWith('web.')));
+  const allOld = Object.entries(webMerged).map(([old, target], i) => ({ id: `old-${i}`, question_id: `old-q-${i}`, topic_ids: [old, target], submitted_at: '2026-01-01' }));
   const resolvedOld = withResolvedTopics({ attempts: allOld }, merged_topics);
-  assert.deepEqual(resolvedOld.attempts.map(a => a.topic_ids), Object.values(merged_topics).map(id => [id]));
+  assert.deepEqual(resolvedOld.attempts.map(a => a.topic_ids), Object.values(webMerged).map(id => [id]));
   assert.equal(resolvedOld.attempts.length, 7);
   assert.deepEqual(original,before); assert.deepEqual(mapped.attempts[0].topic_ids,['web.s21']);
   assert.deepEqual(mapped.mistakes[0].topic_ids,['web.s21']); assert.deepEqual(mapped.notes[0].topic_ids,['web.s23']);
