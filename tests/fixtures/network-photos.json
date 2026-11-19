@@ -1,0 +1,370 @@
+{
+ "n39.jpg": {
+  "source": "images/笔记/39_文件名缺失.png",
+  "label": "原图 · 笔记 39",
+  "width": 1920,
+  "height": 1080,
+  "bytes": 177664,
+  "sha256": "464f13a899837dc5e645b52db10887f92e1510b99b9a66567332e15a343bfa6d"
+ },
+ "n43.jpg": {
+  "source": "images/笔记/43_p7_网络标识与数据报.png",
+  "label": "原图 · 笔记 43",
+  "width": 1920,
+  "height": 1080,
+  "bytes": 145710,
+  "sha256": "263ce8a76f29efcd90ae9a4d4a9325404a582041cff3a674d440186a78bdcbf5"
+ },
+ "n41.jpg": {
+  "source": "images/笔记/41_p5_私有地址范围选择题.png",
+  "label": "原图 · 笔记 41",
+  "width": 1920,
+  "height": 1080,
+  "bytes": 172459,
+  "sha256": "0db60ee8534f4959cf2c47c20dd8ca9b1ec964d5de53be64707f9e0f6758b9f4"
+ },
+ "n40.jpg": {
+  "source": "images/笔记/40_p6_IP地址分类选择题续.png",
+  "label": "原图 · 笔记 40",
+  "width": 1920,
+  "height": 1080,
+  "bytes": 183508,
+  "sha256": "fe9ab8d991757b8d0cd8f5481594f19d2f85b95a131871c246b4ab4cfccdb235"
+ },
+ "n34.jpg": {
+  "source": "images/笔记/34_p8_私有地址真题与作业提示.png",
+  "label": "原图 · 笔记 34",
+  "width": 1920,
+  "height": 1080,
+  "bytes": 179370,
+  "sha256": "ac91f3c9e270913f07a01872e9e988ab83a01ad6fa0868309989882d67d6f20b"
+ },
+ "n35.jpg": {
+  "source": "images/笔记/35_p9_地址分类填空.png",
+  "label": "原图 · 笔记 35",
+  "width": 1920,
+  "height": 1080,
+  "bytes": 198099,
+  "sha256": "b9d6d5e87f599336ae4de98ff7ab64bd938533c5e75fe9e9c996ddee1622588f"
+ },
+ "n07.jpg": {
+  "source": "images/笔记/07_p92_CIDR与网络前缀.png",
+  "label": "原图 · 笔记 07",
+  "width": 1920,
+  "height": 1080,
+  "bytes": 202265,
+  "sha256": "be5a4e68a814aecdd98c92395a41207006cd9856d6896667cd30bacd477c03f8"
+ },
+ "n09.jpg": {
+  "source": "images/笔记/09_p93_IP地址匹配题.png",
+  "label": "原图 · 笔记 09",
+  "width": 1920,
+  "height": 1080,
+  "bytes": 217448,
+  "sha256": "dc385944505b46534cbc767d332ad85282da62d3857e3bbd21c71c20720c2f3f"
+ },
+ "n10.jpg": {
+  "source": "images/笔记/10_p94_地址块与地址分类.png",
+  "label": "原图 · 笔记 10",
+  "width": 1920,
+  "height": 1080,
+  "bytes": 255067,
+  "sha256": "f8aca787b9a82df18464a310154418eda864fa65f3ade24ebe9e82a35f41e3ce"
+ },
+ "n14.jpg": {
+  "source": "images/笔记/14_p83_网络前缀结构.png",
+  "label": "原图 · 笔记 14",
+  "width": 1920,
+  "height": 1080,
+  "bytes": 258329,
+  "sha256": "88eebf600b43e40edc01bd0e2ca5d942d5728771f45458c8c0a7aed7faeac5b5"
+ },
+ "n20.jpg": {
+  "source": "images/笔记/20_p83_网络前缀结构讲解.png",
+  "label": "原图 · 笔记 20",
+  "width": 1920,
+  "height": 1080,
+  "bytes": 243690,
+  "sha256": "ee7a7589424f82050bbcd6c8c5ff85b1e064479ae8f246f11ba8b7567f9fdde2"
+ },
+ "n17.jpg": {
+  "source": "images/笔记/17_p84_CIDR地址块.png",
+  "label": "原图 · 笔记 17",
+  "width": 1920,
+  "height": 1080,
+  "bytes": 328061,
+  "sha256": "7dc72181fa0b2f2f764fc3cab633d2934c2657b113e2a42fd24d215c82c1caa4"
+ },
+ "n21.jpg": {
+  "source": "images/笔记/21_p84_CIDR地址块讲解.png",
+  "label": "原图 · 笔记 21",
+  "width": 1920,
+  "height": 1080,
+  "bytes": 356963,
+  "sha256": "55c537d8ab8a4c1e6ef90ebfb7303553e641634ae5c50d730e2596f310ef413d"
+ },
+ "n19.jpg": {
+  "source": "images/笔记/19_p87_网络地址AND运算.png",
+  "label": "原图 · 笔记 19",
+  "width": 1920,
+  "height": 1080,
+  "bytes": 246829,
+  "sha256": "7e0ff1667578a5a2a9fed1d36a937aae49e1d2d697fc0b71e09c331fc28f3fd4"
+ },
+ "n15.jpg": {
+  "source": "images/笔记/15_p88_网络地址与广播地址.png",
+  "label": "原图 · 笔记 15",
+  "width": 1920,
+  "height": 1080,
+  "bytes": 278649,
+  "sha256": "43a7e36456676d8bf56339f15217663fc46f2345fded07547c73b8a29d44bf8c"
+ },
+ "n06.jpg": {
+  "source": "images/笔记/06_p98_典型题子网划分.png",
+  "label": "原图 · 笔记 06",
+  "width": 1920,
+  "height": 1080,
+  "bytes": 311206,
+  "sha256": "dac3abfbc752e681602e5de3248e02e3b371b8d1b04890ba760cd69a6b63fa0a"
+ },
+ "n08.jpg": {
+  "source": "images/笔记/08_p96_网络地址分配.png",
+  "label": "原图 · 笔记 08",
+  "width": 1920,
+  "height": 1080,
+  "bytes": 239566,
+  "sha256": "2a668d4a480fd34d6bfad4f3ef733d8f1de6ca2d1f1ec8b70dbc77f1d478cc74"
+ },
+ "n05.jpg": {
+  "source": "images/笔记/05_p97_子网划分计算.png",
+  "label": "原图 · 笔记 05",
+  "width": 1920,
+  "height": 1080,
+  "bytes": 229449,
+  "sha256": "0c007221711e2ec8551ca81821f2766ac030e0a8c4718dcb379672c23bba266a"
+ },
+ "n03.jpg": {
+  "source": "images/笔记/03_p102_网络前缀与点对点网络.png",
+  "label": "原图 · 笔记 03",
+  "width": 1920,
+  "height": 1080,
+  "bytes": 274128,
+  "sha256": "d159edc03bb24084b71f7d8e94321ec5d7d5154c654d90b303ef6d033ce03736"
+ },
+ "h01.jpg": {
+  "source": "images/作业/01_p76_B类地址子网划分_含解析.jpg",
+  "label": "原图 · 作业 01",
+  "width": 2550,
+  "height": 1430,
+  "bytes": 333140,
+  "sha256": "ffd8a89edcf7aac2f7a010868917f0031f6ee06f9aa3b431dda2e8233000a2f2"
+ },
+ "h02.jpg": {
+  "source": "images/作业/02_p77_C类地址子网划分_含解析.jpg",
+  "label": "原图 · 作业 02",
+  "width": 2552,
+  "height": 1434,
+  "bytes": 326415,
+  "sha256": "564dfebe0171ecfc28d43ef5b1702f887a744ba5aed579e5df63d4c559bb80b9"
+ },
+ "h03.jpg": {
+  "source": "images/作业/03_p78_多部门子网规划_含解析.jpg",
+  "label": "原图 · 作业 03",
+  "width": 2550,
+  "height": 1423,
+  "bytes": 332293,
+  "sha256": "bdd1ef6442eea1cc8c6686f540eb595b8d7455d72373786e816bff66481cee5c"
+ },
+ "n37.jpg": {
+  "source": "images/笔记/37_p64_划分子网.png",
+  "label": "原图 · 笔记 37",
+  "width": 1920,
+  "height": 1080,
+  "bytes": 224855,
+  "sha256": "e80c136d5d636100ea820fbbeb3e72fb03990c4f6c8ff75c043286ecf96d667e"
+ },
+ "n32.jpg": {
+  "source": "images/笔记/32_p68_子网掩码结构.png",
+  "label": "原图 · 笔记 32",
+  "width": 1920,
+  "height": 1080,
+  "bytes": 215730,
+  "sha256": "4149eabf42048577452e353ddb5ba27e7f3a34eb8f904bb335711d5cd5219ca4"
+ },
+ "n33.jpg": {
+  "source": "images/笔记/33_p69_网络地址AND运算.png",
+  "label": "原图 · 笔记 33",
+  "width": 1920,
+  "height": 1080,
+  "bytes": 256764,
+  "sha256": "ecd3aea55535520c3899d96ec1f8368eb9fe6986ba7bb2cb9a86e390ea9780bd"
+ },
+ "n27.jpg": {
+  "source": "images/笔记/27_p74_划分子网步骤.png",
+  "label": "原图 · 笔记 27",
+  "width": 1920,
+  "height": 1080,
+  "bytes": 202416,
+  "sha256": "26e4f87c0160d4c0d00fda6f4e82eee44d960572df984f4aee42f3db492b4e3a"
+ },
+ "n13.jpg": {
+  "source": "images/笔记/13_p95_划分子网步骤.png",
+  "label": "原图 · 笔记 13",
+  "width": 1920,
+  "height": 1080,
+  "bytes": 162856,
+  "sha256": "2353b81d9542865275959ae981d50a78c5d3d2d5f118e7c32befbf48e238f300"
+ },
+ "n31.jpg": {
+  "source": "images/笔记/31_p70_网络号子网号主机号.png",
+  "label": "原图 · 笔记 31",
+  "width": 1920,
+  "height": 1080,
+  "bytes": 257675,
+  "sha256": "849ce4be72d858d76b056d17ac32a02f4c29d7b196f22b2874205ecdceed1993"
+ },
+ "n30.jpg": {
+  "source": "images/笔记/30_p71_IP地址组成与子网划分.png",
+  "label": "原图 · 笔记 30",
+  "width": 1920,
+  "height": 1080,
+  "bytes": 260793,
+  "sha256": "ef9ab0ad98f87d193c1ef72af73b2c040fb90f7cefbcf17c66e39153bd526b78"
+ },
+ "n29.jpg": {
+  "source": "images/笔记/29_p72_受限广播与子网地址.png",
+  "label": "原图 · 笔记 29",
+  "width": 1920,
+  "height": 1080,
+  "bytes": 319273,
+  "sha256": "b36f433ec41b9d9af07a77cc2619f48627b25fb5e9d883a6bb900833cfbd9053"
+ },
+ "n28.jpg": {
+  "source": "images/笔记/28_p75_多部门子网划分.png",
+  "label": "原图 · 笔记 28",
+  "width": 1920,
+  "height": 1080,
+  "bytes": 314463,
+  "sha256": "c40799af340f021cd84ffec642f2f2dfd4a8498da8b71e4d584be879e4c6312c"
+ },
+ "n16.jpg": {
+  "source": "images/笔记/16_p73_真题IP地址规划.png",
+  "label": "原图 · 笔记 16",
+  "width": 1920,
+  "height": 1080,
+  "bytes": 312536,
+  "sha256": "5b4ad1999f1aa1d21892ff763675a8d8050c5075a8941ee70dae55206d50c707"
+ },
+ "n24.jpg": {
+  "source": "images/笔记/24_p73_真题IP地址规划续.png",
+  "label": "原图 · 笔记 24",
+  "width": 1920,
+  "height": 1080,
+  "bytes": 208034,
+  "sha256": "1acd4a86bec0f53054f5e77149747dc8288f3c364e5bba3afc42564136b4dbc6"
+ },
+ "n26.jpg": {
+  "source": "images/笔记/26_p77_C类地址子网划分.png",
+  "label": "原图 · 笔记 26",
+  "width": 1920,
+  "height": 1080,
+  "bytes": 273624,
+  "sha256": "d40bb3265ec1b01b9289591422f8cd605005a04f1fa5041b5db2ad1ba38ce17c"
+ },
+ "n25.jpg": {
+  "source": "images/笔记/25_p76_B类地址子网划分.png",
+  "label": "原图 · 笔记 25",
+  "width": 1920,
+  "height": 1080,
+  "bytes": 153699,
+  "sha256": "c23b84ea82c97efacdec1ad316169caccf741c96c25edbaf0dab12a88dc745e6"
+ },
+ "n22.jpg": {
+  "source": "images/笔记/22_p12_典型习题子网掩码.png",
+  "label": "原图 · 笔记 22",
+  "width": 1920,
+  "height": 1080,
+  "bytes": 187106,
+  "sha256": "7c0697b4ceaeed84fadf9d5b76523bde47fb1b64dcfee9b65f489f410ecca06b"
+ },
+ "n23.jpg": {
+  "source": "images/笔记/23_p14_IP地址计算.png",
+  "label": "原图 · 笔记 23",
+  "width": 1920,
+  "height": 1080,
+  "bytes": 189546,
+  "sha256": "894b5fb73d2a47e845648516b8ad1ddba752ceee92b96137f49d9ca3ebf68751"
+ },
+ "n42.jpg": {
+  "source": "images/笔记/42_p49_IPv4分片功能.png",
+  "label": "原图 · 笔记 42",
+  "width": 1920,
+  "height": 1080,
+  "bytes": 202345,
+  "sha256": "966fba73a012eb02a1a72a866dd5834b7aa5636af7456b6bd7ea9f9b31ece6b2"
+ },
+ "n44.jpg": {
+  "source": "images/笔记/44_p47_数据报分片例题.png",
+  "label": "原图 · 笔记 44",
+  "width": 1920,
+  "height": 1080,
+  "bytes": 256231,
+  "sha256": "61969995e6a020b5d37709a3fde3a1b865c0319b62115f26ec123aa35b31f721"
+ },
+ "n38.jpg": {
+  "source": "images/笔记/38_p48_数据报分片定量计算.png",
+  "label": "原图 · 笔记 38",
+  "width": 1920,
+  "height": 1080,
+  "bytes": 285428,
+  "sha256": "e2528f1b5123a95efe7a658ef7d0db55fa86f70b6353dd105e0ac15a42af9525"
+ },
+ "n36.jpg": {
+  "source": "images/笔记/36_p48_数据报分片原理.png",
+  "label": "原图 · 笔记 36",
+  "width": 1920,
+  "height": 1080,
+  "bytes": 321638,
+  "sha256": "9ea28a2e25a41d82df3a67a6e33d9669340b137e75580cd8414856a17efca8ad"
+ },
+ "n04.jpg": {
+  "source": "images/笔记/04_p105_IPv6主要特点.png",
+  "label": "原图 · 笔记 04",
+  "width": 1920,
+  "height": 1080,
+  "bytes": 223139,
+  "sha256": "5c0ffd3556ea252a4d88defe5ebc3a67df1e211133e2ba6fd7ab24a25d01d70e"
+ },
+ "n02.jpg": {
+  "source": "images/笔记/02_p106_IPv6数据报组成.png",
+  "label": "原图 · 笔记 02",
+  "width": 1920,
+  "height": 1080,
+  "bytes": 218979,
+  "sha256": "5a1e6e73e67d3cb9fc448d1dd92b44f5a3db35ce508b816db25951602b4e4d67"
+ },
+ "n01.jpg": {
+  "source": "images/笔记/01_p107_IPv6基本首部.png",
+  "label": "原图 · 笔记 01",
+  "width": 1920,
+  "height": 1080,
+  "bytes": 190035,
+  "sha256": "9862bde61c99410d7382904333540da096f1266da4c9226e75e24e360ee74b21"
+ },
+ "n11.jpg": {
+  "source": "images/笔记/11_p90_路由聚合.png",
+  "label": "原图 · 笔记 11",
+  "width": 1920,
+  "height": 1080,
+  "bytes": 244512,
+  "sha256": "ce014bcab866ca8819e6341e970518c044157c5682113a0d698a48814d35862a"
+ },
+ "n12.jpg": {
+  "source": "images/笔记/12_p91_路由汇总计算.png",
+  "label": "原图 · 笔记 12",
+  "width": 1920,
+  "height": 1080,
+  "bytes": 240356,
+  "sha256": "30c84b9c1bb4bb1d17dcefdae89a06b6b760112448ac0216f7cbf6459508c82c"
+ }
+}
