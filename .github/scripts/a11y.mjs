@@ -8,8 +8,8 @@ const BASE = process.env.SITE_BASE || "http://127.0.0.1:8080/";
 const PAGES = [
   "index.html", "gs/index.html", "gs/gs1.html", "gs/gs45.html", "yy/index.html", "yy/yy5.html",
   "c/index.html", "jsj/index.html", "wy/index.html", "wy/html5/webstorage.html", "wy/html/quiz.html",
-  "wy/ch1/index.html", "wy/ch2/index.html", "wy/ch1/s11.html", "wy/ch2/s21.html", "wy/ch2/s24.html",
-  "wl/index.html", "wl/ch1/index.html", "wl/ch1/s11.html", "wl/ch3/s34.html", "wl/ch6/s61.html",
+  "wy/ch1/index.html", "wy/ch2/index.html", "wy/ch1/s11.html", "wy/ch1/s13.html", "wy/ch2/s21.html", "wy/ch2/s22.html", "wy/ch2/s24.html",
+  "wl/index.html", "wl/ch1/index.html", "wl/ch1/s11.html", "wl/ch2/s26.html", "wl/ch3/s34.html", "wl/ch5/s53.html", "wl/ch6/s61.html",
   "notes/index.html", "notes/network.html", "notes/web.html", "notes/map.html", "notes/sources.html",
   "study/index.html", "study/overview.html", "search.html",
   "study/graph.html", "study/index.html#/mistakes", "tower/index.html", "search.html?q=极限"
