@@ -14,6 +14,7 @@ const sha = (s) => createHash("sha256").update(s).digest("hex");
 
 const strip = (html) => html
   .replace(/<!--lab:[^>]*?-->[\s\S]*?<!--\/lab:[^>]*?-->/g, "")
+  .replace(/<!--gem:[^>]*?-->[\s\S]*?<!--\/gem:[^>]*?-->/g, "")
   .replace(/<link rel="stylesheet" href="[^"]*lab-viz\.css">\n?/g, "")
   .replace(/<script src="[^"]*(?:calc-net|lab-viz)\.js" defer><\/script>\n?/g, "");
 

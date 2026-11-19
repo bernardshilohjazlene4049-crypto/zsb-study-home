@@ -24,7 +24,20 @@
 <main class="site-main"><div class="site-container">
 <div class="wy-layout" data-chapter="web.ch2">
 <article class="sh-card wy-sheet"><header class="wy-point-head"><span class="wy-point-no">2.2</span><h1>2.2 HTML5 文档结构</h1></header><!--lab:illus--><div class="wy-illus" data-illus="wy.ch2.s22" hidden></div><!--/lab:illus-->
-<section class="wy-entry" id="s22-entry-1"><div class="wy-entry-top"><h2>引言：四部分组成</h2><button class="sh-btn" type="button" data-open-photo data-photos="1">打开原图</button></div><div class="wy-source wy-paper"><div class="wy-source-row wy-source-title"><h3>2.2 HTML5 文档结构</h3></div><div class="wy-source-row"><p>HTML 语言目前所用的版本是 HTML5,该版本文档结构由声明、根标签、头部标签和主体标签四部分组成：</p></div></div><div class="wy-supplement wy-paper"><h3>整理</h3><p>当前主流版本是 <strong>HTML5</strong>。文档结构四部分：<strong>声明、根标签、头标签、体标签</strong>。</p></div><div class="wy-selfcheck"><h3>自测要点</h3><ol class="wy-practice"><li class="sh-card"><span class="rn">3</span><span>HTML5 四部分结构：声明、根、头、体</span></li></ol></div></section>
+<section class="wy-entry" id="s22-entry-1"><div class="wy-entry-top"><h2>引言：四部分组成</h2><button class="sh-btn" type="button" data-open-photo data-photos="1">打开原图</button></div><div class="wy-source wy-paper"><div class="wy-source-row wy-source-title"><h3>2.2 HTML5 文档结构</h3></div><div class="wy-source-row"><p>HTML 语言目前所用的版本是 HTML5,该版本文档结构由声明、根标签、头部标签和主体标签四部分组成：</p></div></div><div class="wy-supplement wy-paper"><h3>整理</h3><p>当前主流版本是 <strong>HTML5</strong>。文档结构四部分：<strong>声明、根标签、头标签、体标签</strong>。</p></div><!--gem:s22-entry-1--><div class="wy-supplement wy-paper wy-gem"><h3>讲解</h3><ul>
+<li><strong>直观意思</strong>： 一个标准 HTML5 网页就像一封正式公文：第一行亮明“这是 HTML5 文件”（声明），外面套一个大信封（根标签 &lt;html&gt;），里面分上下两格——上格放给浏览器看的“幕后配置”（头标签 &lt;head&gt;），下格放给用户看的“正文画面”（体标签 &lt;body&gt;）。  </li>
+<li><strong>为什么</strong>： 把“元数据配置”和“可见页面内容”拆进 &lt;head&gt; 和 &lt;body&gt;，浏览器就能<strong>先读配置</strong>（比如先知道编码是 utf-8、标题叫 myweb），再按正确的编码去渲染 &lt;body&gt; 里的文字，避免边显示边乱码或页面闪动。</li>
+</ul><h4>自测要点解答</h4><ol>
+<li><strong>背熟四部分名称与先后顺序</strong>：  <ul>
+<li>第 1 部分：<strong>声明</strong> → &lt;!doctype html&gt;（文档类型声明，告诉浏览器当前是 HTML5 标准）。  </li>
+<li>第 2 部分：<strong>根标签</strong> → &lt;html&gt;...&lt;/html&gt;（包裹整个 HTML 文档）。  </li>
+<li>第 3 部分：<strong>头部标签（文件头）</strong> → &lt;head&gt;...&lt;/head&gt;（存放编码、标题、元数据等基础配置）。  </li>
+<li>第 4 部分：<strong>主体标签（文件体）</strong> → &lt;body&gt;...&lt;/body&gt;（存放所有页面可见内容，显示在浏览器主窗口）。  </li>
+</ul>
+</li>
+<li><strong>分辨包含关系</strong>：&lt;!doctype html&gt; 独立写在最前面，在 &lt;html&gt; 之外；&lt;head&gt; 和 &lt;body&gt; 是并列的<strong>兄弟关系</strong>，且都被包裹在根标签 &lt;html&gt; 内部。  </li>
+<li><strong>走读最小完整代码验证输出</strong>：代码里 &lt;title&gt;myweb&lt;/title&gt; 决定标签栏文字，&lt;body&gt;中国，你好！&lt;/body&gt; 决定主窗口文字。  </li>
+</ol></div><!--/gem:s22-entry-1--><div class="wy-selfcheck"><h3>自测要点</h3><ol class="wy-practice"><li class="sh-card"><span class="rn">3</span><span>HTML5 四部分结构：声明、根、头、体</span></li></ol></div></section>
 <section class="wy-entry" id="s22-entry-2"><div class="wy-entry-top"><h2>最小完整示例</h2></div><div class="wy-supplement wy-paper"><h3>整理</h3><h3>最小完整示例</h3><pre tabindex="0"><code>&lt;!doctype html&gt;
 &lt;html&gt;
   &lt;head&gt;
@@ -42,7 +55,30 @@
 <div class="wy-source-row"><p>●<code>&lt;meta&gt;</code>：<u class="wy-ul">元数据标签</u>。</p><span class="wy-hand">utf-8 万国码 设置网页的编码格式 GB2312</span></div>
 <div class="wy-source-row"><p>●<code>&lt;title&gt;</code>：<u class="wy-ul">网页标题标签</u>，显示在浏览器标签栏。</p><span class="wy-hand">唯一 必须在<code>&lt;head&gt;&lt;/head&gt;</code>里</span></div>
 <div class="wy-source-row"><p>●<code>&lt;body&gt;</code>：<u class="wy-ul">文件体标签</u>，所有页面可见内容都写在这里，会在浏览器主窗口中显示。</p></div>
-</div><div class="wy-source-row"><p>浏览器运行效果如图所示：</p></div><div class="wy-browser"><div class="wy-browser-tab">myweb</div><div class="wy-browser-address">127.0.0.1:8848/网页教材示...</div><div class="wy-browser-body">中国，你好！</div></div></div><div class="wy-supplement wy-paper"><h3>整理</h3><h3>结构说明</h3><div class="tablewrap"><table><thead><tr><th>标签</th><th>作用</th></tr></thead><tbody><tr><td><code>&lt;!doctype html&gt;</code></td><td>文档类型声明，告诉浏览器当前是 HTML5 标准</td></tr><tr><td><code>&lt;html&gt;</code></td><td><strong>根标签</strong>，包裹整个 HTML 文档</td></tr><tr><td><code>&lt;head&gt;</code></td><td><strong>文件头</strong>，存放基础配置（编码、标题、元数据）</td></tr><tr><td><code>&lt;meta&gt;</code></td><td>元数据标签（如设置编码 utf-8 / GB2312）</td></tr><tr><td><code>&lt;title&gt;</code></td><td>网页标题，显示在浏览器<strong>标签栏</strong>；★ <strong>唯一必须写在 <code>&lt;head&gt;&lt;/head&gt;</code> 里的内容</strong></td></tr><tr><td><code>&lt;body&gt;</code></td><td><strong>文件体</strong>，所有页面可见内容写在这里，显示在浏览器主窗口</td></tr></tbody></table></div></div><div class="wy-selfcheck"><h3>自测要点</h3><ol class="wy-practice"><li class="sh-card"><span class="rn">4</span><span><code>&lt;title&gt;</code> 是唯一必须在 <code>&lt;head&gt;</code> 里的内容</span></li></ol></div></section><section id="extension" class="wy-unit wy-extension"><h2>延伸</h2><div class="wy-ext-block" id="ext-html-basic"><div class="page-hero page-hero--compact">
+</div><div class="wy-source-row"><p>浏览器运行效果如图所示：</p></div><div class="wy-browser"><div class="wy-browser-tab">myweb</div><div class="wy-browser-address">127.0.0.1:8848/网页教材示...</div><div class="wy-browser-body">中国，你好！</div></div></div><div class="wy-supplement wy-paper"><h3>整理</h3><h3>结构说明</h3><div class="tablewrap"><table><thead><tr><th>标签</th><th>作用</th></tr></thead><tbody><tr><td><code>&lt;!doctype html&gt;</code></td><td>文档类型声明，告诉浏览器当前是 HTML5 标准</td></tr><tr><td><code>&lt;html&gt;</code></td><td><strong>根标签</strong>，包裹整个 HTML 文档</td></tr><tr><td><code>&lt;head&gt;</code></td><td><strong>文件头</strong>，存放基础配置（编码、标题、元数据）</td></tr><tr><td><code>&lt;meta&gt;</code></td><td>元数据标签（如设置编码 utf-8 / GB2312）</td></tr><tr><td><code>&lt;title&gt;</code></td><td>网页标题，显示在浏览器<strong>标签栏</strong>；★ <strong>唯一必须写在 <code>&lt;head&gt;&lt;/head&gt;</code> 里的内容</strong></td></tr><tr><td><code>&lt;body&gt;</code></td><td><strong>文件体</strong>，所有页面可见内容写在这里，显示在浏览器主窗口</td></tr></tbody></table></div></div><!--gem:s22-entry-3--><div class="wy-supplement wy-paper wy-gem"><h3>讲解</h3><ul>
+<li><strong>直观意思</strong>：  <ul>
+<li>&lt;!doctype html&gt;：写在最顶行，给浏览器打招呼“请按 HTML5 规矩解析我”。  </li>
+<li>&lt;html&gt;...&lt;/html&gt;：最外层总包裹，所有网页标签都装在它肚子里。  </li>
+<li>&lt;head&gt;...&lt;/head&gt;：后台配置区，里面的东西不直接画在网页白纸上。  </li>
+<li>&lt;meta&gt;：写网页的编码等元信息，常见编码 utf-8（万国码，支持全球绝大多数文字）和 GB2312（中文简体）。  </li>
+<li>&lt;body&gt;...&lt;/body&gt;：前台展示区，你在网页里看到的字、图、按钮全放这里。  </li>
+</ul>
+</li>
+<li><strong>为什么</strong>：  <ol>
+<li>为什么要写 &lt;!doctype html&gt;？如果不写文档声明，浏览器可能会退回“怪异模式（Quirks Mode）”去兼容上古时代的网页，导致盒模型和排版出现偏差。  </li>
+<li>为什么 &lt;meta charset="utf-8"&gt; 很重要？计算机底层只认二进制 0 和 1，如果网页保存时用 utf-8 编码，浏览器却猜成 GB2312 解码，汉字就会变成乱码。  </li>
+</ol>
+</li>
+</ul><h4>自测要点解答</h4><ol start="2">
+<li><strong>紧扣教材原文作答</strong>：  <ul>
+<li>位置：显示在浏览器<strong>标签栏</strong>（不是页面正文的 &lt;h1&gt; 标题）。  </li>
+</ul>
+</li>
+<li><strong>避开两个常见混淆</strong>：  <ul>
+<li>不要把 &lt;title&gt; 和 &lt;body&gt; 里的标题标签 &lt;h1&gt; 搞混。  </li>
+</ul>
+</li>
+</ol></div><!--/gem:s22-entry-3--><div class="wy-selfcheck"><h3>自测要点</h3><ol class="wy-practice"><li class="sh-card"><span class="rn">4</span><span><code>&lt;title&gt;</code> 是唯一必须在 <code>&lt;head&gt;</code> 里的内容</span></li></ol></div></section><section id="extension" class="wy-unit wy-extension"><h2>延伸</h2><div class="wy-ext-block" id="ext-html-basic"><div class="page-hero page-hero--compact">
   <h3>HTML 基础</h3>
 
   <p class="lead">一份合格网页至少包含：文档声明、根元素、头部、主体。第2章已讲四部分结构，这里补上「标题 / 段落 / 链接 / 图片」四件套实例。</p>
@@ -82,7 +118,10 @@
     <iframe class="tryit-preview" sandbox="allow-scripts" title="预览"></iframe>
   </div>
 
-</div></div><div class="wy-ext-block" id="ext-html5-intro"><div class="page-hero page-hero--compact">
+</div></div><!--gem:ext-html5-intro--><div class="wy-supplement wy-paper wy-gem"><h3>讲解</h3><ul>
+<li><strong>直观意思</strong>： 日常最常见的网页骨架内容是“标题 &lt;h1&gt;、段落 &lt;p&gt;、超链接 &lt;a&gt;、图片 &lt;img&gt;”。而 HTML5 相比老版本 HTML4，不仅把文档声明大大简化成 &lt;!doctype html&gt;，还新增了语义分区标签（如 &lt;header&gt;、&lt;nav&gt;、&lt;main&gt;、&lt;article&gt;、&lt;footer&gt;），并且不用装 Flash 插件就能直接播音频（&lt;audio&gt;）和视频（&lt;video&gt;）。  </li>
+<li><strong>为什么</strong>： 过去全用 &lt;div&gt; 划分区块，搜索引擎和读屏软件分不清哪块是导航、哪块是正文；语义标签让机器也能“读懂”页面结构。原生音视频则解决了过去依赖第三方插件带来的安全漏洞与跨设备不兼容问题。</li>
+</ul></div><!--/gem:ext-html5-intro--><div class="wy-ext-block" id="ext-html5-intro"><div class="page-hero page-hero--compact">
   <h3>HTML5 简介</h3>
   <p class="lead">HTML5 是 HTML 的当代标准。声明写作 <code>&lt;!doctype html&gt;</code>（第2章已练）。相对旧版，它补强了语义标签、音视频、画布、本地存储等。</p>
 </div>

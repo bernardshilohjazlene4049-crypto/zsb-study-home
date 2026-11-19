@@ -187,3 +187,8 @@
 @media (prefers-reduced-motion: reduce) {
   .wy-points-page *, .wy-points-page *::before, .wy-points-page *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
 }
+.wy-gem h4 { font-size: 14px; line-height: 1.5; margin: 16px 0 8px; color: var(--sh-ink); }
+.wy-gem p { margin: 0 0 10px; }
+.wy-gem ul, .wy-gem ol { margin: 0 0 10px; padding-left: 1.4em; }
+.wy-gem li { margin: 4px 0; overflow-wrap: anywhere; }
+.wy-gem > :last-child { margin-bottom: 0; }
