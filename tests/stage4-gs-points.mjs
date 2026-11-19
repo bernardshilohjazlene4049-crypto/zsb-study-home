@@ -85,3 +85,8 @@ test("每个手写看不清的位置都保留【看不清】，原文的错字�
   assert.match(text, /lim x→−∞ f\(x\)=lim x→\+∞ f\(x\)|−∞/);
   assert.ok(source.entries.find((e) => e.id === "gs1-8-2").text.includes("单独的"));
 });
+
+test("每个考点留一个空的插图位：隐藏、无图、无占位文字", () => {
+  const slots = [...page.matchAll(/<div class="gs-illus" data-gs-illus="(\d+)" hidden><\/div>/g)].map((m) => Number(m[1]));
+  assert.deepEqual(slots, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]);
+});

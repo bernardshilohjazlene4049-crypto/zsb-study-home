@@ -171,7 +171,8 @@ def entry_html(pt, e, n_entries):
 
 def point_block(n):
     ents = POINTS[n]["entries"]
-    return MARK_B % n + '<div class="gs-pt" data-gs-pt="%d">%s</div>' % (n, "".join(entry_html(n, e, len(ents)) for e in ents)) + MARK_E % n
+    slot = '<div class="gs-illus" data-gs-illus="%d" hidden></div>' % n  # 插图位：先留好，图到了再放，不放占位文字
+    return MARK_B % n + slot + '<div class="gs-pt" data-gs-pt="%d">%s</div>' % (n, "".join(entry_html(n, e, len(ents)) for e in ents)) + MARK_E % n
 
 def dialog_html():
     tabs = "".join('<button type="button" class="sh-btn" data-photo-number="%d" data-photo="gs1/photos/p0%d.jpg" data-width="%d" data-height="%d">第一章 · 原图 %d</button>'
