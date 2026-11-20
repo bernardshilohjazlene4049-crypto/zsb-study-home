@@ -6,7 +6,7 @@ cd "$(git rev-parse --show-toplevel)"
 
 OUT=_site
 ROOT_FILES=(index.html 404.html search.html robots.txt sitemap.xml style.css study-bridge.js)
-SITE_DIRS=(assets c config data gs jsj notes study tower wy yy)
+SITE_DIRS=(assets c config data gs jsj notes study tower wl wy yy)
 FORBIDDEN=(shots docs tests gpt_brief.md .github node_modules)
 ROOT_FILES+=(sw.js manifest.webmanifest offline.html)
 

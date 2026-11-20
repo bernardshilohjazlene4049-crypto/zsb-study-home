@@ -891,28 +891,172 @@
       "reason": "datalist 与 range 建立在表单控件和属性关联的基础之上。"
     },
     {
-      "topicId": "net.cidr",
-      "prerequisiteId": "net.ip_basics",
+      "topicId": "net.s12",
+      "prerequisiteId": "net.s11",
       "strength": "soft",
-      "reason": "CIDR 使用 IPv4 地址与二进制边界，先熟悉地址分类更便于计算。"
+      "reason": "按目录顺序，先学习前一个知识点。"
     },
     {
-      "topicId": "net.subnet",
-      "prerequisiteId": "net.cidr",
+      "topicId": "net.s13",
+      "prerequisiteId": "net.s12",
       "strength": "soft",
-      "reason": "子网划分沿用前缀长度与地址块边界，建议先掌握 CIDR。"
+      "reason": "按目录顺序，先学习前一个知识点。"
     },
     {
-      "topicId": "net.fragments",
-      "prerequisiteId": "net.subnet",
+      "topicId": "net.s14",
+      "prerequisiteId": "net.s13",
       "strength": "soft",
-      "reason": "分片计算需要稳定的字节、长度和地址结构基础。"
+      "reason": "按目录顺序，先学习前一个知识点。"
     },
     {
-      "topicId": "net.ipv6",
-      "prerequisiteId": "net.fragments",
+      "topicId": "net.s15",
+      "prerequisiteId": "net.s14",
       "strength": "soft",
-      "reason": "对照 IPv4 首部与分片处理，有助于理解 IPv6 的设计差异。"
+      "reason": "按目录顺序，先学习前一个知识点。"
+    },
+    {
+      "topicId": "net.s16",
+      "prerequisiteId": "net.s15",
+      "strength": "soft",
+      "reason": "按目录顺序，先学习前一个知识点。"
+    },
+    {
+      "topicId": "net.s21",
+      "prerequisiteId": "net.s16",
+      "strength": "soft",
+      "reason": "按目录顺序，先学习前一个知识点。"
+    },
+    {
+      "topicId": "net.s22",
+      "prerequisiteId": "net.s21",
+      "strength": "soft",
+      "reason": "按目录顺序，先学习前一个知识点。"
+    },
+    {
+      "topicId": "net.s23",
+      "prerequisiteId": "net.s22",
+      "strength": "soft",
+      "reason": "按目录顺序，先学习前一个知识点。"
+    },
+    {
+      "topicId": "net.s24",
+      "prerequisiteId": "net.s23",
+      "strength": "soft",
+      "reason": "按目录顺序，先学习前一个知识点。"
+    },
+    {
+      "topicId": "net.s25",
+      "prerequisiteId": "net.s24",
+      "strength": "soft",
+      "reason": "按目录顺序，先学习前一个知识点。"
+    },
+    {
+      "topicId": "net.s26",
+      "prerequisiteId": "net.s25",
+      "strength": "soft",
+      "reason": "按目录顺序，先学习前一个知识点。"
+    },
+    {
+      "topicId": "net.s27",
+      "prerequisiteId": "net.s26",
+      "strength": "soft",
+      "reason": "按目录顺序，先学习前一个知识点。"
+    },
+    {
+      "topicId": "net.s31",
+      "prerequisiteId": "net.s27",
+      "strength": "soft",
+      "reason": "按目录顺序，先学习前一个知识点。"
+    },
+    {
+      "topicId": "net.s32",
+      "prerequisiteId": "net.s31",
+      "strength": "soft",
+      "reason": "按目录顺序，先学习前一个知识点。"
+    },
+    {
+      "topicId": "net.s33",
+      "prerequisiteId": "net.s32",
+      "strength": "soft",
+      "reason": "按目录顺序，先学习前一个知识点。"
+    },
+    {
+      "topicId": "net.s34",
+      "prerequisiteId": "net.s33",
+      "strength": "soft",
+      "reason": "按目录顺序，先学习前一个知识点。"
+    },
+    {
+      "topicId": "net.s35",
+      "prerequisiteId": "net.s34",
+      "strength": "soft",
+      "reason": "按目录顺序，先学习前一个知识点。"
+    },
+    {
+      "topicId": "net.s36",
+      "prerequisiteId": "net.s35",
+      "strength": "soft",
+      "reason": "按目录顺序，先学习前一个知识点。"
+    },
+    {
+      "topicId": "net.s37",
+      "prerequisiteId": "net.s36",
+      "strength": "soft",
+      "reason": "按目录顺序，先学习前一个知识点。"
+    },
+    {
+      "topicId": "net.s38",
+      "prerequisiteId": "net.s37",
+      "strength": "soft",
+      "reason": "按目录顺序，先学习前一个知识点。"
+    },
+    {
+      "topicId": "net.s39",
+      "prerequisiteId": "net.s38",
+      "strength": "soft",
+      "reason": "按目录顺序，先学习前一个知识点。"
+    },
+    {
+      "topicId": "net.s41",
+      "prerequisiteId": "net.s39",
+      "strength": "soft",
+      "reason": "按目录顺序，先学习前一个知识点。"
+    },
+    {
+      "topicId": "net.s42",
+      "prerequisiteId": "net.s41",
+      "strength": "soft",
+      "reason": "按目录顺序，先学习前一个知识点。"
+    },
+    {
+      "topicId": "net.s43",
+      "prerequisiteId": "net.s42",
+      "strength": "soft",
+      "reason": "按目录顺序，先学习前一个知识点。"
+    },
+    {
+      "topicId": "net.s51",
+      "prerequisiteId": "net.s43",
+      "strength": "soft",
+      "reason": "按目录顺序，先学习前一个知识点。"
+    },
+    {
+      "topicId": "net.s52",
+      "prerequisiteId": "net.s51",
+      "strength": "soft",
+      "reason": "按目录顺序，先学习前一个知识点。"
+    },
+    {
+      "topicId": "net.s53",
+      "prerequisiteId": "net.s52",
+      "strength": "soft",
+      "reason": "按目录顺序，先学习前一个知识点。"
+    },
+    {
+      "topicId": "net.s61",
+      "prerequisiteId": "net.s53",
+      "strength": "soft",
+      "reason": "按目录顺序，先学习前一个知识点。"
     }
   ]
 }
