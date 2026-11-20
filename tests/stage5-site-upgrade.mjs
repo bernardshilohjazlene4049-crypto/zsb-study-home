@@ -30,8 +30,8 @@ const redirectPages = new Set([
   "wy/html5/intro.html"
 ]);
 
-test("136 个页面均有绝对 canonical、模块和状态元信息", () => {
-  assert.equal(pages.length, 136);
+test("172 个页面均有绝对 canonical、模块和状态元信息", () => {
+  assert.equal(pages.length, 172);
   for (const file of pages) {
     const name = rel(file);
     const h = head(read(file));

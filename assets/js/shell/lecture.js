@@ -7,6 +7,10 @@ import { saveRecentTopic } from "../features/recent-learning.js";
 import { enhanceLesson } from "./lesson-upgrade.js";
 
 const WY = { subject: "web_design", wrap: ".wy-layout", hide: [".wy-side", ".mobile-toc-btn"] };
+const WY_POINTS = { chapters: ["web.ch1", "web.ch2"], index: /^wy\/ch[12]\/index\.html$/ };
+const WL = { subject: "network", wrap: ".wy-layout", hide: [".wy-side", ".mobile-toc-btn"], plain: true };
+const WL_POINTS = { chapters: [1, 2, 3, 4, 5, 6].map((n) => `net.ch${n}`), index: /^wl\/ch[1-6]\/index\.html$/ };
+const pointsOf = (chapterPoints) => (chapterPoints === true ? WY_POINTS : chapterPoints);
 const PAGES = {
   "gs/gs1.html": { subject: "math", wrap: ".study-layout", hide: [".study-index"], hero: ".page-hero", nav: ".study-index a[href^='#']", panels: ".study-content > section", sections: true },
   "gs/gs45.html": { subject: "math", wrap: ".study-layout", hide: [".study-index"], hero: ".page-hero", before: [".route-panel"], nav: ".study-index a[href^='#']", panels: ".route-panel, .study-content > section", sections: true },
@@ -17,13 +21,14 @@ const PAGES = {
 
 function configFor(rel) {
   if (PAGES[rel]) return PAGES[rel];
-  if (/^wy\/ch[12]\/[^/]+\.html$/.test(rel)) return { ...WY, chapterPoints: true };
+  if (/^wy\/ch[12]\/[^/]+\.html$/.test(rel)) return { ...WY, chapterPoints: WY_POINTS };
+  if (/^wl\/ch[1-6]\/[^/]+\.html$/.test(rel)) return { ...WL, chapterPoints: WL_POINTS };
   if (/^wy\//.test(rel)) return WY;
   return null;
 }
 
 export function directoryTopics(topics, chapterPoints = false) {
-  return chapterPoints ? topics.filter((t) => !/^wy\/ch[12]\/index\.html$/.test(pagePath(t.legacy_url))) : topics;
+  return chapterPoints ? topics.filter((t) => !pointsOf(chapterPoints).index.test(pagePath(t.legacy_url))) : topics;
 }
 
 // 章节页本身不在知识点顺序里：上一节 = 上一章最后一个知识点，下一节 = 本章第一个知识点。
@@ -120,7 +125,7 @@ function tocItem(model, t, base, rel, cfg, current) {
 }
 
 export function tocChapterIds(chapterIds, chapterPoints = false) {
-  return chapterPoints ? ["web.ch1", "web.ch2"] : chapterIds;
+  return chapterPoints ? pointsOf(chapterPoints).chapters : chapterIds;
 }
 
 export function renderToc(model, { toc, subjectId, chapterIds, rel, base, cfg = {}, current, extras = { before: [], after: [] }, onPick }) {
@@ -593,5 +598,5 @@ export async function mount(shell) {
   } else {
     document.body.classList.add("lx-single");
   }
-  await enhanceLesson({ shell, sk, current });
+  if (!cfg.plain) await enhanceLesson({ shell, sk, current });
 }

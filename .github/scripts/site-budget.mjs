@@ -17,7 +17,7 @@ const BASELINE = ".github/size-baseline.json";
 const RATIO = 1.10, SLACK = 20 * KB;
 const FILE_HARD = 95 * MB, TOTAL_WARN = 800 * MB, TOTAL_FAIL = 950 * MB;
 const ROOT_FILES = new Set(["index.html", "404.html", "style.css", "study-bridge.js"]);
-const SITE_DIRS = ["assets", "c", "config", "data", "gs", "jsj", "notes", "study", "tower", "wy", "yy"];
+const SITE_DIRS = ["assets", "c", "config", "data", "gs", "jsj", "notes", "study", "tower", "wl", "wy", "yy"];
 const TRACKED_EXT = new Set([".html", ".css", ".js", ".mjs", ".json"]);
 const CATEGORY = (f) => {
   const e = extname(f).toLowerCase();

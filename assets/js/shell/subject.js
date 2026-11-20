@@ -4,7 +4,7 @@ import { el, icon, bar, SUBJECT_ICON, shortSubjectName, statusDot } from "./ui.j
 import { hydrateIcons } from "./common.js";
 import { saveRecentTopic } from "../features/recent-learning.js";
 
-const SUBJECT_BY_PAGE = { "gs/index.html": "math", "yy/index.html": "english", "jsj/index.html": "computer_basics", "c/index.html": "c_language", "wy/index.html": "web_design" };
+const SUBJECT_BY_PAGE = { "gs/index.html": "math", "yy/index.html": "english", "jsj/index.html": "computer_basics", "c/index.html": "c_language", "wy/index.html": "web_design", "wl/index.html": "network" };
 const PRACTICE = { math: "gs/practice.html" };
 
 export function splitChapterTitle(title) {
@@ -176,11 +176,14 @@ export async function mount(shell) {
   ]), icon("chevron", 16, "subj-disclosure__chev")]);
   const toc = el("aside", { class: "subj-toc sh-card", "aria-label": "本章目录" }, [tocToggle, tocPanel]);
 
+  // 科目页自己没有资料内容时（例如只有目录的科目），不显示空的「学习资料」标题和入口。
+  const materialsHost = main.firstElementChild;
+  const hasMaterials = Boolean(materialsHost && [...materialsHost.children].some((c) => !c.matches(".page-hero") && c.textContent.trim()));
   const navItems = [
     ["学习地图", "#shell-map"],
     ["练习", PRACTICE[subjectId] ? base + PRACTICE[subjectId] : `${base}study/index.html#/practice`],
     ["错题与复习", `${base}study/index.html#/mistakes`],
-    ["学习资料", "#shell-materials"]
+    ...(hasMaterials ? [["学习资料", "#shell-materials"]] : [])
   ];
   const subnav = el("nav", { class: "subj-nav sh-card", "aria-label": `${name}导航` }, navItems.map(([label, href], i) =>
     el("a", { class: `subj-nav__link${i === 0 ? " is-active" : ""}`, href }, [label])));
@@ -218,7 +221,7 @@ export async function mount(shell) {
   const materialsHead = el("div", { class: "subj-materials-head", id: "shell-materials" }, [el("h2", { class: "subj-section-title", text: "学习资料" })]);
   const container = main.firstElementChild;
   main.insertBefore(top, container);
-  main.insertBefore(materialsHead, container);
+  if (hasMaterials) main.insertBefore(materialsHead, container);
   hydrateIcons(main);
 
   function syncViewport() {
