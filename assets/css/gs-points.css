@@ -55,3 +55,9 @@
   .gs-pt .gs-tree-row { flex-direction: column; gap: 4px; }
   .gs-pt .gs-tree-row > .wy-hand { flex: 0 0 auto; }
 }
+
+/* 讲解图：自适应宽度，点击打开原图（无新增脚本） */
+.gs-illus { margin: 14px 0 18px; max-width: 100%; }
+.gs-illus-link { display: block; min-width: 44px; min-height: 44px; border-radius: var(--sh-radius, 14px); overflow: hidden; }
+.gs-illus-link:focus-visible { outline: 3px solid #9a440e; outline-offset: 3px; }
+.gs-illus img { display: block; width: 100%; height: auto; max-width: 100%; border: 1px solid var(--sh-line, #c9dad7); border-radius: inherit; background: #fff; }

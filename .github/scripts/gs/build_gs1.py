@@ -169,10 +169,39 @@ def entry_html(pt, e, n_entries):
     parts.append("</section>")
     return "".join(parts)
 
+# 讲解图：讲义考点编号 1–11 对应槽位 1–11；k07「等价无穷小替换」讲义未单独编号，挂在考点六条目之后。
+ILLUS = {
+    1: ("gs1/illus/k01-domain.webp", 1086, 1448, "求函数的定义域讲解图"),
+    2: ("gs1/illus/k02-properties.webp", 1086, 1448, "函数的性质讲解图"),
+    3: ("gs1/illus/k03-sequence.webp", 1086, 1448, "数列极限讲解图"),
+    4: ("gs1/illus/k04-function-limit.webp", 1086, 1448, "函数极限讲解图"),
+    5: ("gs1/illus/k05-infinitesimal.webp", 1086, 1448, "无穷小与无穷大讲解图"),
+    6: ("gs1/illus/k06-compare.webp", 1086, 1448, "无穷小的比较讲解图"),
+    7: ("gs1/illus/k08-important-limits.webp", 1086, 1448, "两个重要极限讲解图"),
+    8: ("gs1/illus/k09-asymptote.webp", 1086, 1448, "函数的渐近线讲解图"),
+    9: ("gs1/illus/k10-continuity.webp", 1086, 1448, "函数的连续性讲解图"),
+    10: ("gs1/illus/k11-discontinuity.webp", 1087, 1447, "函数的间断点讲解图"),
+    11: ("gs1/illus/k12-closed-interval.webp", 1086, 1448, "闭区间上连续函数的性质讲解图"),
+}
+ILLUS_EQ = ("gs1/illus/k07-equivalent.webp", 1086, 1448, "等价无穷小替换讲解图")
+
+
+def illus_html(key, src, w, h, alt):
+    return (
+        '<div class="gs-illus" data-gs-illus="%s">'
+        '<a class="gs-illus-link" href="%s" target="_blank" rel="noopener">'
+        '<img src="%s" alt="%s" width="%d" height="%d" loading="lazy" decoding="async">'
+        "</a></div>"
+    ) % (key, src, src, esc(alt), w, h)
+
+
 def point_block(n):
     ents = POINTS[n]["entries"]
-    slot = '<div class="gs-illus" data-gs-illus="%d" hidden></div>' % n  # 插图位：先留好，图到了再放，不放占位文字
-    return MARK_B % n + slot + '<div class="gs-pt" data-gs-pt="%d">%s</div>' % (n, "".join(entry_html(n, e, len(ents)) for e in ents)) + MARK_E % n
+    slot = illus_html(str(n), *ILLUS[n])
+    body = "".join(entry_html(n, e, len(ents)) for e in ents)
+    if n == 6:
+        body += illus_html("6-eq", *ILLUS_EQ)
+    return MARK_B % n + slot + '<div class="gs-pt" data-gs-pt="%d">%s</div>' % (n, body) + MARK_E % n
 
 def dialog_html():
     tabs = "".join('<button type="button" class="sh-btn" data-photo-number="%d" data-photo="gs1/photos/p0%d.jpg" data-width="%d" data-height="%d">第一章 · 原图 %d</button>'

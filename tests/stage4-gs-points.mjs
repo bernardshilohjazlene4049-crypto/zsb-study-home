@@ -86,7 +86,43 @@ test("每个手写看不清的位置都保留【看不清】，原文的错字�
   assert.ok(source.entries.find((e) => e.id === "gs1-8-2").text.includes("单独的"));
 });
 
-test("每个考点留一个空的插图位：隐藏、无图、无占位文字", () => {
-  const slots = [...page.matchAll(/<div class="gs-illus" data-gs-illus="(\d+)" hidden><\/div>/g)].map((m) => Number(m[1]));
-  assert.deepEqual(slots, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]);
+test("讲解图：11 个考点槽位加考点六的等价无穷小替换图均已接入，文件存在、alt 非空、未隐藏", () => {
+  const expected = [
+    ["1", "gs1/illus/k01-domain.webp"],
+    ["2", "gs1/illus/k02-properties.webp"],
+    ["3", "gs1/illus/k03-sequence.webp"],
+    ["4", "gs1/illus/k04-function-limit.webp"],
+    ["5", "gs1/illus/k05-infinitesimal.webp"],
+    ["6", "gs1/illus/k06-compare.webp"],
+    ["6-eq", "gs1/illus/k07-equivalent.webp"],
+    ["7", "gs1/illus/k08-important-limits.webp"],
+    ["8", "gs1/illus/k09-asymptote.webp"],
+    ["9", "gs1/illus/k10-continuity.webp"],
+    ["10", "gs1/illus/k11-discontinuity.webp"],
+    ["11", "gs1/illus/k12-closed-interval.webp"],
+  ];
+  const slots = [...page.matchAll(/<div class="gs-illus" data-gs-illus="([^"]+)">([\s\S]*?)<\/div>/g)];
+  assert.deepEqual(slots.map((m) => m[1]), expected.map((e) => e[0]));
+  assert.equal(page.includes('data-gs-illus="6" hidden'), false);
+  for (const [key, src] of expected) {
+    const block = slots.find((m) => m[1] === key);
+    assert.ok(block, key);
+    assert.ok(block[2].includes(`src="${src}"`), `${key} src`);
+    const alt = block[2].match(/alt="([^"]+)"/);
+    assert.ok(alt && alt[1], `${key} alt`);
+    assert.match(alt[1], /讲解图$/);
+    assert.match(block[2], /loading="lazy"/);
+    assert.match(block[2], /decoding="async"/);
+    assert.match(block[2], /width="\d+"/);
+    assert.match(block[2], /height="\d+"/);
+    const file = "gs/" + src;
+    assert.ok(existsSync(file), file);
+    assert.ok(statSync(file).size < 300 * 1024, `${file} 体积`);
+    assert.doesNotMatch(block[2], /hidden|待确认|本次用|讲义原图/);
+  }
+  const pt6 = page.match(/<!--gs-pt:6-->([\s\S]*?)<!--\/gs-pt:6-->/)[1];
+  const eqPos = pt6.indexOf('data-gs-illus="6-eq"');
+  const e63 = pt6.indexOf('id="gs1-6-3"');
+  const e63end = pt6.indexOf("</section>", e63);
+  assert.ok(eqPos > e63end, "等价无穷小替换图应在考点六「八个等价替换 / 等价无穷小大小数轴」条目之后");
 });
