@@ -151,7 +151,8 @@ test("原图：只在点击时加载，照片存在且尺寸、sha256 与记录�
   const allImgs = new Set();
   for (const { e, path } of entries) {
     const html = pageHtml(path);
-    assert.ok(!/<img[^>]*\bsrc=/.test(html), `${path} 初始 HTML 不应带图片 src`);
+    const withoutIllus = html.replace(/<div class="wy-illus"[\s\S]*?<\/div>/g, "");
+    assert.ok(!/<img[^>]*\bsrc=/.test(withoutIllus), `${path} 初始 HTML 不应带课堂原图 src`);
     assert.ok(!/src="[^"]*原图/.test(html));
     const sec = entryHtml(path, e.id);
     const btn = sec.match(/data-open-photo data-photos="(\d+)"/);

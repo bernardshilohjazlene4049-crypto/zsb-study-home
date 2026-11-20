@@ -9,6 +9,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[3]
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 
 def fig(name, **attrs):
@@ -143,6 +144,9 @@ def main():
     for f in files:
         process(f)
     print(f"已处理 {len(files)} 个页面")
+    # 讲解图在插图槽清掉重插之后再挂，保证本脚本重跑仍含图
+    from mount_illus import apply as fill_illus
+    fill_illus()
 
 
 if __name__ == "__main__":

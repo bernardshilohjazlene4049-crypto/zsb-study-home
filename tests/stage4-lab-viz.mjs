@@ -111,14 +111,121 @@ test("自测题答案与课堂题库一致，页面不出现「待确认」类�
   assert.equal(Lab.data.ipv6.notes[2], "流标号");
 });
 
-test("每个知识点页留一个空的插图位：隐藏、无图、无占位文字", () => {
+test("知识点页插图位：有讲解图则可见且文件存在，其余保持隐藏空位", () => {
   const pages = Object.keys(originals).filter((f) => /^(wl\/ch\d|wy\/ch[12])\/s[^/]*\.html$/.test(f));
   assert.equal(pages.length, 38);
+  const filledPage = {
+    "wl/ch1/s11.html": "wl/illus/net-06-classify.webp",
+    "wl/ch1/s12.html": "wl/illus/net-06-classify.webp",
+    "wl/ch2/s22.html": "wl/illus/net-02-cidr.webp",
+    "wl/ch2/s23.html": "wl/illus/net-02-cidr.webp",
+    "wl/ch2/s25.html": "wl/illus/net-02-cidr.webp",
+    "wl/ch2/s26.html": "wl/illus/net-01-and.webp",
+    "wl/ch3/s31.html": "wl/illus/net-04-subnet.webp",
+    "wl/ch4/s43.html": "wl/illus/net-05-fragment.webp",
+    "wl/ch5/s53.html": "wl/illus/net-07-ipv6.webp",
+    "wl/ch6/s61.html": "wl/illus/net-03-aggregate.webp",
+    "wy/ch1/s13.html": "wy/illus/web-01-layers.webp",
+    "wy/ch2/s22.html": "wy/illus/web-02-structure.webp",
+  };
   for (const f of pages) {
     const html = read(f);
-    const slots = [...html.matchAll(/<div class="wy-illus" data-illus="([^"]+)" hidden><\/div>/g)];
-    assert.equal(slots.length, 1, f);
-    assert.equal(slots[0][1], f.replace(/\.html$/, "").replaceAll("/", "."), f);
+    const key = f.replace(/\.html$/, "").replaceAll("/", ".");
+    const hidden = [...html.matchAll(/<div class="wy-illus" data-illus="([^"]+)" hidden><\/div>/g)];
+    if (filledPage[f]) {
+      assert.equal(hidden.length, 0, f);
+      const block = html.match(new RegExp(`<div class="wy-illus" data-illus="${key}">([\\s\\S]*?)</div>`));
+      assert.ok(block, f);
+      assert.match(block[1], /<img[^>]+src="/);
+      assert.match(block[1], /alt="[^"]+"/);
+      assert.match(block[1], /loading="lazy"/);
+      assert.doesNotMatch(block[1], /hidden|待确认|本次用/);
+    } else {
+      assert.equal(hidden.length, 1, f);
+      assert.equal(hidden[0][1], key, f);
+    }
+  }
+});
+
+test("讲解图：每张图挂到对应页面或条目，src 文件存在、alt 非空", () => {
+  const { existsSync, statSync } = require("node:fs");
+  const { dirname, join, normalize } = require("node:path");
+  const placements = [
+    ["wl/ch2/s26.html", "page", "wl/illus/net-01-and.webp"],
+    ["wl/ch3/s35.html", "e-3-5-3", "wl/illus/net-01-and.webp"],
+    ["wl/ch2/s22.html", "page", "wl/illus/net-02-cidr.webp"],
+    ["wl/ch2/s23.html", "page", "wl/illus/net-02-cidr.webp"],
+    ["wl/ch2/s25.html", "page", "wl/illus/net-02-cidr.webp"],
+    ["wl/ch6/s61.html", "page", "wl/illus/net-03-aggregate.webp"],
+    ["wl/ch3/s31.html", "page", "wl/illus/net-04-subnet.webp"],
+    ["wl/ch4/s43.html", "page", "wl/illus/net-05-fragment.webp"],
+    ["wl/ch1/s11.html", "page", "wl/illus/net-06-classify.webp"],
+    ["wl/ch1/s12.html", "page", "wl/illus/net-06-classify.webp"],
+    ["wl/ch5/s53.html", "page", "wl/illus/net-07-ipv6.webp"],
+    ["wl/ch3/s39.html", "e-3-9-1", "wl/illus/net-opt-s1-c8.webp"],
+    ["wl/ch3/s38.html", "e-3-8-2", "wl/illus/net-opt-s2-187.webp"],
+    ["wl/ch3/s34.html", "e-3-4-1", "wl/illus/net-opt-s3-130.webp"],
+    ["wl/ch3/s34.html", "e-3-4-2", "wl/illus/net-opt-s4-192.webp"],
+    ["wl/ch3/s34.html", "e-3-4-3", "wl/illus/net-opt-s5-198.webp"],
+    ["wl/ch3/s32.html", "e-3-2-2", "wl/illus/net-opt-s6-30.webp"],
+    ["wl/ch4/s43.html", "e-4-3-2", "wl/illus/net-opt-f1-4000.webp"],
+    ["wl/ch4/s42.html", "e-4-2-1", "wl/illus/net-opt-f2-3820.webp"],
+    ["wy/ch1/s13.html", "page", "wy/illus/web-01-layers.webp"],
+    ["wy/ch2/s22.html", "page", "wy/illus/web-02-structure.webp"],
+    ["notes/web.html", "eg-css-2", "wy/illus/web-03-css-include.webp"],
+    ["wy/css/box.html", "before", "wy/illus/web-04-box.webp"],
+    ["notes/web.html", "eg-css-1", "wy/illus/web-05-link.webp"],
+    ["notes/web.html", "eg-text-2", "wy/illus/web-06-text.webp"],
+    ["notes/web.html", "eg-selectors-1", "wy/illus/web-07-pseudo.webp"],
+    ["notes/web.html", "eg-forms-1", "wy/illus/web-08-form.webp"],
+    ["notes/web.html", "eg-widgets-1", "wy/illus/web-09-datalist.webp"],
+    ["wy/html/quiz.html", "before", "wy/illus/web-10-quiz.webp"],
+  ];
+  assert.equal(placements.length, 29);
+  const seen = new Set();
+  for (const [file, anchor, asset] of placements) {
+    const html = read(file);
+    const key = anchor === "page" ? file.replace(/\.html$/, "").replaceAll("/", ".") : anchor;
+    const re = new RegExp(`<div class="wy-illus" data-illus="${key}">([\\s\\S]*?)</div>`);
+    const block = html.match(re);
+    assert.ok(block, `${file} ${key}`);
+    const img = block[1].match(/<img\b([^>]+)>/);
+    assert.ok(img, `${file} ${key} img`);
+    const src = img[1].match(/\bsrc="([^"]+)"/)[1];
+    const alt = img[1].match(/\balt="([^"]+)"/)[1];
+    assert.ok(alt.length > 0 && /讲解图$/.test(alt), `${file} alt`);
+    assert.match(img[1], /loading="lazy"/);
+    assert.match(img[1], /decoding="async"/);
+    assert.match(img[1], /width="\d+"/);
+    assert.match(img[1], /height="\d+"/);
+    const resolved = normalize(join(dirname(file), src));
+    assert.equal(resolved.replaceAll("\\", "/"), asset, `${file} src 应指向 ${asset}`);
+    assert.ok(existsSync(resolved), resolved);
+    assert.ok(statSync(resolved).size < 300 * 1024, resolved);
+    assert.doesNotMatch(block[1], /待确认|本次用|讲义此栏/);
+    seen.add(asset);
+  }
+  assert.equal(seen.size, 25);
+});
+
+test("mount_lab.py 重跑无 diff", () => {
+  const { execFileSync, spawnSync } = require("node:child_process");
+  const { fileURLToPath } = require("node:url");
+  const { dirname, join } = require("node:path");
+  const { mkdtempSync, rmSync } = require("node:fs");
+  const { tmpdir } = require("node:os");
+  const root = join(dirname(fileURLToPath(import.meta.url)), "..");
+  const tmp = mkdtempSync(join(tmpdir(), "lab-illus-"));
+  try {
+    execFileSync("cp", ["-a", "wl", "wy", "notes", tmp], { cwd: root });
+    execFileSync("python3", [".github/scripts/lab/mount_lab.py"], { cwd: root, encoding: "utf8" });
+    for (const dir of ["wl", "wy", "notes"]) {
+      const result = spawnSync("diff", ["-rq", join(tmp, dir), dir], { cwd: root, encoding: "utf8" });
+      assert.equal((result.stdout || "") + (result.stderr || ""), "", dir);
+      assert.equal(result.status, 0, dir);
+    }
+  } finally {
+    rmSync(tmp, { recursive: true, force: true });
   }
 });
 

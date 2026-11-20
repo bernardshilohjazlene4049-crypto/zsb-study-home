@@ -87,3 +87,9 @@
 /* 可视化讲解区：wy 课页与笔记页共用 */
 .wy-viz { margin-top: 16px; }
 .wy-viz > h3 { margin: 0 0 10px; font-size: 12px; color: var(--sh-ink-2, #4a4d5c); }
+
+/* 讲解图：自适应宽度，点击打开原图（无新增脚本） */
+.wy-illus { margin: 14px 0 18px; max-width: 100%; }
+.wy-illus-link { display: block; min-width: 44px; min-height: 44px; border-radius: 14px; overflow: hidden; }
+.wy-illus-link:focus-visible { outline: 3px solid #9a440e; outline-offset: 3px; }
+.wy-illus img { display: block; width: 100%; height: auto; max-width: 100%; border: 1px solid var(--sh-line, #c9dad7); border-radius: inherit; background: #fff; }
