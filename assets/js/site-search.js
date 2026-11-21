@@ -45,8 +45,8 @@ function subjectForUrl(url) {
   const root = new URL("../../", import.meta.url).pathname;
   const path = new URL(url, location.href).pathname;
   const rel = path.startsWith(root) ? path.slice(root.length) : path.replace(/^\//, "");
-  if (rel === "notes/network.html") return "network";
-  if (rel === "notes/web.html") return "web_design";
+  if (rel === "notes/network.html" || rel === "notes/network-review.html") return "network";
+  if (rel === "notes/web.html" || rel === "notes/web-review.html") return "web_design";
   if (rel === "notes/index.html") return "";
   return SUBJECT_BY_DIR[rel.split("/")[0]] || "";
 }

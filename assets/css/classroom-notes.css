@@ -228,3 +228,54 @@ body.notes-toc-open{overflow:hidden}
 @media(max-width:580px){.notes-main{width:calc(100% - 24px);padding-bottom:34px}.notes-hero{padding:20px 17px}h1.notes-title{font-size:28px}.notes-lead{font-size:13.5px}.notes-hero__path{grid-template-columns:1fr}.notes-hero__path span{display:flex}.notes-section-title{align-items:start}.notes-section-title h2{font-size:20px}.notes-section-title>a{display:none}.notes-hub-card{grid-template-columns:44px minmax(0,1fr);padding:17px;min-height:0}.notes-hub-card__icon{width:44px;height:44px}.notes-hub-card h2{font-size:21px}.notes-hub-card__foot{align-items:start;flex-direction:column}.note-section{padding:17px 14px;border-radius:16px}.note-section h2{font-size:19px}.note-section__no{width:34px;height:34px}.concept-grid,.demo-pair,.notes-hub-grid{grid-template-columns:1fr}.source-grid,.notes-toc__list{grid-template-columns:1fr}.fragment-bar,.fragment-result__row{grid-template-columns:68px minmax(0,1fr)}.fragment-bar>span:last-child,.fragment-result__row>span:last-child{grid-column:2}.note-section__relations{grid-template-columns:1fr}.interactive-card__head{display:block}.interactive-form{display:grid;grid-template-columns:1fr 1fr}.interactive-form label:first-child{grid-column:1/-1}.interactive-form input{width:100%;min-width:0}.interactive-form button{grid-column:1/-1;width:100%}.source-library-filters{grid-template-columns:1fr}.source-library-filters__q{grid-column:auto}.source-library-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.source-library-head{align-items:start;flex-direction:column}.knowledge-track{padding:16px}.knowledge-track>header{flex-direction:column}.knowledge-nodes a{grid-template-columns:34px minmax(0,1fr);padding:9px}.knowledge-nodes__no{width:32px;height:32px}.knowledge-nodes li:not(:last-child)::after{left:16px;top:38px}.form-map__row{grid-template-columns:1fr}.form-map__arrow{transform:rotate(90deg);justify-self:center}}
 @media(max-width:580px){.source-difference{grid-template-columns:1fr}.note-study-actions{display:grid;grid-template-columns:1fr 1fr}.note-study-actions__status{grid-column:1/-1;min-width:0;text-align:left}.question__self-check{display:grid;grid-template-columns:1fr 1fr}.question__self-check-prompt,.question__self-check-status{grid-column:1/-1}.question__self-check .sh-btn{width:100%;min-height:44px}.question__self-check-status{min-width:0;text-align:left}.calculating-bits{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:4px 2px}.calculating-bits::before{content:"每 8 位为 1 个 IPv4 字节";grid-column:1/-1;color:var(--sh-ink-3);font-size:10.5px}.calculating-bits span{min-width:0;height:28px;font-size:11px}}
 @media print{.site-header,.shell-tabbar,.notes-toc,.source-drawer,.notes-dialog{display:none!important}.notes-main{width:100%;padding:0}.notes-layout{display:block}.note-section,.notes-hero{break-inside:avoid;box-shadow:none}}
+
+/* 课堂复习页的图片日期索引与自测 */
+.course-review .review-content { min-width: 0; }
+.course-review .review-panel, .course-review .review-topic {
+  margin-bottom: 18px;
+  padding: clamp(16px, 2.5vw, 26px);
+  border: 1px solid var(--sh-line);
+  border-radius: 18px;
+  background: #fff;
+  scroll-margin-top: 88px;
+}
+.course-review #topics, .course-review .review-dates li { scroll-margin-top: 88px; }
+.course-review .review-panel h2 { margin-top: 0; }
+.course-review .review-panel p, .course-review .review-topic p, .course-review .review-points {
+  color: var(--sh-ink-2);
+  line-height: 1.75;
+  overflow-wrap: anywhere;
+}
+.course-review .review-dates { margin: 12px 0; padding: 0; list-style: none; }
+.course-review .review-dates li {
+  display: grid;
+  grid-template-columns: 100px 50px minmax(0, 1fr);
+  gap: 8px;
+  padding: 10px 0;
+  border-top: 1px solid var(--sh-line);
+  color: var(--sh-ink-2);
+  font-size: 14px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+.course-review .review-dates li:target { background: var(--sh-accent-soft); }
+.course-review time { color: var(--sh-ink); font-weight: 650; font-variant-numeric: tabular-nums; }
+.course-review .review-date-count, .course-review .review-source-note { font-size: 13px; }
+.course-review .review-topic h3 { display: flex; align-items: baseline; gap: 10px; margin: 0; font-size: clamp(18px, 2.3vw, 22px); }
+.course-review .review-number { color: var(--sh-accent); font-size: 13px; font-variant-numeric: tabular-nums; }
+.course-review .review-points { margin: 14px 0; padding-left: 22px; }
+.course-review .review-points li + li { margin-top: 8px; }
+.course-review .review-pitfall { padding: 10px 12px; border-left: 3px solid #a27229; background: #fff8e9; }
+.course-review .review-code { padding: 14px; overflow: auto; border-radius: 10px; background: #f1f5f9; color: #172d45; font-size: 13px; line-height: 1.65; }
+.course-review .review-figure { margin: 16px 0; max-width: 780px; }
+.course-review .review-figure img { display: block; width: 100%; height: auto; border: 1px solid var(--sh-line); border-radius: 12px; }
+.course-review .review-figure figcaption { margin-top: 8px; color: var(--sh-ink-2); font-size: 13px; line-height: 1.6; }
+.course-review .review-figure figcaption span { display: block; margin-top: 3px; }
+@media (max-width: 900px) {
+  .course-review .notes-layout:not(:has(.notes-rail)) { grid-template-columns: minmax(0, 1fr); }
+  .course-review .notes-toc { display: block; position: static; max-height: 240px; }
+}
+@media (max-width: 540px) {
+  .course-review .review-dates li { grid-template-columns: auto 1fr; }
+  .course-review .review-dates li > span:last-child { grid-column: 1 / -1; }
+}
