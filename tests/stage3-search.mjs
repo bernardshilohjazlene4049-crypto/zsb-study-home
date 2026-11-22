@@ -1,6 +1,8 @@
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
 import test from "node:test";
-import { excerptText, groupResults, pageHeading, resultHref, sectionHeading, statusMessage, stripHeadingPrefix } from "../assets/js/site-search-format.js";
+import { createSearchMatcher, excerptText, groupResults, knowledgeScore, pageHeading, resultHref, sectionHeading, statusMessage, stripHeadingPrefix } from "../assets/js/site-search-format.js";
+import { findReviewTopics, mergeSearchResults, reviewTopics } from "../assets/js/site-search-topics.js";
 import { addAnchors, addSectionContext, ignoreUi, visibleHeadingText } from "../.github/scripts/search-anchors.mjs";
 
 test("状态文案与列表口径一致", () => {
@@ -8,6 +10,73 @@ test("状态文案与列表口径一致", () => {
   assert.equal(statusMessage(4, 4), "找到 4 个匹配页面");
   assert.equal(statusMessage(4, 8), "找到 4 个匹配页面，共 8 条结果");
   assert.equal(statusMessage(1, 3), "找到 1 个匹配页面，共 3 条结果");
+});
+
+test("36 个知识点按页面阅读顺序精确指向存在的章节容器", () => {
+  const subjects = [["network", "network", 22], ["web_design", "web", 14]];
+  assert.equal(reviewTopics.length, 36);
+  assert.equal(new Set(reviewTopics.map(({ href }) => href)).size, 36);
+  for (const [subject, file, expected] of subjects) {
+    const html = readFileSync(new URL(`../notes/${file}-review.html`, import.meta.url), "utf8");
+    const ids = [...html.matchAll(/<section\s+class="review-topic"\s+id="([^"]+)"/g)].map(([, id]) => id);
+    const result = findReviewTopics("", subject);
+    assert.equal(ids.length, expected);
+    assert.deepEqual(result.map(({ href }) => href), ids.map((id) => `notes/${file}-review.html#${id}`));
+    assert.deepEqual(result.map(({ order }) => order), ids.map((_, index) => index + 1));
+  }
+});
+
+test("真实查询优先匹配课堂知识点的精确链接", () => {
+  const expectations = {
+    "RIP": "n11-rip-distance-vector",
+    "ＲＩＰ 路由表更新": "n11-rip-distance-vector",
+    "ＣＳＭＡ ／ ＣＤ": "n08-ethernet-csma-frame",
+    "CRC": "n07-parity-crc",
+    "ARP": "n11-arp-forwarding",
+    "曼彻斯特编码": "n05-line-coding-media",
+    "CIDR 地址块": "n09-subnet-cidr",
+    "meta 刷新": "html-meta-refresh",
+    "表单归属": "form-structure-ownership",
+    "datalist": "form-input-controls",
+    "HTML表单": "form-structure-ownership",
+    "：ｎｏｔ": "css-pseudo-classes"
+  };
+  for (const [query, expected] of Object.entries(expectations)) {
+    assert.equal(findReviewTopics(query)[0]?.href.split("#")[1], expected, query);
+  }
+  assert.deepEqual(findReviewTopics("RIP", "web_design"), []);
+});
+
+test("英文缩写匹配词边界，旧中文词、别名与有意义的符号继续检索", () => {
+  assert.equal(createSearchMatcher("RIP")("JavaScript"), 0);
+  assert.ok(createSearchMatcher("等价无穷小")("无穷小与等价无穷小代换"));
+  assert.ok(createSearchMatcher("数组")("二维数组"));
+  assert.ok(createSearchMatcher("Ａ／Ｂ／Ｃ 类")("IP 地址的分类与 A/B/C 类范围"));
+  assert.ok(createSearchMatcher("/31")("/31 点对点网络"));
+  assert.equal(createSearchMatcher("CSS")("CSS3"), 0);
+  assert.equal(createSearchMatcher("C++")("C 语言"), 0);
+  assert.ok(knowledgeScore("HTML 表单", [], createSearchMatcher("html表单")) > 0);
+  assert.ok(knowledgeScore("冒泡排序", ["交换排序"], createSearchMatcher("交换排序")) > 0);
+});
+
+test("正文标题和章节容器去重，旧讲义及原图保留为独立资料", () => {
+  const base = new URL("https://example.test/zsb-study-home/");
+  const [topic] = findReviewTopics("CIDR 地址块");
+  const legacyHref = "notes/network.html#cidr";
+  const canonicalHref = topic.href;
+  const sourceHref = "notes/sources.html?subject=network&source=net-n07#source-net-n07";
+  const legacy = { type: "topic", score: 100, href: legacyHref, title: "CIDR、掩码与地址块" };
+  const leaf = { type: "topic", score: 100, href: "wl/ch2/s27.html", title: "已知 CIDR 地址求掩码" };
+  const review = { ...topic, review: true, type: "topic" };
+  const doc = { type: "doc", score: 10, href: `${base.pathname}${canonicalHref}-title`, title: "标题" };
+  const source = { type: "source", score: 22, href: sourceHref, title: "原图" };
+  const items = mergeSearchResults([legacy, leaf, review, doc, source, { ...doc, href: legacyHref }], base);
+  assert.deepEqual(items.map(({ href, type }) => [href, type]), [
+    [canonicalHref, "topic"], [leaf.href, "topic"], [sourceHref, "source"], [legacyHref, "doc"]
+  ]);
+  assert.equal(mergeSearchResults([doc], base)[0].href, canonicalHref);
+  const shared = { type: "topic", score: 60, href: "yy/index.html#yyvideos", title: "非谓语动词基础" };
+  assert.equal(mergeSearchResults([shared, { ...shared, title: "定语从句" }], base).length, 2);
 });
 
 test("每条结果使用页面原文标题，小节与页面相同时不再重复", () => {

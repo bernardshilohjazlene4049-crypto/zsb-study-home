@@ -1,0 +1,43 @@
+.srch-item--best {
+  border-color: var(--sh-accent-line);
+  background: var(--sh-accent-softer);
+}
+
+.srch-item--best .srch-item__icon {
+  background: var(--sh-accent-soft);
+  color: var(--sh-accent);
+}
+
+@media (max-width: 820px) {
+  .srch-tabs {
+    flex-wrap: wrap;
+    overflow: visible;
+  }
+
+  .srch-tab, .srch-item, .srch-more, .srch-check,
+  .srch-filter-btn, .srch-filters__close, .srch-filters__foot .sh-btn {
+    min-height: 44px;
+  }
+
+  .srch-form input {
+    height: 52px;
+    padding-right: 108px;
+  }
+
+  .srch-form__clear, .srch-form__go {
+    width: 44px;
+    height: 44px;
+  }
+
+  .srch-filters:not(.is-open) {
+    visibility: hidden;
+    transition: none;
+  }
+
+  .srch-group, .srch-main { min-width: 0; }
+
+  .srch-item__body strong, .srch-item__body small {
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+}

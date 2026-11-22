@@ -1,4 +1,4 @@
-// 构建时给 _site/sw.js 写入版本号（commit SHA）与预缓存清单（首页外壳所需的最小文件集）。
+// 构建时写入版本号（commit SHA），并预缓存首页、知识点搜索和两门课堂复习。
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
 import { execSync } from "node:child_process";
@@ -6,8 +6,7 @@ import { execSync } from "node:child_process";
 const out = process.argv[2] || "_site";
 const sha = (process.env.GITHUB_SHA || execSync("git rev-parse HEAD").toString().trim()).slice(0, 12);
 
-// 预缓存清单：仅保留离线启动首页所需的最小外壳。
-// 讲义页、科目主页、工作台等不预缓存；访问后会通过运行时 networkFirst 写入缓存。
+// 其它讲义页、科目主页和工作台在访问时按需缓存。
 const SHELL = [
   "./",
   "index.html",
@@ -45,6 +44,21 @@ const SHELL = [
   "data/resources.json",
   "data/page-questions.json",
   "data/lesson-guides.json",
+  // 搜索的知识点、旧例题与原图索引，以及离线搜索可直达的课堂复习。
+  "search.html",
+  "assets/css/site-search.css",
+  "assets/js/site-search.js",
+  "assets/js/site-search-format.js",
+  "assets/js/site-search-topics.js",
+  "notes/data/topic-links.json",
+  "notes/data/network-sources.json",
+  "notes/data/web-sources.json",
+  "notes/network-review.html",
+  "notes/web-review.html",
+  "assets/css/classroom-notes.css",
+  "assets/js/course-review.js",
+  "notes/assets/review/packet-forwarding.webp",
+  "notes/assets/review/structure-style-form.webp",
 ];
 
 // 验证所有条目（除 "./"）都存在于发布目录

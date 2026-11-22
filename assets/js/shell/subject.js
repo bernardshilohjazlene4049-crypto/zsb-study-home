@@ -68,6 +68,10 @@ export async function mount(shell) {
   const main = document.querySelector("main.site-main") || document.querySelector("main");
   if (!subjectId || !main) return;
   const base = shell.base;
+  const courseEntry = main.querySelector(":scope > .course-entry");
+  const materialsHost = main.querySelector(":scope > .site-container") || main.firstElementChild;
+  const fallbackMap = materialsHost?.querySelector("[data-subject-map-fallback]");
+  const mapTitle = fallbackMap?.querySelector("h2")?.textContent || "学习地图";
   document.body.classList.add("shell-page", "shell-subject");
   const hero = main.querySelector(".page-hero");
   if (hero) hero.classList.add("subj-old-hero");
@@ -101,9 +105,11 @@ export async function mount(shell) {
   addEventListener("hashchange", () => remember(topicForCurrentHash()));
 
   function subjectCard(compact = false) {
+    const heading = compact ? "strong" : courseEntry ? "h2" : "h1";
+    const headingText = courseEntry && !compact ? "讲义学习进度" : name;
     return el(compact ? "div" : "header", { class: `subj-head${compact ? " subj-head--compact" : " sh-card"}` }, [
       el("span", { class: "subj-head__icon" }, [icon(SUBJECT_ICON[subjectId] || "book", 24)]),
-      el("div", { class: "subj-head__title" }, [el(compact ? "strong" : "h1", { text: name })]),
+      el("div", { class: "subj-head__title" }, [el(heading, { text: headingText })]),
       progress.hasRecords
         ? el("div", { class: "subj-head__progress" }, [
             el("div", { class: "subj-head__row" }, [el("strong", { text: `${progress.pct}%` }), el("span", { text: `${progress.done} / ${progress.total} 个知识点` })]),
@@ -177,10 +183,9 @@ export async function mount(shell) {
   const toc = el("aside", { class: "subj-toc sh-card", "aria-label": "本章目录" }, [tocToggle, tocPanel]);
 
   // 科目页自己没有资料内容时（例如只有目录的科目），不显示空的「学习资料」标题和入口。
-  const materialsHost = main.firstElementChild;
-  const hasMaterials = Boolean(materialsHost && [...materialsHost.children].some((c) => !c.matches(".page-hero") && c.textContent.trim()));
+  const hasMaterials = Boolean(materialsHost && [...materialsHost.children].some((c) => c !== fallbackMap && !c.matches(".page-hero") && c.textContent.trim()));
   const navItems = [
-    ["学习地图", "#shell-map"],
+    [mapTitle, "#shell-map"],
     ["练习", PRACTICE[subjectId] ? base + PRACTICE[subjectId] : `${base}study/index.html#/practice`],
     ["错题与复习", `${base}study/index.html#/mistakes`],
     ...(hasMaterials ? [["学习资料", "#shell-materials"]] : [])
@@ -193,12 +198,11 @@ export async function mount(shell) {
     type: "button", class: "subj-disclosure subj-map__toggle", "aria-controls": mapPanel.id,
     onclick: () => setExpanded(mapToggle, mapPanel, mapPanel.hidden)
   }, [icon("graph", 20), el("span", { class: "subj-disclosure__text" }, [
-    el("strong", { text: "学习地图" }), el("small", { text: `${nodes.length} 章 · ${progress.total} 个知识点` })
+    el("strong", { text: mapTitle }), el("small", { text: `${nodes.length} 章 · ${progress.total} 个知识点` })
   ]), icon("chevron", 16, "subj-disclosure__chev")]);
   const map = el("section", { class: "subj-map sh-card", id: "shell-map", "aria-labelledby": "shell-map-title" }, [
-    el("h2", { class: "subj-section-title subj-map__title", id: "shell-map-title", text: "学习地图" }), mapToggle, mapPanel
+    el("h2", { class: "subj-section-title subj-map__title", id: "shell-map-title", text: mapTitle }), mapToggle, mapPanel
   ]);
-  subnav.querySelector('a[href="#shell-map"]').addEventListener("click", () => setExpanded(mapToggle, mapPanel, true));
 
   let overview = null;
   if (current) {
@@ -219,15 +223,18 @@ export async function mount(shell) {
   // DOM 顺序与手机阅读、Tab 顺序一致；桌面通过 grid 将目录置于左栏。
   const top = el("div", { class: "subj-shell subj-grid" }, [subjectCard(), subnav, toc, map, overview]);
   const materialsHead = el("div", { class: "subj-materials-head", id: "shell-materials" }, [el("h2", { class: "subj-section-title", text: "学习资料" })]);
-  const container = main.firstElementChild;
-  main.insertBefore(top, container);
-  if (hasMaterials) main.insertBefore(materialsHead, container);
+  main.insertBefore(top, materialsHost);
+  if (hasMaterials) main.insertBefore(materialsHead, materialsHost);
+  fallbackMap?.remove();
+  for (const link of main.querySelectorAll('a[href="#shell-map"]')) {
+    link.addEventListener("click", () => setExpanded(mapToggle, mapPanel, true));
+  }
   hydrateIcons(main);
 
   function syncViewport() {
     selectTocTab(0);
     setExpanded(tocToggle, tocPanel, !mobile.matches);
-    setExpanded(mapToggle, mapPanel, !mobile.matches);
+    setExpanded(mapToggle, mapPanel, !mobile.matches || location.hash === "#shell-map");
   }
   syncViewport();
   mobile.addEventListener("change", syncViewport);

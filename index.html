@@ -32,8 +32,8 @@
         <nav class="site-nav" aria-label="全站导航">
           <a class="site-nav__link" href="./index.html">首页</a>
           <a class="site-nav__link" href="#subjects">科目</a>
-          <a class="site-nav__link" href="notes/index.html">课堂笔记</a>
-          <a class="site-nav__link" href="study/index.html">学习与复习</a>
+          <a class="site-nav__link" href="notes/index.html">课堂资料</a>
+          <a class="site-nav__link" href="study/overview.html">学习记录</a>
           <a class="site-nav__link" href="search.html">搜索</a>
         </nav>
       </div>
@@ -42,19 +42,27 @@
     <main class="site-main home-main" id="main">
       <div class="home-wrap">
         <header class="home-hero">
-          <h1 class="home-hero__title">辽宁专升本 · 计算机类学习站</h1>
-          <p class="home-hero__lead">按知识点学习、练习，让错题进入复习。</p>
-          <form class="home-search" role="search" action="search.html" method="get">
-            <label class="sh-sr" for="home-q">搜索知识点、章节、课堂原图和例题</label>
-            <span class="home-search__icon" data-icon="search" aria-hidden="true"></span>
-            <input id="home-q" name="q" type="search" placeholder="搜索知识点、原图、例题或资料…" autocomplete="off" enterkeyhint="search">
-            <kbd class="home-search__kbd" aria-hidden="true">/</kbd>
-          </form>
-          <div class="home-local-note">
-            <span class="home-local-note__icon" data-icon="lock" aria-hidden="true"></span>
-            <span>学习记录只保存在当前浏览器</span>
-            <a href="study/index.html#settings">备份与恢复</a>
+          <div class="home-hero__body">
+            <h1 class="home-hero__title">复习，从一个知识点开始</h1>
+            <p class="home-hero__lead">搜缩写、题型或章节，直接打开讲解和例题。</p>
+            <form class="home-search" role="search" action="search.html" method="get">
+              <label class="sh-sr" for="home-q">搜索知识点、章节、课堂原图和例题</label>
+              <span class="home-search__icon" data-icon="search" aria-hidden="true"></span>
+              <input id="home-q" name="q" type="search" placeholder="例如 RIP、CRC、子网掩码" autocomplete="off" enterkeyhint="search" required>
+              <button class="sh-btn sh-btn--primary home-search__submit" type="submit">搜索<span>知识点</span></button>
+            </form>
+            <div class="home-search__examples" aria-label="常用搜索">
+              <a href="search.html?q=RIP">RIP</a>
+              <a href="search.html?q=CRC">CRC</a>
+              <a href="search.html?q=CIDR%20地址块">CIDR 地址块</a>
+              <a href="search.html?q=表单归属">表单归属</a>
+            </div>
           </div>
+          <a class="home-hero__example" href="notes/network-review.html#n11-rip-distance-vector">
+            <span>知识点示例</span>
+            <strong>RIP 距离向量与路由表更新</strong>
+            <small>计算机网络 / 路由与转发</small>
+          </a>
         </header>
 
         <div class="home-grid">
@@ -63,8 +71,8 @@
             <div class="home-continue__body" data-slot="continue" aria-busy="true">
               <div class="home-start">
                 <span class="home-start__art" data-icon="book" aria-hidden="true"></span>
-                <span class="home-start__copy"><strong>从课堂专题开始</strong><span>计算机网络与网页制作基础，共 10 个知识点。</span></span>
-                <a class="sh-btn sh-btn--primary home-start__action" href="notes/index.html">选择起点</a>
+                <span class="home-start__copy"><strong>从一门科目开始</strong><span>按顺序复习课堂知识点。</span></span>
+                <a class="sh-btn sh-btn--primary home-start__action" href="#subjects">选择科目</a>
               </div>
             </div>
           </section>
@@ -74,38 +82,31 @@
           </section>
         </div>
 
-        <section class="home-notes" aria-labelledby="home-notes-title">
+        <section class="home-notes" id="review-subjects" aria-labelledby="home-notes-title">
           <div class="home-section-head">
-            <div><h2 id="home-notes-title">课堂笔记与知识路径</h2><p>按知识点阅读，在原图中核对来源，再进入例题与复习。</p></div>
-            <a href="notes/index.html">查看全部笔记 →</a>
+            <h2 id="home-notes-title">按科目复习</h2>
+            <a class="sh-btn" href="#subjects">全部科目 →</a>
           </div>
           <div class="home-notes-grid">
-            <a class="home-note-card" href="notes/index.html">
-              <span class="home-note-card__top"><span class="home-note-card__icon" data-icon="book" aria-hidden="true"></span><span class="home-note-card__tag">2 个课堂专题 · 10 个知识点</span></span>
-              <h3>课堂笔记总目录</h3>
-              <p>统一进入计算机网络与网页制作笔记，查看章节、例题和学习路径。</p>
-              <strong>打开课堂笔记 →</strong>
+            <a class="sh-card home-note-card home-note-card--network" href="wl/index.html">
+              <span class="home-note-card__icon" data-icon="network" aria-hidden="true"></span>
+              <div><h3>计算机网络</h3><p>22 个知识点 · IP 地址、以太网、路由</p></div>
+              <strong>查看目录 →</strong>
             </a>
-            <a class="home-note-card" href="notes/map.html">
-              <span class="home-note-card__top"><span class="home-note-card__icon" data-icon="layers" aria-hidden="true"></span><span class="home-note-card__tag">知识关系</span></span>
-              <h3>可视化学习地图</h3>
-              <p>查看 10 个知识点之间的推荐顺序、先修关系和上下节连接。</p>
-              <strong>打开学习地图 →</strong>
-            </a>
-            <a class="home-note-card" href="notes/sources.html">
-              <span class="home-note-card__top"><span class="home-note-card__icon" data-icon="search" aria-hidden="true"></span><span class="home-note-card__tag">60 高清 · 7 待补</span></span>
-              <h3>课堂原图总库</h3>
-              <p>按科目、主题和清晰度筛选全部 67 张课堂资料图。</p>
-              <strong>浏览原图总库 →</strong>
-            </a>
-            <a class="home-note-card" href="study/index.html" data-review-href="study/index.html#/mistakes">
-              <span class="home-note-card__top"><span class="home-note-card__icon" data-icon="playCircle" aria-hidden="true"></span><span class="home-note-card__tag">本机学习记录</span></span>
-              <h3>继续学习与复习</h3>
-              <p>查看笔记阅读记录、到期复习、错题与最近学习位置。</p>
-              <strong>进入学习与复习 →</strong>
+            <a class="sh-card home-note-card home-note-card--web" href="wy/index.html">
+              <span class="home-note-card__icon" data-icon="web" aria-hidden="true"></span>
+              <div><h3>网页设计</h3><p>14 个知识点 · HTML、CSS、表单</p></div>
+              <strong>查看目录 →</strong>
             </a>
           </div>
         </section>
+
+        <div class="home-utilities" aria-label="资料与记录">
+          <a href="notes/index.html">课堂资料</a>
+          <a href="notes/map.html">学习地图</a>
+          <a href="notes/sources.html">早期课堂原图</a>
+          <a href="study/index.html#settings">本机学习记录备份与恢复</a>
+        </div>
 
         <section class="sh-card home-map" id="subjects" aria-labelledby="subjects-title">
           <header class="sh-card__head"><h2 class="sh-card__title" id="subjects-title"><span class="sh-ico" data-icon="layers" aria-hidden="true"></span><span>学习科目地图</span></h2></header>

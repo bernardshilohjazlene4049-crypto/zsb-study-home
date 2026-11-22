@@ -6,11 +6,11 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#f8f9fb">
 <title>计算机网络 · 辽宁专升本</title>
-<meta name="description" content="计算机网络：IP 地址、CIDR、子网划分、IPv4 分片、IPv6 与路由聚合，按章节知识点学习。">
+<meta name="description" content="按学习顺序复习计算机网络知识点，可按课堂图片日期回顾，也可查阅 IP 专题讲义。">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="辽宁专升本">
 <meta property="og:title" content="计算机网络 · 辽宁专升本">
-<meta property="og:description" content="计算机网络：IP 地址、CIDR、子网划分、IPv4 分片、IPv6 与路由聚合，按章节知识点学习。">
+<meta property="og:description" content="按学习顺序复习计算机网络知识点，可按课堂图片日期回顾，也可查阅 IP 专题讲义。">
 <meta property="og:url" content="https://bernardshilohjazlene4049-crypto.github.io/zsb-study-home/wl/index.html">
 <meta property="og:image" content="https://bernardshilohjazlene4049-crypto.github.io/zsb-study-home/assets/og/cover.png">
 <meta property="og:image:width" content="1200">
@@ -20,6 +20,7 @@
 <link rel="stylesheet" href="../assets/css/site-topbar.css">
 <link rel="manifest" href="../manifest.webmanifest"><script src="../assets/js/sw-register.js" defer></script>
 <link rel="stylesheet" href="../assets/css/site-shell.css"><script src="../assets/js/site-shell.js"></script>
+<link rel="stylesheet" href="../assets/css/course-entry.css">
   <link rel="canonical" href="https://bernardshilohjazlene4049-crypto.github.io/zsb-study-home/wl/index.html">
   <meta name="zsb-module" content="network">
   <meta name="zsb-status" content="ready">
@@ -28,10 +29,27 @@
 <div class="site-shell">
 <header class="site-header"><div class="site-header__inner"><a class="site-brand" href="../index.html"><span class="site-brand__name">辽宁专升本</span></a><nav class="site-nav" aria-label="科目导航"><a class="site-nav__link" href="../search.html">搜索</a></nav></div></header>
 <main class="site-main">
+  <section class="course-entry sh-card" aria-labelledby="page-title">
+    <h1 id="page-title">计算机网络</h1>
+    <p>从网络基础和数据通信学到以太网、IP 地址与路由。22 个知识点配例题和自测。</p>
+    <div class="course-entry__actions">
+      <a class="sh-btn sh-btn--primary" href="../notes/network-review.html#topics">按知识点学习</a>
+      <a class="sh-btn" href="../notes/network-review.html#timeline">按日期回顾</a>
+      <a class="sh-btn" href="#shell-map">IP 专题讲义</a>
+    </div>
+  </section>
   <div class="site-container">
-    <section class="page-hero page-hero--compact" aria-labelledby="page-title">
-      <h1 class="page-title" id="page-title">计算机网络</h1>
-    </section>
+    <nav class="course-entry__fallback sh-card" id="shell-map" aria-labelledby="course-fallback-title" data-subject-map-fallback>
+      <h2 id="course-fallback-title">IP 专题讲义</h2>
+      <ol>
+        <li><a href="ch1/index.html">IP 地址基础与分类</a></li>
+        <li><a href="ch2/index.html">CIDR、网络前缀与地址块</a></li>
+        <li><a href="ch3/index.html">子网划分与地址分配</a></li>
+        <li><a href="ch4/index.html">IPv4 数据报分片</a></li>
+        <li><a href="ch5/index.html">IPv6</a></li>
+        <li><a href="ch6/index.html">路由聚合</a></li>
+      </ol>
+    </nav>
   </div>
 </main>
 <footer class="site-footer"><div class="site-footer__inner"><nav class="site-footer__links" aria-label="页脚导航"><a href="../index.html">首页</a><a href="../jsj/index.html">计算机基础</a><a href="../gs/index.html">高等数学</a><a href="../c/index.html">C语言</a><a href="../yy/index.html">英语</a><a href="../wy/index.html">网页设计</a><a href="../wl/index.html" aria-current="page">计算机网络</a></nav></div></footer>

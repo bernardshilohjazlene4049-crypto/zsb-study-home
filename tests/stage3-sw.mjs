@@ -48,6 +48,20 @@ const PRECACHE_SHELL = [
   "data/resources.json",
   "data/page-questions.json",
   "data/lesson-guides.json",
+  "search.html",
+  "assets/css/site-search.css",
+  "assets/js/site-search.js",
+  "assets/js/site-search-format.js",
+  "assets/js/site-search-topics.js",
+  "notes/data/topic-links.json",
+  "notes/data/network-sources.json",
+  "notes/data/web-sources.json",
+  "notes/network-review.html",
+  "notes/web-review.html",
+  "assets/css/classroom-notes.css",
+  "assets/js/course-review.js",
+  "notes/assets/review/packet-forwarding.webp",
+  "notes/assets/review/structure-style-form.webp",
 ];
 
 // 明确不得出现在预缓存清单中的讲义和未引用 CSS
@@ -62,7 +76,7 @@ const MUST_EXCLUDE = [
 ];
 
 // 预缓存条目数上限（精简后应远小于旧的 ~204 项）
-const PRECACHE_MAX = 40;
+const PRECACHE_MAX = 48;
 
 function shellArray(source, name) {
   const groups = [...source.matchAll(new RegExp(`^${name}(?:\\+)?=\\(([^)]*)\\)`, "gm"))];
@@ -105,7 +119,7 @@ function build(dir, githubSha) {
   };
 }
 
-test("首页离线模块的全部静态依赖均进入预缓存", () => {
+test("离线入口与复习模块的全部静态依赖均进入预缓存", () => {
   for (const file of PRECACHE_SHELL.filter((p) => p.endsWith(".js"))) {
     for (const match of read(file).matchAll(/from\s+["']([^"']+)["']/g)) {
       if (!match[1].startsWith(".")) continue;
@@ -146,25 +160,10 @@ test("sw-build 写入 git HEAD 前 12 位，预缓存清单相对、去重、无
   }
 });
 
-test("预缓存清单必须包含首页、离线页和外壳 CSS/JS", (t) => {
+test("首页、搜索和两科复习的离线入口完整预缓存", (t) => {
   const { dir } = fixture(t);
   const { precache } = build(dir);
-  const required = [
-    "index.html",
-    "offline.html",
-    "manifest.webmanifest",
-    "assets/css/site-unify.css",
-    "assets/css/site-shell.css",
-    "assets/css/lesson-upgrade.css",
-    "assets/js/site-shell.js",
-    "assets/js/sw-register.js",
-    "data/subjects.json",
-    "data/topics.json",
-    "data/dependencies.json",
-    "data/resources.json",
-    "assets/js/features/topic-merges.js",
-  ];
-  for (const path of required) {
+  for (const path of PRECACHE_SHELL) {
     assert.ok(precache.includes(path), `预缓存清单应包含 ${path}`);
   }
 });

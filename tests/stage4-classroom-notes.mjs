@@ -229,7 +229,8 @@ test("原图标题、来源边界与考场口径入口完整", () => {
   assert.match(hub, /考场口径与教材差异速查/);
   const home = readText("index.html");
   assert.match(home, /aria-busy="true"/);
-  assert.match(home, /2 个课堂专题/);
+  assert.match(home, /home-note-card--network" href="wl\/index\.html"/);
+  assert.match(home, /home-note-card--web" href="wy\/index\.html"/);
   for (const hash of ["network.html#cidr", "network.html#ipv6", "web.html#forms"]) {
     assert.equal(hub.includes(`href="${hash}"`), true, `速查入口缺少 ${hash}`);
   }

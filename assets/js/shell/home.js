@@ -3,37 +3,7 @@ import { loadModel, resetLearningCache, topicHref } from "./model.js";
 import { el, icon, bar, shortSubjectName } from "./ui.js";
 import { hydrateIcons } from "./common.js";
 
-const START_SUBJECTS = ["network", "web_design", "computer_basics"];
-const START_ICONS = { network: "network", web_design: "web", computer_basics: "monitor" };
-const START_LABELS = { network: "计算机网络", web_design: "网页制作基础", computer_basics: "计算机基础" };
-
-function recommendedLessons(model, base) {
-  const ordered = model.subjects
-    .filter((item) => item.status === "live" && item.enabled !== false)
-    .sort((a, b) => {
-      const ai = START_SUBJECTS.indexOf(a.id);
-      const bi = START_SUBJECTS.indexOf(b.id);
-      return (ai < 0 ? START_SUBJECTS.length : ai) - (bi < 0 ? START_SUBJECTS.length : bi) || a.order - b.order;
-    });
-  const rows = [];
-  for (const subject of ordered) {
-    const subjectTopics = model.topicsOfSubject(subject.id);
-    const topic = subjectTopics.find((item) => topicHref(item, base).includes("notes/"))
-      || subjectTopics.find((item) => topicHref(item, base));
-    if (!topic) continue;
-    rows.push({
-      subject,
-      label: START_LABELS[subject.id] || shortSubjectName(subject),
-      topic,
-      href: topicHref(topic, base),
-      icon: START_ICONS[subject.id] || "book"
-    });
-    if (rows.length === 2) break;
-  }
-  return rows;
-}
-
-function startState(model, base) {
+function startState(model) {
   if (!model.dbOk) {
     return el("div", { class: "home-start home-start--error" }, [
       el("span", { class: "home-start__art" }, [icon("alert", 24)]),
@@ -44,29 +14,14 @@ function startState(model, base) {
       el("button", { class: "sh-btn home-start__action", type: "button", onclick: () => location.reload() }, "重试")
     ]);
   }
-  const recommendations = recommendedLessons(model, base);
-  if (!recommendations.length) {
-    return el("div", { class: "home-start" }, [
-      el("span", { class: "home-start__art" }, [icon("book", 24)]),
-      el("span", { class: "home-start__copy" }, [
-        el("strong", { text: "从一门科目开始" }),
-        el("span", { text: "选择下面的科目进入学习地图。" })
-      ]),
-      el("a", { class: "sh-btn sh-btn--primary home-start__action", href: "#subjects" }, "选择科目")
-    ]);
-  }
-  return el("div", { class: "home-recommendations" }, recommendations.map((item) => el(
-    "a",
-    { class: "home-start home-start--recommended", href: item.href },
-    [
-      el("span", { class: "home-start__art" }, [icon(item.icon, 22)]),
-      el("span", { class: "home-start__copy" }, [
-        el("strong", { text: `从 ${item.label} 开始` }),
-        el("span", { text: item.topic.title })
-      ]),
-      icon("chevron", 16, "home-start__chev")
-    ]
-  )));
+  return el("div", { class: "home-start" }, [
+    el("span", { class: "home-start__art" }, [icon("book", 24)]),
+    el("span", { class: "home-start__copy" }, [
+      el("strong", { text: "还没有学习记录" }),
+      el("span", { text: "从一门科目的知识目录开始。" })
+    ]),
+    el("a", { class: "sh-btn sh-btn--primary home-start__action", href: "#review-subjects" }, "选择科目")
+  ]);
 }
 
 function dueEmptyState(model, base) {
@@ -77,7 +32,7 @@ function dueEmptyState(model, base) {
       text: hasRecords ? "今天没有到期的复习。" : "完成一次自测后，复习任务会在这里排队。"
     }),
     el("a", {
-      href: hasRecords ? `${base}study/overview.html` : `${base}notes/index.html`,
+      href: hasRecords ? `${base}study/overview.html` : "#review-subjects",
       text: hasRecords ? "查看全部学习记录 →" : "选择第一个知识点 →"
     })
   ]);
@@ -85,7 +40,6 @@ function dueEmptyState(model, base) {
 
 export async function mount(shell) {
   hydrateIcons();
-  for (const link of document.querySelectorAll("[data-review-href]")) link.href = link.dataset.reviewHref;
   for (const chev of document.querySelectorAll(".home-subject__chev:empty")) chev.append(icon("chevron", 16));
   const q = document.querySelector("#home-q");
   document.addEventListener("keydown", (e) => {
@@ -121,7 +75,7 @@ export async function mount(shell) {
         el("span", { class: "home-continue__play" }, [icon("play", 16)])
       ]));
     } else if (slot) {
-      slot.replaceChildren(startState(model, base));
+      slot.replaceChildren(startState(model));
     }
     slot?.setAttribute("aria-busy", "false");
 

@@ -28,14 +28,15 @@
   var NAV = [
     { key: "home", label: "首页", short: "首页", href: "index.html", icon: "home" },
     { key: "subjects", label: "科目", short: "科目", href: "index.html#subjects", icon: "layers" },
-    { key: "notes", label: "课堂笔记", short: "笔记", href: "notes/index.html", icon: "book" },
-    { key: "review", label: "学习与复习", short: "复习", href: "study/index.html#/mistakes", icon: "chart" },
-    { key: "search", label: "搜索", short: "搜索", href: "search.html", icon: "search", desktopOnly: true }
+    { key: "notes", label: "课堂资料", short: "资料", href: "notes/index.html", icon: "book" },
+    { key: "review", label: "学习记录", short: "记录", href: "study/overview.html", icon: "chart" },
+    { key: "search", label: "全站搜索", short: "搜索", href: "search.html", icon: "search", desktopOnly: true }
   ];
 
   function activeKey() {
     if (rel === "index.html") return location.hash === "#subjects" ? "subjects" : "home";
     if (rel === "search.html") return "search";
+    if (/^notes\/(network|web)-review\.html$/.test(rel)) return /^#(?:timeline(?:-title)?|date-)/.test(location.hash) ? "notes" : "subjects";
     if (rel.indexOf("notes/") === 0) return "notes";
     if (/^(gs|yy|jsj|c|wy|wl)\//.test(rel)) return "subjects";
     if (rel.indexOf("study/") === 0 || rel.indexOf("tower/") === 0) return "review";

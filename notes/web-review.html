@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="../assets/css/site-shell.css">
   <link rel="stylesheet" href="../assets/css/classroom-notes.css">
   <script src="../assets/js/site-shell.js"></script>
+  <script type="module" src="../assets/js/course-review.js"></script>
   <meta name="zsb-module" content="notes">
   <meta name="zsb-status" content="ready">
 </head>
@@ -22,7 +23,7 @@
       <nav class="site-nav" aria-label="全站导航"><a href="../index.html">首页</a><a href="index.html">课堂笔记</a><a href="../search.html">搜索</a></nav>
     </div>
   </header>
-  <main class="notes-main" id="main">
+  <main class="notes-main" id="main" tabindex="-1">
     <nav class="notes-breadcrumb" aria-label="面包屑"><a href="../index.html">首页</a><span aria-hidden="true">/</span><a href="index.html">课堂笔记</a><span aria-hidden="true">/</span><span aria-current="page">网页制作课堂复习</span></nav>
     <section class="notes-hero">
       <h1 class="notes-title">网页制作课堂复习</h1>
@@ -32,48 +33,38 @@
         <span class="notes-stat"><strong>8</strong> 个有图日期</span>
         <span class="notes-stat"><strong>35</strong> 张原图依据</span>
       </div>
-      <div class="notes-actions"><a class="sh-btn sh-btn--primary" href="#topics">按知识点学习</a><a class="sh-btn" href="#timeline">按课堂图片日期查找</a><a class="sh-btn" href="web.html">查看早期笔记</a></div>
+      <div class="notes-actions"><a class="sh-btn sh-btn--primary" href="#topics">按知识点学习</a><a class="sh-btn" href="#timeline">查阅课堂资料</a><a class="sh-btn" href="../wy/index.html">返回网页设计科目</a></div>
     </section>
     <div class="notes-layout">
-      <nav class="notes-toc" aria-label="知识点目录">
-        <p class="notes-toc__title">知识点目录</p>
-        <ol class="notes-toc__list">
-          <li><a href="#html-meta-refresh"><span class="notes-toc__no" aria-hidden="true">01</span>HTML文档头部与meta刷新</a></li>
-          <li><a href="#html-nested-lists"><span class="notes-toc__no" aria-hidden="true">02</span>HTML有序列表、无序列表与嵌套</a></li>
-          <li><a href="#html-links-paths"><span class="notes-toc__no" aria-hidden="true">03</span>超链接、相对路径与页面锚点</a></li>
-          <li><a href="#html-table-structure"><span class="notes-toc__no" aria-hidden="true">04</span>HTML表格结构、标题与单元格</a></li>
-          <li><a href="#html-table-borders"><span class="notes-toc__no" aria-hidden="true">05</span>表格边框、分隔线与历史属性</a></li>
-          <li><a href="#css-syntax-stylesheets"><span class="notes-toc__no" aria-hidden="true">06</span>CSS规则、三种引入方式与基础颜色</a></li>
-          <li><a href="#css-pseudo-classes"><span class="notes-toc__no" aria-hidden="true">07</span>CSS否定伪类、根元素与结构伪类</a></li>
-          <li><a href="#css-text-formatting"><span class="notes-toc__no" aria-hidden="true">08</span>CSS文本阴影、空白处理、溢出与链接状态</a></li>
-          <li><a href="#css-alignment-layout"><span class="notes-toc__no" aria-hidden="true">09</span>CSS文本对齐、容器居中与传统align属性</a></li>
-          <li><a href="#form-structure-ownership"><span class="notes-toc__no" aria-hidden="true">10</span>表单结构、提交目标与控件归属</a></li>
-          <li><a href="#form-label-name-id"><span class="notes-toc__no" aria-hidden="true">11</span>表单字段的label、id、name与value</a></li>
-          <li><a href="#form-select-optgroup"><span class="notes-toc__no" aria-hidden="true">12</span>下拉菜单、option与optgroup分组</a></li>
-          <li><a href="#form-input-controls"><span class="notes-toc__no" aria-hidden="true">13</span>数字输入、范围滑块、datalist与输入建议</a></li>
-          <li><a href="#form-submit-buttons"><span class="notes-toc__no" aria-hidden="true">14</span>提交按钮、重置按钮与普通交互按钮</a></li>
-        </ol>
-      </nav>
-      <div class="review-content">
-        <section class="review-panel" id="timeline" aria-labelledby="timeline-title">
-          <h2 id="timeline-title">课堂图片日期索引</h2>
-          <p>课程从 9 月 28 日开始。目前能核对的截图从 10 月 9 日起，9 月 28 日至 10 月 8 日的材料尚待补齐。</p>
-          <ol class="review-dates">
-            <li id="date-2026-10-09"><time datetime="2026-10-09">2026-10-09</time><span class="review-date-count">1 张</span><span>#01 HTML文档头部meta刷新及定时跳转。可核对1张；9月28日为提供的开课日期，9月28日至10月8日没有可核对截图，不补写课次。</span></li>
-            <li id="date-2026-10-12"><time datetime="2026-10-12">2026-10-12</time><span class="review-date-count">3 张</span><span>#01有序、无序列表与编号；#02列表嵌套；#03 start和reversed控制编号顺序。可核对3张。</span></li>
-            <li id="date-2026-10-19"><time datetime="2026-10-19">2026-10-19</time><span class="review-date-count">2 张</span><span>#01站内锚点、相对路径和外部链接；#02历史HTML对齐属性以及不同元素的对齐方式。可核对2张。</span></li>
-            <li id="date-2026-10-20"><time datetime="2026-10-20">2026-10-20</time><span class="review-date-count">5 张</span><span>#01–02表格外边框与内部分隔；#03表格单元格及对齐；#04样式覆盖；#05多层列表。可核对5张。</span></li>
-            <li id="date-2026-10-26"><time datetime="2026-10-26">2026-10-26</time><span class="review-date-count">4 张</span><span>#01按钮类型；#02–03表单结构和提交概念；#04 select、optgroup和option的分组关系。可核对4张。</span></li>
-            <li id="date-2026-10-27"><time datetime="2026-10-27">2026-10-27</time><span class="review-date-count">8 张</span><span>#01分组下拉框；#02 label关联；#03表单布局；#04–05 number和range；#06 datalist；#07–08表单归属与结构。可核对8张。</span></li>
-            <li id="date-2026-11-09"><time datetime="2026-11-09">2026-11-09</time><span class="review-date-count">10 张</span><span>#01–02否定与根元素选择器；#03–06文本效果；#07链接状态；#08–10 CSS引入、颜色和字体样式。可核对10张。</span></li>
-            <li id="date-2026-11-17"><time datetime="2026-11-17">2026-11-17</time><span class="review-date-count">2 张</span><span>#01 first-child与first-of-type等结构伪类；#02块级容器和文字居中方式。可核对2张。</span></li>
+      <div class="review-navigation">
+        <button type="button" class="review-toc-toggle" aria-expanded="false" aria-controls="review-toc" hidden>章节目录</button>
+        <nav class="notes-toc" id="review-toc" aria-label="知识点目录">
+          <p class="notes-toc__title">知识点目录</p>
+          <input class="review-toc-filter" type="search" aria-label="查找本课知识点" placeholder="查找本课知识点" autocomplete="off" hidden>
+          <p class="review-toc-empty" role="status" hidden>没有匹配的知识点。</p>
+          <ol class="notes-toc__list">
+            <li><a href="#html-meta-refresh"><span class="notes-toc__no" aria-hidden="true">01</span>HTML文档头部与meta刷新</a></li>
+            <li><a href="#html-nested-lists"><span class="notes-toc__no" aria-hidden="true">02</span>HTML有序列表、无序列表与嵌套</a></li>
+            <li><a href="#html-links-paths"><span class="notes-toc__no" aria-hidden="true">03</span>超链接、相对路径与页面锚点</a></li>
+            <li><a href="#html-table-structure"><span class="notes-toc__no" aria-hidden="true">04</span>HTML表格结构、标题与单元格</a></li>
+            <li><a href="#html-table-borders"><span class="notes-toc__no" aria-hidden="true">05</span>表格边框、分隔线与历史属性</a></li>
+            <li><a href="#css-syntax-stylesheets"><span class="notes-toc__no" aria-hidden="true">06</span>CSS规则、三种引入方式与基础颜色</a></li>
+            <li><a href="#css-pseudo-classes"><span class="notes-toc__no" aria-hidden="true">07</span>CSS否定伪类、根元素与结构伪类</a></li>
+            <li><a href="#css-text-formatting"><span class="notes-toc__no" aria-hidden="true">08</span>CSS文本阴影、空白处理、溢出与链接状态</a></li>
+            <li><a href="#css-alignment-layout"><span class="notes-toc__no" aria-hidden="true">09</span>CSS文本对齐、容器居中与传统align属性</a></li>
+            <li><a href="#form-structure-ownership"><span class="notes-toc__no" aria-hidden="true">10</span>表单结构、提交目标与控件归属</a></li>
+            <li><a href="#form-label-name-id"><span class="notes-toc__no" aria-hidden="true">11</span>表单字段的label、id、name与value</a></li>
+            <li><a href="#form-select-optgroup"><span class="notes-toc__no" aria-hidden="true">12</span>下拉菜单、option与optgroup分组</a></li>
+            <li><a href="#form-input-controls"><span class="notes-toc__no" aria-hidden="true">13</span>数字输入、范围滑块、datalist与输入建议</a></li>
+            <li><a href="#form-submit-buttons"><span class="notes-toc__no" aria-hidden="true">14</span>提交按钮、重置按钮与普通交互按钮</a></li>
           </ol>
-          <p class="review-source-note">图号按北京时间的日期和当日图片序号标注，如 11-21#05 对应 11 月 21 日第 5 张。知识点由课堂证据归纳，练习为复习用。</p>
-        </section>
-        <section id="topics" aria-labelledby="topics-title">
-          <div class="notes-section-title"><h2 id="topics-title">按学习顺序复习</h2><a href="#timeline">查看日期索引</a></div>
+        </nav>
+      </div>
+      <div class="review-content">
+        <section id="topics" tabindex="-1" aria-labelledby="topics-title">
+          <div class="notes-section-title"><h2 id="topics-title" tabindex="-1">按学习顺序复习</h2></div>
           <section class="review-topic" id="html-meta-refresh" aria-labelledby="html-meta-refresh-title">
-            <h3 id="html-meta-refresh-title"><span class="review-number" aria-hidden="true">01</span>HTML文档头部与meta刷新</h3>
+            <h3 id="html-meta-refresh-title" tabindex="-1"><span class="review-number" aria-hidden="true">01</span>HTML文档头部与meta刷新</h3>
             <p>认识meta刷新指令的主要属性及浏览器行为，并了解现代网页对自动跳转的使用限制。</p>
             <ul class="review-points">
               <li>meta属于文档元数据内容，常放在head中，用来提供页面相关信息或特定处理指令。</li>
@@ -90,9 +81,9 @@
             <p class="question__source">课堂图号 <a href="#date-2026-10-09">10-09#01</a></p>
           </section>
           <section class="review-topic" id="html-nested-lists" aria-labelledby="html-nested-lists-title">
-            <h3 id="html-nested-lists-title"><span class="review-number" aria-hidden="true">02</span>HTML有序列表、无序列表与嵌套</h3>
+            <h3 id="html-nested-lists-title" tabindex="-1"><span class="review-number" aria-hidden="true">02</span>HTML有序列表、无序列表与嵌套</h3>
             <p>正确区分列表容器、列表项目及嵌套结构，理解编号和项目符号如何产生。</p>
-            <pre class="review-code"><code>&lt;ul&gt;
+            <pre class="review-code" tabindex="0"><code>&lt;ul&gt;
   &lt;li&gt;复习顺序
     &lt;ol start=&quot;6&quot; reversed&gt;
       &lt;li&gt;表格&lt;/li&gt;
@@ -116,7 +107,7 @@
             <p class="question__source">课堂图号 <a href="#date-2026-10-12">10-12#01</a>、<a href="#date-2026-10-12">10-12#02–03</a>、<a href="#date-2026-10-20">10-20#05</a></p>
           </section>
           <section class="review-topic" id="html-links-paths" aria-labelledby="html-links-paths-title">
-            <h3 id="html-links-paths-title"><span class="review-number" aria-hidden="true">03</span>超链接、相对路径与页面锚点</h3>
+            <h3 id="html-links-paths-title" tabindex="-1"><span class="review-number" aria-hidden="true">03</span>超链接、相对路径与页面锚点</h3>
             <p>掌握同页定位、跨页定位、相对目录和新标签页打开的常见用法。</p>
             <ul class="review-points">
               <li>超链接使用href提供目标地址，目标可以是同页片段、站内文件或完整URL。</li>
@@ -133,7 +124,7 @@
             <p class="question__source">课堂图号 <a href="#date-2026-10-19">10-19#01</a></p>
           </section>
           <section class="review-topic" id="html-table-structure" aria-labelledby="html-table-structure-title">
-            <h3 id="html-table-structure-title"><span class="review-number" aria-hidden="true">04</span>HTML表格结构、标题与单元格</h3>
+            <h3 id="html-table-structure-title" tabindex="-1"><span class="review-number" aria-hidden="true">04</span>HTML表格结构、标题与单元格</h3>
             <p>理解表格的层次结构、表头和数据单元格，并掌握水平和垂直对齐的区别。</p>
             <ul class="review-points">
               <li>table是表格容器，tr表示行，th通常表示表头单元格，td表示数据单元格。</li>
@@ -150,9 +141,9 @@
             <p class="question__source">课堂图号 <a href="#date-2026-10-19">10-19#02</a>、<a href="#date-2026-10-20">10-20#03–04</a></p>
           </section>
           <section class="review-topic" id="html-table-borders" aria-labelledby="html-table-borders-title">
-            <h3 id="html-table-borders-title"><span class="review-number" aria-hidden="true">05</span>表格边框、分隔线与历史属性</h3>
+            <h3 id="html-table-borders-title" tabindex="-1"><span class="review-number" aria-hidden="true">05</span>表格边框、分隔线与历史属性</h3>
             <p>区分传统HTML表格外框和内部线条的控制方式，学会用CSS完成现代实现。</p>
-            <pre class="review-code"><code>table { border-collapse: collapse; }
+            <pre class="review-code" tabindex="0"><code>table { border-collapse: collapse; }
 th, td { border: 1px solid #666; padding: 0.4rem 0.6rem; }</code></pre>
             <ul class="review-points">
               <li>历史HTML表格中的frame属性用于指定外围边框的可见部分。</li>
@@ -169,7 +160,7 @@ th, td { border: 1px solid #666; padding: 0.4rem 0.6rem; }</code></pre>
             <p class="question__source">课堂图号 <a href="#date-2026-10-20">10-20#01–02</a></p>
           </section>
           <section class="review-topic" id="css-syntax-stylesheets" aria-labelledby="css-syntax-stylesheets-title">
-            <h3 id="css-syntax-stylesheets-title"><span class="review-number" aria-hidden="true">06</span>CSS规则、三种引入方式与基础颜色</h3>
+            <h3 id="css-syntax-stylesheets-title" tabindex="-1"><span class="review-number" aria-hidden="true">06</span>CSS规则、三种引入方式与基础颜色</h3>
             <p>理解CSS选择器与声明的关系，并能够比较行内、内部和外部样式。</p>
             <ul class="review-points">
               <li>CSS规则通常由选择器和声明块构成；声明使用属性名、冒号、属性值及分号表达样式。</li>
@@ -186,7 +177,7 @@ th, td { border: 1px solid #666; padding: 0.4rem 0.6rem; }</code></pre>
             <p class="question__source">课堂图号 <a href="#date-2026-11-09">11-09#08–10</a></p>
           </section>
           <section class="review-topic" id="css-pseudo-classes" aria-labelledby="css-pseudo-classes-title">
-            <h3 id="css-pseudo-classes-title"><span class="review-number" aria-hidden="true">07</span>CSS否定伪类、根元素与结构伪类</h3>
+            <h3 id="css-pseudo-classes-title" tabindex="-1"><span class="review-number" aria-hidden="true">07</span>CSS否定伪类、根元素与结构伪类</h3>
             <p>能够根据DOM中的实际兄弟顺序，正确判断伪类选择器是否匹配。</p>
             <ul class="review-points">
               <li>:root匹配文档树的根元素，在普通HTML文档中对应html元素，常用于定义全局自定义属性。</li>
@@ -203,7 +194,7 @@ th, td { border: 1px solid #666; padding: 0.4rem 0.6rem; }</code></pre>
             <p class="question__source">课堂图号 <a href="#date-2026-11-09">11-09#01–02</a>、<a href="#date-2026-11-17">11-17#01</a></p>
           </section>
           <section class="review-topic" id="css-text-formatting" aria-labelledby="css-text-formatting-title">
-            <h3 id="css-text-formatting-title"><span class="review-number" aria-hidden="true">08</span>CSS文本阴影、空白处理、溢出与链接状态</h3>
+            <h3 id="css-text-formatting-title" tabindex="-1"><span class="review-number" aria-hidden="true">08</span>CSS文本阴影、空白处理、溢出与链接状态</h3>
             <p>掌握常见文本表现属性及链接交互状态，能够判断属性组合的效果。</p>
             <ul class="review-points">
               <li>text-shadow可以设置水平偏移、垂直偏移、模糊半径和颜色；偏移允许负值，模糊半径不能为负。</li>
@@ -220,7 +211,7 @@ th, td { border: 1px solid #666; padding: 0.4rem 0.6rem; }</code></pre>
             <p class="question__source">课堂图号 <a href="#date-2026-11-09">11-09#03–06</a>、<a href="#date-2026-11-09">11-09#07</a></p>
           </section>
           <section class="review-topic" id="css-alignment-layout" aria-labelledby="css-alignment-layout-title">
-            <h3 id="css-alignment-layout-title"><span class="review-number" aria-hidden="true">09</span>CSS文本对齐、容器居中与传统align属性</h3>
+            <h3 id="css-alignment-layout-title" tabindex="-1"><span class="review-number" aria-hidden="true">09</span>CSS文本对齐、容器居中与传统align属性</h3>
             <p>能够区分文字在容器中居中、容器本身居中以及历史HTML对齐写法。</p>
             <ul class="review-points">
               <li>text-align:center主要控制容器内行内级内容的水平对齐，不直接让容器自身水平居中。</li>
@@ -237,7 +228,7 @@ th, td { border: 1px solid #666; padding: 0.4rem 0.6rem; }</code></pre>
             <p class="question__source">课堂图号 <a href="#date-2026-10-19">10-19#02</a>、<a href="#date-2026-11-17">11-17#02</a></p>
           </section>
           <section class="review-topic" id="form-structure-ownership" aria-labelledby="form-structure-ownership-title">
-            <h3 id="form-structure-ownership-title"><span class="review-number" aria-hidden="true">10</span>表单结构、提交目标与控件归属</h3>
+            <h3 id="form-structure-ownership-title" tabindex="-1"><span class="review-number" aria-hidden="true">10</span>表单结构、提交目标与控件归属</h3>
             <p>理解form的职责和合法结构，避免将表单布局、字段名称和数据处理混为一谈。</p>
             <figure class="review-figure">
               <img src="assets/review/structure-style-form.webp" width="1500" height="844" loading="lazy" decoding="async" alt="左侧是 HTML 元素树，中间是控制颜色、边框和间距的 CSS 样式，右侧是有输入框、勾选框和按钮的页面。">
@@ -258,9 +249,9 @@ th, td { border: 1px solid #666; padding: 0.4rem 0.6rem; }</code></pre>
             <p class="question__source">课堂图号 <a href="#date-2026-10-26">10-26#02–03</a>、<a href="#date-2026-10-27">10-27#07–08</a></p>
           </section>
           <section class="review-topic" id="form-label-name-id" aria-labelledby="form-label-name-id-title">
-            <h3 id="form-label-name-id-title"><span class="review-number" aria-hidden="true">11</span>表单字段的label、id、name与value</h3>
+            <h3 id="form-label-name-id-title" tabindex="-1"><span class="review-number" aria-hidden="true">11</span>表单字段的label、id、name与value</h3>
             <p>准确理解表单标注、字段标识、提交键名和用户输入值之间的区别。</p>
-            <pre class="review-code"><code>&lt;form id=&quot;profile&quot; action=&quot;/practice/profile&quot; method=&quot;post&quot;&gt;
+            <pre class="review-code" tabindex="0"><code>&lt;form id=&quot;profile&quot; action=&quot;/practice/profile&quot; method=&quot;post&quot;&gt;
   &lt;label for=&quot;student-field&quot;&gt;昵称&lt;/label&gt;
   &lt;input id=&quot;student-field&quot; name=&quot;nickname&quot; value=&quot;Ming&quot;&gt;
   &lt;button type=&quot;submit&quot;&gt;提交&lt;/button&gt;
@@ -280,7 +271,7 @@ th, td { border: 1px solid #666; padding: 0.4rem 0.6rem; }</code></pre>
             <p class="question__source">课堂图号 <a href="#date-2026-10-27">10-27#02</a>、<a href="#date-2026-10-27">10-27#07</a></p>
           </section>
           <section class="review-topic" id="form-select-optgroup" aria-labelledby="form-select-optgroup-title">
-            <h3 id="form-select-optgroup-title"><span class="review-number" aria-hidden="true">12</span>下拉菜单、option与optgroup分组</h3>
+            <h3 id="form-select-optgroup-title" tabindex="-1"><span class="review-number" aria-hidden="true">12</span>下拉菜单、option与optgroup分组</h3>
             <p>掌握下拉选择控件的组织方式，以及选项显示文字与提交值的区别。</p>
             <ul class="review-points">
               <li>select用于建立选择控件，option提供具体可选项目。</li>
@@ -297,7 +288,7 @@ th, td { border: 1px solid #666; padding: 0.4rem 0.6rem; }</code></pre>
             <p class="question__source">课堂图号 <a href="#date-2026-10-26">10-26#04</a>、<a href="#date-2026-10-27">10-27#01</a></p>
           </section>
           <section class="review-topic" id="form-input-controls" aria-labelledby="form-input-controls-title">
-            <h3 id="form-input-controls-title"><span class="review-number" aria-hidden="true">13</span>数字输入、范围滑块、datalist与输入建议</h3>
+            <h3 id="form-input-controls-title" tabindex="-1"><span class="review-number" aria-hidden="true">13</span>数字输入、范围滑块、datalist与输入建议</h3>
             <p>能够区分直接输入、滑块调节与可选建议，并正确理解相关属性。</p>
             <ul class="review-points">
               <li>input的number类型用于输入数字，浏览器可以提供键入与增减调节等界面。</li>
@@ -314,7 +305,7 @@ th, td { border: 1px solid #666; padding: 0.4rem 0.6rem; }</code></pre>
             <p class="question__source">课堂图号 <a href="#date-2026-10-27">10-27#04–06</a></p>
           </section>
           <section class="review-topic" id="form-submit-buttons" aria-labelledby="form-submit-buttons-title">
-            <h3 id="form-submit-buttons-title"><span class="review-number" aria-hidden="true">14</span>提交按钮、重置按钮与普通交互按钮</h3>
+            <h3 id="form-submit-buttons-title" tabindex="-1"><span class="review-number" aria-hidden="true">14</span>提交按钮、重置按钮与普通交互按钮</h3>
             <p>掌握按钮三种常见类型，并理解表单提交的数据流及安全边界。</p>
             <ul class="review-points">
               <li>button的type=submit表示提交相关表单，type=reset表示按表单重置规则恢复控件状态，type=button表示普通按钮。</li>
@@ -330,6 +321,22 @@ th, td { border: 1px solid #666; padding: 0.4rem 0.6rem; }</code></pre>
             </details>
             <p class="question__source">课堂图号 <a href="#date-2026-10-26">10-26#01</a>、<a href="#date-2026-10-26">10-26#02–03</a>、<a href="#date-2026-10-27">10-27#03</a></p>
           </section>
+        </section>
+        <section class="review-panel" id="timeline" tabindex="-1" aria-labelledby="timeline-title">
+          <h2 id="timeline-title" tabindex="-1">课堂资料与日期索引</h2>
+          <p>课程从 9 月 28 日开始。目前能核对的截图从 10 月 9 日起，9 月 28 日至 10 月 8 日的材料尚待补齐。</p>
+          <ol class="review-dates">
+            <li id="date-2026-10-09" tabindex="-1"><time datetime="2026-10-09">2026-10-09</time><span class="review-date-count">1 张</span><span>#01 HTML文档头部meta刷新及定时跳转。可核对1张；9月28日为提供的开课日期，9月28日至10月8日没有可核对截图，不补写课次。</span></li>
+            <li id="date-2026-10-12" tabindex="-1"><time datetime="2026-10-12">2026-10-12</time><span class="review-date-count">3 张</span><span>#01有序、无序列表与编号；#02列表嵌套；#03 start和reversed控制编号顺序。可核对3张。</span></li>
+            <li id="date-2026-10-19" tabindex="-1"><time datetime="2026-10-19">2026-10-19</time><span class="review-date-count">2 张</span><span>#01站内锚点、相对路径和外部链接；#02历史HTML对齐属性以及不同元素的对齐方式。可核对2张。</span></li>
+            <li id="date-2026-10-20" tabindex="-1"><time datetime="2026-10-20">2026-10-20</time><span class="review-date-count">5 张</span><span>#01–02表格外边框与内部分隔；#03表格单元格及对齐；#04样式覆盖；#05多层列表。可核对5张。</span></li>
+            <li id="date-2026-10-26" tabindex="-1"><time datetime="2026-10-26">2026-10-26</time><span class="review-date-count">4 张</span><span>#01按钮类型；#02–03表单结构和提交概念；#04 select、optgroup和option的分组关系。可核对4张。</span></li>
+            <li id="date-2026-10-27" tabindex="-1"><time datetime="2026-10-27">2026-10-27</time><span class="review-date-count">8 张</span><span>#01分组下拉框；#02 label关联；#03表单布局；#04–05 number和range；#06 datalist；#07–08表单归属与结构。可核对8张。</span></li>
+            <li id="date-2026-11-09" tabindex="-1"><time datetime="2026-11-09">2026-11-09</time><span class="review-date-count">10 张</span><span>#01–02否定与根元素选择器；#03–06文本效果；#07链接状态；#08–10 CSS引入、颜色和字体样式。可核对10张。</span></li>
+            <li id="date-2026-11-17" tabindex="-1"><time datetime="2026-11-17">2026-11-17</time><span class="review-date-count">2 张</span><span>#01 first-child与first-of-type等结构伪类；#02块级容器和文字居中方式。可核对2张。</span></li>
+          </ol>
+          <p class="review-source-note">图号按北京时间的日期和当日图片序号标注，如 10-27#06 对应 10 月 27 日第 6 张。知识点由课堂证据归纳，练习为复习用。</p>
+          <p><a href="web.html">查看早期笔记</a></p>
         </section>
       </div>
     </div>

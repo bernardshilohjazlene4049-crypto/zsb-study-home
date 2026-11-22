@@ -59,3 +59,46 @@ export function resultHref(url) {
   // 构建时补的 “<section id>-h” 标题锚点 → 跳到 section 本身（页面目录用的同一锚点，带顶栏留白）。
   return String(url || "").replace(/#([^#]+)-h$/, "#$1");
 }
+
+function normalizeForSearch(value) {
+  return String(value || "").normalize("NFKC").toLowerCase()
+    .replace(/\s*\/\s*/g, "/").replace(/\s+/g, " ").trim();
+}
+
+function compactHanSpacing(value) {
+  return value.replace(/(?<=\p{Script=Han}) +| +(?=\p{Script=Han})/gu, "");
+}
+
+function phrasePattern(phrase) {
+  const literal = phrase.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const before = /^[a-z0-9]/.test(phrase) ? "(?<![a-z0-9])" : "";
+  const after = /[a-z0-9]$/.test(phrase) ? "(?![a-z0-9])" : "";
+  return new RegExp(`${before}${literal}${after}`);
+}
+
+export function createSearchMatcher(query) {
+  const normalized = normalizeForSearch(query);
+  if (!normalized) return null;
+  const phrase = compactHanSpacing(normalized);
+  const pattern = phrasePattern(phrase);
+  const terms = normalized.split(" ").map(phrasePattern);
+
+  return (value) => {
+    const field = normalizeForSearch(value);
+    const compact = compactHanSpacing(field);
+    if (compact === phrase) return 3;
+    if (pattern.test(compact)) return 2;
+    return terms.length > 1 && terms.every((term) => term.test(field)) ? 1 : 0;
+  };
+}
+
+export function knowledgeScore(title, aliases, matcher, review = false) {
+  const titleMatch = matcher(title);
+  const aliasMatch = Math.max(0, ...aliases.map(matcher));
+  if (!titleMatch && !aliasMatch) return 0;
+  if (titleMatch === 3) return review ? 120 : 100;
+  if (aliasMatch === 3) return review ? 110 : 95;
+  if (titleMatch === 2) return review ? 90 : 60;
+  if (aliasMatch === 2) return review ? 80 : 50;
+  return review ? 70 : 45;
+}

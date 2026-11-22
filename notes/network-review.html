@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="../assets/css/site-shell.css">
   <link rel="stylesheet" href="../assets/css/classroom-notes.css">
   <script src="../assets/js/site-shell.js"></script>
+  <script type="module" src="../assets/js/course-review.js"></script>
   <meta name="zsb-module" content="notes">
   <meta name="zsb-status" content="ready">
 </head>
@@ -22,7 +23,7 @@
       <nav class="site-nav" aria-label="全站导航"><a href="../index.html">首页</a><a href="index.html">课堂笔记</a><a href="../search.html">搜索</a></nav>
     </div>
   </header>
-  <main class="notes-main" id="main">
+  <main class="notes-main" id="main" tabindex="-1">
     <nav class="notes-breadcrumb" aria-label="面包屑"><a href="../index.html">首页</a><span aria-hidden="true">/</span><a href="index.html">课堂笔记</a><span aria-hidden="true">/</span><span aria-current="page">计算机网络课堂复习</span></nav>
     <section class="notes-hero">
       <h1 class="notes-title">计算机网络课堂复习</h1>
@@ -32,62 +33,46 @@
         <span class="notes-stat"><strong>14</strong> 个有图日期</span>
         <span class="notes-stat"><strong>254</strong> 张原图依据</span>
       </div>
-      <div class="notes-actions"><a class="sh-btn sh-btn--primary" href="#topics">按知识点学习</a><a class="sh-btn" href="#timeline">按课堂图片日期查找</a><a class="sh-btn" href="network.html">查看早期笔记</a></div>
+      <div class="notes-actions"><a class="sh-btn sh-btn--primary" href="#topics">按知识点学习</a><a class="sh-btn" href="#timeline">查阅课堂资料</a><a class="sh-btn" href="../wl/index.html">返回计算机网络科目</a></div>
     </section>
     <div class="notes-layout">
-      <nav class="notes-toc" aria-label="知识点目录">
-        <p class="notes-toc__title">知识点目录</p>
-        <ol class="notes-toc__list">
-          <li><a href="#n01-network-topology-switching"><span class="notes-toc__no" aria-hidden="true">01</span>网络组成、拓扑结构与交换方式</a></li>
-          <li><a href="#n02-layered-model-encapsulation"><span class="notes-toc__no" aria-hidden="true">02</span>网络分层模型、协议与封装</a></li>
-          <li><a href="#n03-bandwidth-delay"><span class="notes-toc__no" aria-hidden="true">03</span>传输速率、带宽与网络时延</a></li>
-          <li><a href="#n04-symbol-capacity-limits"><span class="notes-toc__no" aria-hidden="true">04</span>码元速率、奈奎斯特定理与香农容量</a></li>
-          <li><a href="#n05-modulation-pcm"><span class="notes-toc__no" aria-hidden="true">05</span>数字调制与PCM编码</a></li>
-          <li><a href="#n05-line-coding-media"><span class="notes-toc__no" aria-hidden="true">06</span>线路编码、同步传输与传输介质</a></li>
-          <li><a href="#n06-multiplexing"><span class="notes-toc__no" aria-hidden="true">07</span>频分、时分、统计时分与波分复用</a></li>
-          <li><a href="#n06-cdma-chip-decoding"><span class="notes-toc__no" aria-hidden="true">08</span>CDMA正交码片与归一化内积</a></li>
-          <li><a href="#n07-parity-crc"><span class="notes-toc__no" aria-hidden="true">09</span>奇偶校验、CRC与检错</a></li>
-          <li><a href="#n07-ppp-framing"><span class="notes-toc__no" aria-hidden="true">10</span>PPP帧结构与透明传输</a></li>
-          <li><a href="#n08-ethernet-csma-frame"><span class="notes-toc__no" aria-hidden="true">11</span>以太网帧、CSMA/CD与最小帧长</a></li>
-          <li><a href="#n08-switch-learning-vlan"><span class="notes-toc__no" aria-hidden="true">12</span>集线器、交换机自学习与VLAN</a></li>
-          <li><a href="#n09-ipv4-addressing"><span class="notes-toc__no" aria-hidden="true">13</span>IPv4地址结构、历史分类与特殊地址</a></li>
-          <li><a href="#n09-subnet-cidr"><span class="notes-toc__no" aria-hidden="true">14</span>子网掩码、CIDR与地址块计算</a></li>
-          <li><a href="#n09-vlsm-point-to-point"><span class="notes-toc__no" aria-hidden="true">15</span>定长子网划分、VLSM与点对点网络</a></li>
-          <li><a href="#n09-route-aggregation-match"><span class="notes-toc__no" aria-hidden="true">16</span>路由聚合与最长前缀匹配</a></li>
-          <li><a href="#n10-ipv4-fragmentation"><span class="notes-toc__no" aria-hidden="true">17</span>IPv4数据报分片与片偏移</a></li>
-          <li><a href="#n10-ipv6-header-addresses"><span class="notes-toc__no" aria-hidden="true">18</span>IPv6地址、基本首部与转发特点</a></li>
-          <li><a href="#n11-arp-forwarding"><span class="notes-toc__no" aria-hidden="true">19</span>ARP与跨局域网逐跳转发</a></li>
-          <li><a href="#n11-routing-table"><span class="notes-toc__no" aria-hidden="true">20</span>路由表、下一跳与默认路由</a></li>
-          <li><a href="#n11-rip-distance-vector"><span class="notes-toc__no" aria-hidden="true">21</span>RIP距离向量与路由表更新</a></li>
-          <li><a href="#n11-icmp"><span class="notes-toc__no" aria-hidden="true">22</span>ICMP差错报告与网络诊断</a></li>
-        </ol>
-      </nav>
-      <div class="review-content">
-        <section class="review-panel" id="timeline" aria-labelledby="timeline-title">
-          <h2 id="timeline-title">课堂图片日期索引</h2>
-          <p>首批开课图片归档于北京时间 9 月 7 日，对应美西时间 9 月 6 日晚。14 个有图日期包括复习附件，未作为完整课次统计。</p>
-          <ol class="review-dates">
-            <li id="date-2026-09-07"><time datetime="2026-09-07">2026-09-07</time><span class="review-date-count">8 张</span><span>#01–02课程准备；#03–05网络组成、互联网边缘与核心；#06网络拓扑；#07三种交换方式；#08课后任务。可核对8张。</span></li>
-            <li id="date-2026-09-14"><time datetime="2026-09-14">2026-09-14</time><span class="review-date-count">31 张</span><span>#01–07网络概念与交换；#08–19分层模型、协议、封装和服务；#20–24复习题；#25–31速率、带宽与时延。可核对31张。</span></li>
-            <li id="date-2026-09-16"><time datetime="2026-09-16">2026-09-16</time><span class="review-date-count">22 张</span><span>#01–05四类时延；#07–10通信系统与信号；#11–22码元、波特率、奈奎斯特和香农定理。#06是课后作业（讲义 P31 第 29 题）。可核对22张。</span></li>
-            <li id="date-2026-09-24"><time datetime="2026-09-24">2026-09-24</time><span class="review-date-count">32 张</span><span>#01–08容量计算、信噪比与误码率；#09–13调制和PCM；#14–25线路编码；#26–28传输方式；#29–32传输介质及作业。可核对32张。</span></li>
-            <li id="date-2026-09-26"><time datetime="2026-09-26">2026-09-26</time><span class="review-date-count">32 张</span><span>#01–07曼彻斯特编码练习；#08–10网络介质；#11–12时分复用；#13–28 CDMA码片计算；#29–32复用技术比较。可核对32张。</span></li>
-            <li id="date-2026-10-10"><time datetime="2026-10-10">2026-10-10</time><span class="review-date-count">18 张</span><span>#01–03奇偶校验；#04–12 CRC、多项式与检错；#13–18 PPP帧结构、字节转义和零比特填充。可核对18张。</span></li>
-            <li id="date-2026-10-14"><time datetime="2026-10-14">2026-10-14</time><span class="review-date-count">1 张</span><span>#01复习作业题号汇总。仅能确认复习索引，不能据此认定当天讲授了新的知识点。可核对1张。</span></li>
-            <li id="date-2026-10-15"><time datetime="2026-10-15">2026-10-15</time><span class="review-date-count">16 张</span><span>#01–02 CRC复习；#03局域网；#04–06 CSMA/CD；#07–08以太网帧；#09–14物理连接与MAC；#15–16集线器。可核对16张。</span></li>
-            <li id="date-2026-10-22"><time datetime="2026-10-22">2026-10-22</time><span class="review-date-count">19 张</span><span>#01–05集线器与交换机带宽；#06–10交换机自学习；#11–13碰撞域；#14–19 VLAN、广播域和网络设备。可核对19张。</span></li>
-            <li id="date-2026-10-29"><time datetime="2026-10-29">2026-10-29</time><span class="review-date-count">8 张</span><span>#01–03 IPv4分片、标志位与偏移；#04–08 IPv4地址、历史分类、私有地址和环回地址。可核对8张。</span></li>
-            <li id="date-2026-11-07"><time datetime="2026-11-07">2026-11-07</time><span class="review-date-count">22 张</span><span>#01–02分片与地址复习；#03–07掩码与按位与；#08复习结构；#09–19子网规划；#20–22 CIDR。可核对22张。</span></li>
-            <li id="date-2026-11-12"><time datetime="2026-11-12">2026-11-12</time><span class="review-date-count">1 张</span><span>#01课程知识结构复习图。仅作为已学内容的整理证据，不推定新增授课知识。可核对1张。</span></li>
-            <li id="date-2026-11-14"><time datetime="2026-11-14">2026-11-14</time><span class="review-date-count">17 张</span><span>#01–04地址规划；#05–09路由聚合与匹配；#10–14子网划分、VLSM和点对点链路；#15–17 IPv6。可核对17张。</span></li>
-            <li id="date-2026-11-21"><time datetime="2026-11-21">2026-11-21</time><span class="review-date-count">27 张</span><span>#01–04 IPv6；#05及#25–26 ARP；#06–11路由查表；#12–21 RIP；#22–24路由器；#27 ICMP。可核对27张。</span></li>
+      <div class="review-navigation">
+        <button type="button" class="review-toc-toggle" aria-expanded="false" aria-controls="review-toc" hidden>章节目录</button>
+        <nav class="notes-toc" id="review-toc" aria-label="知识点目录">
+          <p class="notes-toc__title">知识点目录</p>
+          <input class="review-toc-filter" type="search" aria-label="查找本课知识点" placeholder="查找本课知识点" autocomplete="off" hidden>
+          <p class="review-toc-empty" role="status" hidden>没有匹配的知识点。</p>
+          <ol class="notes-toc__list">
+            <li><a href="#n01-network-topology-switching"><span class="notes-toc__no" aria-hidden="true">01</span>网络组成、拓扑结构与交换方式</a></li>
+            <li><a href="#n02-layered-model-encapsulation"><span class="notes-toc__no" aria-hidden="true">02</span>网络分层模型、协议与封装</a></li>
+            <li><a href="#n03-bandwidth-delay"><span class="notes-toc__no" aria-hidden="true">03</span>传输速率、带宽与网络时延</a></li>
+            <li><a href="#n04-symbol-capacity-limits"><span class="notes-toc__no" aria-hidden="true">04</span>码元速率、奈奎斯特定理与香农容量</a></li>
+            <li><a href="#n05-modulation-pcm"><span class="notes-toc__no" aria-hidden="true">05</span>数字调制与PCM编码</a></li>
+            <li><a href="#n05-line-coding-media"><span class="notes-toc__no" aria-hidden="true">06</span>线路编码、同步传输与传输介质</a></li>
+            <li><a href="#n06-multiplexing"><span class="notes-toc__no" aria-hidden="true">07</span>频分、时分、统计时分与波分复用</a></li>
+            <li><a href="#n06-cdma-chip-decoding"><span class="notes-toc__no" aria-hidden="true">08</span>CDMA正交码片与归一化内积</a></li>
+            <li><a href="#n07-parity-crc"><span class="notes-toc__no" aria-hidden="true">09</span>奇偶校验、CRC与检错</a></li>
+            <li><a href="#n07-ppp-framing"><span class="notes-toc__no" aria-hidden="true">10</span>PPP帧结构与透明传输</a></li>
+            <li><a href="#n08-ethernet-csma-frame"><span class="notes-toc__no" aria-hidden="true">11</span>以太网帧、CSMA/CD与最小帧长</a></li>
+            <li><a href="#n08-switch-learning-vlan"><span class="notes-toc__no" aria-hidden="true">12</span>集线器、交换机自学习与VLAN</a></li>
+            <li><a href="#n09-ipv4-addressing"><span class="notes-toc__no" aria-hidden="true">13</span>IPv4地址结构、历史分类与特殊地址</a></li>
+            <li><a href="#n09-subnet-cidr"><span class="notes-toc__no" aria-hidden="true">14</span>子网掩码、CIDR与地址块计算</a></li>
+            <li><a href="#n09-vlsm-point-to-point"><span class="notes-toc__no" aria-hidden="true">15</span>定长子网划分、VLSM与点对点网络</a></li>
+            <li><a href="#n09-route-aggregation-match"><span class="notes-toc__no" aria-hidden="true">16</span>路由聚合与最长前缀匹配</a></li>
+            <li><a href="#n10-ipv4-fragmentation"><span class="notes-toc__no" aria-hidden="true">17</span>IPv4数据报分片与片偏移</a></li>
+            <li><a href="#n10-ipv6-header-addresses"><span class="notes-toc__no" aria-hidden="true">18</span>IPv6地址、基本首部与转发特点</a></li>
+            <li><a href="#n11-arp-forwarding"><span class="notes-toc__no" aria-hidden="true">19</span>ARP与跨局域网逐跳转发</a></li>
+            <li><a href="#n11-routing-table"><span class="notes-toc__no" aria-hidden="true">20</span>路由表、下一跳与默认路由</a></li>
+            <li><a href="#n11-rip-distance-vector"><span class="notes-toc__no" aria-hidden="true">21</span>RIP距离向量与路由表更新</a></li>
+            <li><a href="#n11-icmp"><span class="notes-toc__no" aria-hidden="true">22</span>ICMP差错报告与网络诊断</a></li>
           </ol>
-          <p class="review-source-note">图号按北京时间的日期和当日图片序号标注，如 11-21#05 对应 11 月 21 日第 5 张。知识点由课堂证据归纳，练习为复习用。</p>
-        </section>
-        <section id="topics" aria-labelledby="topics-title">
-          <div class="notes-section-title"><h2 id="topics-title">按学习顺序复习</h2><a href="#timeline">查看日期索引</a></div>
+        </nav>
+      </div>
+      <div class="review-content">
+        <section id="topics" tabindex="-1" aria-labelledby="topics-title">
+          <div class="notes-section-title"><h2 id="topics-title" tabindex="-1">按学习顺序复习</h2></div>
           <section class="review-topic" id="n01-network-topology-switching" aria-labelledby="n01-network-topology-switching-title">
-            <h3 id="n01-network-topology-switching-title"><span class="review-number" aria-hidden="true">01</span>网络组成、拓扑结构与交换方式</h3>
+            <h3 id="n01-network-topology-switching-title" tabindex="-1"><span class="review-number" aria-hidden="true">01</span>网络组成、拓扑结构与交换方式</h3>
             <p>理解计算机网络如何连接设备，以及信息通过网络传送的基本方式。</p>
             <ul class="review-points">
               <li>网络由主机、网络设备和通信链路等组成，多个网络可以通过路由设备互连。</li>
@@ -104,7 +89,7 @@
             <p class="question__source">课堂图号 <a href="#date-2026-09-07">09-07#03–07</a>、<a href="#date-2026-09-14">09-14#01–07</a></p>
           </section>
           <section class="review-topic" id="n02-layered-model-encapsulation" aria-labelledby="n02-layered-model-encapsulation-title">
-            <h3 id="n02-layered-model-encapsulation-title"><span class="review-number" aria-hidden="true">02</span>网络分层模型、协议与封装</h3>
+            <h3 id="n02-layered-model-encapsulation-title" tabindex="-1"><span class="review-number" aria-hidden="true">02</span>网络分层模型、协议与封装</h3>
             <p>建立网络分层概念，能够判断协议、服务、数据单元和封装过程之间的关系。</p>
             <ul class="review-points">
               <li>OSI参考模型自下而上为物理层、数据链路层、网络层、传输层、会话层、表示层和应用层。</li>
@@ -121,7 +106,7 @@
             <p class="question__source">课堂图号 <a href="#date-2026-09-14">09-14#08–19</a></p>
           </section>
           <section class="review-topic" id="n03-bandwidth-delay" aria-labelledby="n03-bandwidth-delay-title">
-            <h3 id="n03-bandwidth-delay-title"><span class="review-number" aria-hidden="true">03</span>传输速率、带宽与网络时延</h3>
+            <h3 id="n03-bandwidth-delay-title" tabindex="-1"><span class="review-number" aria-hidden="true">03</span>传输速率、带宽与网络时延</h3>
             <p>掌握网络性能的常用单位和四类时延，能够独立完成基础计算。</p>
             <ul class="review-points">
               <li>网络传输速率常用bit/s、kbit/s、Mbit/s表示；1B等于8bit，计算前应统一单位。</li>
@@ -138,7 +123,7 @@
             <p class="question__source">课堂图号 <a href="#date-2026-09-14">09-14#25–31</a>、<a href="#date-2026-09-16">09-16#01–05</a></p>
           </section>
           <section class="review-topic" id="n04-symbol-capacity-limits" aria-labelledby="n04-symbol-capacity-limits-title">
-            <h3 id="n04-symbol-capacity-limits-title"><span class="review-number" aria-hidden="true">04</span>码元速率、奈奎斯特定理与香农容量</h3>
+            <h3 id="n04-symbol-capacity-limits-title" tabindex="-1"><span class="review-number" aria-hidden="true">04</span>码元速率、奈奎斯特定理与香农容量</h3>
             <p>能够区分波特率、比特率、频率带宽与信道容量，正确计算理想信道的理论上限。</p>
             <ul class="review-points">
               <li>码元速率表示每秒传送的码元数量，单位为Baud；若每码元有N种可区分状态，则每码元可携带log₂N bit信息。</li>
@@ -155,7 +140,7 @@
             <p class="question__source">课堂图号 <a href="#date-2026-09-16">09-16#11–22</a>、<a href="#date-2026-09-24">09-24#01–08</a></p>
           </section>
           <section class="review-topic" id="n05-modulation-pcm" aria-labelledby="n05-modulation-pcm-title">
-            <h3 id="n05-modulation-pcm-title"><span class="review-number" aria-hidden="true">05</span>数字调制与PCM编码</h3>
+            <h3 id="n05-modulation-pcm-title" tabindex="-1"><span class="review-number" aria-hidden="true">05</span>数字调制与PCM编码</h3>
             <p>理解数字信息怎样通过信号参数变化进行表示，以及模拟信号数字化的基本流程。</p>
             <ul class="review-points">
               <li>ASK通过改变载波幅度区分信号状态。</li>
@@ -172,7 +157,7 @@
             <p class="question__source">课堂图号 <a href="#date-2026-09-24">09-24#09–13</a></p>
           </section>
           <section class="review-topic" id="n05-line-coding-media" aria-labelledby="n05-line-coding-media-title">
-            <h3 id="n05-line-coding-media-title"><span class="review-number" aria-hidden="true">06</span>线路编码、同步传输与传输介质</h3>
+            <h3 id="n05-line-coding-media-title" tabindex="-1"><span class="review-number" aria-hidden="true">06</span>线路编码、同步传输与传输介质</h3>
             <p>学会识别常见数字线路波形、异步字符结构和物理传输介质。</p>
             <ul class="review-points">
               <li>NRZ编码不强制每位内部产生跳变，长时间连续相同状态可能增加时钟同步难度。</li>
@@ -189,7 +174,7 @@
             <p class="question__source">课堂图号 <a href="#date-2026-09-24">09-24#14–28</a>、<a href="#date-2026-09-24">09-24#29–31</a>、<a href="#date-2026-09-26">09-26#01–10</a></p>
           </section>
           <section class="review-topic" id="n06-multiplexing" aria-labelledby="n06-multiplexing-title">
-            <h3 id="n06-multiplexing-title"><span class="review-number" aria-hidden="true">07</span>频分、时分、统计时分与波分复用</h3>
+            <h3 id="n06-multiplexing-title" tabindex="-1"><span class="review-number" aria-hidden="true">07</span>频分、时分、统计时分与波分复用</h3>
             <p>掌握多用户共享信道的基本方式，能够处理简单带宽分配题。</p>
             <ul class="review-points">
               <li>FDM将可用频带分成不同频率范围，让多个信号同时占用不同频带。</li>
@@ -206,7 +191,7 @@
             <p class="question__source">课堂图号 <a href="#date-2026-09-26">09-26#11–12</a>、<a href="#date-2026-09-26">09-26#29–32</a></p>
           </section>
           <section class="review-topic" id="n06-cdma-chip-decoding" aria-labelledby="n06-cdma-chip-decoding-title">
-            <h3 id="n06-cdma-chip-decoding-title"><span class="review-number" aria-hidden="true">08</span>CDMA正交码片与归一化内积</h3>
+            <h3 id="n06-cdma-chip-decoding-title" tabindex="-1"><span class="review-number" aria-hidden="true">08</span>CDMA正交码片与归一化内积</h3>
             <p>能够依据码片序列完成信号叠加、相关计算和用户数据判决。</p>
             <ul class="review-points">
               <li>按课堂约定，码片可用+1和-1表示，二进制符号与正负码片之间的映射应事先确定。</li>
@@ -223,7 +208,7 @@
             <p class="question__source">课堂图号 <a href="#date-2026-09-26">09-26#13–28</a></p>
           </section>
           <section class="review-topic" id="n07-parity-crc" aria-labelledby="n07-parity-crc-title">
-            <h3 id="n07-parity-crc-title"><span class="review-number" aria-hidden="true">09</span>奇偶校验、CRC与检错</h3>
+            <h3 id="n07-parity-crc-title" tabindex="-1"><span class="review-number" aria-hidden="true">09</span>奇偶校验、CRC与检错</h3>
             <p>掌握基础检错方法，重点学会CRC生成多项式、模2除法和接收端判别。</p>
             <ul class="review-points">
               <li>偶校验使数据与校验位中的1总数为偶数，奇校验使其为奇数；简单奇偶校验不能发现所有差错。</li>
@@ -240,7 +225,7 @@
             <p class="question__source">课堂图号 <a href="#date-2026-10-10">10-10#01–12</a>、<a href="#date-2026-10-15">10-15#01–02</a></p>
           </section>
           <section class="review-topic" id="n07-ppp-framing" aria-labelledby="n07-ppp-framing-title">
-            <h3 id="n07-ppp-framing-title"><span class="review-number" aria-hidden="true">10</span>PPP帧结构与透明传输</h3>
+            <h3 id="n07-ppp-framing-title" tabindex="-1"><span class="review-number" aria-hidden="true">10</span>PPP帧结构与透明传输</h3>
             <p>理解PPP帧的基本字段，以及异步字节填充和同步零比特填充。</p>
             <ul class="review-points">
               <li>典型PPP帧包含起始标志、地址、控制、协议、信息、FCS和结束标志等部分。</li>
@@ -257,7 +242,7 @@
             <p class="question__source">课堂图号 <a href="#date-2026-10-10">10-10#13–18</a></p>
           </section>
           <section class="review-topic" id="n08-ethernet-csma-frame" aria-labelledby="n08-ethernet-csma-frame-title">
-            <h3 id="n08-ethernet-csma-frame-title"><span class="review-number" aria-hidden="true">11</span>以太网帧、CSMA/CD与最小帧长</h3>
+            <h3 id="n08-ethernet-csma-frame-title" tabindex="-1"><span class="review-number" aria-hidden="true">11</span>以太网帧、CSMA/CD与最小帧长</h3>
             <p>理解传统共享以太网的碰撞检测机制及标准以太网帧的基础字段。</p>
             <ul class="review-points">
               <li>传统共享式半双工以太网通过CSMA/CD协调介质访问：发送前监听、发送时检测冲突、冲突后停止并按退避机制重试。</li>
@@ -274,7 +259,7 @@
             <p class="question__source">课堂图号 <a href="#date-2026-10-15">10-15#04–08</a>、<a href="#date-2026-10-15">10-15#09–14</a></p>
           </section>
           <section class="review-topic" id="n08-switch-learning-vlan" aria-labelledby="n08-switch-learning-vlan-title">
-            <h3 id="n08-switch-learning-vlan-title"><span class="review-number" aria-hidden="true">12</span>集线器、交换机自学习与VLAN</h3>
+            <h3 id="n08-switch-learning-vlan-title" tabindex="-1"><span class="review-number" aria-hidden="true">12</span>集线器、交换机自学习与VLAN</h3>
             <p>掌握交换机转发帧的基本规则，并区分碰撞域与广播域。</p>
             <ul class="review-points">
               <li>集线器主要工作在物理层，传统共享式连接中的设备共享介质访问资源。</li>
@@ -291,7 +276,7 @@
             <p class="question__source">课堂图号 <a href="#date-2026-10-15">10-15#15–16</a>、<a href="#date-2026-10-22">10-22#01–13</a>、<a href="#date-2026-10-22">10-22#14–19</a></p>
           </section>
           <section class="review-topic" id="n09-ipv4-addressing" aria-labelledby="n09-ipv4-addressing-title">
-            <h3 id="n09-ipv4-addressing-title"><span class="review-number" aria-hidden="true">13</span>IPv4地址结构、历史分类与特殊地址</h3>
+            <h3 id="n09-ipv4-addressing-title" tabindex="-1"><span class="review-number" aria-hidden="true">13</span>IPv4地址结构、历史分类与特殊地址</h3>
             <p>掌握IPv4地址的基本形式、常见私有地址范围及历史分类规则。</p>
             <ul class="review-points">
               <li>IPv4地址长度为32bit，通常用四组点分十进制数表示，每组对应8bit。</li>
@@ -308,7 +293,7 @@
             <p class="question__source">课堂图号 <a href="#date-2026-10-29">10-29#04–08</a>、<a href="#date-2026-11-07">11-07#02–07</a></p>
           </section>
           <section class="review-topic" id="n09-subnet-cidr" aria-labelledby="n09-subnet-cidr-title">
-            <h3 id="n09-subnet-cidr-title"><span class="review-number" aria-hidden="true">14</span>子网掩码、CIDR与地址块计算</h3>
+            <h3 id="n09-subnet-cidr-title" tabindex="-1"><span class="review-number" aria-hidden="true">14</span>子网掩码、CIDR与地址块计算</h3>
             <p>学会根据IP地址和前缀求网络地址、广播地址、地址总数以及普通主机可用范围。</p>
             <ul class="review-points">
               <li>CIDR使用斜杠后的数字表示前缀长度，例如/20意味着前20bit属于网络前缀。</li>
@@ -325,7 +310,7 @@
             <p class="question__source">课堂图号 <a href="#date-2026-11-07">11-07#03–07</a>、<a href="#date-2026-11-07">11-07#20–22</a>、<a href="#date-2026-11-14">11-14#01–04</a></p>
           </section>
           <section class="review-topic" id="n09-vlsm-point-to-point" aria-labelledby="n09-vlsm-point-to-point-title">
-            <h3 id="n09-vlsm-point-to-point-title"><span class="review-number" aria-hidden="true">15</span>定长子网划分、VLSM与点对点网络</h3>
+            <h3 id="n09-vlsm-point-to-point-title" tabindex="-1"><span class="review-number" aria-hidden="true">15</span>定长子网划分、VLSM与点对点网络</h3>
             <p>掌握等长划分、按需求分配地址和/31特殊规则。</p>
             <ul class="review-points">
               <li>定长子网划分使用统一的新前缀，每个子网具有相同规模，计算时需检查子网边界。</li>
@@ -342,7 +327,7 @@
             <p class="question__source">课堂图号 <a href="#date-2026-11-07">11-07#09–19</a>、<a href="#date-2026-11-14">11-14#10–14</a></p>
           </section>
           <section class="review-topic" id="n09-route-aggregation-match" aria-labelledby="n09-route-aggregation-match-title">
-            <h3 id="n09-route-aggregation-match-title"><span class="review-number" aria-hidden="true">16</span>路由聚合与最长前缀匹配</h3>
+            <h3 id="n09-route-aggregation-match-title" tabindex="-1"><span class="review-number" aria-hidden="true">16</span>路由聚合与最长前缀匹配</h3>
             <p>理解路由汇总为什么可以减少表项，以及路由器怎样选择匹配的转发规则。</p>
             <ul class="review-points">
               <li>路由聚合将连续、适当对齐且能够用共同前缀表示的地址块归纳成一个较大的地址块。</li>
@@ -359,7 +344,7 @@
             <p class="question__source">课堂图号 <a href="#date-2026-11-14">11-14#05–09</a>、<a href="#date-2026-11-21">11-21#06–11</a></p>
           </section>
           <section class="review-topic" id="n10-ipv4-fragmentation" aria-labelledby="n10-ipv4-fragmentation-title">
-            <h3 id="n10-ipv4-fragmentation-title"><span class="review-number" aria-hidden="true">17</span>IPv4数据报分片与片偏移</h3>
+            <h3 id="n10-ipv4-fragmentation-title" tabindex="-1"><span class="review-number" aria-hidden="true">17</span>IPv4数据报分片与片偏移</h3>
             <p>熟练计算IPv4分片的数据长度、总长度、MF标志和片偏移。</p>
             <ul class="review-points">
               <li>IPv4数据报总长度包括IP首部和数据部分；无选项的基本首部通常为20B。</li>
@@ -376,7 +361,7 @@
             <p class="question__source">课堂图号 <a href="#date-2026-10-29">10-29#01–03</a>、<a href="#date-2026-11-07">11-07#01</a></p>
           </section>
           <section class="review-topic" id="n10-ipv6-header-addresses" aria-labelledby="n10-ipv6-header-addresses-title">
-            <h3 id="n10-ipv6-header-addresses-title"><span class="review-number" aria-hidden="true">18</span>IPv6地址、基本首部与转发特点</h3>
+            <h3 id="n10-ipv6-header-addresses-title" tabindex="-1"><span class="review-number" aria-hidden="true">18</span>IPv6地址、基本首部与转发特点</h3>
             <p>掌握IPv6地址表示方法、基本首部结构及其与IPv4的关键区别。</p>
             <ul class="review-points">
               <li>IPv6地址长度为128bit，通常写成8组十六进制数，每组16bit。</li>
@@ -393,7 +378,7 @@
             <p class="question__source">课堂图号 <a href="#date-2026-11-14">11-14#15–17</a>、<a href="#date-2026-11-21">11-21#01–04</a></p>
           </section>
           <section class="review-topic" id="n11-arp-forwarding" aria-labelledby="n11-arp-forwarding-title">
-            <h3 id="n11-arp-forwarding-title"><span class="review-number" aria-hidden="true">19</span>ARP与跨局域网逐跳转发</h3>
+            <h3 id="n11-arp-forwarding-title" tabindex="-1"><span class="review-number" aria-hidden="true">19</span>ARP与跨局域网逐跳转发</h3>
             <p>理解IP地址与MAC地址的职责，能够判断ARP请求针对哪一个设备。</p>
             <figure class="review-figure">
               <img src="assets/review/packet-forwarding.webp" width="1500" height="844" loading="lazy" decoding="async" alt="源主机经交换机、路由器和另一台交换机到达目的主机，路由器两侧的以太网帧用不同颜色标示。">
@@ -414,7 +399,7 @@
             <p class="question__source">课堂图号 <a href="#date-2026-11-21">11-21#05</a>、<a href="#date-2026-11-21">11-21#22–26</a></p>
           </section>
           <section class="review-topic" id="n11-routing-table" aria-labelledby="n11-routing-table-title">
-            <h3 id="n11-routing-table-title"><span class="review-number" aria-hidden="true">20</span>路由表、下一跳与默认路由</h3>
+            <h3 id="n11-routing-table-title" tabindex="-1"><span class="review-number" aria-hidden="true">20</span>路由表、下一跳与默认路由</h3>
             <p>能够根据目的IP地址、网络前缀和转发表选择正确的下一跳。</p>
             <ul class="review-points">
               <li>路由表通常记录目的网络前缀及转发所需的信息，例如出口接口或下一跳地址。</li>
@@ -431,7 +416,7 @@
             <p class="question__source">课堂图号 <a href="#date-2026-11-21">11-21#06–11</a></p>
           </section>
           <section class="review-topic" id="n11-rip-distance-vector" aria-labelledby="n11-rip-distance-vector-title">
-            <h3 id="n11-rip-distance-vector-title"><span class="review-number" aria-hidden="true">21</span>RIP距离向量与路由表更新</h3>
+            <h3 id="n11-rip-distance-vector-title" tabindex="-1"><span class="review-number" aria-hidden="true">21</span>RIP距离向量与路由表更新</h3>
             <p>能够执行RIP的邻居通告处理，重点判断新增、同邻居更新、较短路径替换和不可达路由。</p>
             <ul class="review-points">
               <li>RIP是距离向量路由协议，主要使用跳数作为距离度量；1至15为有效可达度量，16表示不可达。</li>
@@ -448,7 +433,7 @@
             <p class="question__source">课堂图号 <a href="#date-2026-11-21">11-21#12–15</a>、<a href="#date-2026-11-21">11-21#16–18</a>、<a href="#date-2026-11-21">11-21#19–21</a></p>
           </section>
           <section class="review-topic" id="n11-icmp" aria-labelledby="n11-icmp-title">
-            <h3 id="n11-icmp-title"><span class="review-number" aria-hidden="true">22</span>ICMP差错报告与网络诊断</h3>
+            <h3 id="n11-icmp-title" tabindex="-1"><span class="review-number" aria-hidden="true">22</span>ICMP差错报告与网络诊断</h3>
             <p>认识ICMP在IP网络中的辅助作用，区分控制报文和应用层数据传输。</p>
             <ul class="review-points">
               <li>ICMP用于传递与IP网络处理有关的控制、差错和诊断信息。</li>
@@ -463,6 +448,28 @@
             </details>
             <p class="question__source">课堂图号 <a href="#date-2026-11-21">11-21#22–24</a>、<a href="#date-2026-11-21">11-21#27</a></p>
           </section>
+        </section>
+        <section class="review-panel" id="timeline" tabindex="-1" aria-labelledby="timeline-title">
+          <h2 id="timeline-title" tabindex="-1">课堂资料与日期索引</h2>
+          <p>首批开课图片归档于北京时间 9 月 7 日，对应美西时间 9 月 6 日晚。14 个有图日期包括复习附件，未作为完整课次统计。</p>
+          <ol class="review-dates">
+            <li id="date-2026-09-07" tabindex="-1"><time datetime="2026-09-07">2026-09-07</time><span class="review-date-count">8 张</span><span>#01–02课程准备；#03–05网络组成、互联网边缘与核心；#06网络拓扑；#07三种交换方式；#08课后任务。可核对8张。</span></li>
+            <li id="date-2026-09-14" tabindex="-1"><time datetime="2026-09-14">2026-09-14</time><span class="review-date-count">31 张</span><span>#01–07网络概念与交换；#08–19分层模型、协议、封装和服务；#20–24复习题；#25–31速率、带宽与时延。可核对31张。</span></li>
+            <li id="date-2026-09-16" tabindex="-1"><time datetime="2026-09-16">2026-09-16</time><span class="review-date-count">22 张</span><span>#01–05四类时延；#07–10通信系统与信号；#11–22码元、波特率、奈奎斯特和香农定理。#06是课后作业（讲义 P31 第 29 题）。可核对22张。</span></li>
+            <li id="date-2026-09-24" tabindex="-1"><time datetime="2026-09-24">2026-09-24</time><span class="review-date-count">32 张</span><span>#01–08容量计算、信噪比与误码率；#09–13调制和PCM；#14–25线路编码；#26–28传输方式；#29–32传输介质及作业。可核对32张。</span></li>
+            <li id="date-2026-09-26" tabindex="-1"><time datetime="2026-09-26">2026-09-26</time><span class="review-date-count">32 张</span><span>#01–07曼彻斯特编码练习；#08–10网络介质；#11–12时分复用；#13–28 CDMA码片计算；#29–32复用技术比较。可核对32张。</span></li>
+            <li id="date-2026-10-10" tabindex="-1"><time datetime="2026-10-10">2026-10-10</time><span class="review-date-count">18 张</span><span>#01–03奇偶校验；#04–12 CRC、多项式与检错；#13–18 PPP帧结构、字节转义和零比特填充。可核对18张。</span></li>
+            <li id="date-2026-10-14" tabindex="-1"><time datetime="2026-10-14">2026-10-14</time><span class="review-date-count">1 张</span><span>#01复习作业题号汇总。仅能确认复习索引，不能据此认定当天讲授了新的知识点。可核对1张。</span></li>
+            <li id="date-2026-10-15" tabindex="-1"><time datetime="2026-10-15">2026-10-15</time><span class="review-date-count">16 张</span><span>#01–02 CRC复习；#03局域网；#04–06 CSMA/CD；#07–08以太网帧；#09–14物理连接与MAC；#15–16集线器。可核对16张。</span></li>
+            <li id="date-2026-10-22" tabindex="-1"><time datetime="2026-10-22">2026-10-22</time><span class="review-date-count">19 张</span><span>#01–05集线器与交换机带宽；#06–10交换机自学习；#11–13碰撞域；#14–19 VLAN、广播域和网络设备。可核对19张。</span></li>
+            <li id="date-2026-10-29" tabindex="-1"><time datetime="2026-10-29">2026-10-29</time><span class="review-date-count">8 张</span><span>#01–03 IPv4分片、标志位与偏移；#04–08 IPv4地址、历史分类、私有地址和环回地址。可核对8张。</span></li>
+            <li id="date-2026-11-07" tabindex="-1"><time datetime="2026-11-07">2026-11-07</time><span class="review-date-count">22 张</span><span>#01–02分片与地址复习；#03–07掩码与按位与；#08复习结构；#09–19子网规划；#20–22 CIDR。可核对22张。</span></li>
+            <li id="date-2026-11-12" tabindex="-1"><time datetime="2026-11-12">2026-11-12</time><span class="review-date-count">1 张</span><span>#01课程知识结构复习图。仅作为已学内容的整理证据，不推定新增授课知识。可核对1张。</span></li>
+            <li id="date-2026-11-14" tabindex="-1"><time datetime="2026-11-14">2026-11-14</time><span class="review-date-count">17 张</span><span>#01–04地址规划；#05–09路由聚合与匹配；#10–14子网划分、VLSM和点对点链路；#15–17 IPv6。可核对17张。</span></li>
+            <li id="date-2026-11-21" tabindex="-1"><time datetime="2026-11-21">2026-11-21</time><span class="review-date-count">27 张</span><span>#01–04 IPv6；#05及#25–26 ARP；#06–11路由查表；#12–21 RIP；#22–24路由器；#27 ICMP。可核对27张。</span></li>
+          </ol>
+          <p class="review-source-note">图号按北京时间的日期和当日图片序号标注，如 11-21#05 对应 11 月 21 日第 5 张。知识点由课堂证据归纳，练习为复习用。</p>
+          <p><a href="network.html">查看早期笔记</a></p>
         </section>
       </div>
     </div>

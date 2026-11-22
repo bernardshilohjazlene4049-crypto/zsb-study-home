@@ -11,8 +11,9 @@ const PAGES = [
   "wy/ch1/index.html", "wy/ch2/index.html", "wy/ch1/s11.html", "wy/ch1/s13.html", "wy/ch2/s21.html", "wy/ch2/s22.html", "wy/ch2/s24.html",
   "wl/index.html", "wl/ch1/index.html", "wl/ch1/s11.html", "wl/ch2/s26.html", "wl/ch3/s34.html", "wl/ch5/s53.html", "wl/ch6/s61.html",
   "notes/index.html", "notes/network.html", "notes/web.html", "notes/map.html", "notes/sources.html",
+  "notes/network-review.html#n11-rip-distance-vector", "notes/web-review.html#form-structure-ownership",
   "study/index.html", "study/overview.html", "search.html",
-  "study/graph.html", "study/index.html#/mistakes", "tower/index.html", "search.html?q=极限"
+  "study/graph.html", "study/index.html#/mistakes", "tower/index.html", "search.html?q=极限", "search.html?q=RIP"
 ];
 const browser = await chromium.launch(process.env.CHROME_PATH ? { executablePath: process.env.CHROME_PATH } : {});
 const rows = [];
