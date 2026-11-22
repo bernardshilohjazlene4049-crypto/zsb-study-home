@@ -9,7 +9,8 @@ function mount() {
   const toc = navigation.querySelector(".notes-toc");
   if (!toggle || !toc) return;
 
-  const links = toc.querySelectorAll('a[href^="#"]');
+  const list = toc.querySelector(".notes-toc__list");
+  const links = list.querySelectorAll('a[href^="#"]');
   const filter = toc.querySelector(".review-toc-filter");
   const empty = toc.querySelector(".review-toc-empty");
   const subject = document.querySelector('link[rel="canonical"]')?.href.endsWith("/network-review.html") ? "network" : "web_design";
@@ -18,6 +19,14 @@ function mount() {
 
   function setOpen(open) {
     toggle.setAttribute("aria-expanded", String(open));
+    if (!open) return;
+    const current = list.querySelector('[aria-current="location"]');
+    if (!current?.getClientRects().length) return;
+    const row = current.getBoundingClientRect();
+    const viewport = list.getBoundingClientRect();
+    if (row.top < viewport.top || row.bottom > viewport.bottom) {
+      list.scrollTop += row.top - viewport.top - (viewport.height - row.height) / 2;
+    }
   }
 
   function markCurrent() {

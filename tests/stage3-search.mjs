@@ -23,6 +23,7 @@ test("36 个知识点按页面阅读顺序精确指向存在的章节容器", ()
     assert.equal(ids.length, expected);
     assert.deepEqual(result.map(({ href }) => href), ids.map((id) => `notes/${file}-review.html#${id}`));
     assert.deepEqual(result.map(({ order }) => order), ids.map((_, index) => index + 1));
+    assert.ok(result.every(({ chapter }) => chapter), subject);
   }
 });
 
@@ -45,6 +46,8 @@ test("真实查询优先匹配课堂知识点的精确链接", () => {
     assert.equal(findReviewTopics(query)[0]?.href.split("#")[1], expected, query);
   }
   assert.deepEqual(findReviewTopics("RIP", "web_design"), []);
+  assert.equal(findReviewTopics("RIP")[0].chapter, "路由与转发");
+  assert.equal(findReviewTopics("表单归属")[0].chapter, "HTML 表单");
 });
 
 test("英文缩写匹配词边界，旧中文词、别名与有意义的符号继续检索", () => {

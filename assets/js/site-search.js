@@ -274,7 +274,7 @@ async function search(q) {
   status.textContent = "搜索中…";
   const m = await getModel();
   if (ticket !== serial) return;
-  const review = findReviewTopics(query).map((topic) => ({ ...topic, type: "topic", review: true, meta: `${subjectName(topic.subject)} · 课堂复习` }));
+  const review = findReviewTopics(query).map((topic) => ({ ...topic, type: "topic", review: true, meta: `${subjectName(topic.subject)} · ${topic.chapter}` }));
   const catalog = [...review, ...catalogItems(m, matcher)];
   state.items = mergeSearchResults(catalog, ROOT);
   if (state.items.length) paint();
