@@ -63,6 +63,11 @@
   "assets/js/gs-viz.js": 19697,
   "assets/js/hash-scroll.js": 6153,
   "assets/js/lab-viz.js": 37728,
+  "assets/js/lab/c-runner.js": 53108,
+  "assets/js/lab/lab-modal.js": 13564,
+  "assets/js/lab/lab-ui.js": 30597,
+  "assets/js/lab/sql-runner.js": 46828,
+  "assets/js/lab/topic-labs.js": 23750,
   "assets/js/lecture-player.js": 14533,
   "assets/js/net-viz.js": 13654,
   "assets/js/network-lab.js": 6276,
@@ -89,6 +94,7 @@
   "assets/js/viz-plane.js": 11236,
   "assets/js/wy-points.js": 5564,
   "c/index.html": 13403,
+  "c/notes.html": 447224,
   "config/site.json": 709,
   "data/dependencies.json": 40807,
   "data/lesson-guides.json": 98894,
@@ -123,6 +129,7 @@
   "study-bridge.js": 1149,
   "study/graph.html": 3214,
   "study/index.html": 4248,
+  "study/lab.html": 15733,
   "study/overview.html": 4561,
   "style.css": 13256,
   "tower/index.html": 4925,
@@ -281,12 +288,12 @@
   "yy/yy5.html": 383713
  },
  "categories": {
-  "html": 3314657,
-  "css/js": 1070311,
+  "html": 3777614,
+  "css/js": 1238158,
   "图片": 70389624,
   "json": 1151703,
   "音视频": 558870549,
   "其他": 474276
  },
- "total": 635271120
+ "total": 635901924
 }
