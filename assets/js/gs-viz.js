@@ -5,9 +5,9 @@
   const demo = page.querySelector('.gs-demo');
   if (!demo || demo.dataset.ready) return;
   demo.dataset.ready = '1';
-  const teal = '#006659';
-  const rust = '#a24419';
-  const ink = '#172d35';
+  const teal = '#1d4ed8';
+  const rust = '#b91c1c';
+  const ink = '#111318';
   const fmt = (x, digits = 5) => String(Number(x.toFixed(digits))).replace('-', '−');
   const clamp = (x, min, max) => Math.max(min, Math.min(max, x));
 
@@ -90,20 +90,20 @@
     const xTicks = options.xTicks || [xmin, (xmin + xmax) / 2, xmax];
     const yTicks = options.yTicks || [ymin, (ymin + ymax) / 2, ymax];
     yTicks.forEach(y => {
-      line(xmin, y, xmax, y, '#dfe9e6');
+      line(xmin, y, xmax, y, '#eff4ff');
       ctx.textAlign = 'right';
       label(fmt(y, 3), xmin, y, ink, -5, 4);
     });
     xTicks.forEach(x => {
-      line(x, ymin, x, ymax, '#dfe9e6');
+      line(x, ymin, x, ymax, '#eff4ff');
       ctx.textAlign = 'center';
       label(fmt(x, 3), x, ymin, ink, 0, 18);
     });
     ctx.textAlign = 'left';
     const axisX = clamp(0, xmin, xmax);
     const axisY = clamp(0, ymin, ymax);
-    line(axisX, ymin, axisX, ymax, '#71858b');
-    line(xmin, axisY, xmax, axisY, '#71858b');
+    line(axisX, ymin, axisX, ymax, '#475569');
+    line(xmin, axisY, xmax, axisY, '#475569');
     ctx.textAlign = 'right';
     label(options.xLabel || 'x', xmax, axisY, ink, -3, -5);
     ctx.textAlign = 'left';
@@ -439,7 +439,7 @@
       const between = A !== B && level > Math.min(A, B) && level < Math.max(A, B);
       const meets = zeroMode ? product < 0 : between;
       graph = plot(figure, [-3.3, 3.3, -1.3, 5.1], { xTicks: [-3, 0, 3], yTicks: [-1, 0, 2, 4] });
-      graph.curve(fn, -limit, limit, '#839c97');
+      graph.curve(fn, -limit, limit, '#64748b');
       graph.curve(fn, a, b);
       graph.line(-3.3, level, 3.3, level, rust, [4, 4]);
       graph.point(a, A, teal, false, 'a', -15, -9);

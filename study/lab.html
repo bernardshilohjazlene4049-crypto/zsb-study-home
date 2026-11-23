@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f7f8fa">
+  <meta name="description" content="辽宁专升本在线代码实操环境：支持单独编辑与即时运行 C 语言（1–9章语法/指针/数组/scanf）、HTML/CSS/JS 实时预览与 SQL Server 教务四表查询。">
+  <title>在线代码实操台（C / HTML / SQL）· 辽宁专升本</title>
+  <link rel="canonical" href="https://bernardshilohjazlene4049-crypto.github.io/zsb-study-home/study/lab.html">
+  <meta name="zsb-module" content="lab">
+  <meta name="zsb-status" content="ready">
+  <link rel="manifest" href="../manifest.webmanifest">
+  <script src="../assets/js/sw-register.js" defer></script>
+  <link rel="stylesheet" href="../assets/css/site-shell.css">
+  <script src="../assets/js/site-shell.js"></script>
+  <style>
+    .lab-main { width: min(100% - 36px, 1340px); margin: 0 auto; padding: 18px 0 48px; }
+    .lab-hero { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 18px; margin-bottom: 14px; }
+    .lab-hero__copy h1 { margin: 0; font-size: clamp(20px, 2.4vw, 26px); color: var(--sh-ink); letter-spacing: -.02em; }
+    .lab-hero__copy p { margin: 4px 0 0; font-size: 13px; color: var(--sh-ink-2); }
+    .lab-lang-tabs { display: inline-flex; gap: 4px; padding: 4px; border-radius: 12px; background: #eef1f6; border: 1px solid #d8dee6; }
+    .lab-lang-tab { min-height: 36px; padding: 0 16px; border: 0; border-radius: 9px; background: transparent; color: var(--sh-ink-2); font: inherit; font-size: 13.5px; font-weight: 650; cursor: pointer; transition: all .15s ease; }
+    .lab-lang-tab:hover { color: var(--sh-ink); }
+    .lab-lang-tab.is-on { background: #1d4ed8; color: #ffffff; box-shadow: 0 2px 8px rgba(29, 78, 216, .22); }
+
+    .lab-toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; padding: 11px 14px; margin-bottom: 12px; border: 1px solid #d8dee6; border-radius: 14px; background: #ffffff; box-shadow: var(--sh-shadow); }
+    .lab-toolbar__left, .lab-toolbar__right { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+    .lab-select { min-height: 36px; max-width: 100%; padding: 0 10px; border: 1px solid #bfc7d4; border-radius: 9px; background: #f7f8fa; color: var(--sh-ink); font: inherit; font-size: 13px; font-weight: 600; }
+    .lab-run-btn { min-height: 36px; padding: 0 16px; border: 0; border-radius: 9px; background: #1d4ed8; color: #ffffff; font: inherit; font-size: 13.5px; font-weight: 700; cursor: pointer; transition: background .15s ease; }
+    .lab-run-btn:hover { background: #1e3a8a; }
+    .lab-mini-btn { min-height: 32px; padding: 0 10px; font-size: 12px; }
+    .lab-mini-btn.is-on { background: #eff4ff; border-color: #bfdbfe; color: #1e3a8a; font-weight: 700; }
+
+    .lab-schema { margin-bottom: 12px; padding: 10px 14px; border: 1px solid #fecaca; border-radius: 12px; background: #fef2f2; display: grid; gap: 8px; }
+    .lab-schema-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; }
+    .lab-schema-label { font-size: 12.5px; font-weight: 700; color: #991b1b; }
+    .lab-schema-list { display: flex; flex-wrap: wrap; gap: 6px; }
+    .lab-schema-chip { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 8px; border: 1px solid #fecaca; background: #ffffff; color: var(--sh-ink); font: inherit; font-size: 12.5px; cursor: pointer; }
+    .lab-schema-chip:hover { border-color: #1d4ed8; background: #eff4ff; color: #1e3a8a; }
+    .lab-schema-chip span { font-size: 11px; color: var(--sh-ink-3); }
+
+    .lab-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: 14px; align-items: stretch; }
+    .lab-pane { display: flex; flex-direction: column; min-width: 0; border: 1px solid #d8dee6; border-radius: 14px; background: #ffffff; overflow: hidden; box-shadow: var(--sh-shadow); }
+    .lab-pane__head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; padding: 9px 14px; background: #eef1f6; border-bottom: 1px solid #d8dee6; font-size: 13px; font-weight: 700; color: var(--sh-ink); }
+    .lab-out-tools { display: flex; align-items: center; gap: 6px; }
+    .lab-out-badge { font-size: 11.5px; font-weight: 600; color: #1d4ed8; background: #eff4ff; padding: 2px 8px; border-radius: 999px; }
+
+    .lab-editor-wrap { display: grid; grid-template-columns: 44px minmax(0, 1fr); background: #11141c; flex: 1; min-height: 430px; }
+    .lab-gutter { margin: 0; padding: 14px 8px 14px 0; background: #171c26; color: #94a3b8; text-align: right; font: 13.5px/1.68 ui-monospace, Consolas, monospace; user-select: none; overflow: hidden; border-right: 1px solid rgba(185, 28, 28, .1); }
+    .lab-editor { width: 100%; min-height: 430px; border: 0; resize: vertical; padding: 14px; background: #11141c; color: #f1f5f9; font: 13.5px/1.68 ui-monospace, Consolas, monospace; tab-size: 4; outline: none; white-space: pre; overflow: auto; box-sizing: border-box; }
+    .lab-stdin-wrap { padding: 10px 14px; background: #f7f8fa; border-top: 1px solid #d8dee6; display: grid; gap: 5px; }
+    .lab-stdin-wrap label { font-size: 12px; font-weight: 700; color: #374151; }
+    .lab-stdin { width: 100%; min-height: 48px; padding: 7px 10px; border: 1px solid #bfc7d4; border-radius: 8px; background: #ffffff; color: var(--sh-ink); font: 13px/1.5 ui-monospace, Consolas, monospace; box-sizing: border-box; resize: vertical; }
+
+    .lab-out-body { flex: 1; padding: 14px; overflow: auto; min-height: 430px; display: flex; flex-direction: column; gap: 12px; background: #ffffff; }
+    .lab-c-out { margin: 0; padding: 14px; border-radius: 10px; background: #11141c; color: #f1f5f9; font: 13.5px/1.68 ui-monospace, Consolas, monospace; white-space: pre-wrap; word-break: break-word; overflow-x: auto; }
+    .lab-err-box { padding: 12px 14px; border-radius: 10px; background: #fef2f2; border: 1px solid #fecaca; color: #991b1b; font-size: 13px; line-height: 1.65; }
+    .lab-err-box strong { display: block; margin-bottom: 4px; }
+    .lab-err-box p { margin: 0; }
+    .lab-empty-note { margin: 0; padding: 14px; border-radius: 10px; background: #f7f8fa; color: var(--sh-ink-2); font-size: 13px; }
+    .lab-status { padding: 8px 14px; border-top: 1px solid #d8dee6; background: #f9fafb; font-size: 12px; font-weight: 600; color: var(--sh-ink-2); }
+
+    .lab-html-stage { flex: 1; display: flex; justify-content: center; background: #eef1f6; border-radius: 10px; padding: 8px; min-height: 360px; }
+    .lab-html-frame { width: 100%; min-height: 360px; border: 1px solid #bfc7d4; border-radius: 8px; background: #ffffff; }
+    .lab-html-frame.is-mobile { width: 390px; max-width: 100%; box-shadow: 0 8px 24px rgba(17, 19, 24, .12); }
+    .lab-html-console { border: 1px solid #d8dee6; border-radius: 10px; overflow: hidden; }
+    .lab-html-console__head { padding: 5px 10px; background: #eef1f6; font-size: 11.5px; font-weight: 700; color: var(--sh-ink-2); }
+    .lab-html-console__list { padding: 8px 10px; background: #11141c; color: #f1f5f9; font: 12px/1.6 ui-monospace, Consolas, monospace; max-height: 120px; overflow: auto; }
+    .lab-console-line.is-error { color: #f87171; }
+    .lab-console-line.is-warn { color: #f87171; }
+
+    .lab-sql-msg { padding: 8px 12px; border-radius: 9px; background: #eff4ff; border: 1px solid #bfdbfe; color: #1e3a8a; font-size: 12.5px; font-weight: 650; }
+    .lab-sql-result { display: grid; gap: 6px; }
+    .lab-sql-result__meta { font-size: 12px; font-weight: 700; color: #1d4ed8; }
+    .lab-sql-table { width: 100%; border-collapse: collapse; font-size: 13px; background: #ffffff; }
+    .lab-sql-table th, .lab-sql-table td { padding: 7px 10px; border: 1px solid #d8dee6; text-align: left; white-space: nowrap; }
+    .lab-sql-table thead th { background: #eff4ff; color: #1e3a8a; font-weight: 700; }
+    .lab-sql-table tbody tr:nth-child(even) { background: #f9fafb; }
+    .lab-sql-table td.is-null { color: #525a68; font-style: italic; }
+
+    .lab-sym-bar { display: flex; align-items: center; gap: 5px; padding: 7px 10px; background: #1a202c; border-bottom: 1px solid rgba(185, 28, 28, .12); overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+    .lab-sym-bar::-webkit-scrollbar { display: none; }
+    .lab-sym-btn { flex: none; min-width: 34px; min-height: 30px; padding: 0 9px; border: 1px solid rgba(185, 28, 28, .22); border-radius: 7px; background: rgba(255, 255, 255, .08); color: #f1f5f9; font: 600 12.5px/1 ui-monospace, Consolas, monospace; cursor: pointer; }
+    .lab-sym-btn:active, .lab-sym-btn:hover { background: #1d4ed8; border-color: #60a5fa; color: #ffffff; }
+
+    .lab-mtabs { display: none; grid-template-columns: 1fr 1fr; gap: 4px; padding: 4px; margin-bottom: 10px; border-radius: 11px; background: #eef1f6; border: 1px solid #d8dee6; }
+    .lab-mtab { min-height: 38px; border: 0; border-radius: 8px; background: transparent; color: var(--sh-ink-2); font: inherit; font-size: 13.5px; font-weight: 650; cursor: pointer; }
+    .lab-mtab.is-on { background: #ffffff; color: #1e3a8a; box-shadow: 0 2px 6px rgba(17, 19, 24, .08); }
+    .lab-back-btn { display: none; }
+
+    @media (max-width: 960px) {
+      .lab-grid { grid-template-columns: minmax(0, 1fr); }
+      .lab-editor-wrap, .lab-editor, .lab-out-body { min-height: 320px; }
+    }
+    @media (max-width: 760px) {
+      .lab-main { width: calc(100% - 20px); padding: 12px 0 calc(var(--sh-tabbar, 66px) + env(safe-area-inset-bottom, 0px) + 22px); }
+      .lab-hero { gap: 10px; margin-bottom: 10px; }
+      .lab-hero__copy h1 { font-size: 20px; }
+      .lab-hero__copy p { font-size: 12px; }
+      .lab-lang-tabs { width: 100%; display: grid; grid-template-columns: repeat(3, 1fr); }
+      .lab-lang-tab { min-height: 40px; padding: 0 8px; font-size: 13px; }
+      .lab-toolbar { padding: 9px 10px; gap: 8px; }
+      .lab-toolbar__left { width: 100%; }
+      .lab-select { width: 100%; min-height: 40px; font-size: 15px; }
+      .lab-toolbar__right { width: 100%; justify-content: space-between; }
+      .lab-run-btn { flex: 1; min-height: 42px; font-size: 14.5px; }
+      .lab-mini-btn { min-height: 40px; padding: 0 12px; font-size: 13px; }
+      .lab-mtabs { display: grid; }
+      .lab-grid[data-mobile-pane="code"] .lab-pane--out { display: none; }
+      .lab-grid[data-mobile-pane="output"] .lab-pane--code { display: none; }
+      .lab-back-btn { display: inline-flex; min-height: 34px; padding: 0 10px; font-size: 12px; }
+      .lab-editor-wrap { grid-template-columns: 34px minmax(0, 1fr); min-height: 46vh; }
+      .lab-gutter { font-size: 15px; line-height: 1.68; padding: 12px 6px 12px 0; }
+      .lab-editor { font-size: 15px; line-height: 1.68; min-height: 46vh; padding: 12px 10px; }
+      .lab-stdin { font-size: 15px; }
+      .lab-out-body { min-height: 46vh; padding: 10px; }
+      .lab-html-stage { padding: 4px; min-height: 52vh; }
+      .lab-html-frame, .lab-html-frame.is-mobile { width: 100%; min-height: 52vh; }
+      .lab-sym-btn { min-height: 36px; padding: 0 11px; font-size: 13.5px; }
+      .lab-schema { padding: 8px 10px; }
+      .lab-schema-list { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 2px; }
+      .lab-schema-chip { flex: none; min-height: 34px; }
+    }
+  </style>
+</head>
+<body>
+<main class="lab-main" id="lab-app">
+  <section class="lab-hero">
+    <div class="lab-hero__copy">
+      <h1>在线代码实操台</h1>
+      <p id="lab-lang-hint">支持单独编辑与运行 C 语言、HTML 网页与 SQL 语句，全部在浏览器本地即时执行，无需联网。</p>
+    </div>
+    <div class="lab-lang-tabs" role="tablist" aria-label="选择编程语言运行环境">
+      <button type="button" class="lab-lang-tab is-on" role="tab" aria-selected="true" data-lab-lang="c">C 语言</button>
+      <button type="button" class="lab-lang-tab" role="tab" aria-selected="false" data-lab-lang="html">HTML 网页</button>
+      <button type="button" class="lab-lang-tab" role="tab" aria-selected="false" data-lab-lang="sql">SQL 语句</button>
+    </div>
+  </section>
+
+  <section class="lab-toolbar" aria-label="代码编辑器控制栏">
+    <div class="lab-toolbar__left">
+      <label for="lab-template" class="sh-sr">选择示例模板</label>
+      <select id="lab-template" class="lab-select" aria-label="选择专升本高频示例模板"></select>
+    </div>
+    <div class="lab-toolbar__right">
+      <button type="button" id="lab-run" class="lab-run-btn" title="快捷键 Ctrl + Enter">▶ 运行代码</button>
+      <button type="button" id="lab-copy" class="sh-btn lab-mini-btn">📋 复制</button>
+      <button type="button" id="lab-reset" class="sh-btn lab-mini-btn">↺ 重置示例</button>
+    </div>
+  </section>
+
+  <section id="lab-sql-schema" class="lab-schema" hidden aria-label="数据库表结构"></section>
+
+  <div class="lab-mtabs" role="tablist" aria-label="手机端切换编辑与运行结果">
+    <button type="button" id="lab-mtab-code" class="lab-mtab is-on" role="tab" aria-selected="true">✏️ 写代码</button>
+    <button type="button" id="lab-mtab-out" class="lab-mtab" role="tab" aria-selected="false">▶ 看结果</button>
+  </div>
+
+  <div class="lab-grid" id="lab-grid" data-mobile-pane="code">
+    <section class="lab-pane lab-pane--code" aria-label="代码编辑区">
+      <div class="lab-pane__head">
+        <span>代码编辑器</span>
+        <span style="font-size:11.5px;font-weight:500;color:#687078;">Tab 缩进 · Ctrl + Enter 运行</span>
+      </div>
+      <div id="lab-sym-bar" class="lab-sym-bar" role="toolbar" aria-label="手机快捷符号键盘"></div>
+      <div class="lab-editor-wrap">
+        <pre id="lab-gutter" class="lab-gutter" aria-hidden="true">1</pre>
+        <textarea id="lab-editor" class="lab-editor" spellcheck="false" autocomplete="off" autocapitalize="off" aria-label="代码输入框"></textarea>
+      </div>
+      <div id="lab-stdin-wrap" class="lab-stdin-wrap">
+        <label for="lab-stdin">标准输入（stdin，供 scanf / gets / getchar 读取，空格或换行分隔）：</label>
+        <textarea id="lab-stdin" class="lab-stdin" rows="2" placeholder="例如：12 3.14 A"></textarea>
+      </div>
+    </section>
+
+    <section class="lab-pane lab-pane--out" aria-label="运行结果区">
+      <div class="lab-pane__head">
+        <span id="lab-out-title">控制台输出（stdout）</span>
+        <div style="display:flex;align-items:center;gap:6px;">
+          <button type="button" id="lab-back-code" class="sh-btn lab-back-btn">← 返回改代码</button>
+          <div id="lab-out-tools" class="lab-out-tools"></div>
+        </div>
+      </div>
+      <div id="lab-out-body" class="lab-out-body"></div>
+      <div id="lab-status" class="lab-status" role="status" aria-live="polite">就绪</div>
+    </section>
+  </div>
+</main>
+<footer class="site-footer"><div class="site-footer__inner"><span>辽宁专升本 · 计算机类学习站 · 在线实操台</span></div></footer>
+<script type="module" src="../assets/js/lab/lab-ui.js"></script>
+</body>
+</html>

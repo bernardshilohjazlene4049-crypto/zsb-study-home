@@ -1057,6 +1057,216 @@
       "prerequisiteId": "net.s53",
       "strength": "soft",
       "reason": "按目录顺序，先学习前一个知识点。"
+    },
+    {
+      "topicId": "c.ch1.structure",
+      "prerequisiteId": "c.ch1.intro",
+      "strength": "hard",
+      "reason": "先了解 C 语言模块化与函数概念，再掌握程序结构与 main 函数入口。",
+      "verified": false
+    },
+    {
+      "topicId": "c.ch1.compile",
+      "prerequisiteId": "c.ch1.structure",
+      "strength": "hard",
+      "reason": "明确 .c 源文件后，理解其如何经过编译与链接变成可执行程序。",
+      "verified": false
+    },
+    {
+      "topicId": "c.ch2.identifier",
+      "prerequisiteId": "c.ch1.structure",
+      "strength": "hard",
+      "reason": "编写 C 程序中的变量名与函数名必须遵守标识符规则。",
+      "verified": false
+    },
+    {
+      "topicId": "c.ch2.constants",
+      "prerequisiteId": "c.ch2.identifier",
+      "strength": "hard",
+      "reason": "区分常量与变量后，逐类掌握 5 种常量的合法书写格式。",
+      "verified": false
+    },
+    {
+      "topicId": "c.ch2.datatypes",
+      "prerequisiteId": "c.ch2.constants",
+      "strength": "hard",
+      "reason": "了解各类常量后，学习用变量和数据类型在内存中存储它们。",
+      "verified": false
+    },
+    {
+      "topicId": "c.ch3.priority",
+      "prerequisiteId": "c.ch2.datatypes",
+      "strength": "hard",
+      "reason": "先掌握基本数据类型，才能理解运算符的类型转换与 sizeof 测字节。",
+      "verified": false
+    },
+    {
+      "topicId": "c.ch3.arith_logic",
+      "prerequisiteId": "c.ch3.priority",
+      "strength": "hard",
+      "reason": "必须借助优先级口诀才能用高归入法拆分逻辑与/或表达式。",
+      "verified": false
+    },
+    {
+      "topicId": "c.ch3.assign_comma",
+      "prerequisiteId": "c.ch3.arith_logic",
+      "strength": "hard",
+      "reason": "条件、赋值、逗号优先级处于末尾，需要依托前述优先级进行高归入拆解。",
+      "verified": false
+    },
+    {
+      "topicId": "c.ch4.io_concept",
+      "prerequisiteId": "c.ch1.structure",
+      "strength": "hard",
+      "reason": "在基本程序结构基础上掌握语句分类与头文件引入方式。",
+      "verified": false
+    },
+    {
+      "topicId": "c.ch4.printf",
+      "prerequisiteId": "c.ch4.io_concept",
+      "strength": "hard",
+      "reason": "掌握 stdio.h 后深入学习最核心的标准输出函数 printf。",
+      "verified": false
+    },
+    {
+      "topicId": "c.ch4.scanf_char_str",
+      "prerequisiteId": "c.ch4.printf",
+      "strength": "hard",
+      "reason": "对照 printf 的格式声明规则，重点区分 scanf 地址参数与输入域宽限制。",
+      "verified": false
+    },
+    {
+      "topicId": "c.ch5.truth_if",
+      "prerequisiteId": "c.ch3.arith_logic",
+      "strength": "hard",
+      "reason": "选择结构的判断条件依赖关系与逻辑表达式的真假值。",
+      "verified": false
+    },
+    {
+      "topicId": "c.ch5.nested_ternary",
+      "prerequisiteId": "c.ch5.truth_if",
+      "strength": "hard",
+      "reason": "熟悉 if 基本分支后，攻克嵌套配对与等价题型。",
+      "verified": false
+    },
+    {
+      "topicId": "c.ch5.switch",
+      "prerequisiteId": "c.ch5.nested_ternary",
+      "strength": "hard",
+      "reason": "对照 if 多分支理解 switch 的单值匹配与穿透特性。",
+      "verified": false
+    },
+    {
+      "topicId": "c.ch6.while_dowhile",
+      "prerequisiteId": "c.ch5.truth_if",
+      "strength": "hard",
+      "reason": "循环条件判断与 if 一样遵循非 0 为真、0 为假。",
+      "verified": false
+    },
+    {
+      "topicId": "c.ch6.for_loop",
+      "prerequisiteId": "c.ch6.while_dowhile",
+      "strength": "hard",
+      "reason": "在理解循环基本逻辑后，掌握最常用的 for 循环执行顺序与省略规则。",
+      "verified": false
+    },
+    {
+      "topicId": "c.ch6.control_coding",
+      "prerequisiteId": "c.ch6.for_loop",
+      "strength": "hard",
+      "reason": "必须在掌握 while/do-while/for 三种循环后对比 break 与 continue 的不同走向。",
+      "verified": false
+    },
+    {
+      "topicId": "c.ch6.control_coding",
+      "prerequisiteId": "c.ch5.switch",
+      "strength": "soft",
+      "reason": "汇总全部控制语句（含 switch 与 do-while）的语法特殊点。",
+      "verified": false
+    },
+    {
+      "topicId": "c.ch7.array1d",
+      "prerequisiteId": "c.ch6.for_loop",
+      "strength": "hard",
+      "reason": "一维数组遍历必须搭配 for 循环逐个操作下标元素。",
+      "verified": false
+    },
+    {
+      "topicId": "c.ch7.array2d",
+      "prerequisiteId": "c.ch7.array1d",
+      "strength": "hard",
+      "reason": "把二维数组理解成“元素是一维数组的一维数组”。",
+      "verified": false
+    },
+    {
+      "topicId": "c.ch7.char_array",
+      "prerequisiteId": "c.ch7.array2d",
+      "strength": "hard",
+      "reason": "在一维/二维数组基础上掌握字符数组独有的字符串 \\0 与 %s 连续操作。",
+      "verified": false
+    },
+    {
+      "topicId": "c.ch7.char_array",
+      "prerequisiteId": "c.ch4.scanf_char_str",
+      "strength": "soft",
+      "reason": "关联 scanf %s 与 gets/puts 的空格与换行行为。",
+      "verified": false
+    },
+    {
+      "topicId": "c.ch8.def_call",
+      "prerequisiteId": "c.ch1.structure",
+      "strength": "hard",
+      "reason": "深化理解“函数是 C 程序的主要组成部分”。",
+      "verified": false
+    },
+    {
+      "topicId": "c.ch8.def_call",
+      "prerequisiteId": "c.ch3.assign_comma",
+      "strength": "soft",
+      "reason": "识别 func(1,2,(3,4)) 中的逗号表达式实参个数陷阱。",
+      "verified": false
+    },
+    {
+      "topicId": "c.ch8.decl_pass",
+      "prerequisiteId": "c.ch8.def_call",
+      "strength": "hard",
+      "reason": "在理解函数定义和调用后，掌握声明位置与实参能否被修改的底层判定。",
+      "verified": false
+    },
+    {
+      "topicId": "c.ch8.scope_static",
+      "prerequisiteId": "c.ch8.decl_pass",
+      "strength": "hard",
+      "reason": "结合 extern 与函数调用追踪，掌握变量生命周期、默认值与作用域。",
+      "verified": false
+    },
+    {
+      "topicId": "c.ch9.ptr_basics",
+      "prerequisiteId": "c.ch8.decl_pass",
+      "strength": "hard",
+      "reason": "由函数地址传参深入理解指针变量的底层类型与内存模型。",
+      "verified": false
+    },
+    {
+      "topicId": "c.ch9.ptr_array1d",
+      "prerequisiteId": "c.ch9.ptr_basics",
+      "strength": "hard",
+      "reason": "运用“指向什么 +1 就跳过什么”推导一维数组指针偏移。",
+      "verified": false
+    },
+    {
+      "topicId": "c.ch9.ptr_array1d",
+      "prerequisiteId": "c.ch7.array1d",
+      "strength": "hard",
+      "reason": "关联一维数组名首地址特性与 sizeof 测量。",
+      "verified": false
+    },
+    {
+      "topicId": "c.ch9.ptr_array2d_param",
+      "prerequisiteId": "c.ch9.ptr_array1d",
+      "strength": "hard",
+      "reason": "把一维偏移公式嵌套两次即推出二维数组 8 大等价公式。",
+      "verified": false
     }
   ]
 }

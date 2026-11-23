@@ -120,11 +120,92 @@
       "verified": false
     },
     {
+      "id": "c.ch1",
+      "subject_id": "c_language",
+      "parent_id": null,
+      "title": "第一章 程序设计和 C 语言",
+      "order": 1,
+      "source_ref": "c/notes.html#point-1",
+      "verified": false
+    },
+    {
+      "id": "c.ch2",
+      "subject_id": "c_language",
+      "parent_id": null,
+      "title": "第二章 常量、变量、标识符与数据类型",
+      "order": 2,
+      "source_ref": "c/notes.html#point-4",
+      "verified": false
+    },
+    {
+      "id": "c.ch3",
+      "subject_id": "c_language",
+      "parent_id": null,
+      "title": "第三章 表达式与运算符",
+      "order": 3,
+      "source_ref": "c/notes.html#point-7",
+      "verified": false
+    },
+    {
+      "id": "c.ch4",
+      "subject_id": "c_language",
+      "parent_id": null,
+      "title": "第四章 输入与输出函数",
+      "order": 4,
+      "source_ref": "c/notes.html#point-10",
+      "verified": false
+    },
+    {
+      "id": "c.ch5",
+      "subject_id": "c_language",
+      "parent_id": null,
+      "title": "第五章 选择结构",
+      "order": 5,
+      "source_ref": "c/notes.html#point-13",
+      "verified": false
+    },
+    {
+      "id": "c.ch6",
+      "subject_id": "c_language",
+      "parent_id": null,
+      "title": "第六章 循环结构",
+      "order": 6,
+      "source_ref": "c/notes.html#point-16",
+      "verified": false
+    },
+    {
+      "id": "c.ch7",
+      "subject_id": "c_language",
+      "parent_id": null,
+      "title": "第七章 数组",
+      "order": 7,
+      "source_ref": "c/notes.html#point-19",
+      "verified": false
+    },
+    {
+      "id": "c.ch8",
+      "subject_id": "c_language",
+      "parent_id": null,
+      "title": "第八章 函数",
+      "order": 8,
+      "source_ref": "c/notes.html#point-22",
+      "verified": false
+    },
+    {
+      "id": "c.ch9",
+      "subject_id": "c_language",
+      "parent_id": null,
+      "title": "第九章 指针",
+      "order": 9,
+      "source_ref": "c/notes.html#point-25",
+      "verified": false
+    },
+    {
       "id": "c.existing",
       "subject_id": "c_language",
       "parent_id": null,
       "title": "站点现有内容",
-      "order": 1,
+      "order": 10,
       "source_ref": "c/index.html",
       "verified": false
     },
@@ -694,6 +775,605 @@
       "legacy_url": "jsj/index.html#video-4-7",
       "verified": false,
       "blurb": "第四章讲解视频。"
+    },
+    {
+      "id": "c.ch1.intro",
+      "subject_id": "c_language",
+      "chapter_id": "c.ch1",
+      "title": "1.1 程序、计算机语言发展与 C 语言概述",
+      "order": 1,
+      "aliases": [
+        "计算机语言",
+        "机器语言",
+        "汇编语言",
+        "高级语言",
+        "结构化语言",
+        "C89",
+        "C99"
+      ],
+      "prereq_ids": [],
+      "source_ref": "c/notes.html#point-1",
+      "legacy_url": "c/notes.html#point-1",
+      "verified": false,
+      "blurb": "计算机语言历经机器语言（二进制直接执行）→汇编语言（符号化）→高级语言（不依赖机器、需编译/解释）；C语言属于高级语言、结构化语言、面向"
+    },
+    {
+      "id": "c.ch1.structure",
+      "subject_id": "c_language",
+      "chapter_id": "c.ch1",
+      "title": "1.2 C 程序结构、注释规则与《C 语言常识》7 条必背",
+      "order": 2,
+      "aliases": [
+        "main函数",
+        "注释",
+        "预处理",
+        "分号",
+        "C语言常识",
+        "块注释"
+      ],
+      "prereq_ids": [
+        "c.ch1.intro"
+      ],
+      "source_ref": "c/notes.html#point-2",
+      "legacy_url": "c/notes.html#point-2",
+      "verified": false,
+      "blurb": "C 语言一条语句以分号 ; 识别；注释在预处理阶段被替换为一个空格（单行 //，多行 /*...*/ 不可嵌套）；程序由一个或多个函数组"
+    },
+    {
+      "id": "c.ch1.compile",
+      "subject_id": "c_language",
+      "chapter_id": "c.ch1",
+      "title": "1.3 程序从编辑到运行的完整过程（.c → .obj → .exe）",
+      "order": 3,
+      "aliases": [
+        "编辑",
+        "编译",
+        "链接",
+        "执行",
+        ".c",
+        ".obj",
+        ".exe"
+      ],
+      "prereq_ids": [
+        "c.ch1.structure"
+      ],
+      "source_ref": "c/notes.html#point-3",
+      "legacy_url": "c/notes.html#point-3",
+      "verified": false,
+      "blurb": "C 程序从编写到运行必须经历四步：编辑（生成 .c 源文件）→ 编译（每个 .c 生成对应二进制目标文件 .obj）→ 链接（合并所有 "
+    },
+    {
+      "id": "c.ch2.identifier",
+      "subject_id": "c_language",
+      "chapter_id": "c.ch2",
+      "title": "2.1 标识符命名规则、32 个关键字与常量/变量概念",
+      "order": 1,
+      "aliases": [
+        "标识符",
+        "关键字",
+        "命名规则",
+        "常量",
+        "变量"
+      ],
+      "prereq_ids": [
+        "c.ch1.structure"
+      ],
+      "source_ref": "c/notes.html#point-4",
+      "legacy_url": "c/notes.html#point-4",
+      "verified": false,
+      "blurb": "标识符只能由字母、数字、下划线组成，首字符必须为字母或下划线，不能使用关键字，且严格区分大小写；常量运行期间值不可变，变量运行期间值可变"
+    },
+    {
+      "id": "c.ch2.constants",
+      "subject_id": "c_language",
+      "chapter_id": "c.ch2",
+      "title": "2.2 五类常量全解析（整型/实型/字符/字符串/符号常量）",
+      "order": 2,
+      "aliases": [
+        "整型常量",
+        "八进制",
+        "十六进制",
+        "指数形式",
+        "转义字符",
+        "字符串常量",
+        "#define",
+        "const"
+      ],
+      "prereq_ids": [
+        "c.ch2.identifier"
+      ],
+      "source_ref": "c/notes.html#point-5",
+      "legacy_url": "c/notes.html#point-5",
+      "verified": false,
+      "blurb": "整型分十/八(0开头,0~7)/十六(0x开头,0~9A~F)进制；实型指数e前后必有数且e后必为整数；字符单引号1个字符（含\\ddd八"
+    },
+    {
+      "id": "c.ch2.datatypes",
+      "subject_id": "c_language",
+      "chapter_id": "c.ch2",
+      "title": "2.3 变量与三大基本数据类型（整型 / char / 浮点型）",
+      "order": 3,
+      "aliases": [
+        "数据类型",
+        "int",
+        "short",
+        "long",
+        "char",
+        "ASCII",
+        "float",
+        "double",
+        "%d",
+        "%f",
+        "%lf"
+      ],
+      "prereq_ids": [
+        "c.ch2.constants"
+      ],
+      "source_ref": "c/notes.html#point-6",
+      "legacy_url": "c/notes.html#point-6",
+      "verified": false,
+      "blurb": "变量必须先定义后使用；数据类型决定分配空间（字节数）和存储形式。核心记忆：char 1字节存ASCII码（'\\0'=0, ' '=32,"
+    },
+    {
+      "id": "c.ch3.priority",
+      "subject_id": "c_language",
+      "chapter_id": "c.ch3",
+      "title": "3.1 表达式计算三步法、优先级口诀与单目运算符",
+      "order": 1,
+      "aliases": [
+        "优先级",
+        "结合性",
+        "单目运算符",
+        "++",
+        "--",
+        "类型转换",
+        "sizeof"
+      ],
+      "prereq_ids": [
+        "c.ch2.datatypes"
+      ],
+      "source_ref": "c/notes.html#point-7",
+      "legacy_url": "c/notes.html#point-7",
+      "verified": false,
+      "blurb": "表达式三步法：先看特殊（&&||短路、三目、逗号、()、++--）→ 按优先级口诀「括号!单目算数关系与或条件赋值逗号」→ 同级看结合性"
+    },
+    {
+      "id": "c.ch3.arith_logic",
+      "subject_id": "c_language",
+      "chapter_id": "c.ch3",
+      "title": "3.2 算数、关系、逻辑运算符与“高归入法”短路求值",
+      "order": 2,
+      "aliases": [
+        "取整",
+        "取余",
+        "关系运算符",
+        "逻辑与",
+        "逻辑或",
+        "短路特性",
+        "高归入法"
+      ],
+      "prereq_ids": [
+        "c.ch3.priority"
+      ],
+      "source_ref": "c/notes.html#point-8",
+      "legacy_url": "c/notes.html#point-8",
+      "verified": false,
+      "blurb": "整数相除 / 必取整（前小后大得0）；% 前后必须均为整数（前小后大得前，负数余数符号与被除数一致）；关系/逻辑结果只有 1 和 0；&"
+    },
+    {
+      "id": "c.ch3.assign_comma",
+      "subject_id": "c_language",
+      "chapter_id": "c.ch3",
+      "title": "3.3 三目条件、赋值、逗号运算符与表达式易错总结",
+      "order": 3,
+      "aliases": [
+        "条件运算符",
+        "三目运算符",
+        "赋值运算符",
+        "左值",
+        "复合赋值",
+        "逗号运算符"
+      ],
+      "prereq_ids": [
+        "c.ch3.arith_logic"
+      ],
+      "source_ref": "c/notes.html#point-9",
+      "legacy_url": "c/notes.html#point-9",
+      "verified": false,
+      "blurb": "三目 ?: 唯一三操作数且右结合；赋值 = 右结合，左值必须有存储空间且可修改，复合赋值拆解右边整体加括号；逗号运算符优先级最低，n 个"
+    },
+    {
+      "id": "c.ch4.io_concept",
+      "subject_id": "c_language",
+      "chapter_id": "c.ch4",
+      "title": "4.1 C 语言五类语句与输入输出预处理概念",
+      "order": 1,
+      "aliases": [
+        "五类语句",
+        "空语句",
+        "复合语句",
+        "#include",
+        "stdio.h",
+        "输入输出"
+      ],
+      "prereq_ids": [
+        "c.ch1.structure"
+      ],
+      "source_ref": "c/notes.html#point-10",
+      "legacy_url": "c/notes.html#point-10",
+      "verified": false,
+      "blurb": "C 语言有控制、函数调用、表达式、空语句(;)和复合语句({})五类语句；输入输出以计算机为主体，C 语言本身不提供输入输出语句，由标准"
+    },
+    {
+      "id": "c.ch4.printf",
+      "subject_id": "c_language",
+      "chapter_id": "c.ch4",
+      "title": "4.2 标准输出函数 printf（域宽、精度、对齐与转义）",
+      "order": 2,
+      "aliases": [
+        "printf",
+        "域宽",
+        "左对齐",
+        "%%",
+        "格式控制字符串",
+        "保留小数"
+      ],
+      "prereq_ids": [
+        "c.ch4.io_concept"
+      ],
+      "source_ref": "c/notes.html#point-11",
+      "legacy_url": "c/notes.html#point-11",
+      "verified": false,
+      "blurb": "printf(\"格式控制字符串\", 输出列表) 按顺序将输出列表数据套入格式声明（%开头）输出；默认右对齐，- 左对齐，+ 显正负号，0"
+    },
+    {
+      "id": "c.ch4.scanf_char_str",
+      "subject_id": "c_language",
+      "chapter_id": "c.ch4",
+      "title": "4.3 scanf 输入规则与字符/字符串专属 I/O 函数",
+      "order": 3,
+      "aliases": [
+        "scanf",
+        "地址列表",
+        "putchar",
+        "getchar",
+        "gets",
+        "puts",
+        "fgets",
+        "fputs"
+      ],
+      "prereq_ids": [
+        "c.ch4.printf"
+      ],
+      "source_ref": "c/notes.html#point-12",
+      "legacy_url": "c/notes.html#point-12",
+      "verified": false,
+      "blurb": "scanf 必须传地址列表（&变量或数组名），可设域宽(%3d)但不能设小数位(%3.2f错)，普通字符须原样输入，%c 接收含空格的任"
+    },
+    {
+      "id": "c.ch5.truth_if",
+      "subject_id": "c_language",
+      "chapter_id": "c.ch5",
+      "title": "5.1 真假判定（0<a<2 陷阱）与 if 单/双/多分支",
+      "order": 1,
+      "aliases": [
+        "真假",
+        "0<a<2",
+        "if单分支",
+        "if双分支",
+        "if多分支",
+        "else if"
+      ],
+      "prereq_ids": [
+        "c.ch3.arith_logic"
+      ],
+      "source_ref": "c/notes.html#point-13",
+      "legacy_url": "c/notes.html#point-13",
+      "verified": false,
+      "blurb": "C 语言以 0 为假、非 0 为真，关系/逻辑运算结果为 1 或 0（0<a<2 恒为 1，应写 a>0 && a<2）；if 单分支管"
+    },
+    {
+      "id": "c.ch5.nested_ternary",
+      "subject_id": "c_language",
+      "chapter_id": "c.ch5",
+      "title": "5.2 if 嵌套配对法则、语法坑与三目等价代入法",
+      "order": 2,
+      "aliases": [
+        "if嵌套",
+        "else配对",
+        "空语句陷阱",
+        "三目等价",
+        "代入法"
+      ],
+      "prereq_ids": [
+        "c.ch5.truth_if"
+      ],
+      "source_ref": "c/notes.html#point-14",
+      "legacy_url": "c/notes.html#point-14",
+      "verified": false,
+      "blurb": "if 嵌套牢记“else 总是与之前、最近、未配对的 if 配对”（不看缩进！）；if/else 默认只管最近 1 条语句，多条须用 {"
+    },
+    {
+      "id": "c.ch5.switch",
+      "subject_id": "c_language",
+      "chapter_id": "c.ch5",
+      "title": "5.3 switch 语句 10 条语法考点、穿透特性与选型铁律",
+      "order": 3,
+      "aliases": [
+        "switch",
+        "case",
+        "default",
+        "break",
+        "穿透特性",
+        "if与switch区别"
+      ],
+      "prereq_ids": [
+        "c.ch5.nested_ternary"
+      ],
+      "source_ref": "c/notes.html#point-15",
+      "legacy_url": "c/notes.html#point-15",
+      "verified": false,
+      "blurb": "switch 后 ()、表达式、{} 均不可省（唯一必须带 {} 的控制语句）；表达式与 case 值必须是整型或字符型常量且互不相同；"
+    },
+    {
+      "id": "c.ch6.while_dowhile",
+      "subject_id": "c_language",
+      "chapter_id": "c.ch6",
+      "title": "6.1 while 与 do-while 循环对比及死循环判定",
+      "order": 1,
+      "aliases": [
+        "while循环",
+        "do-while循环",
+        "死循环",
+        "最少执行次数"
+      ],
+      "prereq_ids": [
+        "c.ch5.truth_if"
+      ],
+      "source_ref": "c/notes.html#point-16",
+      "legacy_url": "c/notes.html#point-16",
+      "verified": false,
+      "blurb": "已知次数建议用 for，已知条件建议用 while / do-while（三者可互换）；while 先判断后执行（最少 0 次），do-"
+    },
+    {
+      "id": "c.ch6.for_loop",
+      "subject_id": "c_language",
+      "chapter_id": "c.ch6",
+      "title": "6.2 for 循环执行流程与四类省略含义（for(;;);）",
+      "order": 2,
+      "aliases": [
+        "for循环",
+        "执行顺序",
+        "for(;;)",
+        "步进",
+        "循环体省略"
+      ],
+      "prereq_ids": [
+        "c.ch6.while_dowhile"
+      ],
+      "source_ref": "c/notes.html#point-17",
+      "legacy_url": "c/notes.html#point-17",
+      "verified": false,
+      "blurb": "for(①初值; ②条件; ③步进) { ④循环体 } 按 ①→②→④→③→② 顺序执行（① 只执行 1 次）；() 和两个分号 ;; "
+    },
+    {
+      "id": "c.ch6.control_coding",
+      "subject_id": "c_language",
+      "chapter_id": "c.ch6",
+      "title": "6.3 控制语句总结、break/continue 辨析与循环编程模板",
+      "order": 3,
+      "aliases": [
+        "break",
+        "continue",
+        "控制语句总结",
+        "等差数列求和",
+        "循环编程"
+      ],
+      "prereq_ids": [
+        "c.ch6.for_loop",
+        "c.ch5.switch"
+      ],
+      "source_ref": "c/notes.html#point-18",
+      "legacy_url": "c/notes.html#point-18",
+      "verified": false,
+      "blurb": "控制语句必背：仅 switch 后必带 {}，仅 do-while() 后必带 ;；break 结束当前层循环或 switch，cont"
+    },
+    {
+      "id": "c.ch7.array1d",
+      "subject_id": "c_language",
+      "chapter_id": "c.ch7",
+      "title": "7.1 数组概念、一维整型数组定义/引用/sizeof 与初始化",
+      "order": 1,
+      "aliases": [
+        "一维数组",
+        "数组名",
+        "地址常量",
+        "sizeof数组",
+        "数组初始化"
+      ],
+      "prereq_ids": [
+        "c.ch6.for_loop"
+      ],
+      "source_ref": "c/notes.html#point-19",
+      "legacy_url": "c/notes.html#point-19",
+      "verified": false,
+      "blurb": "数组用于存放多个、相同类型、连续存储的数据；定义时 [] 内元素个数必须是常量或常量表达式；数组名是首元素地址（指针常量，不可 ++/-"
+    },
+    {
+      "id": "c.ch7.array2d",
+      "subject_id": "c_language",
+      "chapter_id": "c.ch7",
+      "title": "7.2 二维整型数组（挡住法求类型、初始化与行列/对角线遍历）",
+      "order": 2,
+      "aliases": [
+        "二维数组",
+        "挡住法",
+        "省略行数",
+        "主对角线",
+        "副对角线",
+        "按行按列遍历"
+      ],
+      "prereq_ids": [
+        "c.ch7.array1d"
+      ],
+      "source_ref": "c/notes.html#point-20",
+      "legacy_url": "c/notes.html#point-20",
+      "verified": false,
+      "blurb": "二维数组定义时最多只能省略行数（绝不能省列数），物理内存按行连续存放；求类型用“挡住法”（a 是 int[3][4]，a[0] 是 in"
+    },
+    {
+      "id": "c.ch7.char_array",
+      "subject_id": "c_language",
+      "chapter_id": "c.ch7",
+      "title": "7.3 一维与二维字符数组（\\0 结束符、%s 截断与覆盖写）",
+      "order": 3,
+      "aliases": [
+        "字符数组",
+        "字符串",
+        "\\0",
+        "%s",
+        "二维字符数组"
+      ],
+      "prereq_ids": [
+        "c.ch7.array2d",
+        "c.ch4.scanf_char_str"
+      ],
+      "source_ref": "c/notes.html#point-21",
+      "legacy_url": "c/notes.html#point-21",
+      "verified": false,
+      "blurb": "char ch[20] 最多存 19 长度字符串（留 1 位给 \\0）；C 语言有空串 \"\" 无空字符 ''；唯有字符数组可整体 %s "
+    },
+    {
+      "id": "c.ch8.def_call",
+      "subject_id": "c_language",
+      "chapter_id": "c.ch8",
+      "title": "8.1 函数语法 8 条铁律、定义与调用四类模板",
+      "order": 1,
+      "aliases": [
+        "函数定义",
+        "函数调用",
+        "嵌套调用",
+        "逗号表达式参数",
+        "实参形参"
+      ],
+      "prereq_ids": [
+        "c.ch1.structure",
+        "c.ch3.assign_comma"
+      ],
+      "source_ref": "c/notes.html#point-22",
+      "legacy_url": "c/notes.html#point-22",
+      "verified": false,
+      "blurb": "函数定义必有 {}，可嵌套调用绝不可嵌套定义；参数个数只看顶层逗号数（func(1,2,(3,4)) 是 3 个参数）；返回值最多 1 "
+    },
+    {
+      "id": "c.ch8.decl_pass",
+      "subject_id": "c_language",
+      "chapter_id": "c.ch8",
+      "title": "8.2 函数声明（向前/extern）与值传递 vs 指针传递",
+      "order": 2,
+      "aliases": [
+        "函数声明",
+        "向前声明",
+        "extern",
+        "值传递",
+        "指针传递",
+        "修改实参"
+      ],
+      "prereq_ids": [
+        "c.ch8.def_call"
+      ],
+      "source_ref": "c/notes.html#point-23",
+      "legacy_url": "c/notes.html#point-23",
+      "verified": false,
+      "blurb": "函数声明 = 函数首部 + ;（只关心类型不关心参数名，调用在定义之前需向前声明，跨文件加 extern）；值传递只拷贝数值绝不改实参（"
+    },
+    {
+      "id": "c.ch8.scope_static",
+      "subject_id": "c_language",
+      "chapter_id": "c.ch8",
+      "title": "8.3 全局变量、局部变量与 static 静态变量（四维对比 + 就近原则）",
+      "order": 3,
+      "aliases": [
+        "全局变量",
+        "局部变量",
+        "static",
+        "静态局部变量",
+        "静态全局变量",
+        "就近原则"
+      ],
+      "prereq_ids": [
+        "c.ch8.decl_pass"
+      ],
+      "source_ref": "c/notes.html#point-24",
+      "legacy_url": "c/notes.html#point-24",
+      "verified": false,
+      "blurb": "全局变量、静态全局、静态局部未初始化默认全为 0，唯独普通局部变量默认是垃圾值；static 延长生命周期到程序结束且限制作用域（静态全"
+    },
+    {
+      "id": "c.ch9.ptr_basics",
+      "subject_id": "c_language",
+      "chapter_id": "c.ch9",
+      "title": "9.1 指针概念、*与&抵消法则、本身/指向类型与 void* 禁区",
+      "order": 1,
+      "aliases": [
+        "指针",
+        "指针类型",
+        "指向类型",
+        "void*",
+        "野指针",
+        "*和&",
+        "指针4字节"
+      ],
+      "prereq_ids": [
+        "c.ch8.decl_pass"
+      ],
+      "source_ref": "c/notes.html#point-25",
+      "legacy_url": "c/notes.html#point-25",
+      "verified": false,
+      "blurb": "指针就是地址（32位考题任何类型指针都是 4B）；定义时有 *，使用时 * 取内容(-*)、& 取地址(+*)，*& 从右向左抵消；挡住"
+    },
+    {
+      "id": "c.ch9.ptr_array1d",
+      "subject_id": "c_language",
+      "chapter_id": "c.ch9",
+      "title": "9.2 一维数组与指针（偏移等价公式、数组名 vs 指针变量）",
+      "order": 2,
+      "aliases": [
+        "一维数组指针",
+        "*(a+i)",
+        "指针常量",
+        "指针变量",
+        "sizeof指针"
+      ],
+      "prereq_ids": [
+        "c.ch9.ptr_basics",
+        "c.ch7.array1d"
+      ],
+      "source_ref": "c/notes.html#point-26",
+      "legacy_url": "c/notes.html#point-26",
+      "verified": false,
+      "blurb": "一维数组定义时一个 [] 可看作一个 *；数组名 a == &a[0]，a + i == &a[i]，*(a + i) == a[i]；"
+    },
+    {
+      "id": "c.ch9.ptr_array2d_param",
+      "subject_id": "c_language",
+      "chapter_id": "c.ch9",
+      "title": "9.3 二维数组与指针 8 大等价公式 + 函数指针传参实战",
+      "order": 3,
+      "aliases": [
+        "二维数组指针",
+        "*(*(a+i)+j)",
+        "行指针",
+        "列指针",
+        "指针传参"
+      ],
+      "prereq_ids": [
+        "c.ch9.ptr_array1d"
+      ],
+      "source_ref": "c/notes.html#point-27",
+      "legacy_url": "c/notes.html#point-27",
+      "verified": false,
+      "blurb": "二维数组 a 指向第 0 行（a + 行标 == &a[行标]，跳过整行）；*(a + 行标) == a[行标] == &a[行标][0"
     },
     {
       "id": "c.demo_page",

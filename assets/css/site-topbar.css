@@ -4,7 +4,7 @@
    放在各页样式之后引入，保证每页顶栏的标记和样式完全一致。
    导航标签常显，不使用 site-nav--compact。 */
 .site-header{position:sticky;top:0;z-index:90;min-height:var(--sg-header-height);
-  border-bottom:1px solid var(--sg-line);background:rgba(251,252,254,.88);
+  border-bottom:1px solid var(--sg-line);background:rgba(255, 255, 255, .88);
   backdrop-filter:blur(var(--sg-glass-blur)) saturate(var(--sg-glass-saturation));
   -webkit-backdrop-filter:blur(var(--sg-glass-blur)) saturate(var(--sg-glass-saturation))}
 .site-header__inner{width:min(calc(100% - 56px),1160px);margin-inline:auto;min-width:0;
@@ -12,16 +12,16 @@
 .site-brand{display:inline-flex;align-items:center;flex:none;min-width:0;gap:10px;
   color:var(--sg-ink);font-size:14px;font-weight:600;letter-spacing:-.012em}
 .site-brand__mark{display:inline-grid;place-items:center;flex:none;width:31px;height:31px;
-  border-radius:9px;background:#242b35;color:white;font-size:16px;font-weight:600;line-height:1}
+  border-radius:9px;background:#1e3a8a;color:white;font-size:16px;font-weight:600;line-height:1}
 .site-brand__name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .site-nav{display:flex;align-items:center;justify-content:flex-end;gap:2px;min-width:0}
 .site-nav__link{display:inline-flex;align-items:center;justify-content:center;flex:none;gap:7px;
   min-height:36px;padding:0 12px;border:1px solid transparent;border-radius:9px;
   color:var(--sg-ink-secondary);font-size:13px;font-weight:500;white-space:nowrap;
   transition:background var(--sg-transition),color var(--sg-transition),border-color var(--sg-transition)}
-.site-nav__link:hover{color:var(--sg-ink);background:#f1f3f6}
+.site-nav__link:hover{color:var(--sg-ink);background:#eff4ff}
 .site-nav__link.is-active,.site-nav__link[aria-current="page"]{
-  color:var(--sg-accent);background:var(--sg-accent-soft);border-color:rgba(22,104,220,.075)}
+  color:var(--sg-accent);background:var(--sg-accent-soft);border-color:rgba(29, 78, 216, .075)}
 .site-nav__link[aria-current="page"]{font-weight:600}
 .site-nav__label{white-space:nowrap}
 .site-nav::-webkit-scrollbar{display:none}

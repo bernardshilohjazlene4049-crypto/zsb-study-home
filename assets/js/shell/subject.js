@@ -247,4 +247,8 @@ export async function mount(shell) {
     links.forEach((a, i) => a.classList.toggle("is-active", i === idx));
   }, { threshold: [0, 1] });
   targets.forEach((t) => t && io.observe(t));
+
+  import("./system-study.js")
+    .then((m) => m.enhanceSubjectPage({ shell, model, subjectId }))
+    .catch(() => {});
 }

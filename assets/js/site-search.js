@@ -23,7 +23,17 @@ const SUBJECT_BY_DIR = { gs: "math", yy: "english", jsj: "computer_basics", c: "
 const ROOT = new URL("../../", import.meta.url);
 const OTHER_SUBJECT = "__other";
 const state = { items: [], subject: "", types: new Set(TYPES.map((t) => t[0])), subjects: new Set(), expanded: new Set() };
-let pagefind, serial = 0, model = null, noteSupportPromise = null;
+let pagefind, serial = 0, model = null, noteSupportPromise = null, cardsPromise = null;
+
+function loadCardsMap() {
+  if (!cardsPromise) {
+    cardsPromise = fetch(new URL("data/topic-cards.json", ROOT))
+      .then((r) => (r.ok ? r.json() : { cards: {} }))
+      .catch(() => ({ cards: {} }))
+      .then((d) => d.cards || {});
+  }
+  return cardsPromise;
+}
 
 function sourceTitle(file) {
   const stem = String(file || "").replace(/\.(png|jpe?g|webp)$/i, "");
@@ -55,19 +65,30 @@ function subjectForUrl(url) {
   return SUBJECT_BY_DIR[rel.split("/")[0]] || "";
 }
 
-function catalogItems(m, matcher) {
+function catalogItems(m, matcher, cardsMap = {}) {
   const out = [];
   for (const subject of m.subjects) {
     for (const node of m.chaptersOf(subject.id)) {
       const first = node.topics.map((t) => topicHref(t, "")).find(Boolean);
       if (matcher(node.chapter.title) && first) out.push({ type: "chapter", subject: subject.id, title: node.chapter.title, meta: shortSubjectName(subject), href: first, score: 32 });
       for (const t of node.topics) {
-        const score = knowledgeScore(t.title, t.aliases || [], matcher);
+        const card = cardsMap[t.id];
+        const extraAliases = card ? [card.summary, ...(card.must_know || []).slice(0, 3)] : [];
+        const score = knowledgeScore(t.title, [...(t.aliases || []), ...extraAliases], matcher);
         if (!score) continue;
         const href = topicHref(t, "");
         if (!href) continue;
         const sec = m.sectionOf(t);
-        out.push({ type: "topic", subject: subject.id, title: t.title, meta: [node.chapter.title, sec?.title].filter(Boolean).join(" · "), href, score });
+        out.push({
+          type: "topic",
+          subject: subject.id,
+          topicId: t.id,
+          title: t.title,
+          meta: [node.chapter.title, sec?.title].filter(Boolean).join(" · "),
+          excerpt: card?.summary || t.blurb || "",
+          href,
+          score
+        });
       }
     }
   }
@@ -272,10 +293,20 @@ async function search(q) {
   const matcher = createSearchMatcher(query);
   if (!matcher) { status.textContent = ""; return; }
   status.textContent = "搜索中…";
-  const m = await getModel();
+  const [m, cardsMap] = await Promise.all([getModel(), loadCardsMap()]);
   if (ticket !== serial) return;
-  const review = findReviewTopics(query).map((topic) => ({ ...topic, type: "topic", review: true, meta: `${subjectName(topic.subject)} · ${topic.chapter}` }));
-  const catalog = [...review, ...catalogItems(m, matcher)];
+  const review = findReviewTopics(query).map((topic) => {
+    const anchor = (topic.href || "").split("#")[1] || "";
+    const rCard = cardsMap[`review:${anchor}`];
+    return {
+      ...topic,
+      type: "topic",
+      review: true,
+      meta: `${subjectName(topic.subject)} · ${topic.chapter}`,
+      excerpt: rCard?.summary || ""
+    };
+  });
+  const catalog = [...review, ...catalogItems(m, matcher, cardsMap)];
   state.items = mergeSearchResults(catalog, ROOT);
   if (state.items.length) paint();
   let docs = [], support = [], docError = false;

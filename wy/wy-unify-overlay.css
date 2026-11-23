@@ -25,7 +25,7 @@ html{
 }
 body{
   background:
-    radial-gradient(900px 420px at 50% -220px,rgba(255,255,255,.96),transparent 72%),
+    radial-gradient(900px 420px at 50% -220px,rgba(255, 255, 255, .96),transparent 72%),
     var(--sg-bg);
   color:var(--sg-ink);
 }
@@ -64,7 +64,7 @@ body{
   padding:8px;
   border:1px solid var(--sg-line);
   border-radius:var(--sg-radius-card);
-  background:rgba(255,255,255,.90);
+  background:rgba(255, 255, 255, .90);
   box-shadow:var(--sg-shadow-xs);
   backdrop-filter:blur(10px) saturate(120%);
   -webkit-backdrop-filter:blur(10px) saturate(120%);
@@ -123,7 +123,7 @@ body{
 .wy-group a.is-active{
   color:var(--sg-accent);
   background:var(--sg-accent-soft);
-  border-color:rgba(22,104,220,.06);
+  border-color:rgba(29, 78, 216, .06);
   font-weight:580;
 }
 .wy-group .dot{display:none!important}
@@ -256,7 +256,7 @@ body{
   -webkit-overflow-scrolling:touch;
   margin:18px 0;
   padding:16px 18px;
-  border:1px solid rgba(255,255,255,.06);
+  border:1px solid rgba(255, 255, 255, .06);
   border-radius:10px;
   background:var(--sg-stage);
   color:var(--sg-stage-ink);

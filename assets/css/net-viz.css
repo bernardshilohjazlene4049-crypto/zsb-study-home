@@ -1,27 +1,27 @@
 /* 计算机网络：可视化讲解组件与原文行样式。页面骨架沿用 wy-points.css。 */
 .wl-page {
-  --nv-n: #2457a6; --nv-n-t: #fff;
-  --nv-s: #f0c24b; --nv-s-t: #2b2100;
-  --nv-h: #1c7a4c; --nv-h-t: #fff;
-  --nv-g: #6a6f7c; --nv-g-t: #fff;
-  --nv-r: #b8352b; --nv-r-t: #fff;
-  --nv-p: #7344c4; --nv-p-t: #fff;
-  --nv-k: #22222e; --nv-k-t: #fff;
-  --nv-o: #b95500; --nv-o-t: #fff;
+  --nv-n: #1d4ed8; --nv-n-t: #fff;
+  --nv-s: #f87171; --nv-s-t: #991b1b;
+  --nv-h: #1d4ed8; --nv-h-t: #fff;
+  --nv-g: #525a68; --nv-g-t: #fff;
+  --nv-r: #b91c1c; --nv-r-t: #fff;
+  --nv-p: #1d4ed8; --nv-p-t: #fff;
+  --nv-k: #111318; --nv-k-t: #fff;
+  --nv-o: #b91c1c; --nv-o-t: #fff;
   --nv-w: var(--sh-accent-softer); --nv-w-t: var(--sh-ink);
-  --nv-ok: #1c7a4c; --nv-bad: #b8352b;
+  --nv-ok: #1d4ed8; --nv-bad: #b91c1c;
 }
 @media (prefers-color-scheme: dark) {
   .wl-page {
-    --nv-n: #8db4f2; --nv-n-t: #0a1a33;
-    --nv-s: #e8c45c; --nv-s-t: #2b2100;
-    --nv-h: #6fd1a0; --nv-h-t: #06251a;
-    --nv-g: #9a9fae; --nv-g-t: #14141c;
-    --nv-r: #f29c93; --nv-r-t: #35100c;
-    --nv-p: #bea0f2; --nv-p-t: #1d0f3a;
-    --nv-k: #f3f2ff; --nv-k-t: #15151d;
-    --nv-o: #f0b072; --nv-o-t: #2e1700;
-    --nv-ok: #6fd1a0; --nv-bad: #f29c93;
+    --nv-n: #bfdbfe; --nv-n-t: #1e3a8a;
+    --nv-s: #f87171; --nv-s-t: #991b1b;
+    --nv-h: #60a5fa; --nv-h-t: #1e3a8a;
+    --nv-g: #525a68; --nv-g-t: #1e3a8a;
+    --nv-r: #fecaca; --nv-r-t: #991b1b;
+    --nv-p: #bfdbfe; --nv-p-t: #1e3a8a;
+    --nv-k: #eff4ff; --nv-k-t: #1e3a8a;
+    --nv-o: #f87171; --nv-o-t: #991b1b;
+    --nv-ok: #60a5fa; --nv-bad: #fecaca;
   }
 }
 

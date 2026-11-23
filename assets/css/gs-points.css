@@ -26,7 +26,7 @@
 /* 可视化讲解 */
 .gs-pt .gs-viz-wrap { margin-top: 16px; }
 .gs-pt .gs-viz-wrap > h4 { margin: 0 0 8px; font-size: 14px; color: var(--sh-ink-2); }
-.gs-viz { --gs-accent: #006659; --gs-muted: #425b64; --gs-border: #c9dad7; min-width: 0; padding: 14px; border: 1px solid var(--gs-border); border-radius: 14px; background: #fff; color: #172d35; font-size: 16px; line-height: 1.6; }
+.gs-viz { --gs-accent: #1d4ed8; --gs-muted: #1d4ed8; --gs-border: #bfdbfe; min-width: 0; padding: 14px; border: 1px solid var(--gs-border); border-radius: 14px; background: #fff; color: #111318; font-size: 16px; line-height: 1.6; }
 .gs-viz p { margin: 6px 0; }
 .gs-viz .gs-controls { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
 .gs-viz .gs-controls button { min-height: 44px; min-width: 44px; padding: 6px 12px; border: 1px solid var(--gs-border); border-radius: 8px; background: #fff; color: inherit; font: inherit; cursor: pointer; }
@@ -37,12 +37,12 @@
 .gs-viz .gs-plot.gs-draggable { touch-action: pan-y; cursor: grab; }
 .gs-viz .gs-numberline { height: 83px; }
 .gs-viz .gs-caption { font-size: .875rem; color: var(--gs-muted); }
-.gs-viz .gs-status { padding: 8px 10px; background: #eef5f3; border-radius: 8px; font-variant-numeric: tabular-nums; }
+.gs-viz .gs-status { padding: 8px 10px; background: #eff4ff; border-radius: 8px; font-variant-numeric: tabular-nums; }
 .gs-viz .gs-table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; font-size: .9rem; }
 .gs-viz .gs-table th, .gs-viz .gs-table td { padding: 5px 7px; border-bottom: 1px solid var(--gs-border); text-align: right; }
 .gs-viz .gs-table th:first-child, .gs-viz .gs-table td:first-child { text-align: left; }
 .gs-viz .gs-sub { margin: 16px 0 4px; font-size: 1.05rem; }
-.gs-viz :focus-visible { outline: 3px solid #9a440e; outline-offset: 3px; }
+.gs-viz :focus-visible { outline: 3px solid #b91c1c; outline-offset: 3px; }
 /* 讲义原题的数轴交集图 */
 .gs-axis { margin: 0; }
 .gs-axis svg { display: block; width: 100%; height: auto; max-width: 560px; }
@@ -59,5 +59,5 @@
 /* 讲解图：自适应宽度，点击打开原图（无新增脚本） */
 .gs-illus { margin: 14px 0 18px; max-width: 100%; }
 .gs-illus-link { display: block; min-width: 44px; min-height: 44px; border-radius: var(--sh-radius, 14px); overflow: hidden; }
-.gs-illus-link:focus-visible { outline: 3px solid #9a440e; outline-offset: 3px; }
-.gs-illus img { display: block; width: 100%; height: auto; max-width: 100%; border: 1px solid var(--sh-line, #c9dad7); border-radius: inherit; background: #fff; }
+.gs-illus-link:focus-visible { outline: 3px solid #b91c1c; outline-offset: 3px; }
+.gs-illus img { display: block; width: 100%; height: auto; max-width: 100%; border: 1px solid var(--sh-line, #bfdbfe); border-radius: inherit; background: #fff; }

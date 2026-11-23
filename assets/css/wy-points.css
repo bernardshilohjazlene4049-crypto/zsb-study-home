@@ -196,5 +196,5 @@
 /* 讲解图：自适应宽度，点击打开原图（无新增脚本） */
 .wy-illus { margin: 14px 0 18px; max-width: 100%; }
 .wy-illus-link { display: block; min-width: 44px; min-height: 44px; border-radius: 14px; overflow: hidden; }
-.wy-illus-link:focus-visible { outline: 3px solid #9a440e; outline-offset: 3px; }
-.wy-illus img { display: block; width: 100%; height: auto; max-width: 100%; border: 1px solid var(--sh-line, #c9dad7); border-radius: inherit; background: #fff; }
+.wy-illus-link:focus-visible { outline: 3px solid #b91c1c; outline-offset: 3px; }
+.wy-illus img { display: block; width: 100%; height: auto; max-width: 100%; border: 1px solid var(--sh-line, #bfdbfe); border-radius: inherit; background: #fff; }

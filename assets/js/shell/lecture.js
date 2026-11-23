@@ -16,7 +16,8 @@ const PAGES = {
   "gs/gs45.html": { subject: "math", wrap: ".study-layout", hide: [".study-index"], hero: ".page-hero", before: [".route-panel"], nav: ".study-index a[href^='#']", panels: ".route-panel, .study-content > section", sections: true },
   "yy/yy5.html": { subject: "english", children: "main .site-container", panels: ":scope > section", sections: true },
   "jsj/jsj1.html": { subject: "computer_basics", wrap: "main.learn-main", hero: ".hero-area", hide: [".map-index"], panels: ".map-stage > article", sections: true, proxy: (id) => document.querySelector(`.map-index__item[data-chapter="${id.replace(/^mind-/, "")}"]`) },
-  "jsj/ppt5.html": { subject: "computer_basics", wrap: "main.learn-main", hero: ".hero-area", panels: ".ppt-card-stack > article", sections: true, anchor: (t) => /^(\d\.\d)/.test(t.title) ? `chapter-${t.title.slice(0, 3)}` : "" }
+  "jsj/ppt5.html": { subject: "computer_basics", wrap: "main.learn-main", hero: ".hero-area", panels: ".ppt-card-stack > article", sections: true, anchor: (t) => /^(\d\.\d)/.test(t.title) ? `chapter-${t.title.slice(0, 3)}` : "" },
+  "c/notes.html": { subject: "c_language", wrap: ".study-layout", hide: [".study-index"], hero: ".page-hero", nav: ".study-index a[href^='#']", panels: ".study-content > section", sections: true, plain: true }
 };
 
 function configFor(rel) {
@@ -133,10 +134,12 @@ export function renderToc(model, { toc, subjectId, chapterIds, rel, base, cfg = 
   const nodes = model.chaptersOf(subjectId);
   const visibleChapterIds = tocChapterIds(chapterIds, cfg.chapterPoints);
   const mine = nodes.filter((n) => visibleChapterIds.includes(n.chapter.id)).map((n) => ({ ...n, topics: directoryTopics(n.topics, cfg.chapterPoints) }));
+  const totalTopics = mine.reduce((sum, n) => sum + n.topics.length, 0);
+  const subLabel = mine.length >= 3 ? `共 ${mine.length} 章 · ${totalTopics} 个知识点` : mine.map((n) => n.chapter.title).join(" · ");
   const head = el("div", { class: "lx-toc__subject" }, [
     el("a", { class: "lx-toc__subject-link", href: subject?.homeUrl ? base + subject.homeUrl : null }, [
       el("span", { class: "lx-toc__subject-icon" }, [icon("book", 18)]),
-      el("span", {}, [el("strong", { text: shortSubjectName(subject) }), el("small", { text: mine.map((n) => n.chapter.title).join(" · ") })])
+      el("span", {}, [el("strong", { text: shortSubjectName(subject) }), el("small", { text: subLabel })])
     ])
   ]);
   const p = model.progressOf(mine.flatMap((n) => n.topics));
@@ -162,20 +165,70 @@ export function renderToc(model, { toc, subjectId, chapterIds, rel, base, cfg = 
     el("li", {}, [el("a", { class: "lx-toc__item lx-toc__item--extra", href: x.href, "data-anchor": x.href.slice(1) }, [el("span", { class: "lx-toc__no", text: x.no }), el("span", { class: "lx-toc__text", text: x.text })])]))) : null;
 
   panelToc.append(extraList(extras.before, "is-before") || "");
+  const collapsible = mine.length >= 3 && !cfg.chapterPoints;
+  const expandAll = toc.dataset.expandAll === "1";
+  const groupRefs = [];
+  if (collapsible) {
+    const foldBtn = el("button", {
+      type: "button",
+      class: "lx-toc__fold-btn",
+      text: expandAll ? "收起其他章" : "全部展开"
+    });
+    foldBtn.addEventListener("click", () => {
+      const next = toc.dataset.expandAll !== "1";
+      toc.dataset.expandAll = next ? "1" : "0";
+      foldBtn.textContent = next ? "收起其他章" : "全部展开";
+      for (const g of groupRefs) {
+        const open = next || g.hasCurrent();
+        g.btn.setAttribute("aria-expanded", String(open));
+        g.body.hidden = !open;
+      }
+    });
+    panelToc.append(el("div", { class: "lx-toc__fold-bar" }, [
+      el("span", { text: "章节目录" }),
+      foldBtn
+    ]));
+  }
   for (const node of mine) {
-    const heading = cfg.chapterPoints
-      ? el("h3", { class: "lx-toc__chapter" }, [el("a", { href: base + node.chapter.source_ref, text: node.chapter.title })])
-      : el("h3", { class: "lx-toc__chapter", text: node.chapter.title });
-    const group = el("section", { class: "lx-toc__group" }, [heading]);
+    const listWrap = el("div", { class: "lx-toc__group-body" });
     if (node.sections.length) {
       for (const sec of node.sections) {
         if (!sec.topics.length) continue;
-        group.append(el("h4", { class: "lx-toc__section", text: sec.chapter.title }), el("ul", { class: "lx-toc__list" }, sec.topics.map((t) => tocItem(model, t, base, rel, cfg, current))));
+        listWrap.append(el("h4", { class: "lx-toc__section", text: sec.chapter.title }), el("ul", { class: "lx-toc__list" }, sec.topics.map((t) => tocItem(model, t, base, rel, cfg, current))));
       }
     } else {
-      group.append(el("ul", { class: "lx-toc__list" }, node.topics.map((t) => tocItem(model, t, base, rel, cfg, current))));
+      listWrap.append(el("ul", { class: "lx-toc__list" }, node.topics.map((t) => tocItem(model, t, base, rel, cfg, current))));
     }
-    panelToc.append(group);
+    if (collapsible) {
+      const chProg = model.progressOf(node.topics);
+      const isActiveCh = node.topics.some((t) => t.id === current);
+      const isOpen = expandAll || isActiveCh || (!current && node === mine[0]);
+      listWrap.hidden = !isOpen;
+      const badgeText = chProg.hasRecords ? `${chProg.done}/${chProg.total}` : `${chProg.total}节`;
+      const btn = el("button", {
+        type: "button",
+        class: `lx-toc__ch-btn${isActiveCh ? " is-active-ch" : ""}`,
+        "aria-expanded": String(isOpen)
+      }, [
+        icon("chevron", 14, "lx-toc__ch-chev"),
+        el("span", { class: "lx-toc__ch-name", text: node.chapter.title }),
+        el("span", { class: `lx-toc__ch-badge${chProg.done === chProg.total && chProg.total > 0 ? " is-done" : ""}`, text: badgeText })
+      ]);
+      btn.addEventListener("click", () => {
+        const nextOpen = listWrap.hidden;
+        listWrap.hidden = !nextOpen;
+        btn.setAttribute("aria-expanded", String(nextOpen));
+      });
+      const group = el("section", { class: "lx-toc__group lx-toc__group--fold", "data-chapter-id": node.chapter.id }, [btn, listWrap]);
+      groupRefs.push({ btn, body: listWrap, hasCurrent: () => Boolean(listWrap.querySelector(".lx-toc__item.is-current")) });
+      panelToc.append(group);
+    } else {
+      const heading = cfg.chapterPoints
+        ? el("h3", { class: "lx-toc__chapter" }, [el("a", { href: base + node.chapter.source_ref, text: node.chapter.title })])
+        : el("h3", { class: "lx-toc__chapter", text: node.chapter.title });
+      const group = el("section", { class: "lx-toc__group" }, [heading, listWrap]);
+      panelToc.append(group);
+    }
   }
   panelToc.append(extraList(extras.after, "is-after") || "");
 
@@ -258,7 +311,7 @@ export function crumbs(model, topic, base, subjectId, chapterId = "") {
   return nav;
 }
 
-function mountPointTabs({ sk, cfg, tracked, anchorFor, order, rel, linkFor, openToc, closeToc, onCurrent }) {
+function mountPointTabs({ sk, cfg, model, tracked, anchorFor, order, rel, linkFor, openToc, closeToc, onCurrent }) {
   const panels = [...sk.body.querySelectorAll(cfg.panels)].map((node, i) => {
     if (!node.id) node.id = `lx-point-panel-${i + 1}`;
     const topic = tracked.find((t) => node.id === anchorFor(t) || node.contains(document.getElementById(anchorFor(t))));
@@ -278,9 +331,55 @@ function mountPointTabs({ sk, cfg, tracked, anchorFor, order, rel, linkFor, open
   const drawer = el("button", { type: "button", class: "lx-point-directory", "aria-label": "本章目录", "aria-controls": "lx-toc" }, [icon("chevronDown", 18)]);
   drawer.addEventListener("click", openToc);
   strip.append(el("strong", { class: "lx-point-switch__label", text: "考点切换" }), left, list, right, drawer);
-  // 整条放在 hero 之后；保留各页原来的正文容器及所有正文节点。
+  // 整条放在 hero 之后；多章长页（≥3章）额外增加「章节速切」条，1 秒定位任意章。
   const hero = sk.body.querySelector(cfg.hero || ".page-hero");
-  if (hero) hero.after(strip); else sk.body.prepend(strip);
+  const chapterEntries = [];
+  const seenCh = new Set();
+  for (const p of panels) {
+    const ch = p.topic && model ? model.topLevel(p.topic.chapter_id) : null;
+    if (ch && !seenCh.has(ch.id)) {
+      seenCh.add(ch.id);
+      const sp = splitChapterTitle(ch.title);
+      const segs = (sp.name || ch.title).split(/[、，,与和]/).map((s) => s.trim()).filter(Boolean);
+      const shortName = ((segs[0] || "").length <= 2 && segs[1] ? `${segs[0]}${segs[1]}` : (segs[0] || ch.title)).slice(0, 4);
+      const numOnly = (sp.no.match(/[0-9一二三四五六七八九十]+/) || [""])[0];
+      chapterEntries.push({
+        id: ch.id,
+        label: numOnly ? `${numOnly}·${shortName}` : shortName,
+        title: ch.title,
+        firstPanel: p
+      });
+    }
+  }
+  let chPills = [];
+  let chStrip = null;
+  if (chapterEntries.length >= 3) {
+    const overviewPanel = panels.find((p) => !p.topic) || null;
+    const items = [];
+    if (overviewPanel) {
+      const ovBtn = el("button", { type: "button", class: "lx-ch-pill", "data-ch-id": "__overview", title: overviewPanel.label, text: "★ 总览" });
+      ovBtn.addEventListener("click", () => activate(overviewPanel, { historyMode: "replaceState", revealBar: true }));
+      items.push(ovBtn);
+      chPills.push(ovBtn);
+    }
+    for (const ce of chapterEntries) {
+      const b = el("button", { type: "button", class: "lx-ch-pill", "data-ch-id": ce.id, title: ce.title, text: ce.label });
+      b.addEventListener("click", () => activate(ce.firstPanel, { historyMode: "replaceState", revealBar: true }));
+      items.push(b);
+      chPills.push(b);
+    }
+    chStrip = el("div", { class: "lx-ch-strip", role: "navigation", "aria-label": "按章节快速切换" }, [
+      el("span", { class: "lx-ch-strip__label", text: "章节速切" }),
+      el("div", { class: "lx-ch-strip__list" }, items)
+    ]);
+  }
+  if (hero) {
+    if (chStrip) { hero.after(chStrip); chStrip.after(strip); }
+    else hero.after(strip);
+  } else {
+    if (chStrip) { sk.body.prepend(strip); sk.body.prepend(chStrip); }
+    else sk.body.prepend(strip);
+  }
   let active = null, printing = false, proxyObserver = null;
   let alignFrame = 0, routeFrame = 0, alignTimer = 0, layoutObserver = null;
   const alignmentCleanups = [];
@@ -368,6 +467,14 @@ function mountPointTabs({ sk, cfg, tracked, anchorFor, order, rel, linkFor, open
     }
     observeProxy();
     if (historyMode) history[historyMode](null, "", hashFor(panel));
+    if (chPills.length) {
+      const activeChId = panel.topic && model ? model.topLevel(panel.topic.chapter_id)?.id : "__overview";
+      for (const pill of chPills) {
+        const isOn = pill.dataset.chId === activeChId;
+        pill.classList.toggle("is-on", isOn);
+        if (isOn) pill.setAttribute("aria-current", "true"); else pill.removeAttribute("aria-current");
+      }
+    }
     onCurrent(panel.topic?.id);
     for (const [entry, hosts] of pagers) for (const host of hosts) paintPager(host, entry);
     showTab(panel);
@@ -376,7 +483,7 @@ function mountPointTabs({ sk, cfg, tracked, anchorFor, order, rel, linkFor, open
   }
 
   panels.forEach((panel, i) => {
-    const tab = el("button", { type: "button", class: "lx-point-tab", id: `lx-point-tab-${i + 1}`, role: "tab", "aria-selected": "false", "aria-controls": panel.id, tabindex: "-1", text: panel.label });
+    const tab = el("button", { type: "button", class: "lx-point-tab", id: `lx-point-tab-${i + 1}`, role: "tab", "aria-selected": "false", "aria-controls": panel.id, tabindex: "-1", title: panel.topic?.title || panel.label, text: panel.label });
     panel.tab = tab;
     panel.node.classList.add("lx-point-panel");
     panel.node.setAttribute("role", "tabpanel");
@@ -582,21 +689,49 @@ export async function mount(shell) {
       a.classList.toggle("is-current", on);
       if (on) a.setAttribute("aria-current", "true"); else a.removeAttribute("aria-current");
     }
+    const activeItem = sk.toc.querySelector(".lx-toc__item.is-current");
+    const activeGroup = activeItem?.closest(".lx-toc__group--fold");
+    if (activeGroup) {
+      const body = activeGroup.querySelector(".lx-toc__group-body");
+      const btn = activeGroup.querySelector(".lx-toc__ch-btn");
+      if (body && body.hidden) {
+        body.hidden = false;
+        btn?.setAttribute("aria-expanded", "true");
+      }
+      for (const b of sk.toc.querySelectorAll(".lx-toc__ch-btn")) {
+        b.classList.toggle("is-active-ch", b === btn);
+      }
+    }
   }
   paint();
 
+  let sysController = null;
+  let activeTopicId = current;
   if (tracked.length > 1) {
-    pointTabs = mountPointTabs({ sk, cfg, tracked, anchorFor, order, rel, linkFor, openToc, closeToc,
+    pointTabs = mountPointTabs({ sk, cfg, model, tracked, anchorFor, order, rel, linkFor, openToc, closeToc,
       onCurrent: (id) => {
+        activeTopicId = id || null;
         if (id && id !== current) {
           current = id;
           remember(id);
         }
         paint();
+        sysController?.refreshCard?.();
       } });
     paint();
   } else {
     document.body.classList.add("lx-single");
   }
   if (!cfg.plain) await enhanceLesson({ shell, sk, current });
+  document.addEventListener("zsb:learning-updated", async () => {
+    const fresh = await loadModel();
+    Object.assign(model, fresh);
+    const { close: nextClose } = renderToc(model, { toc: sk.toc, subjectId, chapterIds, rel, base, cfg, current, extras, onPick: pick });
+    nextClose.addEventListener("click", closeToc);
+    paint();
+  });
+  import("./system-study.js")
+    .then((m) => m.enhanceLecturePage({ shell, sk, model, subjectId, order, getCurrent: () => activeTopicId, isMultiTab: tracked.length > 1 }))
+    .then((ctrl) => { sysController = ctrl; })
+    .catch(() => {});
 }

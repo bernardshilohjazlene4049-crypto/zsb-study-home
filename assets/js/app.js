@@ -218,7 +218,7 @@ function renderRight() {
     ]);
   });
   const pct = total ? Math.round(done / total * 100) : 0;
-  if (ring) ring.style.background = `conic-gradient(#6e91d3 ${pct * 3.6}deg,#dfe7f4 0deg)`;
+  if (ring) ring.style.background = `conic-gradient(#60a5fa ${pct * 3.6}deg,#dbeafe 0deg)`;
   if (label) label.textContent = `${pct}%`;
   list.replaceChildren(...rows);
 }

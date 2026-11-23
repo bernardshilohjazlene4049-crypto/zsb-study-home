@@ -7,6 +7,8 @@
   if (!script || d.documentElement.hasAttribute("data-shell")) return;
   d.documentElement.setAttribute("data-shell", "");
   d.documentElement.classList.add("shell-js");
+  var themeMeta = d.querySelector('meta[name="theme-color"]');
+  if (themeMeta) themeMeta.setAttribute("content", "#f7f8fa");
 
   var ROOT = new URL("../../", script.src);
   var here = new URL(location.href);
@@ -19,6 +21,7 @@
     tower: '<circle cx="12" cy="12" r="2.2"/><path d="M7.8 7.8a6 6 0 0 0 0 8.4M16.2 7.8a6 6 0 0 1 0 8.4M5 5a10 10 0 0 0 0 14M19 5a10 10 0 0 1 0 14"/>',
     chart: '<path d="M4 20h16"/><path d="M7 16v-4M12 16V7M17 16v-6"/>',
     book: '<path d="M12 6.5C10.3 5.2 7.9 4.6 4 4.8v13.5c3.9-.2 6.3.4 8 1.7 1.7-1.3 4.1-1.9 8-1.7V4.8c-3.9-.2-6.3.4-8 1.7z"/><path d="M12 6.5V20"/>',
+    code: '<path d="m8 7-5 5 5 5"/><path d="m16 7 5 5-5 5"/><path d="m14 5-4 14"/>',
     search: '<circle cx="10.8" cy="10.8" r="6.3"/><path d="m15.6 15.6 4.9 4.9"/>'
   };
   function svg(name, size) {
@@ -28,6 +31,7 @@
   var NAV = [
     { key: "home", label: "首页", short: "首页", href: "index.html", icon: "home" },
     { key: "subjects", label: "科目", short: "科目", href: "index.html#subjects", icon: "layers" },
+    { key: "lab", label: "代码实操", short: "实操", href: "study/lab.html", icon: "code" },
     { key: "notes", label: "课堂资料", short: "资料", href: "notes/index.html", icon: "book" },
     { key: "review", label: "学习记录", short: "记录", href: "study/overview.html", icon: "chart" },
     { key: "search", label: "全站搜索", short: "搜索", href: "search.html", icon: "search", desktopOnly: true }
@@ -36,6 +40,7 @@
   function activeKey() {
     if (rel === "index.html") return location.hash === "#subjects" ? "subjects" : "home";
     if (rel === "search.html") return "search";
+    if (rel === "study/lab.html") return "lab";
     if (/^notes\/(network|web)-review\.html$/.test(rel)) return /^#(?:timeline(?:-title)?|date-)/.test(location.hash) ? "notes" : "subjects";
     if (rel.indexOf("notes/") === 0) return "notes";
     if (/^(gs|yy|jsj|c|wy|wl)\//.test(rel)) return "subjects";
@@ -117,7 +122,7 @@
   var KIND = (function () {
     if (rel === "index.html") return "home";
     if (/^(gs|yy|jsj|c|wy|wl)\/index\.html$/.test(rel)) return "subject";
-    if (/^(gs\/gs1|gs\/gs45|yy\/yy5|jsj\/jsj1|jsj\/ppt5)\.html$/.test(rel)) return "lecture";
+    if (/^(gs\/gs1|gs\/gs45|yy\/yy5|jsj\/jsj1|jsj\/ppt5|c\/notes)\.html$/.test(rel)) return "lecture";
     if (/^wy\/(html|html5|css|js)\/[^/]+\.html$/.test(rel) && !/\/index\.html$/.test(rel)) return "lecture";
     if (/^wy\/ch[12]\/[^/]+\.html$/.test(rel)) return "lecture";
     if (/^wl\/ch[1-6]\/[^/]+\.html$/.test(rel)) return "lecture";

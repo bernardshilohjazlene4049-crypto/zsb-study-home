@@ -97,6 +97,11 @@ function mount() {
   filter.hidden = false;
   navigation.dataset.enhanced = "";
   markCurrent();
+  if (window.ZSBShell) {
+    import("./shell/system-study.js")
+      .then((m) => m.enhanceReviewPage({ shell: window.ZSBShell }))
+      .catch(() => {});
+  }
 }
 
 mount();

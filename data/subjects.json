@@ -54,8 +54,8 @@
       "order": 4,
       "optional": false,
       "enabled": true,
-      "summary": "有 5 道图片示例，正式题库即将开放。",
-      "catalog_note": "工作台不转写那 5 张图片题。另外挂接的文字题是自编示例。",
+      "summary": "第 1–9 章系统讲义（27 节填空背诵、导图与 54 道随堂练习），另含 5 道图片示例题。",
+      "catalog_note": "第 1–9 章目录与讲义依据专升本课堂辅导讲义整理（涵盖数组、函数与指针）；原有 5 道图片示例题继续保留在 c/index.html。",
       "source_ref": "c/index.html"
     },
     {

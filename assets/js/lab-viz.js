@@ -308,7 +308,7 @@
       q(root, "act").hidden = !on.has("behavior");
       if (!on.has("behavior")) q(root, "text").style.color = "";
     });
-    q(root, "act").addEventListener("click", () => { const t = q(root, "text"); t.style.color = t.style.color ? "" : "#65429a"; });
+    q(root, "act").addEventListener("click", () => { const t = q(root, "text"); t.style.color = t.style.color ? "" : "#1e3a8a"; });
   };
 
   M.structure = (root) => {
@@ -326,11 +326,11 @@
   M.howto = (root) => {
     frame(root, "可视化讲解 · CSS 三种引入方式",
       btns("howto", [["external", "外部 CSS"], ["internal", "内部 CSS"], ["inline", "行内 CSS"]]) + '<p class="lab-howto" data-r="sample">同一段示例文字</p><p data-r="result" aria-live="polite"></p>' +
-      '<pre><code>&lt;link rel="stylesheet" href="css/c1.css"&gt;\n&lt;style&gt;.wy-internal { color: purple; }&lt;/style&gt;\n&lt;p style="color: #a22a43"&gt;同一段示例文字&lt;/p&gt;</code></pre>' + srcLine(root, "howto"));
+      '<pre><code>&lt;link rel="stylesheet" href="css/c1.css"&gt;\n&lt;style&gt;.wy-internal { color: purple; }&lt;/style&gt;\n&lt;p style="color: #b91c1c"&gt;同一段示例文字&lt;/p&gt;</code></pre>' + srcLine(root, "howto"));
     toggles(root, "howto", (on) => {
       const s = q(root, "sample");
       s.classList.toggle("ext", on.has("external")); s.classList.toggle("int", on.has("internal"));
-      s.style.color = on.has("inline") ? "#a22a43" : "";
+      s.style.color = on.has("inline") ? "#b91c1c" : "";
       q(root, "result").textContent = "当前颜色：" + (on.has("inline") ? "行内样式" : on.has("internal") ? "内部样式（本示例选择器权重更高）" : on.has("external") ? "外部样式" : "页面默认颜色");
     });
   };
@@ -370,12 +370,12 @@
     const opts = (arr) => arr.map((v) => [v, v]);
     frame(root, "可视化讲解 · CSS 文本属性",
       "<h4 class=\"lab-h\">text-overflow</h4>" + pick("overflow", "显示方式", opts(["clip", "ellipsis"])) + '<p class="lab-text-s lab-ovf" data-r="ovf-s">这是一行用来查看裁切与省略号的示例文字。</p>' +
-      '<h4 class="lab-h">text-shadow</h4><label class="lab-opt"><input type="checkbox" data-r="shadow" checked> 启用课堂双阴影</label><p class="lab-text-s" data-r="shadow-s">文字阴影</p><pre><code>text-shadow: 3px 3px 0 #d8d2ff, 7px 7px 10px #bbb;</code></pre>' +
+      '<h4 class="lab-h">text-shadow</h4><label class="lab-opt"><input type="checkbox" data-r="shadow" checked> 启用课堂双阴影</label><p class="lab-text-s" data-r="shadow-s">文字阴影</p><pre><code>text-shadow: 3px 3px 0 #dbeafe, 7px 7px 10px #bfc7d4;</code></pre>' +
       '<h4 class="lab-h">text-indent</h4>' + pick("indent", "首行缩进", opts(["0", "2em", "20%"])) + '<p class="lab-text-s" data-r="indent-s">这是首行缩进的示例。文字换行后可以对比首行与后续行。</p>' +
       '<h4 class="lab-h">white-space</h4>' + pick("space", "空白处理", opts(["normal", "pre", "nowrap", "pre-wrap", "pre-line"])) + '<p class="lab-text-s lab-spc" data-r="space-s">甲    乙    丙\n这一行文字用来观察自动换行和空白折叠。</p><p data-r="space-n" aria-live="polite"></p>' + srcLine(root, "text"));
     q(root, "overflow").addEventListener("change", (e) => { q(root, "ovf-s").style.textOverflow = e.target.value; });
     q(root, "indent").addEventListener("change", (e) => { q(root, "indent-s").style.textIndent = e.target.value; });
-    const sh = () => { q(root, "shadow-s").style.textShadow = q(root, "shadow").checked ? "3px 3px 0 #d8d2ff, 7px 7px 10px #bbb" : ""; };
+    const sh = () => { q(root, "shadow-s").style.textShadow = q(root, "shadow").checked ? "3px 3px 0 #dbeafe, 7px 7px 10px #bfc7d4" : ""; };
     q(root, "shadow").addEventListener("change", sh); sh();
     const sp = () => {
       const v = q(root, "space").value; q(root, "space-s").style.whiteSpace = v;

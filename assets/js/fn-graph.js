@@ -33,9 +33,9 @@
     if(b[0]<=0&&b[1]>=0)E('line',{x1:sx(0),x2:sx(0),y1:M.t,y2:HT-M.b,class:'fn-graph__axis'},grid);
     for(const c of (view.bands||[]))if(step>=(c.stage||0)){
       const x1=sx(n(c.x1,param,step)),x2=sx(n(c.x2,param,step));
-      E('rect',{x:Math.min(x1,x2),y:M.t,width:Math.abs(x2-x1),height:HT-M.t-M.b,fill:'#dceafa',opacity:'.42'},content);
+      E('rect',{x:Math.min(x1,x2),y:M.t,width:Math.abs(x2-x1),height:HT-M.t-M.b,fill:'#dbeafe',opacity:'.42'},content);
     }
-    function label(x,y,txt,alt=false){if(!txt)return;let px=clamp(x+9,M.l+4,W-M.r-8),py=clamp(y-10,M.t+14,HT-M.b-5);const t=E('text',{x:px,y:py,class:'fn-graph__label',fill:alt?'#98664e':undefined},front);t.textContent=txt;}
+    function label(x,y,txt,alt=false){if(!txt)return;let px=clamp(x+9,M.l+4,W-M.r-8),py=clamp(y-10,M.t+14,HT-M.b-5);const t=E('text',{x:px,y:py,class:'fn-graph__label',fill:alt?'#991b1b':undefined},front);t.textContent=txt;}
     for(const l of view.lines||[]){if(step<(l.stage||0)||l.when&&!l.when(param))continue;
       const v=n(l.value,param,step);if(!Number.isFinite(v))continue;
       const a=l.axis==='x', z=a?sx(v):sy(v);
@@ -59,7 +59,7 @@
       }
     }
     for(const bar of view.bars||[]){if(step<(bar.stage||0))continue;
-      const x=sx(n(bar.x,param,step));E('line',{x1:x,x2:x,y1:sy(n(bar.y1,param,step)),y2:sy(n(bar.y2,param,step)),stroke:'#b17a5e','stroke-width':3,'stroke-dasharray':bar.dashed?'5 5':undefined,'vector-effect':'non-scaling-stroke'},content);
+      const x=sx(n(bar.x,param,step));E('line',{x1:x,x2:x,y1:sy(n(bar.y1,param,step)),y2:sy(n(bar.y2,param,step)),stroke:'#b91c1c','stroke-width':3,'stroke-dasharray':bar.dashed?'5 5':undefined,'vector-effect':'non-scaling-stroke'},content);
     }
     if(view.extrema&&step>0){
       // 极值通过对本图已给示意曲线采样得到，图上只标“最高点/最低点”，不写题目未给出的坐标。
@@ -87,7 +87,7 @@
       E('circle',{cx:x,cy:y,r:6.2,class:'fn-graph__point '+(p.open?'fn-graph__point--open':'fn-graph__point--filled')+(p.alt?' fn-graph__point--alt':'')},front);
       label(x,y,p.label,!!p.alt);
     }
-    for(const p of view.moving||[]){const x=n(p.x,param,step),y=n(p.y,param,step);E('circle',{cx:sx(x),cy:sy(y),r:5.5,fill:'#b17a5e'},front);}
+    for(const p of view.moving||[]){const x=n(p.x,param,step),y=n(p.y,param,step);E('circle',{cx:sx(x),cy:sy(y),r:5.5,fill:'#b91c1c'},front);}
     E('text',{x:W-M.r-4,y:sy(0)-8,class:'fn-graph__label','text-anchor':'end'},front).textContent='x';
     E('text',{x:sx(0)+10,y:M.t+12,class:'fn-graph__label'},front).textContent='y';
   }
@@ -95,9 +95,9 @@
     svg.setAttribute('viewBox','0 0 720 132');svg.setAttribute('role','img');
     const s=x=>48+(x+4)/8*624;
     E('line',{x1:48,x2:672,y1:67,y2:67,class:'fn-graph__axis'},svg);
-    for(const [a,b] of def.intervals){E('line',{x1:s(a)+7,x2:s(b)-7,y1:67,y2:67,stroke:'#3976ae','stroke-width':7,'stroke-linecap':'round'},svg);}
+    for(const [a,b] of def.intervals){E('line',{x1:s(a)+7,x2:s(b)-7,y1:67,y2:67,stroke:'#2563eb','stroke-width':7,'stroke-linecap':'round'},svg);}
     for(let i=0;i<def.marks.length;i++){
-      let x=s(def.marks[i]);E('circle',{cx:x,cy:67,r:7,fill:'#fff',stroke:'#3976ae','stroke-width':2.3},svg);
+      let x=s(def.marks[i]);E('circle',{cx:x,cy:67,r:7,fill:'#fff',stroke:'#2563eb','stroke-width':2.3},svg);
       const t=E('text',{x,y:99,'text-anchor':'middle',class:'fn-graph__label'},svg);t.textContent=def.labels[i];
     }
     if(step>0){const t=E('text',{x:360,y:26,'text-anchor':'middle',class:'fn-graph__label'},svg);t.textContent='ln(u²)=2ln|u|，u≠0';}

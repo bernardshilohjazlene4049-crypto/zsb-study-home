@@ -99,11 +99,19 @@ export async function mount(shell) {
     }
   }
 
-  paint(await loadModel());
+  const initialModel = await loadModel();
+  paint(initialModel);
+  import("./system-study.js")
+    .then((m) => m.enhanceHomeAndOverview({ shell, model: initialModel }))
+    .catch(() => {});
   addEventListener("pageshow", async (event) => {
     const navigation = performance.getEntriesByType("navigation")[0];
     if (!event.persisted && navigation?.type !== "back_forward") return;
     resetLearningCache();
-    paint(await loadModel());
+    const freshModel = await loadModel();
+    paint(freshModel);
+    import("./system-study.js")
+      .then((m) => m.enhanceHomeAndOverview({ shell, model: freshModel }))
+      .catch(() => {});
   });
 }

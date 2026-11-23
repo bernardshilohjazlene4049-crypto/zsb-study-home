@@ -19,7 +19,7 @@
   function wrapHtml(src, runId) {
     var t = String(src || "").trim();
     if (/<!doctype|<html[\s>]/i.test(t)) return withShim(t, runId);
-    return "<!doctype html><html><head>" + STORAGE_SHIM + consoleBridge(runId) + "<meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><style>body{font:14px/1.6 -apple-system,PingFang SC,sans-serif;margin:16px;color:#1D1D1F}h1,h2,h3{line-height:1.25}table{border-collapse:collapse}td,th{border:1px solid #ccc;padding:6px 8px}a{color:#0071E3}</style></head><body>" + t + "</body></html>";
+    return "<!doctype html><html><head>" + STORAGE_SHIM + consoleBridge(runId) + "<meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><style>body{font:14px/1.6 -apple-system,PingFang SC,sans-serif;margin:16px;color:#111318}h1,h2,h3{line-height:1.25}table{border-collapse:collapse}td,th{border:1px solid #bfc7d4;padding:6px 8px}a{color:#1d4ed8}</style></head><body>" + t + "</body></html>";
   }
 
   function consoleFor(box) {

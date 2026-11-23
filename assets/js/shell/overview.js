@@ -113,4 +113,7 @@ export async function mount(shell) {
   const weak = model.weakTopics();
   if (weak.length) slot("weak").replaceChildren(el("ul", { class: "ov-list" }, weak.slice(0, 5).map((row) => topicRow(row, base, `错题 ${row.count}`))));
   paintRhythm();
+  import("./system-study.js")
+    .then((m) => m.enhanceHomeAndOverview({ shell, model }))
+    .catch(() => {});
 }
