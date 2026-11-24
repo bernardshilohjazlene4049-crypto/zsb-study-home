@@ -8,7 +8,7 @@
   d.documentElement.setAttribute("data-shell", "");
   d.documentElement.classList.add("shell-js");
   var themeMeta = d.querySelector('meta[name="theme-color"]');
-  if (themeMeta) themeMeta.setAttribute("content", "#f7f8fa");
+  if (themeMeta) themeMeta.setAttribute("content", "#e8eef7");
 
   var ROOT = new URL("../../", script.src);
   var here = new URL(location.href);
@@ -167,6 +167,20 @@
 
   window.ZSBShell = { root: ROOT.href, rel: rel, base: base(), kind: KIND, svg: svg };
 
+  function ensureLiquidGlassStyle() {
+    var existing = d.querySelector('link[data-shell-style="liquid-glass"]');
+    if (!existing) {
+      existing = d.createElement("link");
+      existing.rel = "stylesheet";
+      existing.href = new URL("assets/css/liquid-glass.css", ROOT).href;
+      existing.setAttribute("data-shell-style", "liquid-glass");
+    }
+    if (d.head && d.head.lastElementChild !== existing) {
+      d.head.appendChild(existing);
+    }
+  }
+  ensureLiquidGlassStyle();
+
   function mountLessonStyles() {
     if (KIND !== "lecture" || rel.indexOf("wy/") !== 0) return;
     if (d.querySelector('link[data-shell-style="lesson-upgrade"]')) return;
@@ -177,8 +191,19 @@
     d.head.appendChild(link);
   }
 
+  function mountAmbientOrbs() {
+    if (!d.body || d.querySelector(".lg-ambient")) return;
+    var amb = d.createElement("div");
+    amb.className = "lg-ambient";
+    amb.setAttribute("aria-hidden", "true");
+    amb.innerHTML = '<span class="lg-orb lg-orb--blue1"></span><span class="lg-orb lg-orb--red1"></span><span class="lg-orb lg-orb--blue2"></span><span class="lg-orb lg-orb--red2"></span>';
+    d.body.insertBefore(amb, d.body.firstChild);
+  }
+
   function start() {
     mountLessonStyles();
+    ensureLiquidGlassStyle();
+    mountAmbientOrbs();
     mountChrome();
     if (!KIND) return;
     import(new URL("assets/js/shell/" + KIND + ".js", ROOT).href)

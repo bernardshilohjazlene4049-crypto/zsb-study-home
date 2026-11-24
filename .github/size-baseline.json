@@ -1,7 +1,7 @@
 {
  "note": "由 .github/scripts/site-budget.mjs --update 生成；单位为字节。",
  "files": {
-  "404.html": 4902,
+  "404.html": 5179,
   "assets/css/classroom-notes.css": 37524,
   "assets/css/course-entry.css": 1695,
   "assets/css/fn-graph.css": 4230,
@@ -11,6 +11,7 @@
   "assets/css/lab-viz.css": 7414,
   "assets/css/lecture-player.css": 9828,
   "assets/css/lesson-upgrade.css": 7644,
+  "assets/css/liquid-glass.css": 14905,
   "assets/css/net-viz.css": 16498,
   "assets/css/pvideo.css": 944,
   "assets/css/site-search.css": 1786,
@@ -86,7 +87,7 @@
   "assets/js/site-search-format.js": 3875,
   "assets/js/site-search-topics.js": 11939,
   "assets/js/site-search.js": 18917,
-  "assets/js/site-shell.js": 9618,
+  "assets/js/site-shell.js": 10614,
   "assets/js/sw-register.js": 523,
   "assets/js/tower-stats.js": 4261,
   "assets/js/tower.js": 10006,
@@ -288,12 +289,12 @@
   "yy/yy5.html": 383713
  },
  "categories": {
-  "html": 3783097,
-  "css/js": 1257005,
+  "html": 3783374,
+  "css/js": 1272906,
   "图片": 70389624,
   "json": 1151703,
   "音视频": 558870549,
   "其他": 474276
  },
- "total": 635926254
+ "total": 635942432
 }

@@ -149,6 +149,12 @@ test("在线代码实操页 study/lab.html 结构、手机双页签/符号栏与
   assert.match(studyJs, /data-sys-lab-btn/);
   assert.match(studyJs, /sys-home-lab/);
   assert.match(studyJs, /data-sys-tool="deck"/);
+  assert.match(shellJs, /assets\/css\/liquid-glass\.css/);
+  assert.match(shellJs, /lg-ambient/);
+  const lgCss = readFileSync(path.join(root, "assets/css/liquid-glass.css"), "utf8");
+  assert.match(lgCss, /\.notes-hub-card/);
+  assert.match(lgCss, /\.wy-article/);
+  assert.match(lgCss, /backdrop-filter:\s*var\(--lg-card-blur\)\s*!important/);
   assert.ok((cNotesHtml.match(/class="c-run-btn"/g) || []).length >= 10, "C 讲义代码块应包含一键在线运行按钮");
 });
 
