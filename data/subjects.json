@@ -12,8 +12,8 @@
       "order": 1,
       "optional": false,
       "enabled": true,
-      "summary": "语法专题笔记、6 集讲解视频、4 张导图，以及五专题系统讲义。",
-      "catalog_note": "目录覆盖 yy/index.html 已列出的专题，以及 yy/yy5.html 的五专题系统讲义。未核验为完整考试范围。",
+      "summary": "三大语法板块（非谓语动词、三大从句、主谓一致与特殊句型），配 6 集讲解视频、4 张思维导图与 50 道精讲真题。",
+      "catalog_note": "按“非谓语动词 → 三大从句 → 句法一致与特殊句型 → 综合复盘”重构为三级模块化架构。",
       "source_ref": "yy/index.html"
     },
     {
@@ -26,8 +26,8 @@
       "order": 2,
       "optional": false,
       "enabled": true,
-      "summary": "第一章：函数、极限、连续，含讲解视频和练习，按考点梳理；另有第四章、第五章。",
-      "catalog_note": "第一章小节来自 gs/index.html，考点一至十一另见 gs/gs1.html。第四章、第五章来自 gs/gs45.html 的考点标题。",
+      "summary": "三大核心模块（函数极限与连续、空间向量与解析几何、多元函数微分与二重积分），共 24 个考点配视频与题库。",
+      "catalog_note": "第一章、第四章、第五章统一拆分为 8 个递进二级知识分节，纠正复合函数偏导与极值的先后次序。",
       "source_ref": "gs/index.html"
     },
     {
@@ -40,8 +40,8 @@
       "order": 3,
       "optional": false,
       "enabled": true,
-      "summary": "第一章思维导图、第四章 Excel、第五章 PowerPoint 操作题。",
-      "catalog_note": "已有第一章和第五章页面。第二章、第三章没有独立页面，目录里不补写。",
+      "summary": "三大应试模块（计算机系统与硬件基础、Excel 电子表格 26 题精讲、PowerPoint 演示文稿设计与交互），共 17 个专题。",
+      "catalog_note": "按基础理论、Excel 数据计算管理与 PPT 版式交互拆分为 7 个二级能力分节。",
       "source_ref": "jsj/index.html"
     },
     {
@@ -54,8 +54,8 @@
       "order": 4,
       "optional": false,
       "enabled": true,
-      "summary": "第 1–9 章系统讲义（27 节填空背诵、导图与 54 道随堂练习），另含 5 道图片示例题。",
-      "catalog_note": "第 1–9 章目录与讲义依据专升本课堂辅导讲义整理（涵盖数组、函数与指针）；原有 5 道图片示例题继续保留在 c/index.html。",
+      "summary": "四大进阶阶段共 10 章 28 节：覆盖语法与数据类型、顺序/选择/循环三大结构、数组函数与 static、指针公式及跨章综合读程序实战。",
+      "catalog_note": "第 1–9 章系统讲义配第 10 章跨章读程序实战，归并重复标识符条目并建立完整先修链路。",
       "source_ref": "c/index.html"
     },
     {
@@ -82,8 +82,8 @@
       "order": 6,
       "optional": false,
       "enabled": true,
-      "summary": "第 1–2 章、HTML / CSS / JS / HTML5 各课页和第 2 章讲解视频。",
-      "catalog_note": "目录挂接仓库里真实存在的入口，包括 wy/index.html 各节和 HTML / HTML5 / CSS / JS 各课页。",
+      "summary": "紧扣 HTML + CSS 考纲（已彻底剔除 JavaScript 等非考纲内容）：涵盖 Web 与 HTML5 文档结构、HTML 文本/表格/表单语义、CSS 选择器与美化、盒模型与浮动定位/Flex 布局及 CSS3 动效。",
+      "catalog_note": "重构为 6 章 10 个二级模块纯 HTML + CSS 考纲体系，融合课堂笔记与可运行实例。",
       "source_ref": "wy/index.html"
     },
     {
@@ -96,8 +96,8 @@
       "order": 7,
       "optional": false,
       "enabled": true,
-      "summary": "6 章 47 条课堂笔记：IP 地址、CIDR、子网划分、分片、IPv6、路由聚合，每条附自测与可视化讲解，可按需打开原图。",
-      "catalog_note": "依据课堂笔记与作业原图整理，不代表完整考试范围。",
+      "summary": "6 章 7 个二级分节共 29 节核心计算与协议专题：IPv4 分类编址、CIDR 与按位与、定长/VLSM 子网划分、MTU 分片、IPv6 与路由聚合，另配 22 节全考点课堂复习。",
+      "catalog_note": "将 IP 编址、CIDR 与子网划分细化为递进二级分节，理顺先修计算链路。",
       "source_ref": "wl/index.html"
     },
     {

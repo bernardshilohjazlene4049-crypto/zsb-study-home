@@ -39,7 +39,7 @@ function renderDiscoveryHub() {
   const groups = [
     ["C 语言（1–9 章）", ["指针", "二维数组", "static", "scanf", "switch", "递归"]],
     ["计算机网络", ["CIDR", "子网划分", "IP 分片", "RIP", "以太网", "IPv6"]],
-    ["网页设计", ["Flex", "HTML 表单", "盒模型", "选择器", "DOM 事件", "表格"]],
+    ["网页设计（HTML + CSS）", ["Flex", "HTML 表单", "盒模型", "选择器", "浮动", "表格"]],
     ["高数 · 英语 · 计基", ["等价无穷小", "二重积分", "非谓语动词", "定语从句", "Excel", "空间平面"]]
   ];
   list.replaceChildren(

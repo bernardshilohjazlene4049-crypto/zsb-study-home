@@ -318,36 +318,32 @@ int main() {
 </html>`
     },
     {
-      id: "html-js",
-      name: "JavaScript 事件与倒计时交互",
+      id: "html-selector-pos",
+      name: "CSS 选择器权重与定位（position / 伪类）",
       code: `<!doctype html>
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
   <style>
-    body { font-family: system-ui, sans-serif; padding: 24px; background: #f7f8fa; color: #111318; text-align: center; }
-    .box { max-width: 340px; margin: 0 auto; padding: 20px; border-radius: 14px; background: #ffffff; border: 1px solid #d8dee6; }
-    .num { font-size: 42px; font-weight: 800; color: #1d4ed8; margin: 10px 0; }
-    button { padding: 8px 14px; margin: 0 4px; border-radius: 8px; border: 1px solid #bfdbfe; background: #eff4ff; color: #1e3a8a; font-weight: 650; cursor: pointer; }
+    body { font-family: system-ui, sans-serif; padding: 22px; background: #f7f8fa; color: #111318; }
+    .card { position: relative; max-width: 360px; margin: 0 auto; padding: 22px 20px; border-radius: 14px; background: #ffffff; border: 1px solid #bfdbfe; }
+    .badge { position: absolute; top: -10px; right: 16px; padding: 3px 10px; border-radius: 999px; background: #b91c1c; color: #ffffff; font-size: 12px; font-weight: 700; }
+    ul { margin: 12px 0 0; padding-left: 18px; line-height: 1.8; }
+    li:nth-child(odd) { color: #1e3a8a; font-weight: 600; }
+    a:link, a:visited { color: #1d4ed8; text-decoration: none; }
+    a:hover { color: #b91c1c; text-decoration: underline; }
   </style>
 </head>
 <body>
-  <div class="box">
-    <h3 style="margin:0">背诵打卡计数器</h3>
-    <div class="num" id="cnt">0</div>
-    <button onclick="chg(1)">+1 记住一节</button>
-    <button onclick="chg(-1)">-1</button>
-    <button onclick="reset()">清零</button>
+  <div class="card">
+    <span class="badge">子绝父相</span>
+    <h3 style="margin:0">CSS 定位与伪类顺序（LVHA）</h3>
+    <ul>
+      <li>1. 行内样式(1000) &gt; ID(100) &gt; 类/伪类(10) &gt; 标签(1)</li>
+      <li>2. 链接伪类必背顺序：<a href="#demo">a:link → :visited → :hover → :active</a></li>
+      <li>3. 绝对定位元素相对于最近非 static 祖先定位</li>
+    </ul>
   </div>
-  <script>
-    let n = 0;
-    function chg(d) {
-      n = Math.max(0, n + d);
-      document.getElementById("cnt").textContent = n;
-      console.log("当前打卡数 =", n);
-    }
-    function reset() { n = 0; chg(0); }
-  </script>
 </body>
 </html>`
     }
@@ -787,7 +783,7 @@ export function mountCodeLab() {
     langHint.textContent = lang === "c"
       ? "支持 C 第 1–9 章全语法：#define、printf/scanf、一维/二维数组、函数递归、static、指针与二维数组 8 大公式（Ctrl+Enter 运行）"
       : lang === "html"
-        ? "支持 HTML5 + CSS3 + JavaScript 实时预览与 Console 日志捕获，沙箱隔离运行安全不卡顿（Ctrl+Enter 刷新）"
+        ? "紧扣专升本网页设计考纲：支持 HTML5 标签、表单表格与 CSS3 盒模型/选择器/浮动定位/Flex 实时预览（Ctrl+Enter 刷新）"
         : "内置 Student / Course / SC / Dept 教务四表，支持 SELECT/TOP/JOIN/GROUP BY/HAVING/子查询/LIKE/建表增删改/视图（Ctrl+Enter 运行）";
 
     renderOutTools();

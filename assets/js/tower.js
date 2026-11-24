@@ -106,7 +106,7 @@ function drawDetail() {
           class: "tw-enter", href: base + action.homeUrl, "aria-label": `进入该科目 ${action.name}`
         }, [actions.length > 1 ? el("span", { class: "tw-enter__subject", text: action.name }) : null, el("span", { text: "进入该科目" }), icon("arrowRight", 17)])),
         floor.no === "04F" ? el("a", { class: "sh-btn", href: "../study/lab.html?lang=c", text: "💻 打开 C 语言在线实操台" }) : null,
-        floor.no === "02F" ? el("a", { class: "sh-btn", href: "../study/lab.html?lang=html", text: "💻 打开 HTML/CSS/JS 实操台" }) : null
+        floor.no === "02F" ? el("a", { class: "sh-btn", href: "../study/lab.html?lang=html", text: "💻 打开 HTML + CSS 实操台" }) : null
       ])
     ])
   );

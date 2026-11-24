@@ -159,7 +159,7 @@ export function openCodeLabModal({ lang, code, stdin = "", title = "随堂在线
     };
     window.addEventListener("message", activeMsgHandler);
     outBody.replaceChildren(frame, cList);
-    statusBar.textContent = "✓ HTML / CSS / JS 已在安全沙箱渲染";
+    statusBar.textContent = "✓ HTML + CSS 已在安全沙箱实时渲染";
   }
 
   function runNow(switchOnMobile = false) {

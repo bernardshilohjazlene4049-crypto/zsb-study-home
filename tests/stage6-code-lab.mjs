@@ -158,14 +158,14 @@ test("在线代码实操页 study/lab.html 结构、手机双页签/符号栏与
   assert.ok((cNotesHtml.match(/class="c-run-btn"/g) || []).length >= 10, "C 讲义代码块应包含一键在线运行按钮");
 });
 
-test("全站 251 张知识点卡渗透：每张卡均生成可运行专属实操代码，手机符号栏完备", () => {
+test("全站 219 张考纲知识点卡渗透：每张卡均生成可运行专属实操代码，手机符号栏完备", () => {
   for (const lang of ["c", "html", "sql"]) {
     assert.ok(Array.isArray(CODE_SYMBOLS[lang]) && CODE_SYMBOLS[lang].length >= 10, `缺少 ${lang} 快捷符号键盘`);
   }
 
   const cardsDoc = JSON.parse(readFileSync(path.join(root, "data/topic-cards.json"), "utf8"));
   const cards = Object.values(cardsDoc.cards);
-  assert.ok(cards.length >= 250, `应覆盖全站 251 张知识卡，当前 ${cards.length}`);
+  assert.equal(cards.length, 219);
 
   let cCount = 0;
   let htmlCount = 0;
@@ -195,6 +195,6 @@ test("全站 251 张知识点卡渗透：每张卡均生成可运行专属实操
     }
   }
 
-  assert.ok(cCount >= 90 && htmlCount >= 120 && sqlCount >= 9, `分布异常: C=${cCount}, HTML=${htmlCount}, SQL=${sqlCount}`);
-  assert.ok(seenCCodes.size >= 27, `C 语言 29 张知识卡应具备逐节差异化实操代码，当前去重 ${seenCCodes.size}`);
+  assert.ok(cCount >= 90 && htmlCount >= 85 && sqlCount >= 9, `分布异常: C=${cCount}, HTML=${htmlCount}, SQL=${sqlCount}`);
+  assert.ok(seenCCodes.size >= 27, `C 语言 28 张知识卡应具备逐节差异化实操代码，当前去重 ${seenCCodes.size}`);
 });

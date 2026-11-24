@@ -101,8 +101,8 @@ test("知识点目录锚点真实存在，先修边与 prereq_ids 一致", () =>
   assert.equal(topics.topics.some((t) => t.id === "math.p48" && t.legacy_url === "gs/gs45.html#point-48"), true);
   assert.equal(topics.topics.some((t) => t.id === "web.html.quiz"), true);
   assert.equal(topics.chapters.some((c) => c.subject_id === "database"), false);
-  assert.deepEqual(topics.chapters.filter((c) => c.subject_id === "network").map((c) => c.id), ["net.ch1", "net.ch2", "net.ch3", "net.ch4", "net.ch5", "net.ch6"]);
-  assert.deepEqual(topics.chapters.filter((c) => c.subject_id === "c_language").map((c) => c.id), ["c.ch1", "c.ch2", "c.ch3", "c.ch4", "c.ch5", "c.ch6", "c.ch7", "c.ch8", "c.ch9", "c.existing"]);
+  assert.deepEqual(topics.chapters.filter((c) => c.subject_id === "network" && !c.parent_id).map((c) => c.id), ["net.ch1", "net.ch2", "net.ch3", "net.ch4", "net.ch5", "net.ch6"]);
+  assert.deepEqual(topics.chapters.filter((c) => c.subject_id === "c_language" && !c.parent_id).map((c) => c.id), ["c.ch1", "c.ch2", "c.ch3", "c.ch4", "c.ch5", "c.ch6", "c.ch7", "c.ch8", "c.ch9", "c.ch10"]);
   assert.equal(blob.includes("cn-math-taxonomy"), true);
 });
 

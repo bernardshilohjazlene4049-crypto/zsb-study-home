@@ -541,21 +541,21 @@ function buildWebPreset(card, pageRoot) {
     return {
       lang: "html",
       stdin: "",
-      code: wrapHtmlSnippet(`<form onsubmit="event.preventDefault(); console.log('提交成功:', username.value);">\n  <label>用户名：<input id="username" required placeholder="输入姓名"></label>\n  <button type="submit">提交</button>\n</form>`, title)
+      code: wrapHtmlSnippet(`<form action="#" method="post">\n  <p><label>学号：<input type="text" name="sno" required placeholder="输入学号"></label></p>\n  <p><label>邮箱：<input type="email" name="mail" placeholder="name@example.com"></label></p>\n  <p><button type="submit">提交表单</button> <button type="reset">重置</button></p>\n</form>`, title)
     };
   }
-  if (/js|script|dom|事件|函数/.test(low)) {
+  if (/box|盒|margin|padding|border/.test(low)) {
     return {
       lang: "html",
       stdin: "",
-      code: wrapHtmlSnippet(`<button id="btn">点击测试 JS 事件</button>\n<p id="out">尚未点击</p>\n<script>\n  let count = 0;\n  document.getElementById("btn").onclick = function () {\n    count++;\n    document.getElementById("out").textContent = "已点击 " + count + " 次";\n    console.log("count =", count);\n  };\n</script>`, title)
+      code: `<!doctype html>\n<html lang="zh-CN">\n<head><meta charset="utf-8"><style>\n  body { font-family: system-ui, sans-serif; padding: 18px; background: #f7f8fa; }\n  .box { box-sizing: border-box; width: 260px; padding: 18px; border: 3px solid #1d4ed8; margin: 12px auto; border-radius: 12px; background: #eff4ff; color: #1e3a8a; font-weight: 700; text-align: center; }\n</style></head>\n<body>\n  <div class="box">border-box 总宽固定 260px</div>\n</body></html>`
     };
   }
   const safeTitle = title.replace(/['"<>&]/g, "");
   return {
     lang: "html",
     stdin: "",
-    code: wrapHtmlSnippet(`<h2>${safeTitle}</h2>\n<p>${(card?.summary || "在这里修改 HTML/CSS/JS 代码，右侧实时预览效果。").replace(/[<>]/g, "")}</p>\n<button onclick="console.log('练习打卡：${safeTitle}')">测试交互</button>`, safeTitle)
+    code: wrapHtmlSnippet(`<h2>${safeTitle}</h2>\n<p>${(card?.summary || "在这里修改 HTML 与 CSS 代码，右侧实时预览排版效果。").replace(/[<>]/g, "")}</p>`, safeTitle)
   };
 }
 

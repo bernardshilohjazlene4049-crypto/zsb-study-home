@@ -6,7 +6,7 @@
       "id": "math.ch1",
       "subject_id": "math",
       "parent_id": null,
-      "title": "第一章 函数、极限、连续",
+      "title": "第一章 函数、极限与连续",
       "order": 1,
       "source_ref": "gs/index.html",
       "verified": false
@@ -15,7 +15,7 @@
       "id": "math.ch1.s1",
       "subject_id": "math",
       "parent_id": "math.ch1",
-      "title": "第一节 函数",
+      "title": "1.1 函数的定义域与四大性质",
       "order": 1,
       "source_ref": "gs/gs1.html",
       "verified": false
@@ -24,7 +24,7 @@
       "id": "math.ch1.s2",
       "subject_id": "math",
       "parent_id": "math.ch1",
-      "title": "第二节 极限",
+      "title": "1.2 数列/函数极限、无穷小与渐近线",
       "order": 2,
       "source_ref": "gs/gs1.html",
       "verified": false
@@ -33,7 +33,7 @@
       "id": "math.ch1.s3",
       "subject_id": "math",
       "parent_id": "math.ch1",
-      "title": "第三节 连续",
+      "title": "1.3 连续性、间断点分类与闭区间性质",
       "order": 3,
       "source_ref": "gs/gs1.html",
       "verified": false
@@ -48,11 +48,56 @@
       "verified": false
     },
     {
+      "id": "math.ch4.s1",
+      "subject_id": "math",
+      "parent_id": "math.ch4",
+      "title": "4.1 空间向量运算与位置关系",
+      "order": 1,
+      "source_ref": "gs/gs45.html",
+      "verified": false
+    },
+    {
+      "id": "math.ch4.s2",
+      "subject_id": "math",
+      "parent_id": "math.ch4",
+      "title": "4.2 空间平面方程与直线方程",
+      "order": 2,
+      "source_ref": "gs/gs45.html",
+      "verified": false
+    },
+    {
       "id": "math.ch5",
       "subject_id": "math",
       "parent_id": null,
-      "title": "第五章 多元函数微积分",
+      "title": "第五章 多元函数微分学与二重积分",
       "order": 5,
+      "source_ref": "gs/gs45.html",
+      "verified": false
+    },
+    {
+      "id": "math.ch5.s1",
+      "subject_id": "math",
+      "parent_id": "math.ch5",
+      "title": "5.1 多元函数定义域、偏导数与全微分",
+      "order": 1,
+      "source_ref": "gs/gs45.html",
+      "verified": false
+    },
+    {
+      "id": "math.ch5.s2",
+      "subject_id": "math",
+      "parent_id": "math.ch5",
+      "title": "5.2 二元函数极值判别与最值应用",
+      "order": 2,
+      "source_ref": "gs/gs45.html",
+      "verified": false
+    },
+    {
+      "id": "math.ch5.s3",
+      "subject_id": "math",
+      "parent_id": "math.ch5",
+      "title": "5.3 二重积分性质、直角坐标计算与换序",
+      "order": 3,
       "source_ref": "gs/gs45.html",
       "verified": false
     },
@@ -60,70 +105,178 @@
       "id": "english.nonfinite",
       "subject_id": "english",
       "parent_id": null,
-      "title": "专题三 非谓语动词",
+      "title": "第一板块 非谓语动词核心体系",
       "order": 1,
       "source_ref": "yy/index.html",
       "verified": false
     },
     {
-      "id": "english.attributive",
+      "id": "english.nonfinite.s1",
+      "subject_id": "english",
+      "parent_id": "english.nonfinite",
+      "title": "1.1 非谓语三大形式（to do / doing / done）与进阶",
+      "order": 1,
+      "source_ref": "yy/index.html",
+      "verified": false
+    },
+    {
+      "id": "english.clauses",
       "subject_id": "english",
       "parent_id": null,
-      "title": "专题四 定语从句",
+      "title": "第二板块 三大从句核心体系",
       "order": 2,
       "source_ref": "yy/index.html",
       "verified": false
     },
     {
-      "id": "english.noun",
+      "id": "english.clauses.s1",
       "subject_id": "english",
-      "parent_id": null,
-      "title": "专题五 名词性从句",
+      "parent_id": "english.clauses",
+      "title": "2.1 定语从句（关系代词 vs 关系副词）",
+      "order": 1,
+      "source_ref": "yy/index.html",
+      "verified": false
+    },
+    {
+      "id": "english.clauses.s2",
+      "subject_id": "english",
+      "parent_id": "english.clauses",
+      "title": "2.2 名词性从句（主/宾/表/同位语从句）",
+      "order": 2,
+      "source_ref": "yy/index.html",
+      "verified": false
+    },
+    {
+      "id": "english.clauses.s3",
+      "subject_id": "english",
+      "parent_id": "english.clauses",
+      "title": "2.3 状语从句（九大逻辑语义连词）",
       "order": 3,
       "source_ref": "yy/index.html",
       "verified": false
     },
     {
-      "id": "english.adverbial",
+      "id": "english.syntax",
       "subject_id": "english",
       "parent_id": null,
-      "title": "专题六 状语从句",
-      "order": 4,
-      "source_ref": "yy/index.html",
+      "title": "第三板块 句法一致、特殊句型与综合串讲",
+      "order": 3,
+      "source_ref": "yy/yy5.html",
+      "verified": false
+    },
+    {
+      "id": "english.syntax.s1",
+      "subject_id": "english",
+      "parent_id": "english.syntax",
+      "title": "3.1 主谓一致三原则与特殊句型（倒装/强调/虚拟）",
+      "order": 1,
+      "source_ref": "yy/yy5.html",
+      "verified": false
+    },
+    {
+      "id": "english.syntax.s2",
+      "subject_id": "english",
+      "parent_id": "english.syntax",
+      "title": "3.2 五专题系统讲义与 50 题真题复盘",
+      "order": 2,
+      "source_ref": "yy/yy5.html",
       "verified": false
     },
     {
       "id": "cb.ch1",
       "subject_id": "computer_basics",
       "parent_id": null,
-      "title": "第一章 计算机基础知识",
-      "order": 0,
+      "title": "第一模块 计算机系统与硬件基础",
+      "order": 1,
       "source_ref": "jsj/jsj1.html",
       "verified": false
     },
     {
-      "id": "cb.ppt",
+      "id": "cb.ch1.s1",
       "subject_id": "computer_basics",
-      "parent_id": null,
-      "title": "第五章 PowerPoint",
+      "parent_id": "cb.ch1",
+      "title": "1.1 计算机发展演进、特点分类与应用",
+      "order": 1,
+      "source_ref": "jsj/jsj1.html",
+      "verified": false
+    },
+    {
+      "id": "cb.ch1.s2",
+      "subject_id": "computer_basics",
+      "parent_id": "cb.ch1",
+      "title": "1.2 冯·诺依曼体系与软硬件系统组成",
       "order": 2,
-      "source_ref": "jsj/ppt5.html",
+      "source_ref": "jsj/jsj1.html",
       "verified": false
     },
     {
       "id": "cb.excel",
       "subject_id": "computer_basics",
       "parent_id": null,
-      "title": "第四章 Excel",
+      "title": "第二模块 Excel 电子表格核心操作（26 题精讲）",
+      "order": 2,
+      "source_ref": "jsj/index.html",
+      "verified": false
+    },
+    {
+      "id": "cb.excel.s1",
+      "subject_id": "computer_basics",
+      "parent_id": "cb.excel",
+      "title": "2.1 工作簿基础操作与单元格格式美化",
       "order": 1,
       "source_ref": "jsj/index.html",
+      "verified": false
+    },
+    {
+      "id": "cb.excel.s2",
+      "subject_id": "computer_basics",
+      "parent_id": "cb.excel",
+      "title": "2.2 公式函数计算与排序/筛选/分类汇总",
+      "order": 2,
+      "source_ref": "jsj/index.html",
+      "verified": false
+    },
+    {
+      "id": "cb.excel.s3",
+      "subject_id": "computer_basics",
+      "parent_id": "cb.excel",
+      "title": "2.3 统计图表设计与页面打印设置",
+      "order": 3,
+      "source_ref": "jsj/index.html",
+      "verified": false
+    },
+    {
+      "id": "cb.ppt",
+      "subject_id": "computer_basics",
+      "parent_id": null,
+      "title": "第三模块 PowerPoint 演示文稿设计与交互",
+      "order": 3,
+      "source_ref": "jsj/ppt5.html",
+      "verified": false
+    },
+    {
+      "id": "cb.ppt.s1",
+      "subject_id": "computer_basics",
+      "parent_id": "cb.ppt",
+      "title": "3.1 视图母版、幻灯片编辑与整体版式美化",
+      "order": 1,
+      "source_ref": "jsj/ppt5.html",
+      "verified": false
+    },
+    {
+      "id": "cb.ppt.s2",
+      "subject_id": "computer_basics",
+      "parent_id": "cb.ppt",
+      "title": "3.2 动画切换、动作超链接交互与放映输出",
+      "order": 2,
+      "source_ref": "jsj/ppt5.html",
       "verified": false
     },
     {
       "id": "c.ch1",
       "subject_id": "c_language",
       "parent_id": null,
-      "title": "第一章 程序设计和 C 语言",
+      "title": "第一章 程序设计与 C 语言基础",
       "order": 1,
       "source_ref": "c/notes.html#point-1",
       "verified": false
@@ -132,7 +285,7 @@
       "id": "c.ch2",
       "subject_id": "c_language",
       "parent_id": null,
-      "title": "第二章 常量、变量、标识符与数据类型",
+      "title": "第二章 标识符、常量、变量与数据类型",
       "order": 2,
       "source_ref": "c/notes.html#point-4",
       "verified": false
@@ -141,7 +294,7 @@
       "id": "c.ch3",
       "subject_id": "c_language",
       "parent_id": null,
-      "title": "第三章 表达式与运算符",
+      "title": "第三章 运算符、优先级与表达式求值",
       "order": 3,
       "source_ref": "c/notes.html#point-7",
       "verified": false
@@ -150,7 +303,7 @@
       "id": "c.ch4",
       "subject_id": "c_language",
       "parent_id": null,
-      "title": "第四章 输入与输出函数",
+      "title": "第四章 顺序结构与格式化输入输出",
       "order": 4,
       "source_ref": "c/notes.html#point-10",
       "verified": false
@@ -159,7 +312,7 @@
       "id": "c.ch5",
       "subject_id": "c_language",
       "parent_id": null,
-      "title": "第五章 选择结构",
+      "title": "第五章 选择结构（if 嵌套与 switch）",
       "order": 5,
       "source_ref": "c/notes.html#point-13",
       "verified": false
@@ -168,7 +321,7 @@
       "id": "c.ch6",
       "subject_id": "c_language",
       "parent_id": null,
-      "title": "第六章 循环结构",
+      "title": "第六章 循环结构与流程控制",
       "order": 6,
       "source_ref": "c/notes.html#point-16",
       "verified": false
@@ -177,7 +330,7 @@
       "id": "c.ch7",
       "subject_id": "c_language",
       "parent_id": null,
-      "title": "第七章 数组",
+      "title": "第七章 一维、二维数组与字符数组",
       "order": 7,
       "source_ref": "c/notes.html#point-19",
       "verified": false
@@ -186,7 +339,7 @@
       "id": "c.ch8",
       "subject_id": "c_language",
       "parent_id": null,
-      "title": "第八章 函数",
+      "title": "第八章 函数、参数传递与 static 作用域",
       "order": 8,
       "source_ref": "c/notes.html#point-22",
       "verified": false
@@ -195,16 +348,16 @@
       "id": "c.ch9",
       "subject_id": "c_language",
       "parent_id": null,
-      "title": "第九章 指针",
+      "title": "第九章 指针本质、数组指针公式与传参",
       "order": 9,
       "source_ref": "c/notes.html#point-25",
       "verified": false
     },
     {
-      "id": "c.existing",
+      "id": "c.ch10",
       "subject_id": "c_language",
       "parent_id": null,
-      "title": "站点现有内容",
+      "title": "第十章 跨章读程序与综合图题实战",
       "order": 10,
       "source_ref": "c/index.html",
       "verified": false
@@ -213,7 +366,7 @@
       "id": "web.ch1",
       "subject_id": "web_design",
       "parent_id": null,
-      "title": "第1章 网页基本概念",
+      "title": "第1章 网页设计与 Web 标准基础",
       "order": 1,
       "source_ref": "wy/ch1/index.html",
       "verified": false
@@ -222,124 +375,232 @@
       "id": "web.ch2",
       "subject_id": "web_design",
       "parent_id": null,
-      "title": "第2章 HTML5 文档结构",
+      "title": "第2章 HTML5 文档结构与头部规范",
       "order": 2,
       "source_ref": "wy/ch2/index.html",
       "verified": false
     },
     {
-      "id": "web.lessons",
+      "id": "web.html_core",
       "subject_id": "web_design",
       "parent_id": null,
-      "title": "课页入口",
+      "title": "第3章 HTML 核心标签、表格表单与 HTML5 语义",
       "order": 3,
-      "source_ref": "wy/index.html#map",
-      "verified": false
-    },
-    {
-      "id": "english.agreement",
-      "subject_id": "english",
-      "parent_id": null,
-      "title": "专题七 主谓一致",
-      "order": 5,
-      "source_ref": "yy/yy5.html#topic-7",
-      "verified": false
-    },
-    {
-      "id": "english.special",
-      "subject_id": "english",
-      "parent_id": null,
-      "title": "专题八 特殊句型",
-      "order": 6,
-      "source_ref": "yy/yy5.html#topic-8",
-      "verified": false
-    },
-    {
-      "id": "web.html",
-      "subject_id": "web_design",
-      "parent_id": null,
-      "title": "HTML 基础课页",
-      "order": 4,
       "source_ref": "wy/html/index.html",
       "verified": false
     },
     {
-      "id": "web.html5",
+      "id": "web.html_core.s1",
       "subject_id": "web_design",
-      "parent_id": null,
-      "title": "HTML5 课页",
-      "order": 5,
-      "source_ref": "wy/html5/index.html",
+      "parent_id": "web.html_core",
+      "title": "3.1 文本排版、颜色表示与字符实体",
+      "order": 1,
+      "source_ref": "wy/html/headings.html",
       "verified": false
     },
     {
-      "id": "web.css",
+      "id": "web.html_core.s2",
+      "subject_id": "web_design",
+      "parent_id": "web.html_core",
+      "title": "3.2 超链接、图像、列表、区块与内联框架",
+      "order": 2,
+      "source_ref": "wy/html/links.html",
+      "verified": false
+    },
+    {
+      "id": "web.html_core.s3",
+      "subject_id": "web_design",
+      "parent_id": "web.html_core",
+      "title": "3.3 表格与表单控件（含 HTML5 新型控件与 form 归属）",
+      "order": 3,
+      "source_ref": "wy/html/forms.html",
+      "verified": false
+    },
+    {
+      "id": "web.html_core.s4",
+      "subject_id": "web_design",
+      "parent_id": "web.html_core",
+      "title": "3.4 HTML5 语义分区、原生音视频与 HTML 自测",
+      "order": 4,
+      "source_ref": "wy/html5/semantic.html",
+      "verified": false
+    },
+    {
+      "id": "web.css_base",
       "subject_id": "web_design",
       "parent_id": null,
-      "title": "CSS / CSS3 课页",
-      "order": 6,
+      "title": "第4章 CSS 语法引入、选择器体系与视觉美化",
+      "order": 4,
       "source_ref": "wy/css/index.html",
       "verified": false
     },
     {
-      "id": "web.js",
+      "id": "web.css_base.s1",
       "subject_id": "web_design",
-      "parent_id": null,
-      "title": "JavaScript / DOM 课页",
-      "order": 7,
-      "source_ref": "wy/js/index.html",
+      "parent_id": "web.css_base",
+      "title": "4.1 CSS 语法规范与三种引入方式",
+      "order": 1,
+      "source_ref": "wy/css/howto.html",
       "verified": false
     },
     {
-      "id": "web.more",
+      "id": "web.css_base.s2",
       "subject_id": "web_design",
-      "parent_id": null,
-      "title": "实例与速查",
-      "order": 8,
-      "source_ref": "wy/examples/index.html",
+      "parent_id": "web.css_base",
+      "title": "4.2 基础选择器、组合符、伪类与属性选择器",
+      "order": 2,
+      "source_ref": "wy/css/selectors.html",
       "verified": false
     },
     {
-      "id": "web.classroom",
+      "id": "web.css_base.s3",
+      "subject_id": "web_design",
+      "parent_id": "web.css_base",
+      "title": "4.3 颜色背景、字体文本与链接/列表/表格/表单样式",
+      "order": 3,
+      "source_ref": "wy/css/text.html",
+      "verified": false
+    },
+    {
+      "id": "web.css_layout",
       "subject_id": "web_design",
       "parent_id": null,
-      "title": "课堂截图补充",
-      "order": 9,
-      "source_ref": "notes/web.html",
-      "verified": true
+      "title": "第5章 CSS 盒模型、浮动定位与 Flex 弹性布局",
+      "order": 5,
+      "source_ref": "wy/css/box.html",
+      "verified": false
+    },
+    {
+      "id": "web.css_layout.s1",
+      "subject_id": "web_design",
+      "parent_id": "web.css_layout",
+      "title": "5.1 盒模型四要素（content / padding / border / margin）",
+      "order": 1,
+      "source_ref": "wy/css/box.html",
+      "verified": false
+    },
+    {
+      "id": "web.css_layout.s2",
+      "subject_id": "web_design",
+      "parent_id": "web.css_layout",
+      "title": "5.2 标准流 display、浮动 float 与 position 四大定位",
+      "order": 2,
+      "source_ref": "wy/css/position.html",
+      "verified": false
+    },
+    {
+      "id": "web.css_layout.s3",
+      "subject_id": "web_design",
+      "parent_id": "web.css_layout",
+      "title": "5.3 Flex 弹性盒、媒体查询响应式与导航组件实战",
+      "order": 3,
+      "source_ref": "wy/css/flexbox.html",
+      "verified": false
+    },
+    {
+      "id": "web.css3",
+      "subject_id": "web_design",
+      "parent_id": null,
+      "title": "第6章 CSS3 视觉增强与过渡动画",
+      "order": 6,
+      "source_ref": "wy/css/gradients.html",
+      "verified": false
     },
     {
       "id": "net.ch1",
       "subject_id": "network",
       "parent_id": null,
-      "title": "第1章 IP 地址基础与分类（选择题）",
+      "title": "第1章 IPv4 地址体系与分类编址",
       "order": 1,
       "source_ref": "wl/ch1/index.html",
+      "verified": false
+    },
+    {
+      "id": "net.ch1.s1",
+      "subject_id": "network",
+      "parent_id": "net.ch1",
+      "title": "1.1 IP 协议特点、地址格式与 A/B/C 类范围",
+      "order": 1,
+      "source_ref": "wl/ch1/s11.html",
+      "verified": false
+    },
+    {
+      "id": "net.ch1.s2",
+      "subject_id": "network",
+      "parent_id": "net.ch1",
+      "title": "1.2 点分十进制、私有地址与特殊回送地址真题",
+      "order": 2,
+      "source_ref": "wl/ch1/s12.html",
       "verified": false
     },
     {
       "id": "net.ch2",
       "subject_id": "network",
       "parent_id": null,
-      "title": "第2章 CIDR、网络前缀与地址块",
+      "title": "第2章 无分类编址 CIDR 与地址块计算",
       "order": 2,
       "source_ref": "wl/ch2/index.html",
+      "verified": false
+    },
+    {
+      "id": "net.ch2.s1",
+      "subject_id": "network",
+      "parent_id": "net.ch2",
+      "title": "2.1 网络前缀斜线记法与 AND 按位与匹配",
+      "order": 1,
+      "source_ref": "wl/ch2/s21.html",
+      "verified": false
+    },
+    {
+      "id": "net.ch2.s2",
+      "subject_id": "network",
+      "parent_id": "net.ch2",
+      "title": "2.2 地址块极值、掩码换算与可指派主机数",
+      "order": 2,
+      "source_ref": "wl/ch2/s23.html",
       "verified": false
     },
     {
       "id": "net.ch3",
       "subject_id": "network",
       "parent_id": null,
-      "title": "第3章 子网划分与地址分配",
+      "title": "第3章 子网划分（定长 / VLSM）与规划实战",
       "order": 3,
       "source_ref": "wl/ch3/index.html",
+      "verified": false
+    },
+    {
+      "id": "net.ch3.s1",
+      "subject_id": "network",
+      "parent_id": "net.ch3",
+      "title": "3.1 从两级到三级结构与子网划分标准步骤",
+      "order": 1,
+      "source_ref": "wl/ch3/s35.html",
+      "verified": false
+    },
+    {
+      "id": "net.ch3.s2",
+      "subject_id": "network",
+      "parent_id": "net.ch3",
+      "title": "3.2 等长子网划分、变长分配与 /31 点对点链路",
+      "order": 2,
+      "source_ref": "wl/ch3/s31.html",
+      "verified": false
+    },
+    {
+      "id": "net.ch3.s3",
+      "subject_id": "network",
+      "parent_id": "net.ch3",
+      "title": "3.3 院系部门子网规划与掩码选择综合真题",
+      "order": 3,
+      "source_ref": "wl/ch3/s38.html",
       "verified": false
     },
     {
       "id": "net.ch4",
       "subject_id": "network",
       "parent_id": null,
-      "title": "第4章 IPv4 数据报分片",
+      "title": "第4章 IPv4 数据报首部与 MTU 分片计算",
       "order": 4,
       "source_ref": "wl/ch4/index.html",
       "verified": false
@@ -348,7 +609,7 @@
       "id": "net.ch5",
       "subject_id": "network",
       "parent_id": null,
-      "title": "第5章 IPv6",
+      "title": "第5章 IPv6 下一代网际协议与基本首部",
       "order": 5,
       "source_ref": "wl/ch5/index.html",
       "verified": false
@@ -357,7 +618,7 @@
       "id": "net.ch6",
       "subject_id": "network",
       "parent_id": null,
-      "title": "第6章 路由聚合（路由汇总）",
+      "title": "第6章 路由聚合（CIDR 超网汇总）",
       "order": 6,
       "source_ref": "wl/ch6/index.html",
       "verified": false
@@ -448,29 +709,11 @@
       "blurb": "第 3 集。"
     },
     {
-      "id": "math.equivalent",
-      "subject_id": "math",
-      "chapter_id": "math.ch1.s2",
-      "title": "无穷小的比较",
-      "order": 4,
-      "aliases": [
-        "等价无穷小"
-      ],
-      "prereq_ids": [
-        "math.infinitesimal",
-        "math.important_limits"
-      ],
-      "source_ref": "gs/gs1.html#point-6",
-      "legacy_url": "gs/gs1.html#point-6",
-      "verified": false,
-      "blurb": "练习讲解在高等数学页面。"
-    },
-    {
       "id": "math.important_limits",
       "subject_id": "math",
       "chapter_id": "math.ch1.s2",
       "title": "两个重要极限",
-      "order": 5,
+      "order": 4,
       "aliases": [
         "重要极限",
         "洛必达"
@@ -482,6 +725,24 @@
       "legacy_url": "gs/gs1.html#point-7",
       "verified": false,
       "blurb": "第 4 集。"
+    },
+    {
+      "id": "math.equivalent",
+      "subject_id": "math",
+      "chapter_id": "math.ch1.s2",
+      "title": "无穷小的比较",
+      "order": 5,
+      "aliases": [
+        "等价无穷小"
+      ],
+      "prereq_ids": [
+        "math.infinitesimal",
+        "math.important_limits"
+      ],
+      "source_ref": "gs/gs1.html#point-6",
+      "legacy_url": "gs/gs1.html#point-6",
+      "verified": false,
+      "blurb": "练习讲解在高等数学页面。"
     },
     {
       "id": "math.asymptote",
@@ -557,9 +818,192 @@
       "blurb": "第三节。"
     },
     {
+      "id": "math.p36",
+      "subject_id": "math",
+      "chapter_id": "math.ch4.s1",
+      "title": "向量的基本概念、计算及关系",
+      "order": 1,
+      "aliases": [],
+      "prereq_ids": [],
+      "source_ref": "gs/gs45.html#point-36",
+      "legacy_url": "gs/gs45.html#point-36",
+      "verified": false
+    },
+    {
+      "id": "math.p37",
+      "subject_id": "math",
+      "chapter_id": "math.ch4.s2",
+      "title": "求平面方程",
+      "order": 1,
+      "aliases": [],
+      "prereq_ids": [
+        "math.p36"
+      ],
+      "source_ref": "gs/gs45.html#point-37",
+      "legacy_url": "gs/gs45.html#point-37",
+      "verified": false
+    },
+    {
+      "id": "math.p38",
+      "subject_id": "math",
+      "chapter_id": "math.ch4.s2",
+      "title": "求直线方程",
+      "order": 2,
+      "aliases": [],
+      "prereq_ids": [
+        "math.p36",
+        "math.p37"
+      ],
+      "source_ref": "gs/gs45.html#point-38",
+      "legacy_url": "gs/gs45.html#point-38",
+      "verified": false
+    },
+    {
+      "id": "math.p39",
+      "subject_id": "math",
+      "chapter_id": "math.ch5.s1",
+      "title": "二元函数求定义域（补充）",
+      "order": 1,
+      "aliases": [],
+      "prereq_ids": [
+        "math.domain"
+      ],
+      "source_ref": "gs/gs45.html#point-39",
+      "legacy_url": "gs/gs45.html#point-39",
+      "verified": false
+    },
+    {
+      "id": "math.p40",
+      "subject_id": "math",
+      "chapter_id": "math.ch5.s1",
+      "title": "二元函数的偏导数（补充）",
+      "order": 2,
+      "aliases": [],
+      "prereq_ids": [
+        "math.p39"
+      ],
+      "source_ref": "gs/gs45.html#point-40",
+      "legacy_url": "gs/gs45.html#point-40",
+      "verified": false
+    },
+    {
+      "id": "math.p45",
+      "subject_id": "math",
+      "chapter_id": "math.ch5.s1",
+      "title": "多元复合函数求一阶偏导数",
+      "order": 3,
+      "aliases": [],
+      "prereq_ids": [
+        "math.p40"
+      ],
+      "source_ref": "gs/gs45.html#point-45",
+      "legacy_url": "gs/gs45.html#point-45",
+      "verified": false
+    },
+    {
+      "id": "math.p41",
+      "subject_id": "math",
+      "chapter_id": "math.ch5.s1",
+      "title": "二元函数的高阶偏导数",
+      "order": 4,
+      "aliases": [],
+      "prereq_ids": [
+        "math.p40"
+      ],
+      "source_ref": "gs/gs45.html#point-41",
+      "legacy_url": "gs/gs45.html#point-41",
+      "verified": false
+    },
+    {
+      "id": "math.p42",
+      "subject_id": "math",
+      "chapter_id": "math.ch5.s1",
+      "title": "二元函数的全微分",
+      "order": 5,
+      "aliases": [],
+      "prereq_ids": [
+        "math.p40"
+      ],
+      "source_ref": "gs/gs45.html#point-42",
+      "legacy_url": "gs/gs45.html#point-42",
+      "verified": false
+    },
+    {
+      "id": "math.p43",
+      "subject_id": "math",
+      "chapter_id": "math.ch5.s2",
+      "title": "二元函数求极值",
+      "order": 1,
+      "aliases": [],
+      "prereq_ids": [
+        "math.p41"
+      ],
+      "source_ref": "gs/gs45.html#point-43",
+      "legacy_url": "gs/gs45.html#point-43",
+      "verified": false
+    },
+    {
+      "id": "math.p44",
+      "subject_id": "math",
+      "chapter_id": "math.ch5.s2",
+      "title": "二元函数的最值应用",
+      "order": 2,
+      "aliases": [],
+      "prereq_ids": [
+        "math.continuous_properties",
+        "math.p43"
+      ],
+      "source_ref": "gs/gs45.html#point-44",
+      "legacy_url": "gs/gs45.html#point-44",
+      "verified": false
+    },
+    {
+      "id": "math.p46",
+      "subject_id": "math",
+      "chapter_id": "math.ch5.s3",
+      "title": "二重积分的性质",
+      "order": 1,
+      "aliases": [],
+      "prereq_ids": [
+        "math.p39"
+      ],
+      "source_ref": "gs/gs45.html#point-46",
+      "legacy_url": "gs/gs45.html#point-46",
+      "verified": false
+    },
+    {
+      "id": "math.p47",
+      "subject_id": "math",
+      "chapter_id": "math.ch5.s3",
+      "title": "直角坐标系下二重积分的计算",
+      "order": 2,
+      "aliases": [],
+      "prereq_ids": [
+        "math.p39",
+        "math.p46"
+      ],
+      "source_ref": "gs/gs45.html#point-47",
+      "legacy_url": "gs/gs45.html#point-47",
+      "verified": false
+    },
+    {
+      "id": "math.p48",
+      "subject_id": "math",
+      "chapter_id": "math.ch5.s3",
+      "title": "交换积分次序",
+      "order": 3,
+      "aliases": [],
+      "prereq_ids": [
+        "math.p47"
+      ],
+      "source_ref": "gs/gs45.html#point-48",
+      "legacy_url": "gs/gs45.html#point-48",
+      "verified": false
+    },
+    {
       "id": "english.nonfinite.basics",
       "subject_id": "english",
-      "chapter_id": "english.nonfinite",
+      "chapter_id": "english.nonfinite.s1",
       "title": "非谓语动词基础",
       "order": 1,
       "aliases": [
@@ -574,7 +1018,7 @@
     {
       "id": "english.nonfinite.object",
       "subject_id": "english",
-      "chapter_id": "english.nonfinite",
+      "chapter_id": "english.nonfinite.s1",
       "title": "非谓语作宾语",
       "order": 2,
       "aliases": [
@@ -592,7 +1036,7 @@
     {
       "id": "english.nonfinite.advanced",
       "subject_id": "english",
-      "chapter_id": "english.nonfinite",
+      "chapter_id": "english.nonfinite.s1",
       "title": "非谓语进阶",
       "order": 3,
       "aliases": [
@@ -609,15 +1053,13 @@
     {
       "id": "english.attributive.basics",
       "subject_id": "english",
-      "chapter_id": "english.attributive",
+      "chapter_id": "english.clauses.s1",
       "title": "定语从句",
       "order": 1,
       "aliases": [
         "先行词"
       ],
-      "prereq_ids": [
-        "english.nonfinite.advanced"
-      ],
+      "prereq_ids": [],
       "source_ref": "yy/index.html#yyvideos",
       "legacy_url": "yy/index.html#yyvideos",
       "verified": false,
@@ -626,7 +1068,7 @@
     {
       "id": "english.noun.basics",
       "subject_id": "english",
-      "chapter_id": "english.noun",
+      "chapter_id": "english.clauses.s2",
       "title": "名词性从句",
       "order": 1,
       "aliases": [
@@ -643,14 +1085,13 @@
     {
       "id": "english.adverbial.basics",
       "subject_id": "english",
-      "chapter_id": "english.adverbial",
+      "chapter_id": "english.clauses.s3",
       "title": "状语从句",
       "order": 1,
       "aliases": [
         "状语从句"
       ],
       "prereq_ids": [
-        "english.attributive.basics",
         "english.noun.basics"
       ],
       "source_ref": "yy/index.html#yyvideos",
@@ -659,9 +1100,118 @@
       "blurb": "第 6 集。"
     },
     {
+      "id": "english.agreement.basics",
+      "subject_id": "english",
+      "chapter_id": "english.syntax.s1",
+      "title": "主谓一致",
+      "order": 1,
+      "aliases": [
+        "就近原则",
+        "中心词原则"
+      ],
+      "prereq_ids": [],
+      "source_ref": "yy/yy5.html#topic-7",
+      "legacy_url": "yy/yy5.html#topic-7",
+      "verified": false,
+      "blurb": "系统讲义专题七，含讲解视频与原创练习。"
+    },
+    {
+      "id": "english.special.basics",
+      "subject_id": "english",
+      "chapter_id": "english.syntax.s1",
+      "title": "特殊句型",
+      "order": 2,
+      "aliases": [
+        "倒装",
+        "强调句",
+        "省略",
+        "虚拟语气"
+      ],
+      "prereq_ids": [
+        "english.agreement.basics"
+      ],
+      "source_ref": "yy/yy5.html#topic-8",
+      "legacy_url": "yy/yy5.html#topic-8",
+      "verified": false,
+      "blurb": "系统讲义专题八，含讲解视频与原创练习。"
+    },
+    {
+      "id": "english.yy5.guide",
+      "subject_id": "english",
+      "chapter_id": "english.syntax.s2",
+      "title": "五专题系统讲义",
+      "order": 1,
+      "aliases": [
+        "系统讲义",
+        "yy5"
+      ],
+      "prereq_ids": [
+        "english.attributive.basics",
+        "english.agreement.basics"
+      ],
+      "source_ref": "yy/yy5.html",
+      "legacy_url": "yy/yy5.html",
+      "verified": false,
+      "blurb": "定语从句、名词性从句、状语从句、主谓一致、特殊句型：讲义、视频与原创练习。"
+    },
+    {
+      "id": "cb.ch1.11",
+      "subject_id": "computer_basics",
+      "chapter_id": "cb.ch1.s1",
+      "title": "1.1 计算机的诞生与发展",
+      "order": 1,
+      "aliases": [],
+      "prereq_ids": [],
+      "source_ref": "jsj/jsj1.html#mind-1.1",
+      "legacy_url": "jsj/jsj1.html#mind-1.1",
+      "verified": false
+    },
+    {
+      "id": "cb.ch1.12",
+      "subject_id": "computer_basics",
+      "chapter_id": "cb.ch1.s1",
+      "title": "1.2 计算机的特点、分类与应用",
+      "order": 2,
+      "aliases": [],
+      "prereq_ids": [
+        "cb.ch1.11"
+      ],
+      "source_ref": "jsj/jsj1.html#mind-1.2",
+      "legacy_url": "jsj/jsj1.html#mind-1.2",
+      "verified": false
+    },
+    {
+      "id": "cb.ch1.13",
+      "subject_id": "computer_basics",
+      "chapter_id": "cb.ch1.s2",
+      "title": "1.3 计算机系统组成与工作原理",
+      "order": 1,
+      "aliases": [],
+      "prereq_ids": [
+        "cb.ch1.11"
+      ],
+      "source_ref": "jsj/jsj1.html#mind-1.3",
+      "legacy_url": "jsj/jsj1.html#mind-1.3",
+      "verified": false
+    },
+    {
+      "id": "cb.ch1.14",
+      "subject_id": "computer_basics",
+      "chapter_id": "cb.ch1.s2",
+      "title": "1.4 计算机硬件系统",
+      "order": 2,
+      "aliases": [],
+      "prereq_ids": [
+        "cb.ch1.13"
+      ],
+      "source_ref": "jsj/jsj1.html#mind-1.4",
+      "legacy_url": "jsj/jsj1.html#mind-1.4",
+      "verified": false
+    },
+    {
       "id": "cb.excel.41",
       "subject_id": "computer_basics",
-      "chapter_id": "cb.excel",
+      "chapter_id": "cb.excel.s1",
       "title": "4.1 基础知识",
       "order": 1,
       "aliases": [
@@ -676,7 +1226,7 @@
     {
       "id": "cb.excel.42",
       "subject_id": "computer_basics",
-      "chapter_id": "cb.excel",
+      "chapter_id": "cb.excel.s1",
       "title": "4.2 基本操作",
       "order": 2,
       "aliases": [
@@ -693,7 +1243,7 @@
     {
       "id": "cb.excel.43",
       "subject_id": "computer_basics",
-      "chapter_id": "cb.excel",
+      "chapter_id": "cb.excel.s1",
       "title": "4.3 数据美化",
       "order": 3,
       "aliases": [
@@ -710,14 +1260,14 @@
     {
       "id": "cb.excel.44",
       "subject_id": "computer_basics",
-      "chapter_id": "cb.excel",
+      "chapter_id": "cb.excel.s2",
       "title": "4.4 数据计算",
-      "order": 4,
+      "order": 1,
       "aliases": [
         "公式"
       ],
       "prereq_ids": [
-        "cb.excel.43"
+        "cb.excel.42"
       ],
       "source_ref": "jsj/index.html#video-4-4",
       "legacy_url": "jsj/index.html#video-4-4",
@@ -727,9 +1277,9 @@
     {
       "id": "cb.excel.45",
       "subject_id": "computer_basics",
-      "chapter_id": "cb.excel",
+      "chapter_id": "cb.excel.s2",
       "title": "4.5 数据管理",
-      "order": 5,
+      "order": 2,
       "aliases": [
         "排序",
         "筛选"
@@ -745,9 +1295,9 @@
     {
       "id": "cb.excel.46",
       "subject_id": "computer_basics",
-      "chapter_id": "cb.excel",
+      "chapter_id": "cb.excel.s3",
       "title": "4.6 图表",
-      "order": 6,
+      "order": 1,
       "aliases": [
         "图表"
       ],
@@ -762,19 +1312,101 @@
     {
       "id": "cb.excel.47",
       "subject_id": "computer_basics",
-      "chapter_id": "cb.excel",
+      "chapter_id": "cb.excel.s3",
       "title": "4.7 页面设置与打印",
-      "order": 7,
+      "order": 2,
       "aliases": [
         "打印"
       ],
       "prereq_ids": [
-        "cb.excel.46"
+        "cb.excel.43"
       ],
       "source_ref": "jsj/index.html#video-4-7",
       "legacy_url": "jsj/index.html#video-4-7",
       "verified": false,
       "blurb": "第四章讲解视频。"
+    },
+    {
+      "id": "cb.ppt.51",
+      "subject_id": "computer_basics",
+      "chapter_id": "cb.ppt.s1",
+      "title": "5.1 基础知识",
+      "order": 1,
+      "aliases": [],
+      "prereq_ids": [],
+      "source_ref": "jsj/ppt5.html",
+      "legacy_url": "jsj/ppt5.html#chapter-5.1",
+      "verified": false
+    },
+    {
+      "id": "cb.ppt.52",
+      "subject_id": "computer_basics",
+      "chapter_id": "cb.ppt.s1",
+      "title": "5.2 基本操作",
+      "order": 2,
+      "aliases": [],
+      "prereq_ids": [
+        "cb.ppt.51"
+      ],
+      "source_ref": "jsj/ppt5.html",
+      "legacy_url": "jsj/ppt5.html#chapter-5.2",
+      "verified": false
+    },
+    {
+      "id": "cb.ppt.53",
+      "subject_id": "computer_basics",
+      "chapter_id": "cb.ppt.s1",
+      "title": "5.3 幻灯片制作与编辑",
+      "order": 3,
+      "aliases": [],
+      "prereq_ids": [
+        "cb.ppt.52"
+      ],
+      "source_ref": "jsj/ppt5.html",
+      "legacy_url": "jsj/ppt5.html#chapter-5.3",
+      "verified": false
+    },
+    {
+      "id": "cb.ppt.54",
+      "subject_id": "computer_basics",
+      "chapter_id": "cb.ppt.s1",
+      "title": "5.4 整体美化",
+      "order": 4,
+      "aliases": [],
+      "prereq_ids": [
+        "cb.ppt.53"
+      ],
+      "source_ref": "jsj/ppt5.html",
+      "legacy_url": "jsj/ppt5.html#chapter-5.4",
+      "verified": false
+    },
+    {
+      "id": "cb.ppt.55",
+      "subject_id": "computer_basics",
+      "chapter_id": "cb.ppt.s2",
+      "title": "5.5 交互设计",
+      "order": 1,
+      "aliases": [],
+      "prereq_ids": [
+        "cb.ppt.53"
+      ],
+      "source_ref": "jsj/ppt5.html",
+      "legacy_url": "jsj/ppt5.html#chapter-5.5",
+      "verified": false
+    },
+    {
+      "id": "cb.ppt.56",
+      "subject_id": "computer_basics",
+      "chapter_id": "cb.ppt.s2",
+      "title": "5.6 放映与打印",
+      "order": 2,
+      "aliases": [],
+      "prereq_ids": [
+        "cb.ppt.55"
+      ],
+      "source_ref": "jsj/ppt5.html",
+      "legacy_url": "jsj/ppt5.html#chapter-5.6",
+      "verified": false
     },
     {
       "id": "c.ch1.intro",
@@ -997,7 +1629,7 @@
         "输入输出"
       ],
       "prereq_ids": [
-        "c.ch1.structure"
+        "c.ch3.assign_comma"
       ],
       "source_ref": "c/notes.html#point-10",
       "legacy_url": "c/notes.html#point-10",
@@ -1108,7 +1740,7 @@
         "if与switch区别"
       ],
       "prereq_ids": [
-        "c.ch5.nested_ternary"
+        "c.ch5.truth_if"
       ],
       "source_ref": "c/notes.html#point-15",
       "legacy_url": "c/notes.html#point-15",
@@ -1170,8 +1802,7 @@
         "循环编程"
       ],
       "prereq_ids": [
-        "c.ch6.for_loop",
-        "c.ch5.switch"
+        "c.ch6.for_loop"
       ],
       "source_ref": "c/notes.html#point-18",
       "legacy_url": "c/notes.html#point-18",
@@ -1235,8 +1866,7 @@
         "二维字符数组"
       ],
       "prereq_ids": [
-        "c.ch7.array2d",
-        "c.ch4.scanf_char_str"
+        "c.ch7.array1d"
       ],
       "source_ref": "c/notes.html#point-21",
       "legacy_url": "c/notes.html#point-21",
@@ -1257,8 +1887,7 @@
         "实参形参"
       ],
       "prereq_ids": [
-        "c.ch1.structure",
-        "c.ch3.assign_comma"
+        "c.ch6.control_coding"
       ],
       "source_ref": "c/notes.html#point-22",
       "legacy_url": "c/notes.html#point-22",
@@ -1302,7 +1931,7 @@
         "就近原则"
       ],
       "prereq_ids": [
-        "c.ch8.decl_pass"
+        "c.ch8.def_call"
       ],
       "source_ref": "c/notes.html#point-24",
       "legacy_url": "c/notes.html#point-24",
@@ -1325,6 +1954,7 @@
         "指针4字节"
       ],
       "prereq_ids": [
+        "c.ch2.datatypes",
         "c.ch8.decl_pass"
       ],
       "source_ref": "c/notes.html#point-25",
@@ -1368,7 +1998,8 @@
         "指针传参"
       ],
       "prereq_ids": [
-        "c.ch9.ptr_array1d"
+        "c.ch9.ptr_array1d",
+        "c.ch7.array2d"
       ],
       "source_ref": "c/notes.html#point-27",
       "legacy_url": "c/notes.html#point-27",
@@ -1378,32 +2009,21 @@
     {
       "id": "c.demo_page",
       "subject_id": "c_language",
-      "chapter_id": "c.existing",
-      "title": "图片示例题",
+      "chapter_id": "c.ch10",
+      "title": "10.1 跨章读程序与综合图题实战（运算 / 循环 / 函数 / 指针）",
       "order": 1,
       "aliases": [
         "C 语言示例"
       ],
-      "prereq_ids": [],
+      "prereq_ids": [
+        "c.ch6.for_loop",
+        "c.ch8.decl_pass",
+        "c.ch9.ptr_basics"
+      ],
       "source_ref": "c/index.html",
       "legacy_url": "c/index.html",
       "verified": false,
       "blurb": "图片题在 C 语言页面。"
-    },
-    {
-      "id": "c.identifier_sample",
-      "subject_id": "c_language",
-      "chapter_id": "c.existing",
-      "title": "标识符示例",
-      "order": 2,
-      "aliases": [
-        "标识符"
-      ],
-      "prereq_ids": [],
-      "source_ref": "data/questions/sample.json",
-      "legacy_url": "c/index.html",
-      "verified": false,
-      "blurb": "示例"
     },
     {
       "id": "web.concepts",
@@ -1419,415 +2039,6 @@
       "legacy_url": "wy/ch1/s11.html",
       "verified": false,
       "blurb": "正文在网页设计页面。"
-    },
-    {
-      "id": "web.html_intro",
-      "subject_id": "web_design",
-      "chapter_id": "web.lessons",
-      "title": "HTML 基础课页",
-      "order": 1,
-      "aliases": [
-        "HTML"
-      ],
-      "prereq_ids": [
-        "web.concepts"
-      ],
-      "source_ref": "wy/html/index.html",
-      "legacy_url": "wy/html/index.html",
-      "verified": false,
-      "blurb": "从网页设计目录进入。"
-    },
-    {
-      "id": "web.css_intro",
-      "subject_id": "web_design",
-      "chapter_id": "web.lessons",
-      "title": "CSS 课页",
-      "order": 2,
-      "aliases": [
-        "CSS"
-      ],
-      "prereq_ids": [
-        "web.html_intro"
-      ],
-      "source_ref": "wy/css/index.html",
-      "legacy_url": "wy/css/index.html",
-      "verified": false,
-      "blurb": ""
-    },
-    {
-      "id": "web.js_intro",
-      "subject_id": "web_design",
-      "chapter_id": "web.lessons",
-      "title": "JavaScript 课页",
-      "order": 3,
-      "aliases": [
-        "JavaScript",
-        "DOM"
-      ],
-      "prereq_ids": [
-        "web.html_intro"
-      ],
-      "source_ref": "wy/js/index.html",
-      "legacy_url": "wy/js/index.html",
-      "verified": false,
-      "blurb": ""
-    },
-    {
-      "id": "cb.ch1.11",
-      "subject_id": "computer_basics",
-      "chapter_id": "cb.ch1",
-      "title": "1.1 计算机的诞生与发展",
-      "order": 1,
-      "aliases": [],
-      "prereq_ids": [],
-      "source_ref": "jsj/jsj1.html#mind-1.1",
-      "legacy_url": "jsj/jsj1.html#mind-1.1",
-      "verified": false
-    },
-    {
-      "id": "cb.ch1.12",
-      "subject_id": "computer_basics",
-      "chapter_id": "cb.ch1",
-      "title": "1.2 计算机的特点、分类与应用",
-      "order": 2,
-      "aliases": [],
-      "prereq_ids": [],
-      "source_ref": "jsj/jsj1.html#mind-1.2",
-      "legacy_url": "jsj/jsj1.html#mind-1.2",
-      "verified": false
-    },
-    {
-      "id": "cb.ch1.13",
-      "subject_id": "computer_basics",
-      "chapter_id": "cb.ch1",
-      "title": "1.3 计算机系统组成与工作原理",
-      "order": 3,
-      "aliases": [],
-      "prereq_ids": [],
-      "source_ref": "jsj/jsj1.html#mind-1.3",
-      "legacy_url": "jsj/jsj1.html#mind-1.3",
-      "verified": false
-    },
-    {
-      "id": "cb.ch1.14",
-      "subject_id": "computer_basics",
-      "chapter_id": "cb.ch1",
-      "title": "1.4 计算机硬件系统",
-      "order": 4,
-      "aliases": [],
-      "prereq_ids": [],
-      "source_ref": "jsj/jsj1.html#mind-1.4",
-      "legacy_url": "jsj/jsj1.html#mind-1.4",
-      "verified": false
-    },
-    {
-      "id": "cb.ppt.51",
-      "subject_id": "computer_basics",
-      "chapter_id": "cb.ppt",
-      "title": "5.1 基础知识",
-      "order": 1,
-      "aliases": [],
-      "prereq_ids": [],
-      "source_ref": "jsj/ppt5.html",
-      "legacy_url": "jsj/ppt5.html#chapter-5.1",
-      "verified": false
-    },
-    {
-      "id": "cb.ppt.52",
-      "subject_id": "computer_basics",
-      "chapter_id": "cb.ppt",
-      "title": "5.2 基本操作",
-      "order": 2,
-      "aliases": [],
-      "prereq_ids": [],
-      "source_ref": "jsj/ppt5.html",
-      "legacy_url": "jsj/ppt5.html#chapter-5.2",
-      "verified": false
-    },
-    {
-      "id": "cb.ppt.53",
-      "subject_id": "computer_basics",
-      "chapter_id": "cb.ppt",
-      "title": "5.3 幻灯片制作与编辑",
-      "order": 3,
-      "aliases": [],
-      "prereq_ids": [],
-      "source_ref": "jsj/ppt5.html",
-      "legacy_url": "jsj/ppt5.html#chapter-5.3",
-      "verified": false
-    },
-    {
-      "id": "cb.ppt.54",
-      "subject_id": "computer_basics",
-      "chapter_id": "cb.ppt",
-      "title": "5.4 整体美化",
-      "order": 4,
-      "aliases": [],
-      "prereq_ids": [],
-      "source_ref": "jsj/ppt5.html",
-      "legacy_url": "jsj/ppt5.html#chapter-5.4",
-      "verified": false
-    },
-    {
-      "id": "cb.ppt.55",
-      "subject_id": "computer_basics",
-      "chapter_id": "cb.ppt",
-      "title": "5.5 交互设计",
-      "order": 5,
-      "aliases": [],
-      "prereq_ids": [],
-      "source_ref": "jsj/ppt5.html",
-      "legacy_url": "jsj/ppt5.html#chapter-5.5",
-      "verified": false
-    },
-    {
-      "id": "cb.ppt.56",
-      "subject_id": "computer_basics",
-      "chapter_id": "cb.ppt",
-      "title": "5.6 放映与打印",
-      "order": 6,
-      "aliases": [],
-      "prereq_ids": [],
-      "source_ref": "jsj/ppt5.html",
-      "legacy_url": "jsj/ppt5.html#chapter-5.6",
-      "verified": false
-    },
-    {
-      "id": "math.p36",
-      "subject_id": "math",
-      "chapter_id": "math.ch4",
-      "title": "向量的基本概念、计算及关系",
-      "order": 36,
-      "aliases": [],
-      "prereq_ids": [],
-      "source_ref": "gs/gs45.html#point-36",
-      "legacy_url": "gs/gs45.html#point-36",
-      "verified": false
-    },
-    {
-      "id": "math.p37",
-      "subject_id": "math",
-      "chapter_id": "math.ch4",
-      "title": "求平面方程",
-      "order": 37,
-      "aliases": [],
-      "prereq_ids": [
-        "math.p36"
-      ],
-      "source_ref": "gs/gs45.html#point-37",
-      "legacy_url": "gs/gs45.html#point-37",
-      "verified": false
-    },
-    {
-      "id": "math.p38",
-      "subject_id": "math",
-      "chapter_id": "math.ch4",
-      "title": "求直线方程",
-      "order": 38,
-      "aliases": [],
-      "prereq_ids": [
-        "math.p36",
-        "math.p37"
-      ],
-      "source_ref": "gs/gs45.html#point-38",
-      "legacy_url": "gs/gs45.html#point-38",
-      "verified": false
-    },
-    {
-      "id": "math.p39",
-      "subject_id": "math",
-      "chapter_id": "math.ch5",
-      "title": "二元函数求定义域（补充）",
-      "order": 39,
-      "aliases": [],
-      "prereq_ids": [
-        "math.domain"
-      ],
-      "source_ref": "gs/gs45.html#point-39",
-      "legacy_url": "gs/gs45.html#point-39",
-      "verified": false
-    },
-    {
-      "id": "math.p40",
-      "subject_id": "math",
-      "chapter_id": "math.ch5",
-      "title": "二元函数的偏导数（补充）",
-      "order": 40,
-      "aliases": [],
-      "prereq_ids": [
-        "math.p39"
-      ],
-      "source_ref": "gs/gs45.html#point-40",
-      "legacy_url": "gs/gs45.html#point-40",
-      "verified": false
-    },
-    {
-      "id": "math.p41",
-      "subject_id": "math",
-      "chapter_id": "math.ch5",
-      "title": "二元函数的高阶偏导数",
-      "order": 41,
-      "aliases": [],
-      "prereq_ids": [
-        "math.p40"
-      ],
-      "source_ref": "gs/gs45.html#point-41",
-      "legacy_url": "gs/gs45.html#point-41",
-      "verified": false
-    },
-    {
-      "id": "math.p42",
-      "subject_id": "math",
-      "chapter_id": "math.ch5",
-      "title": "二元函数的全微分",
-      "order": 42,
-      "aliases": [],
-      "prereq_ids": [
-        "math.p40"
-      ],
-      "source_ref": "gs/gs45.html#point-42",
-      "legacy_url": "gs/gs45.html#point-42",
-      "verified": false
-    },
-    {
-      "id": "math.p43",
-      "subject_id": "math",
-      "chapter_id": "math.ch5",
-      "title": "二元函数求极值",
-      "order": 43,
-      "aliases": [],
-      "prereq_ids": [
-        "math.p41"
-      ],
-      "source_ref": "gs/gs45.html#point-43",
-      "legacy_url": "gs/gs45.html#point-43",
-      "verified": false
-    },
-    {
-      "id": "math.p44",
-      "subject_id": "math",
-      "chapter_id": "math.ch5",
-      "title": "二元函数的最值应用",
-      "order": 44,
-      "aliases": [],
-      "prereq_ids": [
-        "math.continuous_properties",
-        "math.p43"
-      ],
-      "source_ref": "gs/gs45.html#point-44",
-      "legacy_url": "gs/gs45.html#point-44",
-      "verified": false
-    },
-    {
-      "id": "math.p45",
-      "subject_id": "math",
-      "chapter_id": "math.ch5",
-      "title": "多元复合函数求一阶偏导数",
-      "order": 45,
-      "aliases": [],
-      "prereq_ids": [
-        "math.p40"
-      ],
-      "source_ref": "gs/gs45.html#point-45",
-      "legacy_url": "gs/gs45.html#point-45",
-      "verified": false
-    },
-    {
-      "id": "math.p46",
-      "subject_id": "math",
-      "chapter_id": "math.ch5",
-      "title": "二重积分的性质",
-      "order": 46,
-      "aliases": [],
-      "prereq_ids": [
-        "math.p39"
-      ],
-      "source_ref": "gs/gs45.html#point-46",
-      "legacy_url": "gs/gs45.html#point-46",
-      "verified": false
-    },
-    {
-      "id": "math.p47",
-      "subject_id": "math",
-      "chapter_id": "math.ch5",
-      "title": "直角坐标系下二重积分的计算",
-      "order": 47,
-      "aliases": [],
-      "prereq_ids": [
-        "math.p39",
-        "math.p46"
-      ],
-      "source_ref": "gs/gs45.html#point-47",
-      "legacy_url": "gs/gs45.html#point-47",
-      "verified": false
-    },
-    {
-      "id": "english.yy5.guide",
-      "subject_id": "english",
-      "chapter_id": "english.attributive",
-      "title": "五专题系统讲义",
-      "order": 90,
-      "aliases": [
-        "系统讲义",
-        "yy5"
-      ],
-      "prereq_ids": [],
-      "source_ref": "yy/yy5.html",
-      "legacy_url": "yy/yy5.html",
-      "verified": false,
-      "blurb": "定语从句、名词性从句、状语从句、主谓一致、特殊句型：讲义、视频与原创练习。"
-    },
-    {
-      "id": "english.agreement.basics",
-      "subject_id": "english",
-      "chapter_id": "english.agreement",
-      "title": "主谓一致",
-      "order": 1,
-      "aliases": [
-        "就近原则",
-        "中心词原则"
-      ],
-      "prereq_ids": [
-        "english.noun.basics"
-      ],
-      "source_ref": "yy/yy5.html#topic-7",
-      "legacy_url": "yy/yy5.html#topic-7",
-      "verified": false,
-      "blurb": "系统讲义专题七，含讲解视频与原创练习。"
-    },
-    {
-      "id": "english.special.basics",
-      "subject_id": "english",
-      "chapter_id": "english.special",
-      "title": "特殊句型",
-      "order": 1,
-      "aliases": [
-        "倒装",
-        "强调句",
-        "省略",
-        "虚拟语气"
-      ],
-      "prereq_ids": [
-        "english.adverbial.basics"
-      ],
-      "source_ref": "yy/yy5.html#topic-8",
-      "legacy_url": "yy/yy5.html#topic-8",
-      "verified": false,
-      "blurb": "系统讲义专题八，含讲解视频与原创练习。"
-    },
-    {
-      "id": "math.p48",
-      "subject_id": "math",
-      "chapter_id": "math.ch5",
-      "title": "交换积分次序",
-      "order": 48,
-      "aliases": [],
-      "prereq_ids": [
-        "math.p47"
-      ],
-      "source_ref": "gs/gs45.html#point-48",
-      "legacy_url": "gs/gs45.html#point-48",
-      "verified": false
     },
     {
       "id": "web.process",
@@ -1851,7 +2062,7 @@
       "order": 3,
       "aliases": [],
       "prereq_ids": [
-        "web.process"
+        "web.concepts"
       ],
       "source_ref": "wy/ch1/s13.html",
       "legacy_url": "wy/ch1/s13.html",
@@ -1865,7 +2076,7 @@
       "order": 4,
       "aliases": [],
       "prereq_ids": [
-        "web.concepts"
+        "web.process"
       ],
       "source_ref": "wy/ch1/s-extra.html",
       "legacy_url": "wy/ch1/s-extra.html",
@@ -1921,7 +2132,7 @@
       "order": 4,
       "aliases": [],
       "prereq_ids": [
-        "web.s22b"
+        "web.s22"
       ],
       "source_ref": "wy/ch2/s23.html",
       "legacy_url": "wy/ch2/s23.html",
@@ -1935,497 +2146,21 @@
       "order": 5,
       "aliases": [],
       "prereq_ids": [
-        "web.s23"
+        "web.s22"
       ],
       "source_ref": "wy/ch2/s24.html",
       "legacy_url": "wy/ch2/s24.html",
       "verified": false
     },
     {
-      "id": "web.css.intro",
-      "subject_id": "web_design",
-      "chapter_id": "web.css",
-      "title": "CSS 简介",
-      "order": 1,
-      "aliases": [],
-      "prereq_ids": [
-        "web.css_intro"
-      ],
-      "source_ref": "wy/css/intro.html",
-      "legacy_url": "wy/css/intro.html",
-      "verified": false
-    },
-    {
-      "id": "web.css.syntax",
-      "subject_id": "web_design",
-      "chapter_id": "web.css",
-      "title": "CSS 语法",
-      "order": 2,
-      "aliases": [],
-      "prereq_ids": [
-        "web.css.intro"
-      ],
-      "source_ref": "wy/css/syntax.html",
-      "legacy_url": "wy/css/syntax.html",
-      "verified": false
-    },
-    {
-      "id": "web.css.selectors",
-      "subject_id": "web_design",
-      "chapter_id": "web.css",
-      "title": "选择器",
-      "order": 3,
-      "aliases": [],
-      "prereq_ids": [
-        "web.css.syntax"
-      ],
-      "source_ref": "wy/css/selectors.html",
-      "legacy_url": "wy/css/selectors.html",
-      "verified": false
-    },
-    {
-      "id": "web.css.howto",
-      "subject_id": "web_design",
-      "chapter_id": "web.css",
-      "title": "三种引入",
-      "order": 4,
-      "aliases": [],
-      "prereq_ids": [
-        "web.css.selectors"
-      ],
-      "source_ref": "wy/css/howto.html",
-      "legacy_url": "wy/css/howto.html",
-      "verified": false
-    },
-    {
-      "id": "web.css.colors",
-      "subject_id": "web_design",
-      "chapter_id": "web.css",
-      "title": "颜色",
-      "order": 5,
-      "aliases": [],
-      "prereq_ids": [
-        "web.css.howto"
-      ],
-      "source_ref": "wy/css/colors.html",
-      "legacy_url": "wy/css/colors.html",
-      "verified": false
-    },
-    {
-      "id": "web.css.background",
-      "subject_id": "web_design",
-      "chapter_id": "web.css",
-      "title": "背景",
-      "order": 6,
-      "aliases": [],
-      "prereq_ids": [
-        "web.css.colors"
-      ],
-      "source_ref": "wy/css/background.html",
-      "legacy_url": "wy/css/background.html",
-      "verified": false
-    },
-    {
-      "id": "web.css.text",
-      "subject_id": "web_design",
-      "chapter_id": "web.css",
-      "title": "文本",
-      "order": 7,
-      "aliases": [],
-      "prereq_ids": [
-        "web.css.background"
-      ],
-      "source_ref": "wy/css/text.html",
-      "legacy_url": "wy/css/text.html",
-      "verified": false
-    },
-    {
-      "id": "web.css.font",
-      "subject_id": "web_design",
-      "chapter_id": "web.css",
-      "title": "字体",
-      "order": 8,
-      "aliases": [],
-      "prereq_ids": [
-        "web.css.text"
-      ],
-      "source_ref": "wy/css/font.html",
-      "legacy_url": "wy/css/font.html",
-      "verified": false
-    },
-    {
-      "id": "web.css.link",
-      "subject_id": "web_design",
-      "chapter_id": "web.css",
-      "title": "链接样式",
-      "order": 9,
-      "aliases": [],
-      "prereq_ids": [
-        "web.css.font"
-      ],
-      "source_ref": "wy/css/link.html",
-      "legacy_url": "wy/css/link.html",
-      "verified": false
-    },
-    {
-      "id": "web.css.list",
-      "subject_id": "web_design",
-      "chapter_id": "web.css",
-      "title": "列表样式",
-      "order": 10,
-      "aliases": [],
-      "prereq_ids": [
-        "web.css.link"
-      ],
-      "source_ref": "wy/css/list.html",
-      "legacy_url": "wy/css/list.html",
-      "verified": false
-    },
-    {
-      "id": "web.css.table",
-      "subject_id": "web_design",
-      "chapter_id": "web.css",
-      "title": "表格样式",
-      "order": 11,
-      "aliases": [],
-      "prereq_ids": [
-        "web.css.list"
-      ],
-      "source_ref": "wy/css/table.html",
-      "legacy_url": "wy/css/table.html",
-      "verified": false
-    },
-    {
-      "id": "web.css.box",
-      "subject_id": "web_design",
-      "chapter_id": "web.css",
-      "title": "盒子模型",
-      "order": 12,
-      "aliases": [],
-      "prereq_ids": [
-        "web.css.table"
-      ],
-      "source_ref": "wy/css/box.html",
-      "legacy_url": "wy/css/box.html",
-      "verified": false
-    },
-    {
-      "id": "web.css.border",
-      "subject_id": "web_design",
-      "chapter_id": "web.css",
-      "title": "边框",
-      "order": 13,
-      "aliases": [],
-      "prereq_ids": [
-        "web.css.box"
-      ],
-      "source_ref": "wy/css/border.html",
-      "legacy_url": "wy/css/border.html",
-      "verified": false
-    },
-    {
-      "id": "web.css.margin",
-      "subject_id": "web_design",
-      "chapter_id": "web.css",
-      "title": "外边距",
-      "order": 14,
-      "aliases": [],
-      "prereq_ids": [
-        "web.css.border"
-      ],
-      "source_ref": "wy/css/margin.html",
-      "legacy_url": "wy/css/margin.html",
-      "verified": false
-    },
-    {
-      "id": "web.css.padding",
-      "subject_id": "web_design",
-      "chapter_id": "web.css",
-      "title": "内边距",
-      "order": 15,
-      "aliases": [],
-      "prereq_ids": [
-        "web.css.margin"
-      ],
-      "source_ref": "wy/css/padding.html",
-      "legacy_url": "wy/css/padding.html",
-      "verified": false
-    },
-    {
-      "id": "web.css.display",
-      "subject_id": "web_design",
-      "chapter_id": "web.css",
-      "title": "display",
-      "order": 16,
-      "aliases": [],
-      "prereq_ids": [
-        "web.css.padding"
-      ],
-      "source_ref": "wy/css/display.html",
-      "legacy_url": "wy/css/display.html",
-      "verified": false
-    },
-    {
-      "id": "web.css.position",
-      "subject_id": "web_design",
-      "chapter_id": "web.css",
-      "title": "position",
-      "order": 17,
-      "aliases": [],
-      "prereq_ids": [
-        "web.css.display"
-      ],
-      "source_ref": "wy/css/position.html",
-      "legacy_url": "wy/css/position.html",
-      "verified": false
-    },
-    {
-      "id": "web.css.float",
-      "subject_id": "web_design",
-      "chapter_id": "web.css",
-      "title": "float",
-      "order": 18,
-      "aliases": [],
-      "prereq_ids": [
-        "web.css.position"
-      ],
-      "source_ref": "wy/css/float.html",
-      "legacy_url": "wy/css/float.html",
-      "verified": false
-    },
-    {
-      "id": "web.css.align",
-      "subject_id": "web_design",
-      "chapter_id": "web.css",
-      "title": "对齐",
-      "order": 19,
-      "aliases": [],
-      "prereq_ids": [
-        "web.css.float"
-      ],
-      "source_ref": "wy/css/align.html",
-      "legacy_url": "wy/css/align.html",
-      "verified": false
-    },
-    {
-      "id": "web.css.combinators",
-      "subject_id": "web_design",
-      "chapter_id": "web.css",
-      "title": "组合选择符",
-      "order": 20,
-      "aliases": [],
-      "prereq_ids": [
-        "web.css.align"
-      ],
-      "source_ref": "wy/css/combinators.html",
-      "legacy_url": "wy/css/combinators.html",
-      "verified": false
-    },
-    {
-      "id": "web.css.pseudo",
-      "subject_id": "web_design",
-      "chapter_id": "web.css",
-      "title": "伪类",
-      "order": 21,
-      "aliases": [],
-      "prereq_ids": [
-        "web.css.combinators"
-      ],
-      "source_ref": "wy/css/pseudo.html",
-      "legacy_url": "wy/css/pseudo.html",
-      "verified": false
-    },
-    {
-      "id": "web.css.navbar",
-      "subject_id": "web_design",
-      "chapter_id": "web.css",
-      "title": "导航栏",
-      "order": 22,
-      "aliases": [],
-      "prereq_ids": [
-        "web.css.pseudo"
-      ],
-      "source_ref": "wy/css/navbar.html",
-      "legacy_url": "wy/css/navbar.html",
-      "verified": false
-    },
-    {
-      "id": "web.css.dropdown",
-      "subject_id": "web_design",
-      "chapter_id": "web.css",
-      "title": "下拉菜单",
-      "order": 23,
-      "aliases": [],
-      "prereq_ids": [
-        "web.css.navbar"
-      ],
-      "source_ref": "wy/css/dropdown.html",
-      "legacy_url": "wy/css/dropdown.html",
-      "verified": false
-    },
-    {
-      "id": "web.css.tooltip",
-      "subject_id": "web_design",
-      "chapter_id": "web.css",
-      "title": "提示工具",
-      "order": 24,
-      "aliases": [],
-      "prereq_ids": [
-        "web.css.dropdown"
-      ],
-      "source_ref": "wy/css/tooltip.html",
-      "legacy_url": "wy/css/tooltip.html",
-      "verified": false
-    },
-    {
-      "id": "web.css.attr_sel",
-      "subject_id": "web_design",
-      "chapter_id": "web.css",
-      "title": "属性选择器",
-      "order": 25,
-      "aliases": [],
-      "prereq_ids": [
-        "web.css.tooltip"
-      ],
-      "source_ref": "wy/css/attr-sel.html",
-      "legacy_url": "wy/css/attr-sel.html",
-      "verified": false
-    },
-    {
-      "id": "web.css.form",
-      "subject_id": "web_design",
-      "chapter_id": "web.css",
-      "title": "表单样式",
-      "order": 26,
-      "aliases": [],
-      "prereq_ids": [
-        "web.css.attr_sel"
-      ],
-      "source_ref": "wy/css/form.html",
-      "legacy_url": "wy/css/form.html",
-      "verified": false
-    },
-    {
-      "id": "web.css.layout",
-      "subject_id": "web_design",
-      "chapter_id": "web.css",
-      "title": "网站布局",
-      "order": 27,
-      "aliases": [],
-      "prereq_ids": [
-        "web.css.form"
-      ],
-      "source_ref": "wy/css/layout.html",
-      "legacy_url": "wy/css/layout.html",
-      "verified": false
-    },
-    {
-      "id": "web.css.border_radius",
-      "subject_id": "web_design",
-      "chapter_id": "web.css",
-      "title": "CSS3 圆角",
-      "order": 28,
-      "aliases": [],
-      "prereq_ids": [
-        "web.css.layout"
-      ],
-      "source_ref": "wy/css/border-radius.html",
-      "legacy_url": "wy/css/border-radius.html",
-      "verified": false
-    },
-    {
-      "id": "web.css.gradients",
-      "subject_id": "web_design",
-      "chapter_id": "web.css",
-      "title": "CSS3 渐变",
-      "order": 29,
-      "aliases": [],
-      "prereq_ids": [
-        "web.css.border_radius"
-      ],
-      "source_ref": "wy/css/gradients.html",
-      "legacy_url": "wy/css/gradients.html",
-      "verified": false
-    },
-    {
-      "id": "web.css.transform",
-      "subject_id": "web_design",
-      "chapter_id": "web.css",
-      "title": "转换",
-      "order": 30,
-      "aliases": [],
-      "prereq_ids": [
-        "web.css.gradients"
-      ],
-      "source_ref": "wy/css/transform.html",
-      "legacy_url": "wy/css/transform.html",
-      "verified": false
-    },
-    {
-      "id": "web.css.transition",
-      "subject_id": "web_design",
-      "chapter_id": "web.css",
-      "title": "过渡",
-      "order": 31,
-      "aliases": [],
-      "prereq_ids": [
-        "web.css.transform"
-      ],
-      "source_ref": "wy/css/transition.html",
-      "legacy_url": "wy/css/transition.html",
-      "verified": false
-    },
-    {
-      "id": "web.css.animation",
-      "subject_id": "web_design",
-      "chapter_id": "web.css",
-      "title": "动画",
-      "order": 32,
-      "aliases": [],
-      "prereq_ids": [
-        "web.css.transition"
-      ],
-      "source_ref": "wy/css/animation.html",
-      "legacy_url": "wy/css/animation.html",
-      "verified": false
-    },
-    {
-      "id": "web.css.flexbox",
-      "subject_id": "web_design",
-      "chapter_id": "web.css",
-      "title": "弹性盒子",
-      "order": 33,
-      "aliases": [],
-      "prereq_ids": [
-        "web.css.layout"
-      ],
-      "source_ref": "wy/css/flexbox.html",
-      "legacy_url": "wy/css/flexbox.html",
-      "verified": false
-    },
-    {
-      "id": "web.css.mediaq",
-      "subject_id": "web_design",
-      "chapter_id": "web.css",
-      "title": "媒体查询",
-      "order": 34,
-      "aliases": [],
-      "prereq_ids": [
-        "web.css.flexbox"
-      ],
-      "source_ref": "wy/css/mediaq.html",
-      "legacy_url": "wy/css/mediaq.html",
-      "verified": false
-    },
-    {
       "id": "web.html.editors",
       "subject_id": "web_design",
-      "chapter_id": "web.html",
+      "chapter_id": "web.html_core.s1",
       "title": "HTML 编辑器",
       "order": 1,
       "aliases": [],
       "prereq_ids": [
-        "web.html_intro"
+        "web.s24"
       ],
       "source_ref": "wy/html/editors.html",
       "legacy_url": "wy/html/editors.html",
@@ -2434,12 +2169,12 @@
     {
       "id": "web.html.headings",
       "subject_id": "web_design",
-      "chapter_id": "web.html",
+      "chapter_id": "web.html_core.s1",
       "title": "HTML 标题",
       "order": 2,
       "aliases": [],
       "prereq_ids": [
-        "web.html.editors"
+        "web.s24"
       ],
       "source_ref": "wy/html/headings.html",
       "legacy_url": "wy/html/headings.html",
@@ -2448,7 +2183,7 @@
     {
       "id": "web.html.paragraphs",
       "subject_id": "web_design",
-      "chapter_id": "web.html",
+      "chapter_id": "web.html_core.s1",
       "title": "HTML 段落",
       "order": 3,
       "aliases": [],
@@ -2462,7 +2197,7 @@
     {
       "id": "web.html.formatting",
       "subject_id": "web_design",
-      "chapter_id": "web.html",
+      "chapter_id": "web.html_core.s1",
       "title": "HTML 文本格式化",
       "order": 4,
       "aliases": [],
@@ -2474,70 +2209,84 @@
       "verified": false
     },
     {
-      "id": "web.html.links",
+      "id": "web.html.colors",
       "subject_id": "web_design",
-      "chapter_id": "web.html",
-      "title": "HTML 链接",
+      "chapter_id": "web.html_core.s1",
+      "title": "HTML 颜色",
       "order": 5,
       "aliases": [],
       "prereq_ids": [
-        "web.html.formatting"
+        "web.s24"
+      ],
+      "source_ref": "wy/html/colors.html",
+      "legacy_url": "wy/html/colors.html",
+      "verified": false
+    },
+    {
+      "id": "web.html.entities",
+      "subject_id": "web_design",
+      "chapter_id": "web.html_core.s1",
+      "title": "HTML 字符实体",
+      "order": 6,
+      "aliases": [],
+      "prereq_ids": [
+        "web.html.paragraphs"
+      ],
+      "source_ref": "wy/html/entities.html",
+      "legacy_url": "wy/html/entities.html",
+      "verified": false
+    },
+    {
+      "id": "web.html.url",
+      "subject_id": "web_design",
+      "chapter_id": "web.html_core.s1",
+      "title": "HTML URL",
+      "order": 7,
+      "aliases": [],
+      "prereq_ids": [
+        "web.s21"
+      ],
+      "source_ref": "wy/html/url.html",
+      "legacy_url": "wy/html/url.html",
+      "verified": false
+    },
+    {
+      "id": "web.html.links",
+      "subject_id": "web_design",
+      "chapter_id": "web.html_core.s2",
+      "title": "HTML 链接",
+      "order": 1,
+      "aliases": [],
+      "prereq_ids": [
+        "web.html.url"
       ],
       "source_ref": "wy/html/links.html",
       "legacy_url": "wy/html/links.html",
       "verified": false
     },
     {
-      "id": "web.html.css_inline",
-      "subject_id": "web_design",
-      "chapter_id": "web.html",
-      "title": "HTML 中的 CSS",
-      "order": 6,
-      "aliases": [],
-      "prereq_ids": [
-        "web.html.links"
-      ],
-      "source_ref": "wy/html/css-inline.html",
-      "legacy_url": "wy/html/css-inline.html",
-      "verified": false
-    },
-    {
       "id": "web.html.images",
       "subject_id": "web_design",
-      "chapter_id": "web.html",
+      "chapter_id": "web.html_core.s2",
       "title": "HTML 图像",
-      "order": 7,
+      "order": 2,
       "aliases": [],
       "prereq_ids": [
-        "web.html.css_inline"
+        "web.html.url"
       ],
       "source_ref": "wy/html/images.html",
       "legacy_url": "wy/html/images.html",
       "verified": false
     },
     {
-      "id": "web.html.tables",
-      "subject_id": "web_design",
-      "chapter_id": "web.html",
-      "title": "HTML 表格",
-      "order": 8,
-      "aliases": [],
-      "prereq_ids": [
-        "web.html.images"
-      ],
-      "source_ref": "wy/html/tables.html",
-      "legacy_url": "wy/html/tables.html",
-      "verified": false
-    },
-    {
       "id": "web.html.lists",
       "subject_id": "web_design",
-      "chapter_id": "web.html",
+      "chapter_id": "web.html_core.s2",
       "title": "HTML 列表",
-      "order": 9,
+      "order": 3,
       "aliases": [],
       "prereq_ids": [
-        "web.html.tables"
+        "web.html.paragraphs"
       ],
       "source_ref": "wy/html/lists.html",
       "legacy_url": "wy/html/lists.html",
@@ -2546,23 +2295,37 @@
     {
       "id": "web.html.blocks",
       "subject_id": "web_design",
-      "chapter_id": "web.html",
+      "chapter_id": "web.html_core.s2",
       "title": "HTML 区块",
-      "order": 10,
+      "order": 4,
       "aliases": [],
       "prereq_ids": [
-        "web.html.lists"
+        "web.s24"
       ],
       "source_ref": "wy/html/blocks.html",
       "legacy_url": "wy/html/blocks.html",
       "verified": false
     },
     {
+      "id": "web.html.iframes",
+      "subject_id": "web_design",
+      "chapter_id": "web.html_core.s2",
+      "title": "HTML 框架（iframe）",
+      "order": 5,
+      "aliases": [],
+      "prereq_ids": [
+        "web.html.links"
+      ],
+      "source_ref": "wy/html/iframes.html",
+      "legacy_url": "wy/html/iframes.html",
+      "verified": false
+    },
+    {
       "id": "web.html.layouts",
       "subject_id": "web_design",
-      "chapter_id": "web.html",
+      "chapter_id": "web.html_core.s2",
       "title": "HTML 布局",
-      "order": 11,
+      "order": 6,
       "aliases": [],
       "prereq_ids": [
         "web.html.blocks"
@@ -2572,98 +2335,203 @@
       "verified": false
     },
     {
-      "id": "web.html.forms",
+      "id": "web.html.tables",
       "subject_id": "web_design",
-      "chapter_id": "web.html",
-      "title": "HTML 表单",
-      "order": 12,
+      "chapter_id": "web.html_core.s3",
+      "title": "HTML 表格",
+      "order": 1,
       "aliases": [],
       "prereq_ids": [
-        "web.html.layouts"
+        "web.html.blocks"
+      ],
+      "source_ref": "wy/html/tables.html",
+      "legacy_url": "wy/html/tables.html",
+      "verified": false
+    },
+    {
+      "id": "web.html.forms",
+      "subject_id": "web_design",
+      "chapter_id": "web.html_core.s3",
+      "title": "HTML 表单",
+      "order": 2,
+      "aliases": [],
+      "prereq_ids": [
+        "web.html.blocks"
       ],
       "source_ref": "wy/html/forms.html",
       "legacy_url": "wy/html/forms.html",
       "verified": false
     },
     {
-      "id": "web.html.iframes",
+      "id": "web.class.forms",
       "subject_id": "web_design",
-      "chapter_id": "web.html",
-      "title": "HTML 框架（iframe）",
-      "order": 13,
+      "chapter_id": "web.html_core.s3",
+      "title": "表单、表格与 form 关联属性",
+      "order": 3,
+      "aliases": [
+        "form 属性",
+        "表单嵌套"
+      ],
+      "prereq_ids": [
+        "web.html.tables",
+        "web.html.forms"
+      ],
+      "source_ref": "notes/web.html#forms",
+      "legacy_url": "notes/web.html#forms",
+      "verified": true
+    },
+    {
+      "id": "web.html5.input_types",
+      "subject_id": "web_design",
+      "chapter_id": "web.html_core.s3",
+      "title": "HTML5 Input 类型",
+      "order": 4,
       "aliases": [],
       "prereq_ids": [
         "web.html.forms"
       ],
-      "source_ref": "wy/html/iframes.html",
-      "legacy_url": "wy/html/iframes.html",
+      "source_ref": "wy/html5/input-types.html",
+      "legacy_url": "wy/html5/input-types.html",
       "verified": false
     },
     {
-      "id": "web.html.colors",
+      "id": "web.html5.form_elements",
       "subject_id": "web_design",
-      "chapter_id": "web.html",
-      "title": "HTML 颜色",
-      "order": 14,
+      "chapter_id": "web.html_core.s3",
+      "title": "HTML5 表单元素",
+      "order": 5,
       "aliases": [],
       "prereq_ids": [
-        "web.html.iframes"
+        "web.html.forms"
       ],
-      "source_ref": "wy/html/colors.html",
-      "legacy_url": "wy/html/colors.html",
+      "source_ref": "wy/html5/form-elements.html",
+      "legacy_url": "wy/html5/form-elements.html",
       "verified": false
     },
     {
-      "id": "web.html.scripts",
+      "id": "web.class.widgets",
       "subject_id": "web_design",
-      "chapter_id": "web.html",
-      "title": "HTML 脚本",
-      "order": 15,
+      "chapter_id": "web.html_core.s3",
+      "title": "datalist 与范围滑块",
+      "order": 6,
+      "aliases": [
+        "datalist",
+        "input range"
+      ],
+      "prereq_ids": [
+        "web.html5.form_elements"
+      ],
+      "source_ref": "notes/web.html#widgets",
+      "legacy_url": "notes/web.html#widgets",
+      "verified": true
+    },
+    {
+      "id": "web.html5.form_attrs",
+      "subject_id": "web_design",
+      "chapter_id": "web.html_core.s3",
+      "title": "表单属性",
+      "order": 7,
       "aliases": [],
       "prereq_ids": [
-        "web.html.colors"
+        "web.html5.input_types"
       ],
-      "source_ref": "wy/html/scripts.html",
-      "legacy_url": "wy/html/scripts.html",
+      "source_ref": "wy/html5/form-attrs.html",
+      "legacy_url": "wy/html5/form-attrs.html",
       "verified": false
     },
     {
-      "id": "web.html.entities",
+      "id": "web.html5.browsers",
       "subject_id": "web_design",
-      "chapter_id": "web.html",
-      "title": "HTML 字符实体",
-      "order": 16,
+      "chapter_id": "web.html_core.s4",
+      "title": "浏览器支持",
+      "order": 1,
       "aliases": [],
       "prereq_ids": [
-        "web.html.scripts"
+        "web.s22"
       ],
-      "source_ref": "wy/html/entities.html",
-      "legacy_url": "wy/html/entities.html",
+      "source_ref": "wy/html5/browsers.html",
+      "legacy_url": "wy/html5/browsers.html",
       "verified": false
     },
     {
-      "id": "web.html.url",
+      "id": "web.html5.new_elements",
       "subject_id": "web_design",
-      "chapter_id": "web.html",
-      "title": "HTML URL",
-      "order": 17,
+      "chapter_id": "web.html_core.s4",
+      "title": "HTML5 新元素",
+      "order": 2,
       "aliases": [],
       "prereq_ids": [
-        "web.html.entities"
+        "web.s22"
       ],
-      "source_ref": "wy/html/url.html",
-      "legacy_url": "wy/html/url.html",
+      "source_ref": "wy/html5/new-elements.html",
+      "legacy_url": "wy/html5/new-elements.html",
+      "verified": false
+    },
+    {
+      "id": "web.html5.semantic",
+      "subject_id": "web_design",
+      "chapter_id": "web.html_core.s4",
+      "title": "语义元素",
+      "order": 3,
+      "aliases": [],
+      "prereq_ids": [
+        "web.html.layouts"
+      ],
+      "source_ref": "wy/html5/semantic.html",
+      "legacy_url": "wy/html5/semantic.html",
+      "verified": false
+    },
+    {
+      "id": "web.html5.media",
+      "subject_id": "web_design",
+      "chapter_id": "web.html_core.s4",
+      "title": "HTML 媒体概述",
+      "order": 4,
+      "aliases": [],
+      "prereq_ids": [
+        "web.html.images"
+      ],
+      "source_ref": "wy/html5/media.html",
+      "legacy_url": "wy/html5/media.html",
+      "verified": false
+    },
+    {
+      "id": "web.html5.video",
+      "subject_id": "web_design",
+      "chapter_id": "web.html_core.s4",
+      "title": "HTML5 Video",
+      "order": 5,
+      "aliases": [],
+      "prereq_ids": [
+        "web.html5.media"
+      ],
+      "source_ref": "wy/html5/video.html",
+      "legacy_url": "wy/html5/video.html",
+      "verified": false
+    },
+    {
+      "id": "web.html5.audio",
+      "subject_id": "web_design",
+      "chapter_id": "web.html_core.s4",
+      "title": "HTML5 Audio",
+      "order": 6,
+      "aliases": [],
+      "prereq_ids": [
+        "web.html5.media"
+      ],
+      "source_ref": "wy/html5/audio.html",
+      "legacy_url": "wy/html5/audio.html",
       "verified": false
     },
     {
       "id": "web.html.cheatsheet",
       "subject_id": "web_design",
-      "chapter_id": "web.html",
+      "chapter_id": "web.html_core.s4",
       "title": "HTML 速查（精简）",
-      "order": 18,
+      "order": 7,
       "aliases": [],
       "prereq_ids": [
-        "web.html.url"
+        "web.html.forms"
       ],
       "source_ref": "wy/html/cheatsheet.html",
       "legacy_url": "wy/html/cheatsheet.html",
@@ -2672,9 +2540,9 @@
     {
       "id": "web.html.summary",
       "subject_id": "web_design",
-      "chapter_id": "web.html",
+      "chapter_id": "web.html_core.s4",
       "title": "HTML 总结",
-      "order": 19,
+      "order": 8,
       "aliases": [],
       "prereq_ids": [
         "web.html.cheatsheet"
@@ -2686,9 +2554,9 @@
     {
       "id": "web.html.quiz",
       "subject_id": "web_design",
-      "chapter_id": "web.html",
+      "chapter_id": "web.html_core.s4",
       "title": "HTML 自测",
-      "order": 20,
+      "order": 9,
       "aliases": [],
       "prereq_ids": [
         "web.html.summary"
@@ -2698,534 +2566,213 @@
       "verified": false
     },
     {
-      "id": "web.html5.browsers",
+      "id": "web.html.css_inline",
       "subject_id": "web_design",
-      "chapter_id": "web.html5",
-      "title": "浏览器支持",
+      "chapter_id": "web.css_base.s1",
+      "title": "HTML 中的 CSS",
       "order": 1,
       "aliases": [],
       "prereq_ids": [
-        "web.html5_index"
+        "web.layers"
       ],
-      "source_ref": "wy/html5/browsers.html",
-      "legacy_url": "wy/html5/browsers.html",
+      "source_ref": "wy/html/css-inline.html",
+      "legacy_url": "wy/html/css-inline.html",
       "verified": false
     },
     {
-      "id": "web.html5.new_elements",
+      "id": "web.css.intro",
       "subject_id": "web_design",
-      "chapter_id": "web.html5",
-      "title": "HTML5 新元素",
+      "chapter_id": "web.css_base.s1",
+      "title": "CSS 简介",
       "order": 2,
       "aliases": [],
       "prereq_ids": [
-        "web.html5.browsers"
+        "web.layers"
       ],
-      "source_ref": "wy/html5/new-elements.html",
-      "legacy_url": "wy/html5/new-elements.html",
+      "source_ref": "wy/css/intro.html",
+      "legacy_url": "wy/css/intro.html",
       "verified": false
     },
     {
-      "id": "web.html5.semantic",
+      "id": "web.css.syntax",
       "subject_id": "web_design",
-      "chapter_id": "web.html5",
-      "title": "语义元素",
+      "chapter_id": "web.css_base.s1",
+      "title": "CSS 语法",
       "order": 3,
       "aliases": [],
       "prereq_ids": [
-        "web.html5.new_elements"
+        "web.css.intro"
       ],
-      "source_ref": "wy/html5/semantic.html",
-      "legacy_url": "wy/html5/semantic.html",
+      "source_ref": "wy/css/syntax.html",
+      "legacy_url": "wy/css/syntax.html",
       "verified": false
     },
     {
-      "id": "web.html5.canvas",
+      "id": "web.css.howto",
       "subject_id": "web_design",
-      "chapter_id": "web.html5",
-      "title": "Canvas 概述",
+      "chapter_id": "web.css_base.s1",
+      "title": "三种引入",
       "order": 4,
       "aliases": [],
       "prereq_ids": [
-        "web.html5.semantic"
+        "web.css.syntax"
       ],
-      "source_ref": "wy/html5/canvas.html",
-      "legacy_url": "wy/html5/canvas.html",
-      "verified": false
-    },
-    {
-      "id": "web.html5.svg",
-      "subject_id": "web_design",
-      "chapter_id": "web.html5",
-      "title": "SVG 概述",
-      "order": 5,
-      "aliases": [],
-      "prereq_ids": [
-        "web.html5.canvas"
-      ],
-      "source_ref": "wy/html5/svg.html",
-      "legacy_url": "wy/html5/svg.html",
-      "verified": false
-    },
-    {
-      "id": "web.html5.drag",
-      "subject_id": "web_design",
-      "chapter_id": "web.html5",
-      "title": "拖放",
-      "order": 6,
-      "aliases": [],
-      "prereq_ids": [
-        "web.html5.svg"
-      ],
-      "source_ref": "wy/html5/drag.html",
-      "legacy_url": "wy/html5/drag.html",
-      "verified": false
-    },
-    {
-      "id": "web.html5.video",
-      "subject_id": "web_design",
-      "chapter_id": "web.html5",
-      "title": "HTML5 Video",
-      "order": 7,
-      "aliases": [],
-      "prereq_ids": [
-        "web.html5.drag"
-      ],
-      "source_ref": "wy/html5/video.html",
-      "legacy_url": "wy/html5/video.html",
-      "verified": false
-    },
-    {
-      "id": "web.html5.audio",
-      "subject_id": "web_design",
-      "chapter_id": "web.html5",
-      "title": "HTML5 Audio",
-      "order": 8,
-      "aliases": [],
-      "prereq_ids": [
-        "web.html5.video"
-      ],
-      "source_ref": "wy/html5/audio.html",
-      "legacy_url": "wy/html5/audio.html",
-      "verified": false
-    },
-    {
-      "id": "web.html5.input_types",
-      "subject_id": "web_design",
-      "chapter_id": "web.html5",
-      "title": "HTML5 Input 类型",
-      "order": 9,
-      "aliases": [],
-      "prereq_ids": [
-        "web.html5.audio"
-      ],
-      "source_ref": "wy/html5/input-types.html",
-      "legacy_url": "wy/html5/input-types.html",
-      "verified": false
-    },
-    {
-      "id": "web.html5.form_elements",
-      "subject_id": "web_design",
-      "chapter_id": "web.html5",
-      "title": "HTML5 表单元素",
-      "order": 10,
-      "aliases": [],
-      "prereq_ids": [
-        "web.html5.input_types"
-      ],
-      "source_ref": "wy/html5/form-elements.html",
-      "legacy_url": "wy/html5/form-elements.html",
-      "verified": false
-    },
-    {
-      "id": "web.html5.form_attrs",
-      "subject_id": "web_design",
-      "chapter_id": "web.html5",
-      "title": "表单属性",
-      "order": 11,
-      "aliases": [],
-      "prereq_ids": [
-        "web.html5.form_elements"
-      ],
-      "source_ref": "wy/html5/form-attrs.html",
-      "legacy_url": "wy/html5/form-attrs.html",
-      "verified": false
-    },
-    {
-      "id": "web.html5.webstorage",
-      "subject_id": "web_design",
-      "chapter_id": "web.html5",
-      "title": "Web 存储概述",
-      "order": 12,
-      "aliases": [],
-      "prereq_ids": [
-        "web.html5.form_attrs"
-      ],
-      "source_ref": "wy/html5/webstorage.html",
-      "legacy_url": "wy/html5/webstorage.html",
-      "verified": false
-    },
-    {
-      "id": "web.html5.media",
-      "subject_id": "web_design",
-      "chapter_id": "web.html5",
-      "title": "HTML 媒体概述",
-      "order": 13,
-      "aliases": [],
-      "prereq_ids": [
-        "web.html5.webstorage"
-      ],
-      "source_ref": "wy/html5/media.html",
-      "legacy_url": "wy/html5/media.html",
-      "verified": false
-    },
-    {
-      "id": "web.js.intro",
-      "subject_id": "web_design",
-      "chapter_id": "web.js",
-      "title": "JavaScript 简介",
-      "order": 1,
-      "aliases": [],
-      "prereq_ids": [
-        "web.js_intro"
-      ],
-      "source_ref": "wy/js/intro.html",
-      "legacy_url": "wy/js/intro.html",
-      "verified": false
-    },
-    {
-      "id": "web.js.howto",
-      "subject_id": "web_design",
-      "chapter_id": "web.js",
-      "title": "引入方式",
-      "order": 2,
-      "aliases": [],
-      "prereq_ids": [
-        "web.js.intro"
-      ],
-      "source_ref": "wy/js/howto.html",
-      "legacy_url": "wy/js/howto.html",
-      "verified": false
-    },
-    {
-      "id": "web.js.output",
-      "subject_id": "web_design",
-      "chapter_id": "web.js",
-      "title": "输出",
-      "order": 3,
-      "aliases": [],
-      "prereq_ids": [
-        "web.js.howto"
-      ],
-      "source_ref": "wy/js/output.html",
-      "legacy_url": "wy/js/output.html",
-      "verified": false
-    },
-    {
-      "id": "web.js.statements",
-      "subject_id": "web_design",
-      "chapter_id": "web.js",
-      "title": "语句",
-      "order": 4,
-      "aliases": [],
-      "prereq_ids": [
-        "web.js.output"
-      ],
-      "source_ref": "wy/js/statements.html",
-      "legacy_url": "wy/js/statements.html",
-      "verified": false
-    },
-    {
-      "id": "web.js.syntax",
-      "subject_id": "web_design",
-      "chapter_id": "web.js",
-      "title": "语法",
-      "order": 5,
-      "aliases": [],
-      "prereq_ids": [
-        "web.js.statements"
-      ],
-      "source_ref": "wy/js/syntax.html",
-      "legacy_url": "wy/js/syntax.html",
-      "verified": false
-    },
-    {
-      "id": "web.js.comments",
-      "subject_id": "web_design",
-      "chapter_id": "web.js",
-      "title": "注释",
-      "order": 6,
-      "aliases": [],
-      "prereq_ids": [
-        "web.js.syntax"
-      ],
-      "source_ref": "wy/js/comments.html",
-      "legacy_url": "wy/js/comments.html",
-      "verified": false
-    },
-    {
-      "id": "web.js.variables",
-      "subject_id": "web_design",
-      "chapter_id": "web.js",
-      "title": "变量",
-      "order": 7,
-      "aliases": [],
-      "prereq_ids": [
-        "web.js.comments"
-      ],
-      "source_ref": "wy/js/variables.html",
-      "legacy_url": "wy/js/variables.html",
-      "verified": false
-    },
-    {
-      "id": "web.js.datatypes",
-      "subject_id": "web_design",
-      "chapter_id": "web.js",
-      "title": "数据类型",
-      "order": 8,
-      "aliases": [],
-      "prereq_ids": [
-        "web.js.variables"
-      ],
-      "source_ref": "wy/js/datatypes.html",
-      "legacy_url": "wy/js/datatypes.html",
-      "verified": false
-    },
-    {
-      "id": "web.js.objects",
-      "subject_id": "web_design",
-      "chapter_id": "web.js",
-      "title": "对象",
-      "order": 9,
-      "aliases": [],
-      "prereq_ids": [
-        "web.js.datatypes"
-      ],
-      "source_ref": "wy/js/objects.html",
-      "legacy_url": "wy/js/objects.html",
-      "verified": false
-    },
-    {
-      "id": "web.js.functions",
-      "subject_id": "web_design",
-      "chapter_id": "web.js",
-      "title": "函数",
-      "order": 10,
-      "aliases": [],
-      "prereq_ids": [
-        "web.js.objects"
-      ],
-      "source_ref": "wy/js/functions.html",
-      "legacy_url": "wy/js/functions.html",
-      "verified": false
-    },
-    {
-      "id": "web.js.scope",
-      "subject_id": "web_design",
-      "chapter_id": "web.js",
-      "title": "作用域",
-      "order": 11,
-      "aliases": [],
-      "prereq_ids": [
-        "web.js.functions"
-      ],
-      "source_ref": "wy/js/scope.html",
-      "legacy_url": "wy/js/scope.html",
-      "verified": false
-    },
-    {
-      "id": "web.js.events",
-      "subject_id": "web_design",
-      "chapter_id": "web.js",
-      "title": "事件",
-      "order": 12,
-      "aliases": [],
-      "prereq_ids": [
-        "web.js.scope"
-      ],
-      "source_ref": "wy/js/events.html",
-      "legacy_url": "wy/js/events.html",
-      "verified": false
-    },
-    {
-      "id": "web.js.strings",
-      "subject_id": "web_design",
-      "chapter_id": "web.js",
-      "title": "字符串",
-      "order": 13,
-      "aliases": [],
-      "prereq_ids": [
-        "web.js.events"
-      ],
-      "source_ref": "wy/js/strings.html",
-      "legacy_url": "wy/js/strings.html",
-      "verified": false
-    },
-    {
-      "id": "web.js.numbers",
-      "subject_id": "web_design",
-      "chapter_id": "web.js",
-      "title": "数字",
-      "order": 14,
-      "aliases": [],
-      "prereq_ids": [
-        "web.js.strings"
-      ],
-      "source_ref": "wy/js/numbers.html",
-      "legacy_url": "wy/js/numbers.html",
-      "verified": false
-    },
-    {
-      "id": "web.js.arrays",
-      "subject_id": "web_design",
-      "chapter_id": "web.js",
-      "title": "数组",
-      "order": 15,
-      "aliases": [],
-      "prereq_ids": [
-        "web.js.numbers"
-      ],
-      "source_ref": "wy/js/arrays.html",
-      "legacy_url": "wy/js/arrays.html",
-      "verified": false
-    },
-    {
-      "id": "web.js.ifelse",
-      "subject_id": "web_design",
-      "chapter_id": "web.js",
-      "title": "条件",
-      "order": 16,
-      "aliases": [],
-      "prereq_ids": [
-        "web.js.arrays"
-      ],
-      "source_ref": "wy/js/ifelse.html",
-      "legacy_url": "wy/js/ifelse.html",
-      "verified": false
-    },
-    {
-      "id": "web.js.loops",
-      "subject_id": "web_design",
-      "chapter_id": "web.js",
-      "title": "循环",
-      "order": 17,
-      "aliases": [],
-      "prereq_ids": [
-        "web.js.ifelse"
-      ],
-      "source_ref": "wy/js/loops.html",
-      "legacy_url": "wy/js/loops.html",
-      "verified": false
-    },
-    {
-      "id": "web.js.dom",
-      "subject_id": "web_design",
-      "chapter_id": "web.js",
-      "title": "HTML DOM",
-      "order": 18,
-      "aliases": [],
-      "prereq_ids": [
-        "web.js.loops"
-      ],
-      "source_ref": "wy/js/dom.html",
-      "legacy_url": "wy/js/dom.html",
-      "verified": false
-    },
-    {
-      "id": "web.js.dom_html",
-      "subject_id": "web_design",
-      "chapter_id": "web.js",
-      "title": "改内容与样式",
-      "order": 19,
-      "aliases": [],
-      "prereq_ids": [
-        "web.js.dom"
-      ],
-      "source_ref": "wy/js/dom-html.html",
-      "legacy_url": "wy/js/dom-html.html",
-      "verified": false
-    },
-    {
-      "id": "web.js.dom_events",
-      "subject_id": "web_design",
-      "chapter_id": "web.js",
-      "title": "DOM 事件",
-      "order": 20,
-      "aliases": [],
-      "prereq_ids": [
-        "web.js.dom_html"
-      ],
-      "source_ref": "wy/js/dom-events.html",
-      "legacy_url": "wy/js/dom-events.html",
-      "verified": false
-    },
-    {
-      "id": "web.html5_index",
-      "subject_id": "web_design",
-      "chapter_id": "web.lessons",
-      "title": "HTML5",
-      "order": 4,
-      "aliases": [
-        "HTML5"
-      ],
-      "prereq_ids": [
-        "web.html_intro"
-      ],
-      "source_ref": "wy/html5/index.html",
-      "legacy_url": "wy/html5/index.html",
-      "verified": false
-    },
-    {
-      "id": "web.examples",
-      "subject_id": "web_design",
-      "chapter_id": "web.more",
-      "title": "实例入口",
-      "order": 1,
-      "aliases": [],
-      "prereq_ids": [
-        "web.html_intro"
-      ],
-      "source_ref": "wy/examples/index.html",
-      "legacy_url": "wy/examples/index.html",
-      "verified": false
-    },
-    {
-      "id": "web.reference",
-      "subject_id": "web_design",
-      "chapter_id": "web.more",
-      "title": "标签与属性速查",
-      "order": 2,
-      "aliases": [
-        "标签速查"
-      ],
-      "prereq_ids": [
-        "web.html_intro"
-      ],
-      "source_ref": "wy/reference/index.html",
-      "legacy_url": "wy/reference/index.html",
+      "source_ref": "wy/css/howto.html",
+      "legacy_url": "wy/css/howto.html",
       "verified": false
     },
     {
       "id": "web.class.css",
       "subject_id": "web_design",
-      "chapter_id": "web.classroom",
+      "chapter_id": "web.css_base.s1",
       "title": "CSS 引入、颜色与链接伪类",
-      "order": 1,
+      "order": 5,
       "aliases": [
         "链接伪类",
         "外部样式表"
       ],
-      "prereq_ids": [],
+      "prereq_ids": [
+        "web.css.howto"
+      ],
       "source_ref": "notes/web.html#css-pseudo",
       "legacy_url": "notes/web.html#css-pseudo",
       "verified": true
     },
     {
+      "id": "web.css.selectors",
+      "subject_id": "web_design",
+      "chapter_id": "web.css_base.s2",
+      "title": "选择器",
+      "order": 1,
+      "aliases": [],
+      "prereq_ids": [
+        "web.css.syntax"
+      ],
+      "source_ref": "wy/css/selectors.html",
+      "legacy_url": "wy/css/selectors.html",
+      "verified": false
+    },
+    {
+      "id": "web.css.combinators",
+      "subject_id": "web_design",
+      "chapter_id": "web.css_base.s2",
+      "title": "组合选择符",
+      "order": 2,
+      "aliases": [],
+      "prereq_ids": [
+        "web.css.selectors"
+      ],
+      "source_ref": "wy/css/combinators.html",
+      "legacy_url": "wy/css/combinators.html",
+      "verified": false
+    },
+    {
+      "id": "web.css.pseudo",
+      "subject_id": "web_design",
+      "chapter_id": "web.css_base.s2",
+      "title": "伪类",
+      "order": 3,
+      "aliases": [],
+      "prereq_ids": [
+        "web.css.selectors"
+      ],
+      "source_ref": "wy/css/pseudo.html",
+      "legacy_url": "wy/css/pseudo.html",
+      "verified": false
+    },
+    {
+      "id": "web.css.attr_sel",
+      "subject_id": "web_design",
+      "chapter_id": "web.css_base.s2",
+      "title": "属性选择器",
+      "order": 4,
+      "aliases": [],
+      "prereq_ids": [
+        "web.css.selectors"
+      ],
+      "source_ref": "wy/css/attr-sel.html",
+      "legacy_url": "wy/css/attr-sel.html",
+      "verified": false
+    },
+    {
+      "id": "web.class.selectors",
+      "subject_id": "web_design",
+      "chapter_id": "web.css_base.s2",
+      "title": ":root 与 :not 选择器",
+      "order": 5,
+      "aliases": [
+        ":root",
+        ":not"
+      ],
+      "prereq_ids": [
+        "web.css.pseudo"
+      ],
+      "source_ref": "notes/web.html#selectors",
+      "legacy_url": "notes/web.html#selectors",
+      "verified": true
+    },
+    {
+      "id": "web.css.colors",
+      "subject_id": "web_design",
+      "chapter_id": "web.css_base.s3",
+      "title": "颜色",
+      "order": 1,
+      "aliases": [],
+      "prereq_ids": [
+        "web.css.syntax"
+      ],
+      "source_ref": "wy/css/colors.html",
+      "legacy_url": "wy/css/colors.html",
+      "verified": false
+    },
+    {
+      "id": "web.css.background",
+      "subject_id": "web_design",
+      "chapter_id": "web.css_base.s3",
+      "title": "背景",
+      "order": 2,
+      "aliases": [],
+      "prereq_ids": [
+        "web.css.colors"
+      ],
+      "source_ref": "wy/css/background.html",
+      "legacy_url": "wy/css/background.html",
+      "verified": false
+    },
+    {
+      "id": "web.css.font",
+      "subject_id": "web_design",
+      "chapter_id": "web.css_base.s3",
+      "title": "字体",
+      "order": 3,
+      "aliases": [],
+      "prereq_ids": [
+        "web.css.syntax"
+      ],
+      "source_ref": "wy/css/font.html",
+      "legacy_url": "wy/css/font.html",
+      "verified": false
+    },
+    {
+      "id": "web.css.text",
+      "subject_id": "web_design",
+      "chapter_id": "web.css_base.s3",
+      "title": "文本",
+      "order": 4,
+      "aliases": [],
+      "prereq_ids": [
+        "web.css.font"
+      ],
+      "source_ref": "wy/css/text.html",
+      "legacy_url": "wy/css/text.html",
+      "verified": false
+    },
+    {
       "id": "web.class.text",
       "subject_id": "web_design",
-      "chapter_id": "web.classroom",
+      "chapter_id": "web.css_base.s3",
       "title": "文本溢出、阴影、缩进与空白",
-      "order": 2,
+      "order": 5,
       "aliases": [
         "text-overflow",
         "text-shadow",
@@ -3233,99 +2780,344 @@
         "white-space"
       ],
       "prereq_ids": [
-        "web.class.css"
+        "web.css.text"
       ],
       "source_ref": "notes/web.html#text",
       "legacy_url": "notes/web.html#text",
       "verified": true
     },
     {
-      "id": "web.class.selectors",
+      "id": "web.css.link",
       "subject_id": "web_design",
-      "chapter_id": "web.classroom",
-      "title": ":root 与 :not 选择器",
-      "order": 3,
-      "aliases": [
-        ":root",
-        ":not"
-      ],
-      "prereq_ids": [
-        "web.class.text"
-      ],
-      "source_ref": "notes/web.html#selectors",
-      "legacy_url": "notes/web.html#selectors",
-      "verified": true
-    },
-    {
-      "id": "web.class.forms",
-      "subject_id": "web_design",
-      "chapter_id": "web.classroom",
-      "title": "表单、表格与 form 关联属性",
-      "order": 4,
-      "aliases": [
-        "form 属性",
-        "表单嵌套"
-      ],
-      "prereq_ids": [
-        "web.class.selectors"
-      ],
-      "source_ref": "notes/web.html#forms",
-      "legacy_url": "notes/web.html#forms",
-      "verified": true
-    },
-    {
-      "id": "web.class.widgets",
-      "subject_id": "web_design",
-      "chapter_id": "web.classroom",
-      "title": "datalist 与范围滑块",
-      "order": 5,
-      "aliases": [
-        "datalist",
-        "input range"
-      ],
-      "prereq_ids": [
-        "web.class.forms"
-      ],
-      "source_ref": "notes/web.html#widgets",
-      "legacy_url": "notes/web.html#widgets",
-      "verified": true
-    },
-    {
-      "id": "net.s11",
-      "subject_id": "network",
-      "chapter_id": "net.ch1",
-      "title": "1.1 IP 地址的分类与 A/B/C 类范围",
-      "order": 1,
+      "chapter_id": "web.css_base.s3",
+      "title": "链接样式",
+      "order": 6,
       "aliases": [],
-      "prereq_ids": [],
-      "source_ref": "wl/ch1/s11.html",
-      "legacy_url": "wl/ch1/s11.html",
+      "prereq_ids": [
+        "web.css.pseudo"
+      ],
+      "source_ref": "wy/css/link.html",
+      "legacy_url": "wy/css/link.html",
       "verified": false
     },
     {
-      "id": "net.s12",
-      "subject_id": "network",
-      "chapter_id": "net.ch1",
-      "title": "1.2 私有地址与点分十进制",
+      "id": "web.css.list",
+      "subject_id": "web_design",
+      "chapter_id": "web.css_base.s3",
+      "title": "列表样式",
+      "order": 7,
+      "aliases": [],
+      "prereq_ids": [
+        "web.html.lists"
+      ],
+      "source_ref": "wy/css/list.html",
+      "legacy_url": "wy/css/list.html",
+      "verified": false
+    },
+    {
+      "id": "web.css.table",
+      "subject_id": "web_design",
+      "chapter_id": "web.css_base.s3",
+      "title": "表格样式",
+      "order": 8,
+      "aliases": [],
+      "prereq_ids": [
+        "web.html.tables"
+      ],
+      "source_ref": "wy/css/table.html",
+      "legacy_url": "wy/css/table.html",
+      "verified": false
+    },
+    {
+      "id": "web.css.form",
+      "subject_id": "web_design",
+      "chapter_id": "web.css_base.s3",
+      "title": "表单样式",
+      "order": 9,
+      "aliases": [],
+      "prereq_ids": [
+        "web.html.forms"
+      ],
+      "source_ref": "wy/css/form.html",
+      "legacy_url": "wy/css/form.html",
+      "verified": false
+    },
+    {
+      "id": "web.css.box",
+      "subject_id": "web_design",
+      "chapter_id": "web.css_layout.s1",
+      "title": "盒子模型",
+      "order": 1,
+      "aliases": [],
+      "prereq_ids": [
+        "web.css.selectors"
+      ],
+      "source_ref": "wy/css/box.html",
+      "legacy_url": "wy/css/box.html",
+      "verified": false
+    },
+    {
+      "id": "web.css.border",
+      "subject_id": "web_design",
+      "chapter_id": "web.css_layout.s1",
+      "title": "边框",
       "order": 2,
       "aliases": [],
       "prereq_ids": [
-        "net.s11"
+        "web.css.box"
       ],
-      "source_ref": "wl/ch1/s12.html",
-      "legacy_url": "wl/ch1/s12.html",
+      "source_ref": "wy/css/border.html",
+      "legacy_url": "wy/css/border.html",
+      "verified": false
+    },
+    {
+      "id": "web.css.padding",
+      "subject_id": "web_design",
+      "chapter_id": "web.css_layout.s1",
+      "title": "内边距",
+      "order": 3,
+      "aliases": [],
+      "prereq_ids": [
+        "web.css.box"
+      ],
+      "source_ref": "wy/css/padding.html",
+      "legacy_url": "wy/css/padding.html",
+      "verified": false
+    },
+    {
+      "id": "web.css.margin",
+      "subject_id": "web_design",
+      "chapter_id": "web.css_layout.s1",
+      "title": "外边距",
+      "order": 4,
+      "aliases": [],
+      "prereq_ids": [
+        "web.css.box"
+      ],
+      "source_ref": "wy/css/margin.html",
+      "legacy_url": "wy/css/margin.html",
+      "verified": false
+    },
+    {
+      "id": "web.css.display",
+      "subject_id": "web_design",
+      "chapter_id": "web.css_layout.s2",
+      "title": "display",
+      "order": 1,
+      "aliases": [],
+      "prereq_ids": [
+        "web.css.box"
+      ],
+      "source_ref": "wy/css/display.html",
+      "legacy_url": "wy/css/display.html",
+      "verified": false
+    },
+    {
+      "id": "web.css.float",
+      "subject_id": "web_design",
+      "chapter_id": "web.css_layout.s2",
+      "title": "float",
+      "order": 2,
+      "aliases": [],
+      "prereq_ids": [
+        "web.css.display"
+      ],
+      "source_ref": "wy/css/float.html",
+      "legacy_url": "wy/css/float.html",
+      "verified": false
+    },
+    {
+      "id": "web.css.position",
+      "subject_id": "web_design",
+      "chapter_id": "web.css_layout.s2",
+      "title": "position",
+      "order": 3,
+      "aliases": [],
+      "prereq_ids": [
+        "web.css.box"
+      ],
+      "source_ref": "wy/css/position.html",
+      "legacy_url": "wy/css/position.html",
+      "verified": false
+    },
+    {
+      "id": "web.css.align",
+      "subject_id": "web_design",
+      "chapter_id": "web.css_layout.s2",
+      "title": "对齐",
+      "order": 4,
+      "aliases": [],
+      "prereq_ids": [
+        "web.css.margin"
+      ],
+      "source_ref": "wy/css/align.html",
+      "legacy_url": "wy/css/align.html",
+      "verified": false
+    },
+    {
+      "id": "web.css.layout",
+      "subject_id": "web_design",
+      "chapter_id": "web.css_layout.s2",
+      "title": "网站布局",
+      "order": 5,
+      "aliases": [],
+      "prereq_ids": [
+        "web.css.float",
+        "web.css.position"
+      ],
+      "source_ref": "wy/css/layout.html",
+      "legacy_url": "wy/css/layout.html",
+      "verified": false
+    },
+    {
+      "id": "web.css.flexbox",
+      "subject_id": "web_design",
+      "chapter_id": "web.css_layout.s3",
+      "title": "弹性盒子",
+      "order": 1,
+      "aliases": [],
+      "prereq_ids": [
+        "web.css.layout"
+      ],
+      "source_ref": "wy/css/flexbox.html",
+      "legacy_url": "wy/css/flexbox.html",
+      "verified": false
+    },
+    {
+      "id": "web.css.mediaq",
+      "subject_id": "web_design",
+      "chapter_id": "web.css_layout.s3",
+      "title": "媒体查询",
+      "order": 2,
+      "aliases": [],
+      "prereq_ids": [
+        "web.css.flexbox"
+      ],
+      "source_ref": "wy/css/mediaq.html",
+      "legacy_url": "wy/css/mediaq.html",
+      "verified": false
+    },
+    {
+      "id": "web.css.navbar",
+      "subject_id": "web_design",
+      "chapter_id": "web.css_layout.s3",
+      "title": "导航栏",
+      "order": 3,
+      "aliases": [],
+      "prereq_ids": [
+        "web.css.list",
+        "web.css.display"
+      ],
+      "source_ref": "wy/css/navbar.html",
+      "legacy_url": "wy/css/navbar.html",
+      "verified": false
+    },
+    {
+      "id": "web.css.dropdown",
+      "subject_id": "web_design",
+      "chapter_id": "web.css_layout.s3",
+      "title": "下拉菜单",
+      "order": 4,
+      "aliases": [],
+      "prereq_ids": [
+        "web.css.position"
+      ],
+      "source_ref": "wy/css/dropdown.html",
+      "legacy_url": "wy/css/dropdown.html",
+      "verified": false
+    },
+    {
+      "id": "web.css.tooltip",
+      "subject_id": "web_design",
+      "chapter_id": "web.css_layout.s3",
+      "title": "提示工具",
+      "order": 5,
+      "aliases": [],
+      "prereq_ids": [
+        "web.css.position"
+      ],
+      "source_ref": "wy/css/tooltip.html",
+      "legacy_url": "wy/css/tooltip.html",
+      "verified": false
+    },
+    {
+      "id": "web.css.border_radius",
+      "subject_id": "web_design",
+      "chapter_id": "web.css3",
+      "title": "CSS3 圆角",
+      "order": 1,
+      "aliases": [],
+      "prereq_ids": [
+        "web.css.border"
+      ],
+      "source_ref": "wy/css/border-radius.html",
+      "legacy_url": "wy/css/border-radius.html",
+      "verified": false
+    },
+    {
+      "id": "web.css.gradients",
+      "subject_id": "web_design",
+      "chapter_id": "web.css3",
+      "title": "CSS3 渐变",
+      "order": 2,
+      "aliases": [],
+      "prereq_ids": [
+        "web.css.background"
+      ],
+      "source_ref": "wy/css/gradients.html",
+      "legacy_url": "wy/css/gradients.html",
+      "verified": false
+    },
+    {
+      "id": "web.css.transform",
+      "subject_id": "web_design",
+      "chapter_id": "web.css3",
+      "title": "转换",
+      "order": 3,
+      "aliases": [],
+      "prereq_ids": [
+        "web.css.box"
+      ],
+      "source_ref": "wy/css/transform.html",
+      "legacy_url": "wy/css/transform.html",
+      "verified": false
+    },
+    {
+      "id": "web.css.transition",
+      "subject_id": "web_design",
+      "chapter_id": "web.css3",
+      "title": "过渡",
+      "order": 4,
+      "aliases": [],
+      "prereq_ids": [
+        "web.css.transform"
+      ],
+      "source_ref": "wy/css/transition.html",
+      "legacy_url": "wy/css/transition.html",
+      "verified": false
+    },
+    {
+      "id": "web.css.animation",
+      "subject_id": "web_design",
+      "chapter_id": "web.css3",
+      "title": "动画",
+      "order": 5,
+      "aliases": [],
+      "prereq_ids": [
+        "web.css.transition"
+      ],
+      "source_ref": "wy/css/animation.html",
+      "legacy_url": "wy/css/animation.html",
       "verified": false
     },
     {
       "id": "net.s13",
       "subject_id": "network",
-      "chapter_id": "net.ch1",
+      "chapter_id": "net.ch1.s1",
       "title": "1.3 IP 地址的格式与作用",
-      "order": 3,
+      "order": 1,
       "aliases": [],
-      "prereq_ids": [
-        "net.s12"
-      ],
+      "prereq_ids": [],
       "source_ref": "wl/ch1/s13.html",
       "legacy_url": "wl/ch1/s13.html",
       "verified": false
@@ -3333,9 +3125,9 @@
     {
       "id": "net.s14",
       "subject_id": "network",
-      "chapter_id": "net.ch1",
+      "chapter_id": "net.ch1.s1",
       "title": "1.4 IP 协议的传输方式",
-      "order": 4,
+      "order": 2,
       "aliases": [],
       "prereq_ids": [
         "net.s13"
@@ -3345,14 +3137,42 @@
       "verified": false
     },
     {
-      "id": "net.s15",
+      "id": "net.s11",
       "subject_id": "network",
-      "chapter_id": "net.ch1",
-      "title": "1.5 私有地址与回送地址（真题）",
-      "order": 5,
+      "chapter_id": "net.ch1.s1",
+      "title": "1.1 IP 地址的分类与 A/B/C 类范围",
+      "order": 3,
       "aliases": [],
       "prereq_ids": [
-        "net.s14"
+        "net.s13"
+      ],
+      "source_ref": "wl/ch1/s11.html",
+      "legacy_url": "wl/ch1/s11.html",
+      "verified": false
+    },
+    {
+      "id": "net.s12",
+      "subject_id": "network",
+      "chapter_id": "net.ch1.s2",
+      "title": "1.2 私有地址与点分十进制",
+      "order": 1,
+      "aliases": [],
+      "prereq_ids": [
+        "net.s11"
+      ],
+      "source_ref": "wl/ch1/s12.html",
+      "legacy_url": "wl/ch1/s12.html",
+      "verified": false
+    },
+    {
+      "id": "net.s15",
+      "subject_id": "network",
+      "chapter_id": "net.ch1.s2",
+      "title": "1.5 私有地址与回送地址（真题）",
+      "order": 2,
+      "aliases": [],
+      "prereq_ids": [
+        "net.s12"
       ],
       "source_ref": "wl/ch1/s15.html",
       "legacy_url": "wl/ch1/s15.html",
@@ -3361,9 +3181,9 @@
     {
       "id": "net.s16",
       "subject_id": "network",
-      "chapter_id": "net.ch1",
+      "chapter_id": "net.ch1.s2",
       "title": "1.6 IP 地址填空：长度、组成与特殊地址",
-      "order": 6,
+      "order": 3,
       "aliases": [],
       "prereq_ids": [
         "net.s15"
@@ -3373,14 +3193,28 @@
       "verified": false
     },
     {
-      "id": "net.s21",
+      "id": "net.s24",
       "subject_id": "network",
-      "chapter_id": "net.ch2",
-      "title": "2.1 掩码与网络前缀长度",
+      "chapter_id": "net.ch2.s1",
+      "title": "2.4 两级、三级结构与网络前缀（斜线记法）",
       "order": 1,
       "aliases": [],
       "prereq_ids": [
-        "net.s16"
+        "net.s11"
+      ],
+      "source_ref": "wl/ch2/s24.html",
+      "legacy_url": "wl/ch2/s24.html",
+      "verified": false
+    },
+    {
+      "id": "net.s21",
+      "subject_id": "network",
+      "chapter_id": "net.ch2.s1",
+      "title": "2.1 掩码与网络前缀长度",
+      "order": 2,
+      "aliases": [],
+      "prereq_ids": [
+        "net.s24"
       ],
       "source_ref": "wl/ch2/s21.html",
       "legacy_url": "wl/ch2/s21.html",
@@ -3389,9 +3223,9 @@
     {
       "id": "net.s22",
       "subject_id": "network",
-      "chapter_id": "net.ch2",
+      "chapter_id": "net.ch2.s1",
       "title": "2.2 判断地址是否与前缀匹配（AND 运算）",
-      "order": 2,
+      "order": 3,
       "aliases": [],
       "prereq_ids": [
         "net.s21"
@@ -3401,84 +3235,112 @@
       "verified": false
     },
     {
-      "id": "net.s23",
+      "id": "net.s26",
       "subject_id": "network",
-      "chapter_id": "net.ch2",
-      "title": "2.3 已知地址求地址块",
-      "order": 3,
-      "aliases": [],
-      "prereq_ids": [
-        "net.s22"
-      ],
-      "source_ref": "wl/ch2/s23.html",
-      "legacy_url": "wl/ch2/s23.html",
-      "verified": false
-    },
-    {
-      "id": "net.s24",
-      "subject_id": "network",
-      "chapter_id": "net.ch2",
-      "title": "2.4 两级、三级结构与网络前缀（斜线记法）",
+      "chapter_id": "net.ch2.s1",
+      "title": "2.6 网络地址 = IP 地址 AND 地址掩码（CIDR 例）",
       "order": 4,
       "aliases": [],
       "prereq_ids": [
-        "net.s23"
-      ],
-      "source_ref": "wl/ch2/s24.html",
-      "legacy_url": "wl/ch2/s24.html",
-      "verified": false
-    },
-    {
-      "id": "net.s25",
-      "subject_id": "network",
-      "chapter_id": "net.ch2",
-      "title": "2.5 地址块、最小/最大地址与可指派地址数（板书与讲解版）",
-      "order": 5,
-      "aliases": [],
-      "prereq_ids": [
-        "net.s24"
-      ],
-      "source_ref": "wl/ch2/s25.html",
-      "legacy_url": "wl/ch2/s25.html",
-      "verified": false
-    },
-    {
-      "id": "net.s26",
-      "subject_id": "network",
-      "chapter_id": "net.ch2",
-      "title": "2.6 网络地址 = IP 地址 AND 地址掩码（CIDR 例）",
-      "order": 6,
-      "aliases": [],
-      "prereq_ids": [
-        "net.s25"
+        "net.s22"
       ],
       "source_ref": "wl/ch2/s26.html",
       "legacy_url": "wl/ch2/s26.html",
       "verified": false
     },
     {
-      "id": "net.s27",
+      "id": "net.s23",
       "subject_id": "network",
-      "chapter_id": "net.ch2",
-      "title": "2.7 已知 CIDR 地址求网络掩码、网络地址、广播地址和可用 IP 数",
-      "order": 7,
+      "chapter_id": "net.ch2.s2",
+      "title": "2.3 已知地址求地址块",
+      "order": 1,
       "aliases": [],
       "prereq_ids": [
         "net.s26"
+      ],
+      "source_ref": "wl/ch2/s23.html",
+      "legacy_url": "wl/ch2/s23.html",
+      "verified": false
+    },
+    {
+      "id": "net.s25",
+      "subject_id": "network",
+      "chapter_id": "net.ch2.s2",
+      "title": "2.5 地址块、最小/最大地址与可指派地址数（板书与讲解版）",
+      "order": 2,
+      "aliases": [],
+      "prereq_ids": [
+        "net.s23"
+      ],
+      "source_ref": "wl/ch2/s25.html",
+      "legacy_url": "wl/ch2/s25.html",
+      "verified": false
+    },
+    {
+      "id": "net.s27",
+      "subject_id": "network",
+      "chapter_id": "net.ch2.s2",
+      "title": "2.7 已知 CIDR 地址求网络掩码、网络地址、广播地址和可用 IP 数",
+      "order": 3,
+      "aliases": [],
+      "prereq_ids": [
+        "net.s25"
       ],
       "source_ref": "wl/ch2/s27.html",
       "legacy_url": "wl/ch2/s27.html",
       "verified": false
     },
     {
-      "id": "net.s31",
+      "id": "net.s35",
       "subject_id": "network",
-      "chapter_id": "net.ch3",
-      "title": "3.1 把地址块等分成若干子网",
+      "chapter_id": "net.ch3.s1",
+      "title": "3.5 从两级到三级：子网号、子网掩码与网络地址",
       "order": 1,
       "aliases": [],
       "prereq_ids": [
         "net.s27"
+      ],
+      "source_ref": "wl/ch3/s35.html",
+      "legacy_url": "wl/ch3/s35.html",
+      "verified": false
+    },
+    {
+      "id": "net.s36",
+      "subject_id": "network",
+      "chapter_id": "net.ch3.s1",
+      "title": "3.6 划分子网的步骤",
+      "order": 2,
+      "aliases": [],
+      "prereq_ids": [
+        "net.s35"
+      ],
+      "source_ref": "wl/ch3/s36.html",
+      "legacy_url": "wl/ch3/s36.html",
+      "verified": false
+    },
+    {
+      "id": "net.s34",
+      "subject_id": "network",
+      "chapter_id": "net.ch3.s1",
+      "title": "3.4 传统子网划分（2^n−2 规则）作业",
+      "order": 3,
+      "aliases": [],
+      "prereq_ids": [
+        "net.s36"
+      ],
+      "source_ref": "wl/ch3/s34.html",
+      "legacy_url": "wl/ch3/s34.html",
+      "verified": false
+    },
+    {
+      "id": "net.s31",
+      "subject_id": "network",
+      "chapter_id": "net.ch3.s2",
+      "title": "3.1 把地址块等分成若干子网",
+      "order": 1,
+      "aliases": [],
+      "prereq_ids": [
+        "net.s36"
       ],
       "source_ref": "wl/ch3/s31.html",
       "legacy_url": "wl/ch3/s31.html",
@@ -3487,7 +3349,7 @@
     {
       "id": "net.s32",
       "subject_id": "network",
-      "chapter_id": "net.ch3",
+      "chapter_id": "net.ch3.s2",
       "title": "3.2 按主机数不等长分配地址块",
       "order": 2,
       "aliases": [],
@@ -3501,7 +3363,7 @@
     {
       "id": "net.s33",
       "subject_id": "network",
-      "chapter_id": "net.ch3",
+      "chapter_id": "net.ch3.s2",
       "title": "3.3 点对点链路与 /31 地址块",
       "order": 3,
       "aliases": [],
@@ -3513,56 +3375,14 @@
       "verified": false
     },
     {
-      "id": "net.s34",
-      "subject_id": "network",
-      "chapter_id": "net.ch3",
-      "title": "3.4 传统子网划分（2^n−2 规则）作业",
-      "order": 4,
-      "aliases": [],
-      "prereq_ids": [
-        "net.s33"
-      ],
-      "source_ref": "wl/ch3/s34.html",
-      "legacy_url": "wl/ch3/s34.html",
-      "verified": false
-    },
-    {
-      "id": "net.s35",
-      "subject_id": "network",
-      "chapter_id": "net.ch3",
-      "title": "3.5 从两级到三级：子网号、子网掩码与网络地址",
-      "order": 5,
-      "aliases": [],
-      "prereq_ids": [
-        "net.s34"
-      ],
-      "source_ref": "wl/ch3/s35.html",
-      "legacy_url": "wl/ch3/s35.html",
-      "verified": false
-    },
-    {
-      "id": "net.s36",
-      "subject_id": "network",
-      "chapter_id": "net.ch3",
-      "title": "3.6 划分子网的步骤",
-      "order": 6,
-      "aliases": [],
-      "prereq_ids": [
-        "net.s35"
-      ],
-      "source_ref": "wl/ch3/s36.html",
-      "legacy_url": "wl/ch3/s36.html",
-      "verified": false
-    },
-    {
       "id": "net.s37",
       "subject_id": "network",
-      "chapter_id": "net.ch3",
+      "chapter_id": "net.ch3.s3",
       "title": "3.7 求网络号、子网号、主机号与子网地址（典型习题）",
-      "order": 7,
+      "order": 1,
       "aliases": [],
       "prereq_ids": [
-        "net.s36"
+        "net.s31"
       ],
       "source_ref": "wl/ch3/s37.html",
       "legacy_url": "wl/ch3/s37.html",
@@ -3571,12 +3391,12 @@
     {
       "id": "net.s38",
       "subject_id": "network",
-      "chapter_id": "net.ch3",
+      "chapter_id": "net.ch3.s3",
       "title": "3.8 按系/部门划分子网（真题与课堂板书）",
-      "order": 8,
+      "order": 2,
       "aliases": [],
       "prereq_ids": [
-        "net.s37"
+        "net.s32"
       ],
       "source_ref": "wl/ch3/s38.html",
       "legacy_url": "wl/ch3/s38.html",
@@ -3585,9 +3405,9 @@
     {
       "id": "net.s39",
       "subject_id": "network",
-      "chapter_id": "net.ch3",
+      "chapter_id": "net.ch3.s3",
       "title": "3.9 典型习题：子网掩码选择与地址计算",
-      "order": 9,
+      "order": 3,
       "aliases": [],
       "prereq_ids": [
         "net.s38"
@@ -3604,7 +3424,7 @@
       "order": 1,
       "aliases": [],
       "prereq_ids": [
-        "net.s39"
+        "net.s14"
       ],
       "source_ref": "wl/ch4/s41.html",
       "legacy_url": "wl/ch4/s41.html",
@@ -3646,7 +3466,7 @@
       "order": 1,
       "aliases": [],
       "prereq_ids": [
-        "net.s43"
+        "net.s11"
       ],
       "source_ref": "wl/ch5/s51.html",
       "legacy_url": "wl/ch5/s51.html",
@@ -3688,7 +3508,7 @@
       "order": 1,
       "aliases": [],
       "prereq_ids": [
-        "net.s53"
+        "net.s27"
       ],
       "source_ref": "wl/ch6/s61.html",
       "legacy_url": "wl/ch6/s61.html",
@@ -3707,6 +3527,7 @@
     "net.cidr": "net.s21",
     "net.subnet": "net.s31",
     "net.fragments": "net.s41",
-    "net.ipv6": "net.s51"
+    "net.ipv6": "net.s51",
+    "c.identifier_sample": "c.ch2.identifier"
   }
 }

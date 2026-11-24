@@ -30,8 +30,8 @@ const redirectPages = new Set([
   "wy/html5/intro.html"
 ]);
 
-test("176 个页面均有绝对 canonical、模块和状态元信息", () => {
-  assert.equal(pages.length, 176);
+test("150 个页面均有绝对 canonical、模块和状态元信息（已剔除 26 个非考纲 JS/API 页）", () => {
+  assert.equal(pages.length, 150);
   for (const file of pages) {
     const name = rel(file);
     const h = head(read(file));
@@ -58,11 +58,12 @@ test("重定向页与完整内容页状态正确，旧 URL 保留", () => {
   assert.match(s23, /2\.3[\s\S]*meta/i);
 });
 
-test("111 个网页设计页面均有逐页学习配置", () => {
+test("85 个网页设计 HTML + CSS 考纲页面均有逐页学习配置，且零 JS 冗余页残留", () => {
   const guides = JSON.parse(read(path.join(root, "data/lesson-guides.json")));
   const webPages = pages.map(rel).filter((name) => name.startsWith("wy/"));
-  assert.equal(webPages.length, 111);
-  assert.equal(Object.keys(guides.pages).length, 111);
+  assert.equal(webPages.some((name) => name.startsWith("wy/js/")), false);
+  assert.equal(webPages.length, 85);
+  assert.equal(Object.keys(guides.pages).length, 85);
   for (const name of webPages) {
     const guide = guides.pages[name];
     assert.ok(guide, `${name} 缺少学习配置`);

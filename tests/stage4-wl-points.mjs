@@ -218,17 +218,19 @@ test("可视化数值抽查：分片 1400/1400/1000 与 0/175/350，1480 与 0/1
   assert.ok(d.includes("192.168.25.192") || d.includes('"192"'));
 });
 
-test("目录数据：6 章 29 个知识点与 data.json 一一对应，依赖无悬空，旧网络编号并入新编号", () => {
+test("目录数据：6 章（含模块分节）29 个知识点与 data.json 一一对应，依赖无悬空，旧网络编号并入新编号", () => {
   const topics = json("data/topics.json");
-  const ch = topics.chapters.filter(c => c.subject_id === "network");
+  const byChapId = new Map(topics.chapters.map(c => [c.id, c]));
+  const rootChapId = id => byChapId.get(id)?.parent_id || id;
+  const ch = topics.chapters.filter(c => c.subject_id === "network" && !c.parent_id);
   assert.deepEqual(ch.map(c => c.id), [1, 2, 3, 4, 5, 6].map(i => `net.ch${i}`));
-  chapters.forEach((c, i) => { assert.equal(ch[i].title, c["章"]); assert.equal(ch[i].source_ref, `wl/ch${i + 1}/index.html`); });
+  chapters.forEach((c, i) => { assert.match(ch[i].title, new RegExp(`^第${i + 1}章\\s+`)); assert.equal(ch[i].source_ref, `wl/ch${i + 1}/index.html`); });
   const ts = topics.topics.filter(t => t.subject_id === "network");
   assert.equal(ts.length, 29);
   const ids = new Set(topics.topics.map(t => t.id));
   chapters.forEach((c, ci) => c["知识点"].forEach((k, ki) => {
     const t = ts.find(x => x.id === `net.s${ci + 1}${ki + 1}`);
-    assert.ok(t); assert.equal(t.title, `${ci + 1}.${ki + 1} ${k["知识点"]}`); assert.equal(t.legacy_url, pointPath(ci + 1, ki + 1)); assert.equal(t.chapter_id, `net.ch${ci + 1}`);
+    assert.ok(t); assert.equal(t.title, `${ci + 1}.${ki + 1} ${k["知识点"]}`); assert.equal(t.legacy_url, pointPath(ci + 1, ki + 1)); assert.equal(rootChapId(t.chapter_id), `net.ch${ci + 1}`);
   }));
   for (const t of topics.topics) for (const p of t.prereq_ids || []) assert.ok(ids.has(p), `${t.id}→${p}`);
   const deps = json("data/dependencies.json");

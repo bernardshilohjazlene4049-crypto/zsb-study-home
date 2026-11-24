@@ -227,7 +227,7 @@ test("目录仅4+5点，七个旧id映射齐全，依赖边无悬空/自环且�
   assert.equal(Object.keys(d.merged_topics).filter(k=>k.startsWith('web.')).length,7);
   for(const [old,target] of Object.entries(d.merged_topics)) {assert.ok(!all.has(old));assert.ok(all.has(target));}
   assert.deepEqual(d.topics.find(t=>t.id==='web.s21').prereq_ids,['web.concepts']);
-  assert.deepEqual(d.topics.find(t=>t.id==='web.html.editors').prereq_ids,['web.html_intro']);
+  assert.deepEqual(d.topics.find(t=>t.id==='web.html.editors').prereq_ids,['web.s24']);
   for(const t of d.topics) for(const p of t.prereq_ids) {assert.ok(all.has(p));assert.notEqual(t.id,p);}
   for(const e of json('data/dependencies.json').edges) {assert.ok(all.has(e.topicId));assert.ok(all.has(e.prerequisiteId));assert.notEqual(e.topicId,e.prerequisiteId);}
   for(const a of json('data/video-anchors.json').anchors) assert.ok(all.has(a.topic_id));

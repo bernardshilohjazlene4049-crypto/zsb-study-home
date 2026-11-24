@@ -37,7 +37,6 @@ function categoryLabel(rel) {
   if (rel.includes("/html5/")) return "HTML5";
   if (rel.includes("/html/")) return "HTML";
   if (rel.includes("/css/")) return "CSS / CSS3";
-  if (rel.includes("/js/")) return "JavaScript / DOM";
   if (rel.includes("/ch1/")) return "网页基本概念";
   if (rel.includes("/ch2/")) return "HTML5 文档结构";
   if (rel.includes("reference")) return "速查工具";

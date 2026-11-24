@@ -2028,6 +2028,107 @@ export function renderMasteryHeatmap({ model, cardsDoc, base, subjectId = "" }) 
 }
 
 // 6. 科目主页增强：系统学习路线（章 -> 知识点，带前置提示、一句话结论、视频/导图按钮）+ 热力图 + 本页直挂知识卡
+const SUBJECT_ARCH_STAGES = {
+  web_design: {
+    subtitle: "紧扣专升本 HTML + CSS 考纲（已彻底剔除 JavaScript 等非考纲内容）· 6 章 10 模块 74 节",
+    stages: [
+      { badge: "阶段一 · 骨架筑基", title: "Web 标准与 HTML5 文档结构", focus: "必考：三层分离、!DOCTYPE html、<meta>", chapters: ["web.ch1", "web.ch2"] },
+      { badge: "阶段二 · 标签与表单", title: "HTML 核心标签、表格合并与新型表单", focus: "必考：rowspan/colspan、form/input/datalist、语义标签", chapters: ["web.html_core"] },
+      { badge: "阶段三 · 样式与布局", title: "CSS 选择器权重、盒模型与浮动定位/Flex", focus: "必考：权重(1000/100/10/1)、LVHA、border-box、子绝父相、Flex", chapters: ["web.css_base", "web.css_layout", "web.css3"] }
+    ]
+  },
+  c_language: {
+    subtitle: "从 main 语法根基到三大控制结构，再到数组/函数/指针 8 大公式与综合读程序 · 10 章 28 节",
+    stages: [
+      { badge: "阶段一 · 语法与 I/O", title: "程序结构、数据类型、运算符与格式化输入输出", focus: "必考：合法标识符、整除取余、逻辑短路、printf/scanf(%lf)", chapters: ["c.ch1", "c.ch2", "c.ch3", "c.ch4"] },
+      { badge: "阶段二 · 控制结构", title: "选择分支（if / switch）与循环控制（while / for）", focus: "必考：0<a<2 陷阱、悬空 else、switch 穿透、break/continue", chapters: ["c.ch5", "c.ch6"] },
+      { badge: "阶段三 · 数组函数指针", title: "数组字符串、函数 static 生存期、指针与跨章实战", focus: "必考：strlen vs sizeof、static 局部、二维指针 8 公式、指针传参", chapters: ["c.ch7", "c.ch8", "c.ch9", "c.ch10"] }
+    ]
+  },
+  math: {
+    subtitle: "按“一元极限连续 → 空间向量几何 → 多元偏导极值与二重积分”递进 · 3 章 8 节 24 考点",
+    stages: [
+      { badge: "阶段一 · 一元微积分基础", title: "函数定义域性质、两个重要极限与连续间断点", focus: "必考：等价无穷小替换、两个重要极限、第一/二类间断点", chapters: ["math.ch1"] },
+      { badge: "阶段二 · 空间解析几何", title: "空间向量点积叉积、平面方程与空间直线方程", focus: "必考：两向量垂直/平行判定、法向量求平面、方向向量求直线", chapters: ["math.ch4"] },
+      { badge: "阶段三 · 多元微积分", title: "偏导全微分、多元极值判别（AC−B²）与二重积分换序", focus: "必考：复合函数链式求导、无条件极值、直角坐标二重积分交换次序", chapters: ["math.ch5"] }
+    ]
+  },
+  english: {
+    subtitle: "告别零散跳号，重构为“非谓语 → 三大从句 → 一致与特殊句型”三大语法支柱 · 3 板块 6 专题",
+    stages: [
+      { badge: "阶段一 · 动词非谓语", title: "to do / doing / done 主动被动与时态先后判定", focus: "必考：逻辑主语一致性、只接 doing/to do 动词、独立主格", chapters: ["english.nonfinite"] },
+      { badge: "阶段二 · 三大复合从句", title: "定语从句、名词性从句与九大逻辑状语从句", focus: "必考：that vs which、关系代词 vs 关系副词、what vs that", chapters: ["english.clauses"] },
+      { badge: "阶段三 · 句法与真题", title: "主谓一致三原则、倒装/强调/虚拟语气与 50 题串讲", focus: "必考：就近 vs 就远原则、部分倒装助动词提前、虚拟语气时态退格", chapters: ["english.syntax"] }
+    ]
+  },
+  computer_basics: {
+    subtitle: "理论体系导图 + Excel 数据计算管理 + PPT 版式交互三大应试模块 · 3 模块 7 分节 17 专题",
+    stages: [
+      { badge: "阶段一 · 系统硬件理论", title: "计算机演进、进制编码、冯·诺依曼体系与五大硬件", focus: "必考：存储程序原理、CPU=运算器+控制器、ROM vs RAM", chapters: ["cb.ch1"] },
+      { badge: "阶段二 · Excel 核心操作", title: "单元格格式、公式函数计算、筛选分类汇总与图表", focus: "必考：绝对引用 $A$1、SUMIF/VLOOKUP/IF、分类汇总前必先排序", chapters: ["cb.excel"] },
+      { badge: "阶段三 · PPT 演示设计", title: "幻灯片母版统一版式、自定义动画、超链接动作与放映", focus: "必考：幻灯片母版批量修改、切换效果 vs 对象动画、排练计时", chapters: ["cb.ppt"] }
+    ]
+  },
+  network: {
+    subtitle: "从 IPv4 分类编址到 CIDR 按位与、VLSM 子网划分、MTU 分片与路由聚合 · 6 章 7 节 29 专题",
+    stages: [
+      { badge: "阶段一 · 编址与 CIDR", title: "IPv4 五类地址、私有/回送地址与 CIDR 地址块按位与", focus: "必考：A/B/C 范围、三大私有网段、127 回送、IP AND 掩码求网络地址", chapters: ["net.ch1", "net.ch2"] },
+      { badge: "阶段二 · 子网与分片", title: "定长/变长 VLSM 子网划分、2^n−2 规则与 MTU 分片计算", focus: "必考：按主机数从大到小分配 VLSM、片偏移 = 数据字节 / 8、MF 标志", chapters: ["net.ch3", "net.ch4"] },
+      { badge: "阶段三 · IPv6 与超网", title: "IPv6 零压缩与 40B 基本首部、连续 C 类网络路由聚合", focus: "必考：双冒号 :: 仅用一次、IPv6 固定 40B 首部、最长公共前缀汇总", chapters: ["net.ch5", "net.ch6"] }
+    ]
+  }
+};
+
+function renderSubjectArchitecture({ subjectId, model, base }) {
+  const spec = SUBJECT_ARCH_STAGES[subjectId];
+  if (!spec) return null;
+  const nodes = model.chaptersOf(subjectId);
+  const byChId = new Map(nodes.map((n) => [n.chapter.id, n]));
+
+  return el("section", { class: "sh-card sys-arch", "aria-label": "本科目模块化知识架构蓝图" }, [
+    el("header", { class: "sys-arch__head" }, [
+      el("div", {}, [
+        el("span", { class: "sys-arch__eyebrow", text: "模块化重构 · 三阶递进知识体系" }),
+        el("h2", { class: "sys-arch__title", text: "🧭 本科知识点架构与进阶路线" }),
+        el("p", { class: "sys-arch__sub", text: spec.subtitle })
+      ])
+    ]),
+    el("div", { class: "sys-arch__stages" }, spec.stages.map((stg, sIdx) => {
+      const chNodes = stg.chapters.map((cid) => byChId.get(cid)).filter(Boolean);
+      const stgTopics = chNodes.flatMap((n) => n.topics);
+      const prog = model.progressOf(stgTopics);
+      return el("article", { class: "sys-arch__stage" }, [
+        el("div", { class: "sys-arch__stage-top" }, [
+          el("span", { class: "sys-arch__stage-badge", text: stg.badge }),
+          el("span", { class: "sys-arch__stage-count", text: prog.done ? `已学 ${prog.done}/${prog.total}` : `共 ${prog.total} 节` })
+        ]),
+        el("h3", { class: "sys-arch__stage-title", text: `${sIdx + 1}. ${stg.title}` }),
+        el("p", { class: "sys-arch__stage-focus", text: `🔥 ${stg.focus}` }),
+        el("div", { class: "sys-arch__chapters" }, chNodes.map((node) => {
+          const firstTopic = node.topics.find((t) => topicHref(t, base));
+          const chHref = firstTopic ? topicHref(firstTopic, base) : (node.chapter.source_ref ? base + node.chapter.source_ref : "");
+          return el("div", { class: "sys-arch__ch" }, [
+            chHref
+              ? el("a", { class: "sys-arch__ch-title", href: chHref, text: `${node.chapter.title}（${node.topics.length}）→` })
+              : el("strong", { class: "sys-arch__ch-title", text: `${node.chapter.title}（${node.topics.length}）` }),
+            node.sections?.length
+              ? el("div", { class: "sys-arch__secs" }, node.sections.map((sec) => {
+                  const secFirst = sec.topics.find((t) => topicHref(t, base));
+                  const secHref = secFirst ? topicHref(secFirst, base) : chHref;
+                  return el(secHref ? "a" : "span", {
+                    class: "sys-arch__sec-chip",
+                    href: secHref || null,
+                    text: `${sec.chapter.title} · ${sec.topics.length}`
+                  });
+                }))
+              : null
+          ]);
+        }))
+      ]);
+    }))
+  ]);
+}
+
 export async function enhanceSubjectPage({ shell, model, subjectId }) {
   const cardsDoc = await loadTopicCards();
   const base = shell.base;
@@ -2068,13 +2169,19 @@ export async function enhanceSubjectPage({ shell, model, subjectId }) {
     }
   }
 
-  // 顶部系统学习快捷动作栏 + 掌握度热力图
+  // 顶部系统学习知识架构图 + 掌握度热力图
+  const archBoard = renderSubjectArchitecture({ subjectId, model, base });
   const heatmap = renderMasteryHeatmap({ model, cardsDoc, base, subjectId });
   const subjShell = main.querySelector(".subj-shell");
   if (subjShell) {
-    subjShell.after(heatmap);
+    if (archBoard) {
+      subjShell.after(archBoard, heatmap);
+    } else {
+      subjShell.after(heatmap);
+    }
   } else {
-    main.prepend(heatmap);
+    if (archBoard) main.prepend(archBoard, heatmap);
+    else main.prepend(heatmap);
   }
 
   // 在科目页的章节知识点列表中注入前置提示、L0一句话结论预览与视频/导图标签
@@ -2664,7 +2771,7 @@ export async function enhanceHomeAndOverview({ shell, model }) {
         ["english", "yy/index.html", "english", "英语", "9 大语法专题 · 非谓语、三大从句、主谓一致、特殊句型（配视频与导图）"],
         ["computer_basics", "jsj/index.html", "monitor", "计算机基础", "17 个专题 · 基础知识导图、Excel 26 题视频、PPT 操作题路径"],
         ["network", "wl/index.html", "network", "计算机网络", "22 节全考点复习 + 29 节 IP/子网/分片/路由精讲与自测"],
-        ["web_design", "wy/index.html", "web", "网页设计", "14 节课堂核心复习 + HTML5 / CSS3 / JS 可运行实例与速查"],
+        ["web_design", "wy/index.html", "web", "网页设计", "紧扣 HTML + CSS 考纲 · 14 节课堂核心复习 + HTML5 语义表单 / CSS3 盒模型与布局实操"],
         ["c_language", "c/index.html", "code", "C 语言", "第 1–9 章 27 节完整讲义 · 填空遮挡背诵、数组函数指针专题、54 道随堂真题与 5 道图题"]
       ];
       notesGrid.replaceChildren(...subjectCardsMeta.map(([sid, href, icoName, title, desc]) => {
@@ -2687,11 +2794,11 @@ export async function enhanceHomeAndOverview({ shell, model }) {
         el("div", { class: "sys-home-lab__copy" }, [
           el("span", { class: "sys-home-lab__badge", text: "纯本地零依赖 · 手机/电脑随时可练" }),
           el("h2", { class: "sys-home-lab__title", text: "💻 专业课在线代码实操台" }),
-          el("p", { class: "sys-home-lab__desc", text: "无需安装 Dev-C++ / VS Code / SQL Server：支持 C 语言 1–9 章（含指针、数组、递归与 stdin 输入）、HTML/CSS/JS 实时网页沙箱、SQL Server 教务四表联查；每个知识点页内也可随时一键打开随堂实操。" })
+          el("p", { class: "sys-home-lab__desc", text: "无需安装 Dev-C++ / VS Code / SQL Server：支持 C 语言 1–9 章（含指针、数组、递归与 stdin 输入）、HTML + CSS 网页实时沙箱、SQL Server 教务四表联查；每个知识点页内也可随时一键打开随堂实操。" })
         ]),
         el("div", { class: "sys-home-lab__actions" }, [
           el("a", { class: "sh-btn sh-btn--primary sys-home-lab__btn", href: `${base}study/lab.html?lang=c`, text: "⚙️ C 语言（1–9 章）" }),
-          el("a", { class: "sh-btn sys-home-lab__btn", href: `${base}study/lab.html?lang=html`, text: "🌐 HTML / CSS / JS" }),
+          el("a", { class: "sh-btn sys-home-lab__btn", href: `${base}study/lab.html?lang=html`, text: "🌐 HTML + CSS 网页" }),
           el("a", { class: "sh-btn sys-home-lab__btn", href: `${base}study/lab.html?lang=sql`, text: "🗄️ SQL 教务四表" })
         ])
       ]);

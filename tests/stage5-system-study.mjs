@@ -13,12 +13,13 @@ import {
 const root = path.resolve(import.meta.dirname, "..");
 const readJson = (rel) => JSON.parse(readFileSync(path.join(root, rel), "utf8"));
 
-test("全科 215 个知识点与 36 个课堂复习专题均具备完整统一知识卡", () => {
+test("全科 183 个考纲知识点与 36 个课堂复习专题均具备完整统一知识卡，且不含非考纲 JS 条目", () => {
   const topicsDoc = readJson("data/topics.json");
   const cardsDoc = readJson("data/topic-cards.json");
   const cards = cardsDoc.cards || {};
 
-  assert.equal(Object.keys(cards).length, 251);
+  assert.equal(topicsDoc.topics.some((t) => t.id.startsWith("web.js.")), false);
+  assert.equal(Object.keys(cards).length, 219);
   for (const t of topicsDoc.topics) {
     const card = cards[t.id];
     assert.ok(card, `缺少知识点卡 ${t.id}`);
