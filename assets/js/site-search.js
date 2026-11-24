@@ -35,6 +35,41 @@ function loadCardsMap() {
   return cardsPromise;
 }
 
+function renderDiscoveryHub() {
+  const groups = [
+    ["C 语言（1–9 章）", ["指针", "二维数组", "static", "scanf", "switch", "递归"]],
+    ["计算机网络", ["CIDR", "子网划分", "IP 分片", "RIP", "以太网", "IPv6"]],
+    ["网页设计", ["Flex", "HTML 表单", "盒模型", "选择器", "DOM 事件", "表格"]],
+    ["高数 · 英语 · 计基", ["等价无穷小", "二重积分", "非谓语动词", "定语从句", "Excel", "空间平面"]]
+  ];
+  list.replaceChildren(
+    el("section", { class: "sh-card srch-hub", "aria-label": "高频考点速搜与工具直达" }, [
+      el("div", { class: "srch-hub__head" }, [
+        el("strong", { class: "srch-hub__title", text: "✨ 高频考点一键直搜（支持拼音/缩写/符号，按 / 随时聚焦）" }),
+        el("div", { class: "srch-hub__tools" }, [
+          el("a", { class: "sh-btn sh-btn--primary", href: "./study/lab.html", text: "💻 在线代码实操台" }),
+          el("a", { class: "sh-btn", href: "./c/notes.html", text: "📖 C 语言 1–9 章讲义" })
+        ])
+      ]),
+      el("div", { class: "srch-hub__grid" }, groups.map(([cat, words]) =>
+        el("div", { class: "srch-hub__cat" }, [
+          el("span", { class: "srch-hub__label", text: cat }),
+          el("div", { class: "srch-suggestions" }, words.map((w) => el("a", {
+            href: `?q=${encodeURIComponent(w)}`,
+            onclick: (ev) => {
+              if (ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.altKey) return;
+              ev.preventDefault();
+              input.value = w;
+              search(w);
+            },
+            text: w
+          })))
+        ])
+      ))
+    ])
+  );
+}
+
 function sourceTitle(file) {
   const stem = String(file || "").replace(/\.(png|jpe?g|webp)$/i, "");
   const match = stem.match(/^\d+_(?:p\d+_)?(.+)$/);
@@ -291,7 +326,7 @@ async function search(q) {
   tabs.hidden = true; filters.hidden = true; filterBtn.hidden = true;
   const query = q.trim();
   const matcher = createSearchMatcher(query);
-  if (!matcher) { status.textContent = ""; return; }
+  if (!matcher) { status.textContent = ""; renderDiscoveryHub(); return; }
   status.textContent = "搜索中…";
   const [m, cardsMap] = await Promise.all([getModel(), loadCardsMap()]);
   if (ticket !== serial) return;
@@ -341,10 +376,16 @@ async function search(q) {
   paint();
 }
 
-form.addEventListener("submit", (e) => { e.preventDefault(); input.blur(); search(input.value); });
-clearBtn.addEventListener("click", () => { input.value = ""; search(""); input.focus(); });
-input.addEventListener("input", () => { clearBtn.hidden = !input.value; });
+let inputTimer = 0;
+form.addEventListener("submit", (e) => { e.preventDefault(); clearTimeout(inputTimer); input.blur(); search(input.value); });
+clearBtn.addEventListener("click", () => { clearTimeout(inputTimer); input.value = ""; search(""); input.focus(); });
+input.addEventListener("input", () => {
+  clearBtn.hidden = !input.value;
+  clearTimeout(inputTimer);
+  inputTimer = setTimeout(() => search(input.value), 180);
+});
 if (input.value) search(input.value);
+else renderDiscoveryHub();
 document.addEventListener("keydown", (e) => {
   if (e.key === "/" && !e.altKey && !e.ctrlKey && !e.metaKey && !["INPUT", "TEXTAREA"].includes(document.activeElement.tagName) && !document.activeElement.isContentEditable) {
     e.preventDefault();

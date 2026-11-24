@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="../assets/css/site-shell.css">
   <script src="../assets/js/site-shell.js"></script>
   <style>
-    :root { --c-line:#d8dee6; --c-ink:#111318; --c-muted:#4b5563; --c-accent:#1d4ed8; --c-accent-dark:#1e3a8a; --c-accent-soft:#eff4ff; --c-accent-line:#bfdbfe; --c-warm:#991b1b; --c-warm-fill:#dc2626; --c-warm-soft:#fef2f2; --c-warm-line:#fecaca; --c-paper:#ffffff; --c-paper-soft:#f7f8fa; --c-paper-head:#eef1f6; }
+    :root { --c-line:rgba(15, 23, 42, .09); --c-ink:#0f131a; --c-muted:#47505e; --c-accent:#1d4ed8; --c-accent-dark:#1e3a8a; --c-accent-soft:rgba(239, 246, 255, .86); --c-accent-line:#bfdbfe; --c-warm:#991b1b; --c-warm-fill:#dc2626; --c-warm-soft:rgba(254, 242, 242, .84); --c-warm-line:#fecaca; --c-paper:rgba(255, 255, 255, .74); --c-paper-soft:rgba(244, 248, 254, .58); --c-paper-head:rgba(238, 242, 249, .74); }
     .page-hero { margin:0 0 18px; }
     .page-title { margin:0; font-size:clamp(22px,3vw,30px); line-height:1.25; color:var(--c-ink); }
     .page-subtitle { margin:8px 0 0; font-size:14px; color:var(--c-muted); }
@@ -27,7 +27,7 @@
     .index-link { display:flex; align-items:center; gap:8px; padding:6px 10px; border-radius:8px; color:#374151; font-size:12.5px; text-decoration:none; }
     .index-link:hover { background:var(--c-paper-head); }
     .index-number { font-size:11px; font-weight:700; color:var(--c-accent); min-width:28px; }
-    .topic-section { margin:0 0 18px; border:1px solid var(--c-line); border-radius:16px; background:var(--c-paper); overflow:hidden; box-shadow:0 2px 10px rgba(17, 19, 24, .035); }
+    .topic-section { margin:0 0 18px; border:1px solid rgba(255, 255, 255, .84); border-radius:18px; background-color:rgba(255, 255, 255, .74); background-image:linear-gradient(145deg, rgba(255, 255, 255, .88), rgba(248, 251, 255, .62)); backdrop-filter:blur(22px) saturate(185%); -webkit-backdrop-filter:blur(22px) saturate(185%); overflow:hidden; box-shadow:inset 0 1px 0 rgba(255, 255, 255, .95), 0 12px 32px -8px rgba(15, 23, 42, .09), 0 0 0 .5px rgba(15, 23, 42, .08); }
     .topic-header { display:flex; align-items:center; gap:14px; padding:18px 22px; border-bottom:1px solid var(--c-line); background:linear-gradient(180deg,var(--c-paper),var(--c-paper-soft)); }
     .topic-number { display:grid; place-items:center; flex:none; width:40px; height:40px; border-radius:11px; background:var(--c-accent-soft); color:var(--c-accent-dark); font-weight:700; font-size:14px; }
     .topic-chapter-tag { margin:0 0 2px; font-size:11.5px; font-weight:650; color:var(--c-accent); }

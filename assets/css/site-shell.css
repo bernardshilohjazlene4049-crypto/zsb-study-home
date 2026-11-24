@@ -2688,3 +2688,344 @@ dialog.sys-lab-dialog::backdrop {
     padding: 0 2px;
   }
 }
+
+/* ==========================================================================
+   Apple Liquid Glass 全站光学液态玻璃系统（红 · 蓝 · 黑三色折射体系）
+   - 底层：固定冷瓷白画布 + 学院蓝/朱砂红/银墨三色柔和漫射光场（零重排合成层）
+   - 中层：高透磨砂折射玻璃（backdrop-filter blur + saturate）+ 顶部高光镜面边缘
+   - 顶层：液态蓝宝石主按钮、液态红宝石重点胶囊、黑曜石玻璃代码块与悬浮胶囊底栏
+   ========================================================================== */
+:root {
+  --sh-bg: #eef2f8;
+  --sh-surface: rgba(255, 255, 255, 0.74);
+  --sh-line: rgba(15, 23, 42, 0.085);
+  --sh-line-strong: rgba(15, 23, 42, 0.15);
+  --sh-ink: #0f131a;
+  --sh-ink-2: #262d38;
+  --sh-ink-3: #47505e;
+  --sg-bg: #eef2f8;
+  --sg-surface: rgba(255, 255, 255, 0.76);
+  --sg-surface-strong: rgba(255, 255, 255, 0.86);
+  --lg-blur: blur(22px) saturate(185%);
+  --lg-blur-strong: blur(28px) saturate(200%);
+  --lg-rim: inset 0 1px 0 0 rgba(255, 255, 255, 0.95), inset 0 -1px 0 0 rgba(255, 255, 255, 0.42);
+  --lg-shadow: 0 12px 32px -8px rgba(15, 23, 42, 0.09), 0 2px 6px rgba(15, 23, 42, 0.04), 0 0 0 0.5px rgba(15, 23, 42, 0.08);
+  --lg-shadow-hover: 0 18px 40px -10px rgba(29, 78, 216, 0.15), 0 4px 10px rgba(15, 23, 42, 0.05), 0 0 0 0.5px rgba(29, 78, 216, 0.24);
+  --lg-spring: 240ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html {
+  background-color: #eef2f8 !important;
+}
+body {
+  position: relative;
+  background-color: transparent !important;
+}
+/* 全局固定红·蓝·银墨漫射光晕层，让所有液态玻璃卡片滚动时产生真实光学折射感 */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-color: #eef2f8;
+  background-image:
+    radial-gradient(680px circle at 10% 6%, rgba(37, 99, 235, 0.15), transparent 64%),
+    radial-gradient(580px circle at 90% 14%, rgba(220, 38, 38, 0.10), transparent 62%),
+    radial-gradient(640px circle at 18% 88%, rgba(29, 78, 216, 0.10), transparent 66%),
+    radial-gradient(540px circle at 84% 86%, rgba(185, 28, 28, 0.07), transparent 64%),
+    linear-gradient(180deg, #f5f8fc 0%, #eaf0f8 100%);
+}
+
+/* 1. 顶部液态玻璃导航栏与桌面胶囊态 */
+.shell-header.site-header,
+header.site-header {
+  background-color: rgba(250, 252, 255, 0.72);
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.86) 0%, rgba(244, 248, 254, 0.64) 100%);
+  backdrop-filter: var(--lg-blur-strong);
+  -webkit-backdrop-filter: var(--lg-blur-strong);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.78);
+  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.65), 0 8px 26px -8px rgba(15, 23, 42, 0.08), 0 0.5px 0 rgba(15, 23, 42, 0.08);
+}
+.shell-nav__link {
+  border-radius: 999px;
+  transition: background var(--lg-spring), color var(--lg-spring), box-shadow var(--lg-spring), transform var(--lg-spring);
+}
+.shell-nav__link:hover {
+  background-color: rgba(255, 255, 255, 0.72);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.95), 0 2px 8px rgba(15, 23, 42, 0.06);
+}
+.shell-nav__link.is-active {
+  color: #1e3a8a;
+  background-color: rgba(224, 234, 255, 0.85);
+  background-image: linear-gradient(180deg, rgba(239, 246, 255, 0.95) 0%, rgba(219, 234, 254, 0.78) 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.96), 0 3px 10px -2px rgba(29, 78, 216, 0.18), 0 0 0 0.5px rgba(29, 78, 216, 0.22);
+}
+
+/* 2. 全站一级容器统一升级为苹果液态玻璃主卡片 */
+:is(
+  .sh-card,
+  .sys-card,
+  .tw-card,
+  .notes-hub-card,
+  .exam-check-card,
+  .notes-tool-card,
+  .note-topic-card,
+  .review-topic,
+  .topic-section,
+  .lab-pane,
+  .lab-toolbar,
+  .course-entry,
+  .panel,
+  .info-card,
+  .study-card,
+  .srch-group,
+  .lesson-brief,
+  .lesson-review,
+  .lesson-side-card,
+  .subj-chapter,
+  .mind-card
+) {
+  background-color: rgba(255, 255, 255, 0.74);
+  background-image: linear-gradient(145deg, rgba(255, 255, 255, 0.88) 0%, rgba(248, 251, 255, 0.62) 100%);
+  backdrop-filter: var(--lg-blur);
+  -webkit-backdrop-filter: var(--lg-blur);
+  border: 1px solid rgba(255, 255, 255, 0.84);
+  box-shadow: var(--lg-rim), var(--lg-shadow);
+  transition: transform var(--lg-spring), box-shadow var(--lg-spring), border-color var(--lg-spring);
+}
+
+/* 可点击液态玻璃卡片悬浮微折射抬升 */
+:is(
+  a.sh-card,
+  a.home-note-card,
+  a.exam-check-card,
+  a.notes-tool-card,
+  .c-ov-card
+):hover {
+  transform: translateY(-2px);
+  border-color: rgba(147, 197, 253, 0.92);
+  box-shadow: var(--lg-rim), var(--lg-shadow-hover);
+}
+
+/* 3. 二级内嵌玻璃层（保留镜面高光与通透渐变，不重复叠加内层 blur，保证手机 60fps 丝滑滚动） */
+:is(
+  .wy-entry,
+  .learning-block,
+  .question-card.practice-card,
+  .practice-card,
+  .tryit,
+  .wy-box,
+  .c-ov-card,
+  .c-svg-card,
+  .sys-quiz-box,
+  .sys-heat-row,
+  .tw-stat-grid,
+  .tw-subject-card,
+  .tw-detail-row
+) {
+  background-color: rgba(255, 255, 255, 0.78);
+  background-image: linear-gradient(155deg, rgba(255, 255, 255, 0.92) 0%, rgba(244, 247, 253, 0.68) 100%);
+  border-color: rgba(255, 255, 255, 0.86);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.95), 0 4px 14px -4px rgba(15, 23, 42, 0.06), 0 0 0 0.5px rgba(15, 23, 42, 0.08);
+}
+.learning-block {
+  border-left: 4px solid #1d4ed8;
+}
+.mistake-block,
+.sys-card__pitfall,
+.sys-note-box {
+  background-color: rgba(254, 242, 242, 0.82);
+  background-image: linear-gradient(145deg, rgba(254, 242, 242, 0.90) 0%, rgba(255, 255, 255, 0.72) 100%);
+  border-color: rgba(252, 165, 165, 0.78);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.92), 0 6px 18px -6px rgba(185, 28, 28, 0.10);
+}
+.mistake-block {
+  border-left: 4px solid #dc2626;
+}
+.sys-card__l0,
+.sys-home-lab,
+.sys-chapter-banner,
+.c-ov-maps {
+  background-color: rgba(239, 244, 255, 0.80);
+  background-image: linear-gradient(135deg, rgba(239, 246, 255, 0.92) 0%, rgba(255, 255, 255, 0.74) 58%, rgba(254, 242, 242, 0.68) 100%);
+  border: 1px solid rgba(191, 219, 254, 0.9);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.96), 0 8px 24px -8px rgba(29, 78, 216, 0.12);
+}
+
+/* 4. 讲义吸顶栏、目录栏、搜索框：悬浮半透液态玻璃胶囊 */
+:is(.lx-point-switch, .lx-ch-strip, .sys-view-filter, .srch-form, .lx-toc, .lx-side) {
+  background-color: rgba(255, 255, 255, 0.74);
+  background-image: linear-gradient(160deg, rgba(255, 255, 255, 0.90) 0%, rgba(244, 248, 254, 0.66) 100%);
+  backdrop-filter: var(--lg-blur);
+  -webkit-backdrop-filter: var(--lg-blur);
+  border: 1px solid rgba(255, 255, 255, 0.86);
+  box-shadow: var(--lg-rim), 0 8px 24px -6px rgba(15, 23, 42, 0.08), 0 0 0 0.5px rgba(15, 23, 42, 0.08);
+}
+.srch-form {
+  border-radius: 999px;
+  padding-inline: 8px;
+}
+
+/* 5. 液态玻璃按钮、胶囊、遮挡词块（蓝宝石主色 + 红宝石批注 + 冰晶白次按钮） */
+.sh-btn {
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.82);
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(241, 245, 252, 0.76) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.98), 0 2px 6px rgba(15, 23, 42, 0.06), 0 0 0 0.5px rgba(15, 23, 42, 0.13);
+  transition: transform var(--lg-spring), box-shadow var(--lg-spring), background-color var(--lg-spring), color var(--lg-spring);
+}
+.sh-btn:hover {
+  transform: translateY(-1px);
+  background-color: rgba(255, 255, 255, 0.94);
+  color: #1d4ed8;
+  box-shadow: inset 0 1px 0 #ffffff, 0 6px 14px -3px rgba(29, 78, 216, 0.16), 0 0 0 0.5px rgba(29, 78, 216, 0.34);
+}
+.sh-btn:active {
+  transform: scale(0.98);
+}
+.sh-btn--primary,
+.lab-run-btn {
+  color: #ffffff !important;
+  background-color: #1d4ed8;
+  background-image: linear-gradient(180deg, rgba(96, 165, 250, 0.38) 0%, rgba(29, 78, 216, 0) 48%, rgba(23, 37, 84, 0.34) 100%);
+  border: 1px solid rgba(96, 165, 250, 0.55);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), inset 0 -1px 0 rgba(15, 23, 42, 0.28), 0 8px 20px -4px rgba(29, 78, 216, 0.42);
+}
+.sh-btn--primary:hover,
+.lab-run-btn:hover {
+  color: #ffffff !important;
+  background-color: #1e40af;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55), 0 10px 24px -4px rgba(29, 78, 216, 0.52);
+}
+.sys-tool-btn--lab,
+.sys-inline-run-btn {
+  background-color: rgba(239, 246, 255, 0.86);
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(219, 234, 254, 0.72) 100%);
+  border-color: rgba(147, 197, 253, 0.85);
+  color: #1e3a8a;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.95), 0 3px 10px -2px rgba(29, 78, 216, 0.14);
+}
+.sys-cloze.is-masked {
+  background-color: #b91c1c;
+  background-image: linear-gradient(180deg, rgba(248, 113, 113, 0.32) 0%, rgba(185, 28, 28, 0) 52%, rgba(127, 29, 29, 0.32) 100%);
+  border-color: rgba(252, 165, 165, 0.5);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.42), 0 3px 9px -2px rgba(185, 28, 28, 0.35);
+}
+
+/* 6. 黑曜石液态玻璃：首页头图与全站代码实操窗格 */
+.home-hero {
+  background-color: #11141c;
+  background-image:
+    radial-gradient(520px circle at 88% 16%, rgba(37, 99, 235, 0.34), transparent 62%),
+    radial-gradient(420px circle at 10% 92%, rgba(220, 38, 38, 0.22), transparent 58%),
+    linear-gradient(155deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0) 46%);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 20px 44px -12px rgba(15, 23, 42, 0.32);
+}
+.home-hero__example {
+  background-color: rgba(255, 255, 255, 0.08);
+  background-image: linear-gradient(145deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0.04) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.20);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.24);
+}
+.c-code-wrap {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14), 0 10px 26px -6px rgba(15, 23, 42, 0.24);
+}
+
+/* 7. 弹窗与底部抽屉：高透磨砂液态玻璃面板 */
+:is(dialog.sys-dialog, dialog.sys-lab-dialog, dialog.notes-dialog) {
+  background-color: rgba(255, 255, 255, 0.86);
+  background-image: linear-gradient(155deg, rgba(255, 255, 255, 0.94) 0%, rgba(243, 247, 254, 0.80) 100%);
+  backdrop-filter: var(--lg-blur-strong);
+  -webkit-backdrop-filter: var(--lg-blur-strong);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: inset 0 1px 0 #ffffff, 0 28px 70px -12px rgba(15, 23, 42, 0.30), 0 0 0 0.5px rgba(15, 23, 42, 0.12);
+}
+:is(dialog.sys-dialog, dialog.sys-lab-dialog, dialog.notes-dialog)::backdrop {
+  background: rgba(15, 23, 42, 0.38);
+  backdrop-filter: blur(8px) saturate(140%);
+  -webkit-backdrop-filter: blur(8px) saturate(140%);
+}
+
+/* 8. 全站悬浮回到顶部液态玻璃胶囊 */
+.lg-top-fab {
+  position: fixed;
+  right: 18px;
+  bottom: calc(var(--sh-tabbar, 0px) + 18px);
+  z-index: 92;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 40px;
+  padding: 0 14px;
+  border-radius: 999px;
+  background-color: rgba(255, 255, 255, 0.82);
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(239, 246, 255, 0.78));
+  backdrop-filter: var(--lg-blur);
+  -webkit-backdrop-filter: var(--lg-blur);
+  border: 1px solid rgba(255, 255, 255, 0.92);
+  box-shadow: inset 0 1px 0 #ffffff, 0 10px 26px rgba(15, 23, 42, 0.16), 0 0 0 0.5px rgba(29, 78, 216, 0.22);
+  color: #1e3a8a;
+  font: 650 12.5px/1 system-ui, -apple-system, sans-serif;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(12px) scale(0.94);
+  pointer-events: none;
+  transition: opacity var(--lg-spring), transform var(--lg-spring), box-shadow var(--lg-spring);
+}
+.lg-top-fab.is-shown {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+.lg-top-fab:hover {
+  color: #b91c1c;
+  box-shadow: inset 0 1px 0 #ffffff, 0 12px 28px rgba(29, 78, 216, 0.24);
+}
+
+/* 9. 手机端 iOS 26 悬浮液态玻璃胶囊底栏 (Floating Capsule Dock) */
+@media (max-width: 820px) {
+  :root {
+    --sh-tabbar: calc(74px + env(safe-area-inset-bottom, 0px));
+  }
+  .shell-tabbar {
+    inset: auto 10px calc(8px + env(safe-area-inset-bottom, 0px)) 10px;
+    height: 58px;
+    padding: 4px 5px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.88);
+    background-color: rgba(255, 255, 255, 0.78);
+    background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(241, 246, 254, 0.72) 100%);
+    backdrop-filter: var(--lg-blur-strong);
+    -webkit-backdrop-filter: var(--lg-blur-strong);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.98), 0 14px 34px rgba(15, 23, 42, 0.16), 0 0 0 0.5px rgba(15, 23, 42, 0.10);
+  }
+  .shell-tab {
+    border-radius: 999px;
+    transition: background var(--lg-spring), color var(--lg-spring), transform var(--lg-spring);
+  }
+  .shell-tab.is-active {
+    color: #1e3a8a;
+    background-color: rgba(219, 234, 254, 0.78);
+    background-image: linear-gradient(180deg, rgba(239, 246, 255, 0.95) 0%, rgba(219, 234, 254, 0.75) 100%);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.95), 0 2px 8px rgba(29, 78, 216, 0.16);
+  }
+}
+
+/* 降级保护：系统开启“降低透明度”或老旧浏览器不支持 backdrop-filter 时保持清晰可读 */
+@media (prefers-reduced-transparency: reduce) {
+  :is(.sh-card, .sys-card, .tw-card, .notes-hub-card, .topic-section, .lab-pane, .shell-header.site-header, .shell-tabbar, dialog.sys-dialog) {
+    background-color: rgba(255, 255, 255, 0.96) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  :is(.sh-card, .sys-card, .tw-card, .notes-hub-card, .topic-section, .lab-pane, .shell-tabbar) {
+    background-color: rgba(255, 255, 255, 0.95);
+  }
+}

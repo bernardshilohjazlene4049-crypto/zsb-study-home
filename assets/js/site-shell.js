@@ -117,6 +117,38 @@
     }
     markActive();
     window.addEventListener("hashchange", markActive);
+
+    // 悬浮液态玻璃“↑ 顶部”胶囊（长讲义/复习页滚动超过 480px 自动浮现）
+    var topFab = d.createElement("button");
+    topFab.type = "button";
+    topFab.className = "lg-top-fab";
+    topFab.setAttribute("aria-label", "回到页面顶部");
+    topFab.textContent = "↑ 顶部";
+    topFab.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+    d.body.appendChild(topFab);
+    var ticking = false;
+    window.addEventListener("scroll", function () {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () {
+        topFab.classList.toggle("is-shown", window.scrollY > 480);
+        ticking = false;
+      });
+    }, { passive: true });
+
+    // 全站按 / 键快速进入搜索页（search.html 自身已有聚焦逻辑）
+    if (rel !== "search.html") {
+      d.addEventListener("keydown", function (e) {
+        if (e.defaultPrevented || e.key !== "/" || e.ctrlKey || e.metaKey || e.altKey) return;
+        var tag = (d.activeElement && d.activeElement.tagName) || "";
+        if (/^(INPUT|TEXTAREA|SELECT)$/.test(tag) || (d.activeElement && d.activeElement.isContentEditable)) return;
+        if (d.querySelector("dialog[open]")) return;
+        e.preventDefault();
+        location.href = base() + "search.html";
+      });
+    }
   }
 
   var KIND = (function () {

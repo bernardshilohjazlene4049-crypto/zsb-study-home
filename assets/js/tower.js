@@ -36,10 +36,10 @@ function drawGlass() {
   svg.setAttribute("aria-hidden", "true");
   svg.setAttribute("class", "tw-glass__art");
   svg.innerHTML = `<defs>
-    <linearGradient id="glassTop" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="var(--sh-accent-soft)" stop-opacity=".75"/><stop offset="1" stop-color="var(--sh-accent-fill)" stop-opacity=".08"/></linearGradient>
-    <linearGradient id="glassSide" x1="0" y1="0" x2="0" y2="1"><stop stop-color="var(--sh-accent-fill)" stop-opacity=".08"/><stop offset="1" stop-color="var(--sh-accent)" stop-opacity=".2"/></linearGradient>
-    <linearGradient id="glassActive" x1="0" y1="0" x2=".7" y2="1"><stop stop-color="var(--sh-accent-fill)" stop-opacity=".16"/><stop offset="1" stop-color="var(--sh-accent-fill)" stop-opacity=".4"/></linearGradient>
-  </defs><ellipse cx="220" cy="469" rx="211" ry="57" fill="var(--sh-accent-soft)" opacity=".6"/>
+    <linearGradient id="glassTop" x1="0" y1="0" x2=".85" y2="1"><stop stop-color="#ffffff" stop-opacity=".86"/><stop offset=".55" stop-color="#dbeafe" stop-opacity=".42"/><stop offset="1" stop-color="#2563eb" stop-opacity=".14"/></linearGradient>
+    <linearGradient id="glassSide" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#3b82f6" stop-opacity=".16"/><stop offset=".7" stop-color="#1d4ed8" stop-opacity=".26"/><stop offset="1" stop-color="#dc2626" stop-opacity=".14"/></linearGradient>
+    <linearGradient id="glassActive" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#ffffff" stop-opacity=".92"/><stop offset=".45" stop-color="#60a5fa" stop-opacity=".42"/><stop offset="1" stop-color="#1d4ed8" stop-opacity=".48"/></linearGradient>
+  </defs><ellipse cx="220" cy="469" rx="211" ry="57" fill="#dbeafe" opacity=".55"/>
   ${floors.map((floor, i) => `<g class="tw-glass__floor" data-glass-floor="${floor.no}" transform="translate(0 ${i * 54})">
     <path class="tw-glass__side" d="M8 84 220 164 432 84V98L220 178 8 98Z"/>
     <path class="tw-glass__top" d="M220 4 432 84Q435 87 430 89L220 168 10 89Q5 87 8 84Z"/>
@@ -62,7 +62,17 @@ function progress(floor) {
   ]);
 }
 
-function emptyState() {
+function emptyState(floor) {
+  if (floor?.no === "03F") {
+    return el("div", { class: "tw-empty" }, [
+      icon("folder", 30),
+      el("span", { text: "专题讲义建设中 · SQL 教务四表实操已开放" }),
+      el("a", { class: "tw-enter", href: "../study/lab.html?lang=sql" }, [
+        el("span", { text: "💻 进入 SQL Server 在线实操" }),
+        icon("arrowRight", 16)
+      ])
+    ]);
+  }
   return el("span", { class: "tw-empty" }, [icon("folder", 32), el("span", { text: "即将开放" })]);
 }
 
@@ -81,7 +91,7 @@ function drawDetail() {
   get("detailPanel").replaceChildren(
     el("div", { class: "tw-detail-top" }, [el("span", { text: "当前楼层" }), badge(floor)]),
     el("div", { class: "tw-detail-title" }, [el("span", { class: "tw-detail-icon" }, [icon(floor.icon, 27)]), el("h2", { text: floor.name })]),
-    ...(!floor.open ? [emptyState()] : [
+    ...(!floor.open ? [emptyState(floor)] : [
       progress(floor),
       el("dl", { class: "tw-stat-grid" }, [["已掌握", "mastered", "check"], ["学习中", "learning", "clock"], ["共计", "total", "list"]].map(([label, key, ico]) =>
         el("div", {}, [icon(ico, 18), el("dt", { text: label }), el("dd", { text: count(floor, key) })])
@@ -91,9 +101,13 @@ function drawDetail() {
         detailRow("错题", count(floor, "mistakes", "道"), "alert", mistakesHref),
         detailRow("下一步学习", floor.next?.title || "无学习记录", "play", nextHref)
       ]),
-      el("div", { class: "tw-actions" }, actions.map((action) => el("a", {
-        class: "tw-enter", href: base + action.homeUrl, "aria-label": `进入该科目 ${action.name}`
-      }, [actions.length > 1 ? el("span", { class: "tw-enter__subject", text: action.name }) : null, el("span", { text: "进入该科目" }), icon("arrowRight", 17)])))
+      el("div", { class: "tw-actions" }, [
+        ...actions.map((action) => el("a", {
+          class: "tw-enter", href: base + action.homeUrl, "aria-label": `进入该科目 ${action.name}`
+        }, [actions.length > 1 ? el("span", { class: "tw-enter__subject", text: action.name }) : null, el("span", { text: "进入该科目" }), icon("arrowRight", 17)])),
+        floor.no === "04F" ? el("a", { class: "sh-btn", href: "../study/lab.html?lang=c", text: "💻 打开 C 语言在线实操台" }) : null,
+        floor.no === "02F" ? el("a", { class: "sh-btn", href: "../study/lab.html?lang=html", text: "💻 打开 HTML/CSS/JS 实操台" }) : null
+      ])
     ])
   );
 }

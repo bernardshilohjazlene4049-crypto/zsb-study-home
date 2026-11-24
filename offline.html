@@ -2,68 +2,89 @@
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="light dark">
-  <meta name="description" content="当前离线，辽宁专升本学习站暂时无法连接网络。">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#eef2f8">
+  <meta name="description" content="当前离线，辽宁专升本学习站暂时无法连接网络，可继续访问已缓存的页面与离线实操。">
   <title>当前离线 · 辽宁专升本</title>
   <link rel="icon" href="./assets/icons/favicon.svg" type="image/svg+xml">
   <style>
     :root {
       color-scheme: light;
-      --page: #f7f8fa;
-      --surface: #ffffff;
-      --ink: #1e3a8a;
-      --muted: #2d333d;
-      --accent: #f7f8fa;
-      --accent-deep: #2563eb;
-      --line: rgba(29, 78, 216, .085);
-      --focus: #1d4ed8;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-      font-synthesis: none;
+      --ink: #0f131a;
+      --muted: #47505e;
+      --blue: #1d4ed8;
+      --blue-deep: #1e3a8a;
+      --red: #b91c1c;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
       -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
     }
     *, *::before, *::after { box-sizing: border-box; }
-    html { min-height: 100%; background: var(--page); }
-    body { margin: 0; min-height: 100vh; min-height: 100dvh; background: var(--page); color: var(--ink); }
-    .site-header { height: 60px; background: var(--surface); border-bottom: 1px solid var(--line); }
-    .site-container { max-width: 1320px; margin: 0 auto; padding: 0 20px; }
-    .header-inner { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-    .brand { display: inline-flex; align-items: center; gap: 11px; min-width: 0; color: var(--ink); text-decoration: none; }
-    .brand-mark { width: 25px; height: 25px; border-radius: 50%; flex: 0 0 25px; position: relative; background: radial-gradient(circle at 32% 28%, #bfdbfe 0%, #bfdbfe 31%, #60a5fa 70%, #2563eb 100%); box-shadow: 0 3px 11px rgba(29, 78, 216, .29); }
-    .brand-mark::after { content: ""; position: absolute; left: 7px; top: 5px; width: 10px; height: 10px; border-radius: 50%; background: rgba(255, 255, 255, .9); }
-    .brand-name { font-size: 15px; line-height: 1.35; font-weight: 700; letter-spacing: .005em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .search-link { display: inline-flex; align-items: center; justify-content: center; flex: 0 0 44px; width: 44px; height: 44px; border-radius: 12px; color: var(--ink); text-decoration: none; }
-    .search-link svg { width: 22px; height: 22px; display: block; }
-    .search-link:hover { background: var(--page); }
-    .main { min-height: calc(100vh - 60px); min-height: calc(100dvh - 60px); display: grid; place-items: center; padding: 32px 20px 80px; }
-    .offline-content { width: 100%; max-width: 560px; text-align: center; }
-    h1 { font-size: clamp(25px, 3.2vw, 36px); font-weight: 700; letter-spacing: -.035em; line-height: 1.4; margin: 0 0 30px; }
-    .offline-copy { margin: -12px auto 26px; color: var(--muted); font-size: 14px; line-height: 1.75; }
+    html { min-height: 100%; background-color: #eef2f8; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      min-height: 100dvh;
+      color: var(--ink);
+      background-color: #eef2f8;
+      background-image:
+        radial-gradient(640px circle at 12% 8%, rgba(37, 99, 235, 0.16), transparent 64%),
+        radial-gradient(540px circle at 88% 16%, rgba(220, 38, 38, 0.11), transparent 62%),
+        radial-gradient(600px circle at 20% 88%, rgba(29, 78, 216, 0.10), transparent 65%),
+        linear-gradient(180deg, #f5f8fc 0%, #eaf0f8 100%);
+    }
+    .site-header {
+      height: 60px;
+      background-color: rgba(255, 255, 255, 0.74);
+      background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(244, 248, 254, 0.66));
+      backdrop-filter: blur(26px) saturate(190%);
+      -webkit-backdrop-filter: blur(26px) saturate(190%);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.82);
+      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.06), 0 0.5px 0 rgba(15, 23, 42, 0.08);
+    }
+    .site-container { max-width: 1280px; margin: 0 auto; padding: 0 20px; height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .brand { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; font-weight: 680; font-size: 15px; }
+    .brand-mark {
+      width: 26px; height: 26px; border-radius: 9px 13px 11px 13px; position: relative; flex: none;
+      background: radial-gradient(120% 120% at 25% 20%, #2563eb 0, #1d4ed8 46%, #111318 100%);
+      box-shadow: 0 3px 10px rgba(17, 19, 24, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    }
+    .brand-mark::after { content: ""; position: absolute; left: 7px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #ef4444; box-shadow: 0 0 0 1.5px rgba(255, 255, 255, 0.78); }
+    .search-link { display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; border-radius: 999px; color: var(--ink); text-decoration: none; }
+    .search-link:hover { background: rgba(255, 255, 255, 0.75); color: var(--blue); }
+    .main { min-height: calc(100dvh - 60px); display: grid; place-items: center; padding: 32px 20px 72px; }
+    .offline-card {
+      width: min(100%, 580px);
+      padding: clamp(26px, 4vw, 40px);
+      border-radius: 24px;
+      text-align: center;
+      background-color: rgba(255, 255, 255, 0.76);
+      background-image: linear-gradient(145deg, rgba(255, 255, 255, 0.90) 0%, rgba(246, 250, 255, 0.64) 100%);
+      backdrop-filter: blur(24px) saturate(190%);
+      -webkit-backdrop-filter: blur(24px) saturate(190%);
+      border: 1px solid rgba(255, 255, 255, 0.88);
+      box-shadow: inset 0 1px 0 #ffffff, 0 18px 44px -10px rgba(15, 23, 42, 0.12), 0 0 0 0.5px rgba(15, 23, 42, 0.08);
+    }
+    .offline-pill { display: inline-block; padding: 4px 12px; border-radius: 999px; background: #fef2f2; border: 1px solid #fecaca; color: #991b1b; font-size: 12px; font-weight: 700; margin-bottom: 14px; }
+    h1 { font-size: clamp(24px, 3.2vw, 32px); font-weight: 720; letter-spacing: -0.025em; line-height: 1.3; margin: 0 0 12px; color: var(--ink); }
+    .offline-copy { margin: 0 auto 24px; color: var(--muted); font-size: 14px; line-height: 1.75; max-width: 460px; }
     .offline-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
-    .retry-button { min-height: 48px; min-width: 128px; padding: 12px 22px; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); color: var(--ink); font: inherit; font-size: 15px; font-weight: 650; cursor: pointer; }
-    .home-button { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; min-width: 144px; padding: 12px 28px; border-radius: 14px; background: var(--accent); color: #fff; font-size: 15px; font-weight: 650; line-height: 1.35; text-decoration: none; transition: background-color .16s ease, transform .16s ease; }
-    .home-button:hover { background: var(--accent-deep); }
-    .home-button:active { transform: translateY(1px); }
-    a:focus-visible { outline: 3px solid var(--focus); outline-offset: 4px; }
-    @media (max-width: 600px) {
-      .site-header { height: 53px; }
-      .site-container { padding: 0 15px; }
-      .brand { gap: 9px; }
-      .brand-mark { width: 23px; height: 23px; flex-basis: 23px; }
-      .brand-mark::after { left: 6px; top: 5px; width: 9px; height: 9px; }
-      .brand-name { font-size: 14px; }
-      .main { min-height: calc(100vh - 53px); min-height: calc(100dvh - 53px); padding: 24px 18px 64px; }
-      h1 { font-size: 26px; margin-bottom: 26px; }
-      .home-button { min-width: 148px; }
+    .glass-btn {
+      display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 20px; border-radius: 13px;
+      border: 1px solid rgba(255, 255, 255, 0.92);
+      background-color: rgba(255, 255, 255, 0.85);
+      background-image: linear-gradient(180deg, #ffffff, rgba(241, 245, 252, 0.78));
+      color: var(--ink); font: inherit; font-size: 14.5px; font-weight: 650; text-decoration: none; cursor: pointer;
+      box-shadow: inset 0 1px 0 #ffffff, 0 3px 10px rgba(15, 23, 42, 0.07), 0 0 0 0.5px rgba(15, 23, 42, 0.12);
     }
-    @media (prefers-color-scheme: dark) {
-      :root { color-scheme: dark; --page: #1e3a8a; --surface: #1e3a8a; --ink: #eff4ff; --muted: #bfdbfe; --accent: #60a5fa; --accent-deep: #60a5fa; --line: rgba(255, 255, 255, .13); --focus: #dbeafe; }
-      .home-button { color: #ffffff; background: #2563eb; }
-      .home-button:hover { background: #2563eb; }
-      .search-link:hover { background: #1e3a8a; }
+    .glass-btn--primary {
+      background-color: #1d4ed8;
+      background-image: linear-gradient(180deg, rgba(96, 165, 250, 0.38) 0%, rgba(29, 78, 216, 0) 50%, rgba(23, 37, 84, 0.34) 100%);
+      border-color: rgba(96, 165, 250, 0.55);
+      color: #ffffff;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 8px 20px -4px rgba(29, 78, 216, 0.42);
     }
-    @media (prefers-reduced-motion: reduce) { .home-button { transition: none; } .home-button:active { transform: none; } }
+    .glass-btn--primary:hover { background-color: #1e40af; }
+    :focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
   </style>
   <link rel="canonical" href="https://bernardshilohjazlene4049-crypto.github.io/zsb-study-home/offline.html">
   <meta name="zsb-module" content="site">
@@ -71,25 +92,27 @@
 </head>
 <body>
   <header class="site-header">
-    <div class="site-container header-inner">
+    <div class="site-container">
       <a class="brand" href="./index.html" aria-label="辽宁专升本 · 计算机类学习站">
         <span class="brand-mark" aria-hidden="true"></span>
-        <span class="brand-name">辽宁专升本 · 计算机类学习站</span>
+        <span>辽宁专升本 · 计算机类学习站</span>
       </a>
       <a class="search-link" href="./search.html" aria-label="搜索">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="10.8" cy="10.8" r="7.2"/><path d="m16.2 16.2 4.5 4.5"/></svg>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.8" cy="10.8" r="7.2"/><path d="m16.2 16.2 4.5 4.5"/></svg>
       </a>
     </div>
   </header>
   <main class="main">
-    <div class="offline-content">
+    <section class="offline-card">
+      <span class="offline-pill">离线模式 · 本地缓存可用</span>
       <h1>当前处于离线状态</h1>
-      <p class="offline-copy">已缓存的首页仍可打开。此前未访问过的页面可能需要联网；恢复网络后可以重试。</p>
+      <p class="offline-copy">已缓存的首页、讲义及纯本地运行的在线代码实操台仍可继续打开使用；恢复网络后点击重新连接即可同步最新内容。</p>
       <div class="offline-actions">
-        <button class="retry-button" type="button" onclick="location.reload()">重新连接</button>
-        <a class="home-button" href="./index.html">打开离线首页</a>
+        <button class="glass-btn" type="button" onclick="location.reload()">重新连接</button>
+        <a class="glass-btn glass-btn--primary" href="./index.html">打开离线首页 →</a>
+        <a class="glass-btn" href="./study/lab.html">💻 离线代码实操台</a>
       </div>
-    </div>
+    </section>
   </main>
 </body>
 </html>
