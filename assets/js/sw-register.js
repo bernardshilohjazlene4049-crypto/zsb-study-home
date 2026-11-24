@@ -5,6 +5,11 @@
   var script = document.currentScript;
   var root = new URL("../../", script ? script.src : location.href);
   window.addEventListener("load", function () {
-    navigator.serviceWorker.register(new URL("sw.js", root).href, { scope: root.pathname }).catch(function () {});
+    navigator.serviceWorker.register(new URL("sw.js", root).href, {
+      scope: root.pathname,
+      updateViaCache: "none"
+    }).then(function (reg) {
+      reg.update().catch(function () {});
+    }).catch(function () {});
   });
 })();

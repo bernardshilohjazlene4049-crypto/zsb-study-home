@@ -14,6 +14,7 @@ const SHELL = [
   "manifest.webmanifest",
   "assets/css/site-unify.css",
   "assets/css/site-shell.css",
+  "assets/css/liquid-glass.css",
   "assets/css/lesson-upgrade.css",
   "assets/js/site-shell.js",
   "assets/js/sw-register.js",

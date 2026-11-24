@@ -20,6 +20,7 @@ const PRECACHE_SHELL = [
   "manifest.webmanifest",
   "assets/css/site-unify.css",
   "assets/css/site-shell.css",
+  "assets/css/liquid-glass.css",
   "assets/css/lesson-upgrade.css",
   "assets/js/site-shell.js",
   "assets/js/sw-register.js",
@@ -76,7 +77,7 @@ const MUST_EXCLUDE = [
 ];
 
 // 预缓存条目数上限（精简后应远小于旧的 ~204 项）
-const PRECACHE_MAX = 48;
+const PRECACHE_MAX = 50;
 
 function shellArray(source, name) {
   const groups = [...source.matchAll(new RegExp(`^${name}(?:\\+)?=\\(([^)]*)\\)`, "gm"))];

@@ -87,8 +87,8 @@
   "assets/js/site-search-format.js": 3875,
   "assets/js/site-search-topics.js": 11939,
   "assets/js/site-search.js": 18929,
-  "assets/js/site-shell.js": 10614,
-  "assets/js/sw-register.js": 523,
+  "assets/js/site-shell.js": 10608,
+  "assets/js/sw-register.js": 634,
   "assets/js/tower-stats.js": 4261,
   "assets/js/tower.js": 10005,
   "assets/js/video-facade.js": 3306,
@@ -264,11 +264,11 @@
  },
  "categories": {
   "html": 3575116,
-  "css/js": 1284583,
+  "css/js": 1284688,
   "图片": 70389624,
   "json": 1241442,
   "音视频": 558870549,
   "其他": 474276
  },
- "total": 635835590
+ "total": 635835695
 }

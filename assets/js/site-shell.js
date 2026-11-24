@@ -155,10 +155,10 @@
     if (rel === "index.html") return "home";
     if (/^(gs|yy|jsj|c|wy|wl)\/index\.html$/.test(rel)) return "subject";
     if (/^(gs\/gs1|gs\/gs45|yy\/yy5|jsj\/jsj1|jsj\/ppt5|c\/notes)\.html$/.test(rel)) return "lecture";
-    if (/^wy\/(html|html5|css|js)\/[^/]+\.html$/.test(rel) && !/\/index\.html$/.test(rel)) return "lecture";
+    if (/^wy\/(html|html5|css)\/[^/]+\.html$/.test(rel) && !/\/index\.html$/.test(rel)) return "lecture";
     if (/^wy\/ch[12]\/[^/]+\.html$/.test(rel)) return "lecture";
     if (/^wl\/ch[1-6]\/[^/]+\.html$/.test(rel)) return "lecture";
-    if (/^wy\/(html|html5|css|js|examples|reference)\/index\.html$/.test(rel)) return "lecture";
+    if (/^wy\/(html|html5|css|examples|reference)\/index\.html$/.test(rel)) return "lecture";
     if (rel === "study/graph.html") return "graph";
     if (rel === "study/overview.html") return "overview";
     return "";
