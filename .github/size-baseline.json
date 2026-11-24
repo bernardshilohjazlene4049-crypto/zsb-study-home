@@ -11,7 +11,7 @@
   "assets/css/lab-viz.css": 7414,
   "assets/css/lecture-player.css": 9828,
   "assets/css/lesson-upgrade.css": 7644,
-  "assets/css/liquid-glass.css": 17893,
+  "assets/css/liquid-glass.css": 17940,
   "assets/css/net-viz.css": 16498,
   "assets/css/pvideo.css": 944,
   "assets/css/site-search.css": 1786,
@@ -264,11 +264,11 @@
  },
  "categories": {
   "html": 3575116,
-  "css/js": 1284536,
+  "css/js": 1284583,
   "图片": 70389624,
   "json": 1241442,
   "音视频": 558870549,
   "其他": 474276
  },
- "total": 635835543
+ "total": 635835590
 }

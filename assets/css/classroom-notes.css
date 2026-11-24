@@ -76,7 +76,7 @@ body.notes-toc-open{overflow:hidden}
 .bits .is-prefix{background:var(--sh-accent-soft);color:var(--sh-accent)}
 .bits .is-network{background:#eff4ff;color:#1d4ed8}
 .bits .is-subnet{background:#fee2e2;color:#b91c1c}
-.bits .is-host{background:#eff4ff;color:#60a5fa}
+.bits .is-host{background:#eff4ff;color:#1d4ed8}
 .interactive-card{margin:16px 0;padding:15px;border:1px solid var(--sh-line);border-radius:14px;background:linear-gradient(145deg,#f4f7ff,#fff)}
 .interactive-card__head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:11px}
 .interactive-card__head h3{margin:0;color:var(--sh-ink);font-size:14px}
@@ -116,7 +116,7 @@ body.notes-toc-open{overflow:hidden}
 .class-axis{position:relative;margin:18px 0 22px;overflow-x:auto;padding-bottom:4px}
 .class-axis__track{display:grid;grid-template-columns:127fr 2fr 64fr 32fr 16fr 16fr;min-width:620px;min-height:58px;overflow:hidden;border-radius:12px}
 .class-axis__track span{display:grid;place-content:center;padding:8px 5px;color:#fff;font-size:11px;font-weight:650;text-align:center}
-.class-axis__track span:nth-child(1){background:#60a5fa}.class-axis__track span:nth-child(2){background:#525a68}.class-axis__track span:nth-child(3){background:#2563eb}.class-axis__track span:nth-child(4){background:#1d4ed8}.class-axis__track span:nth-child(5){background:#b91c1c}.class-axis__track span:nth-child(6){background:#2d333d}
+.class-axis__track span:nth-child(1){background:#2563eb}.class-axis__track span:nth-child(2){background:#525a68}.class-axis__track span:nth-child(3){background:#1d4ed8}.class-axis__track span:nth-child(4){background:#1e40af}.class-axis__track span:nth-child(5){background:#b91c1c}.class-axis__track span:nth-child(6){background:#2d333d}
 .fragment-bars{display:grid;gap:8px;margin:16px 0}
 .fragment-bar{display:grid;grid-template-columns:90px minmax(0,1fr) 150px;align-items:center;gap:10px;color:var(--sh-ink-2);font-size:12px}
 .fragment-bar__fill{height:20px;border-radius:6px;background:linear-gradient(90deg,#2563eb,#bfdbfe)}

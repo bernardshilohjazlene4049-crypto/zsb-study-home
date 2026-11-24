@@ -562,6 +562,9 @@ a.sys-arch__sec-chip:hover {
 }
 
 /* 10. 无障碍与降级保护 */
+.index-number {
+  color: #1d4ed8 !important;
+}
 @media (prefers-reduced-motion: reduce) {
   .lg-orb {
     animation: none !important;
