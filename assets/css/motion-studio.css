@@ -1,0 +1,305 @@
+/* 全站动态图解实验室、Konva 白板、Lottie 徽标、Proton 粒子与 Three.js 3D 液态玻璃样式
+ * 严格遵循红·蓝·黑三色体系与 WCAG 2.1 AA 对比度（正文与控件均 >= 4.5:1） */
+
+.lg-proton-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Hero 折射信号波、Lottie 脉冲星标与 3D 冰晶多面体 */
+.home-hero {
+  position: relative;
+  overflow: hidden;
+}
+.home-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(360px circle at var(--hero-mx, 78%) var(--hero-my, 26%), rgba(96, 165, 250, 0.22), transparent 65%);
+}
+.lg-hero-wave {
+  position: absolute;
+  inset: auto 0 0 0;
+  width: 100%;
+  height: 110px;
+  pointer-events: none;
+  opacity: 0.85;
+}
+.lg-hero-3d {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 210px;
+  height: 210px;
+  pointer-events: none;
+  opacity: 0.55;
+  z-index: 0;
+}
+.home-hero__body,
+.home-hero__example {
+  position: relative;
+  z-index: 1;
+}
+.lg-lottie-beacon {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  vertical-align: middle;
+  margin-right: 4px;
+}
+.lg-lottie-check {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  vertical-align: middle;
+  margin-left: 6px;
+}
+
+/* 动态原理图解与可视化实验室 (.sys-motion-studio) */
+.sys-motion-studio {
+  margin: 18px 0;
+  padding: 20px 22px;
+}
+.ms-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.ms-eyebrow {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: #dbeafe;
+  color: #1e3a8a;
+  font-size: 11.5px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+.ms-title {
+  margin: 0;
+  color: #0f172a;
+  font-size: 18px;
+  font-weight: 750;
+  letter-spacing: -0.02em;
+}
+.ms-tabs,
+.ms-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.ms-tab,
+.ms-pill {
+  padding: 7px 13px;
+  border-radius: 999px;
+  border: 1px solid rgba(29, 78, 216, 0.24);
+  background: rgba(255, 255, 255, 0.88);
+  color: #0f172a;
+  font: inherit;
+  font-size: 12.5px;
+  font-weight: 650;
+  cursor: pointer;
+  transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+}
+.ms-tab:hover,
+.ms-pill:hover {
+  border-color: #1d4ed8;
+  background: #eff6ff;
+}
+.ms-tab[aria-pressed="true"] {
+  background-color: #1d4ed8;
+  border-color: #1e40af;
+  color: #ffffff;
+}
+.ms-pill[aria-pressed="true"] {
+  background-color: #fee2e2;
+  border-color: #dc2626;
+  color: #991b1b;
+}
+.ms-scene-desc {
+  margin: 10px 0 12px;
+  color: #1e293b;
+  font-size: 13px;
+  line-height: 1.65;
+}
+.ms-two-stage,
+.ms-exp-canvas {
+  display: block;
+  width: 100%;
+  max-width: 680px;
+  margin: 0 auto;
+  border-radius: 14px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: rgba(255, 255, 255, 0.92);
+  overflow: hidden;
+}
+.ms-exp-canvas {
+  height: auto;
+}
+.ms-readout,
+.ms-exp-sub {
+  margin: 10px auto 12px;
+  padding: 10px 14px;
+  border-radius: 11px;
+  background: #eff6ff;
+  border-left: 3.5px solid #1d4ed8;
+  color: #0f172a;
+  font-size: 12.5px;
+  font-weight: 600;
+  line-height: 1.6;
+}
+.ms-sliders,
+.ms-exp-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+}
+.ms-slider {
+  flex: 1 1 200px;
+  display: grid;
+  gap: 5px;
+}
+.ms-slider__lbl {
+  color: #0f172a;
+  font-size: 12px;
+  font-weight: 650;
+}
+.ms-range {
+  width: 100%;
+  accent-color: #1d4ed8;
+  cursor: pointer;
+}
+.ms-exp-scrub {
+  flex: 1 1 180px;
+}
+.ms-export-msg {
+  color: #1e3a8a;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+/* Manim 动图三联画廊 */
+.ms-manim-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+.ms-manim-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: rgba(255, 255, 255, 0.9);
+}
+.ms-manim-badge {
+  align-self: flex-start;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #fee2e2;
+  color: #991b1b;
+  font-size: 11px;
+  font-weight: 700;
+}
+.ms-manim-img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: #f4f7fc;
+}
+.ms-manim-title {
+  margin: 0;
+  color: #0f172a;
+  font-size: 14px;
+  font-weight: 700;
+}
+.ms-manim-eq {
+  padding: 5px 8px;
+  border-radius: 7px;
+  background: #eff6ff;
+  color: #1e3a8a;
+  font-size: 11.5px;
+  overflow-x: auto;
+}
+.ms-manim-go {
+  margin-top: auto;
+  justify-content: center;
+}
+
+/* Konva 知识点关系白板 */
+.gk-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 12px;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+.gk-hint {
+  color: #1e293b;
+  font-size: 12px;
+  font-weight: 600;
+}
+.gk-stage-host {
+  width: 100%;
+  min-height: 420px;
+  background-image: radial-gradient(rgba(29, 78, 216, 0.14) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* 指挥塔 Three.js 3D 水晶叠层 */
+.tw-3d-badge {
+  display: inline-block;
+  margin-top: 4px;
+  color: #1e3a8a;
+  font-size: 12px;
+  font-weight: 600;
+}
+.tw-3d-wrap {
+  position: absolute;
+  inset: 0;
+  pointer-events: auto;
+  z-index: 0;
+}
+.tw-glass.has-3d .tw-glass__art {
+  opacity: 0.16;
+}
+.tw-glass.has-3d .tw-decks {
+  z-index: 2;
+  pointer-events: none;
+}
+.tw-glass.has-3d .tw-deck {
+  pointer-events: auto;
+}
+.tw-glass.has-3d .tw-deck__label {
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.86);
+  color: #0f172a;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08);
+}
+
+@media (max-width: 860px) {
+  .lg-hero-3d {
+    display: none;
+  }
+  .ms-manim-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .sys-motion-studio {
+    padding: 15px 14px;
+  }
+}

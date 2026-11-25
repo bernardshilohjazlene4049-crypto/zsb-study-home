@@ -101,11 +101,14 @@ export async function mount(shell) {
   let colored = true;
   try { colored = localStorage.getItem(COLOR_KEY) !== "0"; } catch { /* ignore */ }
 
-  // 工具：着色开关、图例、全屏。
+  // 工具：着色开关、交互白板、图例、全屏。
+  let wbMode = false;
+  let konvaHandle = null;
   const sw = el("button", { type: "button", class: "g-switch", role: "switch", "aria-checked": String(colored) }, [el("span", { class: "g-switch__track", "aria-hidden": "true" }, [el("i")]), el("span", { text: "按学习状态着色" })]);
+  const wbBtn = el("button", { type: "button", class: "sh-btn g-tool", "aria-pressed": "false" }, [el("span", { text: "🎨 交互白板画布" })]);
   const legendBtn = el("button", { type: "button", class: "sh-btn g-tool", "aria-expanded": "true", "aria-controls": "g-legend" }, [icon("legend", 16), el("span", { text: "图例" })]);
   const fullBtn = el("button", { type: "button", class: "sh-btn g-tool g-tool--icon", "aria-label": "全屏查看" }, [icon("expand", 16)]);
-  tools.replaceChildren(sw, legendBtn, fullBtn);
+  tools.replaceChildren(sw, wbBtn, legendBtn, fullBtn);
 
   const svg = document.createElementNS(NS, "svg");
   svg.setAttribute("class", "g-edges");
@@ -113,6 +116,19 @@ export async function mount(shell) {
   svg.innerHTML = '<defs><marker id="g-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker></defs>';
 
   function paint() {
+    if (konvaHandle) { konvaHandle.destroy(); konvaHandle = null; }
+    if (wbMode) {
+      const host = el("div", { class: "g-canvas g-canvas--konva" });
+      const leg = legend();
+      leg.classList.toggle("no-status", !colored);
+      leg.hidden = legendBtn.getAttribute("aria-expanded") !== "true";
+      stage.replaceChildren(el("div", { class: "g-wrap" }, [host, leg]));
+      import("../motion/graph-konva.js")
+        .then((m) => m.mountKonvaGraph({ container: host, topic, pre, post, base, colored, getStatus: (id) => model.topicStatus(id) }))
+        .then((h) => { konvaHandle = h; })
+        .catch(() => {});
+      return;
+    }
     const rows = [];
     if (pre.length) rows.push(el("div", { class: "g-row g-row--pre" }, pre.map((e) => { const n = node(model, e.topic, base, "pre", e, colored); n.dataset.strength = e.strength; return n; })));
     rows.push(el("div", { class: "g-row g-row--current" }, [node(model, topic, base, "current", null, colored)]));
@@ -130,8 +146,17 @@ export async function mount(shell) {
       ]));
     }
     stage.replaceChildren(...content);
-    requestAnimationFrame(() => drawEdges(canvas, svg));
+    requestAnimationFrame(() => {
+      drawEdges(canvas, svg);
+      import("../motion/site-motion.js").then((m) => m.animateSvgPaths(canvas)).catch(() => {});
+    });
   }
+  wbBtn.addEventListener("click", () => {
+    wbMode = !wbMode;
+    wbBtn.setAttribute("aria-pressed", String(wbMode));
+    wbBtn.classList.toggle("sh-btn--primary", wbMode);
+    paint();
+  });
   sw.addEventListener("click", () => {
     colored = !colored;
     sw.setAttribute("aria-checked", String(colored));

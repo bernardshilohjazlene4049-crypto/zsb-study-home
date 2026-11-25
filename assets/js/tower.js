@@ -8,6 +8,7 @@ const mistakesHref = "../study/index.html#/mistakes";
 const mobile = matchMedia("(max-width: 760px)");
 let floors = [];
 let selected = "07F";
+let tower3d = null;
 
 const count = (floor, key, unit = "个") => floor.hasRecords || key === "total" ? `${floor[key]} ${unit}` : "—";
 const pct = (floor) => floor.pct === null ? "—" : `${floor.pct}%`;
@@ -138,6 +139,7 @@ function selectFloor(no) {
     }
   }
   for (const glass of document.querySelectorAll("[data-glass-floor]")) glass.classList.toggle("is-active", glass.dataset.glassFloor === no);
+  tower3d?.highlightFloor(no);
   drawDetail();
 }
 
@@ -178,6 +180,10 @@ async function init() {
     drawCards();
     selectFloor(selected);
     bindKeyboard();
+    import("./motion/scenes-3d.js")
+      .then((m) => m.mountTower3D({ glassHost: get("glassTower"), floors, getSelected: () => selected, onSelect: selectFloor }))
+      .then((h) => { tower3d = h; })
+      .catch(() => {});
   } catch (error) {
     get("detailPanel").replaceChildren(el("p", { class: "tw-load-empty", text: "无学习记录" }),
       el("a", { class: "tw-enter", href: "../study/index.html", text: "学习总控" }));

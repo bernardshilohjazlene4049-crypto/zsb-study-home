@@ -2169,7 +2169,7 @@ export async function enhanceSubjectPage({ shell, model, subjectId }) {
     }
   }
 
-  // 顶部系统学习知识架构图 + 掌握度热力图
+  // 顶部系统学习知识架构图 + 动态原理图解实验室 + 掌握度热力图
   const archBoard = renderSubjectArchitecture({ subjectId, model, base });
   const heatmap = renderMasteryHeatmap({ model, cardsDoc, base, subjectId });
   const subjShell = main.querySelector(".subj-shell");
@@ -2182,6 +2182,15 @@ export async function enhanceSubjectPage({ shell, model, subjectId }) {
   } else {
     if (archBoard) main.prepend(archBoard, heatmap);
     else main.prepend(heatmap);
+  }
+  if (["math", "web_design", "network", "c_language"].includes(subjectId) && !main.querySelector(".sys-motion-studio")) {
+    import("../motion/interactive-studio.js")
+      .then((m) => {
+        if (!main.querySelector(".sys-motion-studio")) {
+          heatmap.before(m.renderMotionStudio({ base, subjectId }));
+        }
+      })
+      .catch(() => {});
   }
 
   // 在科目页的章节知识点列表中注入前置提示、L0一句话结论预览与视频/导图标签
@@ -2767,12 +2776,12 @@ export async function enhanceHomeAndOverview({ shell, model }) {
     if (notesGrid && !notesGrid.dataset.sysAllSubjects) {
       notesGrid.dataset.sysAllSubjects = "1";
       const subjectCardsMeta = [
-        ["math", "gs/index.html", "sigma", "高等数学", "24 个核心考点 · 函数极限、空间几何、多元微积分（配视频与导图）"],
-        ["english", "yy/index.html", "english", "英语", "9 大语法专题 · 非谓语、三大从句、主谓一致、特殊句型（配视频与导图）"],
-        ["computer_basics", "jsj/index.html", "monitor", "计算机基础", "17 个专题 · 基础知识导图、Excel 26 题视频、PPT 操作题路径"],
-        ["network", "wl/index.html", "network", "计算机网络", "22 节全考点复习 + 29 节 IP/子网/分片/路由精讲与自测"],
-        ["web_design", "wy/index.html", "web", "网页设计", "紧扣 HTML + CSS 考纲 · 14 节课堂核心复习 + HTML5 语义表单 / CSS3 盒模型与布局实操"],
-        ["c_language", "c/index.html", "code", "C 语言", "第 1–9 章 27 节完整讲义 · 填空遮挡背诵、数组函数指针专题、54 道随堂真题与 5 道图题"]
+        ["math", "gs/index.html", "sigma", "高等数学", "30 个考纲点 · 极限与连续、多元微分学、二重积分与级数（配视频、导图与 Manim 动画）"],
+        ["english", "yy/index.html", "english", "英语", "11 个核心专题 · 非谓语动词、三大从句、主谓一致与特殊句式（配视频与导图）"],
+        ["computer_basics", "jsj/index.html", "monitor", "计算机基础", "9 大能力模块 · 计算机系统与 SQL 基础、Excel 公式函数、PPT 演示设计"],
+        ["network", "wl/index.html", "network", "计算机网络", "29 个考纲点 + 22 节复习 · IPv4 分类、CIDR、VLSM 子网划分、分片与聚合"],
+        ["web_design", "wy/index.html", "web", "网页设计", "74 个纯 HTML + CSS 考纲点 · 文档骨架、语义表单、选择器层叠、盒模型与 Flex 布局"],
+        ["c_language", "c/index.html", "code", "C 语言", "30 个考纲点 · 第 1–10 章递进体系、遮挡背诵、数组函数指针与 54 道随堂真题"]
       ];
       notesGrid.replaceChildren(...subjectCardsMeta.map(([sid, href, icoName, title, desc]) => {
         const p = model.subjectProgress(sid);
@@ -2803,6 +2812,15 @@ export async function enhanceHomeAndOverview({ shell, model }) {
         ])
       ]);
       mapSec.before(labBanner);
+    }
+    if (mapSec && !document.querySelector(".sys-motion-studio")) {
+      import("../motion/interactive-studio.js")
+        .then((m) => {
+          if (!document.querySelector(".sys-motion-studio")) {
+            mapSec.before(m.renderMotionStudio({ base }));
+          }
+        })
+        .catch(() => {});
     }
     if (mapSec && !document.querySelector(".sys-heatmap")) {
       mapSec.before(renderMasteryHeatmap({ model, cardsDoc, base }));

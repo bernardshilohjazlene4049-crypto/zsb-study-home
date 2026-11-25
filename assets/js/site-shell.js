@@ -168,6 +168,13 @@
   window.ZSBShell = { root: ROOT.href, rel: rel, base: base(), kind: KIND, svg: svg };
 
   function ensureLiquidGlassStyle() {
+    if (!d.querySelector('link[data-shell-style="motion-studio"]')) {
+      var ms = d.createElement("link");
+      ms.rel = "stylesheet";
+      ms.href = new URL("assets/css/motion-studio.css", ROOT).href;
+      ms.setAttribute("data-shell-style", "motion-studio");
+      if (d.head) d.head.appendChild(ms);
+    }
     var existing = d.querySelector('link[data-shell-style="liquid-glass"]');
     if (!existing) {
       existing = d.createElement("link");
@@ -205,6 +212,18 @@
     ensureLiquidGlassStyle();
     mountAmbientOrbs();
     mountChrome();
+    var bootMotion = function () {
+      import(new URL("assets/js/motion/site-motion.js", ROOT).href)
+        .then(function (m) { m.initSiteMotion(); })
+        .catch(function () {});
+      if (KIND === "home") {
+        import(new URL("assets/js/motion/scenes-3d.js", ROOT).href)
+          .then(function (m) { return m.mountHeroCrystal3D(); })
+          .catch(function () {});
+      }
+    };
+    if (window.requestIdleCallback) window.requestIdleCallback(bootMotion, { timeout: 900 });
+    else setTimeout(bootMotion, 120);
     if (!KIND) return;
     import(new URL("assets/js/shell/" + KIND + ".js", ROOT).href)
       .then(function (m) { return m.mount(window.ZSBShell); })
