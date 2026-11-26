@@ -16,6 +16,11 @@
   <link rel="canonical" href="https://bernardshilohjazlene4049-crypto.github.io/zsb-study-home/wl/ch3/s32.html">
   <meta name="zsb-module" content="network">
   <meta name="zsb-status" content="ready">
+
+<!-- videos-v1:start -->
+<link rel="stylesheet" href="../../assets/css/videos-v1.css">
+<script defer src="../../assets/js/videos-v1.js" data-download-base="https://github.com/bernardshilohjazlene4049-crypto/zsb-study-home/releases/download/videos-v1/"></script>
+<!-- videos-v1:end -->
 <link rel="stylesheet" href="../../assets/css/lab-viz.css">
 <script src="../../assets/js/calc-net.js" defer></script>
 <script src="../../assets/js/lab-viz.js" defer></script>
@@ -24,7 +29,16 @@
 <header class="site-header"><div class="site-header__inner"><a class="site-brand" href="../../index.html">辽宁专升本</a><nav class="site-nav" aria-label="全站导航"><a href="../../search.html">搜索</a></nav></div></header>
 <main class="site-main"><div class="site-container">
 <div class="wy-layout" data-chapter="net.ch3">
-<article class="sh-card wy-sheet"><header class="wy-point-head"><span class="wy-point-no">3.2</span><h1>3.2 按主机数不等长分配地址块</h1></header><!--lab:illus--><div class="wy-illus" data-illus="wl.ch3.s32" hidden></div><!--/lab:illus-->
+<article class="sh-card wy-sheet"><header class="wy-point-head"><span class="wy-point-no">3.2</span><h1>3.2 按主机数不等长分配地址块</h1>
+<!-- videos-v1:start -->
+<details class="v1-videos" id="videos-v1" data-release="draft" data-pagefind-ignore><summary>知识点讲解视频（1） · 待发布</summary>
+<p class="v1-notice">视频待发布，发布后可在此播放。</p>
+<ul>
+<li data-video-id="net.s32" data-asset="net.s32.mp4" data-duration="124.52" data-bytes="2658835" data-sha256="3db7f15f9ff43be7093c960102dcc453e5adee91314f715fa18ef3f3cd60b4b5"><img data-cover="../../assets/videos-v1/posters/net.s32.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><div><span class="v1-title">3.2 按主机数不等长分配地址块</span> <span class="v1-time">2:05</span></div></li>
+</ul>
+</details>
+<!-- videos-v1:end -->
+</header><!--lab:illus--><div class="wy-illus" data-illus="wl.ch3.s32" hidden></div><!--/lab:illus-->
 <section class="wy-entry" id="e-3-2-1"><div class="wy-entry-top"><h2>典型题：30.138.118/23 分给 5 个局域网（题目与分析）</h2><button class="sh-btn" type="button" data-open-photo data-photos="1">打开原图</button></div><div class="wy-source wy-paper"><div class="wy-source-row wl-source-mark"><p>【印刷】</p></div><div class="wy-source-row"><p>典型题　一个自治系统分配到IP地址块为30.138.118/23，包括5个局域网，其连接图如下图所示，每个局域网上的主机数标注在图上。试给出每一个局域网的地址块（包括前缀）。</p></div><div class="wy-source-row"><p>（图）30.138.118/23；LAN2 91 个主机；LAN3 150 个主机；LAN4 3 个主机；LAN5 15 个主机；LAN1（R1、R2、R3 所在的连接线）</p></div><div class="wy-source-row wl-source-mark"><p>【老师手写】</p></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">左上圈：笔</span></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">118 上方：→01110110；“5个局域网”上方：5个网段【看不清，疑为“5个网段”】</span></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">图上：LAN2 92个，LAN3 151个，LAN4 4个，LAN5 16个，LAN1 3个</span></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">/23中的IP数 = 2^(32-23) = 2^9 = 512个</span></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">30.138.0111011 | 1 → 1（上方 0、50【看不清】），箭头：第24位、第25位；30.138.0111011 下：23位</span></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">右侧方框：512个（顶部）；左半 0：256个；右半 1：上 0 128个，中间横线处 256个，下 1 128个</span></div></div><div class="wy-supplement wy-paper"><h3>整理</h3><p>思路：/23 共有 2^(32−23) = 512 个地址。把每个局域网需要的地址数（老师在图上把主机数各加 1：LAN2 92、LAN3 151、LAN4 4、LAN5 16，LAN1 标 3）从大到小分配，每次把剩余的块对半切：</p><ul><li>第 24 位取 0 → 前一半 256 个；第 24 位取 1 → 后一半 256 个，再按第 25 位切成两个 128 个……</li></ul><p>具体结果见下一条（第 97 页）。</p><p>注：原图只写了“各加 1”的数字，没有写为什么加 1；加 1 的原因原图未说明，整理者不补充。</p></div><!--gem:3-2-1--><div class="wy-supplement wy-paper wy-gem"><h3>讲解</h3><ul>
 <li><strong>直观意思</strong>：VLSM 就是“按需分地”——大部门分大块，小部门分小块，而且<strong>必须先分大块、再分小块</strong>，每一块的起始地址必须能被这一块的大小整除（对齐边界）。  </li>
 <li><strong>为什么</strong>：为什么要从大到小分配？因为 CIDR 要求一个大小为 <math display="inline"><mrow><msup><mrow><mn>2</mn></mrow><mrow><mi>m</mi></mrow></msup></mrow></math> 的地址块，其起始地址的后 <math display="inline"><mrow><mi>m</mi></mrow></math> 位必须全为 0（即块起点必须是 <math display="inline"><mrow><msup><mrow><mn>2</mn></mrow><mrow><mi>m</mi></mrow></msup></mrow></math> 的整数倍）。如果先在开头切走一个小块（如从 .0 切走 8 个地址），后面的大块（如 64 个地址）就没法从 .8 开始，只能跳过 .8~.63 造成大量地址空洞浪费；从大到小切则天然步步对齐！</li>

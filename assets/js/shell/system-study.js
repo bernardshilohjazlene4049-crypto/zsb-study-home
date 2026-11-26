@@ -915,7 +915,11 @@ export function openSlideDeckModal({ cards, model, cardsDoc, base, startIndex = 
           onclick: () => void launchCodeLabModal({ card, title: `${card.title} · 随堂实操`, base }),
           text: "💻 动手实操本考点"
         }),
-        card.video_clips?.length ? el("button", {
+        card.video_section ? el("a", {
+          class: "sh-btn sys-btn-media",
+          href: base + card.video_section,
+          text: `▶ ${card.title}讲解视频`
+        }) : card.video_clips?.length ? el("button", {
           type: "button",
           class: "sh-btn sys-btn-media",
           onclick: () => openVideoClipModal(card.video_clips[0], base, card.video_clips),
@@ -1418,7 +1422,11 @@ export function renderKnowledgeCard(card, { model, cardsDoc, base, pageUrl, inde
     title: "快捷键 R：在当前页打开本知识点专属在线代码实操（C / HTML / SQL）",
     text: labLabel
   });
-  const videoBtn = card.video_clips?.length ? el("button", {
+  const videoBtn = card.video_section ? el("a", {
+    class: "sh-btn sys-tool-btn sys-tool-btn--video",
+    href: base + card.video_section,
+    text: `▶ ${card.title}讲解视频`
+  }) : card.video_clips?.length ? el("button", {
     type: "button",
     class: "sh-btn sys-tool-btn sys-tool-btn--video",
     text: `▶ 视频片段 (${card.video_clips[0].label})`
@@ -1493,7 +1501,7 @@ export function renderKnowledgeCard(card, { model, cardsDoc, base, pageUrl, inde
   });
 
   videoBtn?.addEventListener("click", () => {
-    openVideoClipModal(card.video_clips[0], base, card.video_clips);
+    if (!card.video_section) openVideoClipModal(card.video_clips[0], base, card.video_clips);
   });
 
   illusBtn?.addEventListener("click", () => {
@@ -1557,6 +1565,16 @@ export function renderKnowledgeCard(card, { model, cardsDoc, base, pageUrl, inde
   // L2 直观讲解、步骤与视频秒级直达
   const videoRow = card.video_clips?.length ? el("div", { class: "sys-card__videos" }, [
     el("span", { class: "sys-card__videos-label", text: "🎬 讲解视频直达：" }),
+    card.video_section ? el("a", {
+      class: "sys-video-chip",
+      href: base + card.video_section,
+      text: `▶ ${card.title}讲解视频`
+    }) : null,
+    ...(card.video_sections || []).map(({ title, url }) => el("a", {
+      class: "sys-video-chip",
+      href: base + url,
+      text: `▶ ${title}分段讲解`
+    })),
     ...card.video_clips.map((clip) => {
       const b = el("button", {
         type: "button",

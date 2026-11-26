@@ -16,12 +16,26 @@
   <link rel="canonical" href="https://bernardshilohjazlene4049-crypto.github.io/zsb-study-home/wl/ch5/s52.html">
   <meta name="zsb-module" content="network">
   <meta name="zsb-status" content="ready">
+
+<!-- videos-v1:start -->
+<link rel="stylesheet" href="../../assets/css/videos-v1.css">
+<script defer src="../../assets/js/videos-v1.js" data-download-base="https://github.com/bernardshilohjazlene4049-crypto/zsb-study-home/releases/download/videos-v1/"></script>
+<!-- videos-v1:end -->
 </head>
 <body class="wy-points-page wl-page">
 <header class="site-header"><div class="site-header__inner"><a class="site-brand" href="../../index.html">辽宁专升本</a><nav class="site-nav" aria-label="全站导航"><a href="../../search.html">搜索</a></nav></div></header>
 <main class="site-main"><div class="site-container">
 <div class="wy-layout" data-chapter="net.ch5">
-<article class="sh-card wy-sheet"><header class="wy-point-head"><span class="wy-point-no">5.2</span><h1>5.2 IPv6 数据报的组成</h1></header><!--lab:illus--><div class="wy-illus" data-illus="wl.ch5.s52" hidden></div><!--/lab:illus-->
+<article class="sh-card wy-sheet"><header class="wy-point-head"><span class="wy-point-no">5.2</span><h1>5.2 IPv6 数据报的组成</h1>
+<!-- videos-v1:start -->
+<details class="v1-videos" id="videos-v1" data-release="draft" data-pagefind-ignore><summary>知识点讲解视频（1） · 待发布</summary>
+<p class="v1-notice">视频待发布，发布后可在此播放。</p>
+<ul>
+<li data-video-id="net.s52" data-asset="net.s52.mp4" data-duration="61.16" data-bytes="1233768" data-sha256="6dcce39ca50f6865345424910840bbf47e56fa8cc2b04e402da38760ef2c26c8"><img data-cover="../../assets/videos-v1/posters/net.s52.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><div><span class="v1-title">5.2 IPv6 数据报的组成</span> <span class="v1-time">1:01</span></div></li>
+</ul>
+</details>
+<!-- videos-v1:end -->
+</header><!--lab:illus--><div class="wy-illus" data-illus="wl.ch5.s52" hidden></div><!--/lab:illus-->
 <section class="wy-entry" id="e-5-2-1"><div class="wy-entry-top"><h2>（2）IPv6 数据报的组成</h2><button class="sh-btn" type="button" data-open-photo data-photos="1">打开原图</button></div><div class="wy-source wy-paper"><div class="wy-source-row wl-source-mark"><p>【印刷】</p></div><div class="wy-source-row"><p>（2）IPv6 数据报的组成</p></div><div class="wy-source-row"><p>● 由两大部分组成：</p></div><div class="wy-source-row"><p>1. 基本首部　40B</p></div><div class="wy-source-row"><p>2. 有效载荷　有效载荷也称为净负荷。有效载荷允许有零个或多个扩展首部，再后面是数据部分。</p></div><div class="wy-source-row"><p>（图）IPv6 数据报：基本首部（40 字节，发送在前）+ 有效载荷（不超过 65535 字节）；有效载荷 = 扩展首部 1 … 扩展首部 N（选项）+ 数据部分</p></div></div><div class="wy-supplement wy-paper"><h3>整理</h3><p>IPv6 数据报 = 基本首部（固定 40 字节）+ 有效载荷（也叫净负荷，不超过 65535 字节）。</p><p>有效载荷里可以有 0 个或多个扩展首部（属于选项），后面是数据部分。基本首部最先发送。</p></div><!--gem:5-2-1--><div class="wy-supplement wy-paper wy-gem"><h3>讲解</h3><ul>
 <li><strong>直观意思</strong>：IPv6 把快递单（基本首部）做了大瘦身和大规整：字段减少、长度死死固定在 40 字节，常用的只留 8 个核心字段；像“分片、路由选项”这种不是每次都用的附加单据，全部挪到外面做成“扩展首部”，像链表一样用“下一个首部”指针一个串一个，不需要就不挂。  </li>
 <li><strong>为什么</strong>：IPv4 的基本首部长度是可变的（20–60 字节），路由器每收到一个包都要先算首部长度、处理各种可选项、还要重算首部检验和，转发很慢；IPv6 把基本首部定死在 40 字节，绝大多数扩展首部沿途路由器甚至不用看（只有逐跳选项才逐跳检查），极大提高了路由器硬件转发效率。</li>

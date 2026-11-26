@@ -16,12 +16,26 @@
   <link rel="canonical" href="https://bernardshilohjazlene4049-crypto.github.io/zsb-study-home/wl/ch3/s36.html">
   <meta name="zsb-module" content="network">
   <meta name="zsb-status" content="ready">
+
+<!-- videos-v1:start -->
+<link rel="stylesheet" href="../../assets/css/videos-v1.css">
+<script defer src="../../assets/js/videos-v1.js" data-download-base="https://github.com/bernardshilohjazlene4049-crypto/zsb-study-home/releases/download/videos-v1/"></script>
+<!-- videos-v1:end -->
 </head>
 <body class="wy-points-page wl-page">
 <header class="site-header"><div class="site-header__inner"><a class="site-brand" href="../../index.html">辽宁专升本</a><nav class="site-nav" aria-label="全站导航"><a href="../../search.html">搜索</a></nav></div></header>
 <main class="site-main"><div class="site-container">
 <div class="wy-layout" data-chapter="net.ch3">
-<article class="sh-card wy-sheet"><header class="wy-point-head"><span class="wy-point-no">3.6</span><h1>3.6 划分子网的步骤</h1></header><!--lab:illus--><div class="wy-illus" data-illus="wl.ch3.s36" hidden></div><!--/lab:illus-->
+<article class="sh-card wy-sheet"><header class="wy-point-head"><span class="wy-point-no">3.6</span><h1>3.6 划分子网的步骤</h1>
+<!-- videos-v1:start -->
+<details class="v1-videos" id="videos-v1" data-release="draft" data-pagefind-ignore><summary>知识点讲解视频（1） · 待发布</summary>
+<p class="v1-notice">视频待发布，发布后可在此播放。</p>
+<ul>
+<li data-video-id="net.s36" data-asset="net.s36.mp4" data-duration="103.24" data-bytes="2232400" data-sha256="c3e19afc58e4571c2b255ec35b82e005a241f0657ff076db8c0c8f9af2a20163"><img data-cover="../../assets/videos-v1/posters/net.s36.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><div><span class="v1-title">3.6 划分子网的步骤</span> <span class="v1-time">1:43</span></div></li>
+</ul>
+</details>
+<!-- videos-v1:end -->
+</header><!--lab:illus--><div class="wy-illus" data-illus="wl.ch3.s36" hidden></div><!--/lab:illus-->
 <section class="wy-entry" id="e-3-6-1"><div class="wy-entry-top"><h2>划分子网的步骤（七步）</h2><button class="sh-btn" type="button" data-open-photo data-photos="1">打开原图</button></div><div class="wy-source wy-paper"><div class="wy-source-row wl-source-mark"><p>【印刷】</p></div><div class="wy-source-row"><p>划分子网的步骤</p></div><div class="wy-source-row"><p>① 确定需要的子网个数</p></div><div class="wy-source-row"><p>② 确定从主机号字段借用的比特数</p></div><div class="wy-source-row"><p>③ 确定一个子网内可能的最多主机数</p></div><div class="wy-source-row"><p>④ 确定主机号字段需要保留的比特数</p></div><div class="wy-source-row"><p>⑤ 创建一个子网掩码</p></div><div class="wy-source-row"><p>⑥ 确定有效子网地址</p></div><div class="wy-source-row"><p>⑦ 确定每个子网的IP地址有效范围</p></div><div class="wy-source-row wl-source-mark"><p>【老师手写】</p></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">（本页无手写）</span></div></div><div class="wy-supplement wy-paper"><h3>整理</h3><p>七步流程。对照例题 3-4-2（192.168.25.0 分 6 个子网），整理者把老师那道题的手写步骤对应到这七步：</p><ul><li>①②：子网个数 6 → 借用子网号位数 n（2^n − 2 ≥ 6，n = 3）；</li><li>③④：每个子网最多主机数 → 主机号保留 5 位（2^5 − 2 = 30）；</li><li>⑤：子网掩码 255.255.255.224；</li><li>⑥：子网地址 .32 / .64 / … / .192；</li><li>⑦：每个子网主机范围（最小 = 网络地址 + 1，最大 = 网络地址 + 30）。</li></ul><p>（此对应关系是整理者所做，老师这一页没有写对应。）</p></div><!--gem:3-6-1--><div class="wy-supplement wy-paper wy-gem"><h3>讲解</h3><ul>
 <li><strong>直观意思</strong>： 划分子网就像“把一整栋大宿舍楼按系隔成若干独立片区”：先想清楚要隔成几个片区（①），算出片区编号要占几位二进制（②），再核对每个片区最多要住多少人（③）以及门牌号至少得留几位（④）；位数定好后，生成一把“尺子”即子网掩码（⑤），用它切出每个片区的入口编号（⑥），最后标明每个片区里能分配给具体电脑的起止编号（⑦）。  </li>
 <li><strong>为什么</strong>： IPv4 地址总长固定为 32 位，原主机号字段的总位数是固定的（A 类 24 位、B 类 16 位、C 类 8 位）。从主机号里“借位”当子网号，是一场<strong>子网数量</strong>与<strong>单子网主机容量</strong>的零和分配：借得多，子网多但每个子网能容纳的主机少；借得少则相反。因此必须先核对步骤 ①②（子网需求）与步骤 ③④（主机需求）是否都能满足，才能定下唯一的掩码（⑤）并推导出子网地址和可用 IP 范围（⑥⑦）。</li>

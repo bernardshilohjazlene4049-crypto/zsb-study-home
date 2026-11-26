@@ -14,6 +14,11 @@
   <script src="../assets/js/site-shell.js"></script>
   <meta name="zsb-module" content="notes">
   <meta name="zsb-status" content="ready">
+
+<!-- videos-v1:start -->
+<link rel="stylesheet" href="../assets/css/videos-v1.css">
+<script defer src="../assets/js/videos-v1.js" data-download-base="https://github.com/bernardshilohjazlene4049-crypto/zsb-study-home/releases/download/videos-v1/"></script>
+<!-- videos-v1:end -->
 <link rel="stylesheet" href="../assets/css/lab-viz.css">
 <script src="../assets/js/lab-viz.js" defer></script>
 </head>
@@ -54,6 +59,15 @@
       </aside>
       <div class="notes-content">
         <section class="note-section" id="css-pseudo">
+<!-- videos-v1:start -->
+<details class="v1-videos" id="videos-v1-css-pseudo" data-release="draft" data-pagefind-ignore><summary>知识点讲解视频（1） · 待发布</summary>
+<p class="v1-notice">视频待发布，发布后可在此播放。</p>
+<ul>
+<li data-video-id="web.class.css" data-asset="web.class.css.mp4" data-duration="147.0" data-bytes="2874468" data-sha256="8e8992a8c3826e06baf2eaae0235e38f5f7bba562effe48761d480dabf3d30f2"><img data-cover="../assets/videos-v1/posters/web.class.css.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><div><span class="v1-title">CSS 引入、颜色与链接伪类</span> <span class="v1-time">2:27</span></div></li>
+</ul>
+</details>
+<!-- videos-v1:end -->
+
           <header class="note-section__head"><span class="note-section__no">01</span><div><h2>CSS 引入、颜色与链接伪类</h2><p class="note-section__summary">同一个页面可以同时使用外部样式表、内部 style 和行内 style；链接有未访问、已访问、悬停、按下四种状态。</p></div></header>
           <div class="concept-grid">
             <article class="concept-card"><h3>外部样式表</h3><p>将样式写在 `.css` 文件中，再由 HTML 的 `link` 引入，便于多个页面共享。</p><pre class="code-block"><code>&lt;link rel="stylesheet" href="css/c1.css"&gt;</code></pre></article>
@@ -71,6 +85,15 @@ a:active { color: blue; }</code></pre>
           <details class="source-drawer"><summary>查看本章原始截图</summary><div class="source-grid" data-source-group="css-pseudo"></div></details>
         </section>
         <section class="note-section" id="text">
+<!-- videos-v1:start -->
+<details class="v1-videos" id="videos-v1-text" data-release="draft" data-pagefind-ignore><summary>知识点讲解视频（1） · 待发布</summary>
+<p class="v1-notice">视频待发布，发布后可在此播放。</p>
+<ul>
+<li data-video-id="web.class.text" data-asset="web.class.text.mp4" data-duration="145.24" data-bytes="2961694" data-sha256="9c71f45586f694fb37e9e0144076916738ae6ae65f73890d518ebfb1fa7eadd1"><img data-cover="../assets/videos-v1/posters/web.class.text.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><div><span class="v1-title">文本溢出、阴影、缩进与空白</span> <span class="v1-time">2:25</span></div></li>
+</ul>
+</details>
+<!-- videos-v1:end -->
+
           <header class="note-section__head"><span class="note-section__no">02</span><div><h2>文本溢出、阴影、缩进与空白</h2><p class="note-section__summary">这组属性都作用在文本呈现上，但解决的是不同问题：截断、装饰、段落开头和空格换行规则。</p></div></header>
           <div class="demo-pair">
             <div class="demo-box"><strong>单行溢出</strong><p class="demo-ellipsis">这是一段故意写得足够长的文字，用来展示 text-overflow: ellipsis 的效果。</p><code>overflow:hidden; white-space:nowrap; text-overflow:ellipsis;</code></div>
@@ -87,6 +110,15 @@ a:active { color: blue; }</code></pre>
           <details class="source-drawer"><summary>查看本章原始截图</summary><div class="source-grid" data-source-group="text"></div></details>
         </section>
         <section class="note-section" id="selectors">
+<!-- videos-v1:start -->
+<details class="v1-videos" id="videos-v1-selectors" data-release="draft" data-pagefind-ignore><summary>知识点讲解视频（1） · 待发布</summary>
+<p class="v1-notice">视频待发布，发布后可在此播放。</p>
+<ul>
+<li data-video-id="web.class.selectors" data-asset="web.class.selectors.mp4" data-duration="123.88" data-bytes="2435713" data-sha256="1745e3792a1328ed528c184244896d4721bca85822f8312c94332fd9979c539b"><img data-cover="../assets/videos-v1/posters/web.class.selectors.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><div><span class="v1-title">:root 与 :not 选择器</span> <span class="v1-time">2:04</span></div></li>
+</ul>
+</details>
+<!-- videos-v1:end -->
+
           <header class="note-section__head"><span class="note-section__no">03</span><div><h2>`:root` 与 `:not` 选择器</h2><p class="note-section__summary">`:root` 指向文档根元素，`:not(...)` 匹配参数条件之外的元素。</p></div></header>
           <div class="concept-grid">
             <article class="concept-card"><h3>`:root`</h3><p>匹配文档的根元素，HTML 中就是 `&lt;html&gt;`。常用来声明全局 CSS 自定义属性，让变量在整个文档中可继承。</p><pre class="code-block"><code>:root {
@@ -102,6 +134,15 @@ a:active { color: blue; }</code></pre>
           <details class="source-drawer"><summary>查看本章原始截图</summary><div class="source-grid" data-source-group="selectors"></div></details>
         </section>
         <section class="note-section" id="forms">
+<!-- videos-v1:start -->
+<details class="v1-videos" id="videos-v1-forms" data-release="draft" data-pagefind-ignore><summary>知识点讲解视频（1） · 待发布</summary>
+<p class="v1-notice">视频待发布，发布后可在此播放。</p>
+<ul>
+<li data-video-id="web.class.forms" data-asset="web.class.forms.mp4" data-duration="143.6" data-bytes="2887146" data-sha256="e7272c54f6ec9edc242b884710ebbb76db18f879c396f6b8eb9e10da55cface0"><img data-cover="../assets/videos-v1/posters/web.class.forms.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><div><span class="v1-title">表单、表格与 form 关联属性</span> <span class="v1-time">2:24</span></div></li>
+</ul>
+</details>
+<!-- videos-v1:end -->
+
           <header class="note-section__head"><span class="note-section__no">04</span><div><h2>表单、表格与 form 关联属性</h2><p class="note-section__summary">表单负责收集数据，表格负责表格数据展示。不要在表格结构允许的位置随意塞表单，并注意 HTML5 的 form 关联方式。</p></div></header>
           <div class="concept-grid">
             <article class="concept-card"><h3>正确嵌套</h3><p>可以把 table 放进 form，也可以在每个单元格 `td` 内放独立表单。直接把 form 塞在不允许的子元素位置会形成无效结构。</p></article>
@@ -125,6 +166,15 @@ a:active { color: blue; }</code></pre>
           <details class="source-drawer"><summary>查看本章原始截图</summary><div class="source-grid" data-source-group="forms"></div></details>
         </section>
         <section class="note-section" id="widgets">
+<!-- videos-v1:start -->
+<details class="v1-videos" id="videos-v1-widgets" data-release="draft" data-pagefind-ignore><summary>知识点讲解视频（1） · 待发布</summary>
+<p class="v1-notice">视频待发布，发布后可在此播放。</p>
+<ul>
+<li data-video-id="web.class.widgets" data-asset="web.class.widgets.mp4" data-duration="82.28" data-bytes="1583399" data-sha256="052bb494872d896c597042e8fc3d2a2dcf6bd63756614cb42b04b9ab33940002"><img data-cover="../assets/videos-v1/posters/web.class.widgets.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><div><span class="v1-title">datalist 与范围滑块</span> <span class="v1-time">1:22</span></div></li>
+</ul>
+</details>
+<!-- videos-v1:end -->
+
           <header class="note-section__head"><span class="note-section__no">05</span><div><h2>datalist 与范围滑块</h2><p class="note-section__summary">用原生 HTML 给文本输入提供建议值和数值范围，减少手工校验。</p></div></header>
           <div class="concept-grid">
             <article class="concept-card"><h3>`datalist`</h3><p>给 `&lt;datalist&gt;` 设置 id，再用输入框的 `list` 属性关联。用户仍可输入列表外的值，这点与只能从固定选项中选择的 `select` 不同。</p><pre class="code-block"><code>&lt;input list="schools"&gt;

@@ -16,12 +16,26 @@
   <link rel="canonical" href="https://bernardshilohjazlene4049-crypto.github.io/zsb-study-home/wl/ch2/s24.html">
   <meta name="zsb-module" content="network">
   <meta name="zsb-status" content="ready">
+
+<!-- videos-v1:start -->
+<link rel="stylesheet" href="../../assets/css/videos-v1.css">
+<script defer src="../../assets/js/videos-v1.js" data-download-base="https://github.com/bernardshilohjazlene4049-crypto/zsb-study-home/releases/download/videos-v1/"></script>
+<!-- videos-v1:end -->
 </head>
 <body class="wy-points-page wl-page">
 <header class="site-header"><div class="site-header__inner"><a class="site-brand" href="../../index.html">辽宁专升本</a><nav class="site-nav" aria-label="全站导航"><a href="../../search.html">搜索</a></nav></div></header>
 <main class="site-main"><div class="site-container">
 <div class="wy-layout" data-chapter="net.ch2">
-<article class="sh-card wy-sheet"><header class="wy-point-head"><span class="wy-point-no">2.4</span><h1>2.4 两级、三级结构与网络前缀（斜线记法）</h1></header><!--lab:illus--><div class="wy-illus" data-illus="wl.ch2.s24" hidden></div><!--/lab:illus-->
+<article class="sh-card wy-sheet"><header class="wy-point-head"><span class="wy-point-no">2.4</span><h1>2.4 两级、三级结构与网络前缀（斜线记法）</h1>
+<!-- videos-v1:start -->
+<details class="v1-videos" id="videos-v1" data-release="draft" data-pagefind-ignore><summary>知识点讲解视频（1） · 待发布</summary>
+<p class="v1-notice">视频待发布，发布后可在此播放。</p>
+<ul>
+<li data-video-id="net.s24" data-asset="net.s24.mp4" data-duration="115.4" data-bytes="2398269" data-sha256="da92373588375ce1ae981a547a9b04fad1ba4ff392924b2912cb335f88948faa"><img data-cover="../../assets/videos-v1/posters/net.s24.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><div><span class="v1-title">2.4 两级、三级结构与网络前缀（斜线记法）</span> <span class="v1-time">1:55</span></div></li>
+</ul>
+</details>
+<!-- videos-v1:end -->
+</header><!--lab:illus--><div class="wy-illus" data-illus="wl.ch2.s24" hidden></div><!--/lab:illus-->
 <section class="wy-entry" id="e-2-4-1"><div class="wy-entry-top"><h2>（1）网络前缀：两级结构、三级结构与 CIDR 的关系（板书版）</h2><button class="sh-btn" type="button" data-open-photo data-photos="1">打开原图</button></div><div class="wy-source wy-paper"><div class="wy-source-row wl-source-mark"><p>【印刷】</p></div><div class="wy-source-row"><p>（1）网络前缀</p></div><div class="wy-source-row"><p>两级结构　IP::={&lt;网络号&gt;,&lt;主机号&gt;}</p></div><div class="wy-source-row"><p>三级结构　IP::={&lt;网络号&gt;,&lt;子网号&gt;,&lt;主机号&gt;}</p></div><div class="wy-source-row"><p>两级结构　IP::={&lt;网络前缀&gt;,&lt;主机号&gt;}</p></div><div class="wy-source-row"><p>IP地址的标识方法——斜线记法　例：156.16.37.5/20：前 20 位是网络前缀。</p></div><div class="wy-source-row wl-source-mark"><p>【老师手写】</p></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">第1行：“网络号”上方一个短词【看不清】，红箭头指向第2行的“网络号”；“主机号”处两条红箭头，分别指向第2行的“子网号”（旁注：高位）和“主机号”（旁注：低位）</span></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">第1行右侧：分类IP（默认子网掩码）</span></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">第2行右侧：分类IP 划分子网；子网掩码（划分子网）</span></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">第2行“网络号,子网号”下紫线，紫箭头指向第3行的“网络前缀”；第3行“主机号”有紫箭头连回第2行“主机号”</span></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">第3行“网络前缀”下方：（已知）</span></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">第3行右侧：CIDR 无分类编址</span></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">“斜线记法”下紫色波浪线；“/20”下紫色波浪线</span></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">底部：主机号位数 = 32 − 前缀 = 32 − 20 = 12</span></div></div><div class="wy-supplement wy-paper"><h3>整理</h3><p>三种写法：</p><ul><li>两级（分类 IP）：网络号 + 主机号，用默认子网掩码；</li><li>三级（分类 IP 划分子网）：网络号 + 子网号 + 主机号，要用子网掩码；子网号取自原主机号的高位，剩下的低位仍是主机号；</li><li>两级（CIDR 无分类编址）：网络前缀 + 主机号。网络前缀 = 网络号 + 子网号，老师注明“已知”（即由斜线后的数字给出）。</li></ul><p>斜线记法：156.16.37.5/20 表示前 20 位是网络前缀，主机号位数 = 32 − 20 = 12。</p></div><!--gem:2-4-1--><div class="wy-supplement wy-paper wy-gem"><h3>讲解</h3><p>IPv4 地址总共固定 32 位（由 4 段 8 位二进制组成）。怎么把这 32 位切成“小区门牌（哪张网）”和“户号（哪台主机）”，经历了三个阶段：
 1. <strong>传统分类 IP（两级）</strong>：按 A/B/C 类死板切分，用默认子网掩码，切口位置固定。<br />
 2. <strong>分类 IP 划分子网（三级）</strong>：网络号不动，从原来的主机号里“借出高位”当子网号，剩下的“低位”继续当主机号。<br />

@@ -1,0 +1,133 @@
+"""Integration checks against the batch inputs and the checked-out Git base."""
+from collections import Counter
+from io import BytesIO
+import importlib.util
+import json
+from pathlib import Path
+import re
+import subprocess
+import sys
+from types import SimpleNamespace
+
+ROOT = Path(__file__).resolve().parents[1]
+BATCH = Path(sys.argv[1])
+MANIFEST = BATCH / "integration_manifest.json"
+
+
+def load(name):
+    spec = importlib.util.spec_from_file_location(name, ROOT / "tools" / f"{name}.py")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+integration = load("integrate-videos")
+preview = load("preview-videos")
+doc = json.loads(MANIFEST.read_text())
+rows = doc["videos"]
+base = doc["main_sha"]
+subprocess.run([sys.executable, str(ROOT / "tools/integrate-videos.py"),
+                str(MANIFEST), str(BATCH / "posters.zip"), "--check"], check=True)
+
+
+def git(*args):
+    return subprocess.check_output(["git", *args], cwd=ROOT).decode()
+
+
+pages = git("ls-files", "--", "*.html").splitlines()
+counts = Counter()
+legacy_link = (ROOT / "tests/fixtures/math-domain-legacy-entry.txt").read_text().strip()
+for page in pages:
+    html = (ROOT / page).read_bytes().decode("utf-8")
+    blocks = integration.BLOCK.findall(html)
+    if not blocks:
+        continue
+    release_base = f'https://github.com/{doc["repository"]}/releases/download/videos-v1/'
+    assert html.count(f'data-download-base="{release_base}"') == 1, page
+    for block in blocks:
+        assert not re.search(r'<(?:video|source|iframe)\b|\bautoplay\b|\bhref="https?://', block)
+        assert not re.search(r"<img[^>]*\bsrc=", block)
+        counts.update(re.findall(r'\bdata-video-id="([^"]+)"', block))
+    expected = git("show", f"{base}:{page}")
+    if page == "gs/gs1.html":
+        link = '<a class="sh-btn" href="#videos-v1-gs1-1-2">定义域讲解视频</a>'
+        assert expected.count(legacy_link) == html.count(link) == 1
+        assert "kd1-domain.mp4" not in html
+        expected = expected.replace(legacy_link, link)
+    assert integration.BLOCK.sub("", html) == expected, page
+
+assert counts == Counter(row["card_id"] for row in rows)
+for path in git("diff", "--name-only", "--no-renames", "-z", base).split("\0"):
+    suffix = Path(path).suffix.lower()
+    assert suffix not in {".mp4", ".vtt", ".srt"}, path
+    if suffix in {".webp", ".jpg"}:
+        assert path.startswith("assets/videos-v1/posters/"), path
+cards = json.loads((ROOT / "data/topic-cards.json").read_text())
+original = json.loads(git("show", f"{base}:data/topic-cards.json"))
+domain = original["cards"]["math.domain"]
+domain["video_section"] = "gs/gs1.html#videos-v1-gs1-1-2"
+assert len(domain["video_clips"]) == 3
+domain["video_clips"] = [clip for clip in domain["video_clips"] if "kd1-domain.mp4" not in clip["url"]]
+assert len(domain["video_clips"]) == 1
+guide = original["cards"]["english.yy5.guide"]
+guide["video_sections"] = [
+    {"title": title, "url": f"yy/yy5.html#videos-v1-topic-{topic}"}
+    for topic, title in enumerate(("名词性从句", "状语从句", "主谓一致", "特殊句型"), 5)
+]
+assert original == cards
+english = [row for row in rows if row["page_path"] == "yy/yy5.html"]
+assert Counter(row["anchor"] for row in english) == {"topic-5": 7, "topic-6": 9, "topic-7": 5, "topic-8": 7}
+
+markup = integration.render([{**rows[0], "title": '<x>&"\''}], "", True)
+assert "&lt;x&gt;&amp;&quot;&#x27;" in markup and "<x>" not in markup
+print("Mapping, escaping, draft markup and legacy content passed")
+
+mapping = preview.media_paths(MANIFEST)
+assert len(mapping) == 227
+for row in rows:
+    assert mapping[row["release_asset_name"]].stat().st_size == row["size_bytes"]
+class MemoryRequest:
+    def __init__(self, data):
+        self.reader = BytesIO(data)
+        self.writer = BytesIO()
+
+    def makefile(self, mode, *_):
+        return self.reader if mode == "rb" else self.writer
+
+    def sendall(self, data):
+        self.writer.write(data)
+
+
+def request(path, headers=None, method="GET"):
+    fields = {"Host": "127.0.0.1:8765", **(headers or {})}
+    header_lines = "".join(f"{key}: {value}\r\n" for key, value in fields.items())
+    stream = MemoryRequest(f"{method} {path} HTTP/1.1\r\n{header_lines}\r\n".encode())
+    server = SimpleNamespace(server_port=8765, media=mapping)
+    preview.PreviewHandler(stream, ("127.0.0.1", 12345), server)
+    head, body = stream.writer.getvalue().split(b"\r\n\r\n", 1)
+    status, *response_headers = head.decode().split("\r\n")
+    return int(status.split()[1]), dict(line.split(": ", 1) for line in response_headers), body
+
+
+math = mapping["math.domain.mp4"]
+path = f"/{preview.MEDIA}/math.domain.mp4"
+status, headers, body = request(path, {"Range": "bytes=32-63"})
+with math.open("rb") as video:
+    video.seek(32)
+    assert body == video.read(32)
+assert status == 206 and headers["Content-Type"] == "video/mp4"
+assert headers["Content-Range"] == f"bytes 32-63/{math.stat().st_size}"
+assert headers["Accept-Ranges"] == "bytes"
+assert request(path, {"Range": "bytes=-64"}, "HEAD")[1]["Content-Length"] == "64"
+assert request(path, {"Range": "bytes=10-"}, "HEAD")[1]["Content-Length"] == str(math.stat().st_size - 10)
+assert request(path, {"Range": "bytes=9999999999-"})[0] == 416
+assert request(path, {"Range": "bytes=0-0,2-2"})[0] == 416
+assert request(path, {"Host": "external.example"})[0] == 403
+assert request(path, {"Sec-Fetch-Site": "cross-site"})[0] == 403
+assert request(path, method="PUT")[0] == 501
+assert request(f"/{preview.MEDIA}/unknown.mp4")[0] == 404
+assert request(f"/{preview.MEDIA}/%2e%2e/style.css")[0] == 404
+assert request("/%2egit/config")[0] == 404
+assert request("/tools/preview-videos.py")[0] == 404
+assert request("/gs/gs1.html?videos-preview=1", method="HEAD")[0] == 200
+print("In-memory HTTP handler, Range and allowlist checks passed")

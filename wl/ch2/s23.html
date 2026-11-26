@@ -16,6 +16,11 @@
   <link rel="canonical" href="https://bernardshilohjazlene4049-crypto.github.io/zsb-study-home/wl/ch2/s23.html">
   <meta name="zsb-module" content="network">
   <meta name="zsb-status" content="ready">
+
+<!-- videos-v1:start -->
+<link rel="stylesheet" href="../../assets/css/videos-v1.css">
+<script defer src="../../assets/js/videos-v1.js" data-download-base="https://github.com/bernardshilohjazlene4049-crypto/zsb-study-home/releases/download/videos-v1/"></script>
+<!-- videos-v1:end -->
 <link rel="stylesheet" href="../../assets/css/lab-viz.css">
 <script src="../../assets/js/calc-net.js" defer></script>
 <script src="../../assets/js/lab-viz.js" defer></script>
@@ -24,7 +29,16 @@
 <header class="site-header"><div class="site-header__inner"><a class="site-brand" href="../../index.html">辽宁专升本</a><nav class="site-nav" aria-label="全站导航"><a href="../../search.html">搜索</a></nav></div></header>
 <main class="site-main"><div class="site-container">
 <div class="wy-layout" data-chapter="net.ch2">
-<article class="sh-card wy-sheet"><header class="wy-point-head"><span class="wy-point-no">2.3</span><h1>2.3 已知地址求地址块</h1></header><!--lab:illus--><div class="wy-illus" data-illus="wl.ch2.s23"><a class="wy-illus-link" href="../illus/net-02-cidr.webp" target="_blank" rel="noopener"><img src="../illus/net-02-cidr.webp" alt="CIDR地址块讲解图" width="1086" height="1448" loading="lazy" decoding="async"></a></div><!--/lab:illus-->
+<article class="sh-card wy-sheet"><header class="wy-point-head"><span class="wy-point-no">2.3</span><h1>2.3 已知地址求地址块</h1>
+<!-- videos-v1:start -->
+<details class="v1-videos" id="videos-v1" data-release="draft" data-pagefind-ignore><summary>知识点讲解视频（1） · 待发布</summary>
+<p class="v1-notice">视频待发布，发布后可在此播放。</p>
+<ul>
+<li data-video-id="net.s23" data-asset="net.s23.mp4" data-duration="77.96" data-bytes="1472001" data-sha256="55a5bbb9733cdd7fa5c6a0858d6ed21dadaaa291fa52c5b76213fa48dd608bb0"><img data-cover="../../assets/videos-v1/posters/net.s23.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><div><span class="v1-title">2.3 已知地址求地址块</span> <span class="v1-time">1:18</span></div></li>
+</ul>
+</details>
+<!-- videos-v1:end -->
+</header><!--lab:illus--><div class="wy-illus" data-illus="wl.ch2.s23"><a class="wy-illus-link" href="../illus/net-02-cidr.webp" target="_blank" rel="noopener"><img src="../illus/net-02-cidr.webp" alt="CIDR地址块讲解图" width="1086" height="1448" loading="lazy" decoding="async"></a></div><!--/lab:illus-->
 <section class="wy-entry" id="e-2-3-1"><div class="wy-entry-top"><h2>典型题：140.120.84.24/20 的最小/最大地址、掩码、地址数、相当于多少个 C 类</h2><button class="sh-btn" type="button" data-open-photo data-photos="1">打开原图</button></div><div class="wy-source wy-paper"><div class="wy-source-row wl-source-mark"><p>【印刷】</p></div><div class="wy-source-row"><p>典型题　已知地址块中的一个地址是140.120.84.24/20。试求这个地址块中的最小地址和最大地址。地址掩码是什么？地址块中共有多少个地址？相当于多少个C类地址？</p></div><div class="wy-source-row wl-source-mark"><p>【老师手写】</p></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">左上圈：笔</span></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">84 上方：→0101</span></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">“地址块”框出；“C类地址”下方：C类网络</span></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">(1) 主机号位数=32-20=12</span></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">(2) 地址块中的 最小地址：140.120.0101 0000.00000000 = 140.120.80.0/20</span></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">　　　　　　　 最大地址：140.120.0101 1111.11111111 = 140.120.95.255/20</span></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">(3) 地址掩码：255.255.11110000.0 = 255.255.240.0</span></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">(4) 地址块中的地址数 = 2^主机号位数 = 2^12 = 4096个</span></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">(5) 一共有多少个IP地址 / 一个C类网络中的IP数 = 2^12 / 2^8 = 2^(12-8) = 2^4 = 16个</span></div></div><div class="wy-supplement wy-paper"><h3>整理</h3><p>步骤：</p><ol><li>主机号位数 = 32 − 20 = 12。</li><li>84 = 0101 0100，前缀 20 位 = 140.120 + 0101。主机号 12 位全 0 → 最小地址 140.120.80.0；全 1 → 最大地址 140.120.95.255。</li><li>掩码：前 20 位全 1 → 255.255.240.0。</li><li>地址数 = 2^12 = 4096。</li><li>一个 C 类网络有 2^8 = 256 个地址，4096 ÷ 256 = 2^4 = 16 个 C 类。</li></ol></div><!--gem:2-3-1--><div class="wy-supplement wy-paper wy-gem"><h3>讲解</h3><ul>
 <li><strong>直观意思</strong>：审题盯紧两个词——问“地址数 / 包含多少 IP 地址”直接写 <math display="inline"><mrow><msup><mrow><mn>2</mn></mrow><mrow><mn>32</mn><mo>&#x02212;</mo><mi>P</mi></mrow></msup></mrow></math>；问“可分配主机数 / 可用主机数”才写 <math display="inline"><mrow><msup><mrow><mn>2</mn></mrow><mrow><mn>32</mn><mo>&#x02212;</mo><mi>P</mi></mrow></msup><mo>&#x02212;</mo><mn>2</mn></mrow></math>。  </li>
 <li><strong>为什么</strong>：网络地址和广播地址本身依然是该地址块合法占据的 IP 地址（计入地址块总量），只是传统上不分配给普通主机接口（故计算可用主机时扣除）。</li>
