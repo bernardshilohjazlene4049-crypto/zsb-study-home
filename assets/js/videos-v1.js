@@ -44,7 +44,8 @@
         video.controls = true;
         video.preload = "metadata";
         video.playsInline = true;
-        video.poster = row.querySelector("img").src;
+        const cover = row.querySelector("img");
+        video.poster = cover.src || cover.dataset.cover || "";
         video.setAttribute("aria-label", title);
         const asset = encodeURIComponent(row.dataset.asset);
         video.src = preview
@@ -56,12 +57,15 @@
           error.textContent = preview ? "本机视频加载失败，请检查预览服务。" : "视频加载失败，请稍后重试。";
         });
         row.append(video, error);
+        row.classList.add("v1-open");
         active = {
           remove() {
+            const player = video.closest(".zlp") || video;
             video.removeAttribute("src");
             video.load();
-            video.remove();
+            player.remove();
             error.remove();
+            row.classList.remove("v1-open");
             active = null;
           }
         };

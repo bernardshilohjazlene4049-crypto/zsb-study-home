@@ -12,9 +12,16 @@ function mount({ url, release = "draft" }) {
 
   function element(tag) {
     const events = {};
+    const classes = new Set();
     return {
       tag,
       children: [],
+      classList: {
+        add(name) { classes.add(name); },
+        remove(name) { classes.delete(name); },
+        contains(name) { return classes.has(name); }
+      },
+      closest() { return null; },
       append(...children) { this.children.push(...children); },
       addEventListener(name, cb) { events[name] = cb; },
       trigger(name) { events[name]?.(); },
@@ -89,6 +96,7 @@ test("loopback preview and published playback load only the selected video, with
     const [button] = controls.children;
     assert.match(button["aria-label"], /<导学 & 例题>/);
     button.trigger("click");
+    assert.equal(row.classList.contains("v1-open"), true);
     const [video] = row.children;
     assert.equal(video.src, config.release === "draft"
       ? "http://127.0.0.1:8765/__videos_v1_media__/lesson.mp4" : src);
@@ -98,7 +106,20 @@ test("loopback preview and published playback load only the selected video, with
     assert.equal(video.focused, true);
     section.open = false;
     section.trigger("toggle");
+    assert.equal(row.classList.contains("v1-open"), false);
     assert.equal(video.removed, true);
     assert.equal(video.src, undefined);
   }
+});
+
+test("video styles include the layout selectors and span the player across the grid", () => {
+  const css = readFileSync(new URL("../assets/css/videos-v1.css", import.meta.url), "utf8");
+  for (const selector of [
+    ".chapter-video:has(> .v1-videos)",
+    ".wy-point-head:has(> .v1-videos)",
+    ".v1-open > img"
+  ]) {
+    assert.ok(css.includes(selector), `Missing selector: ${selector}`);
+  }
+  assert.match(css, /\.zlp\b(?![\w-])[^{}]*\{[^{}]*\bgrid-column: 1 \/ -1\s*[;}]/);
 });
