@@ -274,7 +274,9 @@ test("gs1 的 11 个知识点在标题区注入三档打卡并显式绑定 topic
     ["point-11", "math.continuous_properties"]
   ]);
   assert.match(pageStudy, /group\.dataset\.zsbQuestion = anchor/);
-  assert.match(pageStudy, /group\.dataset\.zsbTopicIds = GS1_TOPIC_IDS\[anchor\]/);
+  assert.match(pageStudy, /var TOPIC_IDS_BY_PAGE = \{[\s\S]*?gs1:\s*GS1_TOPIC_IDS/);
+  assert.match(pageStudy, /var topicIdsByAnchor = TOPIC_IDS_BY_PAGE\[pageKey\]/);
+  assert.match(pageStudy, /group\.dataset\.zsbTopicIds = topicIdsByAnchor\[anchor\]/);
   assert.match(pageStudy, /topicIds: box\.dataset\.zsbTopicIds/);
   assert.match(pageStudy, /topicIds: d\.topicIds/);
   assert.match(pageStudy, /recordPageAttempt\(input\)/);

@@ -65,7 +65,7 @@
     return "page:" + pageKey + ":" + String(item).replace(/[^0-9A-Za-z_.\-]/g, "-");
   }
 
-  // gs/gs1 的 11 个知识点：在标题区注入正文页三档打卡，questionId 固定为 page:gs1:point-N。
+  // 正文页知识点映射：按 script[data-page] 的 pageKey 选择，不在注入逻辑中绑定具体页面。
   // topicIds 显式传给现有 recordPageAttempt → commitSubmission 链路，确保归属到正确考点。
   var GS1_TOPIC_IDS = {
     "point-1": "math.domain",
@@ -79,6 +79,27 @@
     "point-9": "math.continuity",
     "point-10": "math.discontinuity",
     "point-11": "math.continuous_properties"
+  };
+
+  var GS45_TOPIC_IDS = {
+    "point-36": "math.p36",
+    "point-37": "math.p37",
+    "point-38": "math.p38",
+    "point-39": "math.p39",
+    "point-40": "math.p40",
+    "point-41": "math.p41",
+    "point-42": "math.p42",
+    "point-43": "math.p43",
+    "point-44": "math.p44",
+    "point-45": "math.p45",
+    "point-46": "math.p46",
+    "point-47": "math.p47",
+    "point-48": "math.p48"
+  };
+
+  var TOPIC_IDS_BY_PAGE = {
+    gs1: GS1_TOPIC_IDS,
+    gs45: GS45_TOPIC_IDS
   };
 
   function makeTopicRateButton(rating, label, hint) {
@@ -96,9 +117,10 @@
     return button;
   }
 
-  function injectGs1TopicRatings() {
-    if (pageKey !== "gs1") return;
-    Object.keys(GS1_TOPIC_IDS).forEach(function (anchor) {
+  function injectTopicRatings() {
+    var topicIdsByAnchor = TOPIC_IDS_BY_PAGE[pageKey];
+    if (!topicIdsByAnchor) return;
+    Object.keys(topicIdsByAnchor).forEach(function (anchor) {
       var section = document.getElementById(anchor);
       var header = section && section.querySelector(".topic-header");
       var title = header && header.querySelector(".topic-title");
@@ -108,7 +130,7 @@
       group.className = "zsb-topic-rate";
       group.dataset.zsbQuestion = anchor;
       group.dataset.zsbSubject = subjectId || "math";
-      group.dataset.zsbTopicIds = GS1_TOPIC_IDS[anchor];
+      group.dataset.zsbTopicIds = topicIdsByAnchor[anchor];
       group.dataset.zsbStem = text(title);
       group.setAttribute("role", "group");
       group.setAttribute("aria-label", "考点掌握度打卡：" + text(title));
@@ -162,8 +184,8 @@
     if (reset) reset.addEventListener("click", function () { last = {}; });
   });
 
-  // 先注入 gs1 的知识点标题打卡，再统一绑定已有正文页自评约定。
-  injectGs1TopicRatings();
+  // 先按 pageKey 注入已配置页面的知识点打卡，再统一绑定已有正文页自评约定。
+  injectTopicRatings();
 
   // 看完解答后自评：[data-zsb-question] 内的 [data-zsb-rate="good|fuzzy|again"]。
   document.querySelectorAll("[data-zsb-question]").forEach(function (box) {
