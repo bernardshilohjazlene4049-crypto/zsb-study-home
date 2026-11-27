@@ -290,6 +290,143 @@
     });
   }
 
+  function ensureTopicKitStyles() {
+    if (document.querySelector('link[data-e1-topic-kit-style="1"]')) return;
+    var link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = new URL("assets/css/topic-kit.css", root).href;
+    link.dataset.e1TopicKitStyle = "1";
+    document.head.appendChild(link);
+  }
+
+  function appendKitLink(container, label, href, className) {
+    if (!href) return null;
+    var link = document.createElement("a");
+    link.className = className || "e1-topic-kit__link";
+    link.href = new URL(href, root).href;
+    link.textContent = label;
+    container.appendChild(link);
+    return link;
+  }
+
+  function createKitItem(key, label, resource, topicExtraLinks) {
+    var item = document.createElement("div");
+    item.className = "e1-topic-kit__item";
+    item.dataset.e1KitItem = key;
+    var heading = document.createElement("span");
+    heading.className = "e1-topic-kit__label";
+    heading.textContent = label;
+    item.appendChild(heading);
+
+    var links = document.createElement("div");
+    links.className = "e1-topic-kit__links";
+    if (resource && resource.href) {
+      appendKitLink(links, resource.label || resource.status || "打开", resource.href);
+    } else {
+      var missing = document.createElement("span");
+      missing.className = "e1-topic-kit__value is-missing";
+      missing.textContent = resource?.label || resource?.status || "缺";
+      links.appendChild(missing);
+    }
+    (resource?.extraLinks || []).concat(topicExtraLinks || []).forEach(function (extra) {
+      appendKitLink(links, extra.label, extra.href);
+    });
+    if (resource?.visualHref) appendKitLink(links, "讲解图", resource.visualHref);
+    if (resource?.hasLab) appendKitLink(links, "交互演示", resource.href);
+    item.appendChild(links);
+    return item;
+  }
+
+  function foldGs1MindmapEntry() {
+    if (pageKey !== "gs1") return;
+    var navLink = document.querySelector('a[data-index-point="mindmap"][href="#mindmap"]');
+    var target = document.querySelector('.e1-topic-kit[data-topic-id="math.domain"] [data-e1-kit-item="mindmap"] .e1-topic-kit__links');
+    if (!navLink || !target) return;
+    appendKitLink(target, "本页导图区", "gs/gs1.html#mindmap");
+    navLink.remove();
+  }
+
+  function mountTopicKits() {
+    var groups = Array.prototype.slice.call(document.querySelectorAll(".zsb-topic-rate[data-zsb-topic-ids]"));
+    if (!groups.length) return;
+    ensureTopicKitStyles();
+    import(new URL("assets/js/features/topic-kit-data.js", root).href).then(function (dataModule) {
+      var mounted = [];
+      groups.forEach(function (group) {
+        if (group.nextElementSibling?.classList.contains("e1-topic-kit")) return;
+        var topicId = String(group.dataset.zsbTopicIds || "").split(",")[0].trim();
+        var config = dataModule.TOPIC_KIT_BY_ID[topicId];
+        if (!config || config.pageKey !== pageKey) return;
+
+        var kit = document.createElement("div");
+        kit.className = "e1-topic-kit";
+        kit.dataset.topicId = topicId;
+        kit.setAttribute("role", "group");
+        kit.setAttribute("aria-label", "五项学习齐套清单：" + topicId);
+
+        var mindmap = createKitItem("mindmap", "思维导图", config.mindmap, config.extraLinks);
+        var video = createKitItem("video", "讲义视频", config.video);
+        var lecture = createKitItem("lecture", "讲义", {
+          status: "有",
+          label: "本点讲义",
+          href: config.lectureHref
+        });
+        var practice = createKitItem("practice", "练习 / 可视化", config.practice);
+        var checkin = createKitItem("checkin", "打卡状态", { label: "读取中…" });
+        var status = checkin.querySelector(".e1-topic-kit__value");
+        if (status) {
+          status.dataset.e1TopicKitStatus = "1";
+          status.setAttribute("role", "status");
+          status.setAttribute("aria-live", "polite");
+          status.classList.remove("is-missing");
+        }
+        var detail = document.createElement("small");
+        detail.className = "e1-topic-kit__detail";
+        checkin.querySelector(".e1-topic-kit__links").appendChild(detail);
+
+        kit.append(mindmap, video, lecture, practice, checkin);
+        group.insertAdjacentElement("afterend", kit);
+        mounted.push({
+          topicId: topicId,
+          questionId: qid(config.anchor),
+          statusNode: status,
+          detailNode: detail
+        });
+      });
+      if (!mounted.length) return;
+      foldGs1MindmapEntry();
+
+      var stateModulePromise = import(new URL("assets/js/features/topic-kit-state.js", root).href);
+      var readToken = 0;
+      function refreshTopicKitStates() {
+        var token = ++readToken;
+        stateModulePromise.then(function (stateModule) {
+          return stateModule.readTopicKitStates(mounted.map(function (item) {
+            return { topicId: item.topicId, questionId: item.questionId };
+          })).then(function (states) {
+            if (token !== readToken) return;
+            states.forEach(function (state, index) {
+              var target = mounted[index];
+              if (!target || !target.statusNode) return;
+              target.statusNode.textContent = stateModule.describeTopicKitStatus(state);
+              target.statusNode.classList.toggle("is-unchecked", target.statusNode.textContent === "未打卡");
+              target.detailNode.textContent = stateModule.topicKitStatusDetail(state);
+            });
+          });
+        }).catch(function () {
+          if (token !== readToken) return;
+          mounted.forEach(function (item) {
+            if (item.statusNode) item.statusNode.textContent = "状态暂不可用";
+          });
+        });
+      }
+      refreshTopicKitStates();
+      document.addEventListener("zsb:attempt-saved", refreshTopicKitStates);
+    }).catch(function (error) {
+      console.warn("齐套清单未载入", error);
+    });
+  }
+
   // 选择题卡片：.quiz-question[data-question][data-correct] 内的 .choice[data-choice]（yy5）。
   var cards = Array.prototype.slice.call(document.querySelectorAll(".quiz-question[data-question][data-correct]"));
   cards.forEach(function (card) {
@@ -335,6 +472,7 @@
 
   // 先按 pageKey 注入已配置页面的知识点打卡，再统一绑定已有正文页自评约定。
   injectTopicRatings();
+  mountTopicKits();
 
   // 看完解答后自评：[data-zsb-question] 内的 [data-zsb-rate="good|fuzzy|again"]。
   document.querySelectorAll("[data-zsb-question]").forEach(function (box) {
