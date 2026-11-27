@@ -289,3 +289,28 @@ test("video styles include the layout selectors and span the player across the g
   }
   assert.match(css, /\.zlp\b(?![\w-])[^{}]*\{[^{}]*\bgrid-column: 1 \/ -1\s*[;}]/);
 });
+
+
+test("视频 ended 只保存播放位置，不会自动标记「会了」", async () => {
+  const calls = { saves: [] };
+  const records = {
+    async readPlayback() { return null; },
+    async savePlayback(resourceId, currentTime, playbackRate) {
+      calls.saves.push([resourceId, currentTime, playbackRate]);
+    }
+  };
+  const { controls, row } = mount({
+    url: "https://example.com/lesson",
+    release: "published",
+    records
+  });
+  controls.children[0].trigger("click");
+  const video = row.children.find((node) => node.tag === "video");
+  video.currentTime = 96;
+  video.trigger("ended");
+  await new Promise((resolve) => setImmediate(resolve));
+
+  assert.deepEqual(calls.saves, [["stable-lesson-1", 96, 1]]);
+  assert.match(script, /video\.addEventListener\("ended", onPause\)/);
+  assert.doesNotMatch(script, /zsb:attempt|rating:\s*["']good|data-zsb-rate=["']good/);
+});

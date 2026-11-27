@@ -65,6 +65,7 @@ for page in pages:
         header_end = clean.index("</header>", point_start) + len("</header>")
         assert clean[header_end:].startswith(legacy_card + link + "<!--gs-pt:1-->")
         expected = expected.replace(legacy_card, legacy_card + link, 1)
+        expected = expected.replace("</body>", '<script src="../assets/js/page-study.js" data-page="gs1" data-subject="math"></script>\n</body>', 1)
     assert integration.BLOCK.sub("", html) == expected, page
 
 assert video_detail_count == 182
