@@ -174,7 +174,7 @@ try {
   await page.waitFor("暂无定位");
   const videoSrc = await page.eval(`document.querySelector("video")?.getAttribute("src") || ""`);
   const hasStart = await page.eval(`!!document.querySelector("video")?.getAttribute("src")?.includes("#t=")`);
-  check("定义域视频使用已有文件", videoSrc.includes("gs/videos/1.mp4"));
+  check("定义域视频使用恢复的已有讲解文件", videoSrc.includes("kd1-domain.mp4"));
   check("视频地址不是站点根绝对路径", !videoSrc.startsWith("/gs"));
   check("未写入虚构的时间锚", hasStart === false && (await page.text()).includes("暂无定位"));
   check("导图含定义域", (await page.eval(`document.querySelector("svg.mindmap")?.textContent || ""`)).includes("定义域"));

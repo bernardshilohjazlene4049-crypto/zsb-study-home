@@ -27,7 +27,7 @@ doc = json.loads(MANIFEST.read_text())
 rows = doc["videos"]
 base = doc["main_sha"]
 subprocess.run([sys.executable, str(ROOT / "tools/integrate-videos.py"),
-                str(MANIFEST), str(BATCH / "posters.zip"), "--check"], check=True)
+                str(MANIFEST), str(BATCH / "posters.zip"), "--check", "--markup-published"], check=True)
 
 
 def git(*args):
@@ -36,7 +36,8 @@ def git(*args):
 
 pages = git("ls-files", "--", "*.html").splitlines()
 counts = Counter()
-legacy_link = (ROOT / "tests/fixtures/math-domain-legacy-entry.txt").read_text().strip()
+video_detail_count = 0
+legacy_card = (ROOT / "tests/fixtures/math-domain-legacy-entry.txt").read_text().strip()
 for page in pages:
     html = (ROOT / page).read_bytes().decode("utf-8")
     blocks = integration.BLOCK.findall(html)
@@ -47,15 +48,26 @@ for page in pages:
     for block in blocks:
         assert not re.search(r'<(?:video|source|iframe)\b|\bautoplay\b|\bhref="https?://', block)
         assert not re.search(r"<img[^>]*\bsrc=", block)
+        details = re.findall(r'<details class="v1-videos"(?=[\s>]).*?</details>', block, re.S)
+        for detail in details:
+            video_detail_count += 1
+            assert 'data-release="published"' in detail
+            assert " · 待发布" not in detail
+            assert '<p class="v1-notice">' not in detail
         counts.update(re.findall(r'\bdata-video-id="([^"]+)"', block))
     expected = git("show", f"{base}:{page}")
     if page == "gs/gs1.html":
         link = '<a class="sh-btn" href="#videos-v1-gs1-1-2">定义域讲解视频</a>'
-        assert expected.count(legacy_link) == html.count(link) == 1
-        assert "kd1-domain.mp4" not in html
-        expected = expected.replace(legacy_link, link)
+        clean = integration.BLOCK.sub("", html)
+        assert expected.count(legacy_card) == clean.count(legacy_card) == 1
+        assert clean.count(link) == 1
+        point_start = clean.index('<section class="topic-section" id="point-1"')
+        header_end = clean.index("</header>", point_start) + len("</header>")
+        assert clean[header_end:].startswith(legacy_card + link + "<!--gs-pt:1-->")
+        expected = expected.replace(legacy_card, legacy_card + link, 1)
     assert integration.BLOCK.sub("", html) == expected, page
 
+assert video_detail_count == 182
 assert counts == Counter(row["card_id"] for row in rows)
 for path in git("diff", "--name-only", "--no-renames", "-z", base).split("\0"):
     suffix = Path(path).suffix.lower()
@@ -66,9 +78,37 @@ cards = json.loads((ROOT / "data/topic-cards.json").read_text())
 original = json.loads(git("show", f"{base}:data/topic-cards.json"))
 domain = original["cards"]["math.domain"]
 domain["video_section"] = "gs/gs1.html#videos-v1-gs1-1-2"
-assert len(domain["video_clips"]) == 3
-domain["video_clips"] = [clip for clip in domain["video_clips"] if "kd1-domain.mp4" not in clip["url"]]
-assert len(domain["video_clips"]) == 1
+domain["video_clips"] = [
+    {
+        "title": "考点精讲：定义域",
+        "url": "gs/gs1/kdvideos/kd1-domain.mp4",
+        "poster": "gs/gs1/kdposters/kd1.jpg",
+        "vtt": "gs/gs1/kdvideos/kd1-domain.vtt",
+        "start_sec": 0,
+        "end_sec": 177,
+        "label": "00:00–02:57",
+    },
+    {
+        "title": "第一步",
+        "url": "gs/gs1/kdvideos/kd1-domain.mp4",
+        "poster": "gs/gs1/kdposters/kd1.jpg",
+        "vtt": "gs/gs1/kdvideos/kd1-domain.vtt",
+        "start_sec": 71,
+        "end_sec": 177,
+        "label": "01:11–02:57",
+    },
+    {
+        "title": "第1集 00:31–01:56 定义域判断与例题",
+        "url": "gs/videos/1.mp4",
+        "poster": "gs/posters/1.jpg",
+        "vtt": "gs/videos/1.vtt",
+        "start_sec": 31,
+        "end_sec": 116,
+        "label": "00:31–01:56",
+    },
+]
+assert cards["cards"]["math.domain"]["video_section"] == domain["video_section"]
+assert cards["cards"]["math.domain"]["video_clips"] == domain["video_clips"]
 guide = original["cards"]["english.yy5.guide"]
 guide["video_sections"] = [
     {"title": title, "url": f"yy/yy5.html#videos-v1-topic-{topic}"}
@@ -80,7 +120,11 @@ assert Counter(row["anchor"] for row in english) == {"topic-5": 7, "topic-6": 9,
 
 markup = integration.render([{**rows[0], "title": '<x>&"\''}], "", True)
 assert "&lt;x&gt;&amp;&quot;&#x27;" in markup and "<x>" not in markup
-print("Mapping, escaping, draft markup and legacy content passed")
+assert 'data-release="draft"' in markup and " · 待发布" in markup
+published_markup = integration.render([{**rows[0], "title": '<x>&"\''}], "", False)
+assert 'data-release="published"' in published_markup
+assert " · 待发布" not in published_markup and 'class="v1-notice"' not in published_markup
+print("Mapping, escaping, published page markup, draft Release state and legacy content passed")
 
 mapping = preview.media_paths(MANIFEST)
 assert len(mapping) == 227

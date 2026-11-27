@@ -88,6 +88,10 @@ def main():
     parser.add_argument("manifest", type=Path)
     parser.add_argument("posters", type=Path)
     parser.add_argument("--check", action="store_true")
+    parser.add_argument(
+        "--markup-published", action="store_true",
+        help="render published page markup while the GitHub Release remains a draft",
+    )
     args = parser.parse_args()
     manifest = json.loads(args.manifest.read_text())
     rows = manifest["videos"]
@@ -95,6 +99,7 @@ def main():
     for field in ("card_id", "release_asset_name", "sha256"):
         assert len({row[field] for row in rows}) == len(rows), field
     assert manifest["release"]["tag"] == "videos-v1"
+    assert manifest["release"]["draft"] is True
     assert re.fullmatch(r"[\w-]+/[\w-]+", manifest["repository"])
     grouped = defaultdict(lambda: defaultdict(list))
     files = {}
@@ -136,7 +141,8 @@ def main():
                 assert all(loc == locators[0] and loc["kind"] == "page-heading" for loc in locators), page
                 offsets = locations.headings[locators[0]["heading_text"]]
             assert len(offsets) == 1, (page, anchor)
-            edits.append((offsets[0], render(group, prefix, manifest["release"]["draft"])))
+            markup_draft = manifest["release"]["draft"] and not args.markup_published
+            edits.append((offsets[0], render(group, prefix, markup_draft)))
         assert source.count("</head>") == 1, page
         head_end = source.index("</head>")
         # Keep the references managed by mount_lab.py at the end of the head.
