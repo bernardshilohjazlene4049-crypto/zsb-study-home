@@ -69,6 +69,12 @@ WL_PAGE_STUDY_KEYS = {
     "wl/ch5/s53.html": "wl-s53",
     "wl/ch6/s61.html": "wl-s61",
 }
+WY_PAGE_STUDY_KEYS = {
+    "wy/ch1/s11.html": "wy-s11",
+    "wy/ch1/s12.html": "wy-s12",
+    "wy/ch1/s13.html": "wy-s13",
+    "wy/ch1/s-extra.html": "wy-s-extra",
+}
 for page in pages:
     html = (ROOT / page).read_bytes().decode("utf-8")
     blocks = integration.BLOCK.findall(html)
@@ -106,6 +112,9 @@ for page in pages:
     wl_page_key = WL_PAGE_STUDY_KEYS.get(page)
     if wl_page_key:
         expected = expected.replace("</body>", f'<script src="../../assets/js/page-study.js" data-page="{wl_page_key}" data-subject="network"></script>\n</body>', 1)
+    wy_page_key = WY_PAGE_STUDY_KEYS.get(page)
+    if wy_page_key:
+        expected = expected.replace("</body>", f'<script src="../../assets/js/page-study.js" data-page="{wy_page_key}" data-subject="web_design"></script>\n</body>', 1)
     assert integration.BLOCK.sub("", html) == expected, page
 
 assert video_detail_count == 182

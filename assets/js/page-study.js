@@ -183,6 +183,18 @@
     "wl-s61": { "s61": "net.s61" }
   };
 
+  var WY_TOPIC_IDS_BY_PAGE = {
+    "wy-s11": { "s11": "web.concepts" },
+    "wy-s12": { "s12": "web.process" },
+    "wy-s13": { "s13": "web.layers" },
+    "wy-s-extra": { "s-extra": "web.tools" },
+    "wy-s21": { "s21": "web.s21" },
+    "wy-s22": { "s22": "web.s22" },
+    "wy-s22b": { "s22b": "web.s22b" },
+    "wy-s23": { "s23": "web.s23" },
+    "wy-s24": { "s24": "web.s24" }
+  };
+
   var TOPIC_IDS_BY_PAGE = {
     gs1: GS1_TOPIC_IDS,
     gs45: GS45_TOPIC_IDS,
@@ -193,6 +205,9 @@
   };
   Object.keys(WL_TOPIC_IDS_BY_PAGE).forEach(function (key) {
     TOPIC_IDS_BY_PAGE[key] = WL_TOPIC_IDS_BY_PAGE[key];
+  });
+  Object.keys(WY_TOPIC_IDS_BY_PAGE).forEach(function (key) {
+    TOPIC_IDS_BY_PAGE[key] = WY_TOPIC_IDS_BY_PAGE[key];
   });
 
   function makeTopicRateButton(rating, label, hint) {
@@ -244,6 +259,23 @@
       if (!networkTitle || !networkGallery || networkHeader.querySelector("[data-zsb-question]")) return;
       var networkGroup = createTopicRateGroup(networkAnchor, topicIdsByAnchor, networkTitle, true);
       networkTitle.insertAdjacentElement("afterend", networkGroup);
+      return;
+    }
+
+    // Web-design lesson pages have one heading but no section id. Match only
+    // the nine explicit wy-* page keys and insert before the chapter-one v1
+    // gallery when present; chapter two intentionally has no #videos-v1.
+    if (Object.prototype.hasOwnProperty.call(WY_TOPIC_IDS_BY_PAGE, pageKey)) {
+      var webHeaders = document.querySelectorAll(".wy-points-page:not(.wl-page) .wy-point-head");
+      var webAnchors = Object.keys(topicIdsByAnchor);
+      if (webHeaders.length !== 1 || webAnchors.length !== 1) return;
+      var webHeader = webHeaders[0];
+      var webTitles = webHeader.querySelectorAll("h1");
+      var webAnchor = webAnchors[0];
+      if (webTitles.length !== 1 || webHeader.querySelector("[data-zsb-question]")) return;
+      var webTitle = webTitles[0];
+      var webGroup = createTopicRateGroup(webAnchor, topicIdsByAnchor, webTitle, true);
+      webTitle.insertAdjacentElement("afterend", webGroup);
       return;
     }
 
