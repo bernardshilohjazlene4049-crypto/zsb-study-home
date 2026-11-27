@@ -320,6 +320,38 @@ body {
   color: var(--sg-ink);
 }
 
+/* ---------- 5a. Topic self-rating: stay inside the existing chapter heading ---------- */
+.chapter-heading > .zsb-topic-rate {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 0 1 auto;
+  flex-wrap: wrap;
+  gap: 6px;
+  max-width: 100%;
+  margin-left: auto;
+}
+
+.chapter-heading > .zsb-topic-rate .sys-rate-btn {
+  min-width: 58px;
+  min-height: 44px;
+  padding: 4px 8px;
+}
+
+.chapter-heading > .zsb-topic-rate .sys-rate-btn strong {
+  font-size: 12px;
+}
+
+.chapter-heading > .zsb-topic-rate .sys-rate-btn small {
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.chapter-heading > .zsb-topic-rate .sys-rate-btn:focus-visible {
+  outline: 3px solid var(--sg-accent, #1668dc);
+  outline-offset: 3px;
+}
+
 /* Source/meta notes are not learning UI. Structural deletion is still recommended. */
 .chapter-origin,
 .source-notes {
@@ -648,6 +680,21 @@ body {
 
 /* ---------- 14. Tablet / mobile ---------- */
 @media (max-width: 1023px) {
+  .chapter-heading {
+    flex-wrap: wrap;
+  }
+
+  .chapter-heading > .chapter-jumps,
+  .chapter-heading > .zsb-topic-rate {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+
+  .chapter-heading > .zsb-topic-rate {
+    justify-content: flex-start;
+    margin-left: 0;
+  }
+
   .chapter-index {
     grid-template-columns: repeat(3, minmax(0,1fr));
   }
@@ -882,6 +929,21 @@ body {
 
   .chapter-jumps a {
     font-size: 11.5px;
+  }
+
+  .chapter-heading > .zsb-topic-rate {
+    gap: 6px;
+  }
+
+  .chapter-heading > .zsb-topic-rate .sys-rate-btn {
+    flex: 1 1 0;
+    min-width: 0;
+    padding-inline: 5px;
+  }
+
+  .chapter-heading > .zsb-topic-rate .sys-rate-btn small {
+    white-space: normal;
+    line-height: 1.25;
   }
 
   .vocab-table th,

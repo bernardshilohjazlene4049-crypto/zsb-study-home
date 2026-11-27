@@ -97,9 +97,18 @@
     "point-48": "math.p48"
   };
 
+  var YY5_TOPIC_IDS = {
+    "topic-4": "english.attributive.basics",
+    "topic-5": "english.noun.basics",
+    "topic-6": "english.adverbial.basics",
+    "topic-7": "english.agreement.basics",
+    "topic-8": "english.special.basics"
+  };
+
   var TOPIC_IDS_BY_PAGE = {
     gs1: GS1_TOPIC_IDS,
-    gs45: GS45_TOPIC_IDS
+    gs45: GS45_TOPIC_IDS,
+    yy5: YY5_TOPIC_IDS
   };
 
   function makeTopicRateButton(rating, label, hint) {
@@ -122,8 +131,8 @@
     if (!topicIdsByAnchor) return;
     Object.keys(topicIdsByAnchor).forEach(function (anchor) {
       var section = document.getElementById(anchor);
-      var header = section && section.querySelector(".topic-header");
-      var title = header && header.querySelector(".topic-title");
+      var header = section && (section.querySelector(".topic-header") || section.querySelector(".chapter-heading"));
+      var title = header && (header.querySelector(".topic-title") || header.querySelector(".chapter-title"));
       if (!section || !header || !title || header.querySelector("[data-zsb-question]")) return;
 
       var group = document.createElement("div");
