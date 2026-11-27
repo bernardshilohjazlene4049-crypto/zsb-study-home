@@ -19,6 +19,7 @@ const strip = (html) => stripVideosV1(html)
   .replace(/<link rel="stylesheet" href="[^"]*lab-viz\.css">\n?/g, "")
   .replace(/<script src="[^"]*(?:calc-net|lab-viz)\.js" defer><\/script>\n?/g, "")
   .replace(/<script src="\.\.\/\.\.\/assets\/js\/page-study\.js" data-page="wl-s\d+" data-subject="network"><\/script>\n?/g, "")
+  .replace(/<script type="module" src="\.\.\/\.\.\/assets\/js\/features\/network-mindmaps\.js" data-page="(?:wl-s11|wl-s12|wl-s13|wl-s14|wl-s15|wl-s16|wl-s21|wl-s22|wl-s23|wl-s24|wl-s25|wl-s26|wl-s27|wl-s31|wl-s32|wl-s33|wl-s34|wl-s35|wl-s36|wl-s37|wl-s38|wl-s39|wl-s41|wl-s42|wl-s43|wl-s51|wl-s52|wl-s53|wl-s61)"><\/script>\n?/g, "")
   .replace(/<script src="\.\.\/\.\.\/assets\/js\/page-study\.js" data-page="(?:wy-s11|wy-s12|wy-s13|wy-s-extra|wy-s21|wy-s22|wy-s22b|wy-s23|wy-s24)" data-subject="web_design"><\/script>\n?/g, "");
 
 const EXPECT = {

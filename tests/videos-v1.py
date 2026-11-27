@@ -112,6 +112,9 @@ for page in pages:
     wl_page_key = WL_PAGE_STUDY_KEYS.get(page)
     if wl_page_key:
         expected = expected.replace("</body>", f'<script src="../../assets/js/page-study.js" data-page="{wl_page_key}" data-subject="network"></script>\n</body>', 1)
+    network_mindmap_key = WL_PAGE_STUDY_KEYS.get(page)
+    if network_mindmap_key:
+        expected = expected.replace("</body>", f'<script type="module" src="../../assets/js/features/network-mindmaps.js" data-page="{network_mindmap_key}"></script>\n</body>', 1)
     wy_page_key = WY_PAGE_STUDY_KEYS.get(page)
     if wy_page_key:
         expected = expected.replace("</body>", f'<script src="../../assets/js/page-study.js" data-page="{wy_page_key}" data-subject="web_design"></script>\n</body>', 1)

@@ -5,11 +5,12 @@ import test from "node:test";
 import { TOPIC_KIT_BY_ID } from "../assets/js/features/topic-kit-data.js";
 import { describeTopicKitStatus, readTopicKitStates, topicKitStatusDetail } from "../assets/js/features/topic-kit-state.js";
 import { foldGsMindmapDirectoryEntries, foldExcelMindmapDirectoryEntry, foldEnglishMindmapDirectoryEntry } from "../assets/js/features/topic-kit-navigation.js";
+import { mountNetworkMindmap } from "../assets/js/features/network-mindmaps.js";
 
 const root = path.resolve(import.meta.dirname, "..");
 const read = (rel) => readFileSync(path.join(root, rel), "utf8");
 
-const points = Object.values(TOPIC_KIT_BY_ID);
+const points = Object.entries(TOPIC_KIT_BY_ID).map(([topicId, config]) => ({ topicId, ...config }));
 
 test("E1 齐套数据只覆盖 D1–D7 已打卡的 104 点", () => {
   assert.equal(points.length, 104);
@@ -37,9 +38,11 @@ test("导图缺口如实标记，不把口诀总表冒充逐点导图，也不�
     assert.doesNotMatch(point.mindmap.href, /#point-/);
   }
   for (const point of points.filter((item) => item.batch === "D6")) {
-    assert.equal(point.mindmap.status, "仅有科目总图");
-    assert.equal(point.mindmap.href, "notes/map.html#network");
-    assert.doesNotMatch(point.mindmap.href, /network-map/);
+    const suffix = point.topicId.slice("net.".length);
+    assert.equal(point.mindmap.status, "有");
+    assert.equal(point.mindmap.label, "本点导图");
+    assert.equal(point.mindmap.href, `assets/mindmaps/network/net-${suffix}.svg`);
+    assert.ok(point.extraLinks.some((link) => link.href === "notes/map.html#network"));
   }
 });
 
@@ -158,6 +161,60 @@ test("网络总图仍使用真实 #network 锚点", {
 }, () => {
   assert.match(read("notes/map.html"), /id="network"/);
   assert.doesNotMatch(read("notes/map.html"), /id="network-map"/);
+});
+
+test("网络 29 点各有本地 SVG，且运行时把对应导图挂在课页标题后", () => {
+  const networkPoints = points.filter((point) => point.batch === "D6");
+  assert.equal(networkPoints.length, 29);
+  for (const point of networkPoints) {
+    const suffix = point.topicId.slice("net.".length);
+    const svg = read(point.mindmap.href);
+    assert.match(svg, new RegExp(`<svg[^>]*data-topic-id="net\\.${suffix}"`));
+    assert.match(svg, /<title id="svg-title">/);
+    assert.ok(point.extraLinks.some((link) => link.href === "notes/map.html#network"));
+  }
+
+  class Element {
+    constructor(tagName) {
+      this.tagName = tagName;
+      this.dataset = {};
+      this.children = [];
+      this.attributes = {};
+    }
+    append(...nodes) { this.children.push(...nodes); }
+    setAttribute(name, value) { this.attributes[name] = value; }
+  }
+  const pageScript = { dataset: { page: "wl-s61" } };
+  const headingTitle = { textContent: "6.1 把连续的 C 类网络聚合成一个 CIDR 地址块" };
+  let inserted = null;
+  const heading = {
+    querySelector(selector) { return selector === "h1" ? headingTitle : null; },
+    insertAdjacentElement(position, element) {
+      assert.equal(position, "afterend");
+      inserted = element;
+    }
+  };
+  const stylesheetNodes = [];
+  const doc = {
+    head: { append(node) { stylesheetNodes.push(node); } },
+    querySelector(selector) {
+      if (selector === 'script[src*="network-mindmaps.js"][data-page]') return pageScript;
+      if (selector === ".wl-page .wy-point-head") return heading;
+      if (selector === 'link[data-network-mindmap-style="true"]') return null;
+      return null;
+    },
+    getElementById() { return null; },
+    createElement(tagName) { return new Element(tagName); }
+  };
+  const figure = mountNetworkMindmap(doc);
+  assert.equal(figure, inserted);
+  assert.equal(figure.id, "network-mindmap-net-s61");
+  assert.equal(figure.dataset.topicId, "net.s61");
+  assert.equal(figure.children[0].textContent, "本点思维导图");
+  assert.ok(figure.children[1].src.endsWith("/assets/mindmaps/network/net-s61.svg"));
+  assert.ok(figure.children[1].alt.includes("6.1") && figure.children[1].alt.includes("思维导图"));
+  assert.equal(stylesheetNodes.length, 1);
+  assert.ok(stylesheetNodes[0].href.endsWith("/assets/css/network-mindmaps.css"));
 });
 
 test("新测试已加入 CI node --test 列表", () => {

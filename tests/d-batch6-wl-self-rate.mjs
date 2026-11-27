@@ -404,7 +404,7 @@ test("网络课打卡样式只作用于 wl-page 标题，并保留窄屏与焦�
   assert.doesNotMatch(wlRules, /(^|\n)\.wy-point-head \{/);
 });
 
-test("tests/videos-v1.py 用精确 page→pageKey 表补齐 29 行 expected", () => {
+test("tests/videos-v1.py 为网络页的导图模块脚本精确补齐 expected", () => {
   const source = readFileSync(new URL("./videos-v1.py", import.meta.url), "utf8");
   const block = source.match(/WL_PAGE_STUDY_KEYS = \{([\s\S]*?)\n\}/);
   assert.ok(block, "videos-v1.py 缺少网络页脚本映射表");
@@ -412,25 +412,32 @@ test("tests/videos-v1.py 用精确 page→pageKey 表补齐 29 行 expected", ()
     .map((match) => [match[1], match[2]]);
   assert.deepEqual(entries, WL_PAGE_ROWS.map((row) => [row.page, row.pageKey]));
   assert.match(source, /wl_page_key = WL_PAGE_STUDY_KEYS\.get\(page\)/);
+  assert.match(source, /network_mindmap_key = WL_PAGE_STUDY_KEYS\.get\(page\)/);
+  assert.match(source, /network-mindmaps\.js/);
   assert.match(source, /integration\.BLOCK\.sub\("", html\) == expected/);
 });
 
 const WL_PAGE_PATHS = WL_PAGE_ROWS.map((row) => fileURLToPath(new URL(`../${row.page}`, import.meta.url)));
 const missingWlPages = WL_PAGE_PATHS.filter((path) => !existsSync(path));
-test("真实 29 个网络课页各只在页尾接入一行脚本并保留 v1 / 既有入口", {
+test("真实 29 个网络课页各只在页尾接入打卡与导图脚本并保留 v1 / 既有入口", {
   skip: missingWlPages.length > 0 && `离线上下文包未包含 ${missingWlPages.length} 份完整网络讲义`,
 }, () => {
   for (let index = 0; index < WL_PAGE_ROWS.length; index += 1) {
     const row = WL_PAGE_ROWS[index];
     const html = readFileSync(WL_PAGE_PATHS[index], "utf8");
     const script = `<script src="../../assets/js/page-study.js" data-page="${row.pageKey}" data-subject="network"></script>`;
-    assert.equal(html.split(script).length - 1, 1, `${row.page} 的脚本应恰好存在一次`);
+    const mindmapScript = `<script type="module" src="../../assets/js/features/network-mindmaps.js" data-page="${row.pageKey}"></script>`;
+    assert.equal(html.split(script).length - 1, 1, `${row.page} 的打卡脚本应恰好存在一次`);
+    assert.equal(html.split(mindmapScript).length - 1, 1, `${row.page} 的导图脚本应恰好存在一次`);
     assert.equal((html.match(/<script\b[^>]*page-study\.js\b/g) || []).length, 1);
+    assert.equal((html.match(/<script\b[^>]*network-mindmaps\.js\b/g) || []).length, 1);
     const bodyEnd = html.lastIndexOf("</body>");
-    const scriptStart = html.indexOf(script);
-    assert.ok(scriptStart > html.lastIndexOf("</dialog>"));
-    assert.ok(scriptStart + script.length <= bodyEnd);
-    assert.equal(html.slice(scriptStart + script.length, bodyEnd).trim(), "", "脚本应紧贴 </body> 前");
+    const studyStart = html.indexOf(script);
+    const mindmapStart = html.indexOf(mindmapScript);
+    assert.ok(studyStart > html.lastIndexOf("</dialog>"));
+    assert.ok(studyStart + script.length <= mindmapStart);
+    assert.ok(mindmapStart + mindmapScript.length <= bodyEnd);
+    assert.equal(html.slice(mindmapStart + mindmapScript.length, bodyEnd).trim(), "", "导图模块脚本应紧贴 </body> 前");
     assert.equal((html.match(/<!-- videos-v1:start -->/g) || []).length, 2);
     assert.match(html, /<body[^>]*class="[^"]*wl-page/);
     assert.ok(html.includes('id="videos-v1"'));
