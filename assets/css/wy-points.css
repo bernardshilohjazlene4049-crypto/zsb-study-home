@@ -198,3 +198,34 @@
 .wy-illus-link { display: block; min-width: 44px; min-height: 44px; border-radius: 14px; overflow: hidden; }
 .wy-illus-link:focus-visible { outline: 3px solid #b91c1c; outline-offset: 3px; }
 .wy-illus img { display: block; width: 100%; height: auto; max-width: 100%; border: 1px solid var(--sh-line, #bfdbfe); border-radius: inherit; background: #fff; }
+
+/* 网络课页：在 h1 与原有 videos-v1 画廊之间显示掌握度打卡。 */
+.wl-page .wy-point-head { flex-wrap: wrap; }
+.wl-page .wy-point-head > h1 { flex: 1 1 20rem; min-width: 0; }
+.wl-page .wy-point-head > .zsb-topic-rate {
+  display: flex;
+  flex: 1 0 100%;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  margin: 0 0 12px;
+}
+.wl-page .wy-point-head > .zsb-topic-rate .sys-rate-btn {
+  min-width: 44px;
+  min-height: 44px;
+}
+.wl-page .wy-point-head > .zsb-topic-rate .sys-rate-btn:focus-visible {
+  outline: 3px solid var(--sh-accent, #1d4ed8);
+  outline-offset: 3px;
+}
+.wl-page .wy-point-head > #videos-v1 {
+  flex: 1 0 100%;
+  width: 100%;
+  max-width: 100%;
+}
+@media (max-width: 760px) {
+  .wl-page .wy-point-head > h1 { flex: 1 1 calc(100% - 64px); }
+  .wl-page .wy-point-head > .zsb-topic-rate { gap: 6px; margin-bottom: 10px; }
+  .wl-page .wy-point-head > .zsb-topic-rate .sys-rate-btn { flex: 1 1 88px; }
+}

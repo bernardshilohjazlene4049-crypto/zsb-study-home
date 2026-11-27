@@ -17,7 +17,8 @@ const strip = (html) => stripVideosV1(html)
   .replace(/<!--lab:[^>]*?-->[\s\S]*?<!--\/lab:[^>]*?-->/g, "")
   .replace(/<!--gem:[^>]*?-->[\s\S]*?<!--\/gem:[^>]*?-->/g, "")
   .replace(/<link rel="stylesheet" href="[^"]*lab-viz\.css">\n?/g, "")
-  .replace(/<script src="[^"]*(?:calc-net|lab-viz)\.js" defer><\/script>\n?/g, "");
+  .replace(/<script src="[^"]*(?:calc-net|lab-viz)\.js" defer><\/script>\n?/g, "")
+  .replace(/<script src="\.\.\/\.\.\/assets\/js\/page-study\.js" data-page="wl-s\d+" data-subject="network"><\/script>\n?/g, "");
 
 const EXPECT = {
   "wl/ch1/s11.html": ["classify", "quiz"], "wl/ch1/s12.html": ["quiz"], "wl/ch1/s16.html": ["quiz"],

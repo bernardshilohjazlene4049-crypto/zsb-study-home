@@ -38,6 +38,37 @@ pages = git("ls-files", "--", "*.html").splitlines()
 counts = Counter()
 video_detail_count = 0
 legacy_card = (ROOT / "tests/fixtures/math-domain-legacy-entry.txt").read_text().strip()
+WL_PAGE_STUDY_KEYS = {
+    "wl/ch1/s11.html": "wl-s11",
+    "wl/ch1/s12.html": "wl-s12",
+    "wl/ch1/s13.html": "wl-s13",
+    "wl/ch1/s14.html": "wl-s14",
+    "wl/ch1/s15.html": "wl-s15",
+    "wl/ch1/s16.html": "wl-s16",
+    "wl/ch2/s21.html": "wl-s21",
+    "wl/ch2/s22.html": "wl-s22",
+    "wl/ch2/s23.html": "wl-s23",
+    "wl/ch2/s24.html": "wl-s24",
+    "wl/ch2/s25.html": "wl-s25",
+    "wl/ch2/s26.html": "wl-s26",
+    "wl/ch2/s27.html": "wl-s27",
+    "wl/ch3/s31.html": "wl-s31",
+    "wl/ch3/s32.html": "wl-s32",
+    "wl/ch3/s33.html": "wl-s33",
+    "wl/ch3/s34.html": "wl-s34",
+    "wl/ch3/s35.html": "wl-s35",
+    "wl/ch3/s36.html": "wl-s36",
+    "wl/ch3/s37.html": "wl-s37",
+    "wl/ch3/s38.html": "wl-s38",
+    "wl/ch3/s39.html": "wl-s39",
+    "wl/ch4/s41.html": "wl-s41",
+    "wl/ch4/s42.html": "wl-s42",
+    "wl/ch4/s43.html": "wl-s43",
+    "wl/ch5/s51.html": "wl-s51",
+    "wl/ch5/s52.html": "wl-s52",
+    "wl/ch5/s53.html": "wl-s53",
+    "wl/ch6/s61.html": "wl-s61",
+}
 for page in pages:
     html = (ROOT / page).read_bytes().decode("utf-8")
     blocks = integration.BLOCK.findall(html)
@@ -72,6 +103,9 @@ for page in pages:
         expected = expected.replace("</body>", '<script src="../assets/js/page-study.js" data-page="jsj1" data-subject="computer_basics"></script>\n</body>', 1)
     if page == "jsj/ppt5.html":
         expected = expected.replace("</body>", '<script src="../assets/js/page-study.js" data-page="ppt5" data-subject="computer_basics"></script>\n</body>', 1)
+    wl_page_key = WL_PAGE_STUDY_KEYS.get(page)
+    if wl_page_key:
+        expected = expected.replace("</body>", f'<script src="../../assets/js/page-study.js" data-page="{wl_page_key}" data-subject="network"></script>\n</body>', 1)
     assert integration.BLOCK.sub("", html) == expected, page
 
 assert video_detail_count == 182

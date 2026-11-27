@@ -151,6 +151,38 @@
     "chapter-5.6": "cb.ppt.56"
   };
 
+  var WL_TOPIC_IDS_BY_PAGE = {
+    "wl-s11": { "s11": "net.s11" },
+    "wl-s12": { "s12": "net.s12" },
+    "wl-s13": { "s13": "net.s13" },
+    "wl-s14": { "s14": "net.s14" },
+    "wl-s15": { "s15": "net.s15" },
+    "wl-s16": { "s16": "net.s16" },
+    "wl-s21": { "s21": "net.s21" },
+    "wl-s22": { "s22": "net.s22" },
+    "wl-s23": { "s23": "net.s23" },
+    "wl-s24": { "s24": "net.s24" },
+    "wl-s25": { "s25": "net.s25" },
+    "wl-s26": { "s26": "net.s26" },
+    "wl-s27": { "s27": "net.s27" },
+    "wl-s31": { "s31": "net.s31" },
+    "wl-s32": { "s32": "net.s32" },
+    "wl-s33": { "s33": "net.s33" },
+    "wl-s34": { "s34": "net.s34" },
+    "wl-s35": { "s35": "net.s35" },
+    "wl-s36": { "s36": "net.s36" },
+    "wl-s37": { "s37": "net.s37" },
+    "wl-s38": { "s38": "net.s38" },
+    "wl-s39": { "s39": "net.s39" },
+    "wl-s41": { "s41": "net.s41" },
+    "wl-s42": { "s42": "net.s42" },
+    "wl-s43": { "s43": "net.s43" },
+    "wl-s51": { "s51": "net.s51" },
+    "wl-s52": { "s52": "net.s52" },
+    "wl-s53": { "s53": "net.s53" },
+    "wl-s61": { "s61": "net.s61" }
+  };
+
   var TOPIC_IDS_BY_PAGE = {
     gs1: GS1_TOPIC_IDS,
     gs45: GS45_TOPIC_IDS,
@@ -159,6 +191,9 @@
     jsj1: JSJ1_TOPIC_IDS,
     ppt5: PPT5_TOPIC_IDS
   };
+  Object.keys(WL_TOPIC_IDS_BY_PAGE).forEach(function (key) {
+    TOPIC_IDS_BY_PAGE[key] = WL_TOPIC_IDS_BY_PAGE[key];
+  });
 
   function makeTopicRateButton(rating, label, hint) {
     var button = document.createElement("button");
@@ -175,26 +210,50 @@
     return button;
   }
 
+  function createTopicRateGroup(anchor, topicIdsByAnchor, title, logicalPageAnchor) {
+    var group = document.createElement("div");
+    group.className = "zsb-topic-rate";
+    group.dataset.zsbQuestion = anchor;
+    group.dataset.zsbSubject = subjectId || "math";
+    group.dataset.zsbTopicIds = topicIdsByAnchor[anchor];
+    group.dataset.zsbStem = text(title);
+    if (logicalPageAnchor) group.dataset.zsbPageAnchor = anchor;
+    group.setAttribute("role", "group");
+    group.setAttribute("aria-label", "考点掌握度打卡：" + text(title));
+    group.appendChild(makeTopicRateButton("good", "会了", "新记录 7 天后复习"));
+    group.appendChild(makeTopicRateButton("fuzzy", "模糊", "进入复习队列"));
+    group.appendChild(makeTopicRateButton("again", "不会", "加入错题本"));
+    return group;
+  }
+
   function injectTopicRatings() {
     var topicIdsByAnchor = TOPIC_IDS_BY_PAGE[pageKey];
     if (!topicIdsByAnchor) return;
+
+    // Network lesson pages have no section id: bind the single configured topic
+    // to the unique .wl-page heading, keeping the group immediately after h1
+    // and before the existing videos-v1 marker/gallery.
+    if (/^wl-s\d+$/.test(pageKey)) {
+      var headers = document.querySelectorAll(".wl-page .wy-point-head");
+      var anchors = Object.keys(topicIdsByAnchor);
+      if (headers.length !== 1 || anchors.length !== 1) return;
+      var networkHeader = headers[0];
+      var networkTitle = networkHeader.querySelector("h1");
+      var networkGallery = networkHeader.querySelector("#videos-v1");
+      var networkAnchor = anchors[0];
+      if (!networkTitle || !networkGallery || networkHeader.querySelector("[data-zsb-question]")) return;
+      var networkGroup = createTopicRateGroup(networkAnchor, topicIdsByAnchor, networkTitle, true);
+      networkTitle.insertAdjacentElement("afterend", networkGroup);
+      return;
+    }
+
     Object.keys(topicIdsByAnchor).forEach(function (anchor) {
       var section = document.getElementById(anchor);
       var header = section && (section.querySelector(".topic-header") || section.querySelector(".chapter-heading") || section.querySelector(".mind-head") || section.querySelector(".chapter-top"));
       var title = header && (header.querySelector(".topic-title") || header.querySelector(".chapter-title") || header.querySelector("h2"));
       if (!section || !header || !title || header.querySelector("[data-zsb-question]")) return;
 
-      var group = document.createElement("div");
-      group.className = "zsb-topic-rate";
-      group.dataset.zsbQuestion = anchor;
-      group.dataset.zsbSubject = subjectId || "math";
-      group.dataset.zsbTopicIds = topicIdsByAnchor[anchor];
-      group.dataset.zsbStem = text(title);
-      group.setAttribute("role", "group");
-      group.setAttribute("aria-label", "考点掌握度打卡：" + text(title));
-      group.appendChild(makeTopicRateButton("good", "会了", "新记录 7 天后复习"));
-      group.appendChild(makeTopicRateButton("fuzzy", "模糊", "进入复习队列"));
-      group.appendChild(makeTopicRateButton("again", "不会", "加入错题本"));
+      var group = createTopicRateGroup(anchor, topicIdsByAnchor, title, false);
       header.appendChild(group);
     });
   }
@@ -257,7 +316,7 @@
             ? box.dataset.zsbTopicIds.split(",").map(function (id) { return id.trim(); }).filter(Boolean)
             : undefined,
           stem: box.dataset.zsbStem || text(box.querySelector("[data-zsb-stem]")),
-          anchor: box.id || anchorOf(box),
+          anchor: box.dataset.zsbPageAnchor || box.id || anchorOf(box),
           section: sectionOf(box)
         });
       });
