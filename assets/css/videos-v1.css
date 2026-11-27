@@ -1,0 +1,126 @@
+.v1-videos {
+  box-sizing: border-box;
+  max-inline-size: 100%;
+  min-inline-size: 0;
+  margin-block: .75rem;
+  border: 1px solid var(--sg-line, currentColor);
+  border-radius: .75rem;
+  padding: .55rem .75rem;
+  overflow-wrap: anywhere;
+  scroll-margin-top: 8rem;
+}
+
+.v1-videos > summary {
+  font-weight: 700;
+  cursor: pointer;
+  white-space: normal;
+}
+
+.v1-videos > summary:focus-visible,
+.v1-videos button:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+.v1-videos > ul {
+  display: grid;
+  gap: .65rem;
+  padding: 0;
+  margin: .6rem 0 0;
+  list-style: none;
+}
+
+.v1-videos > ul > li {
+  display: grid;
+  grid-template-columns: min(22%, 6rem) minmax(0, 1fr);
+  align-items: center;
+  gap: .4rem .7rem;
+  margin: 0;
+}
+
+.v1-videos > ul > li > img {
+  width: 100%;
+  height: auto;
+  border-radius: .3rem;
+}
+
+.v1-videos > ul > .v1-open > img {
+  display: none;
+}
+
+.v1-videos > ul > .v1-open > div:has(> .v1-title),
+.v1-videos > ul > li > [role="status"] {
+  grid-column: 1 / -1;
+}
+
+.v1-videos .v1-time,
+.v1-videos .v1-notice {
+  font-size: .875em;
+}
+
+.v1-videos > ul > li > div:has(> .v1-title) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .3rem .6rem;
+  min-width: 0;
+}
+
+.v1-videos > ul > li > div > .sh-btn {
+  margin-inline-start: .4rem;
+  max-width: 100%;
+  white-space: normal;
+}
+
+.v1-videos > ul > li > :is(.zlp, video) {
+  grid-column: 1 / -1;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.v1-videos > ul > li > video {
+  display: block;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  background: #111827;
+}
+
+.chapter-video:has(> .v1-videos) {
+  flex-wrap: wrap;
+}
+
+.chapter-video > .v1-videos {
+  flex: 1 1 100%;
+  min-width: 0;
+}
+
+@media (max-width: 700px) {
+  .wy-point-head:has(> .v1-videos) {
+    flex-wrap: wrap;
+  }
+
+  .wy-point-head > .v1-videos {
+    flex: 1 1 100%;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .v1-videos > ul > li > div:has(> .v1-title) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .25rem;
+    min-width: 0;
+  }
+
+  .v1-videos > ul > li > div > .sh-btn {
+    margin-inline-start: 0;
+    min-height: 40px;
+  }
+
+  .v1-videos .zlp__controls {
+    flex-wrap: wrap;
+  }
+}

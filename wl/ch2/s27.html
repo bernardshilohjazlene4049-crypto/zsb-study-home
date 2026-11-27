@@ -16,6 +16,11 @@
   <link rel="canonical" href="https://bernardshilohjazlene4049-crypto.github.io/zsb-study-home/wl/ch2/s27.html">
   <meta name="zsb-module" content="network">
   <meta name="zsb-status" content="ready">
+
+<!-- videos-v1:start -->
+<link rel="stylesheet" href="../../assets/css/videos-v1.css">
+<script defer src="../../assets/js/videos-v1.js" data-download-base="https://github.com/bernardshilohjazlene4049-crypto/zsb-study-home/releases/download/videos-v1/"></script>
+<!-- videos-v1:end -->
 <link rel="stylesheet" href="../../assets/css/lab-viz.css">
 <script src="../../assets/js/calc-net.js" defer></script>
 <script src="../../assets/js/lab-viz.js" defer></script>
@@ -24,7 +29,16 @@
 <header class="site-header"><div class="site-header__inner"><a class="site-brand" href="../../index.html">辽宁专升本</a><nav class="site-nav" aria-label="全站导航"><a href="../../search.html">搜索</a></nav></div></header>
 <main class="site-main"><div class="site-container">
 <div class="wy-layout" data-chapter="net.ch2">
-<article class="sh-card wy-sheet"><header class="wy-point-head"><span class="wy-point-no">2.7</span><h1>2.7 已知 CIDR 地址求网络掩码、网络地址、广播地址和可用 IP 数</h1></header><!--lab:illus--><div class="wy-illus" data-illus="wl.ch2.s27" hidden></div><!--/lab:illus-->
+<article class="sh-card wy-sheet"><header class="wy-point-head"><span class="wy-point-no">2.7</span><h1>2.7 已知 CIDR 地址求网络掩码、网络地址、广播地址和可用 IP 数</h1>
+<!-- videos-v1:start -->
+<details class="v1-videos" id="videos-v1" data-release="draft" data-pagefind-ignore><summary>知识点讲解视频（1） · 待发布</summary>
+<p class="v1-notice">视频待发布，发布后可在此播放。</p>
+<ul>
+<li data-video-id="net.s27" data-asset="net.s27.mp4" data-duration="97.36" data-bytes="1901743" data-sha256="9edc1458c06d4527edaddac51f41a066cae23f8c2507e0dd424a5f6a25d448c8"><img data-cover="../../assets/videos-v1/posters/net.s27.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><div><span class="v1-title">2.7 已知 CIDR 地址求网络掩码、网络地址、广播地址和可用 IP 数</span> <span class="v1-time">1:37</span></div></li>
+</ul>
+</details>
+<!-- videos-v1:end -->
+</header><!--lab:illus--><div class="wy-illus" data-illus="wl.ch2.s27" hidden></div><!--/lab:illus-->
 <section class="wy-entry" id="e-2-7-1"><div class="wy-entry-top"><h2>P104 第2题：已知 156.47.40.4/18，求网络掩码、网络地址、广播地址、可用 IP 数</h2><button class="sh-btn" type="button" data-open-photo data-photos="1">打开原图</button></div><div class="wy-source wy-paper"><div class="wy-source-row wl-source-mark"><p>【印刷】</p></div><div class="wy-source-row"><p>P104　2.已知 IP 地址是：156.47.40.4/18，可得到哪些信息(要求写出：网络掩码、网络地址，广播地址，及所在网络内的可用 IP 地址数量)</p></div><div class="wy-source-row wl-source-mark"><p>【老师手写】</p></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">顶部：CIDR ⇒ IP::={&lt;网络前缀&gt;,&lt;主机号&gt;}</span></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">题干中四项依次标 ① 网络掩码　② 网络地址　③ 广播地址　④ 可用IP地址数量</span></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">① 网络掩码～主机号全0，其余全1</span></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">　255.255.11000000.0 = 255.255.192.0</span></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">② 网络地址～主机号全0，其余不变</span></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">　156.47.00000000.00000000 = 156.47.0.0/18</span></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">③ 广播地址～即 直接广播地址，主机号全1，其余不变</span></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">　156.47.00111111.11111111 = 156.47.63.255/18</span></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">④ 可用IP地址数 = 2^主机号位数 − 2 = 2^(32−18) − 2 = 2^14 − 2 = 16384 − 2 = 16382</span></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">右侧（紫/黑）：</span></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">40 ⇒ 00101000（“00”下划线）</span></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">2^13 = 8192　×2　= 16384</span></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">40 − 32 = 8</span></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">2^6 − 1 = 64 − 1 = 63</span></div></div><div class="wy-supplement wy-paper"><h3>整理</h3><p>/18：前缀 18 位，主机号 32 − 18 = 14 位。第 3 字节 40 = 0010 1000，前 2 位 00 属于前缀，后 6 位属于主机号。</p><p>① 掩码：前 18 位全 1 → 255.255.11000000.0 = 255.255.192.0；</p><p>② 网络地址：主机号全 0，前缀不变 → 第 3 字节 00 000000 = 0 → 156.47.0.0/18；</p><p>③ 广播地址：主机号全 1 → 第 3 字节 00 111111 = 63，第 4 字节 255 → 156.47.63.255/18；</p><p>④ 可用 IP 数 = 2^14 − 2 = 16384 − 2 = 16382。</p><p>右侧是老师的辅助计算：40 − 32 = 8 用来拆出 40 = 00101000（整理者推测）；2^13 = 8192，×2 = 16384；第 3 字节主机部分 6 位全 1 = 2^6 − 1 = 63。</p></div><!--gem:2-7-1--><div class="wy-supplement wy-paper wy-gem"><h3>讲解</h3><ul>
 <li><strong>直观意思</strong>：这道题把 CIDR 的全部“四件套”口诀总结完了——找到前 n 位和后 32-n 位的<strong>分界刀口</strong>，然后对刀口右侧（主机号）分别执行“填0、填1、算 <math display="inline"><mrow><msup><mrow><mn>2</mn></mrow><mrow><mi>k</mi></mrow></msup><mo>&#x02212;</mo><mn>2</mn></mrow></math>”。  </li>
 <li><strong>为什么不用每次都硬算 AND</strong>：因为“前缀与 1 相与不变，主机号与 0 相与归 0”，所以直接按定义“主机号全 0，其余不变”就能秒出网络地址，比列竖式做 AND 更快、更不易出错。</li>

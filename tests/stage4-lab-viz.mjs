@@ -1,3 +1,4 @@
+import { stripVideosV1 } from "./helpers/videos-v1.mjs";
 // 课堂可视化（assets/js/lab-viz.js）接入检查：挂载点、原页面内容不变、课堂原题数据与 calc-net 计算一致。
 import test from "node:test";
 import assert from "node:assert/strict";
@@ -12,7 +13,7 @@ const Lab = require("../assets/js/lab-viz.js");
 const originals = JSON.parse(read("tests/fixtures/lab-originals.json"));
 const sha = (s) => createHash("sha256").update(s).digest("hex");
 
-const strip = (html) => html
+const strip = (html) => stripVideosV1(html)
   .replace(/<!--lab:[^>]*?-->[\s\S]*?<!--\/lab:[^>]*?-->/g, "")
   .replace(/<!--gem:[^>]*?-->[\s\S]*?<!--\/gem:[^>]*?-->/g, "")
   .replace(/<link rel="stylesheet" href="[^"]*lab-viz\.css">\n?/g, "")

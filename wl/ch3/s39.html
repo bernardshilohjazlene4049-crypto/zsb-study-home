@@ -16,12 +16,26 @@
   <link rel="canonical" href="https://bernardshilohjazlene4049-crypto.github.io/zsb-study-home/wl/ch3/s39.html">
   <meta name="zsb-module" content="network">
   <meta name="zsb-status" content="ready">
+
+<!-- videos-v1:start -->
+<link rel="stylesheet" href="../../assets/css/videos-v1.css">
+<script defer src="../../assets/js/videos-v1.js" data-download-base="https://github.com/bernardshilohjazlene4049-crypto/zsb-study-home/releases/download/videos-v1/"></script>
+<!-- videos-v1:end -->
 </head>
 <body class="wy-points-page wl-page">
 <header class="site-header"><div class="site-header__inner"><a class="site-brand" href="../../index.html">辽宁专升本</a><nav class="site-nav" aria-label="全站导航"><a href="../../search.html">搜索</a></nav></div></header>
 <main class="site-main"><div class="site-container">
 <div class="wy-layout" data-chapter="net.ch3">
-<article class="sh-card wy-sheet"><header class="wy-point-head"><span class="wy-point-no">3.9</span><h1>3.9 典型习题：子网掩码选择与地址计算</h1></header><!--lab:illus--><div class="wy-illus" data-illus="wl.ch3.s39" hidden></div><!--/lab:illus-->
+<article class="sh-card wy-sheet"><header class="wy-point-head"><span class="wy-point-no">3.9</span><h1>3.9 典型习题：子网掩码选择与地址计算</h1>
+<!-- videos-v1:start -->
+<details class="v1-videos" id="videos-v1" data-release="draft" data-pagefind-ignore><summary>知识点讲解视频（1） · 待发布</summary>
+<p class="v1-notice">视频待发布，发布后可在此播放。</p>
+<ul>
+<li data-video-id="net.s39" data-asset="net.s39.mp4" data-duration="126.72" data-bytes="2592957" data-sha256="0d675f2ef3b41f406d2588fadf8ca5521a8397df1521e55f15435896e0decf98"><img data-cover="../../assets/videos-v1/posters/net.s39.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><div><span class="v1-title">3.9 典型习题：子网掩码选择与地址计算</span> <span class="v1-time">2:07</span></div></li>
+</ul>
+</details>
+<!-- videos-v1:end -->
+</header><!--lab:illus--><div class="wy-illus" data-illus="wl.ch3.s39" hidden></div><!--/lab:illus-->
 <section class="wy-entry" id="e-3-9-1"><div class="wy-entry-top"><h2>P101【典型习题】：C 类分 8 个子网的掩码；同一子网 AND 结果</h2><button class="sh-btn" type="button" data-open-photo data-photos="1">打开原图</button></div><div class="wy-source wy-paper"><div class="wy-source-row wl-source-mark"><p>【印刷】</p></div><div class="wy-source-row"><p>P101【典型习题】</p></div><div class="wy-source-row"><p>1.某部门申请到一个C类IP地址，若要分成8个子网，其掩码应为（　　）</p></div><div class="wy-source-row"><p>A.255. 255. 255. 255　　　　B.255. 255. 255. 0</p></div><div class="wy-source-row"><p>C.255. 255. 255. 224　　　　D.255. 255. 255. 192</p></div><div class="wy-source-row"><p>2.若两台主机在同一子网中，则两台主机的IP地址分别与它们的子网掩码相“与”的结果一定（　　）</p></div><div class="wy-source-row"><p>A为全0　　B为全1　　C相同　　D不同</p></div><div class="wy-source-row wl-source-mark"><p>【老师手写】</p></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">第1题括号内：C（紫圈）；选项 C 的“224”圈出</span></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">第1题上方：红：2^n − 2 ≥ 8 ⇒ n = 4</span></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">　　　　　　紫：2^n ≥ 8 ⇒ n = 3</span></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">第2题括号内：C（紫圈）</span></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">第2题下方（红）：网络地址 = IP AND 掩码</span></div></div><div class="wy-supplement wy-paper"><h3>整理</h3><p>第1题：老师圈的答案是 C（224）。224 = 11100000，子网号 3 位，2^3 = 8 个子网。老师在题上写了两行：红字 2^n − 2 ≥ 8 ⇒ n = 4；紫字 2^n ≥ 8 ⇒ n = 3（不减 2，掩码 224，选 C）。</p><p>第2题：同一子网内的主机，网络地址相同，网络地址 = IP AND 掩码，所以结果一定相同，选 C。</p></div><!--gem:3-9-1--><div class="wy-supplement wy-paper wy-gem"><h3>讲解</h3><ul>
 <li><strong>直观意思</strong>： 求“至少需要借几位 <math display="inline"><mrow><mi>n</mi></mrow></math> 来当子网号”时，考试中会出现两个口径：  <ol>
 <li><strong>严格/传统口径</strong>（<math display="inline"><mrow><msup><mrow><mn>2</mn></mrow><mrow><mi>n</mi></mrow></msup><mo>&#x02212;</mo><mn>2</mn><mo>&#x02265;</mo><mi>所</mi><mi>需</mi><mi>子</mi><mi>网</mi><mi>数</mi></mrow></math>）：去掉全 0 和全 1 两个子网，取满足条件的最小整数 <math display="inline"><mrow><mi>n</mi></mrow></math>；  </li>

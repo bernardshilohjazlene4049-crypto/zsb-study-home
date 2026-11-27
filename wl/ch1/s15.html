@@ -16,12 +16,26 @@
   <link rel="canonical" href="https://bernardshilohjazlene4049-crypto.github.io/zsb-study-home/wl/ch1/s15.html">
   <meta name="zsb-module" content="network">
   <meta name="zsb-status" content="ready">
+
+<!-- videos-v1:start -->
+<link rel="stylesheet" href="../../assets/css/videos-v1.css">
+<script defer src="../../assets/js/videos-v1.js" data-download-base="https://github.com/bernardshilohjazlene4049-crypto/zsb-study-home/releases/download/videos-v1/"></script>
+<!-- videos-v1:end -->
 </head>
 <body class="wy-points-page wl-page">
 <header class="site-header"><div class="site-header__inner"><a class="site-brand" href="../../index.html">辽宁专升本</a><nav class="site-nav" aria-label="全站导航"><a href="../../search.html">搜索</a></nav></div></header>
 <main class="site-main"><div class="site-container">
 <div class="wy-layout" data-chapter="net.ch1">
-<article class="sh-card wy-sheet"><header class="wy-point-head"><span class="wy-point-no">1.5</span><h1>1.5 私有地址与回送地址（真题）</h1></header><!--lab:illus--><div class="wy-illus" data-illus="wl.ch1.s15" hidden></div><!--/lab:illus-->
+<article class="sh-card wy-sheet"><header class="wy-point-head"><span class="wy-point-no">1.5</span><h1>1.5 私有地址与回送地址（真题）</h1>
+<!-- videos-v1:start -->
+<details class="v1-videos" id="videos-v1" data-release="draft" data-pagefind-ignore><summary>知识点讲解视频（1） · 待发布</summary>
+<p class="v1-notice">视频待发布，发布后可在此播放。</p>
+<ul>
+<li data-video-id="net.s15" data-asset="net.s15.mp4" data-duration="106.12" data-bytes="2091694" data-sha256="982cad1c0ec8d910c0eef38d2994ad6834bc8eec7f6e804c7cf7dca54a6e2a0b"><img data-cover="../../assets/videos-v1/posters/net.s15.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><div><span class="v1-title">1.5 私有地址与回送地址（真题）</span> <span class="v1-time">1:46</span></div></li>
+</ul>
+</details>
+<!-- videos-v1:end -->
+</header><!--lab:illus--><div class="wy-illus" data-illus="wl.ch1.s15" hidden></div><!--/lab:illus-->
 <section class="wy-entry" id="e-1-5-1"><div class="wy-entry-top"><h2>第15–16题（2018/2021真题）：私有地址、127.0.0.1，及老师布置的作业提示</h2><button class="sh-btn" type="button" data-open-photo data-photos="1">打开原图</button></div><div class="wy-source wy-paper"><div class="wy-source-row wl-source-mark"><p>【印刷】</p></div><div class="wy-source-row"><p>15.私有网络地址用于配置本地网络，下面的地址属于私有网络地址的是（ C ）（2018真题）。</p></div><div class="wy-source-row"><p>A.100.0.0.0　B.172.15.0.0　C.192.168.0.0　D.244.0.0.0</p></div><div class="wy-source-row"><p>16.127.0.0.1是（ D ）（2021真题）</p></div><div class="wy-source-row"><p>A.网络地址　B.私有地址　C.广播地址　D.回送地址</p></div><div class="wy-source-row wl-source-mark"><p>【老师手写】</p></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">15 题括号内：C；16 题括号内：D（均为红字）</span></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">右侧红字：P97~98 习【“习”字不确定】17~23题；作业；分片原型题 笔+作【“原型”两字潦草，把握不大；“笔+作”疑为“笔记+作业”】</span></div></div><div class="wy-supplement wy-paper"><h3>整理</h3><p>15 题：私有地址三段是 10.x.x.x、172.16~172.31.x.x、192.168.x.x（老师手写见 1-2-1）。A 的 100 不在三段内；B 的 172.15 不在 16~31 内；C 的 192.168.0.0 是私有地址；D 的 244 也不在三段内。所以选 C。</p><p>16 题：127.0.0.1 是回送地址，选 D（第 9 页第 19 题老师也写了“127.0.0.1 被称作访问/回送地址”，见 1-6-1）。</p><p>右侧手写是老师布置的内容：教材 P97~98 的第 17~23 题当作业；“分片原型题”要做笔记并做作业（“笔+作”按“笔记+作业”解读，为整理者推测，请以原图为准）。</p></div><!--gem:1-5-1--><div class="wy-supplement wy-paper wy-gem"><h3>讲解</h3><ul>
 <li>127.0.0.1：代表“本机自己”（环回/回送地址），发给它的数据包不会真正走网卡发到外网，而是直接在本机协议栈绕一圈回来。  </li>
 <li><strong>私有网络地址</strong>：专门留给单位、家庭等内部局域网随便用的地址，不直接在全球公网上路由。</li>

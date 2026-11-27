@@ -1,0 +1,1 @@
+<div class="pvideo kdvideo" data-kdvideo="kd1"><a class="pvideo-open" href="gs1/kdvideos/kd1-domain.mp4" data-src="gs1/kdvideos/kd1-domain.mp4" data-poster="gs1/kdposters/kd1.jpg"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span class="sr-only">考点一</span><span>考点讲解</span><span class="pvideo-dur">3:00</span></a></div>

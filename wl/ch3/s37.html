@@ -16,12 +16,26 @@
   <link rel="canonical" href="https://bernardshilohjazlene4049-crypto.github.io/zsb-study-home/wl/ch3/s37.html">
   <meta name="zsb-module" content="network">
   <meta name="zsb-status" content="ready">
+
+<!-- videos-v1:start -->
+<link rel="stylesheet" href="../../assets/css/videos-v1.css">
+<script defer src="../../assets/js/videos-v1.js" data-download-base="https://github.com/bernardshilohjazlene4049-crypto/zsb-study-home/releases/download/videos-v1/"></script>
+<!-- videos-v1:end -->
 </head>
 <body class="wy-points-page wl-page">
 <header class="site-header"><div class="site-header__inner"><a class="site-brand" href="../../index.html">辽宁专升本</a><nav class="site-nav" aria-label="全站导航"><a href="../../search.html">搜索</a></nav></div></header>
 <main class="site-main"><div class="site-container">
 <div class="wy-layout" data-chapter="net.ch3">
-<article class="sh-card wy-sheet"><header class="wy-point-head"><span class="wy-point-no">3.7</span><h1>3.7 求网络号、子网号、主机号与子网地址（典型习题）</h1></header><!--lab:illus--><div class="wy-illus" data-illus="wl.ch3.s37" hidden></div><!--/lab:illus-->
+<article class="sh-card wy-sheet"><header class="wy-point-head"><span class="wy-point-no">3.7</span><h1>3.7 求网络号、子网号、主机号与子网地址（典型习题）</h1>
+<!-- videos-v1:start -->
+<details class="v1-videos" id="videos-v1" data-release="draft" data-pagefind-ignore><summary>知识点讲解视频（1） · 待发布</summary>
+<p class="v1-notice">视频待发布，发布后可在此播放。</p>
+<ul>
+<li data-video-id="net.s37" data-asset="net.s37.mp4" data-duration="184.12" data-bytes="3635022" data-sha256="fda16597800f2f0bf06eab5633210ef4ae3af61b3f1dd6ca516cf303c962c6f6"><img data-cover="../../assets/videos-v1/posters/net.s37.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><div><span class="v1-title">3.7 求网络号、子网号、主机号与子网地址（典型习题）</span> <span class="v1-time">3:04</span></div></li>
+</ul>
+</details>
+<!-- videos-v1:end -->
+</header><!--lab:illus--><div class="wy-illus" data-illus="wl.ch3.s37" hidden></div><!--/lab:illus-->
 <section class="wy-entry" id="e-3-7-1"><div class="wy-entry-top"><h2>P104 【划分子网典型习题】题型一：195.169.20.25，掩码 255.255.255.240</h2><button class="sh-btn" type="button" data-open-photo data-photos="1">打开原图</button></div><div class="wy-source wy-paper"><div class="wy-source-row wl-source-mark"><p>【印刷】</p></div><div class="wy-source-row"><p>P104　【划分子网典型习题】</p></div><div class="wy-source-row"><p>题型一：计算机器的网络号、子网号与主机号</p></div><div class="wy-source-row"><p>1.　已经某计算机所使用的 IP 地址是：195.169.20.25，子网掩码是：255.255.255.240，经计算写出该机器的网络号、子网号、主机号。</p></div><div class="wy-source-row wl-source-mark"><p>【老师手写】</p></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">地址旁：C类</span></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">右上蓝字：0001｜1001（25 的二进制，竖线分隔，下方波浪线）</span></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">红：主机号位数 = 子掩中0的个数 = 4位</span></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">红：网络号位数 = 看是几类IP = 24位</span></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">红：子网号位数 = 32 − 主机号位数 − 网络号位数</span></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">　　　　　　　 = 32 − 4 − 24 = 4位</span></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">图：195 . 169 . 20 . 0001｜1001</span></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">　　网络号(24)　　　子网号(4)　主机号(4)</span></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">蓝：网络号：195.169.20</span></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">　　子网号：00010000 = 16</span></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">　　主机号：00001001 = 9</span></div></div><div class="wy-supplement wy-paper"><h3>整理</h3><p>195 在 192~223，是 C 类，网络号 24 位。掩码 240 = 11110000，有 4 个 0 → 主机号 4 位；子网号 = 32 − 4 − 24 = 4 位。</p><p>第 4 字节 25 = 0001 1001：前 4 位 0001 是子网号，后 4 位 1001 是主机号。</p><p>结果：网络号 195.169.20；子网号 0001 0000 = 16（老师按补零后的数值写）；主机号 0000 1001 = 9。</p></div><!--gem:3-7-1--><div class="wy-supplement wy-paper wy-gem"><h3>讲解</h3><ul>
 <li><strong>直观意思</strong>：原本一个 32 位 IP 地址只分成两段——“小区大门（网络号）”和“门牌号（主机号）”。划分子网后，是从原本的“门牌号”高位借出几位当“楼栋号（子网号）”，变成<strong>三段式结构</strong> &lt;网络号&gt;&lt;子网号&gt;&lt;主机号&gt;。子网掩码就像一把标尺：掩码里是 1 的位置归“小区+楼栋”，是 0 的位置归“纯门牌号”。  </li>
 <li><strong>为什么这样算</strong>：  <ul>

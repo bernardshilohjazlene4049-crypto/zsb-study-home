@@ -16,6 +16,11 @@
   <link rel="canonical" href="https://bernardshilohjazlene4049-crypto.github.io/zsb-study-home/wl/ch2/s25.html">
   <meta name="zsb-module" content="network">
   <meta name="zsb-status" content="ready">
+
+<!-- videos-v1:start -->
+<link rel="stylesheet" href="../../assets/css/videos-v1.css">
+<script defer src="../../assets/js/videos-v1.js" data-download-base="https://github.com/bernardshilohjazlene4049-crypto/zsb-study-home/releases/download/videos-v1/"></script>
+<!-- videos-v1:end -->
 <link rel="stylesheet" href="../../assets/css/lab-viz.css">
 <script src="../../assets/js/calc-net.js" defer></script>
 <script src="../../assets/js/lab-viz.js" defer></script>
@@ -24,7 +29,16 @@
 <header class="site-header"><div class="site-header__inner"><a class="site-brand" href="../../index.html">辽宁专升本</a><nav class="site-nav" aria-label="全站导航"><a href="../../search.html">搜索</a></nav></div></header>
 <main class="site-main"><div class="site-container">
 <div class="wy-layout" data-chapter="net.ch2">
-<article class="sh-card wy-sheet"><header class="wy-point-head"><span class="wy-point-no">2.5</span><h1>2.5 地址块、最小/最大地址与可指派地址数（板书与讲解版）</h1></header><!--lab:illus--><div class="wy-illus" data-illus="wl.ch2.s25"><a class="wy-illus-link" href="../illus/net-02-cidr.webp" target="_blank" rel="noopener"><img src="../illus/net-02-cidr.webp" alt="CIDR地址块讲解图" width="1086" height="1448" loading="lazy" decoding="async"></a></div><!--/lab:illus-->
+<article class="sh-card wy-sheet"><header class="wy-point-head"><span class="wy-point-no">2.5</span><h1>2.5 地址块、最小/最大地址与可指派地址数（板书与讲解版）</h1>
+<!-- videos-v1:start -->
+<details class="v1-videos" id="videos-v1" data-release="draft" data-pagefind-ignore><summary>知识点讲解视频（1） · 待发布</summary>
+<p class="v1-notice">视频待发布，发布后可在此播放。</p>
+<ul>
+<li data-video-id="net.s25" data-asset="net.s25.mp4" data-duration="161.56" data-bytes="3283917" data-sha256="4bbc6128081894cb4ab1875f5624eea78e2303a419794f67a0e7583e6683c810"><img data-cover="../../assets/videos-v1/posters/net.s25.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><div><span class="v1-title">2.5 地址块、最小/最大地址与可指派地址数（板书与讲解版）</span> <span class="v1-time">2:42</span></div></li>
+</ul>
+</details>
+<!-- videos-v1:end -->
+</header><!--lab:illus--><div class="wy-illus" data-illus="wl.ch2.s25"><a class="wy-illus-link" href="../illus/net-02-cidr.webp" target="_blank" rel="noopener"><img src="../illus/net-02-cidr.webp" alt="CIDR地址块讲解图" width="1086" height="1448" loading="lazy" decoding="async"></a></div><!--/lab:illus-->
 <section class="wy-entry" id="e-2-5-1"><div class="wy-entry-top"><h2>（2）地址块：156.16.32.0/20（板书版）</h2><button class="sh-btn" type="button" data-open-photo data-photos="1">打开原图</button></div><div class="wy-source wy-paper"><div class="wy-source-row wl-source-mark"><p>【印刷】</p></div><div class="wy-source-row"><p>（2）地址块（P102例如）</p></div><div class="wy-source-row"><p>CIDR 把网络前缀都相同的所有连续的 IP 地址组成一个 CIDR 地址块。</p></div><div class="wy-source-row"><p>156.16.32.0/20 组成的地址块（共 2^12 个地址）</p></div><div class="wy-source-row"><p>最小地址 156.16.32.0</p></div><div class="wy-source-row"><p>最大地址 156.16.47.255</p></div><div class="wy-source-row"><p>所有地址的 20 位前缀都是一样的</p></div><div class="wy-source-row"><p>可指派的地址数是 2^12 − 2 个</p></div><div class="wy-source-row"><p>（地址列表，每行前 20 位为紫色“前缀”、后 12 位为蓝色）</p></div><div class="wy-source-row"><p>10011100 00010000 00100000 00000000</p></div><div class="wy-source-row"><p>10011100 00010000 00100000 00000001</p></div><div class="wy-source-row"><p>10011100 00010000 00100000 00000010</p></div><div class="wy-source-row"><p>10011100 00010000 00100000 00000011</p></div><div class="wy-source-row"><p>10011100 00010000 00100000 00000100</p></div><div class="wy-source-row"><p>10011100 00010000 00100000 00000101</p></div><div class="wy-source-row"><p>…</p></div><div class="wy-source-row"><p>10011100 00010000 00101111 11111011</p></div><div class="wy-source-row"><p>10011100 00010000 00101111 11111100</p></div><div class="wy-source-row"><p>10011100 00010000 00101111 11111101</p></div><div class="wy-source-row"><p>10011100 00010000 00101111 11111110</p></div><div class="wy-source-row"><p>10011100 00010000 00101111 11111111</p></div><div class="wy-source-row wl-source-mark"><p>【老师手写】</p></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">顶部紫字：00100000</span></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">“最小地址”旁：网地；第2行（…00000001）红线，旁注：最小主机IP</span></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">“最大地址”旁：广地；倒数第2行（…11111110）红线，旁注：最大主机IP</span></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">右上：主机号位数【手写简写，按上下文读作“主机号位数”】2^(32−20) = 2^12</span></div></div><div class="wy-supplement wy-paper"><h3>整理</h3><p>CIDR 地址块 = 网络前缀都相同的一段连续地址。156.16.32.0/20：前 20 位相同，主机号 12 位，共 2^12 = 4096 个地址。</p><ul><li>最小地址 156.16.32.0：主机号全 0 → 网络地址（“网地”）；</li><li>最大地址 156.16.47.255：主机号全 1 → 广播地址（“广地”）；</li><li>最小主机 IP = 网络地址 + 1（…00000001，即 156.16.32.1）；最大主机 IP = 广播地址 − 1（…11111110，即 156.16.47.254）；</li><li>可指派的地址数 = 2^12 − 2（去掉网络地址和广播地址）。</li></ul><p>（把 32.1、47.254 和 2^12 − 2 = 4094 写出来是整理者按原图二进制行换算的，原图只画了二进制行。）</p><p>第 3 字节：32 = 0010 0000，47 = 0010 1111，前 4 位 0010 是前缀的一部分，后 4 位和第 4 字节一起是主机号。</p></div><!--gem:2-5-1--><div class="wy-supplement wy-paper wy-gem"><h3>讲解</h3><p>把前 20 位钉死不动，后 12 位从“全 0”一路加 1 数到“全 1”，得到的一整串连续 IP 就是一个地址块：
 * <strong>第 1 个（全 0）</strong>：网络地址（代表整个网段，不能分给电脑）。<br />
 * <strong>第 2 个到倒数第 2 个</strong>：可以真正配给主机的可用 IP（最小主机 IP 到最大主机 IP）。<br />

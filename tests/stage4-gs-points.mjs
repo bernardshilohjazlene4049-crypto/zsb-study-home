@@ -1,9 +1,12 @@
+import { stripVideosV1 } from "./helpers/videos-v1.mjs";
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
 import { readFileSync, existsSync, statSync } from "node:fs";
 import test from "node:test";
 
 const page = readFileSync("gs/gs1.html", "utf8");
+const domainVideoLink = '<a class="sh-btn" href="#videos-v1-gs1-1-2">定义域讲解视频</a>';
+const legacyDomainVideo = readFileSync("tests/fixtures/math-domain-legacy-entry.txt", "utf8").trimEnd();
 const source = JSON.parse(readFileSync("tests/fixtures/gs1-source.json", "utf8"));
 const photos = JSON.parse(readFileSync("tests/fixtures/gs1-photos.json", "utf8"));
 const sha = (buffer) => createHash("sha256").update(buffer).digest("hex");
@@ -15,6 +18,8 @@ test("11 个考点各有一个原文块，原有页面内容一字不少", () =>
   let rest = page.replace(/<!--gs-pt:(\d+)-->[\s\S]*?<!--\/gs-pt:\1-->/g, "").replace(/<!--gs-photo-->[\s\S]*?<!--\/gs-photo-->\n?/, "");
   rest = rest.replace('\n<link rel="stylesheet" href="../assets/css/wy-points.css"><link rel="stylesheet" href="../assets/css/gs-points.css">', "")
     .replace('\n<script src="../assets/js/wy-points.js" defer></script><script src="../assets/js/gs-viz.js" defer></script>', "");
+  assert.equal(rest.split(domainVideoLink).length, 2);
+  rest = stripVideosV1(rest).replace(domainVideoLink, legacyDomainVideo);
   assert.equal(sha(Buffer.from(rest, "utf8")), source.original_sha256);
 });
 
@@ -71,7 +76,7 @@ test("可视化：六个组件各挂一次，脚本无外链，页面没有速�
   assert.ok(existsSync("assets/js/gs-viz.js") && existsSync("assets/css/gs-points.css"));
   const script = readFileSync("assets/js/gs-viz.js", "utf8");
   assert.doesNotMatch(script, /https?:\/\//);
-  assert.doesNotMatch(added, /https?:\/\/|速记|讲义原图|待确认|待补/);
+  assert.doesNotMatch(stripVideosV1(added), /https?:\/\/|速记|讲义原图|待确认|待补/);
   assert.doesNotMatch(readFileSync("assets/css/gs-points.css", "utf8"), /https?:\/\/|@import/);
   assert.match(page, /<script src="\.\.\/assets\/js\/gs-viz\.js" defer>/);
 });

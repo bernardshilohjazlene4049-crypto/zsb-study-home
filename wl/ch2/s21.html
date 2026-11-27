@@ -16,12 +16,26 @@
   <link rel="canonical" href="https://bernardshilohjazlene4049-crypto.github.io/zsb-study-home/wl/ch2/s21.html">
   <meta name="zsb-module" content="network">
   <meta name="zsb-status" content="ready">
+
+<!-- videos-v1:start -->
+<link rel="stylesheet" href="../../assets/css/videos-v1.css">
+<script defer src="../../assets/js/videos-v1.js" data-download-base="https://github.com/bernardshilohjazlene4049-crypto/zsb-study-home/releases/download/videos-v1/"></script>
+<!-- videos-v1:end -->
 </head>
 <body class="wy-points-page wl-page">
 <header class="site-header"><div class="site-header__inner"><a class="site-brand" href="../../index.html">辽宁专升本</a><nav class="site-nav" aria-label="全站导航"><a href="../../search.html">搜索</a></nav></div></header>
 <main class="site-main"><div class="site-container">
 <div class="wy-layout" data-chapter="net.ch2">
-<article class="sh-card wy-sheet"><header class="wy-point-head"><span class="wy-point-no">2.1</span><h1>2.1 掩码与网络前缀长度</h1></header><!--lab:illus--><div class="wy-illus" data-illus="wl.ch2.s21" hidden></div><!--/lab:illus-->
+<article class="sh-card wy-sheet"><header class="wy-point-head"><span class="wy-point-no">2.1</span><h1>2.1 掩码与网络前缀长度</h1>
+<!-- videos-v1:start -->
+<details class="v1-videos" id="videos-v1" data-release="draft" data-pagefind-ignore><summary>知识点讲解视频（1） · 待发布</summary>
+<p class="v1-notice">视频待发布，发布后可在此播放。</p>
+<ul>
+<li data-video-id="net.s21" data-asset="net.s21.mp4" data-duration="83.56" data-bytes="1540758" data-sha256="320222418077bb1686976672387f5be6fbfad6632e6e71fe5240172cbe2d9b69"><img data-cover="../../assets/videos-v1/posters/net.s21.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><div><span class="v1-title">2.1 掩码与网络前缀长度</span> <span class="v1-time">1:24</span></div></li>
+</ul>
+</details>
+<!-- videos-v1:end -->
+</header><!--lab:illus--><div class="wy-illus" data-illus="wl.ch2.s21" hidden></div><!--/lab:illus-->
 <section class="wy-entry" id="e-2-1-1"><div class="wy-entry-top"><h2>典型题：与掩码对应的网络前缀各有多少位</h2><button class="sh-btn" type="button" data-open-photo data-photos="1">打开原图</button></div><div class="wy-source wy-paper"><div class="wy-source-row wl-source-mark"><p>【印刷】</p></div><div class="wy-source-row"><p>典型题　与下列掩码相对应的网络前缀各有多少位？</p></div><div class="wy-source-row"><p>(1)192.0.0.0　(2)240.0.0.0　(3)255.224.0.0　(4)255.255.255.252</p></div><div class="wy-source-row wl-source-mark"><p>【老师手写】</p></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">左上圈：笔</span></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">“网络前缀”圈出，上方：CIDR</span></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">(1) 2个　(2) 4个　(3) 8+3=11个</span></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">(4) =8+8+8+_6_ =30</span></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">右上：全1的字节=255</span></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">=255-3=252　=32-2=30</span></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">知识点：掩码定义：主机号全0，其余全1 → 网络前缀</span></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">128 64 32 16 8 4 2 1</span></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">240: 1 1 1 1 0 0 0 0</span></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">248 ⇐ 1 1 1 1 1</span></div><div class="wy-source-row wl-source-hand"><span class="wy-hand">252 ⇐ 1 1 1 1 1 1</span></div></div><div class="wy-supplement wy-paper"><h3>整理</h3><p>掩码：主机号部分全 0，其余（网络前缀）全 1。所以前缀长度 = 掩码里 1 的个数。</p><ul><li>192 = 11000000 → 2 位</li><li>240 = 11110000 → 4 位</li><li>255.224 → 8 + 3 = 11 位（224 = 11100000）</li><li>255.255.255.252 → 8+8+8+6 = 30 位；也可以反着算：252 = 255 − 3，末尾 2 个 0，32 − 2 = 30</li></ul><p>常用值（按位权 128 64 32 16 8 4 2 1 累加）：240 = 4 个 1，248 = 5 个 1，252 = 6 个 1。</p></div><!--gem:2-1-1--><div class="wy-supplement wy-paper wy-gem"><h3>讲解</h3><ul>
 <li><strong>直观意思</strong>：CIDR（无分类域间路由）彻底打破了传统 A/B/C 只能按 8 位、16 位、24 位整字节切分的死规矩，想在哪一位切就在哪一位切，用 /P 标明前 <math display="inline"><mrow><mi>P</mi></mrow></math> 位是“网络前缀”，剩下 <math display="inline"><mrow><mn>32</mn><mo>&#x02212;</mo><mi>P</mi></mrow></math> 位是“主机号”。  </li>
 <li><strong>为什么</strong>：主机位有 <math display="inline"><mrow><mn>32</mn><mo>&#x02212;</mo><mi>P</mi></mrow></math> 个二进制位，每一位可以独立取 0 或 1 两种状态，根据乘法原理，总共能组合出 <math display="inline"><mrow><msup><mrow><mn>2</mn></mrow><mrow><mn>32</mn><mo>&#x02212;</mo><mi>P</mi></mrow></msup></mrow></math> 个不同的 IP 地址，这就是该地址块包含的全部地址数。</li>
