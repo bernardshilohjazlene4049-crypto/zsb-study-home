@@ -5,7 +5,7 @@ import { runInNewContext } from "node:vm";
 
 const script = readFileSync(new URL("../assets/js/videos-v1.js", import.meta.url), "utf8");
 
-function mount({ url, release = "draft", records = null }) {
+function mount({ url, release = "draft", records = null, readyStateOnSrc = 0 }) {
   const location = new URL(url);
   const src = "https://github.com/example/repo/releases/download/videos-v1/lesson.mp4";
   const made = [];
@@ -18,8 +18,14 @@ function mount({ url, release = "draft", records = null }) {
       children: [],
       isConnected: true,
       duration: 300,
+      readyState: 0,
       currentTime: 0,
       playbackRate: 1,
+      get src() { return this._src; },
+      set src(value) {
+        this._src = value;
+        if (tag === "video") this.readyState = readyStateOnSrc;
+      },
       classList: {
         add(name) { classes.add(name); },
         remove(name) { classes.delete(name); },
@@ -195,6 +201,45 @@ test("published playback restores saved position and rate, saves on pause, and n
   video.trigger("pause");
   await new Promise((resolve) => setImmediate(resolve));
   assert.deepEqual(calls.saves[1], ["stable-lesson-1", 61, 1.5]);
+  assert.equal(video.playCalled, undefined);
+});
+
+test("published playback restores when metadata is already ready after src assignment, without a loadedmetadata event", async () => {
+  const calls = { reads: [] };
+  const records = {
+    async readPlayback(resourceId) {
+      calls.reads.push(resourceId);
+      return { current_time: 84, playback_rate: 1.25 };
+    },
+    async savePlayback() {}
+  };
+  assert.ok(
+    script.indexOf('video.addEventListener("loadedmetadata", restorePosition') < script.indexOf("video.src = preview"),
+    "loadedmetadata must be bound before assigning video.src"
+  );
+  const { controls, row } = mount({
+    url: "https://example.com/lesson",
+    release: "published",
+    records,
+    readyStateOnSrc: 1
+  });
+  controls.children[0].trigger("click");
+  const video = row.children.find((child) => child.tag === "video");
+  assert.ok(video);
+  assert.equal(video.readyState, 1);
+  assert.equal(video.duration, 300);
+  assert.equal(video.currentTime, 0);
+  assert.equal(video.playCalled, undefined);
+
+  await new Promise((resolve) => setImmediate(resolve));
+  assert.deepEqual(calls.reads, ["stable-lesson-1"]);
+  assert.equal(video.currentTime, 84);
+  assert.equal(video.playCalled, undefined);
+
+  video.trigger("loadedmetadata");
+  await new Promise((resolve) => setImmediate(resolve));
+  assert.deepEqual(calls.reads, ["stable-lesson-1"], "the saved position must only be restored once");
+  assert.equal(video.currentTime, 84);
   assert.equal(video.playCalled, undefined);
 });
 

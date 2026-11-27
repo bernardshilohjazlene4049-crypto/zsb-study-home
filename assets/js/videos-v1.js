@@ -55,15 +55,12 @@
         const cover = row.querySelector("img");
         video.poster = cover.src || cover.dataset.cover || "";
         video.setAttribute("aria-label", title);
-        const asset = encodeURIComponent(row.dataset.asset);
-        video.src = preview
-          ? new URL(`__videos_v1_media__/${asset}`, site).href
-          : new URL(asset, script.dataset.downloadBase).href;
         const error = document.createElement("span");
         error.setAttribute("role", "status");
         const resourceId = row.dataset.videoId;
         let lastSavedAt = 0;
         const session = { closed: false };
+        let restored = false;
 
         const savePosition = (force = false) => {
           const currentTime = Number(video.currentTime);
@@ -81,7 +78,8 @@
         };
 
         const restorePosition = async () => {
-          if (!resourceId) return;
+          if (!resourceId || restored || session.closed || !video.isConnected) return;
+          restored = true;
           try {
             const records = await playbackRecords();
             if (!records || session.closed || !video.isConnected) return;
@@ -109,7 +107,12 @@
         video.addEventListener("error", () => {
           error.textContent = preview ? "本机视频加载失败，请检查预览服务。" : "视频加载失败，请稍后重试。";
         });
+        const asset = encodeURIComponent(row.dataset.asset);
+        video.src = preview
+          ? new URL(`__videos_v1_media__/${asset}`, site).href
+          : new URL(asset, script.dataset.downloadBase).href;
         row.append(video, error);
+        if (video.readyState >= 1) void restorePosition();
         row.classList.add("v1-open");
         active = {
           remove() {

@@ -18,8 +18,9 @@ test("11 个考点各有一个原文块，原有页面内容一字不少", () =>
   let rest = page.replace(/<!--gs-pt:(\d+)-->[\s\S]*?<!--\/gs-pt:\1-->/g, "").replace(/<!--gs-photo-->[\s\S]*?<!--\/gs-photo-->\n?/, "");
   rest = rest.replace('\n<link rel="stylesheet" href="../assets/css/wy-points.css"><link rel="stylesheet" href="../assets/css/gs-points.css">', "")
     .replace('\n<script src="../assets/js/wy-points.js" defer></script><script src="../assets/js/gs-viz.js" defer></script>', "");
+  assert.equal(rest.split(legacyDomainVideo).length, 2);
   assert.equal(rest.split(domainVideoLink).length, 2);
-  rest = stripVideosV1(rest).replace(domainVideoLink, legacyDomainVideo);
+  rest = stripVideosV1(rest).replace(domainVideoLink, "");
   assert.equal(sha(Buffer.from(rest, "utf8")), source.original_sha256);
 });
 
