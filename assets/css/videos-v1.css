@@ -58,6 +58,14 @@
   font-size: .875em;
 }
 
+.v1-videos > ul > li > div:has(> .v1-title) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .3rem .6rem;
+  min-width: 0;
+}
+
 .v1-videos > ul > li > div > .sh-btn {
   margin-inline-start: .4rem;
   max-width: 100%;
