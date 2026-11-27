@@ -105,10 +105,41 @@
     "topic-8": "english.special.basics"
   };
 
+  var C_NOTES_TOPIC_IDS = {
+    "point-1": "c.ch1.intro",
+    "point-2": "c.ch1.structure",
+    "point-3": "c.ch1.compile",
+    "point-4": "c.ch2.identifier",
+    "point-5": "c.ch2.constants",
+    "point-6": "c.ch2.datatypes",
+    "point-7": "c.ch3.priority",
+    "point-8": "c.ch3.arith_logic",
+    "point-9": "c.ch3.assign_comma",
+    "point-10": "c.ch4.io_concept",
+    "point-11": "c.ch4.printf",
+    "point-12": "c.ch4.scanf_char_str",
+    "point-13": "c.ch5.truth_if",
+    "point-14": "c.ch5.nested_ternary",
+    "point-15": "c.ch5.switch",
+    "point-16": "c.ch6.while_dowhile",
+    "point-17": "c.ch6.for_loop",
+    "point-18": "c.ch6.control_coding",
+    "point-19": "c.ch7.array1d",
+    "point-20": "c.ch7.array2d",
+    "point-21": "c.ch7.char_array",
+    "point-22": "c.ch8.def_call",
+    "point-23": "c.ch8.decl_pass",
+    "point-24": "c.ch8.scope_static",
+    "point-25": "c.ch9.ptr_basics",
+    "point-26": "c.ch9.ptr_array1d",
+    "point-27": "c.ch9.ptr_array2d_param"
+  };
+
   var TOPIC_IDS_BY_PAGE = {
     gs1: GS1_TOPIC_IDS,
     gs45: GS45_TOPIC_IDS,
-    yy5: YY5_TOPIC_IDS
+    yy5: YY5_TOPIC_IDS,
+    "c-notes": C_NOTES_TOPIC_IDS
   };
 
   function makeTopicRateButton(rating, label, hint) {
