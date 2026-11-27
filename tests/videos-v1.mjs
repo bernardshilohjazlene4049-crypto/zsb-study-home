@@ -5,7 +5,7 @@ import { runInNewContext } from "node:vm";
 
 const script = readFileSync(new URL("../assets/js/videos-v1.js", import.meta.url), "utf8");
 
-function mount({ url, release = "draft" }) {
+function mount({ url, release = "draft", downloadBase, sectionId = "videos-v1-lesson" }) {
   const location = new URL(url);
   const src = "https://github.com/example/repo/releases/download/videos-v1/lesson.mp4";
   const made = [];
@@ -46,20 +46,21 @@ function mount({ url, release = "draft" }) {
   });
   const section = Object.assign(element("details"), {
     open: false,
-    dataset: { release },
+    dataset: { release, downloadBase },
     matches: (selector) => selector === ".v1-videos",
     querySelectorAll: (selector) => selector === "img[data-cover]" ? (image.dataset.cover ? [image] : []) : [row],
     querySelector: (selector) => selector === ".v1-notice" ? notice : row.children.find((child) => child.tag === "video" && !child.removed)
   });
+  const window = element("window");
   runInNewContext(script, {
-    URL, URLSearchParams, location, window: element("window"),
+    URL, URLSearchParams, location, window,
     document: {
       currentScript: {
         src: new URL("/assets/js/videos-v1.js", url).href,
         dataset: { downloadBase: src.replace("lesson.mp4", "") }
       },
       querySelectorAll: () => [section],
-      getElementById: (id) => id === "videos-v1-lesson" ? section : null,
+      getElementById: (id) => id === sectionId ? section : null,
       createElement: (tag) => {
         const node = element(tag);
         made.push(node);
@@ -67,7 +68,7 @@ function mount({ url, release = "draft" }) {
       }
     }
   });
-  return { section, image, notice, controls, row, made, src };
+  return { section, image, notice, controls, row, made, src, location, window };
 }
 
 test("draft site and ordinary localhost offer no playback, even with a public preview query", () => {
@@ -109,6 +110,38 @@ test("loopback preview and published playback load only the selected video, with
     assert.equal(row.classList.contains("v1-open"), false);
     assert.equal(video.removed, true);
     assert.equal(video.src, undefined);
+  }
+});
+
+test("section download base overrides the script only for published playback", () => {
+  const downloadBase = "https://github.com/example/repo/releases/download/videos-c-v2/";
+  for (const [url, expected] of [
+    ["https://example.com/lesson", `${downloadBase}lesson.mp4`],
+    ["http://127.0.0.1:8765/lesson?videos-preview=1", "http://127.0.0.1:8765/__videos_v1_media__/lesson.mp4"]
+  ]) {
+    const { controls, row, made } = mount({ url, release: "published", downloadBase });
+    assert.deepEqual(made.map((node) => node.tag), ["button"]);
+    controls.children[0].trigger("click");
+    const [video] = row.children;
+    assert.equal(video.src, expected);
+    assert.equal(video.preload, "metadata");
+    assert.equal(video.autoplay, undefined);
+  }
+});
+
+test("C v2 hash opens the matching section on load and on hashchange without creating a player", () => {
+  const sectionId = "videos-c-v2-point-25";
+  const url = "https://example.com/c/notes.html";
+  for (const release of ["draft", "published"]) {
+    const initial = mount({ url: `${url}#${sectionId}`, sectionId, release });
+    assert.equal(initial.section.open, true);
+    assert.deepEqual(initial.made.map((node) => node.tag), release === "draft" ? [] : ["button"]);
+    const later = mount({ url: `${url}#point-25`, sectionId, release });
+    assert.equal(later.section.open, false);
+    later.location.hash = sectionId;
+    later.window.trigger("hashchange");
+    assert.equal(later.section.open, true);
+    assert.deepEqual(later.made.map((node) => node.tag), release === "draft" ? [] : ["button"]);
   }
 });
 

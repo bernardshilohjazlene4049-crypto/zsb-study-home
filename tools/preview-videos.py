@@ -30,6 +30,17 @@ def media_paths(manifest):
     return result
 
 
+def merge_media_paths(manifests):
+    result = {}
+    for manifest in manifests:
+        mapping = media_paths(manifest)
+        duplicate = result.keys() & mapping.keys()
+        if duplicate:
+            raise ValueError(f"Duplicate preview asset: {sorted(duplicate)[0]}")
+        result.update(mapping)
+    return result
+
+
 def byte_range(header, size):
     match = re.fullmatch(r"bytes=([0-9]{0,20})-([0-9]{0,20})", header)
     if not match or not size:
@@ -127,11 +138,12 @@ class PreviewHandler(BaseHTTPRequestHandler):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("manifest", type=Path)
+    parser.add_argument("manifest", type=Path, nargs="+")
     parser.add_argument("--port", type=int, default=8765)
     args = parser.parse_args()
+    mapping = merge_media_paths(args.manifest)
     with ThreadingHTTPServer(("127.0.0.1", args.port), PreviewHandler) as server:
-        server.media = media_paths(args.manifest)
+        server.media = mapping
         print(f"http://127.0.0.1:{server.server_port}/", flush=True)
         server.serve_forever()
 
