@@ -22,6 +22,7 @@ def load(name):
 
 
 integration = load("integrate-videos")
+c2_integration = load("integrate-c-v2-videos")
 preview = load("preview-videos")
 doc = json.loads(MANIFEST.read_text())
 rows = doc["videos"]
@@ -54,14 +55,14 @@ for page in pages:
         assert expected.count(legacy_link) == html.count(link) == 1
         assert "kd1-domain.mp4" not in html
         expected = expected.replace(legacy_link, link)
-    assert integration.BLOCK.sub("", html) == expected, page
+    assert integration.BLOCK.sub("", c2_integration.BLOCK.sub("", html)) == expected, page
 
 assert counts == Counter(row["card_id"] for row in rows)
 for path in git("diff", "--name-only", "--no-renames", "-z", base).split("\0"):
     suffix = Path(path).suffix.lower()
     assert suffix not in {".mp4", ".vtt", ".srt"}, path
     if suffix in {".webp", ".jpg"}:
-        assert path.startswith("assets/videos-v1/posters/"), path
+        assert path.startswith(("assets/videos-v1/posters/", "assets/videos-c-v2/posters/")), path
 cards = json.loads((ROOT / "data/topic-cards.json").read_text())
 original = json.loads(git("show", f"{base}:data/topic-cards.json"))
 domain = original["cards"]["math.domain"]

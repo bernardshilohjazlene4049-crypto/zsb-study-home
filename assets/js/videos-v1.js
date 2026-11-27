@@ -8,7 +8,7 @@
 
   function openFromHash() {
     const id = location.hash.slice(1);
-    if (!id.startsWith("videos-v1")) return;
+    if (!/^videos-(v1|c-v2)/.test(id)) return;
     const section = document.getElementById(id);
     if (section?.matches(".v1-videos")) section.open = true;
   }
@@ -50,7 +50,7 @@
         const asset = encodeURIComponent(row.dataset.asset);
         video.src = preview
           ? new URL(`__videos_v1_media__/${asset}`, site).href
-          : new URL(asset, script.dataset.downloadBase).href;
+          : new URL(asset, section.dataset.downloadBase || script.dataset.downloadBase).href;
         const error = document.createElement("span");
         error.setAttribute("role", "status");
         video.addEventListener("error", () => {
