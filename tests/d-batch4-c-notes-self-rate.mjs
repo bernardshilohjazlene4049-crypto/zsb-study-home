@@ -279,17 +279,22 @@ test("C 语言三档按钮提交 page:c-notes:point-N、subjectId=c_language 和
 });
 
 const cNotesPath = fileURLToPath(new URL("../c/notes.html", import.meta.url));
-test("真实 c/notes.html 只增加一行接入脚本，并保留 27 个 v1 块、口诀侧栏与 54 道习题", {
+test("真实 c/notes.html 仅增加 page-study 与导图模块两行页尾脚本，并保留 v1、口诀侧栏与 54 道习题", {
   skip: !existsSync(cNotesPath) && "完整 c/notes.html 未包含在离线上下文包中"
 }, () => {
   const html = readFileSync(cNotesPath, "utf8");
   const script = '<script src="../assets/js/page-study.js" data-page="c-notes" data-subject="c_language"></script>';
+  const mindmapScript = '<script type="module" src="../assets/js/features/c-mindmaps.js" data-page="c-notes"></script>';
   assert.equal(html.split(script).length - 1, 1, "page-study.js 接入脚本应恰好存在一次");
+  assert.equal(html.split(mindmapScript).length - 1, 1, "C 导图模块脚本应恰好存在一次");
   assert.equal((html.match(/<script\b[^>]*page-study\.js\b/g) || []).length, 1, "不应重复添加 page-study.js");
   const bodyEnd = html.lastIndexOf("</body>");
   const scriptEnd = html.indexOf(script) + script.length;
-  assert.ok(scriptEnd <= bodyEnd, "接入脚本必须位于 </body> 前");
-  assert.equal(html.slice(scriptEnd, bodyEnd).trim(), "", "接入脚本应紧贴 </body> 前，不改 footer 文案");
+  const mindmapStart = html.indexOf(mindmapScript);
+  const mindmapEnd = mindmapStart + mindmapScript.length;
+  assert.ok(scriptEnd < mindmapStart && mindmapEnd < bodyEnd, "导图模块脚本必须紧随 page-study.js 且位于 </body> 前");
+  assert.equal(html.slice(scriptEnd, mindmapStart).trim(), "", "page-study 与导图模块脚本之间不应插入其他内容");
+  assert.equal(html.slice(mindmapEnd, bodyEnd).trim(), "", "导图模块脚本应紧贴 </body> 前，不改 footer 文案");
   assert.equal((html.match(/<!-- videos-v1:start -->/g) || []).length, 28, "应保留 head 资源块和 27 个专题画廊");
   assert.equal((html.match(/<details class="v1-videos"[^>]*id="videos-v1-point-\d+"[^>]*data-release="published"/g) || []).length, 27);
 

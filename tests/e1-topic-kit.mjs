@@ -27,12 +27,32 @@ test("E1 齐套数据只覆盖 D1–D7 已打卡的 104 点", () => {
   }
 });
 
-test("导图缺口如实标记，不把口诀总表冒充逐点导图，也不编造高数 fragment", () => {
+test("C 语言 27 点逐点导图齐全，口诀表仍只是 extraLink", () => {
   const cPoints = points.filter((point) => point.batch === "D4");
+  const expectedAnchors = Array.from({ length: 27 }, (_, index) => `point-${index + 1}`);
+  assert.equal(cPoints.length, 27);
+  assert.deepEqual(cPoints.map((point) => point.anchor), expectedAnchors);
   const cWithMap = cPoints.filter((point) => point.mindmap.href);
-  assert.deepEqual(cWithMap.map((point) => point.anchor), ["point-5", "point-6", "point-27"]);
-  assert.ok(cPoints.every((point) => point.extraLinks.some((link) => link.href === "c/notes.html#overview")));
-  assert.ok(cPoints.filter((point) => !point.mindmap.href).every((point) => point.mindmap.status === "缺逐点导图"));
+  assert.deepEqual(cWithMap.map((point) => point.anchor), expectedAnchors);
+
+  for (const point of cPoints) {
+    assert.equal(point.mindmap.status, "有", `${point.anchor} 导图状态`);
+    assert.ok(point.extraLinks.some((link) => link.label === "速记口诀表" && link.href === "c/notes.html#overview"),
+      `${point.anchor} 必须保留速记口诀表入口`);
+    const number = Number(point.anchor.slice("point-".length));
+    if ([5, 6, 27].includes(number)) {
+      assert.equal(point.mindmap.label, "页内导图");
+      assert.equal(point.mindmap.href, `c/notes.html#${point.anchor}`);
+    } else {
+      assert.equal(point.mindmap.label, "本点导图");
+      assert.equal(point.mindmap.href, `assets/mindmaps/c/c-point-${String(number).padStart(2, "0")}.svg`);
+      const svg = read(point.mindmap.href);
+      assert.match(svg, new RegExp(`<svg[^>]*data-topic-id="${point.topicId.replaceAll(".", "\\.")}"`));
+      assert.match(svg, /<title id="svg-title">/);
+      assert.doesNotMatch(svg, /<script\b|(?:href|src)="https?:\/\//i, `${point.anchor} 必须是本地静态 SVG`);
+    }
+  }
+
   for (const point of points.filter((item) => item.batch === "D1" || item.batch === "D2")) {
     assert.equal(point.mindmap.href, "gs/mindmap.html");
     assert.doesNotMatch(point.mindmap.href, /#point-/);
@@ -169,7 +189,7 @@ test("网络 29 点各有本地 SVG，且运行时把对应导图挂在课页标
   for (const point of networkPoints) {
     const suffix = point.topicId.slice("net.".length);
     const svg = read(point.mindmap.href);
-    assert.match(svg, new RegExp(`<svg[^>]*data-topic-id="net\\.${suffix}"`));
+      assert.match(svg, new RegExp(`<svg[^>]*data-topic-id="${point.topicId.replaceAll(".", "\\.")}"`));
     assert.match(svg, /<title id="svg-title">/);
     assert.ok(point.extraLinks.some((link) => link.href === "notes/map.html#network"));
   }
@@ -380,7 +400,7 @@ function makePageStudyMountHarness(pageKey, topicId) {
   return { mountTopicKits, parent, group, navLink };
 }
 
-test("page-study 在打卡注入后调用 mountTopicKits，且真实挂载五项与 C 口诀链接", async () => {
+test("page-study 在打卡注入后调用 mountTopicKits，且真实挂载五项、本点导图与 C 口诀链接", async () => {
   const source = read("assets/js/page-study.js");
   const startup = source.indexOf("  injectTopicRatings();", source.indexOf("// 先按 pageKey"));
   const mountCall = source.indexOf("  mountTopicKits();", startup);
@@ -396,7 +416,9 @@ test("page-study 在打卡注入后调用 mountTopicKits，且真实挂载五项
   assert.ok(kit, "调用 mountTopicKits 后应真实插入 .e1-topic-kit");
   assert.equal(kit.children.filter((child) => child.classList.contains("e1-topic-kit__item")).length, 5);
   const mindmap = kit.children.find((child) => child.dataset.e1KitItem === "mindmap");
-  assert.equal(mindmap.querySelector(".e1-topic-kit__value")?.textContent, "缺逐点导图");
+  const mindmapLink = mindmap.querySelectorAll(".e1-topic-kit__link").find((link) => link.textContent === "本点导图");
+  assert.ok(mindmapLink, "point-1 齐套条必须显示本点导图");
+  assert.equal(mindmapLink.href, "https://example.test/assets/mindmaps/c/c-point-01.svg");
   const mnemonic = mindmap.querySelectorAll(".e1-topic-kit__link").find((link) => link.textContent === "速记口诀表");
   assert.ok(mnemonic, "C 点齐套条必须渲染 topic 级 extraLinks");
   assert.equal(mnemonic.href, "https://example.test/c/notes.html#overview");

@@ -1,0 +1,50 @@
+.c-mindmap-embed {
+  box-sizing: border-box;
+  max-width: 100%;
+  margin: 1.25rem auto 1.5rem;
+  padding: clamp(0.75rem, 2vw, 1.25rem);
+  overflow: hidden;
+  border: 1px solid #d6e1ed;
+  border-radius: 1rem;
+  background: #f5f8fc;
+  box-shadow: 0 8px 24px rgb(28 55 84 / 7%);
+}
+
+.c-mindmap-embed__caption {
+  margin: 0 0 0.75rem;
+  color: #294866;
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.c-mindmap-embed__open {
+  display: block;
+  max-width: 100%;
+  border-radius: 0.75rem;
+  outline-offset: 4px;
+}
+
+.c-mindmap-embed__open img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+}
+
+.c-mindmap-embed__open:focus-visible {
+  outline: 3px solid #4779a8;
+}
+
+@media (max-width: 560px) {
+  .c-mindmap-embed {
+    margin: 1rem 0 1.25rem;
+    padding: 0.65rem;
+    border-radius: 0.8rem;
+  }
+
+  .c-mindmap-embed__caption {
+    margin-bottom: 0.55rem;
+  }
+}
