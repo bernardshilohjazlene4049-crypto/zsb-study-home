@@ -135,11 +135,29 @@
     "point-27": "c.ch9.ptr_array2d_param"
   };
 
+  var JSJ1_TOPIC_IDS = {
+    "mind-1.1": "cb.ch1.11",
+    "mind-1.2": "cb.ch1.12",
+    "mind-1.3": "cb.ch1.13",
+    "mind-1.4": "cb.ch1.14"
+  };
+
+  var PPT5_TOPIC_IDS = {
+    "chapter-5.1": "cb.ppt.51",
+    "chapter-5.2": "cb.ppt.52",
+    "chapter-5.3": "cb.ppt.53",
+    "chapter-5.4": "cb.ppt.54",
+    "chapter-5.5": "cb.ppt.55",
+    "chapter-5.6": "cb.ppt.56"
+  };
+
   var TOPIC_IDS_BY_PAGE = {
     gs1: GS1_TOPIC_IDS,
     gs45: GS45_TOPIC_IDS,
     yy5: YY5_TOPIC_IDS,
-    "c-notes": C_NOTES_TOPIC_IDS
+    "c-notes": C_NOTES_TOPIC_IDS,
+    jsj1: JSJ1_TOPIC_IDS,
+    ppt5: PPT5_TOPIC_IDS
   };
 
   function makeTopicRateButton(rating, label, hint) {
@@ -162,8 +180,8 @@
     if (!topicIdsByAnchor) return;
     Object.keys(topicIdsByAnchor).forEach(function (anchor) {
       var section = document.getElementById(anchor);
-      var header = section && (section.querySelector(".topic-header") || section.querySelector(".chapter-heading"));
-      var title = header && (header.querySelector(".topic-title") || header.querySelector(".chapter-title"));
+      var header = section && (section.querySelector(".topic-header") || section.querySelector(".chapter-heading") || section.querySelector(".mind-head") || section.querySelector(".chapter-top"));
+      var title = header && (header.querySelector(".topic-title") || header.querySelector(".chapter-title") || header.querySelector("h2"));
       if (!section || !header || !title || header.querySelector("[data-zsb-question]")) return;
 
       var group = document.createElement("div");

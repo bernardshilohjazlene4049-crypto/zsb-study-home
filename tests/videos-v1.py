@@ -68,6 +68,10 @@ for page in pages:
         expected = expected.replace("</body>", '<script src="../assets/js/page-study.js" data-page="gs1" data-subject="math"></script>\n</body>', 1)
     if page == "c/notes.html":
         expected = expected.replace("</body>", '<script src="../assets/js/page-study.js" data-page="c-notes" data-subject="c_language"></script>\n</body>', 1)
+    if page == "jsj/jsj1.html":
+        expected = expected.replace("</body>", '<script src="../assets/js/page-study.js" data-page="jsj1" data-subject="computer_basics"></script>\n</body>', 1)
+    if page == "jsj/ppt5.html":
+        expected = expected.replace("</body>", '<script src="../assets/js/page-study.js" data-page="ppt5" data-subject="computer_basics"></script>\n</body>', 1)
     assert integration.BLOCK.sub("", html) == expected, page
 
 assert video_detail_count == 182
