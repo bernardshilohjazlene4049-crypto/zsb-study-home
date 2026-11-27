@@ -114,6 +114,8 @@ guide["video_sections"] = [
     {"title": title, "url": f"yy/yy5.html#videos-v1-topic-{topic}"}
     for topic, title in enumerate(("名词性从句", "状语从句", "主谓一致", "特殊句型"), 5)
 ]
+original["cards"]["english.noun.basics"]["url"] = "yy/yy5.html#topic-5"
+original["cards"]["english.adverbial.basics"]["url"] = "yy/yy5.html#topic-6"
 assert original == cards
 english = [row for row in rows if row["page_path"] == "yy/yy5.html"]
 assert Counter(row["anchor"] for row in english) == {"topic-5": 7, "topic-6": 9, "topic-7": 5, "topic-8": 7}
