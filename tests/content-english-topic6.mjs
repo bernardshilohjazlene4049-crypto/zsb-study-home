@@ -237,10 +237,16 @@ test("E1 保留 english.adverbial.basics 专题六入口并补齐 agreement 专�
   assert.deepEqual(agreement.extraLinks, [
     { label: "本专题逐点导图", href: "yy/yy5.html#points-7" }
   ]);
-  assert.equal(TOPIC_KIT_BY_ID["english.special.basics"].mindmap.href, "yy/mm/mm4.svg");
+  const special = TOPIC_KIT_BY_ID["english.special.basics"];
+  assert.equal(special.mindmap.href, "yy/mm/mm4.svg");
+  assert.equal(special.practice.visualHref, "yy/yy5.html#quiz-8");
+  assert.equal(special.practice.hasLab, false);
+  assert.deepEqual(special.extraLinks, [
+    { label: "本专题逐点导图", href: "yy/yy5.html#points-8" }
+  ]);
 });
 
-test("yy5 页尾按专题四、五、六、七顺序加载模块，v1 块不变且仍无尾换行", {
+test("yy5 页尾按专题四至八顺序加载模块，v1 块不变且仍无尾换行", {
   skip: !existsSync(path.join(root, "yy/yy5.html")) && "完整 yy/yy5.html 未包含在离线上下文包中"
 }, () => {
   const html = read("yy/yy5.html");
@@ -248,13 +254,14 @@ test("yy5 页尾按专题四、五、六、七顺序加载模块，v1 块不变�
   const topic5 = '<script type="module" src="../assets/js/features/english-topic5-viz.js"></script>';
   const topic6 = '<script type="module" src="../assets/js/features/english-topic6-viz.js"></script>';
   const topic7 = '<script type="module" src="../assets/js/features/english-topic7-viz.js"></script>';
-  for (const script of [topic4, topic5, topic6, topic7]) {
+  const topic8 = '<script type="module" src="../assets/js/features/english-topic8-viz.js"></script>';
+  for (const script of [topic4, topic5, topic6, topic7, topic8]) {
     assert.equal(html.split(script).length - 1, 1, `${script} 应恰好存在一次`);
   }
   assert.match(
     html,
-    /<script src="\.\.\/assets\/js\/lecture-player\.js" defer><\/script>\n<script type="module" src="\.\.\/assets\/js\/features\/english-topic4-viz\.js"><\/script>\n<script type="module" src="\.\.\/assets\/js\/features\/english-topic5-viz\.js"><\/script>\n<script type="module" src="\.\.\/assets\/js\/features\/english-topic6-viz\.js"><\/script>\n<script type="module" src="\.\.\/assets\/js\/features\/english-topic7-viz\.js"><\/script>\n<\/body><\/html>$/,
-    "专题七脚本必须接在专题六之后，保留原无尾换行页尾"
+    /<script src="\.\.\/assets\/js\/lecture-player\.js" defer><\/script>\n<script type="module" src="\.\.\/assets\/js\/features\/english-topic4-viz\.js"><\/script>\n<script type="module" src="\.\.\/assets\/js\/features\/english-topic5-viz\.js"><\/script>\n<script type="module" src="\.\.\/assets\/js\/features\/english-topic6-viz\.js"><\/script>\n<script type="module" src="\.\.\/assets\/js\/features\/english-topic7-viz\.js"><\/script>\n<script type="module" src="\.\.\/assets\/js\/features\/english-topic8-viz\.js"><\/script>\n<\/body><\/html>$/,
+    "专题八脚本必须接在专题七之后，保留原无尾换行页尾"
   );
   assert.equal(html.endsWith("\n"), false);
   assert.equal((html.match(/<!-- videos-v1:start -->/g) || []).length, 5);

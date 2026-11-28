@@ -195,19 +195,21 @@ test("专题四本地 SVG 资源完整、无外链脚本，且保留底稿限制
   assert.doesNotMatch(q09, /href=.*point-7|english\.agreement/);
 });
 
-test("yy5 保留专题四至七页尾模块顺序，仍无尾换行", () => {
+test("yy5 保留专题四至八页尾模块顺序，仍无尾换行", () => {
   const html = read("yy/yy5.html");
   const topic4Script = '<script type="module" src="../assets/js/features/english-topic4-viz.js"></script>';
   const topic5Script = '<script type="module" src="../assets/js/features/english-topic5-viz.js"></script>';
   const topic6Script = '<script type="module" src="../assets/js/features/english-topic6-viz.js"></script>';
   const topic7Script = '<script type="module" src="../assets/js/features/english-topic7-viz.js"></script>';
+  const topic8Script = '<script type="module" src="../assets/js/features/english-topic8-viz.js"></script>';
   assert.equal(html.split(topic4Script).length - 1, 1);
   assert.equal(html.split(topic5Script).length - 1, 1);
   assert.equal(html.split(topic6Script).length - 1, 1);
   assert.equal(html.split(topic7Script).length - 1, 1);
+  assert.equal(html.split(topic8Script).length - 1, 1);
   assert.match(
     html,
-    /<script src="\.\.\/assets\/js\/lecture-player\.js" defer><\/script>\n<script type="module" src="\.\.\/assets\/js\/features\/english-topic4-viz\.js"><\/script>\n<script type="module" src="\.\.\/assets\/js\/features\/english-topic5-viz\.js"><\/script>\n<script type="module" src="\.\.\/assets\/js\/features\/english-topic6-viz\.js"><\/script>\n<script type="module" src="\.\.\/assets\/js\/features\/english-topic7-viz\.js"><\/script>\n<\/body><\/html>$/
+    /<script src="\.\.\/assets\/js\/lecture-player\.js" defer><\/script>\n<script type="module" src="\.\.\/assets\/js\/features\/english-topic4-viz\.js"><\/script>\n<script type="module" src="\.\.\/assets\/js\/features\/english-topic5-viz\.js"><\/script>\n<script type="module" src="\.\.\/assets\/js\/features\/english-topic6-viz\.js"><\/script>\n<script type="module" src="\.\.\/assets\/js\/features\/english-topic7-viz\.js"><\/script>\n<script type="module" src="\.\.\/assets\/js\/features\/english-topic8-viz\.js"><\/script>\n<\/body><\/html>$/
   );
   assert.equal(html.endsWith("\n"), false);
 });

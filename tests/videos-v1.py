@@ -114,6 +114,7 @@ for page in pages:
             '<script type="module" src="../assets/js/features/english-topic5-viz.js"></script>\n'
             '<script type="module" src="../assets/js/features/english-topic6-viz.js"></script>\n'
             '<script type="module" src="../assets/js/features/english-topic7-viz.js"></script>\n'
+            '<script type="module" src="../assets/js/features/english-topic8-viz.js"></script>\n'
             '</body></html>',
             1,
         )
