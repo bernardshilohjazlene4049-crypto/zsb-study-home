@@ -53,7 +53,15 @@ test("C 语言 27 点逐点导图齐全，口诀表仍只是 extraLink", () => {
     }
   }
 
-  for (const point of points.filter((item) => item.batch === "D1" || item.batch === "D2")) {
+  for (const point of points.filter((item) => item.batch === "D1")) {
+    const number = Number(point.anchor.slice("point-".length));
+    assert.equal(point.mindmap.status, "有", `${point.anchor} 导图状态`);
+    assert.equal(point.mindmap.label, "本点导图");
+    assert.equal(point.mindmap.href, `assets/mindmaps/math/ch1/point-${String(number).padStart(2, "0")}.svg`);
+    assert.ok(point.extraLinks.some((link) => link.label === "科目总图" && link.href === "gs/mindmap.html"),
+      `${point.anchor} 必须保留科目总图入口`);
+  }
+  for (const point of points.filter((item) => item.batch === "D2")) {
     assert.equal(point.mindmap.href, "gs/mindmap.html");
     assert.doesNotMatch(point.mindmap.href, /#point-/);
   }

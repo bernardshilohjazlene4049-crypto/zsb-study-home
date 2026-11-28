@@ -339,6 +339,9 @@
 
   function foldGs1MindmapEntry() {
     if (pageKey !== "gs1") return;
+    void import(new URL("assets/js/features/math-ch1-mindmaps.js", root).href)
+      .then(({ mountMathCh1Mindmaps }) => mountMathCh1Mindmaps())
+      .catch(() => {});
     var navLink = document.querySelector('a[data-index-point="mindmap"][href="#mindmap"]');
     var target = document.querySelector('.e1-topic-kit[data-topic-id="math.domain"] [data-e1-kit-item="mindmap"] .e1-topic-kit__links');
     if (!navLink || !target) return;

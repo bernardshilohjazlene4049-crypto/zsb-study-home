@@ -1,0 +1,40 @@
+.math-ch1-mindmap {
+  margin: 1rem 0 1.5rem;
+  padding: 0.85rem;
+  border: 1px solid #d8e3ec;
+  border-radius: 14px;
+  background: #f7fafc;
+}
+
+.math-ch1-mindmap__caption {
+  margin: 0 0 0.65rem;
+  color: #36546c;
+  font-size: 0.92rem;
+  font-weight: 650;
+}
+
+.math-ch1-mindmap__open {
+  display: block;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #edf3f8;
+}
+
+.math-ch1-mindmap__open img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+@media (max-width: 640px) {
+  .math-ch1-mindmap {
+    margin: 0.75rem 0 1.1rem;
+    padding: 0.55rem;
+    border-radius: 11px;
+  }
+
+  .math-ch1-mindmap__caption {
+    font-size: 0.86rem;
+  }
+}

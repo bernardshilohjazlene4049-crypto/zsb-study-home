@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="978" viewBox="0 0 800 978" role="img" aria-labelledby="svg-title svg-desc" data-topic-id="math.domain">
+<title id="svg-title">考点一：求函数的定义域</title>
+<desc id="svg-desc">定义域：让式子有意义的 x；按考点源稿整理的分支关系图。</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f7fafc"/><stop offset="1" stop-color="#edf3f8"/></linearGradient>
+<linearGradient id="root" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#173b5e"/><stop offset="1" stop-color="#285b7f"/></linearGradient>
+<filter id="soft" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#17324d" flood-opacity=".09"/></filter>
+</defs>
+<rect width="800" height="978" rx="24" fill="url(#bg)"/>
+<rect x="40" y="38" width="720" height="112" rx="22" fill="url(#root)" filter="url(#soft)"/>
+<text x="400" y="77" text-anchor="middle" font-family="Inter, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="21" fill="#d7e8f4">高数第一章 · 逐点思维导图</text>
+<text x="400" y="121" text-anchor="middle" font-family="Inter, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="31" font-weight="700" fill="#ffffff">定义域：让式子有意义的 x</text>
+<path d="M400 150 V166 H72 V826" fill="none" stroke="#91a9bd" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M72 228 H120" fill="none" stroke="#91a9bd" stroke-width="4" stroke-linecap="round"/>
+<rect x="120" y="190" width="650" height="294" rx="18" fill="#ffffff" stroke="#d5e0e9" stroke-width="2" filter="url(#soft)"/>
+<rect x="120" y="190" width="9" height="294" rx="4" fill="#4e7896"/>
+<circle cx="162" cy="228" r="21" fill="#e5eef5"/>
+<text x="162" y="236" text-anchor="middle" font-family="Inter, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="700" fill="#315d7d">1</text>
+<text x="198" y="238" font-family="Inter, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="29" font-weight="700" fill="#203e58">常见限制</text>
+<circle cx="202" cy="276" r="5" fill="#648aa6"/>
+<text x="225" y="284" font-family="Inter, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="26" fill="#314a5e">分式 分母 ≠ 0</text>
+<circle cx="202" cy="322" r="5" fill="#648aa6"/>
+<text x="225" y="330" font-family="Inter, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="26" fill="#314a5e">偶次根号 被开方 ≥ 0</text>
+<circle cx="202" cy="368" r="5" fill="#648aa6"/>
+<text x="225" y="376" font-family="Inter, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="26" fill="#314a5e">奇次根号 任意实数</text>
+<circle cx="202" cy="414" r="5" fill="#648aa6"/>
+<text x="225" y="422" font-family="Inter, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="26" fill="#314a5e">对数 ln、lg、log 真数 &gt; 0</text>
+<circle cx="202" cy="460" r="5" fill="#648aa6"/>
+<text x="225" y="468" font-family="Inter, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="26" fill="#314a5e">arcsin、arccos 绝对值 ≤ 1</text>
+<path d="M72 546 H120" fill="none" stroke="#91a9bd" stroke-width="4" stroke-linecap="round"/>
+<rect x="120" y="508" width="650" height="256" rx="18" fill="#ffffff" stroke="#d5e0e9" stroke-width="2" filter="url(#soft)"/>
+<rect x="120" y="508" width="9" height="256" rx="4" fill="#4e7896"/>
+<circle cx="162" cy="546" r="21" fill="#e5eef5"/>
+<text x="162" y="554" text-anchor="middle" font-family="Inter, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="700" fill="#315d7d">2</text>
+<text x="198" y="556" font-family="Inter, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="29" font-weight="700" fill="#203e58">怎么求</text>
+<circle cx="202" cy="594" r="5" fill="#648aa6"/>
+<text x="225" y="602" font-family="Inter, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="26" fill="#314a5e">每个限制单独列不等式</text>
+<circle cx="202" cy="640" r="5" fill="#648aa6"/>
+<text x="225" y="648" font-family="Inter, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="26" fill="#314a5e">最后取交集</text>
+<circle cx="202" cy="686" r="5" fill="#648aa6"/>
+<text x="225" y="694" font-family="Inter, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="26" fill="#314a5e">初等函数（一个式子）取交集</text>
+<circle cx="202" cy="732" r="5" fill="#648aa6"/>
+<text x="225" y="740" font-family="Inter, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="26" fill="#314a5e">分段函数：同一段取交，不同段取并</text>
+<path d="M72 826 H120" fill="none" stroke="#91a9bd" stroke-width="4" stroke-linecap="round"/>
+<rect x="120" y="788" width="650" height="142" rx="18" fill="#ffffff" stroke="#d5e0e9" stroke-width="2" filter="url(#soft)"/>
+<rect x="120" y="788" width="9" height="142" rx="4" fill="#4e7896"/>
+<circle cx="162" cy="826" r="21" fill="#e5eef5"/>
+<text x="162" y="834" text-anchor="middle" font-family="Inter, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="700" fill="#315d7d">3</text>
+<text x="198" y="836" font-family="Inter, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="29" font-weight="700" fill="#203e58">补充</text>
+<circle cx="202" cy="874" r="5" fill="#648aa6"/>
+<text x="225" y="882" font-family="Inter, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="26" fill="#314a5e">两个函数相同 ⇔ 定义域相同且对应法则相同</text>
+</svg>
