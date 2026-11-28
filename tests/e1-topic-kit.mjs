@@ -563,6 +563,12 @@ test("英语四张导图折回非谓语或 D3 对应知识点，非谓语不编�
   assert.deepEqual(adverbial.extraLinks, [
     { label: "本专题逐点导图", href: "yy/yy5.html#points-6" }
   ]);
+  const agreement = TOPIC_KIT_BY_ID["english.agreement.basics"];
+  assert.equal(agreement.mindmap.href, "yy/mm/mm3.svg");
+  assert.equal(agreement.practice.visualHref, "yy/yy5.html#quiz-7");
+  assert.deepEqual(agreement.extraLinks, [
+    { label: "本专题逐点导图", href: "yy/yy5.html#points-7" }
+  ]);
   assert.equal(Object.keys(TOPIC_KIT_BY_ID).some((id) => id.startsWith("english.nonfinite.")), false);
 });
 

@@ -224,24 +224,31 @@ test("E1 仅补齐 english.noun.basics 的专题五入口，104 点及其他英�
   assert.deepEqual(adverbial.extraLinks, [
     { label: "本专题逐点导图", href: "yy/yy5.html#points-6" }
   ]);
-  assert.equal(TOPIC_KIT_BY_ID["english.agreement.basics"].mindmap.href, "yy/mm/mm3.svg");
+  const agreement = TOPIC_KIT_BY_ID["english.agreement.basics"];
+  assert.equal(agreement.mindmap.href, "yy/mm/mm3.svg");
+  assert.equal(agreement.practice.visualHref, "yy/yy5.html#quiz-7");
+  assert.deepEqual(agreement.extraLinks, [
+    { label: "本专题逐点导图", href: "yy/yy5.html#points-7" }
+  ]);
   assert.equal(TOPIC_KIT_BY_ID["english.special.basics"].mindmap.href, "yy/mm/mm4.svg");
 });
 
-test("yy5 页尾在专题四模块之后仅增加专题五模块，并保留原有 v1 块与无尾换行", {
+test("yy5 页尾按专题四、五、六、七顺序加载模块，v1 块不变且仍无尾换行", {
   skip: !existsSync(path.join(root, "yy/yy5.html")) && "完整 yy/yy5.html 未包含在离线上下文包中"
 }, () => {
   const html = read("yy/yy5.html");
   const topic4 = '<script type="module" src="../assets/js/features/english-topic4-viz.js"></script>';
   const topic5 = '<script type="module" src="../assets/js/features/english-topic5-viz.js"></script>';
   const topic6 = '<script type="module" src="../assets/js/features/english-topic6-viz.js"></script>';
+  const topic7 = '<script type="module" src="../assets/js/features/english-topic7-viz.js"></script>';
   assert.equal(html.split(topic4).length - 1, 1, "专题四模块仍只加载一次");
   assert.equal(html.split(topic5).length - 1, 1, "专题五模块应恰好加载一次");
   assert.equal(html.split(topic6).length - 1, 1, "专题六模块应恰好加载一次");
+  assert.equal(html.split(topic7).length - 1, 1, "专题七模块应恰好加载一次");
   assert.match(
     html,
-    /<script src="\.\.\/assets\/js\/lecture-player\.js" defer><\/script>\n<script type="module" src="\.\.\/assets\/js\/features\/english-topic4-viz\.js"><\/script>\n<script type="module" src="\.\.\/assets\/js\/features\/english-topic5-viz\.js"><\/script>\n<script type="module" src="\.\.\/assets\/js\/features\/english-topic6-viz\.js"><\/script>\n<\/body><\/html>$/,
-    "专题六脚本必须紧接专题五脚本，保留原无尾换行页尾"
+    /<script src="\.\.\/assets\/js\/lecture-player\.js" defer><\/script>\n<script type="module" src="\.\.\/assets\/js\/features\/english-topic4-viz\.js"><\/script>\n<script type="module" src="\.\.\/assets\/js\/features\/english-topic5-viz\.js"><\/script>\n<script type="module" src="\.\.\/assets\/js\/features\/english-topic6-viz\.js"><\/script>\n<script type="module" src="\.\.\/assets\/js\/features\/english-topic7-viz\.js"><\/script>\n<\/body><\/html>$/,
+    "专题七脚本接在专题六之后，保留原无尾换行页尾"
   );
   assert.equal(html.endsWith("\n"), false);
   assert.equal((html.match(/<!-- videos-v1:start -->/g) || []).length, 5);
