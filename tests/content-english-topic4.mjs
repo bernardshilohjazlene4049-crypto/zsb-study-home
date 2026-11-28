@@ -195,13 +195,15 @@ test("专题四本地 SVG 资源完整、无外链脚本，且保留底稿限制
   assert.doesNotMatch(q09, /href=.*point-7|english\.agreement/);
 });
 
-test("yy5 页尾模块脚本只增加一处且保留无尾换行", () => {
+test("yy5 保留专题四页尾模块顺序并在其后追加专题五模块，仍无尾换行", () => {
   const html = read("yy/yy5.html");
-  const script = '<script type="module" src="../assets/js/features/english-topic4-viz.js"></script>';
-  assert.equal(html.split(script).length - 1, 1);
+  const topic4Script = '<script type="module" src="../assets/js/features/english-topic4-viz.js"></script>';
+  const topic5Script = '<script type="module" src="../assets/js/features/english-topic5-viz.js"></script>';
+  assert.equal(html.split(topic4Script).length - 1, 1);
+  assert.equal(html.split(topic5Script).length - 1, 1);
   assert.match(
     html,
-    /<script src="\.\.\/assets\/js\/lecture-player\.js" defer><\/script>\n<script type="module" src="\.\.\/assets\/js\/features\/english-topic4-viz\.js"><\/script>\n<\/body><\/html>$/
+    /<script src="\.\.\/assets\/js\/lecture-player\.js" defer><\/script>\n<script type="module" src="\.\.\/assets\/js\/features\/english-topic4-viz\.js"><\/script>\n<script type="module" src="\.\.\/assets\/js\/features\/english-topic5-viz\.js"><\/script>\n<\/body><\/html>$/
   );
   assert.equal(html.endsWith("\n"), false);
 });

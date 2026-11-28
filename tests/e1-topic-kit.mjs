@@ -549,7 +549,13 @@ test("英语四张导图折回非谓语或 D3 对应知识点，非谓语不编�
   assert.deepEqual(attributive.extraLinks, [
     { label: "本专题逐点导图", href: "yy/yy5.html#points-4" }
   ]);
-  assert.equal(TOPIC_KIT_BY_ID["english.noun.basics"].mindmap.href, "yy/mm/mm3.svg");
+  const noun = TOPIC_KIT_BY_ID["english.noun.basics"];
+  assert.equal(noun.mindmap.href, "yy/mm/mm3.svg", "专题五仍保留专题总图");
+  assert.equal(noun.practice.visualHref, "yy/yy5.html#quiz-5", "专题五练习讲解图落到 #quiz-5");
+  assert.equal(noun.practice.hasLab, false, "专题五不新增 lab");
+  assert.deepEqual(noun.extraLinks, [
+    { label: "本专题逐点导图", href: "yy/yy5.html#points-5" }
+  ]);
   assert.equal(TOPIC_KIT_BY_ID["english.adverbial.basics"].mindmap.href, "yy/mm/mm4.svg");
   assert.equal(Object.keys(TOPIC_KIT_BY_ID).some((id) => id.startsWith("english.nonfinite.")), false);
 });

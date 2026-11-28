@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="543" viewBox="0 0 1280 543" role="img" aria-labelledby="svg-title svg-desc" data-question="5-5" data-answer="B" data-related-points="5-8" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, sans-serif">
+<title id="svg-title">专题五第5题：He asked me where ___.</title>
+<desc id="svg-desc">根据专题五已交付练习源稿生成的本地静态判定流程图；题目与选项仍由页面原文呈现。</desc>
+<rect width="1280" height="543" fill="#f3f6fa"/>
+<rect x="28" y="22" width="1224" height="54" rx="14" fill="#203d61"/>
+<text x="54" y="57" font-size="22" fill="#fff" font-weight="700">专题五 · 名词性从句 · 练习 05</text>
+<rect x="1082" y="31" width="142" height="36" rx="18" fill="#d9eee8"/>
+<text x="1153" y="55" font-size="17" fill="#245b51" font-weight="700" text-anchor="middle">官方答案 B</text>
+<svg x="205.57" y="105" width="868.86" height="360.28" viewBox="0.00 0.00 736.32 305.32" preserveAspectRatio="xMidYMin meet">
+
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(20.16 285.16)">
+<title>G</title>
+<!-- A&#45;&gt;B -->
+<g id="edge1" class="edge">
+<title>A&#45;&gt;B</title>
+<path fill="none" stroke="#7892ad" stroke-width="1.8" d="M335.5,-225.84C335.5,-218.87 335.5,-210.82 335.5,-203.32"/>
+<polygon fill="#7892ad" stroke="#7892ad" stroke-width="1.8" points="337.95,-203.06 335.5,-196.06 333.05,-203.06 337.95,-203.06"/>
+</g>
+<!-- B&#45;&gt;C -->
+<g id="edge2" class="edge">
+<title>B&#45;&gt;C</title>
+<path fill="none" stroke="#7892ad" stroke-width="1.8" d="M335.5,-156.84C335.5,-149.87 335.5,-141.82 335.5,-134.32"/>
+<polygon fill="#7892ad" stroke="#7892ad" stroke-width="1.8" points="337.95,-134.06 335.5,-127.06 333.05,-134.06 337.95,-134.06"/>
+</g>
+<!-- C&#45;&gt;D -->
+<g id="edge3" class="edge">
+<title>C&#45;&gt;D</title>
+<path fill="none" stroke="#7892ad" stroke-width="1.8" d="M247.94,-87.96C183.3,-74.26 106.5,-58 106.5,-58 106.5,-58 101.1,-55.39 93.59,-51.77"/>
+<polygon fill="#7892ad" stroke="#7892ad" stroke-width="1.8" points="94.23,-49.36 86.86,-48.52 92.1,-53.77 94.23,-49.36"/>
+</g>
+<!-- C&#45;&gt;E -->
+<g id="edge4" class="edge">
+<title>C&#45;&gt;E</title>
+<path fill="none" stroke="#7892ad" stroke-width="1.8" d="M309.6,-87.98C294.86,-77.44 276.26,-64.15 260.6,-52.95"/>
+<polygon fill="#7892ad" stroke="#7892ad" stroke-width="1.8" points="261.65,-50.69 254.53,-48.61 258.8,-54.68 261.65,-50.69"/>
+</g>
+<!-- C&#45;&gt;F -->
+<g id="edge5" class="edge">
+<title>C&#45;&gt;F</title>
+<path fill="none" stroke="#7892ad" stroke-width="1.8" d="M361.64,-87.98C372.48,-80.31 385.38,-71.17 397.69,-62.45"/>
+<polygon fill="#7892ad" stroke="#7892ad" stroke-width="1.8" points="399.39,-64.25 403.68,-58.2 396.55,-60.25 399.39,-64.25"/>
+</g>
+<!-- C&#45;&gt;G -->
+<g id="edge6" class="edge">
+<title>C&#45;&gt;G</title>
+<path fill="none" stroke="#7892ad" stroke-width="1.8" d="M412.73,-87.96C469.76,-74.26 537.5,-58 537.5,-58 537.5,-58 546.79,-54.9 559.2,-50.77"/>
+<polygon fill="#7892ad" stroke="#7892ad" stroke-width="1.8" points="560.07,-53.06 565.94,-48.52 558.52,-48.41 560.07,-53.06"/>
+</g>
+<!-- A -->
+<g id="node1" class="node">
+<title>A</title>
+<path fill="#ffffff" stroke="#b9cada" stroke-width="1.5" d="M405.5,-265C405.5,-265 265.5,-265 265.5,-265 259.5,-265 253.5,-259 253.5,-253 253.5,-253 253.5,-238 253.5,-238 253.5,-232 259.5,-226 265.5,-226 265.5,-226 405.5,-226 405.5,-226 411.5,-226 417.5,-232 417.5,-238 417.5,-238 417.5,-253 417.5,-253 417.5,-259 411.5,-265 405.5,-265"/>
+<text text-anchor="middle" x="335.5" y="-241.4" font-family="Noto Sans CJK SC" font-size="17.00" fill="#26384d">ask 后是宾语从句</text>
+</g>
+<!-- B -->
+<g id="node2" class="node">
+<title>B</title>
+<path fill="#ffffff" stroke="#b9cada" stroke-width="1.5" d="M408,-196C408,-196 263,-196 263,-196 257,-196 251,-190 251,-184 251,-184 251,-169 251,-169 251,-163 257,-157 263,-157 263,-157 408,-157 408,-157 414,-157 420,-163 420,-169 420,-169 420,-184 420,-184 420,-190 414,-196 408,-196"/>
+<text text-anchor="middle" x="335.5" y="-172.4" font-family="Noto Sans CJK SC" font-size="17.00" fill="#26384d">连接词已是 where</text>
+</g>
+<!-- C -->
+<g id="node3" class="node">
+<title>C</title>
+<path fill="#ffffff" stroke="#b9cada" stroke-width="1.5" d="M460.5,-127C460.5,-127 210.5,-127 210.5,-127 204.5,-127 198.5,-121 198.5,-115 198.5,-115 198.5,-100 198.5,-100 198.5,-94 204.5,-88 210.5,-88 210.5,-88 460.5,-88 460.5,-88 466.5,-88 472.5,-94 472.5,-100 472.5,-100 472.5,-115 472.5,-115 472.5,-121 466.5,-127 460.5,-127"/>
+<text text-anchor="middle" x="335.5" y="-103.4" font-family="Noto Sans CJK SC" font-size="17.00" fill="#26384d">从句必须陈述语序 主语在动词前</text>
+</g>
+<!-- D -->
+<g id="node4" class="node">
+<title>D</title>
+<path fill="#ffffff" stroke="#b9cada" stroke-width="1.5" d="M85,-48.5C85,-48.5 12,-48.5 12,-48.5 6,-48.5 0,-42.5 0,-36.5 0,-36.5 0,-21.5 0,-21.5 0,-15.5 6,-9.5 12,-9.5 12,-9.5 85,-9.5 85,-9.5 91,-9.5 97,-15.5 97,-21.5 97,-21.5 97,-36.5 97,-36.5 97,-42.5 91,-48.5 85,-48.5"/>
+<text text-anchor="middle" x="48.5" y="-24.9" font-family="Noto Sans CJK SC" font-size="17.00" fill="#26384d">选 I lived</text>
+</g>
+<!-- E -->
+<g id="node5" class="node">
+<title>E</title>
+<path fill="#ffffff" stroke="#b9cada" stroke-width="1.5" d="M328,-48.5C328,-48.5 129,-48.5 129,-48.5 123,-48.5 117,-42.5 117,-36.5 117,-36.5 117,-21.5 117,-21.5 117,-15.5 123,-9.5 129,-9.5 129,-9.5 328,-9.5 328,-9.5 334,-9.5 340,-15.5 340,-21.5 340,-21.5 340,-36.5 340,-36.5 340,-42.5 334,-48.5 328,-48.5"/>
+<text text-anchor="middle" x="228.5" y="-24.9" font-family="Noto Sans CJK SC" font-size="17.00" fill="#26384d">did I live 是疑问语序 排除</text>
+</g>
+<!-- F -->
+<g id="node6" class="node">
+<title>F</title>
+<path fill="#ffffff" stroke="#b9cada" stroke-width="1.5" d="M515,-58C515,-58 372,-58 372,-58 366,-58 360,-52 360,-46 360,-46 360,-12 360,-12 360,-6 366,0 372,0 372,0 515,0 515,0 521,0 527,-6 527,-12 527,-12 527,-46 527,-46 527,-52 521,-58 515,-58"/>
+<text text-anchor="middle" x="443.5" y="-34.4" font-family="Noto Sans CJK SC" font-size="17.00" fill="#26384d">I did live 多余强调</text>
+<text text-anchor="middle" x="443.5" y="-15.4" font-family="Noto Sans CJK SC" font-size="17.00" fill="#26384d">不是常规陈述语序</text>
+</g>
+<!-- G -->
+<g id="node7" class="node">
+<title>G</title>
+<path fill="#ffffff" stroke="#b9cada" stroke-width="1.5" d="M684,-48.5C684,-48.5 559,-48.5 559,-48.5 553,-48.5 547,-42.5 547,-36.5 547,-36.5 547,-21.5 547,-21.5 547,-15.5 553,-9.5 559,-9.5 559,-9.5 684,-9.5 684,-9.5 690,-9.5 696,-15.5 696,-21.5 696,-21.5 696,-36.5 696,-36.5 696,-42.5 690,-48.5 684,-48.5"/>
+<text text-anchor="middle" x="621.5" y="-24.9" font-family="Noto Sans CJK SC" font-size="17.00" fill="#26384d">lived I 倒装错误</text>
+</g>
+</g>
+
+</svg>
+<text x="42" y="523" font-size="16" fill="#68798b">关联考点：5-8</text>
+</svg>

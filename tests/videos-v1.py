@@ -110,7 +110,9 @@ for page in pages:
         old_tail = '<script src="../assets/js/lecture-player.js" defer></script>\n</body></html>'
         new_tail = old_tail.replace(
             "</body></html>",
-            '<script type="module" src="../assets/js/features/english-topic4-viz.js"></script>\n</body></html>',
+            '<script type="module" src="../assets/js/features/english-topic4-viz.js"></script>\n'
+            '<script type="module" src="../assets/js/features/english-topic5-viz.js"></script>\n'
+            '</body></html>',
             1,
         )
         assert expected.count(old_tail) == 1, page
