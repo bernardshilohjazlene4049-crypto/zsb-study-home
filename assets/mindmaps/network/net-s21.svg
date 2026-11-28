@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="1012" viewBox="0 0 440 1012" data-topic-id="net.s21" role="img" aria-labelledby="svg-title svg-desc">
+<title id="svg-title">2.1 掩码与网络前缀长度 · 思维导图</title>
+<desc id="svg-desc">根据已交付的 Mermaid mindmap 源稿转换为本地静态层级导图。</desc>
+<rect width="100%" height="100%" fill="#f6f8fb"/>
+<path d="M 220.0 84 C 220.0 96, 10 96, 10 136.0" fill="none" stroke="#9bb2c8" stroke-width="2.4" stroke-linecap="round"/>
+<path d="M 10 136.0 V 844.0" fill="none" stroke="#9bb2c8" stroke-width="2.4" stroke-linecap="round"/>
+<path d="M 10 136.0 H 22" fill="none" stroke="#9bb2c8" stroke-width="2.4" stroke-linecap="round"/>
+<path d="M 36 160 H 30 V 306.0" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 30 194.0 H 42" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 30 250.0 H 42" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 30 306.0 H 42" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 10 372.0 H 22" fill="none" stroke="#9bb2c8" stroke-width="2.4" stroke-linecap="round"/>
+<path d="M 36 396 H 30 V 598.0" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 30 430.0 H 42" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 30 486.0 H 42" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 30 542.0 H 42" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 30 598.0 H 42" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 10 664.0 H 22" fill="none" stroke="#9bb2c8" stroke-width="2.4" stroke-linecap="round"/>
+<path d="M 36 688 H 30 V 778.0" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 30 722.0 H 42" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 30 778.0 H 42" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 10 844.0 H 22" fill="none" stroke="#9bb2c8" stroke-width="2.4" stroke-linecap="round"/>
+<path d="M 36 868 H 30 V 958.0" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 30 902.0 H 42" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 30 958.0 H 42" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<rect x="16" y="24" width="408" height="60" rx="16" fill="#1f4568" stroke="#173650" stroke-width="2"/>
+<text x="220.0" y="54.0" text-anchor="middle" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="18" font-weight="700" fill="#ffffff"><tspan x="220.0" dy="0.0">掩码与前缀长度</tspan></text>
+<rect x="22" y="112" width="396" height="48" rx="13" fill="#dceaf5" stroke="#8eabc3" stroke-width="1.7"/>
+<text x="220.0" y="136.0" text-anchor="middle" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="15.5" font-weight="650" fill="#214765"><tspan x="220.0" dy="0.0">掩码怎么定义</tspan></text>
+<rect x="42" y="170" width="376" height="48" rx="11" fill="#ffffff" stroke="#c3d0dc" stroke-width="1.4"/>
+<text x="55" y="194.0" text-anchor="start" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="14.5" font-weight="500" fill="#263747"><tspan x="55" dy="0.0">主机号部分全0</tspan></text>
+<rect x="42" y="226" width="376" height="48" rx="11" fill="#ffffff" stroke="#c3d0dc" stroke-width="1.4"/>
+<text x="55" y="250.0" text-anchor="start" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="14.5" font-weight="500" fill="#263747"><tspan x="55" dy="0.0">网络前缀部分全1</tspan></text>
+<rect x="42" y="282" width="376" height="48" rx="11" fill="#ffffff" stroke="#c3d0dc" stroke-width="1.4"/>
+<text x="55" y="306.0" text-anchor="start" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="14.5" font-weight="500" fill="#263747"><tspan x="55" dy="0.0">前缀长度等于1的个数</tspan></text>
+<rect x="22" y="348" width="396" height="48" rx="13" fill="#dceaf5" stroke="#8eabc3" stroke-width="1.7"/>
+<text x="220.0" y="372.0" text-anchor="middle" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="15.5" font-weight="650" fill="#214765"><tspan x="220.0" dy="0.0">正着数1</tspan></text>
+<rect x="42" y="406" width="376" height="48" rx="11" fill="#ffffff" stroke="#c3d0dc" stroke-width="1.4"/>
+<text x="55" y="430.0" text-anchor="start" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="14.5" font-weight="500" fill="#263747"><tspan x="55" dy="0.0">192是11000000 共2位</tspan></text>
+<rect x="42" y="462" width="376" height="48" rx="11" fill="#ffffff" stroke="#c3d0dc" stroke-width="1.4"/>
+<text x="55" y="486.0" text-anchor="start" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="14.5" font-weight="500" fill="#263747"><tspan x="55" dy="0.0">240是11110000 共4位</tspan></text>
+<rect x="42" y="518" width="376" height="48" rx="11" fill="#ffffff" stroke="#c3d0dc" stroke-width="1.4"/>
+<text x="55" y="542.0" text-anchor="start" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="14.5" font-weight="500" fill="#263747"><tspan x="55" dy="0.0">255.224是8加3 共11位</tspan></text>
+<rect x="42" y="574" width="376" height="48" rx="11" fill="#ffffff" stroke="#c3d0dc" stroke-width="1.4"/>
+<text x="55" y="598.0" text-anchor="start" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="14.5" font-weight="500" fill="#263747"><tspan x="55" dy="0.0">255.255.255.252是8加8加8加6 共30位</tspan></text>
+<rect x="22" y="640" width="396" height="48" rx="13" fill="#dceaf5" stroke="#8eabc3" stroke-width="1.7"/>
+<text x="220.0" y="664.0" text-anchor="middle" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="15.5" font-weight="650" fill="#214765"><tspan x="220.0" dy="0.0">反着算0</tspan></text>
+<rect x="42" y="698" width="376" height="48" rx="11" fill="#ffffff" stroke="#c3d0dc" stroke-width="1.4"/>
+<text x="55" y="722.0" text-anchor="start" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="14.5" font-weight="500" fill="#263747"><tspan x="55" dy="0.0">252等于255减3 末尾2个0</tspan></text>
+<rect x="42" y="754" width="376" height="48" rx="11" fill="#ffffff" stroke="#c3d0dc" stroke-width="1.4"/>
+<text x="55" y="778.0" text-anchor="start" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="14.5" font-weight="500" fill="#263747"><tspan x="55" dy="0.0">32减2等于30</tspan></text>
+<rect x="22" y="820" width="396" height="48" rx="13" fill="#dceaf5" stroke="#8eabc3" stroke-width="1.7"/>
+<text x="220.0" y="844.0" text-anchor="middle" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="15.5" font-weight="650" fill="#214765"><tspan x="220.0" dy="0.0">常用累加</tspan></text>
+<rect x="42" y="878" width="376" height="48" rx="11" fill="#ffffff" stroke="#c3d0dc" stroke-width="1.4"/>
+<text x="55" y="902.0" text-anchor="start" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="14.5" font-weight="500" fill="#263747"><tspan x="55" dy="0.0">位权 128 64 32 16 8 4 2 1</tspan></text>
+<rect x="42" y="934" width="376" height="48" rx="11" fill="#ffffff" stroke="#c3d0dc" stroke-width="1.4"/>
+<text x="55" y="958.0" text-anchor="start" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="14.5" font-weight="500" fill="#263747"><tspan x="55" dy="0.0">240是4个1 248是5个1 252是6个1</tspan></text>
+</svg>

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="776" viewBox="0 0 440 776" data-topic-id="net.s26" role="img" aria-labelledby="svg-title svg-desc">
+<title id="svg-title">2.6 网络地址 = IP 地址 AND 地址掩码（CIDR 例） · 思维导图</title>
+<desc id="svg-desc">根据已交付的 Mermaid mindmap 源稿转换为本地静态层级导图。</desc>
+<rect width="100%" height="100%" fill="#f6f8fb"/>
+<path d="M 220.0 84 C 220.0 96, 10 96, 10 136.0" fill="none" stroke="#9bb2c8" stroke-width="2.4" stroke-linecap="round"/>
+<path d="M 10 136.0 V 608.0" fill="none" stroke="#9bb2c8" stroke-width="2.4" stroke-linecap="round"/>
+<path d="M 10 136.0 H 22" fill="none" stroke="#9bb2c8" stroke-width="2.4" stroke-linecap="round"/>
+<path d="M 36 160 H 30 V 194.0" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 30 194.0 H 42" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 10 260.0 H 22" fill="none" stroke="#9bb2c8" stroke-width="2.4" stroke-linecap="round"/>
+<path d="M 36 284 H 30 V 542.0" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 30 318.0 H 42" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 30 374.0 H 42" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 30 430.0 H 42" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 30 486.0 H 42" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 30 542.0 H 42" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 10 608.0 H 22" fill="none" stroke="#9bb2c8" stroke-width="2.4" stroke-linecap="round"/>
+<path d="M 36 632 H 30 V 722.0" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 30 666.0 H 42" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 30 722.0 H 42" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<rect x="16" y="24" width="408" height="60" rx="16" fill="#1f4568" stroke="#173650" stroke-width="2"/>
+<text x="220.0" y="54.0" text-anchor="middle" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="18" font-weight="700" fill="#ffffff"><tspan x="220.0" dy="0.0">用AND求网络地址</tspan></text>
+<rect x="22" y="112" width="396" height="48" rx="13" fill="#dceaf5" stroke="#8eabc3" stroke-width="1.7"/>
+<text x="220.0" y="136.0" text-anchor="middle" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="15.5" font-weight="650" fill="#214765"><tspan x="220.0" dy="0.0">公式</tspan></text>
+<rect x="42" y="170" width="376" height="48" rx="11" fill="#ffffff" stroke="#c3d0dc" stroke-width="1.4"/>
+<text x="55" y="194.0" text-anchor="start" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="14.5" font-weight="500" fill="#263747"><tspan x="55" dy="0.0">网络地址等于IP地址AND地址掩码</tspan></text>
+<rect x="22" y="236" width="396" height="48" rx="13" fill="#dceaf5" stroke="#8eabc3" stroke-width="1.7"/>
+<text x="220.0" y="260.0" text-anchor="middle" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="15.5" font-weight="650" fill="#214765"><tspan x="220.0" dy="0.0">本题步骤</tspan></text>
+<rect x="42" y="294" width="376" height="48" rx="11" fill="#ffffff" stroke="#c3d0dc" stroke-width="1.4"/>
+<text x="55" y="318.0" text-anchor="start" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="14.5" font-weight="500" fill="#263747"><tspan x="55" dy="0.0">主机号位数32减20等于12</tspan></text>
+<rect x="42" y="350" width="376" height="48" rx="11" fill="#ffffff" stroke="#c3d0dc" stroke-width="1.4"/>
+<text x="55" y="374.0" text-anchor="start" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="14.5" font-weight="500" fill="#263747"><tspan x="55" dy="0.0">掩码255.255.240.0</tspan></text>
+<rect x="42" y="406" width="376" height="48" rx="11" fill="#ffffff" stroke="#c3d0dc" stroke-width="1.4"/>
+<text x="55" y="430.0" text-anchor="start" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="14.5" font-weight="500" fill="#263747"><tspan x="55" dy="0.0">第3字节32与240做AND仍得32</tspan></text>
+<rect x="42" y="462" width="376" height="48" rx="11" fill="#ffffff" stroke="#c3d0dc" stroke-width="1.4"/>
+<text x="55" y="486.0" text-anchor="start" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="14.5" font-weight="500" fill="#263747"><tspan x="55" dy="0.0">第4字节与0做AND得0</tspan></text>
+<rect x="42" y="518" width="376" height="48" rx="11" fill="#ffffff" stroke="#c3d0dc" stroke-width="1.4"/>
+<text x="55" y="542.0" text-anchor="start" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="14.5" font-weight="500" fill="#263747"><tspan x="55" dy="0.0">结果156.16.32.0/20</tspan></text>
+<rect x="22" y="584" width="396" height="48" rx="13" fill="#dceaf5" stroke="#8eabc3" stroke-width="1.7"/>
+<text x="220.0" y="608.0" text-anchor="middle" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="15.5" font-weight="650" fill="#214765"><tspan x="220.0" dy="0.0">怎样判断它是不是网地</tspan></text>
+<rect x="42" y="642" width="376" height="48" rx="11" fill="#ffffff" stroke="#c3d0dc" stroke-width="1.4"/>
+<text x="55" y="666.0" text-anchor="start" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="14.5" font-weight="500" fill="#263747"><tspan x="55" dy="0.0">主机号对应位全0就是网络地址</tspan></text>
+<rect x="42" y="698" width="376" height="48" rx="11" fill="#ffffff" stroke="#c3d0dc" stroke-width="1.4"/>
+<text x="55" y="722.0" text-anchor="start" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="14.5" font-weight="500" fill="#263747"><tspan x="55" dy="0.0">主机地址的后半句有看不清的字</tspan></text>
+</svg>

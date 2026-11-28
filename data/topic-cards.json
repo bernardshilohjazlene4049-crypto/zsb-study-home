@@ -2280,6 +2280,24 @@
       "video_section": "gs/gs1.html#videos-v1-gs1-1-2",
       "video_clips": [
         {
+          "title": "考点精讲：定义域",
+          "url": "gs/gs1/kdvideos/kd1-domain.mp4",
+          "poster": "gs/gs1/kdposters/kd1.jpg",
+          "vtt": "gs/gs1/kdvideos/kd1-domain.vtt",
+          "start_sec": 0,
+          "end_sec": 177,
+          "label": "00:00–02:57"
+        },
+        {
+          "title": "第一步",
+          "url": "gs/gs1/kdvideos/kd1-domain.mp4",
+          "poster": "gs/gs1/kdposters/kd1.jpg",
+          "vtt": "gs/gs1/kdvideos/kd1-domain.vtt",
+          "start_sec": 71,
+          "end_sec": 177,
+          "label": "01:11–02:57"
+        },
+        {
           "title": "第1集 00:31–01:56 定义域判断与例题",
           "url": "gs/videos/1.mp4",
           "poster": "gs/posters/1.jpg",
@@ -13163,7 +13181,7 @@
       "chapter_title": "第二板块 三大从句核心体系",
       "title": "名词性从句",
       "order": 1,
-      "url": "yy/index.html#yyvideos",
+      "url": "yy/yy5.html#topic-5",
       "prereq_ids": [
         "english.attributive.basics"
       ],
@@ -13265,7 +13283,7 @@
       "chapter_title": "第二板块 三大从句核心体系",
       "title": "状语从句",
       "order": 1,
-      "url": "yy/index.html#yyvideos",
+      "url": "yy/yy5.html#topic-6",
       "prereq_ids": [
         "english.attributive.basics",
         "english.noun.basics"

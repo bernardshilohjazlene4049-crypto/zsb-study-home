@@ -1,0 +1,46 @@
+/* English topic 6 visuals only; keep other topic and subject figures untouched. */
+.english-topic6-visual {
+  box-sizing: border-box;
+  max-width: 100%;
+  margin: 1.25rem 0 1.5rem;
+  padding: 0.9rem;
+  overflow-x: auto;
+  border: 1px solid #dbe4f0;
+  border-radius: 1rem;
+  background: #f8fafc;
+}
+
+.english-topic6-visual__caption {
+  margin: 0 0 0.75rem;
+  color: #334155;
+  font-size: 0.92rem;
+  font-weight: 650;
+  line-height: 1.5;
+}
+
+.english-topic6-visual img {
+  display: block;
+  width: 100%;
+  min-width: 880px;
+  max-width: 1200px;
+  height: auto;
+  margin-inline: auto;
+  border-radius: 0.65rem;
+}
+
+.english-topic6-visual--practice {
+  border-color: #d6e7e2;
+  background: #fbfdfc;
+}
+
+@media (max-width: 640px) {
+  .english-topic6-visual {
+    margin-inline: -0.25rem;
+    padding: 0.65rem;
+    border-radius: 0.8rem;
+  }
+
+  .english-topic6-visual img {
+    min-width: 880px;
+  }
+}

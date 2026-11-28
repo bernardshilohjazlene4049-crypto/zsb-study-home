@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="565" viewBox="0 0 1280 565" role="img" aria-labelledby="svg-title svg-desc" data-question="5-7" data-answer="A" data-related-points="5-4,5-2" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, sans-serif">
+<title id="svg-title">专题五第7题：The book is about ___ people protect the environment.</title>
+<desc id="svg-desc">根据专题五已交付练习源稿生成的本地静态判定流程图；题目与选项仍由页面原文呈现。</desc>
+<rect width="1280" height="565" fill="#f3f6fa"/>
+<rect x="28" y="22" width="1224" height="54" rx="14" fill="#203d61"/>
+<text x="54" y="57" font-size="22" fill="#fff" font-weight="700">专题五 · 名词性从句 · 练习 07</text>
+<rect x="1082" y="31" width="142" height="36" rx="18" fill="#d9eee8"/>
+<text x="1153" y="55" font-size="17" fill="#245b51" font-weight="700" text-anchor="middle">官方答案 A</text>
+<svg x="203.80" y="105" width="872.40" height="382.70" viewBox="0.00 0.00 739.32 324.32" preserveAspectRatio="xMidYMin meet">
+
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(20.16 304.16)">
+<title>G</title>
+<!-- A&#45;&gt;B -->
+<g id="edge1" class="edge">
+<title>A&#45;&gt;B</title>
+<path fill="none" stroke="#7892ad" stroke-width="1.8" d="M381.5,-244.98C381.5,-238.14 381.5,-230.14 381.5,-222.31"/>
+<polygon fill="#7892ad" stroke="#7892ad" stroke-width="1.8" points="383.95,-222.2 381.5,-215.2 379.05,-222.2 383.95,-222.2"/>
+</g>
+<!-- B&#45;&gt;C -->
+<g id="edge2" class="edge">
+<title>B&#45;&gt;C</title>
+<path fill="none" stroke="#7892ad" stroke-width="1.8" d="M381.5,-156.95C381.5,-149.53 381.5,-141.56 381.5,-134.26"/>
+<polygon fill="#7892ad" stroke="#7892ad" stroke-width="1.8" points="383.95,-134.24 381.5,-127.24 379.05,-134.24 383.95,-134.24"/>
+</g>
+<!-- C&#45;&gt;D -->
+<g id="edge3" class="edge">
+<title>C&#45;&gt;D</title>
+<path fill="none" stroke="#7892ad" stroke-width="1.8" d="M318.08,-87.98C289.38,-79.6 254.71,-69.48 222.44,-60.06"/>
+<polygon fill="#7892ad" stroke="#7892ad" stroke-width="1.8" points="222.99,-57.67 215.59,-58.06 221.62,-62.37 222.99,-57.67"/>
+</g>
+<!-- C&#45;&gt;E -->
+<g id="edge4" class="edge">
+<title>C&#45;&gt;E</title>
+<path fill="none" stroke="#7892ad" stroke-width="1.8" d="M381.5,-87.98C381.5,-78.28 381.5,-66.25 381.5,-55.66"/>
+<polygon fill="#7892ad" stroke="#7892ad" stroke-width="1.8" points="383.95,-55.61 381.5,-48.61 379.05,-55.61 383.95,-55.61"/>
+</g>
+<!-- C&#45;&gt;F -->
+<g id="edge5" class="edge">
+<title>C&#45;&gt;F</title>
+<path fill="none" stroke="#7892ad" stroke-width="1.8" d="M437.18,-87.98C470.83,-76.79 513.81,-62.49 548.68,-50.89"/>
+<polygon fill="#7892ad" stroke="#7892ad" stroke-width="1.8" points="549.67,-53.15 555.54,-48.61 548.12,-48.5 549.67,-53.15"/>
+</g>
+<!-- A -->
+<g id="node1" class="node">
+<title>A</title>
+<path fill="#ffffff" stroke="#b9cada" stroke-width="1.5" d="M463.5,-284C463.5,-284 299.5,-284 299.5,-284 293.5,-284 287.5,-278 287.5,-272 287.5,-272 287.5,-257 287.5,-257 287.5,-251 293.5,-245 299.5,-245 299.5,-245 463.5,-245 463.5,-245 469.5,-245 475.5,-251 475.5,-257 475.5,-257 475.5,-272 475.5,-272 475.5,-278 469.5,-284 463.5,-284"/>
+<text text-anchor="middle" x="381.5" y="-260.4" font-family="Noto Sans CJK SC" font-size="17.00" fill="#26384d">介词 about 后接名从</text>
+</g>
+<!-- B -->
+<g id="node2" class="node">
+<title>B</title>
+<path fill="#ffffff" stroke="#b9cada" stroke-width="1.5" d="M511.5,-215C511.5,-215 251.5,-215 251.5,-215 245.5,-215 239.5,-209 239.5,-203 239.5,-203 239.5,-169 239.5,-169 239.5,-163 245.5,-157 251.5,-157 251.5,-157 511.5,-157 511.5,-157 517.5,-157 523.5,-163 523.5,-169 523.5,-169 523.5,-203 523.5,-203 523.5,-209 517.5,-215 511.5,-215"/>
+<text text-anchor="middle" x="381.5" y="-191.4" font-family="Noto Sans CJK SC" font-size="17.00" fill="#26384d">people protect the environment</text>
+<text text-anchor="middle" x="381.5" y="-172.4" font-family="Noto Sans CJK SC" font-size="17.00" fill="#26384d">宾语已完整</text>
+</g>
+<!-- C -->
+<g id="node3" class="node">
+<title>C</title>
+<path fill="#ffffff" stroke="#b9cada" stroke-width="1.5" d="M456.5,-127C456.5,-127 306.5,-127 306.5,-127 300.5,-127 294.5,-121 294.5,-115 294.5,-115 294.5,-100 294.5,-100 294.5,-94 300.5,-88 306.5,-88 306.5,-88 456.5,-88 456.5,-88 462.5,-88 468.5,-94 468.5,-100 468.5,-100 468.5,-115 468.5,-115 468.5,-121 462.5,-127 456.5,-127"/>
+<text text-anchor="middle" x="381.5" y="-103.4" font-family="Noto Sans CJK SC" font-size="17.00" fill="#26384d">需要方式义 选 how</text>
+</g>
+<!-- D -->
+<g id="node4" class="node">
+<title>D</title>
+<path fill="#ffffff" stroke="#b9cada" stroke-width="1.5" d="M227,-58C227,-58 12,-58 12,-58 6,-58 0,-52 0,-46 0,-46 0,-12 0,-12 0,-6 6,0 12,0 12,0 227,0 227,0 233,0 239,-6 239,-12 239,-12 239,-46 239,-46 239,-52 233,-58 227,-58"/>
+<text text-anchor="middle" x="119.5" y="-34.4" font-family="Noto Sans CJK SC" font-size="17.00" fill="#26384d">that 不充当成分</text>
+<text text-anchor="middle" x="119.5" y="-15.4" font-family="Noto Sans CJK SC" font-size="17.00" fill="#26384d">也常不直接作介词宾语 排除</text>
+</g>
+<!-- E -->
+<g id="node5" class="node">
+<title>E</title>
+<path fill="#ffffff" stroke="#b9cada" stroke-width="1.5" d="M491.5,-48.5C491.5,-48.5 271.5,-48.5 271.5,-48.5 265.5,-48.5 259.5,-42.5 259.5,-36.5 259.5,-36.5 259.5,-21.5 259.5,-21.5 259.5,-15.5 265.5,-9.5 271.5,-9.5 271.5,-9.5 491.5,-9.5 491.5,-9.5 497.5,-9.5 503.5,-15.5 503.5,-21.5 503.5,-21.5 503.5,-36.5 503.5,-36.5 503.5,-42.5 497.5,-48.5 491.5,-48.5"/>
+<text text-anchor="middle" x="381.5" y="-24.9" font-family="Noto Sans CJK SC" font-size="17.00" fill="#26384d">whether to 结构不完整 排除</text>
+</g>
+<!-- F -->
+<g id="node6" class="node">
+<title>F</title>
+<path fill="#ffffff" stroke="#b9cada" stroke-width="1.5" d="M687,-48.5C687,-48.5 536,-48.5 536,-48.5 530,-48.5 524,-42.5 524,-36.5 524,-36.5 524,-21.5 524,-21.5 524,-15.5 530,-9.5 536,-9.5 536,-9.5 687,-9.5 687,-9.5 693,-9.5 699,-15.5 699,-21.5 699,-21.5 699,-36.5 699,-36.5 699,-42.5 693,-48.5 687,-48.5"/>
+<text text-anchor="middle" x="611.5" y="-24.9" font-family="Noto Sans CJK SC" font-size="17.00" fill="#26384d">whose 表所属 排除</text>
+</g>
+</g>
+
+</svg>
+<text x="42" y="545" font-size="16" fill="#68798b">关联考点：5-4、5-2</text>
+</svg>

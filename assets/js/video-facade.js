@@ -37,6 +37,8 @@
     });
   }
 
+  document.querySelectorAll('a.video-card[href] .media-frame').forEach(observeElement);
+
   document.querySelectorAll('.zsb-video[data-video-src]').forEach(container=>{
     observeElement(container);
     const button=container.querySelector('button'); if(!button)return;

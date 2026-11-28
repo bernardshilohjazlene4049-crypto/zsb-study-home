@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="520" viewBox="0 0 1280 520" role="img" aria-labelledby="svg-title svg-desc" data-question="5-8" data-answer="D" data-related-points="5-9" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, sans-serif">
+<title id="svg-title">专题五第8题：I doubt ___ the shop will be open this late.</title>
+<desc id="svg-desc">根据专题五已交付练习源稿生成的本地静态判定流程图；题目与选项仍由页面原文呈现。</desc>
+<rect width="1280" height="520" fill="#f3f6fa"/>
+<rect x="28" y="22" width="1224" height="54" rx="14" fill="#203d61"/>
+<text x="54" y="57" font-size="22" fill="#fff" font-weight="700">专题五 · 名词性从句 · 练习 08</text>
+<rect x="1082" y="31" width="142" height="36" rx="18" fill="#d9eee8"/>
+<text x="1153" y="55" font-size="17" fill="#245b51" font-weight="700" text-anchor="middle">官方答案 D</text>
+<svg x="203.21" y="105" width="873.58" height="337.86" viewBox="0.00 0.00 740.32 286.32" preserveAspectRatio="xMidYMin meet">
+
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(20.16 266.16)">
+<title>G</title>
+<!-- A&#45;&gt;B -->
+<g id="edge1" class="edge">
+<title>A&#45;&gt;B</title>
+<path fill="none" stroke="#7892ad" stroke-width="1.8" d="M263,-206.84C263,-199.87 263,-191.82 263,-184.32"/>
+<polygon fill="#7892ad" stroke="#7892ad" stroke-width="1.8" points="265.45,-184.06 263,-177.06 260.55,-184.06 265.45,-184.06"/>
+</g>
+<!-- B&#45;&gt;C -->
+<g id="edge2" class="edge">
+<title>B&#45;&gt;C</title>
+<path fill="none" stroke="#7892ad" stroke-width="1.8" d="M263,-137.84C263,-130.87 263,-122.82 263,-115.32"/>
+<polygon fill="#7892ad" stroke="#7892ad" stroke-width="1.8" points="265.45,-115.06 263,-108.06 260.55,-115.06 265.45,-115.06"/>
+</g>
+<!-- C&#45;&gt;D -->
+<g id="edge3" class="edge">
+<title>C&#45;&gt;D</title>
+<path fill="none" stroke="#7892ad" stroke-width="1.8" d="M206.17,-68.93C179.95,-60.36 148.72,-50.15 121.71,-41.32"/>
+<polygon fill="#7892ad" stroke="#7892ad" stroke-width="1.8" points="122.36,-38.96 114.94,-39.11 120.83,-43.61 122.36,-38.96"/>
+</g>
+<!-- C&#45;&gt;E -->
+<g id="edge4" class="edge">
+<title>C&#45;&gt;E</title>
+<path fill="none" stroke="#7892ad" stroke-width="1.8" d="M263,-68.84C263,-61.87 263,-53.82 263,-46.32"/>
+<polygon fill="#7892ad" stroke="#7892ad" stroke-width="1.8" points="265.45,-46.06 263,-39.06 260.55,-46.06 265.45,-46.06"/>
+</g>
+<!-- C&#45;&gt;F -->
+<g id="edge5" class="edge">
+<title>C&#45;&gt;F</title>
+<path fill="none" stroke="#7892ad" stroke-width="1.8" d="M343.95,-68.93C382.16,-60.16 427.85,-49.67 466.93,-40.71"/>
+<polygon fill="#7892ad" stroke="#7892ad" stroke-width="1.8" points="467.87,-43.01 474.15,-39.05 466.77,-38.23 467.87,-43.01"/>
+</g>
+<!-- A -->
+<g id="node1" class="node">
+<title>A</title>
+<path fill="#ffffff" stroke="#b9cada" stroke-width="1.5" d="M317.5,-246C317.5,-246 208.5,-246 208.5,-246 202.5,-246 196.5,-240 196.5,-234 196.5,-234 196.5,-219 196.5,-219 196.5,-213 202.5,-207 208.5,-207 208.5,-207 317.5,-207 317.5,-207 323.5,-207 329.5,-213 329.5,-219 329.5,-219 329.5,-234 329.5,-234 329.5,-240 323.5,-246 317.5,-246"/>
+<text text-anchor="middle" x="263" y="-222.4" font-family="Noto Sans CJK SC" font-size="17.00" fill="#26384d">肯定句 doubt</text>
+</g>
+<!-- B -->
+<g id="node2" class="node">
+<title>B</title>
+<path fill="#ffffff" stroke="#b9cada" stroke-width="1.5" d="M317,-177C317,-177 209,-177 209,-177 203,-177 197,-171 197,-165 197,-165 197,-150 197,-150 197,-144 203,-138 209,-138 209,-138 317,-138 317,-138 323,-138 329,-144 329,-150 329,-150 329,-165 329,-165 329,-171 323,-177 317,-177"/>
+<text text-anchor="middle" x="263" y="-153.4" font-family="Noto Sans CJK SC" font-size="17.00" fill="#26384d">从句成分完整</text>
+</g>
+<!-- C -->
+<g id="node3" class="node">
+<title>C</title>
+<path fill="#ffffff" stroke="#b9cada" stroke-width="1.5" d="M379.5,-108C379.5,-108 146.5,-108 146.5,-108 140.5,-108 134.5,-102 134.5,-96 134.5,-96 134.5,-81 134.5,-81 134.5,-75 140.5,-69 146.5,-69 146.5,-69 379.5,-69 379.5,-69 385.5,-69 391.5,-75 391.5,-81 391.5,-81 391.5,-96 391.5,-96 391.5,-102 385.5,-108 379.5,-108"/>
+<text text-anchor="middle" x="263" y="-84.4" font-family="Noto Sans CJK SC" font-size="17.00" fill="#26384d">典型模式接 whether/if 表是否</text>
+</g>
+<!-- D -->
+<g id="node4" class="node">
+<title>D</title>
+<path fill="#ffffff" stroke="#b9cada" stroke-width="1.5" d="M104,-39C104,-39 12,-39 12,-39 6,-39 0,-33 0,-27 0,-27 0,-12 0,-12 0,-6 6,0 12,0 12,0 104,0 104,0 110,0 116,-6 116,-12 116,-12 116,-27 116,-27 116,-33 110,-39 104,-39"/>
+<text text-anchor="middle" x="58" y="-15.4" font-family="Noto Sans CJK SC" font-size="17.00" fill="#26384d">选 whether</text>
+</g>
+<!-- E -->
+<g id="node5" class="node">
+<title>E</title>
+<path fill="#ffffff" stroke="#b9cada" stroke-width="1.5" d="M378,-39C378,-39 148,-39 148,-39 142,-39 136,-33 136,-27 136,-27 136,-12 136,-12 136,-6 142,0 148,0 148,0 378,0 378,0 384,0 390,-6 390,-12 390,-12 390,-27 390,-27 390,-33 384,-39 378,-39"/>
+<text text-anchor="middle" x="263" y="-15.4" font-family="Noto Sans CJK SC" font-size="17.00" fill="#26384d">that 多用于 don&#39;t doubt 排除</text>
+</g>
+<!-- F -->
+<g id="node6" class="node">
+<title>F</title>
+<path fill="#ffffff" stroke="#b9cada" stroke-width="1.5" d="M688,-39C688,-39 422,-39 422,-39 416,-39 410,-33 410,-27 410,-27 410,-12 410,-12 410,-6 416,0 422,0 422,0 688,0 688,0 694,0 700,-6 700,-12 700,-12 700,-27 700,-27 700,-33 694,-39 688,-39"/>
+<text text-anchor="middle" x="555" y="-15.4" font-family="Noto Sans CJK SC" font-size="17.00" fill="#26384d">what/whose 需充当成分 这里不缺</text>
+</g>
+</g>
+
+</svg>
+<text x="42" y="500" font-size="16" fill="#68798b">关联考点：5-9</text>
+</svg>

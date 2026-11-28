@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="1126" viewBox="0 0 440 1126" data-topic-id="net.s39" role="img" aria-labelledby="svg-title svg-desc">
+<title id="svg-title">3.9 典型习题：子网掩码选择与地址计算 · 思维导图</title>
+<desc id="svg-desc">根据已交付的 Mermaid mindmap 源稿转换为本地静态层级导图。</desc>
+<rect width="100%" height="100%" fill="#f6f8fb"/>
+<path d="M 220.0 84 C 220.0 96, 10 96, 10 136.0" fill="none" stroke="#9bb2c8" stroke-width="2.4" stroke-linecap="round"/>
+<path d="M 10 136.0 V 734.0" fill="none" stroke="#9bb2c8" stroke-width="2.4" stroke-linecap="round"/>
+<path d="M 10 136.0 H 22" fill="none" stroke="#9bb2c8" stroke-width="2.4" stroke-linecap="round"/>
+<path d="M 36 160 H 30 V 432.0" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 30 194.0 H 42" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 30 250.0 H 42" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 30 313.0 H 42" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 30 376.0 H 42" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 30 432.0 H 42" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 10 498.0 H 22" fill="none" stroke="#9bb2c8" stroke-width="2.4" stroke-linecap="round"/>
+<path d="M 36 522 H 30 V 668.0" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 30 556.0 H 42" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 30 612.0 H 42" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 30 668.0 H 42" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 10 734.0 H 22" fill="none" stroke="#9bb2c8" stroke-width="2.4" stroke-linecap="round"/>
+<path d="M 36 758 H 30 V 1072.0" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 30 792.0 H 42" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 30 848.0 H 42" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 30 904.0 H 42" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 30 960.0 H 42" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 30 1016.0 H 42" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 30 1072.0 H 42" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<rect x="16" y="24" width="408" height="60" rx="16" fill="#1f4568" stroke="#173650" stroke-width="2"/>
+<text x="220.0" y="54.0" text-anchor="middle" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="18" font-weight="700" fill="#ffffff"><tspan x="220.0" dy="0.0">掩码选择与地址计算</tspan></text>
+<rect x="22" y="112" width="396" height="48" rx="13" fill="#dceaf5" stroke="#8eabc3" stroke-width="1.7"/>
+<text x="220.0" y="136.0" text-anchor="middle" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="15.5" font-weight="650" fill="#214765"><tspan x="220.0" dy="0.0">第1题C类分8个子网</tspan></text>
+<rect x="42" y="170" width="376" height="48" rx="11" fill="#ffffff" stroke="#c3d0dc" stroke-width="1.4"/>
+<text x="55" y="194.0" text-anchor="start" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="14.5" font-weight="500" fill="#263747"><tspan x="55" dy="0.0">老师最终圈的答案是C 即224</tspan></text>
+<rect x="42" y="226" width="376" height="48" rx="11" fill="#ffffff" stroke="#c3d0dc" stroke-width="1.4"/>
+<text x="55" y="250.0" text-anchor="start" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="14.5" font-weight="500" fill="#263747"><tspan x="55" dy="0.0">224写成11100000 子网号3位</tspan></text>
+<rect x="42" y="282" width="376" height="62" rx="11" fill="#ffffff" stroke="#c3d0dc" stroke-width="1.4"/>
+<text x="55" y="313.0" text-anchor="start" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="14.5" font-weight="500" fill="#263747"><tspan x="55" dy="-10.5">红字算法 2的n次方减2大于等于8 得到n等于4</tspan><tspan x="55" dy="21.0">掩码240 选项没有</tspan></text>
+<rect x="42" y="352" width="376" height="48" rx="11" fill="#ffffff" stroke="#c3d0dc" stroke-width="1.4"/>
+<text x="55" y="376.0" text-anchor="start" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="14.5" font-weight="500" fill="#263747"><tspan x="55" dy="0.0">紫字算法 2的n次方大于等于8 得到n等于3 掩码224</tspan></text>
+<rect x="42" y="408" width="376" height="48" rx="11" fill="#ffffff" stroke="#c3d0dc" stroke-width="1.4"/>
+<text x="55" y="432.0" text-anchor="start" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="14.5" font-weight="500" fill="#263747"><tspan x="55" dy="0.0">两种算法为何并存 原图未说明 需老师确认</tspan></text>
+<rect x="22" y="474" width="396" height="48" rx="13" fill="#dceaf5" stroke="#8eabc3" stroke-width="1.7"/>
+<text x="220.0" y="498.0" text-anchor="middle" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="15.5" font-weight="650" fill="#214765"><tspan x="220.0" dy="0.0">第2题同一子网</tspan></text>
+<rect x="42" y="532" width="376" height="48" rx="11" fill="#ffffff" stroke="#c3d0dc" stroke-width="1.4"/>
+<text x="55" y="556.0" text-anchor="start" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="14.5" font-weight="500" fill="#263747"><tspan x="55" dy="0.0">同一子网内网络地址相同</tspan></text>
+<rect x="42" y="588" width="376" height="48" rx="11" fill="#ffffff" stroke="#c3d0dc" stroke-width="1.4"/>
+<text x="55" y="612.0" text-anchor="start" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="14.5" font-weight="500" fill="#263747"><tspan x="55" dy="0.0">网络地址等于IP AND掩码</tspan></text>
+<rect x="42" y="644" width="376" height="48" rx="11" fill="#ffffff" stroke="#c3d0dc" stroke-width="1.4"/>
+<text x="55" y="668.0" text-anchor="start" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="14.5" font-weight="500" fill="#263747"><tspan x="55" dy="0.0">所以AND结果一定相同 选C</tspan></text>
+<rect x="22" y="710" width="396" height="48" rx="13" fill="#dceaf5" stroke="#8eabc3" stroke-width="1.7"/>
+<text x="220.0" y="734.0" text-anchor="middle" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="15.5" font-weight="650" fill="#214765"><tspan x="220.0" dy="0.0">第4题具体计算</tspan></text>
+<rect x="42" y="768" width="376" height="48" rx="11" fill="#ffffff" stroke="#c3d0dc" stroke-width="1.4"/>
+<text x="55" y="792.0" text-anchor="start" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="14.5" font-weight="500" fill="#263747"><tspan x="55" dy="0.0">197是C类</tspan></text>
+<rect x="42" y="824" width="376" height="48" rx="11" fill="#ffffff" stroke="#c3d0dc" stroke-width="1.4"/>
+<text x="55" y="848.0" text-anchor="start" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="14.5" font-weight="500" fill="#263747"><tspan x="55" dy="0.0">掩码240 主机号4位</tspan></text>
+<rect x="42" y="880" width="376" height="48" rx="11" fill="#ffffff" stroke="#c3d0dc" stroke-width="1.4"/>
+<text x="55" y="904.0" text-anchor="start" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="14.5" font-weight="500" fill="#263747"><tspan x="55" dy="0.0">139拆成1000和1011</tspan></text>
+<rect x="42" y="936" width="376" height="48" rx="11" fill="#ffffff" stroke="#c3d0dc" stroke-width="1.4"/>
+<text x="55" y="960.0" text-anchor="start" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="14.5" font-weight="500" fill="#263747"><tspan x="55" dy="0.0">网络地址197.99.222.128</tspan></text>
+<rect x="42" y="992" width="376" height="48" rx="11" fill="#ffffff" stroke="#c3d0dc" stroke-width="1.4"/>
+<text x="55" y="1016.0" text-anchor="start" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="14.5" font-weight="500" fill="#263747"><tspan x="55" dy="0.0">主机地址0.0.0.11</tspan></text>
+<rect x="42" y="1048" width="376" height="48" rx="11" fill="#ffffff" stroke="#c3d0dc" stroke-width="1.4"/>
+<text x="55" y="1072.0" text-anchor="start" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="14.5" font-weight="500" fill="#263747"><tspan x="55" dy="0.0">直接广播地址197.99.222.143</tspan></text>
+</svg>

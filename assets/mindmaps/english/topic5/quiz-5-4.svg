@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="520" viewBox="0 0 1280 520" role="img" aria-labelledby="svg-title svg-desc" data-question="5-4" data-answer="D" data-related-points="5-7,5-4" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, sans-serif">
+<title id="svg-title">专题五第4题：Please tell me ___ or not you have finished the report.</title>
+<desc id="svg-desc">根据专题五已交付练习源稿生成的本地静态判定流程图；题目与选项仍由页面原文呈现。</desc>
+<rect width="1280" height="520" fill="#f3f6fa"/>
+<rect x="28" y="22" width="1224" height="54" rx="14" fill="#203d61"/>
+<text x="54" y="57" font-size="22" fill="#fff" font-weight="700">专题五 · 名词性从句 · 练习 04</text>
+<rect x="1082" y="31" width="142" height="36" rx="18" fill="#d9eee8"/>
+<text x="1153" y="55" font-size="17" fill="#245b51" font-weight="700" text-anchor="middle">官方答案 D</text>
+<svg x="80.79" y="105" width="1118.43" height="337.86" viewBox="0.00 0.00 947.82 286.32" preserveAspectRatio="xMidYMin meet">
+
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(20.16 266.16)">
+<title>G</title>
+<!-- A&#45;&gt;B -->
+<g id="edge1" class="edge">
+<title>A&#45;&gt;B</title>
+<path fill="none" stroke="#7892ad" stroke-width="1.8" d="M384,-206.84C384,-199.87 384,-191.82 384,-184.32"/>
+<polygon fill="#7892ad" stroke="#7892ad" stroke-width="1.8" points="386.45,-184.06 384,-177.06 381.55,-184.06 386.45,-184.06"/>
+</g>
+<!-- B&#45;&gt;C -->
+<g id="edge2" class="edge">
+<title>B&#45;&gt;C</title>
+<path fill="none" stroke="#7892ad" stroke-width="1.8" d="M384,-137.84C384,-130.87 384,-122.82 384,-115.32"/>
+<polygon fill="#7892ad" stroke="#7892ad" stroke-width="1.8" points="386.45,-115.06 384,-108.06 381.55,-115.06 386.45,-115.06"/>
+</g>
+<!-- C&#45;&gt;D -->
+<g id="edge3" class="edge">
+<title>C&#45;&gt;D</title>
+<path fill="none" stroke="#7892ad" stroke-width="1.8" d="M285.36,-68.96C212.52,-55.26 126,-39 126,-39 126,-39 125.03,-38.74 123.33,-38.27"/>
+<polygon fill="#7892ad" stroke="#7892ad" stroke-width="1.8" points="123.65,-35.82 116.26,-36.35 122.37,-40.55 123.65,-35.82"/>
+</g>
+<!-- C&#45;&gt;E -->
+<g id="edge4" class="edge">
+<title>C&#45;&gt;E</title>
+<path fill="none" stroke="#7892ad" stroke-width="1.8" d="M350.29,-68.84C335.61,-60.71 318.29,-51.11 302.96,-42.63"/>
+<polygon fill="#7892ad" stroke="#7892ad" stroke-width="1.8" points="303.84,-40.31 296.52,-39.06 301.46,-44.6 303.84,-40.31"/>
+</g>
+<!-- C&#45;&gt;F -->
+<g id="edge5" class="edge">
+<title>C&#45;&gt;F</title>
+<path fill="none" stroke="#7892ad" stroke-width="1.8" d="M417.71,-68.84C432.39,-60.71 449.71,-51.11 465.04,-42.63"/>
+<polygon fill="#7892ad" stroke="#7892ad" stroke-width="1.8" points="466.54,-44.6 471.48,-39.06 464.16,-40.31 466.54,-44.6"/>
+</g>
+<!-- C&#45;&gt;G -->
+<g id="edge6" class="edge">
+<title>C&#45;&gt;G</title>
+<path fill="none" stroke="#7892ad" stroke-width="1.8" d="M485.83,-69.55C537.07,-60.51 599.29,-49.54 651.88,-40.27"/>
+<polygon fill="#7892ad" stroke="#7892ad" stroke-width="1.8" points="652.44,-42.66 658.9,-39.03 651.58,-37.83 652.44,-42.66"/>
+</g>
+<!-- A -->
+<g id="node1" class="node">
+<title>A</title>
+<path fill="#ffffff" stroke="#b9cada" stroke-width="1.5" d="M467,-246C467,-246 301,-246 301,-246 295,-246 289,-240 289,-234 289,-234 289,-219 289,-219 289,-213 295,-207 301,-207 301,-207 467,-207 467,-207 473,-207 479,-213 479,-219 479,-219 479,-234 479,-234 479,-240 473,-246 467,-246"/>
+<text text-anchor="middle" x="384" y="-222.4" font-family="Noto Sans CJK SC" font-size="17.00" fill="#26384d">tell me 后是宾语从句</text>
+</g>
+<!-- B -->
+<g id="node2" class="node">
+<title>B</title>
+<path fill="#ffffff" stroke="#b9cada" stroke-width="1.5" d="M446.5,-177C446.5,-177 321.5,-177 321.5,-177 315.5,-177 309.5,-171 309.5,-165 309.5,-165 309.5,-150 309.5,-150 309.5,-144 315.5,-138 321.5,-138 321.5,-138 446.5,-138 446.5,-138 452.5,-138 458.5,-144 458.5,-150 458.5,-150 458.5,-165 458.5,-165 458.5,-171 452.5,-177 446.5,-177"/>
+<text text-anchor="middle" x="384" y="-153.4" font-family="Noto Sans CJK SC" font-size="17.00" fill="#26384d">空后紧邻 or not</text>
+</g>
+<!-- C -->
+<g id="node3" class="node">
+<title>C</title>
+<path fill="#ffffff" stroke="#b9cada" stroke-width="1.5" d="M473.5,-108C473.5,-108 294.5,-108 294.5,-108 288.5,-108 282.5,-102 282.5,-96 282.5,-96 282.5,-81 282.5,-81 282.5,-75 288.5,-69 294.5,-69 294.5,-69 473.5,-69 473.5,-69 479.5,-69 485.5,-75 485.5,-81 485.5,-81 485.5,-96 485.5,-96 485.5,-102 479.5,-108 473.5,-108"/>
+<text text-anchor="middle" x="384" y="-84.4" font-family="Noto Sans CJK SC" font-size="17.00" fill="#26384d">whether or not 表是否</text>
+</g>
+<!-- D -->
+<g id="node4" class="node">
+<title>D</title>
+<path fill="#ffffff" stroke="#b9cada" stroke-width="1.5" d="M104,-39C104,-39 12,-39 12,-39 6,-39 0,-33 0,-27 0,-27 0,-12 0,-12 0,-6 6,0 12,0 12,0 104,0 104,0 110,0 116,-6 116,-12 116,-12 116,-27 116,-27 116,-33 110,-39 104,-39"/>
+<text text-anchor="middle" x="58" y="-15.4" font-family="Noto Sans CJK SC" font-size="17.00" fill="#26384d">选 whether</text>
+</g>
+<!-- E -->
+<g id="node5" class="node">
+<title>E</title>
+<path fill="#ffffff" stroke="#b9cada" stroke-width="1.5" d="M377.5,-39C377.5,-39 148.5,-39 148.5,-39 142.5,-39 136.5,-33 136.5,-27 136.5,-27 136.5,-12 136.5,-12 136.5,-6 142.5,0 148.5,0 148.5,0 377.5,0 377.5,0 383.5,0 389.5,-6 389.5,-12 389.5,-12 389.5,-27 389.5,-27 389.5,-33 383.5,-39 377.5,-39"/>
+<text text-anchor="middle" x="263" y="-15.4" font-family="Noto Sans CJK SC" font-size="17.00" fill="#26384d">if or not 紧邻结构不成立 排除</text>
+</g>
+<!-- F -->
+<g id="node6" class="node">
+<title>F</title>
+<path fill="#ffffff" stroke="#b9cada" stroke-width="1.5" d="M588,-39C588,-39 422,-39 422,-39 416,-39 410,-33 410,-27 410,-27 410,-12 410,-12 410,-6 416,0 422,0 422,0 588,0 588,0 594,0 600,-6 600,-12 600,-12 600,-27 600,-27 600,-33 594,-39 588,-39"/>
+<text text-anchor="middle" x="505" y="-15.4" font-family="Noto Sans CJK SC" font-size="17.00" fill="#26384d">that 表陈述事实 排除</text>
+</g>
+<!-- G -->
+<g id="node7" class="node">
+<title>G</title>
+<path fill="#ffffff" stroke="#b9cada" stroke-width="1.5" d="M895.5,-39C895.5,-39 632.5,-39 632.5,-39 626.5,-39 620.5,-33 620.5,-27 620.5,-27 620.5,-12 620.5,-12 620.5,-6 626.5,0 632.5,0 632.5,0 895.5,0 895.5,0 901.5,0 907.5,-6 907.5,-12 907.5,-12 907.5,-27 907.5,-27 907.5,-33 901.5,-39 895.5,-39"/>
+<text text-anchor="middle" x="764" y="-15.4" font-family="Noto Sans CJK SC" font-size="17.00" fill="#26384d">what 需充当成分 从句已完整 排除</text>
+</g>
+</g>
+
+</svg>
+<text x="42" y="500" font-size="16" fill="#68798b">关联考点：5-7、5-4</text>
+</svg>

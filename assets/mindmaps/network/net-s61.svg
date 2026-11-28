@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="888" viewBox="0 0 440 888" data-topic-id="net.s61" role="img" aria-labelledby="svg-title svg-desc">
+<title id="svg-title">6.1 把连续的 C 类网络聚合成一个 CIDR 地址块 · 思维导图</title>
+<desc id="svg-desc">根据已交付的 Mermaid mindmap 源稿转换为本地静态层级导图。</desc>
+<rect width="100%" height="100%" fill="#f6f8fb"/>
+<path d="M 220.0 84 C 220.0 96, 10 96, 10 136.0" fill="none" stroke="#9bb2c8" stroke-width="2.4" stroke-linecap="round"/>
+<path d="M 10 136.0 V 664.0" fill="none" stroke="#9bb2c8" stroke-width="2.4" stroke-linecap="round"/>
+<path d="M 10 136.0 H 22" fill="none" stroke="#9bb2c8" stroke-width="2.4" stroke-linecap="round"/>
+<path d="M 36 160 H 30 V 250.0" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 30 194.0 H 42" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 30 250.0 H 42" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 10 316.0 H 22" fill="none" stroke="#9bb2c8" stroke-width="2.4" stroke-linecap="round"/>
+<path d="M 36 340 H 30 V 598.0" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 30 374.0 H 42" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 30 430.0 H 42" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 30 486.0 H 42" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 30 542.0 H 42" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 30 598.0 H 42" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 10 664.0 H 22" fill="none" stroke="#9bb2c8" stroke-width="2.4" stroke-linecap="round"/>
+<path d="M 36 688 H 30 V 834.0" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 30 722.0 H 42" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 30 778.0 H 42" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 30 834.0 H 42" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<rect x="16" y="24" width="408" height="60" rx="16" fill="#1f4568" stroke="#173650" stroke-width="2"/>
+<text x="220.0" y="54.0" text-anchor="middle" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="18" font-weight="700" fill="#ffffff"><tspan x="220.0" dy="0.0">连续C类网络的聚合</tspan></text>
+<rect x="22" y="112" width="396" height="48" rx="13" fill="#dceaf5" stroke="#8eabc3" stroke-width="1.7"/>
+<text x="220.0" y="136.0" text-anchor="middle" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="15.5" font-weight="650" fill="#214765"><tspan x="220.0" dy="0.0">要做什么</tspan></text>
+<rect x="42" y="170" width="376" height="48" rx="11" fill="#ffffff" stroke="#c3d0dc" stroke-width="1.4"/>
+<text x="55" y="194.0" text-anchor="start" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="14.5" font-weight="500" fill="#263747"><tspan x="55" dy="0.0">把16条C类路由收成1条</tspan></text>
+<rect x="42" y="226" width="376" height="48" rx="11" fill="#ffffff" stroke="#c3d0dc" stroke-width="1.4"/>
+<text x="55" y="250.0" text-anchor="start" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="14.5" font-weight="500" fill="#263747"><tspan x="55" dy="0.0">结果是一个CIDR地址块</tspan></text>
+<rect x="22" y="292" width="396" height="48" rx="13" fill="#dceaf5" stroke="#8eabc3" stroke-width="1.7"/>
+<text x="220.0" y="316.0" text-anchor="middle" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="15.5" font-weight="650" fill="#214765"><tspan x="220.0" dy="0.0">课堂例题</tspan></text>
+<rect x="42" y="350" width="376" height="48" rx="11" fill="#ffffff" stroke="#c3d0dc" stroke-width="1.4"/>
+<text x="55" y="374.0" text-anchor="start" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="14.5" font-weight="500" fill="#263747"><tspan x="55" dy="0.0">192.24.0到192.24.15 是前三字节简写</tspan></text>
+<rect x="42" y="406" width="376" height="48" rx="11" fill="#ffffff" stroke="#c3d0dc" stroke-width="1.4"/>
+<text x="55" y="430.0" text-anchor="start" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="14.5" font-weight="500" fill="#263747"><tspan x="55" dy="0.0">聚合前掩码255.255.255.0 共16条</tspan></text>
+<rect x="42" y="462" width="376" height="48" rx="11" fill="#ffffff" stroke="#c3d0dc" stroke-width="1.4"/>
+<text x="55" y="486.0" text-anchor="start" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="14.5" font-weight="500" fill="#263747"><tspan x="55" dy="0.0">第3字节0到15 前4位都是0000</tspan></text>
+<rect x="42" y="518" width="376" height="48" rx="11" fill="#ffffff" stroke="#c3d0dc" stroke-width="1.4"/>
+<text x="55" y="542.0" text-anchor="start" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="14.5" font-weight="500" fill="#263747"><tspan x="55" dy="0.0">共同前缀8加8加4等于20位</tspan></text>
+<rect x="42" y="574" width="376" height="48" rx="11" fill="#ffffff" stroke="#c3d0dc" stroke-width="1.4"/>
+<text x="55" y="598.0" text-anchor="start" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="14.5" font-weight="500" fill="#263747"><tspan x="55" dy="0.0">聚合为192.24.0.0/20 掩码255.255.240.0</tspan></text>
+<rect x="22" y="640" width="396" height="48" rx="13" fill="#dceaf5" stroke="#8eabc3" stroke-width="1.7"/>
+<text x="220.0" y="664.0" text-anchor="middle" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="15.5" font-weight="650" fill="#214765"><tspan x="220.0" dy="0.0">典型习题</tspan></text>
+<rect x="42" y="698" width="376" height="48" rx="11" fill="#ffffff" stroke="#c3d0dc" stroke-width="1.4"/>
+<text x="55" y="722.0" text-anchor="start" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="14.5" font-weight="500" fill="#263747"><tspan x="55" dy="0.0">202.196.0.0/24到202.196.15.0/24</tspan></text>
+<rect x="42" y="754" width="376" height="48" rx="11" fill="#ffffff" stroke="#c3d0dc" stroke-width="1.4"/>
+<text x="55" y="778.0" text-anchor="start" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="14.5" font-weight="500" fill="#263747"><tspan x="55" dy="0.0">过程相同 结果202.196.0.0/20</tspan></text>
+<rect x="42" y="810" width="376" height="48" rx="11" fill="#ffffff" stroke="#c3d0dc" stroke-width="1.4"/>
+<text x="55" y="834.0" text-anchor="start" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="14.5" font-weight="500" fill="#263747"><tspan x="55" dy="0.0">本页掩码是整理者按/20补充的</tspan></text>
+</svg>

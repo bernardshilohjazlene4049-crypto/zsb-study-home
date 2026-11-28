@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="520" viewBox="0 0 1280 520" role="img" aria-labelledby="svg-title svg-desc" data-question="5-2" data-answer="C" data-related-points="5-3,5-2" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, sans-serif">
+<title id="svg-title">专题五第2题：It is an established fact ___ the little boy can speak three languages.</title>
+<desc id="svg-desc">根据专题五已交付练习源稿生成的本地静态判定流程图；题目与选项仍由页面原文呈现。</desc>
+<rect width="1280" height="520" fill="#f3f6fa"/>
+<rect x="28" y="22" width="1224" height="54" rx="14" fill="#203d61"/>
+<text x="54" y="57" font-size="22" fill="#fff" font-weight="700">专题五 · 名词性从句 · 练习 02</text>
+<rect x="1082" y="31" width="142" height="36" rx="18" fill="#d9eee8"/>
+<text x="1153" y="55" font-size="17" fill="#245b51" font-weight="700" text-anchor="middle">官方答案 C</text>
+<svg x="155.42" y="105" width="969.16" height="337.86" viewBox="0.00 0.00 821.32 286.32" preserveAspectRatio="xMidYMin meet">
+
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(20.16 266.16)">
+<title>G</title>
+<!-- A&#45;&gt;B -->
+<g id="edge1" class="edge">
+<title>A&#45;&gt;B</title>
+<path fill="none" stroke="#7892ad" stroke-width="1.8" d="M309.5,-206.84C309.5,-199.87 309.5,-191.82 309.5,-184.32"/>
+<polygon fill="#7892ad" stroke="#7892ad" stroke-width="1.8" points="311.95,-184.06 309.5,-177.06 307.05,-184.06 311.95,-184.06"/>
+</g>
+<!-- B&#45;&gt;C -->
+<g id="edge2" class="edge">
+<title>B&#45;&gt;C</title>
+<path fill="none" stroke="#7892ad" stroke-width="1.8" d="M309.5,-137.84C309.5,-130.87 309.5,-122.82 309.5,-115.32"/>
+<polygon fill="#7892ad" stroke="#7892ad" stroke-width="1.8" points="311.95,-115.06 309.5,-108.06 307.05,-115.06 311.95,-115.06"/>
+</g>
+<!-- C&#45;&gt;D -->
+<g id="edge3" class="edge">
+<title>C&#45;&gt;D</title>
+<path fill="none" stroke="#7892ad" stroke-width="1.8" d="M245.18,-68.93C215.26,-60.28 179.57,-49.98 148.83,-41.1"/>
+<polygon fill="#7892ad" stroke="#7892ad" stroke-width="1.8" points="149.35,-38.7 141.94,-39.11 147.99,-43.41 149.35,-38.7"/>
+</g>
+<!-- C&#45;&gt;E -->
+<g id="edge4" class="edge">
+<title>C&#45;&gt;E</title>
+<path fill="none" stroke="#7892ad" stroke-width="1.8" d="M309.5,-68.84C309.5,-61.87 309.5,-53.82 309.5,-46.32"/>
+<polygon fill="#7892ad" stroke="#7892ad" stroke-width="1.8" points="311.95,-46.06 309.5,-39.06 307.05,-46.06 311.95,-46.06"/>
+</g>
+<!-- C&#45;&gt;F -->
+<g id="edge5" class="edge">
+<title>C&#45;&gt;F</title>
+<path fill="none" stroke="#7892ad" stroke-width="1.8" d="M396.27,-68.93C437.49,-60.1 486.82,-49.54 528.88,-40.54"/>
+<polygon fill="#7892ad" stroke="#7892ad" stroke-width="1.8" points="529.5,-42.91 535.83,-39.05 528.47,-38.12 529.5,-42.91"/>
+</g>
+<!-- A -->
+<g id="node1" class="node">
+<title>A</title>
+<path fill="#ffffff" stroke="#b9cada" stroke-width="1.5" d="M395,-246C395,-246 224,-246 224,-246 218,-246 212,-240 212,-234 212,-234 212,-219 212,-219 212,-213 218,-207 224,-207 224,-207 395,-207 395,-207 401,-207 407,-213 407,-219 407,-219 407,-234 407,-234 407,-240 401,-246 395,-246"/>
+<text text-anchor="middle" x="309.5" y="-222.4" font-family="Noto Sans CJK SC" font-size="17.00" fill="#26384d">形式主语 It + is + 名词</text>
+</g>
+<!-- B -->
+<g id="node2" class="node">
+<title>B</title>
+<path fill="#ffffff" stroke="#b9cada" stroke-width="1.5" d="M381,-177C381,-177 238,-177 238,-177 232,-177 226,-171 226,-165 226,-165 226,-150 226,-150 226,-144 232,-138 238,-138 238,-138 381,-138 381,-138 387,-138 393,-144 393,-150 393,-150 393,-165 393,-165 393,-171 387,-177 381,-177"/>
+<text text-anchor="middle" x="309.5" y="-153.4" font-family="Noto Sans CJK SC" font-size="17.00" fill="#26384d">后接真正主语从句</text>
+</g>
+<!-- C -->
+<g id="node3" class="node">
+<title>C</title>
+<path fill="#ffffff" stroke="#b9cada" stroke-width="1.5" d="M454.5,-108C454.5,-108 164.5,-108 164.5,-108 158.5,-108 152.5,-102 152.5,-96 152.5,-96 152.5,-81 152.5,-81 152.5,-75 158.5,-69 164.5,-69 164.5,-69 454.5,-69 454.5,-69 460.5,-69 466.5,-75 466.5,-81 466.5,-81 466.5,-96 466.5,-96 466.5,-102 460.5,-108 454.5,-108"/>
+<text text-anchor="middle" x="309.5" y="-84.4" font-family="Noto Sans CJK SC" font-size="17.00" fill="#26384d">can speak three languages 成分完整</text>
+</g>
+<!-- D -->
+<g id="node4" class="node">
+<title>D</title>
+<path fill="#ffffff" stroke="#b9cada" stroke-width="1.5" d="M143,-39C143,-39 12,-39 12,-39 6,-39 0,-33 0,-27 0,-27 0,-12 0,-12 0,-6 6,0 12,0 12,0 143,0 143,0 149,0 155,-6 155,-12 155,-12 155,-27 155,-27 155,-33 149,-39 143,-39"/>
+<text text-anchor="middle" x="77.5" y="-15.4" font-family="Noto Sans CJK SC" font-size="17.00" fill="#26384d">陈述事实 选 that</text>
+</g>
+<!-- E -->
+<g id="node5" class="node">
+<title>E</title>
+<path fill="#ffffff" stroke="#b9cada" stroke-width="1.5" d="M432,-39C432,-39 187,-39 187,-39 181,-39 175,-33 175,-27 175,-27 175,-12 175,-12 175,-6 181,0 187,0 187,0 432,0 432,0 438,0 444,-6 444,-12 444,-12 444,-27 444,-27 444,-33 438,-39 432,-39"/>
+<text text-anchor="middle" x="309.5" y="-15.4" font-family="Noto Sans CJK SC" font-size="17.00" fill="#26384d">what 需充当成分 这里不缺 排除</text>
+</g>
+<!-- F -->
+<g id="node6" class="node">
+<title>F</title>
+<path fill="#ffffff" stroke="#b9cada" stroke-width="1.5" d="M769,-39C769,-39 476,-39 476,-39 470,-39 464,-33 464,-27 464,-27 464,-12 464,-12 464,-6 470,0 476,0 476,0 769,0 769,0 775,0 781,-6 781,-12 781,-12 781,-27 781,-27 781,-33 775,-39 769,-39"/>
+<text text-anchor="middle" x="622.5" y="-15.4" font-family="Noto Sans CJK SC" font-size="17.00" fill="#26384d">where/how 表地点或方式 与句意不符</text>
+</g>
+</g>
+
+</svg>
+<text x="42" y="500" font-size="16" fill="#68798b">关联考点：5-3、5-2</text>
+</svg>

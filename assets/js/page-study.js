@@ -45,6 +45,7 @@
     var input = {
       questionId: d.questionId,
       subjectId: d.subjectId || subjectId,
+      topicIds: d.topicIds || undefined,
       stem: d.stem || "",
       page: { url: pageUrl, title: d.section || pageTitle, anchor: d.anchor || "" }
     };
@@ -62,6 +63,371 @@
 
   function qid(item) {
     return "page:" + pageKey + ":" + String(item).replace(/[^0-9A-Za-z_.\-]/g, "-");
+  }
+
+  // 正文页知识点映射：按 script[data-page] 的 pageKey 选择，不在注入逻辑中绑定具体页面。
+  // topicIds 显式传给现有 recordPageAttempt → commitSubmission 链路，确保归属到正确考点。
+  var GS1_TOPIC_IDS = {
+    "point-1": "math.domain",
+    "point-2": "math.function_properties",
+    "point-3": "math.sequence_limit",
+    "point-4": "math.function_limit",
+    "point-5": "math.infinitesimal",
+    "point-6": "math.equivalent",
+    "point-7": "math.important_limits",
+    "point-8": "math.asymptote",
+    "point-9": "math.continuity",
+    "point-10": "math.discontinuity",
+    "point-11": "math.continuous_properties"
+  };
+
+  var GS45_TOPIC_IDS = {
+    "point-36": "math.p36",
+    "point-37": "math.p37",
+    "point-38": "math.p38",
+    "point-39": "math.p39",
+    "point-40": "math.p40",
+    "point-41": "math.p41",
+    "point-42": "math.p42",
+    "point-43": "math.p43",
+    "point-44": "math.p44",
+    "point-45": "math.p45",
+    "point-46": "math.p46",
+    "point-47": "math.p47",
+    "point-48": "math.p48"
+  };
+
+  var YY5_TOPIC_IDS = {
+    "topic-4": "english.attributive.basics",
+    "topic-5": "english.noun.basics",
+    "topic-6": "english.adverbial.basics",
+    "topic-7": "english.agreement.basics",
+    "topic-8": "english.special.basics"
+  };
+
+  var C_NOTES_TOPIC_IDS = {
+    "point-1": "c.ch1.intro",
+    "point-2": "c.ch1.structure",
+    "point-3": "c.ch1.compile",
+    "point-4": "c.ch2.identifier",
+    "point-5": "c.ch2.constants",
+    "point-6": "c.ch2.datatypes",
+    "point-7": "c.ch3.priority",
+    "point-8": "c.ch3.arith_logic",
+    "point-9": "c.ch3.assign_comma",
+    "point-10": "c.ch4.io_concept",
+    "point-11": "c.ch4.printf",
+    "point-12": "c.ch4.scanf_char_str",
+    "point-13": "c.ch5.truth_if",
+    "point-14": "c.ch5.nested_ternary",
+    "point-15": "c.ch5.switch",
+    "point-16": "c.ch6.while_dowhile",
+    "point-17": "c.ch6.for_loop",
+    "point-18": "c.ch6.control_coding",
+    "point-19": "c.ch7.array1d",
+    "point-20": "c.ch7.array2d",
+    "point-21": "c.ch7.char_array",
+    "point-22": "c.ch8.def_call",
+    "point-23": "c.ch8.decl_pass",
+    "point-24": "c.ch8.scope_static",
+    "point-25": "c.ch9.ptr_basics",
+    "point-26": "c.ch9.ptr_array1d",
+    "point-27": "c.ch9.ptr_array2d_param"
+  };
+
+  var JSJ1_TOPIC_IDS = {
+    "mind-1.1": "cb.ch1.11",
+    "mind-1.2": "cb.ch1.12",
+    "mind-1.3": "cb.ch1.13",
+    "mind-1.4": "cb.ch1.14"
+  };
+
+  var PPT5_TOPIC_IDS = {
+    "chapter-5.1": "cb.ppt.51",
+    "chapter-5.2": "cb.ppt.52",
+    "chapter-5.3": "cb.ppt.53",
+    "chapter-5.4": "cb.ppt.54",
+    "chapter-5.5": "cb.ppt.55",
+    "chapter-5.6": "cb.ppt.56"
+  };
+
+  var WL_TOPIC_IDS_BY_PAGE = {
+    "wl-s11": { "s11": "net.s11" },
+    "wl-s12": { "s12": "net.s12" },
+    "wl-s13": { "s13": "net.s13" },
+    "wl-s14": { "s14": "net.s14" },
+    "wl-s15": { "s15": "net.s15" },
+    "wl-s16": { "s16": "net.s16" },
+    "wl-s21": { "s21": "net.s21" },
+    "wl-s22": { "s22": "net.s22" },
+    "wl-s23": { "s23": "net.s23" },
+    "wl-s24": { "s24": "net.s24" },
+    "wl-s25": { "s25": "net.s25" },
+    "wl-s26": { "s26": "net.s26" },
+    "wl-s27": { "s27": "net.s27" },
+    "wl-s31": { "s31": "net.s31" },
+    "wl-s32": { "s32": "net.s32" },
+    "wl-s33": { "s33": "net.s33" },
+    "wl-s34": { "s34": "net.s34" },
+    "wl-s35": { "s35": "net.s35" },
+    "wl-s36": { "s36": "net.s36" },
+    "wl-s37": { "s37": "net.s37" },
+    "wl-s38": { "s38": "net.s38" },
+    "wl-s39": { "s39": "net.s39" },
+    "wl-s41": { "s41": "net.s41" },
+    "wl-s42": { "s42": "net.s42" },
+    "wl-s43": { "s43": "net.s43" },
+    "wl-s51": { "s51": "net.s51" },
+    "wl-s52": { "s52": "net.s52" },
+    "wl-s53": { "s53": "net.s53" },
+    "wl-s61": { "s61": "net.s61" }
+  };
+
+  var WY_TOPIC_IDS_BY_PAGE = {
+    "wy-s11": { "s11": "web.concepts" },
+    "wy-s12": { "s12": "web.process" },
+    "wy-s13": { "s13": "web.layers" },
+    "wy-s-extra": { "s-extra": "web.tools" },
+    "wy-s21": { "s21": "web.s21" },
+    "wy-s22": { "s22": "web.s22" },
+    "wy-s22b": { "s22b": "web.s22b" },
+    "wy-s23": { "s23": "web.s23" },
+    "wy-s24": { "s24": "web.s24" }
+  };
+
+  var TOPIC_IDS_BY_PAGE = {
+    gs1: GS1_TOPIC_IDS,
+    gs45: GS45_TOPIC_IDS,
+    yy5: YY5_TOPIC_IDS,
+    "c-notes": C_NOTES_TOPIC_IDS,
+    jsj1: JSJ1_TOPIC_IDS,
+    ppt5: PPT5_TOPIC_IDS
+  };
+  Object.keys(WL_TOPIC_IDS_BY_PAGE).forEach(function (key) {
+    TOPIC_IDS_BY_PAGE[key] = WL_TOPIC_IDS_BY_PAGE[key];
+  });
+  Object.keys(WY_TOPIC_IDS_BY_PAGE).forEach(function (key) {
+    TOPIC_IDS_BY_PAGE[key] = WY_TOPIC_IDS_BY_PAGE[key];
+  });
+
+  function makeTopicRateButton(rating, label, hint) {
+    var button = document.createElement("button");
+    button.type = "button";
+    button.className = "sh-btn sys-rate-btn sys-rate-btn--" + rating;
+    button.dataset.zsbRate = rating;
+    button.setAttribute("aria-label", label + "；" + hint);
+    var strong = document.createElement("strong");
+    strong.textContent = label;
+    var small = document.createElement("small");
+    small.textContent = hint;
+    button.appendChild(strong);
+    button.appendChild(small);
+    return button;
+  }
+
+  function createTopicRateGroup(anchor, topicIdsByAnchor, title, logicalPageAnchor) {
+    var group = document.createElement("div");
+    group.className = "zsb-topic-rate";
+    group.dataset.zsbQuestion = anchor;
+    group.dataset.zsbSubject = subjectId || "math";
+    group.dataset.zsbTopicIds = topicIdsByAnchor[anchor];
+    group.dataset.zsbStem = text(title);
+    if (logicalPageAnchor) group.dataset.zsbPageAnchor = anchor;
+    group.setAttribute("role", "group");
+    group.setAttribute("aria-label", "考点掌握度打卡：" + text(title));
+    group.appendChild(makeTopicRateButton("good", "会了", "新记录 7 天后复习"));
+    group.appendChild(makeTopicRateButton("fuzzy", "模糊", "进入复习队列"));
+    group.appendChild(makeTopicRateButton("again", "不会", "加入错题本"));
+    return group;
+  }
+
+  function injectTopicRatings() {
+    var topicIdsByAnchor = TOPIC_IDS_BY_PAGE[pageKey];
+    if (!topicIdsByAnchor) return;
+
+    // Network lesson pages have no section id: bind the single configured topic
+    // to the unique .wl-page heading, keeping the group immediately after h1
+    // and before the existing videos-v1 marker/gallery.
+    if (/^wl-s\d+$/.test(pageKey)) {
+      var headers = document.querySelectorAll(".wl-page .wy-point-head");
+      var anchors = Object.keys(topicIdsByAnchor);
+      if (headers.length !== 1 || anchors.length !== 1) return;
+      var networkHeader = headers[0];
+      var networkTitle = networkHeader.querySelector("h1");
+      var networkGallery = networkHeader.querySelector("#videos-v1");
+      var networkAnchor = anchors[0];
+      if (!networkTitle || !networkGallery || networkHeader.querySelector("[data-zsb-question]")) return;
+      var networkGroup = createTopicRateGroup(networkAnchor, topicIdsByAnchor, networkTitle, true);
+      networkTitle.insertAdjacentElement("afterend", networkGroup);
+      return;
+    }
+
+    // Web-design lesson pages have one heading but no section id. Match only
+    // the nine explicit wy-* page keys and insert before the chapter-one v1
+    // gallery when present; chapter two intentionally has no #videos-v1.
+    if (Object.prototype.hasOwnProperty.call(WY_TOPIC_IDS_BY_PAGE, pageKey)) {
+      var webHeaders = document.querySelectorAll(".wy-points-page:not(.wl-page) .wy-point-head");
+      var webAnchors = Object.keys(topicIdsByAnchor);
+      if (webHeaders.length !== 1 || webAnchors.length !== 1) return;
+      var webHeader = webHeaders[0];
+      var webTitles = webHeader.querySelectorAll("h1");
+      var webAnchor = webAnchors[0];
+      if (webTitles.length !== 1 || webHeader.querySelector("[data-zsb-question]")) return;
+      var webTitle = webTitles[0];
+      var webGroup = createTopicRateGroup(webAnchor, topicIdsByAnchor, webTitle, true);
+      webTitle.insertAdjacentElement("afterend", webGroup);
+      return;
+    }
+
+    Object.keys(topicIdsByAnchor).forEach(function (anchor) {
+      var section = document.getElementById(anchor);
+      var header = section && (section.querySelector(".topic-header") || section.querySelector(".chapter-heading") || section.querySelector(".mind-head") || section.querySelector(".chapter-top"));
+      var title = header && (header.querySelector(".topic-title") || header.querySelector(".chapter-title") || header.querySelector("h2"));
+      if (!section || !header || !title || header.querySelector("[data-zsb-question]")) return;
+
+      var group = createTopicRateGroup(anchor, topicIdsByAnchor, title, false);
+      header.appendChild(group);
+    });
+  }
+
+  function ensureTopicKitStyles() {
+    if (document.querySelector('link[data-e1-topic-kit-style="1"]')) return;
+    var link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = new URL("assets/css/topic-kit.css", root).href;
+    link.dataset.e1TopicKitStyle = "1";
+    document.head.appendChild(link);
+  }
+
+  function appendKitLink(container, label, href, className) {
+    if (!href) return null;
+    var link = document.createElement("a");
+    link.className = className || "e1-topic-kit__link";
+    link.href = new URL(href, root).href;
+    link.textContent = label;
+    container.appendChild(link);
+    return link;
+  }
+
+  function createKitItem(key, label, resource, topicExtraLinks) {
+    var item = document.createElement("div");
+    item.className = "e1-topic-kit__item";
+    item.dataset.e1KitItem = key;
+    var heading = document.createElement("span");
+    heading.className = "e1-topic-kit__label";
+    heading.textContent = label;
+    item.appendChild(heading);
+
+    var links = document.createElement("div");
+    links.className = "e1-topic-kit__links";
+    if (resource && resource.href) {
+      appendKitLink(links, resource.label || resource.status || "打开", resource.href);
+    } else {
+      var missing = document.createElement("span");
+      missing.className = "e1-topic-kit__value is-missing";
+      missing.textContent = resource?.label || resource?.status || "缺";
+      links.appendChild(missing);
+    }
+    (resource?.extraLinks || []).concat(topicExtraLinks || []).forEach(function (extra) {
+      appendKitLink(links, extra.label, extra.href);
+    });
+    if (resource?.visualHref) appendKitLink(links, "讲解图", resource.visualHref);
+    if (resource?.hasLab) appendKitLink(links, "交互演示", resource.href);
+    item.appendChild(links);
+    return item;
+  }
+
+  function foldGs1MindmapEntry() {
+    if (pageKey !== "gs1") return;
+    void import(new URL("assets/js/features/math-ch1-mindmaps.js", root).href)
+      .then(({ mountMathCh1Mindmaps }) => mountMathCh1Mindmaps())
+      .catch(() => {});
+    var navLink = document.querySelector('a[data-index-point="mindmap"][href="#mindmap"]');
+    var target = document.querySelector('.e1-topic-kit[data-topic-id="math.domain"] [data-e1-kit-item="mindmap"] .e1-topic-kit__links');
+    if (!navLink || !target) return;
+    appendKitLink(target, "本页导图区", "gs/gs1.html#mindmap");
+    navLink.remove();
+  }
+
+  function mountTopicKits() {
+    var groups = Array.prototype.slice.call(document.querySelectorAll(".zsb-topic-rate[data-zsb-topic-ids]"));
+    if (!groups.length) return;
+    ensureTopicKitStyles();
+    import(new URL("assets/js/features/topic-kit-data.js", root).href).then(function (dataModule) {
+      var mounted = [];
+      groups.forEach(function (group) {
+        if (group.nextElementSibling?.classList.contains("e1-topic-kit")) return;
+        var topicId = String(group.dataset.zsbTopicIds || "").split(",")[0].trim();
+        var config = dataModule.TOPIC_KIT_BY_ID[topicId];
+        if (!config || config.pageKey !== pageKey) return;
+
+        var kit = document.createElement("div");
+        kit.className = "e1-topic-kit";
+        kit.dataset.topicId = topicId;
+        kit.setAttribute("role", "group");
+        kit.setAttribute("aria-label", "五项学习齐套清单：" + topicId);
+
+        var mindmap = createKitItem("mindmap", "思维导图", config.mindmap, config.extraLinks);
+        var video = createKitItem("video", "讲义视频", config.video);
+        var lecture = createKitItem("lecture", "讲义", {
+          status: "有",
+          label: "本点讲义",
+          href: config.lectureHref
+        });
+        var practice = createKitItem("practice", "练习 / 可视化", config.practice);
+        var checkin = createKitItem("checkin", "打卡状态", { label: "读取中…" });
+        var status = checkin.querySelector(".e1-topic-kit__value");
+        if (status) {
+          status.dataset.e1TopicKitStatus = "1";
+          status.setAttribute("role", "status");
+          status.setAttribute("aria-live", "polite");
+          status.classList.remove("is-missing");
+        }
+        var detail = document.createElement("small");
+        detail.className = "e1-topic-kit__detail";
+        checkin.querySelector(".e1-topic-kit__links").appendChild(detail);
+
+        kit.append(mindmap, video, lecture, practice, checkin);
+        group.insertAdjacentElement("afterend", kit);
+        mounted.push({
+          topicId: topicId,
+          questionId: qid(config.anchor),
+          statusNode: status,
+          detailNode: detail
+        });
+      });
+      if (!mounted.length) return;
+      foldGs1MindmapEntry();
+
+      var stateModulePromise = import(new URL("assets/js/features/topic-kit-state.js", root).href);
+      var readToken = 0;
+      function refreshTopicKitStates() {
+        var token = ++readToken;
+        stateModulePromise.then(function (stateModule) {
+          return stateModule.readTopicKitStates(mounted.map(function (item) {
+            return { topicId: item.topicId, questionId: item.questionId };
+          })).then(function (states) {
+            if (token !== readToken) return;
+            states.forEach(function (state, index) {
+              var target = mounted[index];
+              if (!target || !target.statusNode) return;
+              target.statusNode.textContent = stateModule.describeTopicKitStatus(state);
+              target.statusNode.classList.toggle("is-unchecked", target.statusNode.textContent === "未打卡");
+              target.detailNode.textContent = stateModule.topicKitStatusDetail(state);
+            });
+          });
+        }).catch(function () {
+          if (token !== readToken) return;
+          mounted.forEach(function (item) {
+            if (item.statusNode) item.statusNode.textContent = "状态暂不可用";
+          });
+        });
+      }
+      refreshTopicKitStates();
+      document.addEventListener("zsb:attempt-saved", refreshTopicKitStates);
+    }).catch(function (error) {
+      console.warn("齐套清单未载入", error);
+    });
   }
 
   // 选择题卡片：.quiz-question[data-question][data-correct] 内的 .choice[data-choice]（yy5）。
@@ -107,6 +473,10 @@
     if (reset) reset.addEventListener("click", function () { last = {}; });
   });
 
+  // 先按 pageKey 注入已配置页面的知识点打卡，再统一绑定已有正文页自评约定。
+  injectTopicRatings();
+  mountTopicKits();
+
   // 看完解答后自评：[data-zsb-question] 内的 [data-zsb-rate="good|fuzzy|again"]。
   document.querySelectorAll("[data-zsb-question]").forEach(function (box) {
     box.querySelectorAll("[data-zsb-rate]").forEach(function (btn) {
@@ -115,8 +485,11 @@
           questionId: qid(box.dataset.zsbQuestion),
           subjectId: box.dataset.zsbSubject || subjectId,
           rating: btn.dataset.zsbRate,
+          topicIds: box.dataset.zsbTopicIds
+            ? box.dataset.zsbTopicIds.split(",").map(function (id) { return id.trim(); }).filter(Boolean)
+            : undefined,
           stem: box.dataset.zsbStem || text(box.querySelector("[data-zsb-stem]")),
-          anchor: box.id || anchorOf(box),
+          anchor: box.dataset.zsbPageAnchor || box.id || anchorOf(box),
           section: sectionOf(box)
         });
       });

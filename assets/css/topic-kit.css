@@ -1,0 +1,51 @@
+/* E1：正文页五项齐套条。由 page-study.js 按已存在的打卡组按需加载。 */
+.e1-topic-kit {
+  display: grid;
+  flex: 1 0 100%;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+  width: 100%;
+  min-width: 0;
+  margin: 10px 0 14px;
+  padding: 10px;
+  border: 1px solid var(--sh-line, #d8e0ea);
+  border-radius: 12px;
+  background: var(--sh-surface-soft, #f7f9fc);
+  color: var(--sh-ink, #202938);
+  box-sizing: border-box;
+}
+.e1-topic-kit__item { min-width: 0; display: flex; flex-direction: column; gap: 5px; }
+.e1-topic-kit__label { color: var(--sh-ink-2, #596579); font-size: 11px; font-weight: 700; line-height: 1.35; }
+.e1-topic-kit__links { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 4px 7px; min-width: 0; }
+.e1-topic-kit__link,
+.e1-topic-kit__value {
+  display: inline-flex;
+  align-items: center;
+  min-width: 0;
+  min-height: 32px;
+  padding: 4px 7px;
+  border: 1px solid var(--sh-line, #d8e0ea);
+  border-radius: 8px;
+  background: var(--sh-surface, #fff);
+  color: var(--sh-accent-strong, #2457a7);
+  font-size: 12px;
+  line-height: 1.35;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+.e1-topic-kit__link:hover { text-decoration: underline; }
+.e1-topic-kit__link:focus-visible { outline: 3px solid var(--sh-accent, #2563eb); outline-offset: 2px; }
+.e1-topic-kit__value { color: var(--sh-ink, #202938); }
+.e1-topic-kit__value.is-missing { color: var(--sh-ink-3, #7a8494); background: transparent; border-style: dashed; }
+.e1-topic-kit__value.is-unchecked { color: var(--sh-ink-2, #596579); }
+.e1-topic-kit__detail { display: block; width: 100%; color: var(--sh-ink-3, #7a8494); font-size: 10px; line-height: 1.35; }
+@media (max-width: 900px) {
+  .e1-topic-kit { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) {
+  .e1-topic-kit { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; padding: 9px; }
+  .e1-topic-kit__link, .e1-topic-kit__value { min-height: 40px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .e1-topic-kit__link { scroll-behavior: auto; transition: none; }
+}

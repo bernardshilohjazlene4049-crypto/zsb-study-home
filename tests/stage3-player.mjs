@@ -137,7 +137,10 @@ test("控件显示时时长标签不再压住全屏按钮", () => {
       assert.ok(start >= 0 && start < m.index, `${path} 时长标签应在 .${container} 内`);
       const between = html.slice(start + open.length, m.index);
       assert.doesNotMatch(between, /<\/div>/, `${path} 时长标签应是 .${container} 的直接子节点`);
-      assert.match(between, /<\/video>/, `${path} 时长标签应紧跟播放器`);
+      assert.ok(
+        /<\/video>/.test(between) || /<img[^>]*(?:data-src|src)=/.test(between),
+        `${path} 时长标签应紧跟视频或链接卡片封面`
+      );
     }
   }
 });
@@ -157,6 +160,7 @@ test("科目主页视频实现按需加载封面与播放时取字幕", () => {
   }
   const facadeJs = readFileSync(join(root, "assets/js/video-facade.js"), "utf8");
   const playerJs = readFileSync(join(root, "assets/js/lecture-player.js"), "utf8");
+  assert.ok(facadeJs.includes("a.video-card[href] .media-frame"), "高数科目页链接卡片封面也应按需加载");
   assert.ok(facadeJs.includes("IntersectionObserver") || playerJs.includes("IntersectionObserver"), "共享脚本应包含 IntersectionObserver 逻辑");
   assert.ok(playerJs.includes("data-src") || facadeJs.includes("data-src"), "共享脚本应在播放时加载字幕轨 src");
   assert.match(facadeJs, /addEventListener\(['"]load['"]/, "video-facade 应在 window load 后再观察封面");

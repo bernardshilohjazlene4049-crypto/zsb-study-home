@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="1292" viewBox="0 0 440 1292" data-topic-id="net.s34" role="img" aria-labelledby="svg-title svg-desc">
+<title id="svg-title">3.4 传统子网划分（2^n−2 规则）作业 · 思维导图</title>
+<desc id="svg-desc">根据已交付的 Mermaid mindmap 源稿转换为本地静态层级导图。</desc>
+<rect width="100%" height="100%" fill="#f6f8fb"/>
+<path d="M 220.0 84 C 220.0 96, 10 96, 10 136.0" fill="none" stroke="#9bb2c8" stroke-width="2.4" stroke-linecap="round"/>
+<path d="M 10 136.0 V 956.0" fill="none" stroke="#9bb2c8" stroke-width="2.4" stroke-linecap="round"/>
+<path d="M 10 136.0 H 22" fill="none" stroke="#9bb2c8" stroke-width="2.4" stroke-linecap="round"/>
+<path d="M 36 160 H 30 V 250.0" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 30 194.0 H 42" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 30 250.0 H 42" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 10 316.0 H 22" fill="none" stroke="#9bb2c8" stroke-width="2.4" stroke-linecap="round"/>
+<path d="M 36 340 H 30 V 598.0" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 30 374.0 H 42" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 30 430.0 H 42" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 30 486.0 H 42" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 30 542.0 H 42" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 30 598.0 H 42" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 10 664.0 H 22" fill="none" stroke="#9bb2c8" stroke-width="2.4" stroke-linecap="round"/>
+<path d="M 36 688 H 30 V 890.0" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 30 722.0 H 42" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 30 778.0 H 42" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 30 834.0 H 42" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 30 890.0 H 42" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 10 956.0 H 22" fill="none" stroke="#9bb2c8" stroke-width="2.4" stroke-linecap="round"/>
+<path d="M 36 980 H 30 V 1238.0" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 30 1014.0 H 42" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 30 1070.0 H 42" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 30 1126.0 H 42" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 30 1182.0 H 42" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<path d="M 30 1238.0 H 42" fill="none" stroke="#b4c4d3" stroke-width="1.9" stroke-linecap="round"/>
+<rect x="16" y="24" width="408" height="60" rx="16" fill="#1f4568" stroke="#173650" stroke-width="2"/>
+<text x="220.0" y="54.0" text-anchor="middle" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="18" font-weight="700" fill="#ffffff"><tspan x="220.0" dy="0.0">传统划分减2规则</tspan></text>
+<rect x="22" y="112" width="396" height="48" rx="13" fill="#dceaf5" stroke="#8eabc3" stroke-width="1.7"/>
+<text x="220.0" y="136.0" text-anchor="middle" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="15.5" font-weight="650" fill="#214765"><tspan x="220.0" dy="0.0">共同规则</tspan></text>
+<rect x="42" y="170" width="376" height="48" rx="11" fill="#ffffff" stroke="#c3d0dc" stroke-width="1.4"/>
+<text x="55" y="194.0" text-anchor="start" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="14.5" font-weight="500" fill="#263747"><tspan x="55" dy="0.0">子网号全0全1不用 子网数按2的n次方减2</tspan></text>
+<rect x="42" y="226" width="376" height="48" rx="11" fill="#ffffff" stroke="#c3d0dc" stroke-width="1.4"/>
+<text x="55" y="250.0" text-anchor="start" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="14.5" font-weight="500" fill="#263747"><tspan x="55" dy="0.0">主机号全0全1不用 主机数按2的m次方减2</tspan></text>
+<rect x="22" y="292" width="396" height="48" rx="13" fill="#dceaf5" stroke="#8eabc3" stroke-width="1.7"/>
+<text x="220.0" y="316.0" text-anchor="middle" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="15.5" font-weight="650" fill="#214765"><tspan x="220.0" dy="0.0">作业5已知掩码反推</tspan></text>
+<rect x="42" y="350" width="376" height="48" rx="11" fill="#ffffff" stroke="#c3d0dc" stroke-width="1.4"/>
+<text x="55" y="374.0" text-anchor="start" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="14.5" font-weight="500" fill="#263747"><tspan x="55" dy="0.0">130.53 是B类 网络号16位</tspan></text>
+<rect x="42" y="406" width="376" height="48" rx="11" fill="#ffffff" stroke="#c3d0dc" stroke-width="1.4"/>
+<text x="55" y="430.0" text-anchor="start" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="14.5" font-weight="500" fill="#263747"><tspan x="55" dy="0.0">掩码255.255.224.0 主机号13位</tspan></text>
+<rect x="42" y="462" width="376" height="48" rx="11" fill="#ffffff" stroke="#c3d0dc" stroke-width="1.4"/>
+<text x="55" y="486.0" text-anchor="start" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="14.5" font-weight="500" fill="#263747"><tspan x="55" dy="0.0">子网号3位 可用子网6个</tspan></text>
+<rect x="42" y="518" width="376" height="48" rx="11" fill="#ffffff" stroke="#c3d0dc" stroke-width="1.4"/>
+<text x="55" y="542.0" text-anchor="start" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="14.5" font-weight="500" fill="#263747"><tspan x="55" dy="0.0">每子网最多8190台</tspan></text>
+<rect x="42" y="574" width="376" height="48" rx="11" fill="#ffffff" stroke="#c3d0dc" stroke-width="1.4"/>
+<text x="55" y="598.0" text-anchor="start" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="14.5" font-weight="500" fill="#263747"><tspan x="55" dy="0.0">网络地址从.32.0到.192.0</tspan></text>
+<rect x="22" y="640" width="396" height="48" rx="13" fill="#dceaf5" stroke="#8eabc3" stroke-width="1.7"/>
+<text x="220.0" y="664.0" text-anchor="middle" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="15.5" font-weight="650" fill="#214765"><tspan x="220.0" dy="0.0">作业6已知子网个数正推</tspan></text>
+<rect x="42" y="698" width="376" height="48" rx="11" fill="#ffffff" stroke="#c3d0dc" stroke-width="1.4"/>
+<text x="55" y="722.0" text-anchor="start" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="14.5" font-weight="500" fill="#263747"><tspan x="55" dy="0.0">192.168.25.0 分6个子网</tspan></text>
+<rect x="42" y="754" width="376" height="48" rx="11" fill="#ffffff" stroke="#c3d0dc" stroke-width="1.4"/>
+<text x="55" y="778.0" text-anchor="start" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="14.5" font-weight="500" fill="#263747"><tspan x="55" dy="0.0">2的n次方减2大于等于6 n取3</tspan></text>
+<rect x="42" y="810" width="376" height="48" rx="11" fill="#ffffff" stroke="#c3d0dc" stroke-width="1.4"/>
+<text x="55" y="834.0" text-anchor="start" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="14.5" font-weight="500" fill="#263747"><tspan x="55" dy="0.0">主机号剩5位 掩码255.255.255.224</tspan></text>
+<rect x="42" y="866" width="376" height="48" rx="11" fill="#ffffff" stroke="#c3d0dc" stroke-width="1.4"/>
+<text x="55" y="890.0" text-anchor="start" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="14.5" font-weight="500" fill="#263747"><tspan x="55" dy="0.0">间隔32 主机范围是加1到加30</tspan></text>
+<rect x="22" y="932" width="396" height="48" rx="13" fill="#dceaf5" stroke="#8eabc3" stroke-width="1.7"/>
+<text x="220.0" y="956.0" text-anchor="middle" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="15.5" font-weight="650" fill="#214765"><tspan x="220.0" dy="0.0">作业7两个条件一起验</tspan></text>
+<rect x="42" y="990" width="376" height="48" rx="11" fill="#ffffff" stroke="#c3d0dc" stroke-width="1.4"/>
+<text x="55" y="1014.0" text-anchor="start" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="14.5" font-weight="500" fill="#263747"><tspan x="55" dy="0.0">198.117.32.0 是C类</tspan></text>
+<rect x="42" y="1046" width="376" height="48" rx="11" fill="#ffffff" stroke="#c3d0dc" stroke-width="1.4"/>
+<text x="55" y="1070.0" text-anchor="start" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="14.5" font-weight="500" fill="#263747"><tspan x="55" dy="0.0">6个部门 n取3</tspan></text>
+<rect x="42" y="1102" width="376" height="48" rx="11" fill="#ffffff" stroke="#c3d0dc" stroke-width="1.4"/>
+<text x="55" y="1126.0" text-anchor="start" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="14.5" font-weight="500" fill="#263747"><tspan x="55" dy="0.0">每部门25台 m取5</tspan></text>
+<rect x="42" y="1158" width="376" height="48" rx="11" fill="#ffffff" stroke="#c3d0dc" stroke-width="1.4"/>
+<text x="55" y="1182.0" text-anchor="start" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="14.5" font-weight="500" fill="#263747"><tspan x="55" dy="0.0">3加5正好8位 掩码同样是224</tspan></text>
+<rect x="42" y="1214" width="376" height="48" rx="11" fill="#ffffff" stroke="#c3d0dc" stroke-width="1.4"/>
+<text x="55" y="1238.0" text-anchor="start" dominant-baseline="middle" font-family="AR PL UMing CN, Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif" font-size="14.5" font-weight="500" fill="#263747"><tspan x="55" dy="0.0">六个部门依次.32到.192</tspan></text>
+</svg>

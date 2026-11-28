@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1182" viewBox="0 0 800 1182" role="img" aria-labelledby="svg-title svg-desc" data-topic-id="math.function_properties">
+<title id="svg-title">考点二：函数的性质</title>
+<desc id="svg-desc">函数性质；按考点源稿整理的分支关系图。</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f7fafc"/><stop offset="1" stop-color="#edf3f8"/></linearGradient>
+<linearGradient id="root" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#173b5e"/><stop offset="1" stop-color="#285b7f"/></linearGradient>
+<filter id="soft" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#17324d" flood-opacity=".09"/></filter>
+</defs>
+<rect width="800" height="1182" rx="24" fill="url(#bg)"/>
+<rect x="40" y="38" width="720" height="112" rx="22" fill="url(#root)" filter="url(#soft)"/>
+<text x="400" y="77" text-anchor="middle" font-family="Inter, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="21" fill="#d7e8f4">高数第一章 · 逐点思维导图</text>
+<text x="400" y="121" text-anchor="middle" font-family="Inter, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="31" font-weight="700" fill="#ffffff">函数性质</text>
+<path d="M400 150 V166 H72 V1030" fill="none" stroke="#91a9bd" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M72 228 H120" fill="none" stroke="#91a9bd" stroke-width="4" stroke-linecap="round"/>
+<rect x="120" y="190" width="650" height="370" rx="18" fill="#ffffff" stroke="#d5e0e9" stroke-width="2" filter="url(#soft)"/>
+<rect x="120" y="190" width="9" height="370" rx="4" fill="#4e7896"/>
+<circle cx="162" cy="228" r="21" fill="#e5eef5"/>
+<text x="162" y="236" text-anchor="middle" font-family="Inter, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="700" fill="#315d7d">1</text>
+<text x="198" y="238" font-family="Inter, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="29" font-weight="700" fill="#203e58">奇偶性</text>
+<circle cx="202" cy="276" r="5" fill="#648aa6"/>
+<text x="225" y="284" font-family="Inter, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="26" fill="#314a5e">先决条件 定义域关于原点对称</text>
+<circle cx="202" cy="322" r="5" fill="#648aa6"/>
+<text x="225" y="330" font-family="Inter, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="26" fill="#314a5e">奇 f(-x)=-f(x) 图像关于原点对称</text>
+<circle cx="202" cy="368" r="5" fill="#648aa6"/>
+<text x="225" y="376" font-family="Inter, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="26" fill="#314a5e">偶 f(-x)=f(x) 图像关于 y 轴对称</text>
+<circle cx="202" cy="414" r="5" fill="#648aa6"/>
+<text x="225" y="422" font-family="Inter, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="26" fill="#314a5e">既不是奇也不是偶 叫非奇非偶</text>
+<circle cx="202" cy="460" r="5" fill="#648aa6"/>
+<text x="225" y="468" font-family="Inter, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="26" fill="#314a5e">运算 奇±奇=奇 偶±偶=偶 奇±偶=非奇非偶</text>
+<circle cx="202" cy="506" r="5" fill="#648aa6"/>
+<text x="225" y="514" font-family="Inter, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="26" fill="#314a5e">乘除 奇×÷奇=偶 偶×÷偶=偶 奇×÷偶=奇</text>
+<circle cx="202" cy="552" r="5" fill="#648aa6"/>
+<text x="225" y="560" font-family="Inter, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="26" fill="#314a5e">复合 内奇同外 内偶则偶</text>
+<path d="M72 622 H120" fill="none" stroke="#91a9bd" stroke-width="4" stroke-linecap="round"/>
+<rect x="120" y="584" width="650" height="180" rx="18" fill="#ffffff" stroke="#d5e0e9" stroke-width="2" filter="url(#soft)"/>
+<rect x="120" y="584" width="9" height="180" rx="4" fill="#4e7896"/>
+<circle cx="162" cy="622" r="21" fill="#e5eef5"/>
+<text x="162" y="630" text-anchor="middle" font-family="Inter, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="700" fill="#315d7d">2</text>
+<text x="198" y="632" font-family="Inter, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="29" font-weight="700" fill="#203e58">单调性</text>
+<circle cx="202" cy="670" r="5" fill="#648aa6"/>
+<text x="225" y="678" font-family="Inter, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="26" fill="#314a5e">可看图像</text>
+<circle cx="202" cy="716" r="5" fill="#648aa6"/>
+<text x="225" y="724" font-family="Inter, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="26" fill="#314a5e">求导放到第二章</text>
+<path d="M72 826 H120" fill="none" stroke="#91a9bd" stroke-width="4" stroke-linecap="round"/>
+<rect x="120" y="788" width="650" height="180" rx="18" fill="#ffffff" stroke="#d5e0e9" stroke-width="2" filter="url(#soft)"/>
+<rect x="120" y="788" width="9" height="180" rx="4" fill="#4e7896"/>
+<circle cx="162" cy="826" r="21" fill="#e5eef5"/>
+<text x="162" y="834" text-anchor="middle" font-family="Inter, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="700" fill="#315d7d">3</text>
+<text x="198" y="836" font-family="Inter, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="29" font-weight="700" fill="#203e58">周期性</text>
+<circle cx="202" cy="874" r="5" fill="#648aa6"/>
+<text x="225" y="882" font-family="Inter, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="26" fill="#314a5e">sin、cos 周期 2π/|ω|</text>
+<circle cx="202" cy="920" r="5" fill="#648aa6"/>
+<text x="225" y="928" font-family="Inter, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="26" fill="#314a5e">tan、cot 周期 π/|ω|</text>
+<path d="M72 1030 H120" fill="none" stroke="#91a9bd" stroke-width="4" stroke-linecap="round"/>
+<rect x="120" y="992" width="650" height="142" rx="18" fill="#ffffff" stroke="#d5e0e9" stroke-width="2" filter="url(#soft)"/>
+<rect x="120" y="992" width="9" height="142" rx="4" fill="#4e7896"/>
+<circle cx="162" cy="1030" r="21" fill="#e5eef5"/>
+<text x="162" y="1038" text-anchor="middle" font-family="Inter, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="700" fill="#315d7d">4</text>
+<text x="198" y="1040" font-family="Inter, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="29" font-weight="700" fill="#203e58">有界性</text>
+<circle cx="202" cy="1078" r="5" fill="#648aa6"/>
+<text x="225" y="1086" font-family="Inter, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="26" fill="#314a5e">常考 sin cos arcsin arccos arctan arccot</text>
+</svg>

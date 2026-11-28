@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="543" viewBox="0 0 1280 543" role="img" aria-labelledby="svg-title svg-desc" data-question="5-9" data-answer="B" data-related-points="5-12,5-2" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, sans-serif">
+<title id="svg-title">专题五第9题：___ finishes the project first will lead the presentation.</title>
+<desc id="svg-desc">根据专题五已交付练习源稿生成的本地静态判定流程图；题目与选项仍由页面原文呈现。</desc>
+<rect width="1280" height="543" fill="#f3f6fa"/>
+<rect x="28" y="22" width="1224" height="54" rx="14" fill="#203d61"/>
+<text x="54" y="57" font-size="22" fill="#fff" font-weight="700">专题五 · 名词性从句 · 练习 09</text>
+<rect x="1082" y="31" width="142" height="36" rx="18" fill="#d9eee8"/>
+<text x="1153" y="55" font-size="17" fill="#245b51" font-weight="700" text-anchor="middle">官方答案 B</text>
+<svg x="115.01" y="105" width="1049.99" height="360.28" viewBox="0.00 0.00 889.82 305.32" preserveAspectRatio="xMidYMin meet">
+
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(20.16 285.16)">
+<title>G</title>
+<!-- A&#45;&gt;B -->
+<g id="edge1" class="edge">
+<title>A&#45;&gt;B</title>
+<path fill="none" stroke="#7892ad" stroke-width="1.8" d="M466.5,-225.84C466.5,-218.87 466.5,-210.82 466.5,-203.32"/>
+<polygon fill="#7892ad" stroke="#7892ad" stroke-width="1.8" points="468.95,-203.06 466.5,-196.06 464.05,-203.06 468.95,-203.06"/>
+</g>
+<!-- B&#45;&gt;C -->
+<g id="edge2" class="edge">
+<title>B&#45;&gt;C</title>
+<path fill="none" stroke="#7892ad" stroke-width="1.8" d="M466.5,-156.84C466.5,-149.87 466.5,-141.82 466.5,-134.32"/>
+<polygon fill="#7892ad" stroke="#7892ad" stroke-width="1.8" points="468.95,-134.06 466.5,-127.06 464.05,-134.06 468.95,-134.06"/>
+</g>
+<!-- C&#45;&gt;D -->
+<g id="edge3" class="edge">
+<title>C&#45;&gt;D</title>
+<path fill="none" stroke="#7892ad" stroke-width="1.8" d="M390.97,-87.98C344.48,-76.58 284.85,-61.96 237.1,-50.25"/>
+<polygon fill="#7892ad" stroke="#7892ad" stroke-width="1.8" points="237.52,-47.83 230.14,-48.55 236.36,-52.59 237.52,-47.83"/>
+</g>
+<!-- C&#45;&gt;E -->
+<g id="edge4" class="edge">
+<title>C&#45;&gt;E</title>
+<path fill="none" stroke="#7892ad" stroke-width="1.8" d="M466.5,-87.98C466.5,-81.14 466.5,-73.14 466.5,-65.31"/>
+<polygon fill="#7892ad" stroke="#7892ad" stroke-width="1.8" points="468.95,-65.2 466.5,-58.2 464.05,-65.2 468.95,-65.2"/>
+</g>
+<!-- C&#45;&gt;F -->
+<g id="edge5" class="edge">
+<title>C&#45;&gt;F</title>
+<path fill="none" stroke="#7892ad" stroke-width="1.8" d="M531.86,-87.98C571.78,-76.67 622.88,-62.19 664.03,-50.53"/>
+<polygon fill="#7892ad" stroke="#7892ad" stroke-width="1.8" points="664.74,-52.88 670.81,-48.61 663.4,-48.16 664.74,-52.88"/>
+</g>
+<!-- A -->
+<g id="node1" class="node">
+<title>A</title>
+<path fill="#ffffff" stroke="#b9cada" stroke-width="1.5" d="M529,-265C529,-265 404,-265 404,-265 398,-265 392,-259 392,-253 392,-253 392,-238 392,-238 392,-232 398,-226 404,-226 404,-226 529,-226 529,-226 535,-226 541,-232 541,-238 541,-238 541,-253 541,-253 541,-259 535,-265 529,-265"/>
+<text text-anchor="middle" x="466.5" y="-241.4" font-family="Noto Sans CJK SC" font-size="17.00" fill="#26384d">整个从句作主语</text>
+</g>
+<!-- B -->
+<g id="node2" class="node">
+<title>B</title>
+<path fill="#ffffff" stroke="#b9cada" stroke-width="1.5" d="M538,-196C538,-196 395,-196 395,-196 389,-196 383,-190 383,-184 383,-184 383,-169 383,-169 383,-163 389,-157 395,-157 395,-157 538,-157 538,-157 544,-157 550,-163 550,-169 550,-169 550,-184 550,-184 550,-190 544,-196 538,-196"/>
+<text text-anchor="middle" x="466.5" y="-172.4" font-family="Noto Sans CJK SC" font-size="17.00" fill="#26384d">需要名词性连接词</text>
+</g>
+<!-- C -->
+<g id="node3" class="node">
+<title>C</title>
+<path fill="#ffffff" stroke="#b9cada" stroke-width="1.5" d="M542.5,-127C542.5,-127 390.5,-127 390.5,-127 384.5,-127 378.5,-121 378.5,-115 378.5,-115 378.5,-100 378.5,-100 378.5,-94 384.5,-88 390.5,-88 390.5,-88 542.5,-88 542.5,-88 548.5,-88 554.5,-94 554.5,-100 554.5,-100 554.5,-115 554.5,-115 554.5,-121 548.5,-127 542.5,-127"/>
+<text text-anchor="middle" x="466.5" y="-103.4" font-family="Noto Sans CJK SC" font-size="17.00" fill="#26384d">无论谁 选 Whoever</text>
+</g>
+<!-- D -->
+<g id="node4" class="node">
+<title>D</title>
+<path fill="#ffffff" stroke="#b9cada" stroke-width="1.5" d="M297,-48.5C297,-48.5 12,-48.5 12,-48.5 6,-48.5 0,-42.5 0,-36.5 0,-36.5 0,-21.5 0,-21.5 0,-15.5 6,-9.5 12,-9.5 12,-9.5 297,-9.5 297,-9.5 303,-9.5 309,-15.5 309,-21.5 309,-21.5 309,-36.5 309,-36.5 309,-42.5 303,-48.5 297,-48.5"/>
+<text text-anchor="middle" x="154.5" y="-24.9" font-family="Noto Sans CJK SC" font-size="17.00" fill="#26384d">No matter who 只能作让步状从 排除</text>
+</g>
+<!-- E -->
+<g id="node5" class="node">
+<title>E</title>
+<path fill="#ffffff" stroke="#b9cada" stroke-width="1.5" d="M591.5,-58C591.5,-58 341.5,-58 341.5,-58 335.5,-58 329.5,-52 329.5,-46 329.5,-46 329.5,-12 329.5,-12 329.5,-6 335.5,0 341.5,0 341.5,0 591.5,0 591.5,0 597.5,0 603.5,-6 603.5,-12 603.5,-12 603.5,-46 603.5,-46 603.5,-52 597.5,-58 591.5,-58"/>
+<text text-anchor="middle" x="466.5" y="-34.4" font-family="Noto Sans CJK SC" font-size="17.00" fill="#26384d">Whether 表是否 且从句 finishes</text>
+<text text-anchor="middle" x="466.5" y="-15.4" font-family="Noto Sans CJK SC" font-size="17.00" fill="#26384d">缺主语</text>
+</g>
+<!-- F -->
+<g id="node6" class="node">
+<title>F</title>
+<path fill="#ffffff" stroke="#b9cada" stroke-width="1.5" d="M837.5,-48.5C837.5,-48.5 635.5,-48.5 635.5,-48.5 629.5,-48.5 623.5,-42.5 623.5,-36.5 623.5,-36.5 623.5,-21.5 623.5,-21.5 623.5,-15.5 629.5,-9.5 635.5,-9.5 635.5,-9.5 837.5,-9.5 837.5,-9.5 843.5,-9.5 849.5,-15.5 849.5,-21.5 849.5,-21.5 849.5,-36.5 849.5,-36.5 849.5,-42.5 843.5,-48.5 837.5,-48.5"/>
+<text text-anchor="middle" x="736.5" y="-24.9" font-family="Noto Sans CJK SC" font-size="17.00" fill="#26384d">Whom 作宾语 这里缺主语</text>
+</g>
+</g>
+
+</svg>
+<text x="42" y="523" font-size="16" fill="#68798b">关联考点：5-12、5-2</text>
+</svg>

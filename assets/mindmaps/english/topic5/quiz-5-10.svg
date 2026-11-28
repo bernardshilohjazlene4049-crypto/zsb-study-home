@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="520" viewBox="0 0 1280 520" role="img" aria-labelledby="svg-title svg-desc" data-question="5-10" data-answer="C" data-related-points="5-5,5-7" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, sans-serif">
+<title id="svg-title">专题五第10题：We still do not know if the deadline is achievable. The question is ___ we can complete the work before Friday.</title>
+<desc id="svg-desc">根据专题五已交付练习源稿生成的本地静态判定流程图；题目与选项仍由页面原文呈现。</desc>
+<rect width="1280" height="520" fill="#f3f6fa"/>
+<rect x="28" y="22" width="1224" height="54" rx="14" fill="#203d61"/>
+<text x="54" y="57" font-size="22" fill="#fff" font-weight="700">专题五 · 名词性从句 · 练习 10</text>
+<rect x="1082" y="31" width="142" height="36" rx="18" fill="#d9eee8"/>
+<text x="1153" y="55" font-size="17" fill="#245b51" font-weight="700" text-anchor="middle">官方答案 C</text>
+<svg x="212.06" y="105" width="855.88" height="337.86" viewBox="0.00 0.00 725.32 286.32" preserveAspectRatio="xMidYMin meet">
+
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(20.16 266.16)">
+<title>G</title>
+<!-- A&#45;&gt;B -->
+<g id="edge1" class="edge">
+<title>A&#45;&gt;B</title>
+<path fill="none" stroke="#7892ad" stroke-width="1.8" d="M342.5,-206.84C342.5,-199.87 342.5,-191.82 342.5,-184.32"/>
+<polygon fill="#7892ad" stroke="#7892ad" stroke-width="1.8" points="344.95,-184.06 342.5,-177.06 340.05,-184.06 344.95,-184.06"/>
+</g>
+<!-- B&#45;&gt;C -->
+<g id="edge2" class="edge">
+<title>B&#45;&gt;C</title>
+<path fill="none" stroke="#7892ad" stroke-width="1.8" d="M342.5,-137.84C342.5,-130.87 342.5,-122.82 342.5,-115.32"/>
+<polygon fill="#7892ad" stroke="#7892ad" stroke-width="1.8" points="344.95,-115.06 342.5,-108.06 340.05,-115.06 344.95,-115.06"/>
+</g>
+<!-- C&#45;&gt;D -->
+<g id="edge3" class="edge">
+<title>C&#45;&gt;D</title>
+<path fill="none" stroke="#7892ad" stroke-width="1.8" d="M276.24,-68.93C245.42,-60.28 208.65,-49.98 176.98,-41.1"/>
+<polygon fill="#7892ad" stroke="#7892ad" stroke-width="1.8" points="177.29,-38.64 169.89,-39.11 175.97,-43.36 177.29,-38.64"/>
+</g>
+<!-- C&#45;&gt;E -->
+<g id="edge4" class="edge">
+<title>C&#45;&gt;E</title>
+<path fill="none" stroke="#7892ad" stroke-width="1.8" d="M342.5,-68.84C342.5,-61.87 342.5,-53.82 342.5,-46.32"/>
+<polygon fill="#7892ad" stroke="#7892ad" stroke-width="1.8" points="344.95,-46.06 342.5,-39.06 340.05,-46.06 344.95,-46.06"/>
+</g>
+<!-- C&#45;&gt;F -->
+<g id="edge5" class="edge">
+<title>C&#45;&gt;F</title>
+<path fill="none" stroke="#7892ad" stroke-width="1.8" d="M408.76,-68.93C439.58,-60.28 476.35,-49.98 508.02,-41.1"/>
+<polygon fill="#7892ad" stroke="#7892ad" stroke-width="1.8" points="509.03,-43.36 515.11,-39.11 507.71,-38.64 509.03,-43.36"/>
+</g>
+<!-- A -->
+<g id="node1" class="node">
+<title>A</title>
+<path fill="#ffffff" stroke="#b9cada" stroke-width="1.5" d="M432.5,-246C432.5,-246 252.5,-246 252.5,-246 246.5,-246 240.5,-240 240.5,-234 240.5,-234 240.5,-219 240.5,-219 240.5,-213 246.5,-207 252.5,-207 252.5,-207 432.5,-207 432.5,-207 438.5,-207 444.5,-213 444.5,-219 444.5,-219 444.5,-234 444.5,-234 444.5,-240 438.5,-246 432.5,-246"/>
+<text text-anchor="middle" x="342.5" y="-222.4" font-family="Noto Sans CJK SC" font-size="17.00" fill="#26384d">系动词 is 后是表语从句</text>
+</g>
+<!-- B -->
+<g id="node2" class="node">
+<title>B</title>
+<path fill="#ffffff" stroke="#b9cada" stroke-width="1.5" d="M485.5,-177C485.5,-177 199.5,-177 199.5,-177 193.5,-177 187.5,-171 187.5,-165 187.5,-165 187.5,-150 187.5,-150 187.5,-144 193.5,-138 199.5,-138 199.5,-138 485.5,-138 485.5,-138 491.5,-138 497.5,-144 497.5,-150 497.5,-150 497.5,-165 497.5,-165 497.5,-171 491.5,-177 485.5,-177"/>
+<text text-anchor="middle" x="342.5" y="-153.4" font-family="Noto Sans CJK SC" font-size="17.00" fill="#26384d">we can complete the work 成分完整</text>
+</g>
+<!-- C -->
+<g id="node3" class="node">
+<title>C</title>
+<path fill="#ffffff" stroke="#b9cada" stroke-width="1.5" d="M433.5,-108C433.5,-108 251.5,-108 251.5,-108 245.5,-108 239.5,-102 239.5,-96 239.5,-96 239.5,-81 239.5,-81 239.5,-75 245.5,-69 251.5,-69 251.5,-69 433.5,-69 433.5,-69 439.5,-69 445.5,-75 445.5,-81 445.5,-81 445.5,-96 445.5,-96 445.5,-102 439.5,-108 433.5,-108"/>
+<text text-anchor="middle" x="342.5" y="-84.4" font-family="Noto Sans CJK SC" font-size="17.00" fill="#26384d">句意是能否 选 whether</text>
+</g>
+<!-- D -->
+<g id="node4" class="node">
+<title>D</title>
+<path fill="#ffffff" stroke="#b9cada" stroke-width="1.5" d="M195,-39C195,-39 12,-39 12,-39 6,-39 0,-33 0,-27 0,-27 0,-12 0,-12 0,-6 6,0 12,0 12,0 195,0 195,0 201,0 207,-6 207,-12 207,-12 207,-27 207,-27 207,-33 201,-39 195,-39"/>
+<text text-anchor="middle" x="103.5" y="-15.4" font-family="Noto Sans CJK SC" font-size="17.00" fill="#26384d">why 问原因 与前句不符</text>
+</g>
+<!-- E -->
+<g id="node5" class="node">
+<title>E</title>
+<path fill="#ffffff" stroke="#b9cada" stroke-width="1.5" d="M446,-39C446,-39 239,-39 239,-39 233,-39 227,-33 227,-27 227,-27 227,-12 227,-12 227,-6 233,0 239,0 239,0 446,0 446,0 452,0 458,-6 458,-12 458,-12 458,-27 458,-27 458,-33 452,-39 446,-39"/>
+<text text-anchor="middle" x="342.5" y="-15.4" font-family="Noto Sans CJK SC" font-size="17.00" fill="#26384d">what 需充当成分 这里不缺</text>
+</g>
+<!-- F -->
+<g id="node6" class="node">
+<title>F</title>
+<path fill="#ffffff" stroke="#b9cada" stroke-width="1.5" d="M673,-39C673,-39 490,-39 490,-39 484,-39 478,-33 478,-27 478,-27 478,-12 478,-12 478,-6 484,0 490,0 490,0 673,0 673,0 679,0 685,-6 685,-12 685,-12 685,-27 685,-27 685,-33 679,-39 673,-39"/>
+<text text-anchor="middle" x="581.5" y="-15.4" font-family="Noto Sans CJK SC" font-size="17.00" fill="#26384d">whom 指人作宾语 排除</text>
+</g>
+</g>
+
+</svg>
+<text x="42" y="500" font-size="16" fill="#68798b">关联考点：5-5、5-7</text>
+</svg>

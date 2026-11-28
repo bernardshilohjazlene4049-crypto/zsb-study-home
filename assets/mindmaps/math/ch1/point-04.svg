@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1030" viewBox="0 0 800 1030" role="img" aria-labelledby="svg-title svg-desc" data-topic-id="math.function_limit">
+<title id="svg-title">考点四：函数极限</title>
+<desc id="svg-desc">函数极限；按考点源稿整理的分支关系图。</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f7fafc"/><stop offset="1" stop-color="#edf3f8"/></linearGradient>
+<linearGradient id="root" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#173b5e"/><stop offset="1" stop-color="#285b7f"/></linearGradient>
+<filter id="soft" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#17324d" flood-opacity=".09"/></filter>
+</defs>
+<rect width="800" height="1030" rx="24" fill="url(#bg)"/>
+<rect x="40" y="38" width="720" height="112" rx="22" fill="url(#root)" filter="url(#soft)"/>
+<text x="400" y="77" text-anchor="middle" font-family="Inter, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="21" fill="#d7e8f4">高数第一章 · 逐点思维导图</text>
+<text x="400" y="121" text-anchor="middle" font-family="Inter, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="31" font-weight="700" fill="#ffffff">函数极限</text>
+<path d="M400 150 V166 H72 V878" fill="none" stroke="#91a9bd" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M72 228 H120" fill="none" stroke="#91a9bd" stroke-width="4" stroke-linecap="round"/>
+<rect x="120" y="190" width="650" height="180" rx="18" fill="#ffffff" stroke="#d5e0e9" stroke-width="2" filter="url(#soft)"/>
+<rect x="120" y="190" width="9" height="180" rx="4" fill="#4e7896"/>
+<circle cx="162" cy="228" r="21" fill="#e5eef5"/>
+<text x="162" y="236" text-anchor="middle" font-family="Inter, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="700" fill="#315d7d">1</text>
+<text x="198" y="238" font-family="Inter, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="29" font-weight="700" fill="#203e58">x→x₀</text>
+<circle cx="202" cy="276" r="5" fill="#648aa6"/>
+<text x="225" y="284" font-family="Inter, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="26" fill="#314a5e">存在 ⇔ 左极限=右极限</text>
+<circle cx="202" cy="322" r="5" fill="#648aa6"/>
+<text x="225" y="330" font-family="Inter, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="26" fill="#314a5e">与 f(x0) 有没有定义、取什么值无关</text>
+<path d="M72 432 H120" fill="none" stroke="#91a9bd" stroke-width="4" stroke-linecap="round"/>
+<rect x="120" y="394" width="650" height="180" rx="18" fill="#ffffff" stroke="#d5e0e9" stroke-width="2" filter="url(#soft)"/>
+<rect x="120" y="394" width="9" height="180" rx="4" fill="#4e7896"/>
+<circle cx="162" cy="432" r="21" fill="#e5eef5"/>
+<text x="162" y="440" text-anchor="middle" font-family="Inter, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="700" fill="#315d7d">2</text>
+<text x="198" y="442" font-family="Inter, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="29" font-weight="700" fill="#203e58">x→∞</text>
+<circle cx="202" cy="480" r="5" fill="#648aa6"/>
+<text x="225" y="488" font-family="Inter, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="26" fill="#314a5e">存在 ⇔ x→+∞ 与 x→−∞ 的极限相等</text>
+<circle cx="202" cy="526" r="5" fill="#648aa6"/>
+<text x="225" y="534" font-family="Inter, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="26" fill="#314a5e">常见走向 e^x、ln x、arctan、1/x</text>
+<path d="M72 636 H120" fill="none" stroke="#91a9bd" stroke-width="4" stroke-linecap="round"/>
+<rect x="120" y="598" width="650" height="218" rx="18" fill="#ffffff" stroke="#d5e0e9" stroke-width="2" filter="url(#soft)"/>
+<rect x="120" y="598" width="9" height="218" rx="4" fill="#4e7896"/>
+<circle cx="162" cy="636" r="21" fill="#e5eef5"/>
+<text x="162" y="644" text-anchor="middle" font-family="Inter, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="700" fill="#315d7d">3</text>
+<text x="198" y="646" font-family="Inter, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="29" font-weight="700" fill="#203e58">抓大头（有理分式 x→∞）</text>
+<circle cx="202" cy="684" r="5" fill="#648aa6"/>
+<text x="225" y="692" font-family="Inter, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="26" fill="#314a5e">次数相同 系数比</text>
+<circle cx="202" cy="730" r="5" fill="#648aa6"/>
+<text x="225" y="738" font-family="Inter, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="26" fill="#314a5e">分子次数低 结果 0</text>
+<circle cx="202" cy="776" r="5" fill="#648aa6"/>
+<text x="225" y="784" font-family="Inter, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="26" fill="#314a5e">分子次数高 结果 ∞</text>
+<path d="M72 878 H120" fill="none" stroke="#91a9bd" stroke-width="4" stroke-linecap="round"/>
+<rect x="120" y="840" width="650" height="142" rx="18" fill="#ffffff" stroke="#d5e0e9" stroke-width="2" filter="url(#soft)"/>
+<rect x="120" y="840" width="9" height="142" rx="4" fill="#4e7896"/>
+<circle cx="162" cy="878" r="21" fill="#e5eef5"/>
+<text x="162" y="886" text-anchor="middle" font-family="Inter, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="700" fill="#315d7d">4</text>
+<text x="198" y="888" font-family="Inter, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="29" font-weight="700" fill="#203e58">四则运算</text>
+<circle cx="202" cy="926" r="5" fill="#648aa6"/>
+<text x="225" y="934" font-family="Inter, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="26" fill="#314a5e">与数列相同：先都存在再运算</text>
+</svg>
