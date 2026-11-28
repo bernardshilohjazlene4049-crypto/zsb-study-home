@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="svg-title" data-question="6-1" data-answer="B" data-related-points="6-2" viewBox="0 0 1500 640">
+<title id="svg-title">专题六 · 练习 01 · 可视化讲解</title>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#8ba0bb"/></marker><filter id="shadow" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#1e3557" flood-opacity=".10"/></filter></defs>
+<rect width="1500" height="640" rx="28" fill="#f7f9fc"/>
+<text font-family="Noto Sans CJK SC, sans-serif" x="48" y="48" font-size="30" font-weight="700" fill="#1f3457">专题六 · 练习 01</text>
+<text font-family="Noto Sans CJK SC, sans-serif" x="48" y="82" font-size="18" fill="#526780">官方答案：B　关联考点：6-2</text>
+<path d="M 750.0 188.0 C 750.0 214.0, 750.0 214.0, 750.0 234.0" fill="none" stroke="#8ba0bb" stroke-width="2.4" marker-end="url(#arrow)"/>
+<path d="M 750.0 308.0 C 750.0 334.0, 750.0 334.0, 750.0 354.0" fill="none" stroke="#8ba0bb" stroke-width="2.4" marker-end="url(#arrow)"/>
+<path d="M 750.0 428.0 C 750.0 454.0, 294.0 454.0, 294.0 474.0" fill="none" stroke="#8ba0bb" stroke-width="2.4" marker-end="url(#arrow)"/>
+<path d="M 750.0 428.0 C 750.0 454.0, 750.0 454.0, 750.0 474.0" fill="none" stroke="#8ba0bb" stroke-width="2.4" marker-end="url(#arrow)"/>
+<path d="M 750.0 428.0 C 750.0 454.0, 1206.0 454.0, 1206.0 474.0" fill="none" stroke="#8ba0bb" stroke-width="2.4" marker-end="url(#arrow)"/>
+<rect x="535.0" y="120.0" width="430.0" height="68.0" rx="16" fill="#243b63" stroke="#243b63" stroke-width="1.5" filter="url(#shadow)"/>
+<text font-family="Noto Sans CJK SC, sans-serif" x="551.0" y="160.0" font-size="18" font-weight="700" fill="#fff">主句 was cooking 持续动作</text>
+<rect x="535.0" y="240.0" width="430.0" height="68.0" rx="16" fill="#e7f5f2" stroke="#8ebfb5" stroke-width="1.5" filter="url(#shadow)"/>
+<text font-family="Noto Sans CJK SC, sans-serif" x="551.0" y="280.0" font-size="18" font-weight="500" fill="#20334f">从句 the lights went out 短动作</text>
+<rect x="535.0" y="360.0" width="430.0" height="68.0" rx="16" fill="#e7f5f2" stroke="#8ebfb5" stroke-width="1.5" filter="url(#shadow)"/>
+<text font-family="Noto Sans CJK SC, sans-serif" x="551.0" y="400.0" font-size="18" font-weight="500" fill="#20334f">持续动作中发生短动作 选 when</text>
+<rect x="79.0" y="480.0" width="430.0" height="68.0" rx="16" fill="#e7f5f2" stroke="#8ebfb5" stroke-width="1.5" filter="url(#shadow)"/>
+<text font-family="Noto Sans CJK SC, sans-serif" x="95.0" y="520.0" font-size="18" font-weight="500" fill="#20334f">unless 条件 排除</text>
+<rect x="535.0" y="480.0" width="430.0" height="68.0" rx="16" fill="#e7f5f2" stroke="#8ebfb5" stroke-width="1.5" filter="url(#shadow)"/>
+<text font-family="Noto Sans CJK SC, sans-serif" x="551.0" y="520.0" font-size="18" font-weight="500" fill="#20334f">although 让步 排除</text>
+<rect x="991.0" y="480.0" width="430.0" height="68.0" rx="16" fill="#e7f5f2" stroke="#8ebfb5" stroke-width="1.5" filter="url(#shadow)"/>
+<text font-family="Noto Sans CJK SC, sans-serif" x="1007.0" y="520.0" font-size="18" font-weight="500" fill="#20334f">because 原因 排除</text>
+</svg>
