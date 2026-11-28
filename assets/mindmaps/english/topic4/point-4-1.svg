@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1564.64" viewBox="0 0 1200 1564.64" role="img" aria-labelledby="svg-title svg-desc" data-topic-id="english.attributive.basics" data-point-id="point-4-1" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, sans-serif">
+<title id="svg-title">考点 4-1｜定义、先行词、限定性与非限定性</title>
+<desc id="svg-desc">依据已交付专题四导图源稿生成的本地静态思维导图。</desc>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#7892ad"/></marker></defs>
+<rect width="1200" height="1564.64" fill="#f3f6fa"/>
+<rect x="28" y="28" width="1144" height="82" rx="18" fill="#203d61" stroke="#17324f" stroke-width="2"/>
+<text x="600" y="77" font-size="28" fill="#fff" font-weight="700" text-anchor="middle">定语从句基础</text>
+<path d="M58 110 V1350.72" fill="none" stroke="#8ea6bf" stroke-width="2.5"/>
+<path d="M58 180 H78" fill="none" stroke="#8ea6bf" stroke-width="2.5"/>
+<circle cx="58" cy="180" r="6" fill="#5e8aaf"/>
+<rect x="90" y="152" width="1080" height="234.56" rx="16" fill="#fff" stroke="#cbd8e6" stroke-width="2"/>
+<rect x="90" y="152" width="10" height="234.56" rx="5" fill="#4c8b83"/>
+<text x="122" y="190" font-size="23" fill="#234c69" font-weight="700">定义</text>
+<circle cx="128" cy="236" r="4" fill="#6c8da9"/>
+<text x="144" y="242" font-size="18" fill="#2f3f50" font-weight="400" text-anchor="start">
+<tspan x="144" dy="0.0">修饰名词或代词的从句</tspan>
+</text>
+<circle cx="128" cy="272.64" r="4" fill="#6c8da9"/>
+<text x="144" y="278.64" font-size="18" fill="#2f3f50" font-weight="400" text-anchor="start">
+<tspan x="144" dy="0.0">通常位于先行词之后</tspan>
+</text>
+<circle cx="128" cy="309.28" r="4" fill="#6c8da9"/>
+<text x="144" y="315.28" font-size="18" fill="#2f3f50" font-weight="400" text-anchor="start">
+<tspan x="144" dy="0.0">关系词在从句里担任成分或代表状语</tspan>
+</text>
+<circle cx="128" cy="345.91999999999996" r="4" fill="#6c8da9"/>
+<text x="144" y="351.91999999999996" font-size="18" fill="#2f3f50" font-weight="400" text-anchor="start">
+<tspan x="144" dy="0.0">常译成 的</tspan>
+</text>
+<path d="M58 436.56 H78" fill="none" stroke="#8ea6bf" stroke-width="2.5"/>
+<circle cx="58" cy="436.56" r="6" fill="#5e8aaf"/>
+<rect x="90" y="408.56" width="1080" height="197.92000000000002" rx="16" fill="#fff" stroke="#cbd8e6" stroke-width="2"/>
+<rect x="90" y="408.56" width="10" height="197.92000000000002" rx="5" fill="#4c8b83"/>
+<text x="122" y="446.56" font-size="23" fill="#234c69" font-weight="700">判断方法</text>
+<circle cx="128" cy="492.56" r="4" fill="#6c8da9"/>
+<text x="144" y="498.56" font-size="18" fill="#2f3f50" font-weight="400" text-anchor="start">
+<tspan x="144" dy="0.0">一找 找先行词</tspan>
+</text>
+<circle cx="128" cy="529.2" r="4" fill="#6c8da9"/>
+<text x="144" y="535.2" font-size="18" fill="#2f3f50" font-weight="400" text-anchor="start">
+<tspan x="144" dy="0.0">二还 把先行词代回从句</tspan>
+</text>
+<circle cx="128" cy="565.84" r="4" fill="#6c8da9"/>
+<text x="144" y="571.84" font-size="18" fill="#2f3f50" font-weight="400" text-anchor="start">
+<tspan x="144" dy="0.0">三连接 看缺主语宾语定语或状语</tspan>
+</text>
+<path d="M58 656.48 H78" fill="none" stroke="#8ea6bf" stroke-width="2.5"/>
+<circle cx="58" cy="656.48" r="6" fill="#5e8aaf"/>
+<rect x="90" y="628.48" width="1080" height="380.08" rx="16" fill="#fff" stroke="#cbd8e6" stroke-width="2"/>
+<rect x="90" y="628.48" width="10" height="380.08" rx="5" fill="#4c8b83"/>
+<text x="122" y="666.48" font-size="23" fill="#234c69" font-weight="700">限定与非限定</text>
+<text x="122" y="726.48" font-size="19" fill="#35756e" font-weight="700">限定性</text>
+<circle cx="152" cy="748.6" r="4" fill="#6c8da9"/>
+<text x="168" y="754.6" font-size="18" fill="#2f3f50" font-weight="400" text-anchor="start">
+<tspan x="168" dy="0.0">无逗号隔开先行词</tspan>
+</text>
+<circle cx="152" cy="785.24" r="4" fill="#6c8da9"/>
+<text x="168" y="791.24" font-size="18" fill="#2f3f50" font-weight="400" text-anchor="start">
+<tspan x="168" dy="0.0">决定究竟指哪一个</tspan>
+</text>
+<text x="122" y="835.88" font-size="19" fill="#35756e" font-weight="700">非限定性</text>
+<circle cx="152" cy="858.0" r="4" fill="#6c8da9"/>
+<text x="168" y="864.0" font-size="18" fill="#2f3f50" font-weight="400" text-anchor="start">
+<tspan x="168" dy="0.0">有逗号</tspan>
+</text>
+<circle cx="152" cy="894.64" r="4" fill="#6c8da9"/>
+<text x="168" y="900.64" font-size="18" fill="#2f3f50" font-weight="400" text-anchor="start">
+<tspan x="168" dy="0.0">补充信息</tspan>
+</text>
+<circle cx="152" cy="931.28" r="4" fill="#6c8da9"/>
+<text x="168" y="937.28" font-size="18" fill="#2f3f50" font-weight="400" text-anchor="start">
+<tspan x="168" dy="0.0">关系词不能用 that</tspan>
+</text>
+<circle cx="152" cy="967.92" r="4" fill="#6c8da9"/>
+<text x="168" y="973.92" font-size="18" fill="#2f3f50" font-weight="400" text-anchor="start">
+<tspan x="168" dy="0.0">一般不能省略</tspan>
+</text>
+<path d="M58 1058.56 H78" fill="none" stroke="#8ea6bf" stroke-width="2.5"/>
+<circle cx="58" cy="1058.56" r="6" fill="#5e8aaf"/>
+<rect x="90" y="1030.56" width="1080" height="270.16" rx="16" fill="#fff" stroke="#cbd8e6" stroke-width="2"/>
+<rect x="90" y="1030.56" width="10" height="270.16" rx="5" fill="#4c8b83"/>
+<text x="122" y="1068.56" font-size="23" fill="#234c69" font-weight="700">例句来源</text>
+<text x="122" y="1128.56" font-size="19" fill="#35756e" font-weight="700">课堂笔记原例</text>
+<circle cx="152" cy="1150.6799999999998" r="4" fill="#6c8da9"/>
+<text x="168" y="1156.6799999999998" font-size="18" fill="#2f3f50" font-weight="400" text-anchor="start">
+<tspan x="168" dy="0.0">an old man who is wearing a blue suit</tspan>
+</text>
+<text x="122" y="1201.32" font-size="19" fill="#35756e" font-weight="700">补充例句</text>
+<circle cx="152" cy="1223.44" r="4" fill="#6c8da9"/>
+<text x="168" y="1229.44" font-size="18" fill="#2f3f50" font-weight="400" text-anchor="start">
+<tspan x="168" dy="0.0">students who study hard</tspan>
+</text>
+<circle cx="152" cy="1260.0800000000002" r="4" fill="#6c8da9"/>
+<text x="168" y="1266.0800000000002" font-size="18" fill="#2f3f50" font-weight="400" text-anchor="start">
+<tspan x="168" dy="0.0">My brother, who lives in Dalian</tspan>
+</text>
+<path d="M58 1350.72 H78" fill="none" stroke="#8ea6bf" stroke-width="2.5"/>
+<circle cx="58" cy="1350.72" r="6" fill="#5e8aaf"/>
+<rect x="90" y="1322.72" width="1080" height="197.92000000000002" rx="16" fill="#fff" stroke="#cbd8e6" stroke-width="2"/>
+<rect x="90" y="1322.72" width="10" height="197.92000000000002" rx="5" fill="#4c8b83"/>
+<text x="122" y="1360.72" font-size="23" fill="#234c69" font-weight="700">易错点</text>
+<circle cx="128" cy="1406.72" r="4" fill="#6c8da9"/>
+<text x="144" y="1412.72" font-size="18" fill="#2f3f50" font-weight="400" text-anchor="start">
+<tspan x="144" dy="0.0">两个动词不一定就是两个从句</tspan>
+</text>
+<circle cx="128" cy="1443.3600000000001" r="4" fill="#6c8da9"/>
+<text x="144" y="1449.3600000000001" font-size="18" fill="#2f3f50" font-weight="400" text-anchor="start">
+<tspan x="144" dy="0.0">先判断是否有非谓语</tspan>
+</text>
+<circle cx="128" cy="1480.0000000000002" r="4" fill="#6c8da9"/>
+<text x="144" y="1486.0000000000002" font-size="18" fill="#2f3f50" font-weight="400" text-anchor="start">
+<tspan x="144" dy="0.0">逗号不能随意删除 可能改变句意</tspan>
+</text>
+<text x="90" y="1554.64" font-size="13" fill="#718196">专题四 · 定语从句 · 本点思维导图</text>
+</svg>

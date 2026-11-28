@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="722" viewBox="0 0 1280 722" role="img" aria-labelledby="svg-title svg-desc" data-question="4-9" data-answer="B" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, sans-serif">
+<title id="svg-title">专题四第9题｜专题四第9题：She is one of the players who ___ every morning.</title>
+<desc id="svg-desc">根据已交付练习源稿生成的本地静态判定流程图；题目与选项仍由页面原文呈现。</desc>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#7892ad"/></marker></defs>
+<rect width="1280" height="722" fill="#f3f6fa"/>
+<rect x="28" y="22" width="1224" height="54" rx="14" fill="#203d61"/>
+<text x="54" y="57" font-size="22" fill="#fff" font-weight="700">专题四 · 练习 09</text>
+<rect x="1082" y="31" width="142" height="36" rx="18" fill="#d9eee8"/>
+<text x="1153" y="55" font-size="17" fill="#245b51" font-weight="700" text-anchor="middle">官方答案 B</text>
+<rect x="230.0" y="110" width="820" height="82" rx="16" fill="#fff" stroke="#b9cada" stroke-width="2"/>
+<circle cx="258.0" cy="137" r="15" fill="#4f789c"/>
+<text x="258.0" y="143" font-size="16" fill="#fff" font-weight="700" text-anchor="middle">A</text>
+<text x="652.0" y="157.05" font-size="22" fill="#26384d" text-anchor="middle"><tspan x="652.0" dy="0.0">one of + 复数名词 players + who</tspan></text>
+<path d="M640.0 192 V224" fill="none" stroke="#7892ad" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="160.0" y="234" width="960" height="82" rx="16" fill="#fff" stroke="#b9cada" stroke-width="2"/>
+<circle cx="188.0" cy="261" r="15" fill="#4f789c"/>
+<text x="188.0" y="267" font-size="16" fill="#fff" font-weight="700" text-anchor="middle">B</text>
+<text x="652.0" y="280.775" font-size="21" fill="#26384d" text-anchor="middle"><tspan x="652.0" dy="0.0">who 通常指 players 复数</tspan></text>
+<path d="M640.0 316 V348" fill="none" stroke="#7892ad" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="80.0" y="358" width="1120" height="82" rx="16" fill="#eef4fa" stroke="#7696b4" stroke-width="2"/>
+<circle cx="108.0" cy="385" r="15" fill="#4f789c"/>
+<text x="108.0" y="391" font-size="16" fill="#fff" font-weight="700" text-anchor="middle">C</text>
+<text x="652.0" y="404.775" font-size="21" fill="#26384d" text-anchor="middle"><tspan x="652.0" dy="0.0">一般现在时 用 train</tspan></text>
+<path d="M640.0 440 V464 H329.5 V478" fill="none" stroke="#7892ad" stroke-width="2.1" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<path d="M640.0 440 V464 H950.5 V478" fill="none" stroke="#7892ad" stroke-width="2.1" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<rect x="28.0" y="482" width="603.0" height="150" rx="14" fill="#fff" stroke="#b9cada" stroke-width="2"/>
+<rect x="28.0" y="482" width="603.0" height="38" rx="14" fill="#e4edf5"/>
+<text x="46.0" y="508" font-size="16" fill="#2d5778" font-weight="700">D</text>
+<text x="46.0" y="550.0" font-size="18" fill="#2f3f50">trains / has trained 按单数或完成时 排除</text>
+<rect x="649.0" y="482" width="603.0" height="150" rx="14" fill="#fff" stroke="#b9cada" stroke-width="2"/>
+<rect x="649.0" y="482" width="603.0" height="38" rx="14" fill="#e4edf5"/>
+<text x="667.0" y="508" font-size="16" fill="#2d5778" font-weight="700">E</text>
+<text x="667.0" y="550.0" font-size="18" fill="#2f3f50">training 不是有限谓语 排除</text>
+<text x="42" y="682" font-size="16" fill="#68798b">关联考点：4-10、7-12（专题七，本批不接入）</text>
+</svg>

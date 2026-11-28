@@ -106,6 +106,15 @@ for page in pages:
     if page == "c/notes.html":
         expected = expected.replace("</body>", '<script src="../assets/js/page-study.js" data-page="c-notes" data-subject="c_language"></script>\n</body>', 1)
         expected = expected.replace("</body>", '<script type="module" src="../assets/js/features/c-mindmaps.js" data-page="c-notes"></script>\n</body>', 1)
+    if page == "yy/yy5.html":
+        old_tail = '<script src="../assets/js/lecture-player.js" defer></script>\n</body></html>'
+        new_tail = old_tail.replace(
+            "</body></html>",
+            '<script type="module" src="../assets/js/features/english-topic4-viz.js"></script>\n</body></html>',
+            1,
+        )
+        assert expected.count(old_tail) == 1, page
+        expected = expected.replace(old_tail, new_tail, 1)
     if page == "jsj/jsj1.html":
         expected = expected.replace("</body>", '<script src="../assets/js/page-study.js" data-page="jsj1" data-subject="computer_basics"></script>\n</body>', 1)
     if page == "jsj/ppt5.html":

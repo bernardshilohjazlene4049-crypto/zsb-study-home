@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="722" viewBox="0 0 1280 722" role="img" aria-labelledby="svg-title svg-desc" data-question="4-10" data-answer="C" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, sans-serif">
+<title id="svg-title">专题四第10题｜专题四第10题：The way ___ she solved the problem surprised me.</title>
+<desc id="svg-desc">根据已交付练习源稿生成的本地静态判定流程图；题目与选项仍由页面原文呈现。</desc>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#7892ad"/></marker></defs>
+<rect width="1280" height="722" fill="#f3f6fa"/>
+<rect x="28" y="22" width="1224" height="54" rx="14" fill="#203d61"/>
+<text x="54" y="57" font-size="22" fill="#fff" font-weight="700">专题四 · 练习 10</text>
+<rect x="1082" y="31" width="142" height="36" rx="18" fill="#d9eee8"/>
+<text x="1153" y="55" font-size="17" fill="#245b51" font-weight="700" text-anchor="middle">官方答案 C</text>
+<rect x="230.0" y="110" width="820" height="82" rx="16" fill="#fff" stroke="#b9cada" stroke-width="2"/>
+<circle cx="258.0" cy="137" r="15" fill="#4f789c"/>
+<text x="258.0" y="143" font-size="16" fill="#fff" font-weight="700" text-anchor="middle">A</text>
+<text x="652.0" y="157.05" font-size="22" fill="#26384d" text-anchor="middle"><tspan x="652.0" dy="0.0">先行词 the way 表方式</tspan></text>
+<path d="M640.0 192 V224" fill="none" stroke="#7892ad" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="160.0" y="234" width="960" height="82" rx="16" fill="#fff" stroke="#b9cada" stroke-width="2"/>
+<circle cx="188.0" cy="261" r="15" fill="#4f789c"/>
+<text x="188.0" y="267" font-size="16" fill="#fff" font-weight="700" text-anchor="middle">B</text>
+<text x="652.0" y="280.775" font-size="21" fill="#26384d" text-anchor="middle"><tspan x="652.0" dy="0.0">从句: she solved the problem 结构完整</tspan></text>
+<path d="M640.0 316 V348" fill="none" stroke="#7892ad" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="80.0" y="358" width="1120" height="82" rx="16" fill="#eef4fa" stroke="#7696b4" stroke-width="2"/>
+<circle cx="108.0" cy="385" r="15" fill="#4f789c"/>
+<text x="108.0" y="391" font-size="16" fill="#fff" font-weight="700" text-anchor="middle">C</text>
+<text x="652.0" y="404.775" font-size="21" fill="#26384d" text-anchor="middle"><tspan x="652.0" dy="0.0">缺方式状语 可用 in which</tspan></text>
+<path d="M640.0 440 V464 H226.0 V478" fill="none" stroke="#7892ad" stroke-width="2.1" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<path d="M640.0 440 V464 H640.0 V478" fill="none" stroke="#7892ad" stroke-width="2.1" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<path d="M640.0 440 V464 H1054.0 V478" fill="none" stroke="#7892ad" stroke-width="2.1" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<rect x="28.0" y="482" width="396.0" height="150" rx="14" fill="#fff" stroke="#b9cada" stroke-width="2"/>
+<rect x="28.0" y="482" width="396.0" height="38" rx="14" fill="#e4edf5"/>
+<text x="46.0" y="508" font-size="16" fill="#2d5778" font-weight="700">D</text>
+<text x="46.0" y="550.0" font-size="18" fill="#2f3f50">what 不是 the way 的标准关系词 排除</text>
+<rect x="442.0" y="482" width="396.0" height="150" rx="14" fill="#fff" stroke="#b9cada" stroke-width="2"/>
+<rect x="442.0" y="482" width="396.0" height="38" rx="14" fill="#e4edf5"/>
+<text x="460.0" y="508" font-size="16" fill="#2d5778" font-weight="700">E</text>
+<text x="460.0" y="550.0" font-size="18" fill="#2f3f50">where 表地点 排除</text>
+<rect x="856.0" y="482" width="396.0" height="150" rx="14" fill="#fff" stroke="#b9cada" stroke-width="2"/>
+<rect x="856.0" y="482" width="396.0" height="38" rx="14" fill="#e4edf5"/>
+<text x="874.0" y="508" font-size="16" fill="#2d5778" font-weight="700">F</text>
+<text x="874.0" y="550.0" font-size="18" fill="#2f3f50">which 单独作主或宾语 这里不缺宾语 排除</text>
+<text x="42" y="682" font-size="16" fill="#68798b">关联考点：4-11</text>
+</svg>

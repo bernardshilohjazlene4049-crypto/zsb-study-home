@@ -286,6 +286,14 @@ test("真实 yy5 讲义保留唯一脚本、五专题、原有视频入口与 50
   const script = '<script src="../assets/js/page-study.js" data-page="yy5" data-subject="english" data-legacy-choices="liaoning.yy5.quiz.2026"></script>';
   assert.equal(html.split(script).length - 1, 1, "page-study.js 脚本（含 data-legacy-choices）应恰好存在一次");
   assert.equal((html.match(/<script\b[^>]*page-study\.js\b/g) || []).length, 1, "不应重复添加 page-study.js");
+  const topic4VisualScript = '<script type="module" src="../assets/js/features/english-topic4-viz.js"></script>';
+  assert.equal(html.split(topic4VisualScript).length - 1, 1, "专题四导图与练习可视化模块应恰好加载一次");
+  assert.match(
+    html,
+    /<script src="\.\.\/assets\/js\/lecture-player\.js" defer><\/script>\n<script type="module" src="\.\.\/assets\/js\/features\/english-topic4-viz\.js"><\/script>\n<\/body><\/html>$/,
+    "专题四模块应紧接原 lecture-player.js，并保留 yy5 无尾换行页尾"
+  );
+  assert.equal(html.endsWith("\n"), false, "yy5 原文件不应被添加尾换行");
   for (let number = 4; number <= 8; number += 1) {
     assert.ok(html.includes(`id="topic-${number}"`), `缺少 topic-${number}`);
     assert.ok(html.includes(`id="chapter-title-${number}"`), `缺少 chapter-title-${number}`);
